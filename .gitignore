@@ -1,0 +1,13 @@
+node_modules
+.next
+.env.local
+.netlify
+
+# ancien site statique conservé en local pour référence, pas dans le nouveau repo
+index.html
+aquatopia-site.html
+apple-touch-icon.png
+favicon-16.png
+favicon-32.png
+favicon-192.png
+og-image.jpg
