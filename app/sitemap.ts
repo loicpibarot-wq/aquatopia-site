@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { fetchAnnoncesActives, buildSlug } from '@/lib/annonces';
+import { fetchAnnoncesPourSitemap, buildSlug } from '@/lib/annonces';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let annonces: MetadataRoute.Sitemap = [];
   try {
-    const liste = await fetchAnnoncesActives();
+    const liste = await fetchAnnoncesPourSitemap();
     annonces = liste.map((a) => ({
       url: `${SITE_URL}/annonce/${buildSlug(a)}`,
       lastModified: a.created_at,

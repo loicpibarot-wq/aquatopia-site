@@ -48,6 +48,25 @@ export async function fetchAnnoncesActives(limit = 5000): Promise<Annonce[]> {
   return (data ?? []) as unknown as Annonce[];
 }
 
+// Version allégée réservée au sitemap : seules les colonnes nécessaires à
+// construire l'URL et la date sont demandées (pas les photos/description),
+// pour que la requête reste rapide même avec des centaines d'annonces et
+// évite les échecs intermittents observés avec la requête complète.
+export async function fetchAnnoncesPourSitemap(
+  limit = 5000
+): Promise<Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at'>[]> {
+  const { data, error } = await supabase
+    .from('annonces')
+    .select('id, titre, ville, created_at')
+    .eq('statut', 'active')
+    .eq('validee', true)
+    .order('created_at', { ascending: false })
+    .limit(limit);
+
+  if (error) throw error;
+  return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at'>[];
+}
+
 export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
   const { data, error } = await supabase
     .from('annonces')
