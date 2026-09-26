@@ -18,6 +18,8 @@ export default function Footer() {
           <Link href="/echanges">À échanger</Link>
           <Link href="/guides">Guides</Link>
           <Link href="/faq">FAQ débutant</Link>
+          <Link href="/glossaire">Glossaire</Link>
+          <Link href="/a-propos">À propos</Link>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { GUIDES, fetchGuideParSlug } from '@/lib/guides';
+import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -45,9 +46,16 @@ export default function GuideArticlePage({ params }: { params: { slug: string } 
     mainEntityOfPage: `${SITE_URL}/guides/${guide.slug}`,
   };
 
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: 'Guides', url: '/guides' },
+    { name: guide.titre },
+  ];
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · <Link href="/guides">Guides</Link> · {guide.eyebrow}

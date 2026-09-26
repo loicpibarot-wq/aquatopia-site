@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { fetchAnnoncesParType, buildSlug } from '@/lib/annonces';
+import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
 const PAR_PAGE = 24;
@@ -44,9 +45,15 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
     url: `${SITE_URL}/echanges`,
   };
 
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: 'Échanges' },
+  ];
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · Échanges
@@ -84,7 +91,7 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
           <div className="annonce-grille-liens">
             {annonces.map((a) => (
               <Link key={a.id} href={`/annonce/${buildSlug(a)}`} className="annonce-card-mini">
-                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} unoptimized />}
+                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
                 <div className="body">
                   <h4>{a.titre}</h4>
                   <span className="prix">Échange</span>

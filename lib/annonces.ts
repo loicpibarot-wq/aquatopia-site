@@ -67,6 +67,25 @@ export async function fetchAnnoncesPourSitemap(
   return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at'>[];
 }
 
+// Même principe que fetchAnnoncesPourSitemap, mais avec les photos en plus
+// (pour le sitemap d'images) : requête séparée plutôt que d'alourdir la
+// requête principale du sitemap classique.
+export async function fetchAnnoncesPourSitemapImages(
+  limit = 5000
+): Promise<Pick<Annonce, 'id' | 'titre' | 'ville' | 'photos'>[]> {
+  const { data, error } = await supabase
+    .from('annonces')
+    .select('id, titre, ville, photos')
+    .eq('statut', 'active')
+    .eq('validee', true)
+    .not('photos', 'is', null)
+    .order('created_at', { ascending: false })
+    .limit(limit);
+
+  if (error) throw error;
+  return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'photos'>[];
+}
+
 // --- Catégories ----------------------------------------------------------
 // Mêmes 6 catégories que dans l'app (voir CATEGORIES dans ajouter.tsx),
 // avec un slug d'URL propre pour chacune. Le libellé exact stocké en base

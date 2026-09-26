@@ -8,6 +8,7 @@ import {
   SLUG_VERS_CATEGORIE,
   CATEGORIE_VERS_SLUG,
 } from '@/lib/annonces';
+import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
 const PAR_PAGE = 24;
@@ -149,9 +150,15 @@ export default async function CategoriePage({
     url: `${SITE_URL}/categorie/${params.slug}`,
   };
 
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: categorie },
+  ];
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · {categorie}
@@ -184,7 +191,7 @@ export default async function CategoriePage({
           <div className="annonce-grille-liens">
             {annonces.map((a) => (
               <Link key={a.id} href={`/annonce/${buildSlug(a)}`} className="annonce-card-mini">
-                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} unoptimized />}
+                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
                 <div className="body">
                   <h4>{a.titre}</h4>
                   <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>

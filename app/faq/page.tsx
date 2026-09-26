@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQ_CATEGORIES } from '@/lib/faq';
+import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
 const TITRE = "FAQ aquariophilie : toutes les questions de débutant, avec réponses";
@@ -27,9 +28,15 @@ export default function FaqPage() {
     })),
   };
 
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: 'FAQ' },
+  ];
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · FAQ

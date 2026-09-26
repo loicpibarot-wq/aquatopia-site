@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { GUIDES } from '@/lib/guides';
+import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
 const TITRE = "Guides aquariophilie : conseils pour bien débuter et progresser";
@@ -23,9 +24,15 @@ export default function GuidesPage() {
     url: `${SITE_URL}/guides`,
   };
 
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: 'Guides' },
+  ];
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · Guides

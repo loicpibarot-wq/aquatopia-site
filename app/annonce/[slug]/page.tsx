@@ -12,8 +12,11 @@ import {
   metaDescription,
   nomAffiche,
   typeTransactionLabel,
+  CATEGORIE_VERS_SLUG,
+  BIOTOPE_VERS_SLUG,
   type Annonce,
 } from '@/lib/annonces';
+import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 // Rendu à la demande avec cache court : une annonce vendue il y a 2 minutes
 // ne doit jamais rester indexée/affichée comme disponible plus de quelques
@@ -91,9 +94,17 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
     },
   };
 
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: annonce.categorie, url: `/categorie/${CATEGORIE_VERS_SLUG[annonce.categorie] ?? ''}` },
+    { name: annonce.biotope, url: `/biotope/${BIOTOPE_VERS_SLUG[annonce.biotope] ?? ''}` },
+    { name: annonce.titre },
+  ];
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · {annonce.categorie} · {annonce.biotope}
@@ -103,12 +114,12 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
         <div>
           <div className="annonce-gallery">
             {photos[0] && (
-              <Image src={photos[0]} alt={annonce.titre} width={800} height={600} priority unoptimized />
+              <Image src={photos[0]} alt={annonce.titre} width={800} height={600} priority />
             )}
             {photos.length > 1 && (
               <div className="annonce-gallery-grid">
                 {photos.slice(1, 5).map((url) => (
-                  <Image key={url} src={url} alt={annonce.titre} width={200} height={200} unoptimized />
+                  <Image key={url} src={url} alt={annonce.titre} width={200} height={200} />
                 ))}
               </div>
             )}
@@ -153,7 +164,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
           <div className="annonce-grille-liens">
             {autresAnnonces.map((a) => (
               <Link key={a.id} href={`/annonce/${buildSlug(a)}`} className="annonce-card-mini">
-                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} unoptimized />}
+                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
                 <div className="body">
                   <h4>{a.titre}</h4>
                   <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { fetchAnnoncesPourSitemap, buildSlug, CATEGORIE_VERS_SLUG, BIOTOPE_VERS_SLUG } from '@/lib/annonces';
 import { GUIDES } from '@/lib/guides';
+import { GLOSSAIRE } from '@/lib/glossaire';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -40,6 +41,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     })),
     { url: `${SITE_URL}/faq`, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${SITE_URL}/a-propos`, changeFrequency: 'yearly', priority: 0.4 },
+  ];
+
+  const glossaire: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/glossaire`, changeFrequency: 'monthly', priority: 0.6 },
+    ...GLOSSAIRE.map((t) => ({
+      url: `${SITE_URL}/glossaire/${t.slug}`,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    })),
   ];
 
   let annonces: MetadataRoute.Sitemap = [];
@@ -56,5 +67,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // page d'accueil plutôt que de faire échouer tout le sitemap.
   }
 
-  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...annonces];
+  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...annonces];
 }

@@ -560,6 +560,120 @@ export const GUIDES: Guide[] = [
       { href: '/guides/demarrer-aquarium-eau-douce', label: 'Retour au guide de démarrage' },
     ],
   },
+  {
+    slug: 'meilleur-aquarium-pour-debutant',
+    titre: 'Quel aquarium choisir pour débuter ? Notre comparatif',
+    eyebrow: 'Comparatif',
+    description:
+      "Bocal, nano-aquarium, kit tout-équipé ou bac + matériel séparé : comment choisir son premier aquarium selon son budget et son espace.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Pourquoi éviter le bocal ou le très petit volume',
+        paragraphes: [
+          "Un bocal sans filtre ni chauffage ne permet pas de maintenir des paramètres d'eau stables, ce qui expose les poissons à un stress constant. Même pour un premier bac, un volume de 54 à 60 litres minimum reste beaucoup plus simple à équilibrer et pardonne davantage les erreurs de débutant.",
+        ],
+      },
+      {
+        titre: 'Le kit tout-équipé : simple mais parfois limité',
+        paragraphes: [
+          "Les kits vendus avec aquarium, filtre, éclairage et parfois chauffage intégrés simplifient l'achat et conviennent bien à un premier bac. Leur principale limite est un filtre souvent un peu juste pour le volume, qu'il est possible de compléter par la suite si besoin.",
+        ],
+      },
+      {
+        titre: 'Aquarium et matériel séparés : plus de flexibilité',
+        paragraphes: [
+          "Choisir chaque élément séparément (bac, filtre, éclairage) permet de mieux dimensionner chaque composant à son projet, en particulier pour un bac planté ou déjà orienté vers une espèce précise. Cette option demande un peu plus de recherche mais évite d'avoir à tout changer plus tard.",
+        ],
+      },
+      {
+        titre: "L'occasion, une option à ne pas négliger",
+        paragraphes: [
+          "Un aquarium ou un kit d'occasion en bon état permet souvent d'obtenir un volume plus généreux pour le même budget qu'un petit kit neuf — un point clé à vérifier étant l'étanchéité et l'état du silicone.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/categorie/cuves', label: 'Voir les aquariums en vente' },
+      { href: '/guides/demarrer-aquarium-eau-douce', label: 'Retour au guide de démarrage' },
+    ],
+  },
+  {
+    slug: 'quel-filtre-choisir-selon-volume',
+    titre: 'Quel filtre choisir selon le volume de son aquarium ?',
+    eyebrow: 'Comparatif',
+    description:
+      "Filtre interne, externe ou sur-verre : quel type de filtration convient le mieux selon la taille de votre aquarium.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Petits volumes (jusqu’à 60 litres environ)',
+        paragraphes: [
+          "Un filtre interne suffit généralement pour ce volume, à condition de vérifier que son débit reste adapté (4 à 6 fois le volume du bac par heure). Il présente l'avantage d'être simple à installer et peu coûteux.",
+        ],
+      },
+      {
+        titre: 'Volumes moyens à grands (60 à 300 litres environ)',
+        paragraphes: [
+          "Un filtre externe devient généralement plus adapté : il offre un volume de masses filtrantes bien supérieur, ne prend aucune place visible dans le bac, et convient bien aux bacs plantés ou fortement peuplés.",
+        ],
+      },
+      {
+        titre: 'Grands volumes et récifal',
+        paragraphes: [
+          "Au-delà, ou pour un bac récifal, un filtre sur-verre (sump) devient intéressant : il permet de déporter filtration, chauffage et écumeur dans un compartiment séparé, au prix d'une installation plus complexe.",
+        ],
+      },
+      {
+        titre: 'Le critère qui prime sur tout le reste',
+        paragraphes: [
+          "Quel que soit le type retenu, un débit de filtration légèrement surdimensionné par rapport au volume réel du bac reste presque toujours préférable à un filtre trop juste, qui laisse s'accumuler les déchets plus vite qu'il ne les traite.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-filtration-aquarium', label: 'Filtre interne, externe, sur-verre : le détail' },
+      { href: '/categorie/materiel', label: 'Voir les filtres en vente' },
+    ],
+  },
+  {
+    slug: 'eau-douce-ou-eau-de-mer-comment-choisir',
+    titre: 'Eau douce ou eau de mer : comment choisir son premier aquarium ?',
+    eyebrow: 'Comparatif',
+    description:
+      "Budget, technicité, temps d'entretien : les vrais critères pour choisir entre un aquarium d'eau douce et un aquarium récifal.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le budget de départ',
+        paragraphes: [
+          "L'eau douce demande généralement un budget de départ plus accessible (bac, filtre, chauffage, éclairage basique), tandis que le récifal ajoute des postes de dépense supplémentaires (écumeur, pompes de brassage, éclairage puissant, tests spécifiques), ce qui augmente sensiblement l'investissement initial.",
+        ],
+      },
+      {
+        titre: 'La technicité et la marge d’erreur',
+        paragraphes: [
+          "Les poissons d'eau douce tropicaux tolèrent en général une fourchette de paramètres assez large tant qu'elle reste stable. Le récifal marin, en particulier avec des coraux, demande des paramètres beaucoup plus précis (salinité, calcium, KH, magnésium) et laisse moins de marge d'erreur.",
+        ],
+      },
+      {
+        titre: 'Le temps d’entretien',
+        paragraphes: [
+          "Un aquarium d'eau douce classique demande un entretien hebdomadaire assez simple (changement d'eau partiel, nettoyage du filtre). Le récifal implique un suivi plus régulier des paramètres et souvent un dosage de plusieurs éléments (calcium, KH, magnésium) pour rester stable.",
+        ],
+      },
+      {
+        titre: 'Notre recommandation pour un premier bac',
+        paragraphes: [
+          "Pour une toute première expérience, l'eau douce reste le point d'entrée le plus accessible pour apprendre les bases (cyclage, paramètres, alimentation) avant de se lancer, si l'envie est là, dans un projet récifal plus tard, avec l'expérience acquise entre-temps.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/demarrer-aquarium-eau-douce', label: "Démarrer en eau douce" },
+      { href: '/guides/aquarium-recifal-par-ou-commencer', label: 'Démarrer en récifal' },
+    ],
+  },
 ];
 
 export function fetchGuideParSlug(slug: string): Guide | null {
