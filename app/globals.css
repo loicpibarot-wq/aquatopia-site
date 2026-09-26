@@ -299,7 +299,10 @@
   .foot-brand img{ height:20px; width:auto; }
 
   /* ---------- page annonce ---------- */
-  .annonce-wrap{ padding:40px 0 80px; }
+  /* padding-top/bottom seuls (jamais le raccourci `padding`) : sinon ça
+     écrase aussi le padding gauche/droite hérité de .wrap, qui a la même
+     spécificité et perd le conflit selon l'ordre de sortie du CSS compilé. */
+  .annonce-wrap{ padding-top:40px; padding-bottom:80px; }
   .breadcrumb{ font-size:0.82rem; color:var(--text-faint); margin-bottom:24px; }
   .breadcrumb a{ text-decoration:none; color:var(--text-faint); }
   .breadcrumb a:hover{ color:var(--teal); }
