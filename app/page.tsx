@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import DownloadButton from '@/components/DownloadButton';
 
 const FAQ = [
   {
     q: "L'application Aquatopia est-elle gratuite ?",
-    a: "Oui, le téléchargement, la recherche et la publication d'annonces pour les particuliers sont 100 % gratuits.",
+    a: "Oui, le téléchargement, la recherche et la publication d'annonces pour les particuliers sont 100 % gratuits.",
   },
   {
     q: 'Retrouve-t-on des professionnels et des éleveurs sur l’application ?',
@@ -170,12 +171,12 @@ export default function HomePage() {
 
           <p className="subcat-label eyebrow" style={{ marginTop: 44 }}>Catégories, disponibles dans chaque univers</p>
           <div className="subcat-row">
-            <span className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 12c3-6 8-9 13-9 2 0 4 1 4 1s-1 4-4 6c-5 3-10 3-13 2z" /><circle cx={18} cy={6} r={1} fill="currentColor" stroke="none" /></svg> Vivant</span>
-            <span className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={3.2} /><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" /></svg> Matériel</span>
-            <span className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x={3.5} y={6} width={17} height={12} rx={1.5} /><path d="M3.5 10.5h17" /></svg> Cuves</span>
-            <span className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 21V10" /><path d="M12 10C12 6 9 4 5 4c0 4 3 6 7 6z" /><path d="M12 13c0-3.5 2.5-5.2 6-5.2 0 3.5-2.5 5.2-6 5.2z" /></svg> Plantes</span>
-            <span className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1.1 1.3 1.1 2.2h5c0-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3z" /></svg> Éclairage</span>
-            <span className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x={3} y={9} width={18} height={4.5} rx={1} transform="rotate(-8 12 11)" /><path d="M5 15.5c3 1.4 11 1.4 14 0" /></svg> Décor</span>
+            <Link href="/categorie/vivant" className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 12c3-6 8-9 13-9 2 0 4 1 4 1s-1 4-4 6c-5 3-10 3-13 2z" /><circle cx={18} cy={6} r={1} fill="currentColor" stroke="none" /></svg> Vivant</Link>
+            <Link href="/categorie/materiel" className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={3.2} /><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" /></svg> Matériel</Link>
+            <Link href="/categorie/cuves" className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x={3.5} y={6} width={17} height={12} rx={1.5} /><path d="M3.5 10.5h17" /></svg> Cuves</Link>
+            <Link href="/categorie/plantes" className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 21V10" /><path d="M12 10C12 6 9 4 5 4c0 4 3 6 7 6z" /><path d="M12 13c0-3.5 2.5-5.2 6-5.2 0 3.5-2.5 5.2-6 5.2z" /></svg> Plantes</Link>
+            <Link href="/categorie/eclairage" className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1.1 1.3 1.1 2.2h5c0-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3z" /></svg> Éclairage</Link>
+            <Link href="/categorie/decor" className="subcat-chip"><svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x={3} y={9} width={18} height={4.5} rx={1} transform="rotate(-8 12 11)" /><path d="M5 15.5c3 1.4 11 1.4 14 0" /></svg> Décor</Link>
           </div>
         </div>
       </section>

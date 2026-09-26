@@ -67,6 +67,44 @@ export async function fetchAnnoncesPourSitemap(
   return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at'>[];
 }
 
+// --- Catégories ----------------------------------------------------------
+// Mêmes 6 catégories que dans l'app (voir CATEGORIES dans ajouter.tsx),
+// avec un slug d'URL propre pour chacune. Le libellé exact stocké en base
+// (accents compris) reste la clé de gauche : c'est la valeur de la colonne
+// `categorie`, utilisée telle quelle dans les filtres Supabase.
+export const CATEGORIE_VERS_SLUG: Record<string, string> = {
+  Vivant: 'vivant',
+  Matériel: 'materiel',
+  Cuves: 'cuves',
+  Plantes: 'plantes',
+  Éclairage: 'eclairage',
+  Décor: 'decor',
+};
+
+export const SLUG_VERS_CATEGORIE: Record<string, string> = Object.fromEntries(
+  Object.entries(CATEGORIE_VERS_SLUG).map(([categorie, slug]) => [slug, categorie])
+);
+
+// Pagination sur une catégorie : `count: 'exact'` en plus de `range` pour
+// pouvoir afficher le nombre total et calculer le nombre de pages côté
+// appelant, sans requête séparée.
+export async function fetchAnnoncesParCategorie(
+  categorie: string,
+  { limit = 24, offset = 0 }: { limit?: number; offset?: number } = {}
+): Promise<{ annonces: Annonce[]; total: number }> {
+  const { data, error, count } = await supabase
+    .from('annonces')
+    .select(COLONNES_PUBLIQUES, { count: 'exact' })
+    .eq('statut', 'active')
+    .eq('validee', true)
+    .eq('categorie', categorie)
+    .order('created_at', { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (error) throw error;
+  return { annonces: (data ?? []) as unknown as Annonce[], total: count ?? 0 };
+}
+
 export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
   const { data, error } = await supabase
     .from('annonces')
