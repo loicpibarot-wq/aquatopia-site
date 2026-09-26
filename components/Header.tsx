@@ -14,7 +14,7 @@ export default function Header() {
         </Link>
         <nav className="nav-links">
           <a href="/#fonctionnement" className="hide-mobile">Comment ça marche</a>
-          <a href="/#categories" className="hide-mobile">Catégories</a>
+          <a href="/#categories" className="hide-mobile">Annonces</a>
           <Link href="/guides" className="hide-mobile">Guides</Link>
           <a href="/#confiance" className="hide-mobile">Confiance</a>
           <Link href="/faq" className="hide-mobile">FAQ débutant</Link>

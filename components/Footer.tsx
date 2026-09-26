@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
         <div className="foot-links">
           <a href="/#fonctionnement">Comment ça marche</a>
-          <a href="/#categories">Catégories</a>
+          <a href="/#categories">Annonces</a>
           <a href="/#confiance">Confiance</a>
           <a href="/#telecharger">Télécharger</a>
           <Link href="/dons">À donner</Link>
