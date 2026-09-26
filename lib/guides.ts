@@ -1281,6 +1281,1184 @@ export const GUIDES: Guide[] = [
       { href: '/guides/meilleur-aquarium-pour-debutant', label: 'Quel aquarium choisir pour débuter' },
     ],
   },
+  {
+    slug: 'acclimater-nouveau-poisson-aquarium',
+    titre: 'Bien acclimater un nouveau poisson à son arrivée',
+    eyebrow: 'Débuter',
+    description:
+      "La méthode simple pour acclimater un poisson à l'eau de son aquarium après l'achat, et limiter le stress du transport.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Pourquoi l'acclimatation est nécessaire",
+        paragraphes: [
+          "L'eau du sac de transport diffère souvent en température et en paramètres de celle de l'aquarium de destination. Un changement trop brutal stresse fortement le poisson, et peut lui être fatal dans les cas les plus sévères.",
+        ],
+      },
+      {
+        titre: 'La méthode du sac flottant',
+        paragraphes: [
+          "Laisser le sac fermé flotter à la surface du bac pendant 15 à 20 minutes égalise progressivement la température, avant même d'ouvrir le sac.",
+        ],
+      },
+      {
+        titre: "Mélanger progressivement l'eau",
+        paragraphes: [
+          "Une fois le sac ouvert, ajouter un petit volume d'eau du bac toutes les 5 à 10 minutes pendant environ une demi-heure permet aux paramètres de s'équilibrer en douceur plutôt que d'un coup.",
+        ],
+      },
+      {
+        titre: "Éviter de transférer l'eau du sac dans le bac",
+        paragraphes: [
+          "L'eau du magasin ou de l'éleveur peut contenir des germes ou des résidus de traitement. Mieux vaut transférer le poisson à l'épuisette plutôt que de verser directement l'eau du sac dans l'aquarium.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-son-premier-poisson', label: 'Choisir ses premiers poissons' },
+      { href: '/guides/reconnaitre-poisson-malade-stresse', label: 'Reconnaître un poisson malade ou stressé' },
+    ],
+  },
+  {
+    slug: 'quel-volume-aquarium-choisir-espece',
+    titre: "Quel volume d'aquarium choisir selon les poissons envisagés ?",
+    eyebrow: 'Débuter',
+    description:
+      "Comment déterminer le bon volume d'aquarium en fonction des espèces envisagées, de leur taille adulte et de leurs besoins de groupe.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Partir des poissons, pas du meuble disponible',
+        paragraphes: [
+          "Le bon ordre est de choisir les espèces que l'on souhaite accueillir puis d'en déduire le volume nécessaire, plutôt que l'inverse.",
+        ],
+      },
+      {
+        titre: 'Tenir compte de la taille adulte',
+        paragraphes: [
+          "Un poisson vendu jeune à quelques centimètres peut atteindre une taille bien plus importante une fois adulte. Se renseigner sur la taille adulte de chaque espèce avant l'achat évite de se retrouver avec un bac trop petit quelques mois plus tard.",
+        ],
+      },
+      {
+        titre: 'Les espèces qui vivent en groupe',
+        paragraphes: [
+          "De nombreux poissons (bancs, Corydoras, Tétras) ont besoin d'un nombre minimum d'individus pour se sentir en sécurité, ce qui augmente d'autant le volume nécessaire par rapport à un poisson solitaire.",
+        ],
+      },
+      {
+        titre: 'Une marge de sécurité utile',
+        paragraphes: [
+          "Viser un peu plus grand que le minimum théorique laisse une marge d'erreur sur les paramètres et facilite l'entretien au quotidien, un aquarium plus grand étant paradoxalement souvent plus simple à stabiliser.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-son-premier-poisson', label: 'Choisir ses premiers poissons' },
+      { href: '/categorie/cuves', label: 'Voir les aquariums en vente' },
+    ],
+  },
+  {
+    slug: 'aquarium-pour-enfant-bonne-idee',
+    titre: 'Un aquarium pour un enfant : bonne ou mauvaise idée ?',
+    eyebrow: 'Débuter',
+    description:
+      "Ce qu'il faut anticiper avant d'offrir un aquarium à un enfant : l'entretien réel, les espèces adaptées, et le rôle des parents.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "L'entretien reste une responsabilité d'adulte",
+        paragraphes: [
+          "Un enfant peut participer (nourrissage, observation) mais le suivi des paramètres et l'entretien technique restent, dans les faits, à la charge d'un adulte de la maison.",
+        ],
+      },
+      {
+        titre: 'Choisir des espèces robustes et tolérantes',
+        paragraphes: [
+          "Des poissons peu exigeants en paramètres et supportant de petites erreurs d'entretien conviennent mieux à un projet familial qu'une espèce délicate, réservée à un aquariophile plus expérimenté.",
+        ],
+      },
+      {
+        titre: 'Un bon projet pédagogique',
+        paragraphes: [
+          "Suivre le cycle de l'azote, observer le comportement des poissons ou le développement des plantes peut être une bonne initiation à la biologie et à la patience pour un enfant.",
+        ],
+      },
+      {
+        titre: 'Éviter les décisions impulsives',
+        paragraphes: [
+          "Un aquarium engage sur plusieurs années. Mieux vaut en discuter en famille avant l'achat plutôt que de céder à un coup de cœur en animalerie.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-son-premier-poisson', label: 'Choisir ses premiers poissons' },
+      { href: '/guides/erreurs-debutant-aquariophilie', label: 'Les erreurs de débutant à éviter' },
+    ],
+  },
+  {
+    slug: 'premiere-semaine-nouvel-aquarium',
+    titre: "Que faire pendant les premières semaines d'un nouvel aquarium ?",
+    eyebrow: 'Débuter',
+    description:
+      "Le déroulé étape par étape des premières semaines d'un aquarium neuf, du cyclage jusqu'à l'introduction progressive des poissons.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Semaine 1 à 2 : lancer le cyclage',
+        paragraphes: [
+          "Installer le matériel, démarrer le filtre et suivre les tests d'ammoniac et de nitrites, sans introduire le moindre poisson à ce stade.",
+        ],
+      },
+      {
+        titre: 'Semaine 3 à 4 : suivre la montée des nitrites',
+        paragraphes: [
+          "C'est généralement la période où les nitrites atteignent leur pic avant de redescendre, signe que la population bactérienne du filtre progresse correctement.",
+        ],
+      },
+      {
+        titre: 'Fin de cyclage : les premiers poissons',
+        paragraphes: [
+          "Une fois l'ammoniac et les nitrites retombés à zéro, les premiers poissons robustes peuvent être introduits, en petit nombre plutôt que tous à la fois.",
+        ],
+      },
+      {
+        titre: 'Les semaines suivantes : peupler progressivement',
+        paragraphes: [
+          "Attendre 2 à 3 semaines entre chaque nouvel ajout de poissons laisse le temps au filtre de s'adapter à la charge biologique supplémentaire, sans à-coup pour l'équilibre du bac.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+      { href: '/guides/demarrer-aquarium-eau-douce', label: 'Démarrer un aquarium d’eau douce' },
+    ],
+  },
+  {
+    slug: 'cycle-sans-poisson-vs-avec-poisson',
+    titre: 'Cyclage sans poisson ou avec poisson : quelle méthode choisir ?',
+    eyebrow: 'Comprendre',
+    description:
+      "Deux méthodes existent pour cycler un aquarium neuf : avec ou sans poisson présent. Leurs différences, avantages et inconvénients.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le cyclage sans poisson',
+        paragraphes: [
+          "Une source d'ammoniac (produit dédié ou un peu de nourriture en décomposition) nourrit les bactéries en formation sans exposer d'animal aux pics toxiques. C'est la méthode la plus recommandée aujourd'hui.",
+        ],
+      },
+      {
+        titre: 'Le cyclage avec poisson',
+        paragraphes: [
+          "Historiquement répandu, il expose directement les premiers poissons aux pics d'ammoniac et de nitrites, avec un risque de mortalité ou de stress important pendant les premières semaines.",
+        ],
+      },
+      {
+        titre: 'Pourquoi la méthode sans poisson est privilégiée',
+        paragraphes: [
+          "Elle permet d'attendre la fin complète du cycle avant d'introduire le moindre animal, sans compromis sur son bien-être ni sur celui des poissons suivants.",
+        ],
+      },
+      {
+        titre: 'Dans tous les cas, la patience reste la clé',
+        paragraphes: [
+          "Qu'elle que soit la méthode choisie, un cyclage complet prend généralement 4 à 6 semaines, un délai qu'il vaut mieux anticiper avant même l'achat des poissons.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+      { href: '/guides/premiere-semaine-nouvel-aquarium', label: 'Les premières semaines d’un nouvel aquarium' },
+    ],
+  },
+  {
+    slug: 'role-des-plantes-aquarium-equilibre',
+    titre: "Le rôle des plantes dans l'équilibre d'un aquarium",
+    eyebrow: 'Comprendre',
+    description:
+      "Au-delà du décor, les plantes jouent un rôle actif dans l'équilibre biologique d'un aquarium. Comment et pourquoi.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Consommer les nutriments en excès',
+        paragraphes: [
+          "Les plantes absorbent une partie des nitrates et d'autres composés issus des déchets, réduisant d'autant la charge que la filtration biologique doit traiter.",
+        ],
+      },
+      {
+        titre: 'Concurrencer les algues',
+        paragraphes: [
+          "En captant les nutriments disponibles, des plantes bien installées limitent naturellement le développement des algues indésirables.",
+        ],
+      },
+      {
+        titre: 'Offrir des cachettes et réduire le stress',
+        paragraphes: [
+          "Les plantes fournissent des zones de repli pour les poissons timides ou les alevins, ce qui réduit le niveau de stress général dans le bac.",
+        ],
+      },
+      {
+        titre: "Un équilibre qui prend du temps à s'installer",
+        paragraphes: [
+          "Un bac fraîchement planté met plusieurs semaines à tirer pleinement parti de ce rôle, le temps que les plantes développent racines et feuillage.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/plantes-faciles-aquarium-debutant', label: 'Des plantes faciles pour débuter' },
+      { href: '/guides/lutter-contre-les-algues-aquarium', label: 'Lutter contre les algues' },
+    ],
+  },
+  {
+    slug: 'difference-eau-osmosee-eau-robinet-aquarium',
+    titre: "Eau du robinet ou eau osmosée : ce qu'il faut savoir",
+    eyebrow: 'Comprendre',
+    description:
+      "Différences entre l'eau du robinet et l'eau osmosée pour l'aquariophilie, et dans quels cas l'une ou l'autre est préférable.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'L’eau du robinet, un point de départ pour la plupart des bacs',
+        paragraphes: [
+          "Traitée avec un conditionneur anti-chlore, elle convient à la grande majorité des aquariums d'eau douce communautaires, à condition de vérifier ses paramètres de base (dureté notamment).",
+        ],
+      },
+      {
+        titre: 'L’eau osmosée, une eau quasiment vide de minéraux',
+        paragraphes: [
+          "Obtenue par un osmoseur qui filtre l'eau du robinet, elle est presque totalement dépourvue de minéraux, ce qui la rend utile pour certains projets spécifiques.",
+        ],
+      },
+      {
+        titre: "Quand l'eau osmosée devient utile",
+        paragraphes: [
+          "Un bac récifal, ou l'élevage de poissons qui exigent une eau très douce, tire souvent parti d'une eau osmosée reminéralisée de façon contrôlée.",
+        ],
+      },
+      {
+        titre: 'Ne jamais utiliser d’eau osmosée pure sans reminéralisation',
+        paragraphes: [
+          "Une eau totalement dépourvue de minéraux n'est stable pour aucun poisson. Elle doit être reminéralisée avant utilisation dans la grande majorité des cas.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/parametres-eau-ph-gh-kh', label: 'Comprendre les paramètres de l’eau' },
+      { href: '/guides/osmoseur-aquarium-a-quoi-ca-sert', label: 'L’osmoseur : à quoi ça sert' },
+    ],
+  },
+  {
+    slug: 'comprendre-la-photoperiode-aquarium',
+    titre: "Comprendre la photopériode et son rôle dans l'aquarium",
+    eyebrow: 'Comprendre',
+    description:
+      "Ce qu'est la photopériode d'un aquarium, pourquoi elle influence poissons, plantes et algues, et comment bien la régler.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Qu'est-ce que la photopériode",
+        paragraphes: [
+          "C'est la durée quotidienne pendant laquelle l'éclairage du bac reste allumé, généralement réglée par une prise programmable ou un minuteur intégré.",
+        ],
+      },
+      {
+        titre: 'Son rôle pour les plantes',
+        paragraphes: [
+          "Une photopériode suffisante permet la photosynthèse nécessaire à la croissance des plantes, sans quoi elles s'affaiblissent progressivement.",
+        ],
+      },
+      {
+        titre: 'Son rôle pour les poissons',
+        paragraphes: [
+          "Une alternance jour/nuit régulière rassure les poissons et structure leur comportement (alimentation, repos), un peu comme un rythme circadien.",
+        ],
+      },
+      {
+        titre: "Le piège d'une photopériode trop longue",
+        paragraphes: [
+          "Au-delà de 10 à 12 heures par jour selon les bacs, l'excès de lumière favorise surtout la prolifération d'algues, sans bénéfice supplémentaire pour les plantes.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/eclairage-bac-plante-choisir', label: 'Choisir l’éclairage d’un bac planté' },
+      { href: '/guides/lutter-contre-les-algues-aquarium', label: 'Lutter contre les algues' },
+    ],
+  },
+  {
+    slug: 'quarantaine-poissons-recifal-pourquoi',
+    titre: 'Pourquoi mettre en quarantaine poissons et coraux récifal',
+    eyebrow: 'Récifal',
+    description:
+      "L'intérêt d'un bac de quarantaine avant d'introduire un nouveau poisson ou corail dans un aquarium récifal, et comment le mettre en place simplement.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le risque d’introduire une maladie',
+        paragraphes: [
+          "Un poisson ou un corail nouvellement acheté peut porter un parasite ou une maladie invisible à l'œil nu, capable de contaminer tout un bac récifal une fois introduit directement.",
+        ],
+      },
+      {
+        titre: 'Un bac de quarantaine simple mais efficace',
+        paragraphes: [
+          "Un petit volume, un filtre et un chauffage suffisent généralement, sans décor complexe, pour observer le nouvel arrivant pendant quelques semaines.",
+        ],
+      },
+      {
+        titre: 'La durée recommandée',
+        paragraphes: [
+          "Une période de 2 à 4 semaines d'observation permet généralement de repérer un problème avant qu'il ne soit trop tard pour le reste du bac.",
+        ],
+      },
+      {
+        titre: 'Un investissement qui protège tout le bac principal',
+        paragraphes: [
+          "Le coût et l'espace d'un bac de quarantaine restent minimes comparés au risque de perdre plusieurs coraux ou poissons en cas de contamination du bac principal.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/acclimatation-goutte-a-goutte-poissons-coraux', label: 'L’acclimatation goutte à goutte' },
+      { href: '/guides/aquarium-recifal-par-ou-commencer', label: 'Démarrer en récifal' },
+    ],
+  },
+  {
+    slug: 'eclairage-recifal-choisir-led',
+    titre: 'Choisir son éclairage LED pour un aquarium récifal',
+    eyebrow: 'Récifal',
+    description:
+      "Puissance, spectre, intensité : comment choisir un éclairage LED adapté à un aquarium récifal selon les coraux hébergés.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Un besoin bien plus élevé qu'en eau douce",
+        paragraphes: [
+          "Les coraux, en particulier les SPS, ont besoin d'une intensité lumineuse nettement supérieure à celle d'un bac planté d'eau douce classique pour assurer leur photosynthèse symbiotique.",
+        ],
+      },
+      {
+        titre: 'Le spectre adapté aux coraux',
+        paragraphes: [
+          "Une dominante bleue favorise généralement la coloration et la croissance des coraux, en complément d'une composante blanche qui profite aussi à l'observation du bac.",
+        ],
+      },
+      {
+        titre: 'Adapter l’intensité selon les espèces',
+        paragraphes: [
+          "Les coraux mous et LPS tolèrent une lumière plus modérée que les SPS, qui exigent généralement un éclairage plus puissant et une acclimatation progressive à cette intensité.",
+        ],
+      },
+      {
+        titre: 'Une acclimatation lumineuse progressive',
+        paragraphes: [
+          "Un nouveau corail, ou un éclairage neuf plus puissant, doit être introduit progressivement pour éviter un stress lumineux (blanchiment) chez des coraux non habitués.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
+      { href: '/guides/materiel-recifal-ecumeur-osmolateur-brassage', label: 'Le matériel indispensable en récifal' },
+    ],
+  },
+  {
+    slug: 'nourrir-un-aquarium-recifal',
+    titre: 'Bien nourrir un aquarium récifal',
+    eyebrow: 'Récifal',
+    description:
+      "Nourrir les poissons mais aussi les coraux d'un aquarium récifal : quelles différences, quelle fréquence et quels pièges éviter.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Nourrir les poissons récifal',
+        paragraphes: [
+          "Une alimentation variée (granulés, paillettes, nourriture congelée) couvre généralement les besoins des poissons marins, en veillant à ne pas suralimenter dans un volume souvent plus sensible qu'en eau douce.",
+        ],
+      },
+      {
+        titre: 'Nourrir les coraux',
+        paragraphes: [
+          "De nombreux coraux tirent une bonne partie de leur énergie de la photosynthèse via les algues symbiotiques qu'ils hébergent, mais certains profitent aussi d'un apport complémentaire en nourriture fine (phytoplancton, zooplancton).",
+        ],
+      },
+      {
+        titre: 'Le risque de suralimentation en récifal',
+        paragraphes: [
+          "Un excès de nourriture se traduit rapidement par une hausse des nitrates et des phosphates, deux paramètres particulièrement sensibles à surveiller en aquarium récifal.",
+        ],
+      },
+      {
+        titre: 'Adapter la fréquence aux paramètres du bac',
+        paragraphes: [
+          "Un suivi régulier des nitrates et phosphates permet d'ajuster la fréquence de nourrissage plutôt que de suivre une règle fixe, différente d'un bac à l'autre.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH et magnésium en récifal' },
+      { href: '/guides/aquarium-recifal-par-ou-commencer', label: 'Démarrer en récifal' },
+    ],
+  },
+  {
+    slug: 'choisir-poissons-bassin-jardin',
+    titre: 'Quels poissons choisir pour un bassin de jardin ?',
+    eyebrow: 'Bassin',
+    description:
+      "Carpes koï, poissons rouges, autres espèces rustiques : comment choisir les poissons adaptés à un bassin de jardin selon sa taille et son climat.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Les carpes koï',
+        paragraphes: [
+          "Populaires pour leur robustesse et leurs couleurs, elles demandent néanmoins un bassin de volume conséquent, leur taille adulte étant nettement supérieure à celle d'un poisson rouge.",
+        ],
+      },
+      {
+        titre: 'Le poisson rouge, une valeur sûre',
+        paragraphes: [
+          "Rustique et tolérant à de larges variations de température, il convient à des bassins de taille plus modeste que les koï.",
+        ],
+      },
+      {
+        titre: 'Tenir compte du climat local',
+        paragraphes: [
+          "Dans les régions aux hivers rigoureux, la profondeur du bassin doit permettre d'éviter un gel complet, sous peine de mettre en danger les poissons qui y hivernent.",
+        ],
+      },
+      {
+        titre: 'Éviter la surpopulation',
+        paragraphes: [
+          "Comme en aquarium, un bassin surpeuplé dégrade rapidement la qualité de l'eau. Mieux vaut prévoir un nombre de poissons cohérent avec le volume réel du bassin.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/hivernage-poissons-bassin', label: 'Préparer l’hivernage de son bassin' },
+      { href: '/guides/demarrer-bassin-jardin', label: 'Démarrer un bassin de jardin' },
+    ],
+  },
+  {
+    slug: 'plantes-bassin-oxygenantes-epuratrices',
+    titre: 'Les plantes de bassin : oxygénantes, épuratrices, décoratives',
+    eyebrow: 'Bassin',
+    description:
+      "Le rôle des différentes catégories de plantes de bassin, et comment les combiner pour un bassin équilibré et une eau plus claire.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Les plantes oxygénantes',
+        paragraphes: [
+          "Immergées, elles participent aux échanges gazeux et concurrencent les algues pour les nutriments disponibles, un rôle proche de celui des plantes d'aquarium.",
+        ],
+      },
+      {
+        titre: 'Les plantes épuratrices',
+        paragraphes: [
+          "Souvent installées en berge ou en zone peu profonde, elles absorbent une partie des nutriments en excès, limitant d'autant la prolifération d'algues.",
+        ],
+      },
+      {
+        titre: 'Les plantes décoratives',
+        paragraphes: [
+          "Nénuphars et autres plantes à fleurs apportent surtout un intérêt visuel, tout en offrant de l'ombrage qui limite aussi la lumière disponible pour les algues.",
+        ],
+      },
+      {
+        titre: 'Trouver le bon équilibre',
+        paragraphes: [
+          "Un bassin qui associe ces trois catégories de plantes tend à s'équilibrer plus naturellement qu'un bassin uniquement décoratif, avec moins de recours à des solutions techniques.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/eau-verte-bassin-solutions', label: 'Lutter contre l’eau verte en bassin' },
+      { href: '/guides/demarrer-bassin-jardin', label: 'Démarrer un bassin de jardin' },
+    ],
+  },
+  {
+    slug: 'pompe-filtration-bassin-bien-choisir',
+    titre: 'Bien choisir sa pompe et sa filtration de bassin',
+    eyebrow: 'Bassin',
+    description:
+      "Débit, filtration mécanique et biologique : comment dimensionner la pompe et le filtre d'un bassin de jardin.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Dimensionner le débit de la pompe',
+        paragraphes: [
+          "Une règle courante consiste à faire circuler l'intégralité du volume du bassin en une à deux heures, un repère à ajuster selon la charge en poissons et plantes.",
+        ],
+      },
+      {
+        titre: 'La filtration mécanique',
+        paragraphes: [
+          "Elle retient les débris (feuilles, particules) avant qu'ils ne se décomposent dans le bassin, un rôle particulièrement utile à l'automne.",
+        ],
+      },
+      {
+        titre: 'La filtration biologique',
+        paragraphes: [
+          "Comme en aquarium, elle héberge les bactéries qui traitent les déchets azotés produits par les poissons, un rôle essentiel dans un bassin peuplé.",
+        ],
+      },
+      {
+        titre: 'Le cas des bassins à koï',
+        paragraphes: [
+          "Avec des poissons de grande taille et une production de déchets plus importante, un filtre surdimensionné par rapport à un bassin classique est généralement recommandé.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-poissons-bassin-jardin', label: 'Quels poissons choisir pour son bassin' },
+      { href: '/categorie/materiel', label: 'Voir le matériel en vente' },
+    ],
+  },
+  {
+    slug: 'predateurs-bassin-proteger-poissons',
+    titre: 'Protéger les poissons de bassin des prédateurs',
+    eyebrow: 'Bassin',
+    description:
+      "Hérons, chats, prédateurs terrestres : comment protéger les poissons d'un bassin de jardin des menaces les plus courantes.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le héron, un prédateur redoutable',
+        paragraphes: [
+          "Capable de vider un bassin en quelques visites, il est attiré par les zones peu profondes qui exposent les poissons. Un filet tendu ou des zones de refuge profondes limitent ce risque.",
+        ],
+      },
+      {
+        titre: 'Les chats et autres prédateurs terrestres',
+        paragraphes: [
+          "Un rebord de bassin surélevé, ou une zone de berge peu accessible, réduit les tentatives de pêche depuis la rive.",
+        ],
+      },
+      {
+        titre: 'Les cachettes dans le bassin',
+        paragraphes: [
+          "Des plantes immergées denses ou des structures type tuyaux et rochers offrent aux poissons un abri immédiat en cas de menace repérée.",
+        ],
+      },
+      {
+        titre: 'Un filet, la solution la plus fiable',
+        paragraphes: [
+          "Un filet correctement tendu au-dessus du bassin reste souvent la protection la plus efficace contre l'ensemble de ces prédateurs, en particulier le héron.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-poissons-bassin-jardin', label: 'Quels poissons choisir pour son bassin' },
+      { href: '/guides/hivernage-poissons-bassin', label: 'Préparer l’hivernage de son bassin' },
+    ],
+  },
+  {
+    slug: 'vacances-aquarium-que-faire',
+    titre: 'Partir en vacances : comment préparer son aquarium',
+    eyebrow: 'Entretien',
+    description:
+      "Nourrissage automatique, entretien avant le départ, personne de confiance : comment préparer son aquarium pour une absence de plusieurs jours.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Un nourrissage automatique fiable',
+        paragraphes: [
+          "Un distributeur automatique programmé reste plus sûr qu'un bloc de nourriture à dissolution lente, qui peut dégrader la qualité de l'eau s'il se dissout trop vite.",
+        ],
+      },
+      {
+        titre: 'Un entretien complet avant le départ',
+        paragraphes: [
+          "Un changement d'eau et un nettoyage léger juste avant de partir permettent de partir sur des paramètres stables pour toute la durée de l'absence.",
+        ],
+      },
+      {
+        titre: 'Éviter de suralimenter avant de partir',
+        paragraphes: [
+          "Donner une double ration pour « compenser » l'absence est une fausse bonne idée qui dégrade la qualité de l'eau. Les poissons adultes supportent en réalité bien plusieurs jours sans nourriture.",
+        ],
+      },
+      {
+        titre: "Prévoir un contact en cas d'imprévu",
+        paragraphes: [
+          "Demander à une personne de confiance de passer vérifier l'aquarium en cas d'absence prolongée reste une sécurité utile, notamment pour repérer une panne de matériel.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/bien-nourrir-poissons-aquarium', label: 'Bien nourrir ses poissons' },
+      { href: '/guides/changement-eau-aquarium-frequence-methode', label: 'Bien faire son changement d’eau' },
+    ],
+  },
+  {
+    slug: 'tailler-entretenir-plantes-aquarium',
+    titre: 'Bien tailler et entretenir les plantes d’aquarium',
+    eyebrow: 'Entretien',
+    description:
+      "Quand et comment tailler les plantes d'un aquarium planté pour garder un bac équilibré et un décor soigné.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Pourquoi tailler régulièrement',
+        paragraphes: [
+          "Une plante qui pousse sans être taillée finit par faire de l'ombre aux espèces voisines, ou par flotter en surface une fois trop développée.",
+        ],
+      },
+      {
+        titre: 'Les plantes à tiges',
+        paragraphes: [
+          "Elles se taillent en coupant la tige à la hauteur souhaitée. La partie coupée peut souvent être replantée pour repartir ailleurs dans le bac.",
+        ],
+      },
+      {
+        titre: 'Les plantes à rosette et de premier plan',
+        paragraphes: [
+          "Elles demandent surtout de retirer les feuilles abîmées ou jaunies au fur et à mesure, plutôt qu'une taille franche comme les plantes à tiges.",
+        ],
+      },
+      {
+        titre: 'Éviter de tout tailler en une seule fois',
+        paragraphes: [
+          "Une taille trop importante d'un coup peut déstabiliser temporairement l'équilibre du bac, en réduisant brutalement la capacité des plantes à absorber les nutriments.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/plantes-faciles-aquarium-debutant', label: 'Des plantes faciles pour débuter' },
+      { href: '/guides/aquascaping-decor-naturel', label: 'Créer un décor naturel' },
+    ],
+  },
+  {
+    slug: 'entretien-filtre-aquarium-bonne-frequence',
+    titre: "Entretien du filtre d'aquarium : quelle fréquence et comment procéder",
+    eyebrow: 'Entretien',
+    description:
+      "À quelle fréquence nettoyer le filtre d'un aquarium, et comment le faire sans détruire les bactéries utiles qu'il héberge.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'La fréquence recommandée',
+        paragraphes: [
+          "Un nettoyage toutes les 4 à 6 semaines convient généralement à la plupart des bacs, à ajuster selon l'encrassement observé et le débit du filtre.",
+        ],
+      },
+      {
+        titre: 'Ne jamais tout nettoyer en même temps',
+        paragraphes: [
+          "Nettoyer l'ensemble des masses filtrantes le même jour détruit une grande partie des bactéries épuratrices. Mieux vaut alterner les masses nettoyées d'une fois sur l'autre.",
+        ],
+      },
+      {
+        titre: "Toujours rincer à l'eau du bac",
+        paragraphes: [
+          "L'eau du robinet, chlorée, tue une partie des bactéries utiles. Rincer les masses biologiques dans de l'eau du bac déjà retirée les préserve beaucoup mieux.",
+        ],
+      },
+      {
+        titre: "Vérifier le débit après l'entretien",
+        paragraphes: [
+          "Un débit qui reste faible après le nettoyage peut signaler une pièce usée (turbine, joint) à vérifier ou à remplacer.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/role-du-filtre-dans-aquarium', label: 'Comprendre le rôle du filtre' },
+      { href: '/guides/choisir-filtration-aquarium', label: 'Bien choisir sa filtration' },
+    ],
+  },
+  {
+    slug: 'aquarium-eau-trouble-causes',
+    titre: "Aquarium à l'eau trouble : causes et solutions",
+    eyebrow: 'Entretien',
+    description:
+      "Eau blanchâtre, laiteuse ou trouble en aquarium : les causes les plus fréquentes et comment retrouver une eau claire.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Une eau trouble et blanchâtre',
+        paragraphes: [
+          "Souvent liée à une prolifération bactérienne suite à un excès de nourriture ou un bac récemment cyclé, elle se résorbe généralement d'elle-même en quelques jours si la cause est corrigée.",
+        ],
+      },
+      {
+        titre: 'Une eau trouble après un nettoyage',
+        paragraphes: [
+          "Remuer le substrat lors d'un entretien peut temporairement troubler l'eau en remettant en suspension de fines particules, sans gravité particulière.",
+        ],
+      },
+      {
+        titre: 'Vérifier les paramètres en priorité',
+        paragraphes: [
+          "Une eau trouble qui persiste doit d'abord faire l'objet d'un test d'ammoniac et de nitrites, qui peut révéler un déséquilibre du cycle de l'azote.",
+        ],
+      },
+      {
+        titre: 'Les bons réflexes',
+        paragraphes: [
+          "Réduire temporairement la nourriture, effectuer un changement d'eau partiel et éviter de suralimenter en attendant que l'eau se stabilise sont les mesures les plus efficaces.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+      { href: '/guides/changement-eau-aquarium-frequence-methode', label: 'Bien faire son changement d’eau' },
+    ],
+  },
+  {
+    slug: 'bois-flotte-aquarium-preparation',
+    titre: 'Bois flotté en aquarium : comment le préparer et l’utiliser',
+    eyebrow: 'Décoration',
+    description:
+      "Pourquoi et comment préparer un bois flotté avant de l'installer en aquarium, pour éviter qu'il ne flotte ou ne colore l'eau trop longtemps.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Pourquoi le bois flotte au départ',
+        paragraphes: [
+          "Un bois flotté neuf contient de l'air dans ses fibres, ce qui le fait souvent remonter à la surface avant d'être suffisamment gorgé d'eau pour couler naturellement.",
+        ],
+      },
+      {
+        titre: "Le faire tremper avant l'installation",
+        paragraphes: [
+          "Un trempage de plusieurs jours à plusieurs semaines dans un seau d'eau, renouvelée régulièrement, accélère ce processus et limite la coloration de l'eau du bac une fois installé.",
+        ],
+      },
+      {
+        titre: "La coloration de l'eau, sans danger",
+        paragraphes: [
+          "Les tanins libérés par certains bois teintent l'eau en jaune-brun. C'est sans danger pour les poissons, et certaines espèces (bacs biotope Amazonie) en profitent même volontiers.",
+        ],
+      },
+      {
+        titre: "Choisir un bois adapté à l'aquariophilie",
+        paragraphes: [
+          "Tous les bois trouvés en extérieur ne conviennent pas. Mieux vaut choisir un bois spécifiquement vendu pour l'aquariophilie, déjà préparé pour cet usage.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/aquascaping-decor-naturel', label: 'Créer un décor naturel' },
+      { href: '/guides/aquarium-biotope-reproduire-milieu-naturel', label: 'Créer un aquarium biotope' },
+    ],
+  },
+  {
+    slug: 'roches-pierres-aquarium-lesquelles-choisir',
+    titre: 'Quelles roches et pierres choisir pour son décor d’aquarium ?',
+    eyebrow: 'Décoration',
+    description:
+      "Roches inertes ou influençant les paramètres de l'eau : comment choisir les bonnes pierres selon le type de bac et les espèces hébergées.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Les roches inertes',
+        paragraphes: [
+          "La plupart des roches ornementales vendues pour l'aquariophilie n'influencent pas les paramètres de l'eau, ce qui les rend adaptées à la majorité des bacs communautaires.",
+        ],
+      },
+      {
+        titre: 'Les roches qui modifient le pH ou la dureté',
+        paragraphes: [
+          "Certaines pierres calcaires relâchent des minéraux dans l'eau, ce qui augmente le pH et la dureté. Utile pour un bac de Cichlidés africains, à éviter pour un bac de poissons d'eau douce et acide.",
+        ],
+      },
+      {
+        titre: 'Vérifier avant d’introduire une roche non identifiée',
+        paragraphes: [
+          "Un test au vinaigre (effervescence en présence de calcaire) permet de repérer une roche susceptible d'influencer les paramètres avant de l'installer.",
+        ],
+      },
+      {
+        titre: 'La stabilité du montage',
+        paragraphes: [
+          "Un empilement de roches doit toujours être stable et fixé si nécessaire, un aquarium bien rempli d'eau exerçant une pression capable de faire bouger un montage mal assuré.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-son-substrat-aquarium', label: 'Bien choisir son substrat' },
+      { href: '/guides/aquascaping-decor-naturel', label: 'Créer un décor naturel' },
+    ],
+  },
+  {
+    slug: 'aquarium-biotope-reproduire-milieu-naturel',
+    titre: 'Créer un aquarium biotope qui reproduit un milieu naturel',
+    eyebrow: 'Décoration',
+    description:
+      "Le principe d'un aquarium biotope, qui reproduit fidèlement un milieu naturel précis, et comment s'y prendre pour un premier projet.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le principe du biotope',
+        paragraphes: [
+          "Contrairement à un bac communautaire classique, un biotope cherche à reproduire fidèlement les conditions d'un milieu naturel précis : décor, paramètres et espèces originaires de la même zone géographique.",
+        ],
+      },
+      {
+        titre: 'Choisir un biotope accessible pour débuter',
+        paragraphes: [
+          "Un biotope amazonien (bois flotté, feuilles, eau douce et acide, poissons sud-américains) reste l'un des plus accessibles pour un premier projet de ce type.",
+        ],
+      },
+      {
+        titre: 'Adapter les paramètres au biotope choisi',
+        paragraphes: [
+          "Un biotope africain (lac Malawi ou Tanganyika) demande une eau dure et alcaline, à l'opposé d'un biotope amazonien. Les deux ne peuvent pas cohabiter dans les mêmes paramètres.",
+        ],
+      },
+      {
+        titre: 'L’intérêt pédagogique du biotope',
+        paragraphes: [
+          "Au-delà de l'esthétique, ce type de projet pousse à mieux comprendre les besoins réels des espèces choisies, plutôt que de simplement assembler des poissons compatibles sur le papier.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/bois-flotte-aquarium-preparation', label: 'Préparer un bois flotté' },
+      { href: '/categorie/vivant', label: 'Voir les poissons en vente' },
+    ],
+  },
+  {
+    slug: 'co2-aquarium-plante-utile',
+    titre: 'Le CO2 en aquarium planté : utile ou indispensable ?',
+    eyebrow: 'Décoration',
+    description:
+      "Dans quels cas un apport de CO2 devient utile en aquarium planté, et quand il est possible de s'en passer.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le rôle du CO2 pour les plantes',
+        paragraphes: [
+          "C'est l'un des éléments de base de la photosynthèse, aux côtés de la lumière et des nutriments. Un manque de CO2 peut limiter la croissance même avec un bon éclairage.",
+        ],
+      },
+      {
+        titre: "Les bacs qui peuvent s'en passer",
+        paragraphes: [
+          "Un aquarium avec des plantes peu exigeantes (Anubias, mousses, Cryptocoryne) et un éclairage modéré se développe généralement bien sans apport de CO2 supplémentaire.",
+        ],
+      },
+      {
+        titre: "Quand l'apport devient utile",
+        paragraphes: [
+          "Un bac fortement planté, avec un éclairage puissant et des espèces exigeantes (tapis de sol, certaines Rotala), tire souvent un net bénéfice d'un apport de CO2 pour éviter un déséquilibre entre lumière et nutriments disponibles.",
+        ],
+      },
+      {
+        titre: "Le risque d'un mauvais dosage",
+        paragraphes: [
+          "Un apport de CO2 mal réglé peut faire chuter le pH de façon dangereuse pour les poissons. Un diffuseur avec compte-bulles et un suivi régulier restent indispensables si cette option est choisie.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/eclairage-bac-plante-choisir', label: 'Choisir l’éclairage d’un bac planté' },
+      { href: '/guides/plantes-faciles-aquarium-debutant', label: 'Des plantes faciles pour débuter' },
+    ],
+  },
+  {
+    slug: 'epuisette-materiel-manipulation-poissons',
+    titre: 'Épuisette et matériel de manipulation : les indispensables',
+    eyebrow: 'Matériel',
+    description:
+      "Épuisette, seau dédié, tuyau de siphon : le petit matériel de manipulation qui simplifie vraiment l'entretien d'un aquarium.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "L'épuisette, l'outil du quotidien",
+        paragraphes: [
+          "Indispensable pour attraper un poisson en cas de besoin (quarantaine, déplacement) sans le stresser inutilement avec les mains.",
+        ],
+      },
+      {
+        titre: 'Un seau dédié à l’aquarium',
+        paragraphes: [
+          "Réservé exclusivement à cet usage, il évite tout résidu de produit ménager qui pourrait être toxique pour les poissons en cas de contact avec l'eau du bac.",
+        ],
+      },
+      {
+        titre: 'Le tuyau de siphon',
+        paragraphes: [
+          "Il combine souvent l'aspiration des déchets du substrat et le changement d'eau en une seule opération, un vrai gain de temps au quotidien.",
+        ],
+      },
+      {
+        titre: 'Des gants ou une manche dédiée',
+        paragraphes: [
+          "Pour les manipulations directes dans l'eau (récifal notamment), éviter tout contact avec crèmes, parfums ou résidus de savon protège les habitants du bac.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/nettoyer-aquarium-sans-stresser-poissons', label: 'Nettoyer son aquarium sans stresser ses poissons' },
+      { href: '/guides/changement-eau-aquarium-frequence-methode', label: 'Bien faire son changement d’eau' },
+    ],
+  },
+  {
+    slug: 'minuterie-programmateur-aquarium-utilite',
+    titre: 'Minuterie et programmateur : automatiser son aquarium',
+    eyebrow: 'Matériel',
+    description:
+      "Comment une simple minuterie programmable simplifie l'entretien quotidien d'un aquarium, notamment pour l'éclairage.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Automatiser l’éclairage',
+        paragraphes: [
+          "Une prise programmable garantit une photopériode régulière, jour après jour, sans dépendre d'y penser chaque soir.",
+        ],
+      },
+      {
+        titre: 'Une régularité utile pour les poissons et les plantes',
+        paragraphes: [
+          "Un cycle jour/nuit stable réduit le stress des poissons et favorise une croissance homogène des plantes.",
+        ],
+      },
+      {
+        titre: 'Automatiser d’autres équipements',
+        paragraphes: [
+          "Une pompe à air, un système de brassage ou un dosage automatique peuvent aussi bénéficier d'une programmation horaire selon les besoins du bac.",
+        ],
+      },
+      {
+        titre: 'Un allié pour les absences courtes',
+        paragraphes: [
+          "Couplée à un nourrisseur automatique, une bonne programmation permet de maintenir un fonctionnement stable pendant une absence de quelques jours.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/comprendre-la-photoperiode-aquarium', label: 'Comprendre la photopériode' },
+      { href: '/guides/vacances-aquarium-que-faire', label: 'Préparer son aquarium avant de partir' },
+    ],
+  },
+  {
+    slug: 'meuble-aquarium-bien-choisir',
+    titre: 'Bien choisir le meuble de son aquarium',
+    eyebrow: 'Matériel',
+    description:
+      "Solidité, niveau, rangement : ce qu'il faut vérifier avant de choisir le meuble qui supportera un aquarium rempli d'eau.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'La solidité avant tout',
+        paragraphes: [
+          "Un aquarium rempli pèse plusieurs centaines de kilos au-delà de quelques dizaines de litres. Un meuble conçu spécifiquement pour l'aquariophilie est fortement préférable à un meuble de salon classique.",
+        ],
+      },
+      {
+        titre: 'Un meuble parfaitement à niveau',
+        paragraphes: [
+          "Le moindre défaut de mise à niveau peut, sur la durée, exercer une pression inégale sur le fond du bac et fragiliser le collage des vitres.",
+        ],
+      },
+      {
+        titre: 'Le rangement pratique',
+        paragraphes: [
+          "Un meuble fermé permet de dissimuler le matériel technique (filtre externe, dosage, transformateurs) tout en le gardant accessible pour l'entretien.",
+        ],
+      },
+      {
+        titre: 'Anticiper l’emplacement final',
+        paragraphes: [
+          "Un meuble se déplace difficilement une fois l'aquarium rempli. Mieux vaut valider l'emplacement définitif avant la mise en eau plutôt qu'après.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/categorie/cuves', label: 'Voir les aquariums en vente' },
+      { href: '/guides/quel-volume-aquarium-choisir-espece', label: 'Quel volume choisir selon ses poissons' },
+    ],
+  },
+  {
+    slug: 'osmoseur-aquarium-a-quoi-ca-sert',
+    titre: 'L’osmoseur : à quoi sert une eau osmosée en aquarium ?',
+    eyebrow: 'Matériel',
+    description:
+      "Comment fonctionne un osmoseur, et dans quels cas il devient un investissement utile pour un aquarium d'eau douce ou récifal.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le principe de l’osmose inverse',
+        paragraphes: [
+          "L'eau du robinet est poussée à travers une membrane qui retient la quasi-totalité des minéraux et impuretés, produisant une eau presque pure en sortie.",
+        ],
+      },
+      {
+        titre: 'Un intérêt particulier en récifal',
+        paragraphes: [
+          "L'eau osmosée, reminéralisée avec du sel marin de façon contrôlée, permet de préparer une eau de qualité constante, un critère important pour la stabilité d'un bac récifal.",
+        ],
+      },
+      {
+        titre: 'Un intérêt pour certains bacs d’eau douce',
+        paragraphes: [
+          "Une eau du robinet très dure ou chargée en nitrates peut être coupée avec de l'eau osmosée pour se rapprocher des besoins d'espèces sensibles.",
+        ],
+      },
+      {
+        titre: 'Ce que l’osmoseur ne remplace pas',
+        paragraphes: [
+          "Il ne dispense pas de reminéraliser l'eau avant utilisation, une eau totalement pure n'étant stable pour aucune espèce d'aquarium.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/difference-eau-osmosee-eau-robinet-aquarium', label: 'Eau du robinet ou eau osmosée' },
+      { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH et magnésium en récifal' },
+    ],
+  },
+  {
+    slug: 'aquarium-communautaire-ou-espece-unique',
+    titre: 'Bac communautaire ou bac d’espèce : que choisir ?',
+    eyebrow: 'Comparatif',
+    description:
+      "Aquarium communautaire avec plusieurs espèces compatibles, ou bac dédié à une seule espèce : avantages et inconvénients de chaque approche.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le bac communautaire',
+        paragraphes: [
+          "Il permet de varier les couleurs et les comportements observés, à condition de bien vérifier la compatibilité des espèces choisies entre elles (température, caractère, taille).",
+        ],
+      },
+      {
+        titre: 'Le bac d’espèce',
+        paragraphes: [
+          "Dédié à une seule espèce, souvent en groupe, il simplifie le choix des paramètres et évite les problèmes de cohabitation, au prix d'une diversité visuelle plus réduite.",
+        ],
+      },
+      {
+        titre: 'Le cas des espèces territoriales',
+        paragraphes: [
+          "Certains poissons (Cichlidés notamment) supportent mal la cohabitation avec d'autres espèces et se prêtent souvent mieux à un bac d'espèce.",
+        ],
+      },
+      {
+        titre: 'Notre recommandation pour débuter',
+        paragraphes: [
+          "Un bac communautaire avec des espèces reconnues comme compatibles reste un bon point de départ. Un bac d'espèce demande généralement une recherche plus poussée en amont.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-son-premier-poisson', label: 'Choisir ses premiers poissons' },
+      { href: '/guides/quel-volume-aquarium-choisir-espece', label: 'Quel volume choisir selon ses poissons' },
+    ],
+  },
+  {
+    slug: 'led-vs-neon-eclairage-aquarium-comparatif',
+    titre: 'Éclairage LED ou néon : quel choix pour son aquarium ?',
+    eyebrow: 'Comparatif',
+    description:
+      "Comparatif entre l'éclairage LED et le néon (tube fluorescent) pour un aquarium : consommation, durée de vie et qualité de lumière.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'La consommation électrique',
+        paragraphes: [
+          "Une rampe LED consomme généralement bien moins d'électricité qu'un néon classique pour un éclairage équivalent, un avantage qui se ressent sur la durée.",
+        ],
+      },
+      {
+        titre: 'La durée de vie',
+        paragraphes: [
+          "Les LED conservent leurs performances beaucoup plus longtemps qu'un néon, dont l'intensité décline progressivement bien avant qu'il ne cesse de fonctionner.",
+        ],
+      },
+      {
+        titre: 'La qualité et la modularité de la lumière',
+        paragraphes: [
+          "De nombreuses rampes LED permettent de régler l'intensité et parfois le spectre, une souplesse que les tubes néon classiques n'offrent pas.",
+        ],
+      },
+      {
+        titre: 'Le cas du matériel déjà en place',
+        paragraphes: [
+          "Remplacer un néon fonctionnel par une LED n'est pas toujours une priorité immédiate. C'est surtout au moment d'un renouvellement de matériel que la LED s'impose aujourd'hui comme le choix par défaut.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/eclairage-bac-plante-choisir', label: 'Choisir l’éclairage d’un bac planté' },
+      { href: '/guides/eclairage-recifal-choisir-led', label: 'Choisir son éclairage LED en récifal' },
+    ],
+  },
+  {
+    slug: 'filtre-interne-ou-externe-comparatif',
+    titre: 'Filtre interne ou externe : lequel choisir ?',
+    eyebrow: 'Comparatif',
+    description:
+      "Différences entre un filtre interne et un filtre externe pour aquarium, et dans quels cas privilégier l'un ou l'autre.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le filtre interne',
+        paragraphes: [
+          "Installé directement dans le bac, il est généralement plus abordable et plus simple à entretenir, mais prend de la place visible dans l'aquarium et convient mieux aux volumes modestes.",
+        ],
+      },
+      {
+        titre: 'Le filtre externe',
+        paragraphes: [
+          "Installé sous le meuble, il libère entièrement l'espace visible du bac et offre souvent un volume de masses filtrantes plus important, un atout pour les bacs de grand volume ou fortement peuplés.",
+        ],
+      },
+      {
+        titre: 'L’entretien au quotidien',
+        paragraphes: [
+          "Un filtre interne se nettoie plus rapidement sur place, tandis qu'un filtre externe demande de le débrancher et de le sortir, une opération un peu plus longue mais moins fréquente.",
+        ],
+      },
+      {
+        titre: 'Notre recommandation selon le volume',
+        paragraphes: [
+          "Un filtre interne suffit généralement jusqu'à un certain volume, au-delà duquel un filtre externe devient souvent plus adapté pour maintenir une bonne qualité d'eau.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-filtration-aquarium', label: 'Bien choisir sa filtration' },
+      { href: '/guides/quel-filtre-choisir-selon-volume', label: 'Quel filtre choisir selon le volume' },
+    ],
+  },
+  {
+    slug: 'aquarium-eau-froide-ou-tropical',
+    titre: 'Aquarium d’eau froide ou tropical : quelle différence ?',
+    eyebrow: 'Comparatif',
+    description:
+      "Différences entre un aquarium d'eau froide (sans chauffage) et un aquarium tropical, et comment choisir selon les espèces envisagées.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'L’aquarium tropical',
+        paragraphes: [
+          "Le plus répandu, il maintient une température stable généralement comprise entre 24 et 28°C grâce à un chauffage, adaptée à la grande majorité des poissons d'ornement vendus en animalerie.",
+        ],
+      },
+      {
+        titre: 'L’aquarium d’eau froide',
+        paragraphes: [
+          "Sans chauffage, il convient à des espèces qui tolèrent ou préfèrent une température plus basse, comme certains poissons rouges ou certaines espèces originaires de zones tempérées.",
+        ],
+      },
+      {
+        titre: 'Ne pas confondre eau froide et bassin extérieur',
+        paragraphes: [
+          "Un aquarium d'eau froide reste un bac d'intérieur à température ambiante, différent d'un bassin de jardin exposé aux variations saisonnières extérieures.",
+        ],
+      },
+      {
+        titre: 'Le risque de mélanger les deux besoins',
+        paragraphes: [
+          "Un poisson tropical placé dans un bac non chauffé, ou l'inverse, subit un stress thermique durable qui affecte sa santé sur le long terme. Le choix du type de bac doit précéder celui des espèces.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/quel-volume-aquarium-choisir-espece', label: 'Quel volume choisir selon ses poissons' },
+      { href: '/guides/choisir-poissons-bassin-jardin', label: 'Quels poissons choisir pour son bassin' },
+    ],
+  },
 ];
 
 export function fetchGuideParSlug(slug: string): Guide | null {
