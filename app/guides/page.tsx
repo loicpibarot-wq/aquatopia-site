@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: TITRE,
   description: DESCRIPTION,
   alternates: { canonical: '/guides' },
-  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/guides', type: 'website' },
+  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/guides', type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
 };
 
 // Ordre d'affichage volontairement pédagogique : du plus généraliste

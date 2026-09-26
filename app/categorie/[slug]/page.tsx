@@ -109,7 +109,7 @@ export async function generateMetadata({
       title: `${contenu.metaTitre}${suffixe} | Aquatopia`,
       description: contenu.metaDescription,
       url,
-      type: 'website',
+      type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR',
     },
   };
 }

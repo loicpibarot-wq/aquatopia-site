@@ -50,7 +50,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: `${title} | Aquatopia`,
       description,
       url,
-      images: image ? [image] : undefined,
+      // Photo de l'annonce en priorité pour l'aperçu de partage ; à défaut
+      // (annonce sans photo), l'image générique du site plutôt que rien.
+      images: image ? [image] : ['/og-image.jpg'],
+      siteName: 'Aquatopia',
+      locale: 'fr_FR',
       type: 'website',
     },
   };

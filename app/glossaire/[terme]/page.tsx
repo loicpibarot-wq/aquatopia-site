@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { terme: string } }
     title: titre,
     description: terme.definition,
     alternates: { canonical: url },
-    openGraph: { title: `${titre} | Aquatopia`, description: terme.definition, url, type: 'article' },
+    openGraph: { title: `${titre} | Aquatopia`, description: terme.definition, url, type: 'article', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
   };
 }
 

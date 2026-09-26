@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: TITRE,
   description: DESCRIPTION,
   alternates: { canonical: '/glossaire' },
-  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/glossaire', type: 'website' },
+  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/glossaire', type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
 };
 
 export default function GlossairePage() {

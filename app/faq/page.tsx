@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: TITRE,
   description: DESCRIPTION,
   alternates: { canonical: '/faq' },
-  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/faq', type: 'website' },
+  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/faq', type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
 };
 
 export default function FaqPage() {

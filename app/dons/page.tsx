@@ -24,7 +24,7 @@ export async function generateMetadata({
     title: `${TITRE}${suffixe}`,
     description: DESCRIPTION,
     alternates: { canonical: url },
-    openGraph: { title: `${TITRE}${suffixe} | Aquatopia`, description: DESCRIPTION, url, type: 'website' },
+    openGraph: { title: `${TITRE}${suffixe} | Aquatopia`, description: DESCRIPTION, url, type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
   };
 }
 

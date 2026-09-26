@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: TITRE,
   description: DESCRIPTION,
   alternates: { canonical: '/a-propos' },
-  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/a-propos', type: 'website' },
+  openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/a-propos', type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
 };
 
 export default function AProposPage() {

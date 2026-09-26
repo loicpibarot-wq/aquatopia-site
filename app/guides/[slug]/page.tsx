@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: `${guide.titre} | Aquatopia`,
       description: guide.description,
       url,
-      type: 'article',
+      type: 'article', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR',
       publishedTime: guide.datePublication,
     },
   };
