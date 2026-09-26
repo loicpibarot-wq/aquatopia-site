@@ -64,7 +64,7 @@
   }
 
   .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
-  @media (max-width:640px){ .wrap{ padding:0 20px; } }
+  @media (max-width:640px){ .wrap{ padding:0 24px; } }
 
   a{ color:inherit; }
   img{ display:block; max-width:100%; }
