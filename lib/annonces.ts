@@ -136,6 +136,29 @@ export async function fetchAnnoncesParBiotope(
   return { annonces: (data ?? []) as unknown as Annonce[], total: count ?? 0 };
 }
 
+// --- Dons / échanges ---------------------------------------------------
+// Pages transversales (toutes catégories/biotopes confondus) sur le type de
+// transaction plutôt que sur l'objet — ce sont des recherches fréquentes
+// ("aquarium à donner", "poisson à échanger") assez peu couvertes par les
+// sites concurrents.
+export async function fetchAnnoncesParType(
+  type: 'don' | 'echange',
+  { limit = 24, offset = 0 }: { limit?: number; offset?: number } = {}
+): Promise<{ annonces: Annonce[]; total: number }> {
+  const colonne = type === 'don' ? 'is_don' : 'is_echange';
+  const { data, error, count } = await supabase
+    .from('annonces')
+    .select(COLONNES_PUBLIQUES, { count: 'exact' })
+    .eq('statut', 'active')
+    .eq('validee', true)
+    .eq(colonne, true)
+    .order('created_at', { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (error) throw error;
+  return { annonces: (data ?? []) as unknown as Annonce[], total: count ?? 0 };
+}
+
 export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
   const { data, error } = await supabase
     .from('annonces')

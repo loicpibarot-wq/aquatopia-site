@@ -25,6 +25,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  const transactions: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/dons`, changeFrequency: 'daily', priority: 0.7 },
+    { url: `${SITE_URL}/echanges`, changeFrequency: 'daily', priority: 0.7 },
+  ];
+
   let annonces: MetadataRoute.Sitemap = [];
   try {
     const liste = await fetchAnnoncesPourSitemap();
@@ -39,5 +44,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // page d'accueil plutôt que de faire échouer tout le sitemap.
   }
 
-  return [...racine, ...categories, ...biotopes, ...annonces];
+  return [...racine, ...categories, ...biotopes, ...transactions, ...annonces];
 }
