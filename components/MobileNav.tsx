@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 // étaient auparavant simplement invisibles jusqu'au footer.
 const LIENS: { href: string; label: string; ancre: boolean }[] = [
   { href: '/#fonctionnement', label: 'Comment ça marche', ancre: true },
-  { href: '/#categories', label: 'Catégories', ancre: true },
+  { href: '/#categories', label: 'Annonces', ancre: true },
   { href: '/guides', label: 'Guides', ancre: false },
   { href: '/#confiance', label: 'Confiance', ancre: true },
   { href: '/faq', label: 'FAQ débutant', ancre: false },
