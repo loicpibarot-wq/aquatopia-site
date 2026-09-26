@@ -146,27 +146,27 @@ export default function HomePage() {
             <h2>Tout pour votre passion : vivant, plantes, éclairage, décor &amp; accessoires — en eau douce, récifal ou bassin</h2>
           </div>
           <div className="biotope-grid">
-            <div className="biotope-card">
+            <Link href="/biotope/eau-douce" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="biotope-icon" style={{ background: '#1E85B0' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c3.5 4.2 6 7.7 6 10.5a6 6 0 0 1-12 0C6 10.7 8.5 7.2 12 3z" /></svg>
               </div>
               <h3>Eau Douce</h3>
               <p>Le plus grand rayon : poissons, plantes et invertébrés d&apos;eau douce.</p>
-            </div>
-            <div className="biotope-card">
+            </Link>
+            <Link href="/biotope/eau-de-mer" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="biotope-icon" style={{ background: '#00284F' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" /><path d="M3 10c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" /></svg>
               </div>
               <h3>Eau de Mer</h3>
               <p>Récifal et marin : poissons, coraux et invertébrés.</p>
-            </div>
-            <div className="biotope-card">
+            </Link>
+            <Link href="/biotope/bassin" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="biotope-icon" style={{ background: '#0F6B4F' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c2 2.5 2 4.5 0 6-2-1.5-2-3.5 0-6z" /><path d="M12 9c3 0 5.5 2.5 5.5 6H6.5C6.5 11.5 9 9 12 9z" /><path d="M4 19c2-1.3 4-1.3 6 0s4 1.3 6 0 4-1.3 4-1.3" /></svg>
               </div>
               <h3>Bassin</h3>
               <p>Plantes de bassin, poissons de bassin et extérieur.</p>
-            </div>
+            </Link>
           </div>
 
           <p className="subcat-label eyebrow" style={{ marginTop: 44 }}>Catégories, disponibles dans chaque univers</p>

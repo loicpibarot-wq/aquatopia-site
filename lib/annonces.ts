@@ -105,6 +105,37 @@ export async function fetchAnnoncesParCategorie(
   return { annonces: (data ?? []) as unknown as Annonce[], total: count ?? 0 };
 }
 
+// --- Biotopes --------------------------------------------------------------
+// Les 3 biotopes de l'app (voir ajouter.tsx) : Eau Douce, Eau de Mer, Bassin.
+// Même logique que CATEGORIE_VERS_SLUG ci-dessus, mais sur la colonne
+// `biotope` plutôt que `categorie`.
+export const BIOTOPE_VERS_SLUG: Record<string, string> = {
+  'Eau Douce': 'eau-douce',
+  'Eau de Mer': 'eau-de-mer',
+  Bassin: 'bassin',
+};
+
+export const SLUG_VERS_BIOTOPE: Record<string, string> = Object.fromEntries(
+  Object.entries(BIOTOPE_VERS_SLUG).map(([biotope, slug]) => [slug, biotope])
+);
+
+export async function fetchAnnoncesParBiotope(
+  biotope: string,
+  { limit = 24, offset = 0 }: { limit?: number; offset?: number } = {}
+): Promise<{ annonces: Annonce[]; total: number }> {
+  const { data, error, count } = await supabase
+    .from('annonces')
+    .select(COLONNES_PUBLIQUES, { count: 'exact' })
+    .eq('statut', 'active')
+    .eq('validee', true)
+    .eq('biotope', biotope)
+    .order('created_at', { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (error) throw error;
+  return { annonces: (data ?? []) as unknown as Annonce[], total: count ?? 0 };
+}
+
 export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
   const { data, error } = await supabase
     .from('annonces')
