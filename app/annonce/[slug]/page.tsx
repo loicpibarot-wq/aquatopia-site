@@ -110,8 +110,13 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
+      {/* Le fil visible doit rester identique au JSON-LD ci-dessus (mêmes
+          niveaux, mêmes liens) : Google peut ignorer les données structurées
+          si elles ne correspondent pas au fil d'Ariane affiché à l'écran. */}
       <div className="breadcrumb">
-        <Link href="/">Accueil</Link> · {annonce.categorie} · {annonce.biotope}
+        <Link href="/">Accueil</Link> ·{' '}
+        <Link href={`/categorie/${CATEGORIE_VERS_SLUG[annonce.categorie] ?? ''}`}>{annonce.categorie}</Link> ·{' '}
+        <Link href={`/biotope/${BIOTOPE_VERS_SLUG[annonce.biotope] ?? ''}`}>{annonce.biotope}</Link> · {annonce.titre}
       </div>
 
       <div className="annonce-grid">
