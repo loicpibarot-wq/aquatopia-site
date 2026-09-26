@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import DownloadButton from './DownloadButton';
+import MobileNav from './MobileNav';
 
 export default function Header() {
   return (
@@ -18,6 +19,7 @@ export default function Header() {
           <Link href="/faq" className="hide-mobile">FAQ débutant</Link>
           <DownloadButton className="btn btn-primary">Télécharger</DownloadButton>
         </nav>
+        <MobileNav />
       </div>
     </header>
   );
