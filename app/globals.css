@@ -23,7 +23,12 @@
   }
 
   *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%;}
+  /* Le header est `position:sticky` (~82px de haut) : sans ça, un lien
+     d'ancre (#categories, #confiance, etc. — dont ceux du menu hamburger)
+     fait atterrir le haut de la section juste sous le header, à moitié
+     caché. scroll-padding-top réserve cette marge pour tout saut d'ancre,
+     natif comme via scrollIntoView. */
+  html{-webkit-text-size-adjust:100%; scroll-padding-top:100px;}
   body{
     margin:0;
     background:var(--bg);
