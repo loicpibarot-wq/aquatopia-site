@@ -246,7 +246,12 @@
   .subcat-label{
     margin:44px 0 16px; color:var(--text-faint); font-size:0.82rem;
   }
-  .subcat-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  /* Grid plutôt que flex-wrap : les chips ont des largeurs de contenu très
+     différentes ("Vivant" vs "Matériel"), donc un flex-wrap les répartit en
+     lignes mal alignées entre elles dès qu'il y en a plus d'une. La grille
+     garantit des colonnes de même largeur, alignées quel que soit le nombre
+     de chips ou la largeur d'écran. */
+  .subcat-row{ display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:12px; }
   .subcat-chip{
     display:flex; align-items:center; gap:9px;
     padding:12px 20px; border-radius:999px; background:var(--bg-2);
