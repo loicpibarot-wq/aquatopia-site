@@ -7,6 +7,7 @@ export default function Header() {
   return (
     <header className="nav">
       <div className="wrap nav-row">
+        <MobileNav />
         <Link href="/" className="logo">
           <Image src="/logo.webp" alt="Logo Aquatopia, marketplace aquariophile" width={32} height={34} priority />
           <span className="logo-word">Aqua<b>topia</b></span>
@@ -19,7 +20,6 @@ export default function Header() {
           <Link href="/faq" className="hide-mobile">FAQ débutant</Link>
           <DownloadButton className="btn btn-primary">Télécharger</DownloadButton>
         </nav>
-        <MobileNav />
       </div>
     </header>
   );
