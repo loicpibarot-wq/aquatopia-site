@@ -674,6 +674,613 @@ export const GUIDES: Guide[] = [
       { href: '/guides/aquarium-recifal-par-ou-commencer', label: 'Démarrer en récifal' },
     ],
   },
+  {
+    slug: 'budget-demarrer-aquarium',
+    titre: "Combien coûte un aquarium ? Le budget réel pour démarrer",
+    eyebrow: 'Débuter',
+    description:
+      "Aquarium, filtre, chauffage, éclairage, entretien mensuel : le budget réaliste pour démarrer l'aquariophilie, en neuf comme en occasion.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Le budget d'équipement de départ",
+        paragraphes: [
+          "Un kit tout équipé (bac, filtre, chauffage, éclairage) couvre l'essentiel pour un premier bac, avec une fourchette de prix qui varie surtout selon le volume. Acheter séparément permet souvent de mieux choisir chaque élément, mais demande un peu plus de recherche. Dans les deux cas, passer par de l'occasion réduit fortement cette mise de départ, en particulier sur le bac et le meuble, les postes les plus coûteux en neuf.",
+        ],
+      },
+      {
+        titre: 'Le budget des premiers habitants',
+        paragraphes: [
+          "Les poissons et plantes robustes recommandés pour débuter restent généralement d'un coût modeste. Les espèces plus rares, ou un projet récifal avec des coraux, représentent un budget nettement plus élevé — une bonne raison de bien se renseigner avant de se lancer dans ce type de projet.",
+        ],
+      },
+      {
+        titre: "Le budget d'entretien mensuel",
+        paragraphes: [
+          "Au-delà de l'achat initial, il faut compter la nourriture, l'électricité du chauffage et de l'éclairage, ainsi que le remplacement occasionnel de consommables (masses filtrantes, réactifs de test). C'est un budget modeste mais réel, à anticiper avant de se lancer plutôt qu'à découvrir après coup.",
+        ],
+      },
+      {
+        titre: "Où l'occasion permet de vraiment économiser",
+        paragraphes: [
+          "Le matériel volumineux et durable (bac, meuble, filtre externe, éclairage) se revend et s'achète bien d'occasion, avec une décote importante par rapport au neuf. Les consommables (nourriture, réactifs de test, masses filtrantes) restent en revanche à acheter neufs, pour des raisons évidentes d'hygiène et d'efficacité.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/categorie/cuves', label: 'Voir les aquariums en vente' },
+      { href: '/guides/demarrer-aquarium-eau-douce', label: 'Démarrer un aquarium d’eau douce' },
+    ],
+  },
+  {
+    slug: 'erreurs-debutant-aquariophilie',
+    titre: "Les erreurs de débutant les plus fréquentes en aquariophilie (et comment les éviter)",
+    eyebrow: 'Débuter',
+    description:
+      "Cyclage sauté, suralimentation, bac trop peuplé trop vite : les erreurs classiques des nouveaux aquariophiles, et les bons réflexes pour les éviter.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Précipiter le démarrage',
+        paragraphes: [
+          "Introduire des poissons avant la fin du cyclage, peupler l'aquarium d'un coup au lieu d'y aller progressivement, ou choisir un bac trop petit pour gagner en marge d'erreur : la plupart des premiers échecs viennent d'un démarrage trop rapide, avant que l'équilibre biologique du bac ait eu le temps de s'installer.",
+        ],
+      },
+      {
+        titre: "Mal doser l'entretien courant",
+        paragraphes: [
+          "Suralimenter reste la cause la plus fréquente de pics d'ammoniac, tandis que des changements d'eau trop rares laissent les nitrates s'accumuler. À l'inverse, des changements d'eau trop fréquents ou trop importants peuvent déstabiliser un bac déjà équilibré. La régularité compte plus que l'intensité.",
+        ],
+      },
+      {
+        titre: 'Sous-estimer les besoins des poissons',
+        paragraphes: [
+          "Beaucoup d'espèces vendues jeunes atteignent une taille adulte bien plus importante, ou ont besoin de vivre en groupe pour ne pas stresser. Vérifier ces besoins avant l'achat évite bien des déceptions et des soucis de cohabitation quelques mois plus tard.",
+        ],
+      },
+      {
+        titre: 'Négliger le suivi',
+        paragraphes: [
+          "Ne tester l'eau qu'en cas de problème visible, au lieu de le faire régulièrement, retarde souvent la détection d'un déséquilibre. Un poisson léthargique ou qui perd l'appétit est un signal à prendre au sérieux tout de suite, pas à surveiller « pour voir ».",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+      { href: '/guides/reconnaitre-poisson-malade-stresse', label: 'Reconnaître un poisson malade ou stressé' },
+    ],
+  },
+  {
+    slug: 'reconnaitre-poisson-malade-stresse',
+    titre: 'Comment reconnaître un poisson malade ou stressé ?',
+    eyebrow: 'Comprendre',
+    description:
+      "Les signes qui doivent alerter chez un poisson d'aquarium : comportement, apparence, et les bons réflexes à avoir dès le premier doute.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Les signes comportementaux',
+        paragraphes: [
+          "Léthargie, isolement du reste du groupe, nage anormale (en biais, saccadée, ou au contraire immobile), perte d'appétit ou frottements contre le décor sont souvent les premiers signes visibles, avant même une anomalie physique.",
+        ],
+      },
+      {
+        titre: 'Les signes physiques',
+        paragraphes: [
+          "Des taches blanches ponctuelles évoquent souvent l'ich (maladie des points blancs), des nageoires abîmées ou recroquevillées un problème bactérien, des couleurs ternies ou un gonflement abdominal un mal-être plus général. Des yeux troubles ou exorbités sont également à surveiller de près.",
+        ],
+      },
+      {
+        titre: 'Les causes les plus fréquentes',
+        paragraphes: [
+          "Une mauvaise qualité d'eau (pic d'ammoniac ou de nitrites, souvent après un déséquilibre du cycle de l'azote), un stress de cohabitation, ou un parasite introduit par un nouveau poisson non mis en quarantaine expliquent la grande majorité des cas.",
+        ],
+      },
+      {
+        titre: 'Les bons réflexes',
+        paragraphes: [
+          "Tester l'eau immédiatement reste le premier réflexe, avant toute autre action : une bonne partie des soucis de santé viennent d'un paramètre déséquilibré plutôt que d'une maladie à proprement parler. Isoler le poisson suspect quand c'est possible limite aussi le risque de contamination du reste du bac.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+      { href: '/faq#entretien', label: 'Questions fréquentes sur l’entretien' },
+    ],
+  },
+  {
+    slug: 'role-du-filtre-dans-aquarium',
+    titre: "Comprendre le rôle du filtre dans un aquarium",
+    eyebrow: 'Comprendre',
+    description:
+      "Filtration mécanique, biologique, chimique : à quoi sert vraiment un filtre d'aquarium, au-delà de simplement « nettoyer l'eau ».",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'La filtration mécanique',
+        paragraphes: [
+          "Elle retient les particules en suspension (mousse, ouate, perlon) : c'est la fonction la plus visible du filtre, mais aussi la moins importante pour l'équilibre du bac sur le long terme.",
+        ],
+      },
+      {
+        titre: 'La filtration biologique',
+        paragraphes: [
+          "C'est le rôle le plus important, et souvent le plus sous-estimé : les masses filtrantes biologiques hébergent les bactéries nitrifiantes qui transforment l'ammoniac et les nitrites en substances beaucoup moins toxiques. C'est cette population bactérienne qui « fait » le cyclage d'un aquarium.",
+        ],
+      },
+      {
+        titre: 'La filtration chimique',
+        paragraphes: [
+          "Charbon actif ou résines anti-nitrates : utile ponctuellement, par exemple pour retirer un médicament après un traitement ou une odeur persistante, mais pas indispensable au quotidien dans un bac bien entretenu.",
+        ],
+      },
+      {
+        titre: 'Pourquoi ne jamais tout nettoyer d’un coup',
+        paragraphes: [
+          "Nettoyer l'ensemble des masses filtrantes en même temps, à l'eau du robinet et de manière trop appuyée, détruit une grande partie de cette population bactérienne. Rincer les masses biologiques dans l'eau du bac déjà retirée, et par roulement plutôt que toutes en même temps, préserve l'équilibre du cycle de l'azote.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-filtration-aquarium', label: 'Bien choisir sa filtration' },
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+    ],
+  },
+  {
+    slug: 'printemps-bassin-redemarrage',
+    titre: 'Bassin de jardin : bien relancer la saison au printemps',
+    eyebrow: 'Bassin',
+    description:
+      "Reprise de l'alimentation, nettoyage, relance de la filtration : comment redémarrer son bassin de jardin après l'hiver sans le déstabiliser.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Reprendre l'alimentation progressivement",
+        paragraphes: [
+          "Dès que l'eau dépasse 10°C, une reprise progressive avec une nourriture digeste est possible, avant de revenir au rythme et à la nourriture habituels une fois la température stabilisée au-delà de 14-15°C. Reprendre trop tôt ou trop généreusement peut perturber une digestion encore ralentie par le froid.",
+        ],
+      },
+      {
+        titre: 'Nettoyer sans tout perturber',
+        paragraphes: [
+          "Retirer les débris et les feuilles accumulées en surface reste utile, mais un nettoyage trop brutal du fond du bassin dérange aussi la faune utile qui s'y trouve. Mieux vaut y aller par étapes plutôt que de tout remuer en une seule fois.",
+        ],
+      },
+      {
+        titre: 'Relancer la filtration biologique',
+        paragraphes: [
+          "Si la filtration a été arrêtée ou ralentie pendant l'hiver, la remettre en route progressivement laisse le temps aux bactéries épuratrices de se redévelopper, plutôt que de la relancer brutalement à pleine puissance.",
+        ],
+      },
+      {
+        titre: 'Surveiller les premières proliférations d’algues',
+        paragraphes: [
+          "Le printemps est une période à risque pour les algues, avant que les plantes du bassin aient repris leur rôle de régulation naturelle des nutriments. Une eau qui verdit rapidement à cette période n'est pas anormale, mais mérite d'être surveillée.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/hivernage-poissons-bassin', label: 'Préparer l’hivernage de son bassin' },
+      { href: '/guides/eau-verte-bassin-solutions', label: 'Lutter contre l’eau verte en bassin' },
+    ],
+  },
+  {
+    slug: 'eau-verte-bassin-solutions',
+    titre: 'Eau verte dans un bassin : causes et solutions',
+    eyebrow: 'Bassin',
+    description:
+      "Pourquoi l'eau d'un bassin de jardin devient verte en été, et les solutions qui fonctionnent réellement pour retrouver une eau claire.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'La cause : des algues microscopiques',
+        paragraphes: [
+          "L'eau verte est due à une prolifération d'algues unicellulaires en suspension, favorisée par la lumière et l'excès de nutriments (déjections des poissons, décomposition de matière végétale). Ce n'est pas un signe de mauvaise santé du bassin en soi, mais un déséquilibre à corriger.",
+        ],
+      },
+      {
+        titre: 'Les solutions qui fonctionnent',
+        paragraphes: [
+          "Un clarificateur UV agglomère ces algues pour qu'elles soient ensuite piégées par le filtre. Les plantes oxygénantes et épuratrices concurrencent aussi les algues pour les nutriments disponibles. Un ombrage partiel du bassin limite la lumière disponible, un facteur clé de la prolifération.",
+        ],
+      },
+      {
+        titre: 'Les solutions à éviter',
+        paragraphes: [
+          "Les traitements chimiques agressifs, utilisés seuls sans corriger la cause, ramènent généralement le problème après quelques semaines. Une vidange totale du bassin déstabilise tout l'écosystème installé et peut, paradoxalement, aggraver la situation plutôt que la résoudre.",
+        ],
+      },
+      {
+        titre: 'Une question de patience',
+        paragraphes: [
+          "Un bassin neuf traverse souvent une phase d'eau verte avant de se stabiliser, une fois les plantes bien installées et l'équilibre biologique trouvé. Cette phase transitoire ne doit pas systématiquement pousser à intervenir dans l'urgence.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/demarrer-bassin-jardin', label: 'Démarrer un bassin de jardin' },
+      { href: '/categorie/materiel', label: 'Voir le matériel en vente' },
+    ],
+  },
+  {
+    slug: 'changement-eau-aquarium-frequence-methode',
+    titre: "Changement d'eau en aquarium : fréquence et bonne méthode",
+    eyebrow: 'Entretien',
+    description:
+      "Pourquoi, à quelle fréquence et comment faire un changement d'eau efficace en aquarium, sans stresser inutilement ses poissons.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Pourquoi changer l'eau régulièrement",
+        paragraphes: [
+          "Même avec une bonne filtration, les nitrates et d'autres substances continuent de s'accumuler dans l'eau au fil du temps. Le changement d'eau reste le seul moyen de les éliminer réellement, tout en réintroduisant des oligo-éléments consommés par les plantes et les poissons.",
+        ],
+      },
+      {
+        titre: 'La fréquence recommandée',
+        paragraphes: [
+          "Un changement de 10 à 20 % du volume par semaine convient à la plupart des bacs, à ajuster à la hausse si le bac est fortement peuplé ou si les nitrates montent rapidement entre deux changements.",
+        ],
+      },
+      {
+        titre: 'La bonne méthode',
+        paragraphes: [
+          "Siphonner le substrat en même temps que le changement d'eau permet de retirer les déchets qui s'y accumulent. La nouvelle eau doit être traitée avec un conditionneur anti-chlore et amenée à une température proche de celle du bac avant d'être réintroduite, pour éviter un choc thermique.",
+        ],
+      },
+      {
+        titre: "Les signes qu'il faut changer d'eau plus souvent",
+        paragraphes: [
+          "Des nitrates élevés au test, une eau qui jaunit visiblement entre deux changements, ou des poissons plus agités que d'habitude quelques jours après le dernier changement sont des signaux à prendre en compte pour ajuster la fréquence.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/parametres-eau-ph-gh-kh', label: 'Comprendre les paramètres de l’eau' },
+      { href: '/guides/cycle-de-lazote-aquarium', label: 'Comprendre le cycle de l’azote' },
+    ],
+  },
+  {
+    slug: 'nettoyer-aquarium-sans-stresser-poissons',
+    titre: 'Nettoyer son aquarium sans stresser ses poissons',
+    eyebrow: 'Entretien',
+    description:
+      "Vitres, décor, substrat : comment nettoyer un aquarium efficacement, sans perturber inutilement les poissons et l'équilibre biologique du bac.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Les vitres',
+        paragraphes: [
+          "Un aimant ou une raclette dédiée à l'aquarium, utilisés avec des mouvements lents, suffisent généralement à retirer les dépôts d'algues sans agiter excessivement les poissons.",
+        ],
+      },
+      {
+        titre: 'Le décor et les plantes',
+        paragraphes: [
+          "Retirer les algues à la main ou avec une brosse douce reste préférable aux produits chimiques anti-algues, qui peuvent affecter à la fois les poissons sensibles et les plantes du bac.",
+        ],
+      },
+      {
+        titre: 'Le substrat',
+        paragraphes: [
+          "Siphonner le substrat par zones, plutôt que l'ensemble du fond d'un seul coup, évite de perturber excessivement les bactéries qui s'y trouvent — un point particulièrement important dans un bac planté avec un substrat nutritif.",
+        ],
+      },
+      {
+        titre: 'Le bon rythme',
+        paragraphes: [
+          "Un entretien léger et régulier, chaque semaine, reste toujours moins stressant pour les poissons qu'un grand nettoyage espacé de plusieurs mois, qui bouleverse d'un coup l'ensemble du bac.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/changement-eau-aquarium-frequence-methode', label: 'Bien faire son changement d’eau' },
+    ],
+  },
+  {
+    slug: 'lutter-contre-les-algues-aquarium',
+    titre: 'Lutter contre les algues en aquarium : identifier et agir',
+    eyebrow: 'Entretien',
+    description:
+      "Algues brunes, vertes, filamenteuses, cyanobactéries : comment identifier le type d'algue et adapter la bonne solution à chaque cas.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Identifier le type d’algue',
+        paragraphes: [
+          "Les diatomées forment un voile brunâtre, fréquent dans un bac encore jeune. Les algues vertes en points ou en filaments traduisent le plus souvent un excès de lumière ou de nutriments. Les cyanobactéries, malgré leur nom, ne sont pas vraiment des algues : elles forment un voile glissant, souvent rougeâtre ou verdâtre, et une odeur caractéristique.",
+        ],
+      },
+      {
+        titre: 'Les causes communes',
+        paragraphes: [
+          "Un éclairage trop intense ou trop long, un excès de nutriments lié à la suralimentation ou à des changements d'eau trop rares, et un déséquilibre entre la quantité de plantes et la lumière disponible expliquent la grande majorité des invasions d'algues.",
+        ],
+      },
+      {
+        titre: 'Les solutions selon le cas',
+        paragraphes: [
+          "Réduire la photopériode, renforcer temporairement les changements d'eau, et ajouter des plantes à croissance rapide qui concurrencent les algues pour les nutriments sont les leviers les plus efficaces. Certaines espèces (Ancistrus, crevettes) aident aussi à limiter certains types d'algues au quotidien.",
+        ],
+      },
+      {
+        titre: 'Le piège à éviter',
+        paragraphes: [
+          "Traiter uniquement le symptôme avec un produit anti-algues, sans corriger la cause réelle (lumière ou nutriments en excès), ramène généralement le problème après quelques semaines.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/bien-nourrir-poissons-aquarium', label: 'Bien nourrir ses poissons' },
+      { href: '/glossaire/cyanobacteries', label: 'Cyanobactéries : définition' },
+    ],
+  },
+  {
+    slug: 'choisir-son-substrat-aquarium',
+    titre: "Bien choisir son substrat d'aquarium",
+    eyebrow: 'Décoration',
+    description:
+      "Sable, gravier, substrat nutritif : comment choisir le bon substrat d'aquarium selon le type de bac et les espèces hébergées.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Substrat neutre : sable ou gravier',
+        paragraphes: [
+          "Un substrat neutre suffit pour un bac peu planté, ou pour héberger des poissons de fond fouisseurs comme les Corydoras, qui préfèrent un substrat fin et non coupant pour ne pas abîmer leurs barbillons.",
+        ],
+      },
+      {
+        titre: 'Substrat nutritif',
+        paragraphes: [
+          "Conçu pour nourrir les racines des plantes, il est recommandé pour un bac fortement planté ou un projet d'aquascaping, où les plantes puisent une bonne partie de leurs nutriments directement dans le sol.",
+        ],
+      },
+      {
+        titre: 'Cas particulier : bacs à crevettes ou Cichlidés africains',
+        paragraphes: [
+          "Certains substrats dits « actifs » influencent le pH et le GH de l'eau : à réserver aux projets qui recherchent précisément cet effet, au risque sinon de déstabiliser un bac qui n'en a pas besoin.",
+        ],
+      },
+      {
+        titre: 'L’épaisseur, un détail qui compte',
+        paragraphes: [
+          "Une couche trop fine limite l'installation des racines et des bactéries utiles, tandis qu'une couche trop épaisse peut favoriser des zones anaérobies mal odorantes si le substrat n'est pas régulièrement entretenu.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/aquascaping-decor-naturel', label: 'Créer un décor naturel' },
+      { href: '/categorie/plantes', label: 'Voir les plantes en vente' },
+    ],
+  },
+  {
+    slug: 'plantes-faciles-aquarium-debutant',
+    titre: "Les plantes d'aquarium les plus faciles pour débuter",
+    eyebrow: 'Décoration',
+    description:
+      "Des plantes d'aquarium robustes, qui ne demandent ni CO2 ni éclairage puissant, parfaites pour un premier bac planté.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Anubias et fougère de Java (Microsorum)',
+        paragraphes: [
+          "Ces plantes se fixent sur une racine ou une roche plutôt que dans le substrat. Très tolérantes et à croissance lente, elles conviennent parfaitement à un premier bac, y compris avec un éclairage modeste.",
+        ],
+      },
+      {
+        titre: 'Les mousses (Java moss)',
+        paragraphes: [
+          "Faciles à attacher sur le décor, elles tolèrent une large gamme de conditions et servent aussi de cachette naturelle pour les alevins ou les crevettes.",
+        ],
+      },
+      {
+        titre: 'Cryptocoryne et Vallisneria',
+        paragraphes: [
+          "Des plantes de substrat robustes, qui forment une bonne base pour un premier bac planté classique, sans exigences particulières en CO2 ou en engrais.",
+        ],
+      },
+      {
+        titre: 'Ce qu’il faut éviter en débutant',
+        paragraphes: [
+          "Certaines plantes à forte demande en lumière et en CO2 (certaines Rotala, l'Hemianthus callitrichoides) fondent rapidement sans un matériel adapté — mieux vaut les réserver à un projet d'aquascaping plus avancé.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/categorie/plantes', label: 'Voir les plantes en vente' },
+      { href: '/guides/aquascaping-decor-naturel', label: 'Créer un décor naturel' },
+    ],
+  },
+  {
+    slug: 'eclairage-bac-plante-choisir',
+    titre: "Choisir l'éclairage de son aquarium planté",
+    eyebrow: 'Décoration',
+    description:
+      "Puissance, spectre, durée : comment choisir un éclairage adapté à un bac planté, sans provoquer une invasion d'algues.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le spectre lumineux',
+        paragraphes: [
+          "Les plantes utilisent principalement les longueurs d'onde rouge et bleue pour la photosynthèse. La plupart des rampes LED horticoles modernes couvrent bien ce spectre, sans qu'il soit nécessaire de rechercher un modèle très spécialisé pour débuter.",
+        ],
+      },
+      {
+        titre: 'La puissance selon les plantes',
+        paragraphes: [
+          "Les plantes exigeantes (tapis de sol, certaines Rotala) demandent un éclairage plus intense que les espèces faciles comme les Anubias ou les mousses, qui se contentent d'un éclairage modéré.",
+        ],
+      },
+      {
+        titre: "La durée d'éclairage",
+        paragraphes: [
+          "Une durée de 8 à 10 heures par jour constitue une bonne base pour la plupart des bacs plantés. Une durée excessive est l'une des causes les plus fréquentes d'invasion d'algues, bien avant un problème de puissance en elle-même.",
+        ],
+      },
+      {
+        titre: 'Éviter le sur-éclairage en début de bac',
+        paragraphes: [
+          "Un aquarium jeune, avec encore peu de plantes établies pour consommer les nutriments disponibles, est particulièrement sensible aux algues si l'éclairage est trop fort trop tôt. Mieux vaut monter progressivement en intensité à mesure que les plantes s'installent.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/lutter-contre-les-algues-aquarium', label: 'Lutter contre les algues' },
+      { href: '/guides/plantes-faciles-aquarium-debutant', label: 'Des plantes faciles pour débuter' },
+    ],
+  },
+  {
+    slug: 'chauffage-aquarium-bien-choisir-puissance',
+    titre: "Chauffage d'aquarium : comment bien choisir sa puissance",
+    eyebrow: 'Matériel',
+    description:
+      "Comment dimensionner un chauffage d'aquarium selon le volume du bac et la température de la pièce, et pourquoi la sécurité ne doit pas être négligée.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Le calcul de base',
+        paragraphes: [
+          "Une règle courante consiste à prévoir environ 1 watt par litre dans une pièce tempérée, un peu plus si la pièce est fraîche l'hiver ou si le bac est ouvert, ce qui augmente les déperditions de chaleur.",
+        ],
+      },
+      {
+        titre: 'Un ou deux chauffages ?',
+        paragraphes: [
+          "Au-delà de 150 à 200 litres, répartir la puissance sur deux chauffages de moindre puissance placés à chaque extrémité du bac assure une température plus homogène, et sécurise en cas de panne de l'un des deux appareils.",
+        ],
+      },
+      {
+        titre: 'Le thermostat, indispensable',
+        paragraphes: [
+          "La plupart des chauffages modernes intègrent un thermostat réglable. Vérifier sa précision avec un thermomètre séparé reste une bonne habitude, surtout dans les premières semaines suivant l'installation.",
+        ],
+      },
+      {
+        titre: 'Ne pas négliger la sécurité',
+        paragraphes: [
+          "Toujours débrancher le chauffage avant de baisser fortement le niveau d'eau, par exemple lors d'un grand changement d'eau, pour éviter qu'il ne chauffe à l'air libre et ne s'endommage.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/demarrer-aquarium-eau-douce', label: 'Démarrer un aquarium d’eau douce' },
+      { href: '/categorie/materiel', label: 'Voir le matériel en vente' },
+    ],
+  },
+  {
+    slug: 'pompe-a-air-utilite-aquarium',
+    titre: 'À quoi sert une pompe à air (bulleur) en aquarium ?',
+    eyebrow: 'Matériel',
+    description:
+      "Oxygénation, brassage de surface, alimentation d'accessoires : le rôle réel d'une pompe à air en aquarium d'eau douce.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Favoriser les échanges gazeux',
+        paragraphes: [
+          "Les bulles elles-mêmes n'oxygènent pas directement l'eau : c'est le brassage de surface qu'elles créent qui favorise les échanges gazeux, en particulier l'apport d'oxygène et l'évacuation du CO2 excédentaire.",
+        ],
+      },
+      {
+        titre: 'Utile en cas de forte chaleur ou de bac chargé',
+        paragraphes: [
+          "Un bac très peuplé, ou une eau chaude qui retient naturellement moins d'oxygène, profite particulièrement d'un complément d'aération, notamment pendant les périodes de forte chaleur.",
+        ],
+      },
+      {
+        titre: "Alimenter d'autres équipements",
+        paragraphes: [
+          "Une pompe à air peut aussi faire fonctionner un filtre à éponge ou un décor animé, en plus de son rôle d'aération proprement dit.",
+        ],
+      },
+      {
+        titre: 'Pas toujours indispensable',
+        paragraphes: [
+          "Un bac avec une bonne agitation de surface générée par le retour du filtre a souvent moins besoin d'un bulleur séparé, sauf cas particulier comme une forte densité de poissons ou un manque d'oxygène observé.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/choisir-filtration-aquarium', label: 'Bien choisir sa filtration' },
+      { href: '/categorie/materiel', label: 'Voir le matériel en vente' },
+    ],
+  },
+  {
+    slug: 'kit-test-eau-aquarium-lequel-choisir',
+    titre: "Quel kit de test d'eau choisir pour son aquarium ?",
+    eyebrow: 'Matériel',
+    description:
+      "Bandelettes, tests en gouttes, testeurs électroniques : avantages et limites de chaque méthode pour suivre les paramètres de son eau.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: 'Les bandelettes',
+        paragraphes: [
+          "Rapides et pratiques à utiliser, elles sont généralement moins précises que d'autres méthodes et se conservent mal une fois le flacon ouvert, avec une fiabilité qui décline dans le temps.",
+        ],
+      },
+      {
+        titre: 'Les tests en gouttes (type API)',
+        paragraphes: [
+          "Plus précis que les bandelettes, ils restent la référence pour un suivi régulier, aussi bien en eau douce qu'en récifal, au prix d'un peu plus de manipulation à chaque test.",
+        ],
+      },
+      {
+        titre: 'Les testeurs électroniques',
+        paragraphes: [
+          "Utiles surtout pour un suivi en continu de paramètres précis comme le pH, la salinité ou la température, ils représentent un coût d'achat plus élevé, généralement justifié pour un usage intensif ou un projet récifal.",
+        ],
+      },
+      {
+        titre: 'Ce qu’il faut tester en priorité',
+        paragraphes: [
+          "Ammoniac, nitrites et nitrates en priorité pendant le cyclage, puis pH et GH/KH de façon ponctuelle. En récifal, calcium, KH et magnésium s'ajoutent à ce suivi de base.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/parametres-eau-ph-gh-kh', label: 'Comprendre les paramètres de l’eau' },
+      { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH et magnésium en récifal' },
+    ],
+  },
+  {
+    slug: 'aquarium-neuf-ou-occasion-comparatif',
+    titre: "Aquarium neuf ou d'occasion : que choisir ?",
+    eyebrow: 'Comparatif',
+    description:
+      "Avantages et précautions de l'achat d'occasion face au neuf, pour un aquarium comme pour son matériel : ce qu'il faut vérifier avant de se décider.",
+    datePublication: '2026-09-26',
+    sections: [
+      {
+        titre: "Ce que l'occasion permet d'économiser",
+        paragraphes: [
+          "Un aquarium ou un kit complet d'occasion permet souvent d'obtenir un volume ou un équipement plus généreux pour un budget identique, un argument de poids pour un premier bac ou un projet d'agrandissement.",
+        ],
+      },
+      {
+        titre: "Ce qu'il faut vérifier avant d'acheter d'occasion",
+        paragraphes: [
+          "L'étanchéité et l'état du silicone pour un bac, le fonctionnement réel testé sur place pour un filtre ou une pompe, et l'ancienneté générale du matériel sont les points à contrôler avant de valider un achat d'occasion.",
+        ],
+      },
+      {
+        titre: 'Ce qui reste préférable en neuf',
+        paragraphes: [
+          "Les consommables (masses filtrantes, réactifs de test, nourriture) et le matériel dont l'usure n'est pas visible de l'extérieur, comme une résistance de chauffage, sont plus risqués à acheter d'occasion.",
+        ],
+      },
+      {
+        titre: 'Le bon réflexe : tester avant de valider',
+        paragraphes: [
+          "Lors d'une remise en main propre, demander à voir le matériel en fonctionnement quand c'est possible reste la meilleure garantie avant de finaliser un achat d'occasion.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/categorie/cuves', label: 'Voir les aquariums en vente' },
+      { href: '/guides/meilleur-aquarium-pour-debutant', label: 'Quel aquarium choisir pour débuter' },
+    ],
+  },
 ];
 
 export function fetchGuideParSlug(slug: string): Guide | null {
