@@ -39,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
+    { url: `${SITE_URL}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ];
 
   let annonces: MetadataRoute.Sitemap = [];

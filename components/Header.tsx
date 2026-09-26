@@ -15,7 +15,7 @@ export default function Header() {
           <a href="/#categories" className="hide-mobile">Catégories</a>
           <Link href="/guides" className="hide-mobile">Guides</Link>
           <a href="/#confiance" className="hide-mobile">Confiance</a>
-          <a href="/#faq" className="hide-mobile">FAQ</a>
+          <Link href="/faq" className="hide-mobile">FAQ débutant</Link>
           <DownloadButton className="btn btn-primary">Télécharger</DownloadButton>
         </nav>
       </div>
