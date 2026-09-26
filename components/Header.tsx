@@ -13,6 +13,7 @@ export default function Header() {
         <nav className="nav-links">
           <a href="/#fonctionnement" className="hide-mobile">Comment ça marche</a>
           <a href="/#categories" className="hide-mobile">Catégories</a>
+          <Link href="/guides" className="hide-mobile">Guides</Link>
           <a href="/#confiance" className="hide-mobile">Confiance</a>
           <a href="/#faq" className="hide-mobile">FAQ</a>
           <DownloadButton className="btn btn-primary">Télécharger</DownloadButton>

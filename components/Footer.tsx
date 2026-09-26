@@ -16,6 +16,7 @@ export default function Footer() {
           <a href="/#telecharger">Télécharger</a>
           <Link href="/dons">À donner</Link>
           <Link href="/echanges">À échanger</Link>
+          <Link href="/guides">Guides</Link>
         </div>
       </div>
     </footer>
