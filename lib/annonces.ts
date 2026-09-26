@@ -54,17 +54,17 @@ export async function fetchAnnoncesActives(limit = 5000): Promise<Annonce[]> {
 // évite les échecs intermittents observés avec la requête complète.
 export async function fetchAnnoncesPourSitemap(
   limit = 5000
-): Promise<Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at'>[]> {
+): Promise<Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at' | 'categorie' | 'biotope' | 'is_don' | 'is_echange'>[]> {
   const { data, error } = await supabase
     .from('annonces')
-    .select('id, titre, ville, created_at')
+    .select('id, titre, ville, created_at, categorie, biotope, is_don, is_echange')
     .eq('statut', 'active')
     .eq('validee', true)
     .order('created_at', { ascending: false })
     .limit(limit);
 
   if (error) throw error;
-  return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at'>[];
+  return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'created_at' | 'categorie' | 'biotope' | 'is_don' | 'is_echange'>[];
 }
 
 // Même principe que fetchAnnoncesPourSitemap, mais avec les photos en plus
