@@ -1351,8 +1351,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-clown d\'eau douce (Chromobotia)',
     nomScientifique: 'Chromobotia macracanthus',
     statutLegal: 'autorise',
-    remarqueLegale: 'doublon avec loche clown - à fusionner en base',
+    remarqueLegale:
+      "Peut atteindre 30 cm à l'âge adulte et vivre plus de 15 ans : un engagement sur le très long terme qui dépasse largement le petit poisson d'aquarium acheté juvénile.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chat grégaire et joueur, très prisé pour son caractère attachant et sa couleur orange vif rayée de noir, aussi connu sous le nom de loche clown. Souvent vendu juvénile de quelques centimètres, il grandit cependant énormément avec le temps.",
+      conseil:
+        "Anticipez la taille adulte avant l'achat : un bac de 700 L minimum est nécessaire à terme. Espèce grégaire qui a besoin de congénères pour s'épanouir et ne pas rester stressée.",
+      volumeMinLitres: 700,
+      tailleGroupeMin: 5,
+      compatibilite: "Grands characidés, autres poissons-chats paisibles, dans un bac à sa mesure.",
+      incompatibilite: "Petites crevettes ou escargots qu'elle peut considérer comme des proies une fois adulte.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 26,
+      tempMax: 30,
+      difficulte: 'Expert',
+      alimentation: "Omnivore : granulés de fond, légumes blanchis, proies occasionnelles.",
+      tailleAdulte: "Jusqu'à 30 cm",
+    },
   },
   {
     id: 50,
@@ -4090,8 +4108,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Hypancistrus zebra (L046)',
     nomScientifique: 'Hypancistrus zebra',
     statutLegal: 'autorise',
-    remarqueLegale: 'Annexe C reglement CE 338/97 (CITES) : encadre l\'import/export international, pas la revente en France une fois legalement dans l\'UE. Declaration d\'elevage captif demandee au vendeur par precaution.',
+    remarqueLegale:
+      "Listé à l'Annexe C du règlement CE 338/97 (CITES) : ce classement encadre l'import et l'export international, mais pas la revente en France une fois l'animal légalement présent dans l'UE. Une déclaration d'élevage captif est demandée au vendeur par précaution.",
     citesAnnexe: 'C',
+    fiche: {
+      description:
+        "Petit pléco brésilien au motif noir et blanc très contrasté et recherché, parmi les plus prisés des collectionneurs de poissons-chats L-number. Sa capture sauvage est interdite dans son pays d'origine depuis des années, ce qui a poussé son élevage en captivité.",
+      conseil:
+        "Demandez systématiquement au vendeur une preuve d'élevage en captivité plutôt qu'un prélèvement sauvage : la pression sur les populations naturelles de cette espèce reste très forte à cause de sa popularité.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 2,
+      compatibilite: "Autres poissons-chats paisibles, characidés calmes, dans un bac à courant modéré.",
+      incompatibilite: "Poissons agressifs ou trop rapides qui l'empêcheraient de se nourrir tranquillement.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 27,
+      tempMax: 30,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : granulés coulants riches en protéines, larves congelées.",
+      tailleAdulte: '7 à 8 cm',
+    },
   },
   {
     id: 151,
@@ -4100,8 +4136,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse américaine',
     nomScientifique: 'Orconectes limosus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante avec des populations déjà largement établies dans les cours d'eau français : sa vente, son transport et sa détention sont interdits, tout comme sa réintroduction dans le milieu naturel.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Écrevisse nord-américaine largement répandue dans les rivières et étangs français, où elle est porteuse saine d'un champignon mortel pour les écrevisses européennes indigènes, contribuant à leur déclin.",
+      conseil:
+        "Sa présence répandue dans la nature ne signifie pas qu'elle est autorisée à la vente : de nombreuses espèces invasives bien installées restent interdites précisément à cause de leur impact écologique déjà avéré.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '8 à 12 cm',
+    },
   },
   {
     id: 152,
@@ -4110,8 +4164,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse calico',
     nomScientifique: 'Faxonius immunis',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Écrevisse nord-américaine au corps tacheté rappelant un motif calico, capable de coloniser rapidement de nouveaux milieux grâce à sa tolérance à des conditions variées et sa reproduction rapide.",
+      conseil:
+        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu, même issu d'un achat antérieur à l'interdiction : c'est le geste le plus problématique pour la propagation de ces espèces.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '6 à 9 cm',
+    },
   },
   {
     id: 153,
@@ -4120,8 +4192,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse commune (Australie)',
     nomScientifique: 'Cherax destructor',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France, dont le nom scientifique (destructor) résume bien l'impact constaté sur les milieux où elle a été introduite : sa vente et son introduction dans le milieu naturel sont interdites.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grande écrevisse australienne originellement importée pour l'aquaculture alimentaire, dont l'appétit vorace et le comportement fouisseur peuvent déstabiliser fortement les berges et la végétation des milieux où elle s'installe.",
+      conseil:
+        "Son origine d'élevage alimentaire ne change rien à son statut actuel : une espèce introduite pour un usage commercial peut être requalifiée comme invasive et interdite si son impact écologique se révèle négatif.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '15 à 20 cm',
+    },
   },
   {
     id: 154,
@@ -4130,8 +4220,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Myriophylle du Brésil',
     nomScientifique: 'Myriophyllum aquaticum',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE, longtemps commercialisée pour son feuillage plumeux émergent avant son interdiction.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aquatique sud-américaine au feuillage fin et plumeux émergeant nettement au-dessus de la surface, formant des herbiers denses qui colonisent rapidement mares, fossés et cours d'eau à faible courant au détriment de la flore locale.",
+      conseil:
+        "Comme pour la plupart des plantes aquatiques invasives, un simple fragment de tige jeté dans la nature suffit à cette espèce pour bouturer et coloniser un nouveau milieu : les résidus de taille doivent toujours être jetés avec les déchets ménagers, jamais dans un cours d'eau.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "parties émergées de 10 à 30 cm",
+    },
   },
   {
     id: 155,
@@ -4140,8 +4248,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Salvinie géante',
     nomScientifique: 'Salvinia molesta',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France, considérée comme l'une des cent espèces les plus envahissantes au monde par l'UICN.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Fougère aquatique flottante sud-américaine à feuilles duveteuses repliées, capable de doubler sa biomasse en quelques jours et de former des tapis flottants si épais qu'ils bloquent totalement la lumière et l'oxygénation de l'eau en dessous.",
+      conseil:
+        "Son nom scientifique \"molesta\" (nuisible) n'est pas usurpé : cette espèce figure parmi les plantes aquatiques les plus problématiques recensées au monde et fait l'objet de programmes de lutte biologique dans plusieurs pays.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "feuilles de 1 à 2 cm, tapis flottant illimité",
+    },
   },
   {
     id: 156,
@@ -4150,8 +4276,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Faux hygrophile',
     nomScientifique: 'Gymnocoronis spilanthoides',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France, malgré une ressemblance trompeuse avec certaines hygrophiles d'aquarium autorisées.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante amphibie sud-américaine à petites fleurs blanches en pompons, capable de croître aussi bien immergée qu'en berge, formant des peuplements denses qui concurrencent fortement la végétation aquatique indigène des cours d'eau.",
+      conseil:
+        "Malgré son nom évoquant les hygrophiles d'aquarium couramment vendues, cette espèce est une plante distincte et interdite : ne vous fiez pas au seul nom commun pour juger de la légalité d'une plante aquatique.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges de 30 à 60 cm",
+    },
   },
   {
     id: 157,
@@ -4160,8 +4304,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Gambusie',
     nomScientifique: 'Gambusia affinis',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré son introduction historique pour la lutte antimoustique. Une espèce cousine très proche, Gambusia holbrooki, partage exactement le même statut.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson vivipare nord-américain introduit historiquement en Europe pour lutter contre les moustiques en consommant leurs larves, mais dont l'impact sur la faune aquatique locale s'est révélé fortement négatif.",
+      conseil:
+        "Son introduction historique à des fins sanitaires ne rend pas sa détention légale aujourd'hui : de nombreuses espèces introduites pour un bénéfice supposé se sont révélées invasives et sont désormais interdites.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '3 à 7 cm',
+    },
   },
   {
     id: 158,
@@ -4170,8 +4332,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Escargot-pomme',
     nomScientifique: 'Pomacea maculata',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE - à ne pas confondre avec l\'escargot mystère (Pomacea bridgesii) qui reste autorisé.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec l'escargot mystère (Pomacea bridgesii) qui reste autorisé à la vente.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Le plus grand escargot-pomme introduit en Europe, à la coquille pouvant dépasser 8 cm, originaire d'Amérique du Sud. Comme les autres Pomacea invasives, il pond des amas d'œufs roses vifs hors de l'eau et dévaste la végétation aquatique là où il s'établit.",
+      conseil:
+        "Ne relâchez jamais un escargot d'aquarium dans un point d'eau naturel : ses œufs et sa reproduction rapide suffisent à coloniser durablement un plan d'eau entier.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: 'jusqu\'à 8 cm',
+    },
   },
   {
     id: 159,
@@ -4180,8 +4360,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Pseudorasbora / goujon asiatique',
     nomScientifique: 'Pseudorasbora parva',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment car elle est porteuse d'un agent pathogène dangereux pour les cyprinidés locaux.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit cyprinidé asiatique introduit accidentellement en Europe via le commerce de poissons d'élevage, aujourd'hui connu pour transmettre un parasite responsable d'une maladie mortelle chez plusieurs espèces de cyprinidés indigènes.",
+      conseil:
+        "Au-delà de son statut envahissant, cette espèce représente un risque sanitaire réel pour la faune aquatique locale : ne jamais introduire un poisson d'origine incertaine dans un point d'eau naturel.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '5 à 11 cm',
+    },
   },
   {
     id: 160,
@@ -4190,8 +4388,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Escargot-pomme',
     nomScientifique: 'Pomacea canaliculata',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE - à ne pas confondre avec l\'escargot mystère (Pomacea bridgesii) qui reste autorisé.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec l'escargot mystère (Pomacea bridgesii) qui reste autorisé à la vente.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand escargot d'eau douce sud-américain à la coquille brun-vert, pondant ses œufs roses caractéristiques hors de l'eau sur les végétaux des berges. Son appétit vorace pour les plantes aquatiques en fait un ravageur redouté des zones humides et des rizières.",
+      conseil:
+        "Si vous recherchez un escargot mangeur d'algues pour votre aquarium, tournez-vous vers l'escargot mystère (Pomacea bridgesii), une espèce proche mais légalement autorisée en France.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '5 à 7 cm',
+    },
   },
   {
     id: 161,
@@ -4200,8 +4416,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Choquemort',
     nomScientifique: 'Fundulus heteroclitus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré sa robustesse remarquable qui a facilité sa propagation.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson nord-américain d'une robustesse exceptionnelle, capable de tolérer de fortes variations de salinité et de température, ce qui explique sa capacité à s'établir durablement une fois introduit dans un nouveau milieu.",
+      conseil:
+        "Sa tolérance extrême aux variations de milieu, souvent citée comme un atout en aquariophilie, est précisément ce qui en fait une espèce invasive redoutable une fois relâchée dans la nature.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '8 à 15 cm',
+    },
   },
   {
     id: 162,
@@ -4210,8 +4444,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Jussie rampante',
     nomScientifique: 'Ludwigia peploides',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE - à ne pas confondre avec Ludwigia repens qui reste autorisée.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec la Ludwigia repens, une espèce d'aquarium distincte qui reste autorisée à la vente.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante amphibie sud-américaine à tiges rampantes et fleurs jaunes, l'une des jussies les plus problématiques des zones humides françaises, capable de former des radeaux végétaux denses qui recouvrent intégralement plans d'eau et canaux.",
+      conseil:
+        "Vérifiez toujours le nom scientifique complet avant tout achat de jussie pour aquarium : la confusion avec Ludwigia repens, morphologiquement proche mais légale, est une source fréquente d'erreur.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges rampantes de plusieurs mètres",
+    },
   },
   {
     id: 163,
@@ -4220,8 +4472,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Vivipare chinoise',
     nomScientifique: 'Cipangopaludina chinensis',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand escargot d'eau douce asiatique à la coquille arrondie, introduit accidentellement en Europe via le commerce aquariophile ou alimentaire, où il concurrence les mollusques indigènes pour la nourriture et l'espace.",
+      conseil:
+        "N'introduisez jamais un mollusque ou un poisson dans un point d'eau naturel, même par simple geste de \"libération\" bienveillant : c'est la principale voie d'introduction des espèces invasives comme celle-ci.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '5 à 6 cm',
+    },
   },
   {
     id: 164,
@@ -4230,8 +4500,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Crabe chinois',
     nomScientifique: 'Eriocheir sinensis',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment en raison de son comportement fouisseur qui déstabilise les berges.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand crabe migrateur capable de vivre en eau douce puis de rejoindre la mer pour se reproduire, reconnaissable à ses pinces velues caractéristiques. Son comportement fouisseur peut fragiliser durablement les berges des cours d'eau colonisés.",
+      conseil:
+        "Sa capacité à migrer entre eau douce et eau salée le rend particulièrement difficile à contenir une fois introduit : un geste isolé de relâcher peut suffire à établir une population durable sur tout un bassin versant.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '6 à 10 cm (largeur de carapace)',
+    },
   },
   {
     id: 165,
@@ -4240,8 +4528,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse à pinces bleues',
     nomScientifique: 'Orconectes virilis',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Écrevisse nord-américaine aux pinces teintées de bleu, robuste et adaptable, capable de coloniser rapidement de nouveaux milieux aquatiques une fois introduite, au détriment des espèces locales.",
+      conseil:
+        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu dans la nature, même un seul : c'est ce geste isolé qui permet à ces espèces de fonder une population durable dans un nouveau cours d'eau.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '8 à 12 cm',
+    },
   },
   {
     id: 166,
@@ -4250,8 +4556,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse de Californie / écrevisse signal',
     nomScientifique: 'Pacifastacus leniusculus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France, porteuse saine d'un champignon mortel pour les écrevisses européennes indigènes : sa vente et son introduction dans le milieu naturel sont interdites.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Écrevisse nord-américaine largement introduite en Europe historiquement pour l'aquaculture, aujourd'hui l'une des principales responsables du déclin des écrevisses européennes indigènes via un champignon pathogène qu'elle transmet sans en être elle-même affectée.",
+      conseil:
+        "Son introduction historique à des fins commerciales illustre bien pourquoi une espèce exotique, même prometteuse au départ, peut devenir un problème écologique majeur des décennies plus tard.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '10 à 15 cm',
+    },
   },
   {
     id: 167,
@@ -4260,8 +4584,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Jacinthe d\'eau',
     nomScientifique: 'Eichhornia crassipes',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE, considérée comme l'une des plantes aquatiques les plus envahissantes au monde malgré ses fleurs mauves très ornementales.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante flottante sud-américaine aux belles fleurs mauves et aux pétioles renflés qui lui servent de flotteurs, capable de doubler sa surface de couverture en quelques jours seulement dans des conditions favorables.",
+      conseil:
+        "Sa vitesse de prolifération record en fait une référence mondiale des espèces invasives : dans certains pays, elle a nécessité des campagnes de retrait mécanique à grande échelle pour rouvrir des voies navigables totalement obstruées.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "rosette de 10 à 30 cm de hauteur",
+    },
   },
   {
     id: 168,
@@ -4297,8 +4639,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Hydrocotyle fausse-renoncule',
     nomScientifique: 'Hydrocotyle ranunculoides',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE - à ne pas confondre avec Hydrocotyle leucocephala qui reste autorisée.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec l'Hydrocotyle leucocephala (trèfle d'eau), une espèce distincte qui reste autorisée à la vente en aquarium.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aquatique nord-américaine à feuilles arrondies rappelant la renoncule, capable de croître à la fois immergée et émergée et de former des tapis flottants denses qui obstruent les cours d'eau et fossés.",
+      conseil:
+        "Vérifiez toujours le nom scientifique complet avant tout achat de plante à feuillage rond pour bassin : la confusion entre cette espèce interdite et l'Hydrocotyle leucocephala autorisée est fréquente sur le marché.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges rampantes de plusieurs mètres",
+    },
   },
   {
     id: 170,
@@ -4307,8 +4667,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-météo rayé',
     nomScientifique: 'Misgurnus bipartitus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente et son introduction dans le milieu naturel sont interdites, cousine proche de la loche de bassin également interdite.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Loche asiatique proche de la loche de bassin, capable elle aussi de respirer l'air atmosphérique et de survivre longtemps hors de l'eau, ce qui facilite sa propagation en cas d'introduction dans un point d'eau naturel.",
+      conseil:
+        "Comme la loche de bassin, sa capacité à survivre hors de l'eau en fait une espèce particulièrement problématique une fois relâchée : ne jamais introduire un poisson de bassin dans un point d'eau naturel.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '10 à 14 cm',
+    },
   },
   {
     id: 171,
@@ -4317,8 +4695,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Laitue d\'eau',
     nomScientifique: 'Pistia stratiotes',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE, autrefois populaire en bassin pour son feuillage flottant décoratif.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante flottante tropicale à la rosette de feuilles veloutées rappelant une laitue, appréciée en bassin pour son aspect ornemental mais capable de recouvrir intégralement la surface d'un plan d'eau, privant la vie aquatique de lumière et d'oxygène.",
+      conseil:
+        "Une surface d'eau entièrement recouverte de laitue d'eau bloque les échanges gazeux et peut provoquer des mortalités massives de poissons et d'invertébrés par manque d'oxygène : c'est ce mécanisme qui justifie son interdiction.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "rosette de 10 à 15 cm de diamètre",
+    },
   },
   {
     id: 172,
@@ -4327,8 +4723,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Crassule de Helms',
     nomScientifique: 'Crassula helmsii',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE, capable de se ressemer à partir du moindre fragment de tige.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petite plante aquatique australo-néozélandaise à tiges charnues, longtemps vendue comme plante de bassin avant d'être reconnue comme l'une des espèces végétales aquatiques les plus envahissantes d'Europe, formant des tapis denses qui étouffent les milieux humides.",
+      conseil:
+        "Cette espèce illustre le risque des plantes de bassin échappées : jadis largement commercialisée, elle est aujourd'hui interdite et fait l'objet de programmes d'éradication coûteux dans plusieurs pays européens.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tapis rampant, quelques cm de hauteur",
+    },
   },
   {
     id: 173,
@@ -4337,8 +4751,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Escargot géant',
     nomScientifique: 'Marisa cornuarietis',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, comme pour les autres escargots du genre Pomacea/apparentés jugés invasifs.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand escargot d'eau douce sud-américain, apprécié en aquariophilie pour son appétit vorace envers les algues, mais dont la reproduction rapide et l'appétit tout aussi vorace envers les plantes aquatiques en font une espèce à fort impact écologique une fois introduite dans la nature.",
+      conseil:
+        "Un appétit vorace pour les algues, souvent vanté comme un atout en aquarium, est précisément ce qui rend une espèce dangereuse pour la végétation aquatique native une fois relâchée dans un milieu naturel.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '5 à 7 cm',
+    },
   },
   {
     id: 174,
@@ -4347,8 +4779,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Cabomba / éventail de Caroline',
     nomScientifique: 'Cabomba caroliniana',
     statutLegal: 'cites_a_signaler',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce inscrite sur la liste des espèces exotiques envahissantes préoccupantes pour l'Union européenne : toute observation dans le milieu naturel doit être signalée aux autorités compétentes, et sa dispersion en dehors d'un aquarium fermé est à éviter absolument.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aquatique oxygénante très prisée en aquariophilie pour son feuillage fin et dentelé disposé en éventail, appréciée pour son effet décoratif en arrière-plan, mais capable de proliférer fortement dans les cours d'eau tempérés en cas de rejet dans la nature.",
+      conseil:
+        "Ne jetez jamais de résidus de taille de cabomba dans un cours d'eau, un fossé ou une mare naturelle : conservez toujours vos boutures et déchets de taille en circuit fermé (aquarium, compost domestique) pour éviter toute dissémination.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: null,
+      compatibilite: "Bac communautaire d'eau douce bien éclairé, avec un substrat nutritif et un courant modéré favorisant sa croissance en éventail.",
+      incompatibilite: "Bacs peu éclairés ou trop encombrés en surface, où elle perd rapidement ses feuilles inférieures.",
+      phMin: 6.0,
+      phMax: 7.5,
+      tempMin: 18,
+      tempMax: 26,
+      difficulte: 'Intermédiaire',
+      alimentation: "Plante autotrophe : lumière intense, CO2 additionnel et engrais liquide recommandés pour un feuillage dense.",
+      tailleAdulte: "tiges de 30 à 50 cm",
+    },
   },
   {
     id: 175,
@@ -4357,8 +4807,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Myriophylle hétérophylle',
     nomScientifique: 'Myriophyllum heterophyllum',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France - à ne pas confondre avec d'autres myriophylles indigènes ou cultivées en aquarium.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aquatique nord-américaine à feuillage fin et dense, capable de former des herbiers très denses qui étouffent la végétation indigène et gênent la circulation de l'eau et des embarcations dans les cours d'eau colonisés.",
+      conseil:
+        "Ne jetez jamais de résidus de taille de plante aquatique dans un cours d'eau ou un fossé : un simple fragment suffit à cette espèce pour bouturer et fonder une nouvelle colonie.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges pouvant dépasser 1 m de long",
+    },
   },
   {
     id: 176,
@@ -4395,8 +4863,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Goujon de l\'Amour',
     nomScientifique: 'Perccottus glenii',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE, connue pour sa résistance exceptionnelle au gel et à l'hypoxie qui facilite son établissement dans de nouveaux milieux.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson d'eau douce originaire d'Extrême-Orient russe et de Chine, capable de survivre à des conditions extrêmes (eau gelée, très faible teneur en oxygène) qui lui permettent de coloniser des milieux où la plupart des poissons indigènes ne peuvent subsister.",
+      conseil:
+        "Sa tolérance hors norme aux conditions extrêmes en fait une espèce redoutée des écologues : une fois établi, il est capable de survivre à des hivers rigoureux qui élimineraient la faune piscicole locale concurrente.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '15 à 25 cm',
+    },
   },
   {
     id: 178,
@@ -4405,8 +4891,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Jussie à grandes fleurs',
     nomScientifique: 'Ludwigia grandiflora',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE - à ne pas confondre avec Ludwigia repens qui reste autorisée.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec la Ludwigia repens, une espèce d'aquarium distincte qui reste autorisée à la vente.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante amphibie sud-américaine aux grandes fleurs jaunes voyantes, l'une des deux jussies les plus problématiques des zones humides françaises aux côtés de Ludwigia peploides, capable de recouvrir intégralement mares et canaux.",
+      conseil:
+        "Vérifiez toujours le nom scientifique complet avant tout achat de jussie pour aquarium : la confusion avec Ludwigia repens, morphologiquement proche mais légale, est une source fréquente d'erreur.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges rampantes de plusieurs mètres",
+    },
   },
   {
     id: 179,
@@ -4415,8 +4919,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-chat noir américain',
     nomScientifique: 'Ameiurus melas',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France, avec des populations déjà largement établies dans les cours d'eau et étangs : sa vente et son introduction dans le milieu naturel sont interdites.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chat nord-américain robuste et opportuniste, largement répandu dans les eaux douces françaises où il concurrence les espèces locales et peut proliférer rapidement dans les milieux pauvres en prédateurs.",
+      conseil:
+        "Sa robustesse et sa large présence dans la nature ne rendent pas sa détention légale : de nombreuses espèces invasives bien installées restent interdites précisément à cause de leur impact déjà avéré sur les écosystèmes locaux.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '20 à 40 cm',
+    },
   },
   {
     id: 180,
@@ -4425,8 +4947,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse à taches rouges',
     nomScientifique: 'Faxonius rusticus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et son introduction dans le milieu naturel sont interdits, en raison de son comportement agressif envers les écrevisses indigènes.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Écrevisse nord-américaine reconnaissable aux deux taches rouges caractéristiques sur les côtés de la carapace, connue pour son comportement agressif qui lui permet de déplacer et supplanter les écrevisses locales dans les milieux colonisés.",
+      conseil:
+        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu dans la nature : c'est précisément ce geste, même isolé, qui permet à ces espèces de s'établir durablement dans un nouveau cours d'eau.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '8 à 12 cm',
+    },
   },
   {
     id: 181,
@@ -4435,8 +4975,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Moule pygmée',
     nomScientifique: 'Limnoperna fortunei',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment en raison de sa capacité à obstruer massivement les infrastructures aquatiques.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petite moule d'eau douce sud-américaine capable de se fixer en colonies très denses sur toutes sortes de surfaces immergées, y compris les canalisations et équipements techniques, où elle peut causer d'importants dégâts matériels.",
+      conseil:
+        "Son impact ne se limite pas à l'écologie : elle peut obstruer des infrastructures entières (prises d'eau, canalisations), ce qui en fait une espèce à la fois écologiquement et économiquement problématique une fois installée.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 182,
@@ -4445,8 +5003,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-tête-de-serpent du Nord',
     nomScientifique: 'Channa argus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France/UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France et dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de son statut de super-prédateur capable de survivre hors de l'eau et de coloniser de nouveaux milieux par voie terrestre.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand poisson prédateur d'origine est-asiatique, doté d'un organe respiratoire accessoire lui permettant de survivre plusieurs jours hors de l'eau et de se déplacer sur un sol humide. Une fois établi, il élimine la faune piscicole locale par prédation directe.",
+      conseil:
+        "Sa capacité unique à survivre hors de l'eau en fait l'une des espèces exotiques les plus redoutées des gestionnaires de milieux aquatiques : un individu relâché peut littéralement ramper vers un point d'eau voisin.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: 'jusqu\'à 1 m',
+    },
   },
   {
     id: 183,
@@ -4455,8 +5031,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Élodée de Nuttall',
     nomScientifique: 'Elodea nuttallii',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France, aujourd'hui l'une des plantes aquatiques les plus répandues dans les cours d'eau français.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aquatique nord-américaine totalement immergée à feuilles verticillées, l'une des espèces exotiques les plus largement établies dans les eaux douces françaises, où elle forme des herbiers denses concurrençant fortement la végétation indigène.",
+      conseil:
+        "Son ampleur d'implantation actuelle en France montre à quel point une plante d'aquarium en apparence anodine peut, une fois relâchée, devenir durablement établie dans tout un réseau hydrographique.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges de 1 à 3 m",
+    },
   },
   {
     id: 184,
@@ -4465,8 +5059,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Gambusie',
     nomScientifique: 'Gambusia holbrooki',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré son introduction historique pour la lutte antimoustique.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson vivipare nord-américain introduit historiquement en Europe pour lutter contre les moustiques en consommant leurs larves, mais dont l'impact sur la faune aquatique locale s'est révélé fortement négatif.",
+      conseil:
+        "Son introduction historique à des fins sanitaires ne rend pas sa détention légale aujourd'hui : de nombreuses espèces introduites pour un bénéfice supposé se sont révélées invasives et sont désormais interdites.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '3 à 6 cm',
+    },
   },
   {
     id: 185,
@@ -4475,8 +5087,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Grand Lagarosiphon',
     nomScientifique: 'Lagarosiphon major',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE, ressemblant à certaines élodées d'aquarium mais interdite à la vente et à la détention en France.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aquatique sud-africaine totalement immergée, aux feuilles recourbées disposées en spirale le long de tiges pouvant dépasser plusieurs mètres, formant des herbiers denses qui gênent la navigation et la biodiversité des lacs colonisés.",
+      conseil:
+        "Sa ressemblance avec certaines élodées vendues en aquariophilie est trompeuse : vérifiez toujours le nom scientifique complet avant tout achat de plante immergée à feuillage spiralé.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: "tiges de 2 à 3 m",
+    },
   },
   {
     id: 186,
@@ -4485,8 +5115,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Écrevisse marbrée',
     nomScientifique: 'Procambarus fallax',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en UE (auto-clonage).',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de sa capacité unique à se reproduire par clonage, sans mâle, qui lui permet de fonder une population entière à partir d'un seul individu relâché.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Écrevisse d'aquarium née en captivité dans les années 1990, uniquement femelle et capable de se reproduire par parthénogenèse : chaque individu est génétiquement identique à sa mère, sans nécessiter de mâle ni de fécondation.",
+      conseil:
+        "Sa capacité à se cloner fait de cette espèce l'un des cas les plus emblématiques du risque invasif en aquariophilie : un unique individu relâché suffit, à lui seul, à fonder une population entière dans un nouveau milieu.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '10 à 13 cm',
+    },
   },
 ];
 // Seules les espèces avec une fiche rédigée ont une page publiée — le
