@@ -133,6 +133,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Vivipare actif reconnaissable à la longue extension caudale du mâle qui rappelle une épée, d'où son nom. Sociable et rustique, il peut parfois se montrer un peu compétitif entre mâles pour la hiérarchie, sans réelle agressivité destructrice.",
+      conseil:
+        "Comme les autres vivipares, gardez plus de femelles que de mâles pour limiter le harcèlement reproductif. Prévoyez un bac assez long : c'est un excellent nageur qui apprécie l'espace.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres vivipares (guppy, molly, platy), corydoras, tétras robustes.",
+      incompatibilite: "Poissons très calmes ou lents qui pourraient être bousculés par son activité.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 20,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
+      tailleAdulte: '8 à 12 cm (épée caudale du mâle en plus)',
+    },
   },
   {
     id: 5,
@@ -170,6 +187,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Très proche cousin du tétra néon, le cardinal s'en distingue par sa bande rouge qui s'étend sur toute la longueur du corps (contre la moitié seulement chez le néon). Originaire du Rio Negro amazonien, il apprécie une eau douce et légèrement acide, plus proche de son habitat naturel que le néon.",
+      conseil:
+        "Comme le néon, il ne s'épanouit qu'en banc généreux. Il est un peu plus sensible aux variations de paramètres que le néon commun — évitez de l'introduire dans un bac tout juste cyclé.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 8,
+      compatibilite: "Corydoras, autres petits characidés, crevettes, escargots.",
+      incompatibilite: "Gros poissons prédateurs, cichlidés territoriaux.",
+      phMin: 5,
+      phMax: 6.5,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
+      tailleAdulte: '2,5 à 3 cm',
+    },
   },
   {
     id: 7,
@@ -247,6 +281,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit corydoras au masque noir caractéristique autour des yeux, qui lui vaut son nom. Un peu plus sensible aux hautes températures que d'autres corydoras plus rustiques comme le bronze, il préfère une eau plus fraîche.",
+      conseil:
+        "Évitez de le maintenir au-dessus de 25°C sur la durée : contrairement au corydoras bronze, il supporte mal la chaleur prolongée, ce qui peut poser problème dans un bac communautaire partagé avec des espèces tropicales plus exigeantes en température.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 6,
+      compatibilite: "Poissons paisibles de température modérée : tétras, danios, autres corydoras.",
+      incompatibilite: "Bac maintenu à température tropicale élevée en continu (au-delà de 25-26°C), substrat tranchant.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 25,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
+      tailleAdulte: '5 cm',
+    },
   },
   {
     id: 13,
@@ -375,6 +426,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plus grand que le gourami nain, le gourami perlé arbore un motif de points argentés qui évoquent des perles sur tout le corps. Calme et sociable, il est moins territorial que d'autres labyrinthidés et cohabite bien en communauté.",
+      conseil:
+        "Comme tous les labyrinthidés, il respire l'air en surface : évitez un couvercle trop hermétique qui empêcherait l'accès à l'air ambiant, plus chaud et humide que l'eau, dont il a besoin pour cet organe respiratoire.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 1,
+      compatibilite: "Characidés, corydoras, autres poissons paisibles de communauté.",
+      incompatibilite: "Poissons très agressifs ou territoriaux qui pourraient le stresser.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      tailleAdulte: '10 à 12 cm',
+    },
   },
   {
     id: 19,
@@ -459,6 +527,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit barbus paisible et discret, apprécié pour la couleur rouge cerise intense que prend le mâle en période de parade. Contrairement à d'autres barbus, il n'est pas un nageur agité et reste plutôt calme.",
+      conseil:
+        "Un bac bien planté avec une lumière tamisée met en valeur ses couleurs et le rassure : c'est une espèce plutôt craintive qui apprécie les cachettes et la végétation dense.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres petits characidés et cyprinidés paisibles, corydoras, crevettes.",
+      incompatibilite: "Poissons agressifs ou trop imposants qui l'intimideraient.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes et granulés, larves congelées appréciées.",
+      tailleAdulte: '3 à 4 cm',
+    },
   },
   {
     id: 24,
@@ -477,8 +562,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Loche clown',
     nomScientifique: 'Chromobotia macracanthus',
     statutLegal: 'autorise',
-    remarqueLegale: null,
+    remarqueLegale:
+      "Peut atteindre 30 cm à l'âge adulte et vivre plus de 15 ans : un engagement sur le très long terme qui dépasse largement le petit poisson d'aquarium acheté juvénile.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chat grégaire et joueur, très prisé pour son caractère attachant et sa couleur orange vif rayée de noir. Souvent vendu juvénile de quelques centimètres, il grandit cependant énormément avec le temps.",
+      conseil:
+        "Anticipez la taille adulte avant l'achat : un bac de 700 L minimum est nécessaire à terme. Espèce grégaire qui a besoin de congénères pour s'épanouir et ne pas rester stressée.",
+      volumeMinLitres: 700,
+      tailleGroupeMin: 5,
+      compatibilite: "Grands characidés, autres poissons-chats paisibles, dans un bac à sa mesure.",
+      incompatibilite: "Petites crevettes ou escargots qu'elle peut considérer comme des proies une fois adulte.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 26,
+      tempMax: 30,
+      difficulte: 'Expert',
+      alimentation: "Omnivore : granulés de fond, légumes blanchis, proies occasionnelles.",
+      tailleAdulte: "Jusqu'à 30 cm",
+    },
   },
   {
     id: 26,
@@ -541,8 +644,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Pléco commun',
     nomScientifique: 'Hypostomus plecostomus',
     statutLegal: 'autorise',
-    remarqueLegale: null,
+    remarqueLegale:
+      "Peut dépasser 40 cm à l'âge adulte : très souvent vendu juvénile sans que l'acheteur anticipe cette taille finale, l'une des causes fréquentes d'abandon de cette espèce.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chat nocturne au corps cuirassé, réputé pour nettoyer les vitres et le décor des algues. Discret le jour, actif la nuit, il grandit cependant bien au-delà de ce que sa taille en animalerie laisse penser.",
+      conseil:
+        "Vérifiez la taille adulte avant l'achat plutôt que la taille en magasin : un juvénile de 5 cm réclame à terme un bac de plusieurs centaines de litres et une filtration robuste pour supporter sa bioload.",
+      volumeMinLitres: 400,
+      tailleGroupeMin: 1,
+      compatibilite: "Grands cichlidés et characidés robustes, poissons paisibles de bac assez grand.",
+      incompatibilite: "Petits poissons ou invertébrés qu'il pourrait blesser une fois adulte par sa taille et son comportement de raclage.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Expert',
+      alimentation: "Algivore/omnivore : pastilles de fond, légumes blanchis, bois flotté indispensable à sa digestion.",
+      tailleAdulte: "Jusqu'à 40-50 cm",
+    },
   },
   {
     id: 29,
@@ -891,6 +1012,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson de rivière grégaire et rustique, traditionnellement utilisé en bassin pour sa robustesse et son comportement de banc très vivant en surface. Apprécie l'eau fraîche et bien oxygénée.",
+      conseil:
+        "Une bonne oxygénation de l'eau (cascade, fontaine, brasseur) est essentielle : le vairon est habitué aux eaux courantes et vives et supporte mal une eau stagnante et chaude.",
+      volumeMinLitres: 1000,
+      tailleGroupeMin: 8,
+      compatibilite: "Autres poissons de bassin rustiques, tanche, poisson rouge dans un grand volume.",
+      incompatibilite: "Poissons prédateurs de grande taille qui en feraient une proie facile.",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 4,
+      tempMax: 20,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : granulés fins, petits invertébrés aquatiques.",
+      tailleAdulte: '6 à 9 cm',
+    },
   },
   {
     id: 57,
@@ -1286,6 +1424,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Crevette d'ornement très recherchée pour son motif blanc et rouge marqué, issue de sélections poussées du genre Caridina. Plus exigeante que les Neocaridina (red cherry), elle demande une eau plus douce et stable.",
+      conseil:
+        "Contrairement aux crevettes red cherry, elle a besoin d'un GH et d'un pH plus bas et stables : un sol actif spécifique crevettes et une eau osmosée reminéralisée sont fortement recommandés pour la maintenir durablement.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 10,
+      compatibilite: "Autres Caridina de même exigence, petits poissons très paisibles et non prédateurs.",
+      incompatibilite: "Tout poisson même modérément prédateur, et croisement à éviter avec d'autres variétés de Caridina.",
+      phMin: 6,
+      phMax: 7,
+      tempMin: 20,
+      tempMax: 24,
+      difficulte: 'Expert',
+      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 88,
@@ -1387,6 +1542,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit escargot d'aquarium à coquille discoïdale rouge-orangé, très facile à maintenir et utile pour nettoyer les débris et le biofilm. Se reproduit facilement dès que les conditions sont favorables.",
+      conseil:
+        "Sa reproduction est rapide en conditions favorables (nourriture abondante) : surveillez la population et réduisez les apports de nourriture si elle devient trop importante, plutôt que de chercher à l'éliminer complètement.",
+      volumeMinLitres: 20,
+      tailleGroupeMin: null,
+      compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
+      incompatibilite: "Poissons mangeurs d'escargots (certains botias, tétraodons) qui le considéreraient comme une proie.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 18,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture.",
+      tailleAdulte: '1,5 à 2 cm',
+    },
   },
   {
     id: 93,
