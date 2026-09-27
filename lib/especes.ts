@@ -214,6 +214,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Characidé jaune vif aux nageoires bordées de noir et de blanc, très vivant en banc. Sa couleur se révèle pleinement dans un bac bien planté avec un fond sombre et un éclairage adapté.",
+      conseil:
+        "Maintenu en groupe suffisant, il exprime des parades et une hiérarchie sociale intéressantes à observer, en plus de paraître bien moins stressé qu'en petit nombre.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres characidés paisibles, corydoras, gouramis calmes.",
+      incompatibilite: "Poissons agressifs ou nageurs très rapides qui le stresseraient.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '4 à 5 cm',
+    },
   },
   {
     id: 8,
@@ -711,6 +728,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson d'eau douce originaire de Nouvelle-Guinée, réputé pour son corps bicolore bleu-argenté à l'avant et orange à l'arrière, particulièrement marqué chez le mâle adulte. Grégaire et actif, il nage sur tous les niveaux du bac.",
+      conseil:
+        "Ses couleurs se développent pleinement avec l'âge et prennent plusieurs mois : ne jugez pas un jeune sujet terne en animalerie, il se révèle progressivement dans de bonnes conditions.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres arc-en-ciel, characidés et cyprinidés de taille et tempérament similaires.",
+      incompatibilite: "Petits poissons très craintifs qui pourraient être bousculés par son activité.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : paillettes, granulés, complément de larves congelées.",
+      tailleAdulte: '10 à 12 cm',
+    },
   },
   {
     id: 32,
@@ -791,6 +825,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit cichlidé nain très coloré (bleu, jaune, orangé selon les variétés), apprécié pour son comportement de couple fidèle et son caractère globalement paisible malgré son appartenance à la famille des cichlidés.",
+      conseil:
+        "Plus sensible aux variations de qualité d'eau que la plupart des poissons de communauté : des changements d'eau réguliers et une eau stable sont essentiels à sa longévité, surtout les premières semaines après l'achat.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 1,
+      compatibilite: "Tétras, corydoras, autres poissons de communauté paisibles d'eau douce chaude.",
+      incompatibilite: "Cichlidés territoriaux plus grands et agressifs.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 26,
+      tempMax: 29,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
+      tailleAdulte: '5 à 7 cm',
+    },
   },
   {
     id: 40,
@@ -909,8 +960,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Arowana asiatique',
     nomScientifique: 'Scleropages formosus',
     statutLegal: 'cites_a_signaler',
-    remarqueLegale: 'CITES Annexe I - vente strictement encadrée (puce électronique + certificat individuel obligatoire) - ne jamais autoriser en libre-service',
+    remarqueLegale:
+      "Espèce classée CITES Annexe I, le niveau de protection le plus strict : chaque individu doit être identifié par puce électronique et accompagné d'un certificat individuel intra-communautaire. Aucune vente ni détention n'est possible sans ces documents.",
     citesAnnexe: 'A',
+    fiche: {
+      description:
+        "Grand poisson d'ornement légendaire en Asie, au corps allongé et aux écailles reflétant des teintes dorées, rouges ou argentées selon la variété. Sa rareté et son statut CITES en font une espèce très prisée mais lourdement encadrée.",
+      conseil:
+        "N'envisagez cet achat que via un éleveur ou revendeur agréé capable de fournir la puce et le certificat CITES individuel du poisson : sans ces documents, la détention est illégale, quel que soit le prix ou l'origine annoncée.",
+      volumeMinLitres: 1500,
+      tailleGroupeMin: 1,
+      compatibilite: "Grands poissons calmes de même gabarit, dans un bac à sa mesure.",
+      incompatibilite: "Petits poissons qu'il considère comme des proies une fois adulte.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 30,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : proies vivantes ou congelées, granulés spécifiques grands prédateurs.",
+      tailleAdulte: "Jusqu'à 60-90 cm",
+    },
   },
   {
     id: 52,
@@ -1096,6 +1165,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Le plus emblématique des poissons-clowns, orange vif à trois bandes blanches bordées de noir. Très majoritairement issu d'élevage aujourd'hui, il s'adapte facilement à la vie en aquarium récifal et forme un couple durable.",
+      conseil:
+        "Il n'a pas besoin d'une anémone pour vivre : en aquarium, il s'accommode très bien d'un simple rocher ou corail comme point de repère, l'association avec une anémone étant un plus esthétique, non une nécessité.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 2,
+      compatibilite: "Autres poissons de récif paisibles, crevettes nettoyeuses, gobies.",
+      incompatibilite: "Autres poissons-clowns non apparentés, qui se disputeront le territoire.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      tailleAdulte: '6 à 8 cm',
+    },
   },
   {
     id: 62,
@@ -1307,6 +1393,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Anémone hôte reconnaissable à ses tentacules renflés en forme de bulbe, souvent choisie pour héberger un couple de poissons-clowns. Contrairement à l'anémone à tapis, elle est réputée plus tolérante pour un aquariophile expérimenté.",
+      conseil:
+        "Un éclairage puissant et stable ainsi qu'un brassage adapté sont indispensables : une anémone qui se rétracte ou se déplace sans cesse signale des conditions inadéquates, à corriger avant qu'elle ne dépérisse.",
+      volumeMinLitres: 200,
+      tailleGroupeMin: null,
+      compatibilite: "Poissons-clowns, dans un bac mature avec un éclairage et une chimie d'eau stables.",
+      incompatibilite: "Coraux placés trop près, qu'elle peut brûler avec ses tentacules urticants.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : morceaux de poisson ou de crevette, mysis, 1 à 2 fois par semaine.",
+      tailleAdulte: '15 à 30 cm de diamètre',
+    },
   },
   {
     id: 78,
@@ -1707,6 +1810,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante d'aquarium parmi les plus populaires et les plus robustes, aux feuilles vert foncé fixées sur bois ou roche plutôt que plantées dans le substrat. Excellente pour les débutants et pour créer des cachettes naturelles.",
+      conseil:
+        "Ne l'enterrez jamais dans le substrat : son rhizome doit rester à l'air libre, fixé sur un support avec du fil ou de la colle spéciale plantes, sous peine de pourrir.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à quasiment tous les habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui broutent activement les feuilles, ralentissant sa croissance.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse ; se contente d'un éclairage modéré, CO2 non indispensable.",
+      tailleAdulte: '15 à 30 cm',
+    },
   },
   {
     id: 101,
@@ -1757,6 +1877,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Cichlidé africain du lac Malawi, coloré et au tempérament vif, souvent maintenu en communauté d'espèces similaires façon \"bac Malawi\". Territorial, il établit une hiérarchie marquée entre mâles.",
+      conseil:
+        "Maintenez-le uniquement avec d'autres cichlidés du Malawi de tempérament comparable, jamais avec des poissons paisibles d'Amérique du Sud ou d'Asie : l'eau dure et alcaline qu'il requiert et son agressivité ne conviennent pas à un bac communautaire classique.",
+      volumeMinLitres: 250,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres cichlidés du lac Malawi de gabarit similaire (Aulonocara, Labidochromis).",
+      incompatibilite: "Poissons paisibles d'eau douce classique, plantes fragiles qu'il déterre souvent.",
+      phMin: 7.8,
+      phMax: 8.6,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore à tendance algivore : granulés spécifiques cichlidés africains, spiruline.",
+      tailleAdulte: '10 à 12 cm',
+    },
   },
   {
     id: 106,
@@ -1785,8 +1922,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Oscar',
     nomScientifique: 'Astronotus ocellatus',
     statutLegal: 'autorise',
-    remarqueLegale: null,
+    remarqueLegale:
+      "Peut atteindre 30 à 35 cm et vivre plus de 10 ans : souvent vendu juvénile à quelques centimètres sans que sa taille et sa bioload adulte soient anticipées.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand cichlidé sud-américain réputé pour son intelligence et son caractère très attachant : il reconnaît son propriétaire et interagit avec lui. Sa taille adulte impressionnante en fait un poisson pour aquariophile préparé.",
+      conseil:
+        "Prévoyez le volume adulte dès l'achat plutôt que d'agrandir au fur et à mesure : un bac trop petit freine sa croissance et nuit à sa santé. Une filtration puissante est indispensable vu sa production de déchets.",
+      volumeMinLitres: 400,
+      tailleGroupeMin: 1,
+      compatibilite: "Autres grands cichlidés sud-américains de tempérament et gabarit similaires.",
+      incompatibilite: "Petits poissons, qu'il considère comme des proies une fois adulte.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Omnivore/carnivore : granulés spécifiques grands cichlidés, proies occasionnelles.",
+      tailleAdulte: '30 à 35 cm',
+    },
   },
   {
     id: 109,
@@ -2482,8 +2637,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Perche soleil',
     nomScientifique: 'Lepomis gibbosus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espèce exotique envahissante réglementée en France.',
+    remarqueLegale:
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré sa présence ancienne et répandue dans de nombreux cours d'eau et étangs français.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson d'origine nord-américaine largement répandu dans les eaux douces françaises depuis son introduction au 19e siècle, où il concurrence fortement les espèces locales. Sa large présence dans la nature ne rend pas sa détention légale.",
+      conseil:
+        "Ne confondez pas \"présent partout dans les rivières\" et \"autorisé à la vente\" : de nombreuses espèces invasives bien installées restent interdites à la détention et au commerce précisément à cause de leur impact écologique.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '10 à 15 cm',
+    },
   },
   {
     id: 177,
