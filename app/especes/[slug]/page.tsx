@@ -54,13 +54,19 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         <p style={{ marginTop: 6, fontStyle: 'italic', color: 'var(--text-muted)' }}>{espece.nomScientifique}</p>
       </div>
 
-      {espece.statutLegal !== 'autorise' && espece.remarqueLegale && (
-        <div className={`espece-alerte ${espece.statutLegal === 'cites_a_signaler' ? 'cites' : ''}`}>
+      {espece.remarqueLegale && (
+        <div
+          className={`espece-alerte ${
+            espece.statutLegal === 'cites_a_signaler' ? 'cites' : espece.statutLegal === 'autorise' ? 'info' : ''
+          }`}
+        >
           <p>
             <strong>
               {espece.statutLegal === 'interdite'
                 ? '⚠ Vente et détention interdites en France. '
-                : '⚠ Espèce réglementée (CITES) — déclaration obligatoire. '}
+                : espece.statutLegal === 'cites_a_signaler'
+                  ? '⚠ Espèce réglementée (CITES) — déclaration obligatoire. '
+                  : 'ℹ Point de vigilance. '}
             </strong>
             {espece.remarqueLegale}
             {espece.citesAnnexe && ` (Annexe ${espece.citesAnnexe})`}
@@ -68,7 +74,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      <p className="annonce-desc" style={{ maxWidth: 760, marginTop: espece.statutLegal === 'autorise' ? 28 : 0 }}>
+      <p className="annonce-desc" style={{ maxWidth: 760, marginTop: espece.remarqueLegale ? 0 : 28 }}>
         {fiche.description}
       </p>
 
@@ -79,7 +85,9 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </div>
         <div className="espece-fact">
           <span>Groupe minimum</span>
-          <strong>{fiche.tailleGroupeMin ? `${fiche.tailleGroupeMin} individus` : 'Non applicable'}</strong>
+          <strong>
+            {fiche.tailleGroupeMin ? `${fiche.tailleGroupeMin} individu${fiche.tailleGroupeMin > 1 ? 's' : ''}` : 'Non applicable'}
+          </strong>
         </div>
         <div className="espece-fact">
           <span>pH idéal</span>

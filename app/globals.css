@@ -343,6 +343,7 @@
     border:1px solid rgba(224,94,94,0.35); background:rgba(224,94,94,0.08);
   }
   .espece-alerte.cites{ border-color:rgba(224,177,94,0.4); background:rgba(224,177,94,0.08); }
+  .espece-alerte.info{ border-color:var(--border-strong); background:var(--bg-2); }
   .espece-alerte p{ margin:0; font-size:0.92rem; color:var(--text); line-height:1.6; }
 
   .espece-facts{ display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:14px; margin:28px 0; max-width:760px; }

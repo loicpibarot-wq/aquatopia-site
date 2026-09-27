@@ -489,6 +489,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson serpentiforme rayé, la loche kuhli fouille le substrat à la recherche de nourriture et se cache dès que la lumière est trop vive. Discrète et grégaire, elle s'épanouit vraiment en groupe, où elle devient plus visible et active.",
+      conseil:
+        "Un substrat fin (sable) est indispensable : elle s'enfouit régulièrement dedans, un gravier grossier blesse son corps sans écailles rigides. Prévoyez de nombreuses cachettes (racines, plantes denses) pour qu'elle se sente en sécurité et sorte plus volontiers.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 5,
+      compatibilite: "Poissons paisibles de surface et de pleine eau qui ne se disputent pas le substrat.",
+      incompatibilite: "Poissons agressifs de fond, substrat gravier grossier.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent, vers de vase.",
+      tailleAdulte: '8 à 10 cm',
+    },
   },
   {
     id: 27,
@@ -536,6 +553,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit cichlidé ouest-africain très populaire pour son ventre rose-rouge caractéristique chez la femelle, particulièrement vif en période de reproduction. Il forme des couples fidèles qui creusent une cavité (racine, pot renversé) pour y pondre et défendre leurs alevins avec vigueur.",
+      conseil:
+        "Prévoyez une grotte ou un pot en terre cuite renversé comme cachette de ponte. Un couple bien installé peut devenir territorial envers ses voisins pendant la garde des œufs — évitez de le partager avec des poissons trop craintifs dans un petit volume.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 2,
+      compatibilite: "Characidés de taille moyenne, corydoras, poissons qui ne s'approchent pas de la zone de ponte.",
+      incompatibilite: "Petits poissons/crevettes en période de reproduction (agressivité de garde), autres cichlidés territoriaux.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : granulés, vers de vase et artémias congelés.",
+      tailleAdulte: '7 à 10 cm (mâle plus grand que la femelle)',
+    },
   },
   {
     id: 30,
@@ -830,6 +864,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson de bassin discret et fouisseur, la tanche passe le plus clair de son temps près du fond à la recherche d'invertébrés et de débris organiques, jouant un rôle utile de nettoyeur naturel. Rustique, elle tolère bien le froid et s'accommode d'une eau moins oxygénée que d'autres espèces.",
+      conseil:
+        "Très discrète et souvent invisible dans un bassin planté, elle ne doit pas être confondue avec un poisson d'ornement à admirer en surface — c'est un poisson utilitaire de fond avant tout. Compatible avec les koï et poissons rouges dans un même bassin.",
+      volumeMinLitres: 2000,
+      tailleGroupeMin: 2,
+      compatibilite: "Carpes koï, poissons rouges, autres poissons de bassin calmes.",
+      incompatibilite: "Bassin trop petit sans zone de fond meuble à fouiller.",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 4,
+      tempMax: 24,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore de fond : invertébrés, débris organiques, granulés coulants.",
+      tailleAdulte: '20 à 40 cm en bassin',
+    },
   },
   {
     id: 56,
@@ -917,6 +968,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson marin au bleu vif et à la silhouette ovale caractéristique, popularisé par le cinéma d'animation. Contrairement au poisson-clown, il n'est pratiquement jamais né en élevage à grande échelle et grandit vite — il a besoin d'un volume bien plus important qu'on ne l'imagine souvent.",
+      conseil:
+        "Ne l'achetez jamais juvénile en pensant qu'un petit bac suffira : il peut atteindre 30 cm et nage sur de grandes distances en milieu naturel. Une scalpel acérée près de la queue (d'où son nom \"chirurgien\") peut blesser en cas de manipulation imprudente.",
+      volumeMinLitres: 400,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons-clowns, demoiselles, gobies — bac récifal ou marin établi de grand volume.",
+      incompatibilite: "Petit bac (moins de 400L), autres chirurgiens de la même espèce dans un espace restreint (agressivité intraspécifique).",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Principalement algivore : algues, nori, complété par des granulés/paillettes marines.",
+      tailleAdulte: 'Jusqu’à 30 cm',
+    },
   },
   {
     id: 63,
@@ -1017,6 +1085,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'cites_a_signaler',
     remarqueLegale: 'genre entier listé CITES Annexe II - certificat de cession et traçabilité obligatoires, ne jamais autoriser en libre-service',
     citesAnnexe: 'B',
+    fiche: {
+      description:
+        "Poisson marin emblématique à la nage verticale unique, l'hippocampe est un nageur lent et un chasseur à l'affût, très différent des poissons récifaux classiques. Il forme des couples fidèles, et c'est le mâle qui porte les œufs dans une poche ventrale jusqu'à l'éclosion.",
+      conseil:
+        "Le genre entier est protégé par la CITES (Annexe II) en raison de la surpêche pour la médecine traditionnelle et le commerce d'aquariophilie sauvage : toute cession doit être accompagnée d'un certificat et d'une traçabilité vérifiable jusqu'à un élevage déclaré. Ne jamais accepter un spécimen sans origine claire.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: 2,
+      compatibilite: "Bac spécifique et calme, crevettes de nettoyage, poissons très lents et non compétiteurs pour la nourriture.",
+      incompatibilite: "Poissons rapides qui l'affament en compétition alimentaire, courant fort (mauvais nageur), coraux urticants où il pourrait se blesser.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 22,
+      tempMax: 25,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : petits crustacés vivants ou congelés (mysis), difficile à faire accepter des aliments inertes.",
+      tailleAdulte: '12 à 18 cm selon l’espèce',
+    },
   },
   {
     id: 73,
@@ -1037,6 +1122,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'cites_a_signaler',
     remarqueLegale: 'tous les coraux durs scléractiniaires sont Annexe B UE / CITES, y compris les boutures - toujours orienter vers demande de validation',
     citesAnnexe: 'B',
+    fiche: {
+      description:
+        "Genre de corail dur (SPS) parmi les plus prisés en récifal pour ses formes ramifiées et ses couleurs vives sous éclairage adapté, mais aussi parmi les plus exigeants en termes de stabilité des paramètres d'eau (calcium, KH, magnésium) et d'éclairage puissant.",
+      conseil:
+        "Comme tous les coraux durs scléractiniaires, l'Acropora est classé CITES Annexe B au niveau européen — y compris les boutures issues de fragmentation en aquarium. Toute cession, même entre particuliers, doit en théorie pouvoir être rattachée à une origine déclarée ; ce n'est pas une simple formalité administrative à ignorer.",
+      volumeMinLitres: 200,
+      tailleGroupeMin: null,
+      compatibilite: "Bac récifal mature avec paramètres stables, éclairage LED/HQI puissant, brassage important.",
+      incompatibilite: "Bac jeune ou instable, poissons brouteurs de coraux (certains poissons-anges, poissons-papillons), variations de paramètres.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 25,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Photosynthèse via les zooxanthelles symbiotiques, complétée par un apport occasionnel de proies planctoniques.",
+      tailleAdulte: 'Colonies de quelques cm à plusieurs dizaines de cm selon l’âge',
+    },
   },
   {
     id: 75,
@@ -1194,6 +1296,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plus grande que la Red Cherry, la crevette Amano est réputée pour son appétit vorace envers les algues, y compris les algues filamenteuses coriaces que peu d'autres espèces consomment. Rendue célèbre par l'aquascaper Takashi Amano qui l'utilisait pour entretenir ses bacs plantés.",
+      conseil:
+        "Contrairement aux Neocaridina, l'Amano ne se reproduit pas en eau douce (ses larves ont besoin d'eau saumâtre) : pas de risque de prolifération, mais pas de population auto-entretenue non plus — il faut racheter des individus si besoin de renouveler le groupe.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 5,
+      compatibilite: "Poissons paisibles de petite et moyenne taille, autres crevettes, escargots.",
+      incompatibilite: "Poissons prédateurs, traitements à base de cuivre.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Algivore vorace : algues filamenteuses, biofilm, complément de légumes blanchis si besoin.",
+      tailleAdulte: '4 à 6 cm',
+    },
   },
   {
     id: 89,
@@ -1214,6 +1333,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: 'le genre Pomacea contient des espèces invasives interdites (P. canaliculata, P. maculata) très proches visuellement - à valider au cas par cas plutôt qu\'en libre-service',
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Gros escargot d'eau douce disponible dans de nombreuses couleurs (doré, bleu, ivoire), apprécié pour sa taille imposante et son caractère paisible. Il respire à la fois par des branchies et un siphon respiratoire, remontant régulièrement chercher de l'air en surface.",
+      conseil:
+        "Vérifiez toujours l'espèce exacte avant l'achat : le genre Pomacea contient aussi des espèces invasives interdites en France (P. canaliculata, P. maculata), visuellement très proches de l'escargot mystère autorisé. En cas de doute sur l'origine ou l'identification, ne prenez pas le risque.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons paisibles, crevettes, autres escargots non prédateurs.",
+      incompatibilite: "Poissons mangeurs d'escargots, traitements à base de cuivre.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 20,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : algues, biofilm, légumes blanchis, restes de nourriture.",
+      tailleAdulte: '4 à 6 cm',
+    },
   },
   {
     id: 91,
@@ -1333,8 +1469,25 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Cryptocoryne wendtii',
     nomScientifique: 'Cryptocoryne wendtii',
     statutLegal: 'autorise',
-    remarqueLegale: null,
+    remarqueLegale: 'peut perdre ses feuilles brutalement après un changement de conditions (\"crypto melt\") - repousse normalement en quelques semaines',
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante d'aquarium très populaire et adaptable, disponible en plusieurs teintes (verte, brune, rouge). Elle se plante dans le substrat et forme des touffes denses utilisées en premier plan ou en plan intermédiaire selon la variété.",
+      conseil:
+        "Ne paniquez pas si toutes les feuilles fondent d'un coup après une introduction ou un changement de paramètres (le fameux \"crypto melt\") : c'est un stress temporaire normal chez cette plante, et de nouvelles feuilles mieux adaptées repoussent en général en quelques semaines.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la quasi-totalité des bacs d'eau douce plantés.",
+      incompatibilite: "Poissons herbivores qui déracinent ou grignotent activement les jeunes pousses.",
+      phMin: 6,
+      phMax: 8,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse + racines dans un substrat nutritif ; CO2 non indispensable mais accélère la croissance.",
+      tailleAdulte: '10 à 20 cm de hauteur',
+    },
   },
   {
     id: 98,
@@ -1355,6 +1508,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante de fond classique aux longs rubans fins, la vallisneria forme un rideau vert dense en arrière-plan et se multiplie rapidement par stolons (rejets qui courent sous le substrat). Excellente pour créer une zone de nage naturelle pour les poissons tout en filtrant les nitrates.",
+      conseil:
+        "Sa croissance rapide par stolons peut vite coloniser tout le fond du bac : prévoyez de retirer régulièrement les jeunes pousses en excès si vous ne voulez pas qu'elle envahisse l'espace. Évitez de la tailler par le haut (contrairement à d'autres plantes), coupez plutôt les feuilles individuelles à la base si elles jaunissent.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la quasi-totalité des bacs d'eau douce, notamment les bacs communautaires avec poissons qui apprécient les cachettes en arrière-plan.",
+      incompatibilite: "Poissons herbivores voraces (certains cichlidés africains), petits bacs où sa croissance rapide pose problème.",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 20,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse + racines dans le substrat ; CO2 non indispensable.",
+      tailleAdulte: "30 à 100 cm de long selon la lumière disponible",
+    },
   },
   {
     id: 100,
