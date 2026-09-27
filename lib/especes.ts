@@ -241,6 +241,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Characidé rouge sombre à la nageoire dorsale marquée de noir, appelé aussi tétra sang à cause de sa teinte intense. Grégaire et facile, il colore joliment un bac communautaire bien planté.",
+      conseil:
+        "Un fond sombre et un éclairage tamisé font ressortir sa couleur rouge, souvent plus terne dans un bac trop lumineux ou au substrat clair.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres characidés paisibles, corydoras, gouramis calmes.",
+      incompatibilite: "Poissons agressifs ou nageurs très rapides qui le stresseraient.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 22,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '4 à 5 cm',
+    },
   },
   {
     id: 9,
@@ -251,6 +268,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Characidé élégant aux reflets violacés et à la bande noire longitudinale, avec une nageoire caudale allongée chez le mâle. Un peu plus territorial que d'autres tétras entre mâles, sans réelle agressivité destructrice.",
+      conseil:
+        "Un ratio équilibré ou légèrement orienté vers les femelles limite les poursuites entre mâles lors de l'établissement de la hiérarchie sociale.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres characidés paisibles, corydoras, gouramis calmes.",
+      incompatibilite: "Poissons très craintifs qui pourraient être bousculés par sa légère territorialité.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '4,5 à 5,5 cm',
+    },
   },
   {
     id: 10,
@@ -470,6 +504,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit labyrinthidé au corps doré-orangé rappelant la couleur du miel, particulièrement le mâle en période de reproduction. Plus discret et paisible que le gourami nain, il convient bien aux petits bacs communautaires.",
+      conseil:
+        "Comme les autres labyrinthidés, il respire l'air en surface : laissez un espace d'air libre au-dessus de l'eau et évitez un courant trop fort qui gênerait ses remontées.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 1,
+      compatibilite: "Characidés, corydoras, autres poissons paisibles de petit gabarit.",
+      incompatibilite: "Poissons agressifs ou trop remuants qui le stresseraient.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      tailleAdulte: '4 à 5 cm',
+    },
   },
   {
     id: 20,
@@ -755,6 +806,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson annuel d'Afrique de l'Est aux couleurs spectaculaires, dont le cycle de vie très court reflète son habitat naturel : des mares temporaires qui s'assèchent chaque année. Ses œufs peuvent survivre plusieurs mois dans la boue sèche.",
+      conseil:
+        "Sa durée de vie est naturellement courte, souvent moins d'un an : ce n'est pas un signe de maladie ou de mauvais entretien mais une caractéristique biologique de l'espèce, à accepter avant l'achat.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 6,
+      compatibilite: "Petits poissons paisibles compatibles avec une eau douce et acide, ou bac dédié entre killies.",
+      incompatibilite: "Poissons de fond fouisseurs qui perturberaient un éventuel substrat de ponte.",
+      phMin: 6,
+      phMax: 7,
+      tempMin: 20,
+      tempMax: 24,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : artémias vivantes ou congelées, proies de petite taille.",
+      tailleAdulte: '5 à 6 cm',
+    },
   },
   {
     id: 33,
@@ -765,6 +833,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Minuscule poisson-chat algivore très prisé pour nettoyer les vitres et les feuilles des plantes en douceur, sans les abîmer contrairement à certains plécos. Grégaire et paisible, il complète bien une équipe de nettoyage.",
+      conseil:
+        "Introduisez-le uniquement dans un bac déjà mature avec suffisamment d'algues et de biofilm : il s'acclimate mal dans un aquarium tout neuf où la nourriture naturelle manque encore.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 6,
+      compatibilite: "Characidés, corydoras, crevettes, autres poissons paisibles de petite taille.",
+      incompatibilite: "Poissons agressifs ou trop rapides qui l'empêcheraient de se nourrir tranquillement.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 26,
+      difficulte: 'Intermédiaire',
+      alimentation: "Algivore : algues et biofilm, complément de pastilles à base de spiruline si besoin.",
+      tailleAdulte: '4 à 5 cm',
+    },
   },
   {
     id: 34,
@@ -785,6 +870,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit cyprinidé au corps rosé-orangé marqué d'une tache triangulaire noire caractéristique, l'un des grands classiques des bacs communautaires paisibles. Nage en banc compact et coloré à mi-hauteur d'eau.",
+      conseil:
+        "Un bac légèrement acide et planté, avec un fond sombre, met particulièrement en valeur ses couleurs et le rassure : il apprécie les zones de végétation dense où se réfugier.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 8,
+      compatibilite: "Autres petits cyprinidés et characidés paisibles, corydoras, crevettes.",
+      incompatibilite: "Poissons agressifs ou trop imposants qui l'intimideraient.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 22,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '2 à 4 cm',
+    },
   },
   {
     id: 36,
@@ -852,6 +954,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chat argenté élancé, couvert de taches noires et pourvu de longues barbillons sensitives. Grégaire et très actif la nuit, il apprécie de nager en groupe dans la colonne d'eau plutôt que de rester posé au fond.",
+      conseil:
+        "Ses nageoires pectorales sont pourvues d'épines pointues qui peuvent se prendre dans les filets : manipulez-le avec précaution lors des changements d'eau ou des déplacements en bac.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: 5,
+      compatibilite: "Characidés et cyprinidés de taille moyenne, autres poissons-chats paisibles.",
+      incompatibilite: "Très petits poissons ou crevettes, qu'il peut considérer comme des proies une fois adulte.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore/carnivore : granulés coulants, larves congelées, proies occasionnelles.",
+      tailleAdulte: '10 à 12 cm',
+    },
   },
   {
     id: 41,
@@ -1219,6 +1338,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chirurgien entièrement jaune vif, très populaire en aquarium récifal pour sa couleur éclatante. Comme les autres chirurgiens, il porte une épine tranchante près de la queue qui lui donne son nom.",
+      conseil:
+        "Il a besoin d'espace pour nager activement et brouter en continu : un bac trop petit ou pauvre en algues favorise le stress et les maladies, notamment l'ich, auquel ce genre est assez sensible.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 1,
+      compatibilite: "Autres poissons de récif paisibles, évitez plusieurs chirurgiens de la même espèce dans un bac trop petit.",
+      incompatibilite: "Autres chirurgiens jaunes ou de forme similaire, qui se disputeront le territoire.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Principalement algivore : algues, nori, complété par des granulés/paillettes marines.",
+      tailleAdulte: '15 à 20 cm',
+    },
   },
   {
     id: 64,
@@ -1430,6 +1566,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Crevette marine rayée de rouge et blanc, réputée pour son comportement de nettoyage : elle débarrasse les poissons de leurs parasites externes lors de véritables séances de \"toilettage\" au niveau de stations dédiées.",
+      conseil:
+        "Elle s'associe volontiers en couple mais peut se montrer territoriale envers ses congénères non apparentés : introduisez-la de préférence en couple constitué plutôt qu'en groupe non lié.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons de récif paisibles, autres invertébrés non prédateurs.",
+      incompatibilite: "Poissons prédateurs (rascasses, poissons-anges de grande taille) qui la considèrent comme une proie.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore/nettoyeuse : parasites et mucus des poissons hôtes, complément de granulés marins.",
+      tailleAdulte: '5 à 6 cm',
+    },
   },
   {
     id: 80,
@@ -1773,6 +1926,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grande plante d'arrière-plan aux larges feuilles vert brillant en forme de lame, l'une des plus populaires et des plus faciles à cultiver en aquarium d'eau douce. Devient rapidement imposante dans un bac de taille suffisante.",
+      conseil:
+        "Un substrat nutritif ou des racines nourrissantes (pastilles d'engrais) favorisent une croissance vigoureuse : c'est une plante assez gourmande qui profite d'un apport en fer et en macronutriments.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à quasiment tous les habitants d'un bac d'eau douce assez grand.",
+      incompatibilite: "Poissons ou écrevisses qui déterrent activement le substrat et abîment les racines.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse + racines dans un substrat nutritif ; apprécie un complément d'engrais.",
+      tailleAdulte: '30 à 50 cm de hauteur',
+    },
   },
   {
     id: 99,
