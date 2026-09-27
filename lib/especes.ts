@@ -79,6 +79,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Vivipare à la robe noire uniforme et à la grande nageoire dorsale en voile, le molly est un poisson sociable et actif qui apprécie une eau légèrement dure. Comme le guppy, il se reproduit facilement et donne naissance à des alevins déjà formés.",
+      conseil:
+        "Le molly apprécie une pincée de sel d'aquarium ou une eau légèrement saumâtre, contrairement à la plupart des poissons d'eau douce — à ne pas partager avec des espèces qui ne tolèrent pas le sel. Comme le guppy, gardez plus de femelles que de mâles.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres vivipares (guppy, platy), corydoras, poissons paisibles tolérant une eau légèrement dure.",
+      incompatibilite: "Poissons exigeant une eau très douce et acide, fin-nippers.",
+      phMin: 7.5,
+      phMax: 8.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore avec une tendance algivore : granulés, algues, un peu de matière végétale.",
+      tailleAdulte: '8 à 12 cm',
+    },
   },
   {
     id: 3,
@@ -89,6 +106,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Vivipare robuste et coloré, disponible dans de nombreuses variétés (rouge, mickey mouse, wagtail...). Très proche du guppy dans ses besoins, il est un peu plus trapu et légèrement plus calme.",
+      conseil:
+        "Comme les autres vivipares, gardez plus de femelles que de mâles pour éviter le harcèlement reproductif. Le platy tolère bien une eau plus fraîche que le guppy si besoin, ce qui en fait un bon compagnon de bac non chauffé tempéré.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres vivipares (guppy, molly), corydoras, tétras paisibles.",
+      incompatibilite: "Fin-nippers, gros cichlidés prédateurs.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 20,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
+      tailleAdulte: '4 à 6 cm',
+    },
   },
   {
     id: 4,
@@ -109,6 +143,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit characidé amazonien à la bande bleu électrique et rouge fluorescente, le tétra néon est l'un des poissons de banc les plus populaires en aquariophilie. Paisible et grégaire, il ne s'épanouit que réuni en groupe nombreux, où ses couleurs ressortent le mieux.",
+      conseil:
+        "Un petit groupe (moins de 6) stresse et se décolore avec le temps — préférez toujours un banc généreux dans un bac assez long pour qu'il puisse nager en formation. Évitez de l'introduire dans un bac non cyclé, il est sensible aux variations de qualité d'eau.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 8,
+      compatibilite: "Corydoras, autres petits characidés, crevettes, escargots.",
+      incompatibilite: "Gros poissons prédateurs, cichlidés territoriaux qui les considèrent comme des proies.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 20,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
+      tailleAdulte: '2,5 à 3 cm',
+    },
   },
   {
     id: 6,
@@ -270,6 +321,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Cichlidé amazonien au corps discoïdal et aux couleurs spectaculaires, le discus a la réputation méritée d'être exigeant : il demande une eau douce et stable, des changements d'eau réguliers, et ne tolère pas les variations brutales de paramètres. Grégaire, il vit en groupe hiérarchisé.",
+      conseil:
+        "Ce n'est pas un poisson pour un premier aquarium : réservez-le à un bac déjà mature et stable depuis plusieurs mois, avec des changements d'eau fréquents (20-30% par semaine). Attendez d'avoir de l'expérience avec des espèces plus tolérantes avant de vous lancer.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres cichlidés amazoniens calmes, characidés de taille moyenne, corydoras.",
+      incompatibilite: "Poissons rapides et stressants, eau dure ou instable, bac récemment cyclé.",
+      phMin: 6,
+      phMax: 7,
+      tempMin: 28,
+      tempMax: 30,
+      difficulte: 'Expert',
+      alimentation: "Omnivore : granulés spécifiques discus, vers de vase et cœur de bœuf congelés.",
+      tailleAdulte: '15 à 20 cm',
+    },
   },
   {
     id: 17,
@@ -280,6 +348,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit labyrinthidé coloré (le mâle arbore des rayures bleues et rouges), le gourami nain respire l'air atmosphérique en surface grâce à son organe labyrinthique, comme le combattant. Plutôt calme, il peut devenir un peu territorial en période de reproduction.",
+      conseil:
+        "Évitez plusieurs mâles dans un petit bac, ils se disputent le territoire. Le gourami nain apprécie une surface végétalisée (plantes flottantes) qui rappelle son habitat naturel de mares calmes.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons paisibles de banc (tétras, corydoras), crevettes.",
+      incompatibilite: "Autres labyrinthidés mâles territoriaux, poissons très agités qui le stressent.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      tailleAdulte: '5 à 8 cm',
+    },
   },
   {
     id: 18,
@@ -310,6 +395,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson rayé très vif et rustique, le danio zébré est un excellent choix pour un bac communautaire débutant : robuste, tolérant sur la température, et infatigable nageur de pleine eau. C'est aussi l'un des organismes modèles les plus utilisés en recherche scientifique.",
+      conseil:
+        "Très actif et rapide, il a besoin d'un bac assez long pour nager en banc — évitez les bacs trop hauts et étroits. Sa vivacité peut stresser des poissons plus lents ou timides partagés dans un espace restreint.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres danios, corydoras, poissons de fond calmes qui ne partagent pas sa zone de nage.",
+      incompatibilite: "Poissons très lents ou aux longues nageoires (risque de mordillement par jeu), bettas.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 18,
+      tempMax: 24,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, très peu difficile.",
+      tailleAdulte: '4 à 5 cm',
+    },
   },
   {
     id: 21,
@@ -330,6 +432,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson rayé actif et grégaire, tristement connu pour mordiller les nageoires des poissons plus lents ou aux voiles longues quand il est maintenu en trop petit nombre. En banc suffisamment nombreux, ce comportement disparaît presque entièrement : l'énergie du groupe se dirige vers ses propres congénères plutôt que vers les autres espèces.",
+      conseil:
+        "La règle d'or : jamais moins de 8-10 individus. Un petit groupe de 3-4 barbus de Sumatra devient quasi systématiquement un problème pour les poissons à nageoires longues du bac (guppy, betta, voile de Chine).",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 8,
+      compatibilite: "Autres poissons robustes et rapides sans grandes nageoires (danios, autres barbus).",
+      incompatibilite: "Bettas, guppys, voiles de Chine et tout poisson aux nageoires longues — surtout si le groupe est trop petit.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, un peu de végétal.",
+      tailleAdulte: '5 à 7 cm',
+    },
   },
   {
     id: 23,
@@ -684,6 +803,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Souvent vendu comme petit poisson de bocal, le poisson rouge est en réalité un poisson de bassin à part entière : il peut atteindre 20-30 cm et vivre plus de 20 ans dans de bonnes conditions. Grégaire et très résistant au froid, il hiberne dans les zones profondes d'un bassin en hiver.",
+      conseil:
+        "Le mythe du \"petit bocal\" est l'une des principales causes de mortalité précoce de cette espèce : sans volume suffisant, sa croissance est stoppée et sa santé se dégrade. Un bassin extérieur ou un grand aquarium (300 L+) sont le minimum pour un groupe adulte.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 3,
+      compatibilite: "Autres poissons rouges, carpes koï calmes, tanches nettoyeuses de fond.",
+      incompatibilite: "Petit bocal sans filtration, poissons tropicaux nécessitant une eau chauffée.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 4,
+      tempMax: 24,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : granulés flottants, un peu de végétal, alimentation réduite en dessous de 10°C.",
+      tailleAdulte: '15 à 30 cm selon le volume disponible',
+    },
   },
   {
     id: 55,
@@ -1088,6 +1224,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Escargot d'eau douce parmi les plus appréciés pour lutter contre les algues : il en consomme de grandes quantités sans jamais toucher aux plantes saines, contrairement à d'autres espèces plus opportunistes. Sa coquille présente des motifs variés selon les variétés (zébrée, tigrée, à cornes...).",
+      conseil:
+        "La néritine ne se reproduit pas en eau douce (elle a besoin d'eau saumâtre pour ses larves) : pas de risque de prolifération incontrôlée, contrairement aux escargots planorbes ou physes. Les œufs blancs qu'elle pond sur le décor n'écloront donc jamais en aquarium d'eau douce pure.",
+      volumeMinLitres: 20,
+      tailleGroupeMin: 1,
+      compatibilite: "Quasiment tous les poissons et invertébrés paisibles ; excellent compagnon des bacs à crevettes.",
+      incompatibilite: "Poissons mangeurs d'escargots (certains botias, certains cichlidés).",
+      phMin: 7,
+      phMax: 8.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Algivore : algues et biofilm ; complément de pastilles à base de spiruline si les algues manquent.",
+      tailleAdulte: '2 à 2,5 cm',
+    },
   },
   {
     id: 92,
@@ -1155,6 +1308,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante d'aquarium parmi les plus faciles et les plus utilisées en aquascaping, l'anubias nana se fixe sur du bois ou de la roche plutôt que dans le substrat. Sa croissance très lente et ses feuilles épaisses et coriaces la rendent quasiment indestructible.",
+      conseil:
+        "Ne jamais enterrer le rhizome (la tige horizontale) dans le substrat : il doit rester à l'air libre, sinon il pourrit. Fixez-la avec du fil ou de la colle sur un support jusqu'à ce que les racines s'accrochent naturellement.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la quasi-totalité des bacs d'eau douce, y compris ceux avec des poissons herbivores (résiste bien au grignotage grâce à ses feuilles coriaces).",
+      incompatibilite: "Aucune incompatibilité notable ; à éviter d'enterrer le rhizome.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse : pousse même en lumière faible, CO2 non indispensable.",
+      tailleAdulte: '10 à 15 cm de hauteur',
+    },
   },
   {
     id: 97,
