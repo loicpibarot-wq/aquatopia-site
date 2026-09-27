@@ -1553,8 +1553,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Loche de bassin',
     nomScientifique: 'Misgurnus anguillicaudatus',
     statutLegal: 'interdite',
-    remarqueLegale: 'Espece exotique envahissante (population etablie en France) - vente interdite.',
+    remarqueLegale:
+      "Espèce exotique envahissante avec des populations déjà établies en France : sa vente et son introduction en bassin ou milieu naturel sont interdites.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson allongé et fouisseur d'origine asiatique, capable de respirer l'air atmosphérique et de survivre hors de l'eau plusieurs heures, ce qui a favorisé sa propagation rapide dans les milieux naturels français.",
+      conseil:
+        "Sa capacité à survivre hors de l'eau et à se propager facilement en fait une espèce particulièrement problématique une fois relâchée : ne jamais introduire un poisson de bassin dans un point d'eau naturel, quelle que soit l'espèce.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
+      tailleAdulte: '20 à 25 cm',
+    },
   },
   {
     id: 58,
@@ -1565,6 +1583,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson de bassin grégaire et élégant, apprécié pour sa nage vive en surface et sa robustesse face aux variations de température. La variété dorée est particulièrement recherchée pour l'ornement des bassins de jardin.",
+      conseil:
+        "Grégaire par nature, il s'épanouit bien mieux en groupe qu'isolé : prévoyez plusieurs individus pour observer son comportement de banc naturel en surface du bassin.",
+      volumeMinLitres: 2000,
+      tailleGroupeMin: 5,
+      compatibilite: "Carpes koï, autres poissons de bassin rustiques.",
+      incompatibilite: "Poissons prédateurs de grande taille.",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 4,
+      tempMax: 24,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : granulés flottants, insectes de surface.",
+      tailleAdulte: '30 à 50 cm',
+    },
   },
   {
     id: 59,
@@ -2177,6 +2212,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit crustacé qui occupe une coquille vide d'escargot pour protéger son abdomen mou, et qui doit en changer régulièrement au fur et à mesure de sa croissance. Excellent nettoyeur d'algues et de restes de nourriture.",
+      conseil:
+        "Prévoyez toujours quelques coquilles vides de rechange, de taille légèrement supérieure, dans le bac : sans coquille disponible pour déménager en grandissant, il peut voler celle d'un autre bernard-l'ermite ou rester à l'étroit.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 2,
+      compatibilite: "Poissons de récif paisibles, autres invertébrés non prédateurs.",
+      incompatibilite: "Poissons prédateurs qui le considéreraient comme une proie.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore/détritivore : algues, restes de nourriture, granulés/paillettes marines coulants.",
+      tailleAdulte: '2 à 4 cm',
+    },
   },
   {
     id: 82,
@@ -2185,8 +2237,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Étoile de mer bleue',
     nomScientifique: 'Linckia laevigata',
     statutLegal: 'autorise',
-    remarqueLegale: null,
+    remarqueLegale:
+      "Réputée fragile avec un taux de survie faible en captivité, notamment en bac trop jeune ou pauvre en nourriture naturelle : à réserver à un aquariophile expérimenté disposant d'un bac mature.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grande étoile de mer au bleu éclatant très photogénique, mais notoirement difficile à maintenir sur la durée en captivité, se nourrissant essentiellement de biofilm et de micro-organismes présents sur les roches vivantes.",
+      conseil:
+        "Réservez-la à un bac très mature (plus d'un an) avec une quantité abondante de roches vivantes couvertes de biofilm : sans cette base alimentaire naturelle, elle dépérit lentement malgré une apparence de bonne santé initiale.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 1,
+      compatibilite: "Bac récifal mature avec une population abondante de roches vivantes.",
+      incompatibilite: "Bac trop jeune ou trop propre, sans biofilm suffisant pour la nourrir naturellement.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Détritivore : biofilm et micro-organismes sur les roches vivantes.",
+      tailleAdulte: '25 à 30 cm de diamètre',
+    },
   },
   {
     id: 83,
@@ -2224,6 +2294,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit escargot fouisseur qui passe la majorité de son temps enfoui dans le sable, ne ressortant que pour se nourrir de restes de nourriture ou de matière organique en décomposition. Très utile pour garder un sable propre et aéré.",
+      conseil:
+        "Excellent nettoyeur de fond dans un bac récifal : il détecte rapidement les restes de nourriture tombés au sol et les consomme avant qu'ils ne se décomposent et ne dégradent la qualité de l'eau.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 5,
+      compatibilite: "Poissons de récif paisibles, autres invertébrés non prédateurs.",
+      incompatibilite: "Poissons mangeurs d'escargots (certains labres, poissons-ballons).",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Détritivore : restes de nourriture, matière organique en décomposition dans le sable.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 85,
@@ -2232,8 +2319,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Cône (Conus textile)',
     nomScientifique: 'Conus textile',
     statutLegal: 'autorise',
-    remarqueLegale: 'venin potentiellement mortel pour l\'humain - à ne pas mettre en libre-service, orienter systématiquement vers demande de validation par précaution',
+    remarqueLegale:
+      "Ce coquillage possède un venin qui peut être mortel pour l'humain : il tire un harpon venimeux pour capturer ses proies et peut piquer une main qui le manipule. Cette espèce ne doit jamais être proposée en libre-service ; toute demande doit être orientée vers une validation systématique par précaution.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Escargot marin prédateur à la coquille richement décorée de motifs évoquant un tissu imprimé, d'où son nom. Chasse en projetant un harpon venimeux relié à une dent modifiée, une arme redoutable même pour l'humain.",
+      conseil:
+        "Ne le manipulez jamais à mains nues, même en apparence immobile : son harpon venimeux peut traverser des gants fins et provoquer une envenimation grave nécessitant une prise en charge médicale immédiate.",
+      volumeMinLitres: 200,
+      tailleGroupeMin: 1,
+      compatibilite: "Aucun compagnon recommandé sans expertise vétérinaire/aquariophile poussée, vu le risque qu'il représente.",
+      incompatibilite: "Manipulation humaine directe, petits poissons et invertébrés qu'il chasse activement.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : petits poissons et vers marins, capturés au harpon venimeux.",
+      tailleAdulte: '10 à 15 cm',
+    },
   },
   {
     id: 86,
@@ -2460,6 +2565,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Escargot fouisseur à la coquille conique allongée, qui passe le jour enfoui dans le substrat et ressort la nuit. Très utile pour aérer naturellement le sol et prévenir les poches de gaz toxiques qui peuvent s'y former.",
+      conseil:
+        "Sa présence est un signe positif pour la santé du substrat : en fouissant en permanence, il empêche le sol de se compacter et de développer des zones anaérobies nauséabondes.",
+      volumeMinLitres: 20,
+      tailleGroupeMin: null,
+      compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
+      incompatibilite: "Poissons mangeurs d'escargots (certains botias, tétraodons).",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 18,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Détritivore : restes de nourriture et matière organique dans le substrat.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 95,
@@ -2768,6 +2890,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand cichlidé du lac Tanganyika, reconnaissable à ses rayures verticales et à la bosse frontale qui se développe avec l'âge chez les mâles dominants. Contrairement aux cichlidés du Malawi, il vit en groupe hiérarchisé plus calme.",
+      conseil:
+        "Maintenez-le en groupe d'au moins 6 individus avec un ratio orienté vers les femelles : c'est une espèce qui a besoin d'une structure sociale de groupe pour exprimer un comportement naturel et non stressé.",
+      volumeMinLitres: 400,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres cichlidés du lac Tanganyika de tempérament similaire.",
+      incompatibilite: "Cichlidés du Malawi plus vifs, poissons paisibles d'eau douce classique.",
+      phMin: 7.8,
+      phMax: 9,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés du Tanganyika, larves congelées.",
+      tailleAdulte: '25 à 35 cm',
+    },
   },
   {
     id: 107,
@@ -2778,6 +2917,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Cichlidé du lac Malawi aux couleurs électriques (bleu, orange, jaune selon les variétés), plus paisible que le zébré et souvent choisi pour adoucir un bac Malawi grâce à son tempérament plus calme.",
+      conseil:
+        "Moins agressif que d'autres cichlidés du Malawi mais toujours à maintenir uniquement avec des cichlidés africains : ses besoins en eau dure et alcaline restent incompatibles avec un bac communautaire classique.",
+      volumeMinLitres: 250,
+      tailleGroupeMin: 4,
+      compatibilite: "Autres cichlidés du lac Malawi de tempérament calme.",
+      incompatibilite: "Poissons paisibles d'eau douce classique, cichlidés du Malawi très agressifs.",
+      phMin: 7.8,
+      phMax: 8.6,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés africains, larves congelées.",
+      tailleAdulte: '12 à 14 cm',
+    },
   },
   {
     id: 108,
@@ -2816,6 +2972,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit cichlidé rayé de noir et blanc rappelant un uniforme de bagnard (d'où son surnom \"convict\"), robuste et facile à reproduire. Très territorial en période de reproduction malgré sa petite taille.",
+      conseil:
+        "Prévoyez suffisamment de cachettes et un bac dédié si vous souhaitez le reproduire : le couple devient très protecteur envers ses alevins et peut se montrer agressif envers tout voisin approchant.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 2,
+      compatibilite: "Autres cichlidés nains de tempérament similaire, characidés robustes.",
+      incompatibilite: "Petits poissons paisibles, surtout en période de reproduction.",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 22,
+      tempMax: 26,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
+      tailleAdulte: '7 à 10 cm',
+    },
   },
   {
     id: 110,
@@ -2824,8 +2997,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Gourami géant',
     nomScientifique: 'Osphronemus goramy',
     statutLegal: 'autorise',
-    remarqueLegale: 'taille adulte importante (jusqu\'à 60-70 cm) - à valider au cas par cas pour vérifier la compatibilité avec un aquarium domestique',
+    remarqueLegale:
+      "Sa taille adulte est très importante (jusqu'à 60-70 cm) : un achat à valider au cas par cas pour vérifier la compatibilité réelle avec votre aquarium avant de vous engager.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Le plus grand des gouramis couramment rencontrés, souvent vendu juvénile sans que sa taille adulte impressionnante soit anticipée. Intelligent et curieux, il reconnaît facilement son propriétaire.",
+      conseil:
+        "Anticipez sérieusement le volume nécessaire avant l'achat : un juvénile discret de quelques centimètres devient en quelques années un poisson de plusieurs dizaines de centimètres réclamant un très grand volume.",
+      volumeMinLitres: 1000,
+      tailleGroupeMin: 1,
+      compatibilite: "Grands poissons calmes de gabarit similaire.",
+      incompatibilite: "Petits poissons, qu'il peut considérer comme des proies une fois adulte.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Expert',
+      alimentation: "Omnivore : granulés, légumes, larves congelées, devient plus végétarien avec l'âge.",
+      tailleAdulte: "Jusqu'à 60-70 cm",
+    },
   },
   {
     id: 111,
@@ -2834,8 +3025,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-chat requin / Pangasius',
     nomScientifique: 'Pangasianodon hypophthalmus',
     statutLegal: 'autorise',
-    remarqueLegale: 'taille adulte très importante et inadaptée à l\'aquarium domestique - à valider au cas par cas',
+    remarqueLegale:
+      "Sa taille adulte est très importante et généralement inadaptée à l'aquarium domestique, même de grande taille : un achat à valider au cas par cas plutôt qu'en impulsion sur un juvénile de quelques centimètres.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand poisson-chat argenté à la nage vive, très souvent vendu juvénile en animalerie sans que sa taille adulte impressionnante soit anticipée. Grégaire à l'état sauvage, il peut devenir nerveux et se blesser contre les vitres en captivité.",
+      conseil:
+        "Réfléchissez sérieusement avant l'achat : un juvénile de 5 cm peut dépasser 1 mètre à l'âge adulte, une taille incompatible avec la quasi-totalité des bacs domestiques, même les plus grands.",
+      volumeMinLitres: 3000,
+      tailleGroupeMin: 5,
+      compatibilite: "Grands poissons calmes, dans un bassin ou un très grand bac.",
+      incompatibilite: "Petits poissons, qu'il peut blesser par sa nage nerveuse et rapide en bac trop petit.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Expert',
+      alimentation: "Omnivore : granulés, légumes, proies occasionnelles.",
+      tailleAdulte: "Jusqu'à 100-130 cm",
+    },
   },
   {
     id: 112,
@@ -2846,6 +3055,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand characidé africain aux reflets métalliques irisés et à la nageoire caudale prolongée chez le mâle, l'un des characidés les plus spectaculaires en mouvement sous un bon éclairage.",
+      conseil:
+        "Ses longues nageoires sont fragiles : évitez les décors aux arêtes vives ou les compagnons qui pourraient les mordiller, ce qui abîmerait durablement son apparence.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: 6,
+      compatibilite: "Characidés et cyprinidés de taille moyenne, corydoras.",
+      incompatibilite: "Poissons qui mordillent les nageoires (certains barbus trop nombreux dans un bac exigu).",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : paillettes, granulés, larves congelées appréciées.",
+      tailleAdulte: '8 à 9 cm',
+    },
   },
   {
     id: 113,
@@ -2856,6 +3082,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit characidé argenté traversé d'une ligne rouge-orangé fluorescente qui semble s'illuminer dans la pénombre, d'où son nom. Grégaire et paisible, il apprécie un bac planté avec un éclairage tamisé.",
+      conseil:
+        "Sa ligne fluorescente ressort particulièrement dans un bac sombre avec des plantes flottantes qui tamisent la lumière : un cadre idéal pour l'admirer pleinement.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres characidés paisibles, corydoras, gouramis calmes.",
+      incompatibilite: "Poissons agressifs ou nageurs très rapides qui le stresseraient.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '3,5 à 4,5 cm',
+    },
   },
   {
     id: 114,
@@ -2866,6 +3109,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Characidé argenté à la nageoire caudale rouge vif contrastant avec le corps clair, facile à confondre avec le tétra glowlight mais légèrement plus grand. Grégaire et paisible, il colore joliment un bac communautaire.",
+      conseil:
+        "Un fond sombre et une végétation dense mettent en valeur le contraste entre son corps argenté et sa queue rouge, souvent plus terne dans un bac trop clair.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres characidés paisibles, corydoras, gouramis calmes.",
+      incompatibilite: "Poissons agressifs ou nageurs très rapides qui le stresseraient.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '5 à 6 cm',
+    },
   },
   {
     id: 115,
@@ -2876,6 +3136,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Proche cousin du rasbora arlequin, au corps cuivré-orangé et à la tache noire plus fine et allongée. Grégaire et paisible, il partage le même mode de vie en banc que son cousin plus connu.",
+      conseil:
+        "Comme le rasbora arlequin, un bac légèrement acide et bien planté avec un fond sombre met en valeur sa couleur cuivrée et le rassure grâce aux zones de végétation dense.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 8,
+      compatibilite: "Autres petits cyprinidés et characidés paisibles, corydoras, crevettes.",
+      incompatibilite: "Poissons agressifs ou trop imposants qui l'intimideraient.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 22,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 116,
@@ -2886,6 +3163,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Loche grégaire au motif réticulé évoquant des lettres ou des chiffres sur le corps, d'où son surnom \"yoyo\". Très sociable entre congénères, elle établit une hiérarchie ludique faite de petites poursuites sans agressivité réelle.",
+      conseil:
+        "Ne la maintenez jamais seule : isolée, elle devient craintive et stressée. Un groupe d'au moins 5 individus lui permet d'exprimer ses interactions sociales naturelles sans reporter cette énergie sur d'autres poissons.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: 5,
+      compatibilite: "Characidés et cyprinidés robustes, autres loches, corydoras.",
+      incompatibilite: "Petits escargots, qu'elle apprécie particulièrement en tant que proie.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore/carnivore : granulés coulants, escargots, larves congelées.",
+      tailleAdulte: '10 à 12 cm',
+    },
   },
   {
     id: 117,
@@ -2896,6 +3190,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson vivipare mexicain au corps gris-bleuté et à la nageoire caudale orangée à rouge, particulièrement marquée chez le mâle. Robuste et facile à reproduire, il donne naissance à des alevins déjà formés.",
+      conseil:
+        "Comme les autres vivipares, un ratio orienté vers les femelles limite le harcèlement reproductif exercé par les mâles sur une population trop masculine.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 4,
+      compatibilite: "Autres vivipares paisibles, corydoras, poissons de communauté robustes.",
+      incompatibilite: "Poissons très calmes qui pourraient être bousculés par son activité.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 18,
+      tempMax: 24,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, complément végétal apprécié.",
+      tailleAdulte: '6 à 8 cm',
+    },
   },
   {
     id: 118,
@@ -2906,6 +3217,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Variété de molly au mâle doté d'une grande nageoire dorsale déployée en forme de voile, utilisée pour parader devant les femelles. Vivipare robuste, il apprécie une eau légèrement dure et minéralisée.",
+      conseil:
+        "Un peu de sel d'aquarium (non iodé, à faible dose) dans l'eau douce peut améliorer sa santé générale : le molly tolère bien une eau légèrement saumâtre, contrairement à beaucoup d'autres poissons de communauté.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 3,
+      compatibilite: "Autres vivipares (guppy, platy), corydoras, poissons paisibles d'eau dure.",
+      incompatibilite: "Poissons exigeant une eau douce et acide, incompatible avec ses besoins en eau dure.",
+      phMin: 7,
+      phMax: 8.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, complément végétal (spiruline, légumes blanchis).",
+      tailleAdulte: '8 à 10 cm',
+    },
   },
   {
     id: 119,
@@ -2916,6 +3244,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit cousin sauvage du guppy, aux couleurs métalliques éclatantes et à la taille plus modeste. Très prolifique, il se croise facilement avec le guppy, ce qui dilue les lignées pures très recherchées par les passionnés.",
+      conseil:
+        "Pour préserver une lignée pure d'Endler, ne le maintenez jamais avec des guppys : les deux espèces s'hybrident facilement et les descendants perdent les caractéristiques recherchées de l'Endler pur.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 6,
+      compatibilite: "Autres vivipares paisibles (en évitant l'hybridation avec le guppy), corydoras, crevettes.",
+      incompatibilite: "Guppys, avec lesquels il s'hybride facilement.",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      tailleAdulte: '2 à 3,5 cm (mâle plus petit que la femelle)',
+    },
   },
   {
     id: 120,
@@ -2926,6 +3271,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit pléco au museau orné de tentacules ramifiés (plus développés chez le mâle), bien plus adapté aux bacs domestiques que l'ancistrus/pléco commun grâce à sa taille adulte modeste.",
+      conseil:
+        "Contrairement au pléco commun qui devient très grand, le bristlenose reste de taille raisonnable toute sa vie : c'est le choix à privilégier pour un poisson nettoyeur de vitres dans un bac de taille standard.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 1,
+      compatibilite: "Quasiment tous les poissons paisibles d'eau douce.",
+      incompatibilite: "Autres mâles bristlenose dans un espace restreint, territorialité possible.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Algivore/omnivore : pastilles à base de spiruline, légumes blanchis, bois flotté.",
+      tailleAdulte: '10 à 14 cm',
+    },
   },
   {
     id: 121,
@@ -2936,6 +3298,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-chat africain surnommé \"poisson à l'envers\" pour son habitude de nager le ventre vers le haut, un comportement naturel qui facilite l'alimentation en surface et sous les feuilles. Paisible et grégaire.",
+      conseil:
+        "Ne vous inquiétez pas de le voir nager sur le dos : c'est un comportement parfaitement normal et caractéristique de l'espèce, pas un signe de maladie ou de détresse.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 4,
+      compatibilite: "Characidés, corydoras, autres poissons paisibles d'eau douce.",
+      incompatibilite: "Poissons agressifs qui le stresseraient ou perturberaient son comportement naturel.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore : granulés coulants, larves congelées, restes de nourriture.",
+      tailleAdulte: '8 à 9 cm',
+    },
   },
   {
     id: 122,
@@ -2946,6 +3325,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Corydoras moins courant que les espèces classiques, au corps tacheté et au comportement fouisseur paisible identique aux autres corydoras. Grégaire, il apprécie un substrat fin pour fouiller sans se blesser.",
+      conseil:
+        "Comme tous les corydoras, préférez un sable fin ou un gravier arrondi : un substrat grossier peut abîmer ses barbillons sensitives utilisées pour fouiller le fond à la recherche de nourriture.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 6,
+      compatibilite: "Characidés, autres poissons paisibles de communauté.",
+      incompatibilite: "Poissons agressifs qui perturberaient son comportement fouisseur paisible.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 23,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
+      tailleAdulte: '5 à 6 cm',
+    },
   },
   {
     id: 123,
@@ -2956,6 +3352,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson primitif au corps allongé façon serpent, cousin des bichirs, capable de respirer l'air atmosphérique grâce à un poumon rudimentaire. Nocturne et discret le jour, il se déplace en ondulant lentement au fond du bac.",
+      conseil:
+        "Prévoyez un couvercle bien ajusté et sans ouverture : ce poisson est un excellent contorsionniste capable de se faufiler par la moindre fente pour sortir du bac.",
+      volumeMinLitres: 200,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons calmes de taille moyenne, non agressifs.",
+      incompatibilite: "Petits poissons ou crevettes qu'il peut considérer comme des proies une fois adulte.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
+      tailleAdulte: '30 à 40 cm',
+    },
   },
   {
     id: 124,
@@ -2964,8 +3377,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Anguille-serpent (Mastacembelus)',
     nomScientifique: 'Mastacembelus armatus',
     statutLegal: 'autorise',
-    remarqueLegale: 'taille adulte importante et comportement à part - à valider au cas par cas',
+    remarqueLegale:
+      "Sa taille adulte importante et son comportement fouisseur très particulier en font une espèce à faire valider au cas par cas plutôt qu'à acheter en impulsion pour un bac communautaire classique.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson au corps allongé façon anguille, museau pointu et comportement fouisseur nocturne. S'enterre volontiers dans le substrat meuble pendant la journée et devient actif à la tombée de la nuit.",
+      conseil:
+        "Prévoyez un substrat fin et meuble (sable) sans arêtes vives : il s'y enfouit régulièrement et un gravier grossier pourrait le blesser lors de ce comportement naturel.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons calmes de taille moyenne à grande, non agressifs.",
+      incompatibilite: "Petits poissons ou invertébrés qu'il peut considérer comme des proies une fois adulte.",
+      phMin: 6.5,
+      phMax: 7.5,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
+      tailleAdulte: '60 à 90 cm',
+    },
   },
   {
     id: 125,
@@ -2974,8 +3405,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Perche soleil naine décorative',
     nomScientifique: 'Enneacanthus chaetodon',
     statutLegal: 'autorise',
-    remarqueLegale: 'à ne pas confondre avec la perche-soleil Lepomis gibbosus (interdite) - vérifier le nom d\'espèce exact avant tout ajout en base',
+    remarqueLegale:
+      "À ne pas confondre avec la perche soleil Lepomis gibbosus, une espèce cousine interdite en France car classée envahissante : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion ou entre particuliers.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petite perche décorative au corps sombre traversé d'une bande noire diagonale évoquant un masque, bien plus discrète et de taille modeste que sa cousine invasive Lepomis gibbosus. Paisible, elle convient à un petit bassin ou grand bac froid.",
+      conseil:
+        "Vérifiez toujours le nom scientifique exact (Enneacanthus chaetodon) avant l'achat : la confusion avec la perche soleil interdite est fréquente à cause d'un nom commun proche, alors que les deux espèces n'ont pas le même statut légal.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 4,
+      compatibilite: "Autres poissons paisibles d'eau froide à tempérée, petits cyprinidés.",
+      incompatibilite: "Poissons agressifs ou trop rapides qui la stresseraient.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 10,
+      tempMax: 22,
+      difficulte: 'Intermédiaire',
+      alimentation: "Carnivore : larves congelées, petits invertébrés aquatiques.",
+      tailleAdulte: '5 à 6 cm',
+    },
   },
   {
     id: 126,
@@ -2984,8 +3433,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-papillon',
     nomScientifique: 'Chaetodon auriga',
     statutLegal: 'autorise',
-    remarqueLegale: 'alimentation souvent corallivore et taux de survie faible en captivité pour certaines espèces - à valider au cas par cas selon l\'espèce précise',
+    remarqueLegale:
+      "Certaines espèces de poissons-papillons ont une alimentation naturelle corallivore et un taux de survie faible en captivité : à valider au cas par cas selon l'espèce précise avant tout achat.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson récifal élégant au corps aplati et aux motifs contrastés, souvent orné d'une fausse tache oculaire pour perturber les prédateurs. Certaines espèces se nourrissent en partie de polypes coralliens dans la nature.",
+      conseil:
+        "Vérifiez le régime alimentaire précis de l'espèce avant l'achat : certains poissons-papillons s'adaptent bien à une alimentation de substitution, d'autres restent quasi exclusivement corallivores et ne survivent pas durablement en captivité.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons de récif paisibles, bac sans coraux sensibles au broutage.",
+      incompatibilite: "Coraux mous et durs, que certaines espèces broutent activement.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Omnivore à corallivore selon l'espèce : granulés/paillettes marines, complément variable de corail.",
+      tailleAdulte: '15 à 23 cm',
+    },
   },
   {
     id: 127,
@@ -2994,8 +3461,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-ange royal',
     nomScientifique: 'Pygoplites diacanthus',
     statutLegal: 'autorise',
-    remarqueLegale: 'alimentation spécialisée (éponges) et taux de survie faible en captivité - à valider au cas par cas',
+    remarqueLegale:
+      "Son alimentation naturelle très spécialisée (éponges) entraîne un taux de survie faible en captivité chez la plupart des aquariophiles : un achat à valider au cas par cas plutôt qu'en impulsion, réservé à un aquariophile confirmé.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson-ange aux couleurs somptueuses (orange, bleu, jaune) considéré comme l'un des plus beaux du récif, mais aussi l'un des plus difficiles à maintenir en captivité en raison de son régime alimentaire naturel très spécialisé.",
+      conseil:
+        "Avant tout achat, vérifiez que le spécimen accepte déjà une alimentation de substitution en animalerie : de nombreux individus refusent toute nourriture inerte et dépérissent progressivement même chez un aquariophile expérimenté.",
+      volumeMinLitres: 500,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons de récif paisibles, dans un très grand bac mature.",
+      incompatibilite: "Coraux et éponges, qu'il peut brouter par instinct naturel.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Spongivore/omnivore : éponges naturelles, algues, granulés marins enrichis en spiruline (acceptation variable).",
+      tailleAdulte: '20 à 25 cm',
+    },
   },
   {
     id: 128,
@@ -3004,8 +3489,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Cardinalis de Banggai',
     nomScientifique: 'Pterapogon kauderni',
     statutLegal: 'autorise',
-    remarqueLegale: 'espèce menacée à l\'état sauvage mais élevage en captivité très répandu - non listée CITES à ce jour, vérifier périodiquement',
+    remarqueLegale:
+      "Espèce menacée à l'état sauvage sur son unique zone d'origine (l'archipel de Banggai), mais son élevage en captivité est aujourd'hui très répandu et representé la grande majorité des individus vendus. Elle n'est pas listée CITES à ce jour ; privilégiez systématiquement un poisson né en captivité plutôt qu'un prélèvement sauvage.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit poisson-cardinal aux longues nageoires filamenteuses et aux rayures verticales élégantes, originaire d'une zone géographique très restreinte en Indonésie. Contrairement à beaucoup de poissons marins, il ne passe pas par un stade larvaire pélagique, ce qui facilite son élevage en captivité.",
+      conseil:
+        "Privilégiez toujours un individu né en captivité (le cas le plus fréquent aujourd'hui) plutôt qu'un poisson prélevé dans la nature, pour ne pas contribuer à la pression sur ses populations sauvages très localisées.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 2,
+      compatibilite: "Autres poissons de récif paisibles, crevettes, peut vivre en couple ou petit groupe.",
+      incompatibilite: "Poissons agressifs ou trop rapides qui lui disputeraient la nourriture.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Carnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      tailleAdulte: '7 à 8 cm',
+    },
   },
   {
     id: 129,
@@ -3014,8 +3517,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Poisson-mandarin',
     nomScientifique: 'Synchiropus splendidus',
     statutLegal: 'autorise',
-    remarqueLegale: 'alimentation très spécialisée (copépodes vivants) et taux de mortalité élevé chez le débutant - à valider au cas par cas',
+    remarqueLegale:
+      "Son alimentation très spécialisée (copépodes vivants) entraîne un taux de mortalité élevé chez les aquariophiles débutants qui le maintiennent sans bac suffisamment mature : un achat à valider au cas par cas plutôt qu'en impulsion.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "L'un des poissons marins les plus colorés, aux motifs psychédéliques bleu, orange et vert qui ne sont pas dus à des écailles mais à un mucus toxique protecteur. Se déplace lentement en broutant le décor en continu.",
+      conseil:
+        "Réservez-le à un bac très mature (plus d'un an) avec une population naturelle abondante de copépodes : sans cette base alimentaire vivante, il dépérit lentement même avec des aliments du commerce, qu'il accepte rarement.",
+      volumeMinLitres: 300,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons de récif paisibles et non concurrents pour les copépodes, dans un bac mature.",
+      incompatibilite: "Autres poissons brouteurs de copépodes qui entreraient en compétition alimentaire directe.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Carnivore spécialisé : copépodes vivants, très difficile à faire accepter des aliments inertes.",
+      tailleAdulte: '6 à 7 cm',
+    },
   },
   {
     id: 130,
@@ -3026,6 +3547,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit gobie élégant au corps blanc-orangé et à la nageoire dorsale allongée qu'il déploie et agite en permanence, comme un petit drapeau. Reste souvent en suspension près de son terrier, prêt à s'y réfugier au moindre danger.",
+      conseil:
+        "Sauteur occasionnel : un couvercle bien ajusté évite les mauvaises surprises, surtout dans les premières semaines suivant son introduction dans un bac inconnu.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 1,
+      compatibilite: "Poissons de récif paisibles, peut vivre en couple.",
+      incompatibilite: "Poissons agressifs ou territoriaux qui l'empêcheraient d'accéder à son terrier.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Intermédiaire',
+      alimentation: "Carnivore : petits crustacés vivants ou congelés (mysis, artémias).",
+      tailleAdulte: '7 à 9 cm',
+    },
   },
   {
     id: 131,
@@ -3036,6 +3574,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Poisson blanc et noir rayé de trois bandes verticales caractéristiques, très robuste et souvent recommandé pour cycler un bac marin débutant. Vit naturellement en petites colonies autour des coraux branchus.",
+      conseil:
+        "Comme les autres demoiselles, elle peut devenir territoriale en grandissant : introduisez-la de préférence en petit groupe impair dès le départ plutôt que d'ajouter des individus plus tard.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 3,
+      compatibilite: "Autres poissons de récif de gabarit similaire ou supérieur.",
+      incompatibilite: "Poissons très paisibles et de petite taille qu'elle pourrait chahuter en grandissant.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      tailleAdulte: '7 à 8 cm',
+    },
   },
   {
     id: 132,
@@ -3044,8 +3599,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Crevette Harlequin',
     nomScientifique: 'Hymenocera picta',
     statutLegal: 'autorise',
-    remarqueLegale: 'se nourrit exclusivement d\'étoiles de mer - à déconseiller mais pas interdit',
+    remarqueLegale:
+      "Se nourrit exclusivement d'étoiles de mer dans la nature comme en captivité : sa vente n'est pas interdite, mais son alimentation très spécialisée impose de lui fournir un approvisionnement régulier en étoiles de mer, à anticiper avant l'achat.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Crevette spectaculaire aux couleurs et motifs très travaillés, mais au régime alimentaire extrêmement spécialisé : elle ne consomme que des étoiles de mer, qu'elle immobilise et découpe méthodiquement.",
+      conseil:
+        "Anticipez sérieusement l'approvisionnement en étoiles de mer avant l'achat : sans cette nourriture spécifique et régulière, elle ne survit pas, aucun aliment de substitution n'étant accepté durablement.",
+      volumeMinLitres: 60,
+      tailleGroupeMin: 2,
+      compatibilite: "Poissons de récif paisibles ne s'attaquant pas aux crevettes.",
+      incompatibilite: "Étoiles de mer destinées à rester dans le bac, qu'elle chasse activement.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Carnivore spécialisé : exclusivement des étoiles de mer.",
+      tailleAdulte: '4 à 5 cm',
+    },
   },
   {
     id: 133,
@@ -3056,6 +3629,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit crabe filtreur souvent associé aux anémones où il trouve refuge, reconnaissable à ses pinces aplaties couvertes de taches. Contrairement à la plupart des crabes, il ne chasse pas mais filtre le plancton avec ses pattes en éventail.",
+      conseil:
+        "Totalement pacifique envers les poissons et coraux, il peut vivre en toute sécurité dans un bac récifal mixte : sa seule exigence est un léger courant qui lui apporte du plancton à filtrer.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: 1,
+      compatibilite: "Anémones (association naturelle), poissons et coraux de récif paisibles.",
+      incompatibilite: "Poissons prédateurs qui le considéreraient comme une proie.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Filtreur : plancton en suspension, complément de nourriture fine distribuée dans le courant.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 134,
@@ -3064,8 +3654,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Corail cuir (Sinularia)',
     nomScientifique: 'Sinularia sp.',
     statutLegal: 'autorise',
-    remarqueLegale: 'corail mou non scléractiniaire, généralement non listé CITES',
+    remarqueLegale:
+      "Corail mou non scléractiniaire, généralement non listé CITES contrairement aux coraux durs : à confirmer espèce par espèce en cas de doute.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Corail mou souple à la texture rappelant le cuir, formant des lobes ondulants qui bougent doucement au courant. Comme les autres coraux mous, il est plus tolérant que les coraux durs face aux variations de paramètres.",
+      conseil:
+        "Il libère parfois des substances chimiques (terpénoïdes) qui peuvent irriter certains coraux durs sensibles : gardez une distance suffisante ou un charbon actif efficace en cas de bac mixte.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: null,
+      compatibilite: "Autres coraux mous, poissons de récif paisibles.",
+      incompatibilite: "Coraux durs sensibles aux substances chimiques qu'il peut libérer.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse via les zooxanthelles symbiotiques ; nourrissage complémentaire rarement nécessaire.",
+      tailleAdulte: '10 à 30 cm de diamètre',
+    },
   },
   {
     id: 135,
@@ -3074,8 +3682,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Zoanthaire',
     nomScientifique: 'Zoanthus sp.',
     statutLegal: 'autorise',
-    remarqueLegale: 'certaines colonies peuvent sécréter une toxine dangereuse (palytoxine) - à signaler pour rappel des précautions à l\'acheteur, pas d\'interdiction',
+    remarqueLegale:
+      "Certaines colonies de zoanthaires peuvent sécréter une toxine dangereuse, la palytoxine, en cas de manipulation à mains nues ou de découpe : portez systématiquement des gants et évitez tout contact avec les yeux ou une plaie ouverte lors de l'entretien.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Corail mou colonial formant des tapis de polypes aux couleurs très variées (vert, orange, bleu, violet), l'un des coraux les plus faciles et les plus populaires pour débuter en récifal grâce à sa robustesse.",
+      conseil:
+        "Portez toujours des gants lors de toute manipulation ou découpe de zoanthaires : certaines colonies contiennent de la palytoxine, une substance qui peut être dangereuse en cas de contact avec une coupure ou les muqueuses.",
+      volumeMinLitres: 100,
+      tailleGroupeMin: null,
+      compatibilite: "Autres coraux mous, poissons de récif paisibles.",
+      incompatibilite: "Coraux placés directement au contact, qu'il peut recouvrir en s'étendant.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse via les zooxanthelles symbiotiques ; nourrissage complémentaire rarement nécessaire.",
+      tailleAdulte: 'Polypes de 1 à 3 cm, colonies extensibles',
+    },
   },
   {
     id: 136,
@@ -3084,8 +3710,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Requin taupe / requin de récif (aquarium géant)',
     nomScientifique: 'Chiloscyllium punctatum',
     statutLegal: 'autorise',
-    remarqueLegale: 'requins listés CITES Annexe II selon l\'espèce, taille adulte incompatible avec un aquarium domestique standard - ne jamais autoriser en libre-service',
+    remarqueLegale:
+      "Plusieurs espèces de requins de récif sont listées CITES Annexe II, et leur taille adulte est de toute façon incompatible avec un aquarium domestique standard : cette espèce ne doit jamais être vendue en libre-service, uniquement à des structures disposant d'un bassin adapté et d'une validation au cas par cas.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petit requin de récif au corps allongé et tacheté, réservé exclusivement aux très grands bassins publics ou aux aquariophiles disposant d'infrastructures exceptionnelles. Sa présence dans le commerce grand public reste anecdotique et déconseillée.",
+      conseil:
+        "Cette espèce n'a pas sa place dans un aquarium domestique, même de grande taille : réservez-la exclusivement à des bassins publics ou des structures professionnelles disposant d'un espace et d'un encadrement adaptés.",
+      volumeMinLitres: 10000,
+      tailleGroupeMin: 1,
+      compatibilite: "Grands poissons de récif dans un bassin professionnel de très grand volume.",
+      incompatibilite: "Tout aquarium domestique, quelle que soit sa taille.",
+      phMin: 8.1,
+      phMax: 8.4,
+      tempMin: 24,
+      tempMax: 27,
+      difficulte: 'Expert',
+      alimentation: "Carnivore : poissons, crustacés, mollusques.",
+      tailleAdulte: "Jusqu'à 100 cm",
+    },
   },
   {
     id: 137,
@@ -3096,6 +3740,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Variété bleue intense de Neocaridina, cousine de la red cherry avec la même facilité d'entretien. Sa couleur vive en fait une des crevettes d'ornement les plus demandées après la red cherry.",
+      conseil:
+        "Comme la red cherry, elle est facile et prolifique : évitez de la mélanger avec d'autres variétés de Neocaridina de couleur différente, les croisements donnant des descendants ternes et peu colorés.",
+      volumeMinLitres: 20,
+      tailleGroupeMin: 10,
+      compatibilite: "Poissons très paisibles et non prédateurs, autres Neocaridina de même couleur.",
+      incompatibilite: "Tout poisson même modérément prédateur, et autres variétés de Neocaridina (croisement).",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 18,
+      tempMax: 26,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 138,
@@ -3106,6 +3767,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Variété de Caridina au corps translucide rayé de bandes sombres évoquant un pelage de tigre. Comme les autres Caridina, elle est plus exigeante que les Neocaridina en matière de stabilité de l'eau.",
+      conseil:
+        "Un GH et un pH bas et stables, proches de son habitat naturel, sont indispensables à sa survie durable : un sol actif spécifique crevettes est fortement recommandé, comme pour la Crystal Red.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 10,
+      compatibilite: "Autres Caridina de même exigence, petits poissons très paisibles et non prédateurs.",
+      incompatibilite: "Tout poisson même modérément prédateur, et croisement à éviter avec d'autres variétés de Caridina.",
+      phMin: 6,
+      phMax: 7,
+      tempMin: 20,
+      tempMax: 24,
+      difficulte: 'Expert',
+      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
+      tailleAdulte: '2 à 3 cm',
+    },
   },
   {
     id: 139,
@@ -3116,6 +3794,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Grand escargot d'origine indonésienne à la coquille conique allongée, décliné en plusieurs couleurs selon les variétés. Contrairement aux escargots envahissants, il se reproduit très lentement, ce qui limite les populations incontrôlées.",
+      conseil:
+        "Sa reproduction lente en fait un escargot facile à gérer sans risque de surpopulation : contrairement à la physe ou au ramshorn, vous ne le verrez pas envahir le bac même sans intervention.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 2,
+      compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
+      incompatibilite: "Poissons mangeurs d'escargots (certains botias, tétraodons).",
+      phMin: 7,
+      phMax: 8,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture, granulés coulants en complément.",
+      tailleAdulte: '5 à 8 cm',
+    },
   },
   {
     id: 140,
@@ -3126,6 +3821,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante de milieu aux feuilles épaisses et charnues dégageant une légère odeur citronnée lorsqu'on les froisse. Ses tiges dressées forment de jolis massifs verts qui virent parfois au jaune-orangé sous forte lumière.",
+      conseil:
+        "Ses feuilles épaisses la rendent plus tolérante que beaucoup de plantes de milieu face aux carences ponctuelles : un bon choix pour un aquariophile encore peu expérimenté en plantes exigeantes.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui broutent activement les jeunes pousses.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 27,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse + racines dans un substrat nutritif ; CO2 non indispensable.",
+      tailleAdulte: '20 à 40 cm de hauteur',
+    },
   },
   {
     id: 141,
@@ -3136,6 +3848,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante d'arrière-plan au feuillage finement découpé et dense, formant une belle texture plumeuse qui contraste bien avec des plantes à larges feuilles. Croissance rapide sous un bon éclairage.",
+      conseil:
+        "Une lumière assez intense et un apport de CO2 favorisent une croissance compacte et dense : sous un éclairage faible, ses tiges s'étiolent et perdent leurs feuilles inférieures.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui broutent activement le feuillage fin.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Photosynthèse + racines ; profite d'un apport de CO2 et d'engrais.",
+      tailleAdulte: '20 à 40 cm de hauteur',
+    },
   },
   {
     id: 142,
@@ -3146,6 +3875,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petite plante flottante ou fixable formant des amas denses de fines ramifications vert vif, très utilisée en aquascaping pour créer des tapis ou des boules décoratives (mousse de riccia).",
+      conseil:
+        "Fixée sur un filet ou une pierre plate avec du fil, elle forme un tapis compact et dense particulièrement décoratif : sans fixation, elle flotte librement en surface et se propage plus difficilement à l'endroit voulu.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui déchiquettent activement les tapis flottants.",
+      phMin: 5.5,
+      phMax: 7.5,
+      tempMin: 18,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Photosynthèse ; profite d'un apport de CO2 pour une croissance dense.",
+      tailleAdulte: 'Tapis de quelques mm à plusieurs cm d\'épaisseur',
+    },
   },
   {
     id: 143,
@@ -3156,6 +3902,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "La plus petite des cryptocorynes couramment cultivées, idéale pour un premier plan dense et bas. Croissance très lente mais stable une fois installée, avec un feuillage vert foncé compact.",
+      conseil:
+        "Sa croissance très lente demande de la patience : ne vous découragez pas si elle semble stagner les premières semaines, elle finit par former un tapis dense et durable une fois acclimatée.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui déterrent activement le substrat.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Photosynthèse + racines dans un substrat nutritif ; CO2 non indispensable mais accélère la croissance.",
+      tailleAdulte: '5 à 8 cm de hauteur',
+    },
   },
   {
     id: 144,
@@ -3164,8 +3927,26 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Hydrocotyle leucocephala (trèfle d\'eau)',
     nomScientifique: 'Hydrocotyle leucocephala',
     statutLegal: 'autorise',
-    remarqueLegale: 'à ne pas confondre avec Hydrocotyle ranunculoides (interdite) - vérifier le nom d\'espèce exact avant tout ajout en base',
+    remarqueLegale:
+      "À ne pas confondre avec Hydrocotyle ranunculoides, une espèce cousine interdite en France car classée invasive : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion.",
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante aux feuilles rondes rappelant un trèfle, pouvant pousser immergée ou en émergé au-dessus de la surface. Croissance rapide qui apporte rapidement du volume et de la couleur claire à un aquarium.",
+      conseil:
+        "Vérifiez bien le nom scientifique exact avant l'achat : à ne pas confondre avec Hydrocotyle ranunculoides, une cousine interdite en France car invasive dans les milieux naturels.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui broutent activement les jeunes pousses.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse + racines ; CO2 non indispensable.",
+      tailleAdulte: '20 à 40 cm de hauteur',
+    },
   },
   {
     id: 145,
@@ -3176,6 +3957,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante de premier plan formant un gazon dense de fines tiges verticales évoquant du gazon aquatique. Très utilisée en aquascaping pour recréer un effet de pelouse au sol du bac.",
+      conseil:
+        "Une lumière assez intense favorise un tapis bas et dense plutôt que des tiges qui s'étirent vers la surface : sous éclairage faible, elle pousse en hauteur au lieu de former le gazon recherché.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui déterrent activement le tapis.",
+      phMin: 5.5,
+      phMax: 7.5,
+      tempMin: 20,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Photosynthèse + racines ; profite d'un apport de CO2 pour un tapis dense.",
+      tailleAdulte: '5 à 15 cm de hauteur',
+    },
   },
   {
     id: 146,
@@ -3186,6 +3984,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Petite plante de premier plan aux feuilles ondulées vert clair à bronze, très prisée en aquascaping pour sa texture originale qui se distingue des plantes de premier plan classiques.",
+      conseil:
+        "Elle apprécie d'être divisée régulièrement en petites touffes plutôt que de pousser en un seul bloc dense : la division favorise un tapis plus homogène et esthétique.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
+      incompatibilite: "Poissons ou écrevisses qui déterrent activement le substrat.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Photosynthèse + racines dans un substrat nutritif ; profite d'un apport de CO2.",
+      tailleAdulte: '5 à 10 cm de hauteur',
+    },
   },
   {
     id: 147,
@@ -3196,6 +4011,23 @@ export const ESPECES: Espece[] = [
     statutLegal: 'autorise',
     remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Plante flottante ou faiblement enracinée au feuillage fin et dense, poussant très rapidement et servant souvent de cachette naturelle pour les alevins. Contribue efficacement à filtrer les nitrates de l'eau.",
+      conseil:
+        "N'ayant pas besoin de racines pour se développer, elle peut simplement flotter librement dans le bac : idéale pour occuper rapidement l'espace et offrir des cachettes sans plantation fastidieuse.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce, utile pour les alevins.",
+      incompatibilite: "Poissons ou écrevisses qui déchiquettent activement le feuillage fin.",
+      phMin: 6,
+      phMax: 8,
+      tempMin: 18,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Photosynthèse ; absorbe les nutriments dissous dans l'eau (nitrates, phosphates).",
+      tailleAdulte: '30 à 100 cm de long',
+    },
   },
   {
     id: 148,
@@ -3204,8 +4036,25 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Gourami doré',
     nomScientifique: 'Trichopodus trichopterus',
     statutLegal: 'autorise',
-    remarqueLegale: 'Ajoutee automatiquement suite a une demande de validation.',
+    remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Variété dorée du gourami bleu, au corps entièrement jaune-doré sans motif marqué. Même comportement paisible et grégaire que les autres gouramis de taille moyenne, apte à la vie en communauté.",
+      conseil:
+        "Comme les autres labyrinthidés, laissez un espace d'air libre en surface et évitez un courant trop fort qui gênerait ses remontées respiratoires.",
+      volumeMinLitres: 150,
+      tailleGroupeMin: 1,
+      compatibilite: "Characidés, corydoras, autres poissons paisibles de communauté.",
+      incompatibilite: "Poissons très agressifs ou territoriaux qui pourraient le stresser.",
+      phMin: 6,
+      phMax: 8,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      tailleAdulte: '10 à 15 cm',
+    },
   },
   {
     id: 149,
@@ -3214,8 +4063,25 @@ export const ESPECES: Espece[] = [
     nomCommun: 'Apistogramma viejita',
     nomScientifique: 'Apistogramma viejita',
     statutLegal: 'autorise',
-    remarqueLegale: 'Ajoutee automatiquement suite a une demande de validation.',
+    remarqueLegale: null,
     citesAnnexe: null,
+    fiche: {
+      description:
+        "Cichlidé nain sud-américain aux couleurs vives (rouge, bleu, jaune selon la souche), très proche par son mode de vie de l'Apistogramma cacatuoides mais avec un patron de couleurs différent.",
+      conseil:
+        "Comme les autres apistogrammas, prévoyez des cachettes (racines, noix de coco, pots retournés) pour que la femelle puisse s'isoler lors de la ponte et réduire le stress du couple.",
+      volumeMinLitres: 80,
+      tailleGroupeMin: 1,
+      compatibilite: "Characidés, corydoras, autres poissons paisibles d'eau douce chaude.",
+      incompatibilite: "Autres cichlidés nains territoriaux dans un bac trop petit.",
+      phMin: 5.5,
+      phMax: 7,
+      tempMin: 24,
+      tempMax: 28,
+      difficulte: 'Intermédiaire',
+      alimentation: "Omnivore/carnivore : granulés, larves congelées, artémias.",
+      tailleAdulte: '5 à 7 cm (mâle plus grand que la femelle)',
+    },
   },
   {
     id: 150,
