@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Anciennes adresses de fiches espèces : deux doublons fusionnés et un nom
+  // corrigé (le « poisson-pierre » est un autre animal ; Erpetoichthys
+  // calabaricus est le poisson-roseau). Redirection permanente pour garder
+  // les liens et le référencement existants.
+  async redirects() {
+    return [
+      { source: '/especes/colisa-lalia-gourami-nain-multicolore', destination: '/especes/gourami-nain', permanent: true },
+      { source: '/especes/poisson-clown-d-eau-douce-chromobotia', destination: '/especes/loche-clown', permanent: true },
+      { source: '/especes/poisson-pierre', destination: '/especes/poisson-roseau', permanent: true },
+    ];
+  },
   images: {
     // Les photos d'annonces sont en réalité hébergées sur Cloudflare R2 (et
     // non sur le storage Supabase, malgré ce qu'on pensait au départ) —

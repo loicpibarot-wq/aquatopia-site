@@ -5,9 +5,9 @@ import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import EspeceRecherche from '@/components/EspeceRecherche';
 
 const SITE_URL = 'https://aquatopia.fr';
-const TITRE = "Fiches espèces : poissons, plantes, crevettes et coraux d'aquarium";
+const TITRE = "Fiches espèces : poissons, plantes, coraux et invertébrés d'aquarium";
 const DESCRIPTION =
-  "Volume minimum, taille de groupe, compatibilité, pH et température idéale pour chaque espèce couramment maintenue en aquarium ou en bassin — et son statut légal en France.";
+  "Volume minimum, compatibilité, paramètres d'eau (pH, température, salinité), conseils d'entretien et statut légal en France pour chaque espèce d'aquarium d'eau douce, d'eau de mer récifal ou de bassin.";
 
 export const metadata: Metadata = {
   title: TITRE,
@@ -25,6 +25,7 @@ export default function EspecesPage() {
       nomScientifique: e.nomScientifique,
       categorie: e.categorie,
       statutLegal: e.statutLegal,
+      autresNoms: e.autresNoms,
     }));
 
   const jsonLd = {

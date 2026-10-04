@@ -17,6 +17,7 @@ import {
   type Annonce,
 } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
+import { annonceJsonLd } from '@/lib/annonce-seo';
 
 // Rendu à la demande avec cache court : une annonce vendue il y a 2 minutes
 // ne doit jamais rester indexée/affichée comme disponible plus de quelques
@@ -82,21 +83,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
   const type = typeTransactionLabel(annonce);
   const nom = nomAffiche(annonce);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: annonce.titre,
-    description: metaDescription(annonce),
-    image: photos,
-    category: annonce.categorie,
-    offers: {
-      '@type': 'Offer',
-      price: annonce.is_don ? 0 : annonce.prix ?? 0,
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      areaServed: annonce.ville ?? 'France',
-    },
-  };
+  const jsonLd = annonceJsonLd(annonce, photos);
 
   const fil = [
     { name: 'Accueil', url: '/' },

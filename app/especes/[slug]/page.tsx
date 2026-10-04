@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ESPECES_PUBLIEES, fetchEspeceParSlug, categorieAnnonceSlug, biotopeSlug } from '@/lib/especes';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
+import { descriptionEspece, especesLiees, faqEspece, nomsIdentiques, titreEspece, tuilesEspece } from '@/lib/especes-seo';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -13,8 +14,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const espece = fetchEspeceParSlug(params.slug);
   if (!espece) return {};
-  const titre = `${espece.nomCommun} (${espece.nomScientifique}) : fiche technique`;
-  const description = `${espece.nomCommun} : volume minimum ${espece.fiche.volumeMinLitres ? `${espece.fiche.volumeMinLitres} L` : 'non applicable'}, pH ${espece.fiche.phMin ?? '?'}-${espece.fiche.phMax ?? '?'}, température ${espece.fiche.tempMin ?? '?'}-${espece.fiche.tempMax ?? '?'}°C. Compatibilité, alimentation et conseils d'entretien.`;
+  const titre = titreEspece(espece);
+  const description = descriptionEspece(espece);
   const url = `/especes/${espece.slug}`;
 
   return {
@@ -30,9 +31,42 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
   if (!espece) notFound();
   const { fiche } = espece;
 
-  const autresEspeces = ESPECES_PUBLIEES.filter(
-    (e) => e.slug !== espece.slug && e.categorie === espece.categorie,
-  ).slice(0, 4);
+  const autresEspeces = especesLiees(espece);
+  const faq = faqEspece(espece);
+  const tuiles = tuilesEspece(espece);
+  const cultive = Boolean(fiche.plante || fiche.corail || fiche.algue);
+  const multiplication = fiche.plante?.multiplication ?? fiche.corail?.multiplication ?? fiche.algue?.multiplication ?? null;
+  const titreAlimentation = fiche.plante || fiche.algue ? 'Culture et nutrition' : fiche.corail ? 'Alimentation et nutrition' : 'Alimentation';
+  const urlFiche = `${SITE_URL}/especes/${espece.slug}`;
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: titreEspece(espece),
+    description: descriptionEspece(espece),
+    inLanguage: 'fr-FR',
+    url: urlFiche,
+    mainEntityOfPage: urlFiche,
+    image: `${SITE_URL}/og-image.jpg`,
+    author: { '@type': 'Organization', name: 'Aquatopia' },
+    publisher: { '@type': 'Organization', name: 'Aquatopia' },
+    about: {
+      '@type': 'Thing',
+      name: espece.nomCommun,
+      alternateName: [
+        ...(nomsIdentiques(espece.nomCommun, espece.nomScientifique) ? [] : [espece.nomScientifique]),
+        ...(espece.autresNoms ?? []),
+      ],
+    },
+  };
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((q) => ({
+      '@type': 'Question',
+      name: q.question,
+      acceptedAnswer: { '@type': 'Answer', text: q.reponse },
+    })),
+  };
 
   const fil = [
     { name: 'Accueil', url: '/' },
@@ -43,6 +77,8 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · <Link href="/especes">Espèces</Link> · {espece.nomCommun}
@@ -51,7 +87,14 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
       <div className="section-head" style={{ marginBottom: 8, maxWidth: 760 }}>
         <span className="eyebrow">{espece.categorie}</span>
         <h1 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', marginTop: 14 }}>{espece.nomCommun}</h1>
-        <p style={{ marginTop: 6, fontStyle: 'italic', color: 'var(--text-muted)' }}>{espece.nomScientifique}</p>
+        {!nomsIdentiques(espece.nomCommun, espece.nomScientifique) && (
+          <p style={{ marginTop: 6, fontStyle: 'italic', color: 'var(--text-muted)' }}>{espece.nomScientifique}</p>
+        )}
+        {espece.autresNoms && espece.autresNoms.length > 0 && (
+          <p style={{ marginTop: 6, color: 'var(--text-muted)', fontSize: '0.92rem' }}>
+            Aussi appelé{espece.autresNoms.length > 1 ? 's' : ''} : {espece.autresNoms.join(', ')}
+          </p>
+        )}
       </div>
 
       {espece.remarqueLegale && (
@@ -64,9 +107,11 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
             <strong>
               {espece.statutLegal === 'interdite'
                 ? '⚠ Vente et détention interdites en France. '
-                : espece.statutLegal === 'cites_a_signaler'
-                  ? '⚠ Espèce réglementée (CITES) — déclaration obligatoire. '
-                  : 'ℹ Point de vigilance. '}
+                : espece.statutLegal === 'autorisation_requise'
+                  ? '⚠ Détention soumise à autorisation (certificat de capacité) : fermée aux particuliers. '
+                  : espece.statutLegal === 'cites_a_signaler'
+                    ? '⚠ Espèce réglementée (CITES) : conservez la preuve de son origine légale. '
+                    : 'ℹ Point de vigilance. '}
             </strong>
             {espece.remarqueLegale}
             {espece.citesAnnexe && ` (Annexe ${espece.citesAnnexe})`}
@@ -79,32 +124,12 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
       </p>
 
       <div className="espece-facts">
-        <div className="espece-fact">
-          <span>Volume minimum</span>
-          <strong>{fiche.volumeMinLitres ? `${fiche.volumeMinLitres} L` : 'Non applicable'}</strong>
-        </div>
-        <div className="espece-fact">
-          <span>Groupe minimum</span>
-          <strong>
-            {fiche.tailleGroupeMin ? `${fiche.tailleGroupeMin} individu${fiche.tailleGroupeMin > 1 ? 's' : ''}` : 'Non applicable'}
-          </strong>
-        </div>
-        <div className="espece-fact">
-          <span>pH idéal</span>
-          <strong>{fiche.phMin !== null && fiche.phMax !== null ? `${fiche.phMin} – ${fiche.phMax}` : 'Non applicable'}</strong>
-        </div>
-        <div className="espece-fact">
-          <span>Température</span>
-          <strong>{fiche.tempMin !== null && fiche.tempMax !== null ? `${fiche.tempMin} – ${fiche.tempMax}°C` : 'Non applicable'}</strong>
-        </div>
-        <div className="espece-fact">
-          <span>Taille adulte</span>
-          <strong style={{ fontSize: '0.95rem' }}>{fiche.tailleAdulte}</strong>
-        </div>
-        <div className="espece-fact">
-          <span>Difficulté</span>
-          <strong>{fiche.difficulte}</strong>
-        </div>
+        {tuiles.map((t) => (
+          <div className="espece-fact" key={t.label}>
+            <span>{t.label}</span>
+            <strong style={t.petite ? { fontSize: '0.95rem' } : undefined}>{t.valeur}</strong>
+          </div>
+        ))}
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, maxWidth: 760, marginBottom: 32 }}>
@@ -113,13 +138,19 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{fiche.compatibilite}</p>
         </div>
         <div>
-          <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>À éviter</h3>
+          <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{cultive ? 'Points de vigilance' : 'À éviter'}</h3>
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{fiche.incompatibilite}</p>
         </div>
         <div>
-          <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Alimentation</h3>
+          <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{titreAlimentation}</h3>
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{fiche.alimentation}</p>
         </div>
+        {cultive && multiplication && (
+          <div>
+            <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{fiche.corail ? 'Bouturage et multiplication' : 'Multiplication'}</h3>
+            <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{multiplication}</p>
+          </div>
+        )}
       </div>
 
       <div
@@ -141,13 +172,25 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
       {espece.statutLegal === 'autorise' && (
         <div style={{ marginBottom: 48 }}>
           <Link href={`/categorie/${categorieAnnonceSlug(espece.categorie)}`} className="btn btn-ghost" style={{ marginRight: 12 }}>
-            Voir les annonces {espece.categorie === 'Plantes' ? 'plantes' : 'vivant'}
+            Voir les annonces {categorieAnnonceSlug(espece.categorie) === 'plantes' ? 'plantes' : 'vivant'}
           </Link>
           <Link href={`/biotope/${biotopeSlug(espece.categorie)}`} className="btn btn-ghost">
             Voir les annonces {biotopeSlug(espece.categorie) === 'eau-de-mer' ? "d'eau de mer" : biotopeSlug(espece.categorie) === 'bassin' ? 'de bassin' : "d'eau douce"}
           </Link>
         </div>
       )}
+
+      <section style={{ maxWidth: 760, marginBottom: 48 }} aria-labelledby="faq-espece">
+        <h2 id="faq-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
+          Questions fréquentes sur {espece.nomCommun}
+        </h2>
+        {faq.map((q) => (
+          <div key={q.question} style={{ marginBottom: 18 }}>
+            <h3 style={{ fontSize: '0.98rem', marginBottom: 6 }}>{q.question}</h3>
+            <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>{q.reponse}</p>
+          </div>
+        ))}
+      </section>
 
       {autresEspeces.length > 0 && (
         <section style={{ marginTop: 24 }}>
@@ -159,7 +202,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
               <Link key={e.slug} href={`/especes/${e.slug}`} className="guide-card">
                 <span className="eyebrow">{e.categorie}</span>
                 <h3>{e.nomCommun}</h3>
-                <p style={{ fontStyle: 'italic' }}>{e.nomScientifique}</p>
+                {!nomsIdentiques(e.nomCommun, e.nomScientifique) && <p style={{ fontStyle: 'italic' }}>{e.nomScientifique}</p>}
               </Link>
             ))}
           </div>
