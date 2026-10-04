@@ -169,6 +169,45 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </p>
       </div>
 
+      {fiche.reproduction && (
+        <section style={{ maxWidth: 760, marginBottom: 48 }} aria-labelledby="repro-espece">
+          <h2 id="repro-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
+            Reproduction de {espece.nomCommun} en aquarium
+          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+            <span
+              style={{
+                display: 'inline-block',
+                padding: '3px 12px',
+                borderRadius: 20,
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                background:
+                  fiche.reproduction.facilite === 'Très facile' ? 'var(--vert-pale, #d4edda)' :
+                  fiche.reproduction.facilite === 'Facile' ? 'var(--vert-pale, #d4edda)' :
+                  fiche.reproduction.facilite === 'Modérée' ? 'var(--jaune-pale, #fff3cd)' :
+                  fiche.reproduction.facilite === 'Difficile' ? 'var(--orange-pale, #ffe0b2)' :
+                  fiche.reproduction.facilite === 'Très difficile' ? 'var(--rouge-pale, #f8d7da)' :
+                  'var(--bg-2)',
+                color:
+                  fiche.reproduction.facilite === 'Très facile' ? '#155724' :
+                  fiche.reproduction.facilite === 'Facile' ? '#155724' :
+                  fiche.reproduction.facilite === 'Modérée' ? '#856404' :
+                  fiche.reproduction.facilite === 'Difficile' ? '#e65100' :
+                  fiche.reproduction.facilite === 'Très difficile' ? '#721c24' :
+                  'var(--text-muted)',
+              }}
+            >
+              {fiche.reproduction.facilite}
+            </span>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Difficulté de reproduction</span>
+          </div>
+          <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+            {fiche.reproduction.description}
+          </p>
+        </section>
+      )}
+
       {espece.statutLegal === 'autorise' && (
         <div style={{ marginBottom: 48 }}>
           <Link href={`/categorie/${categorieAnnonceSlug(espece.categorie)}`} className="btn btn-ghost" style={{ marginRight: 12 }}>
