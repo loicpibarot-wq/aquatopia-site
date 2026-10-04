@@ -87,6 +87,10 @@ export interface FicheTechnique {
   marin?: InfosMarin;
   corail?: InfosCorail;
   algue?: InfosAlgue;
+  reproduction?: {
+    facilite: 'Très facile' | 'Facile' | 'Modérée' | 'Difficile' | 'Très difficile' | 'Impossible en captivité';
+    description: string;
+  };
 }
 
 export interface Espece {
@@ -138,6 +142,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes/granulés du quotidien, complétés occasionnellement par des proies vivantes ou congelées (artémias).",
       tailleAdulte: '3 à 6 cm (le mâle est plus petit et plus coloré que la femelle)',
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le guppy est l'un des poissons les plus faciles à reproduire en aquarium. Les mâles reconnaissables à leurs nageoires colorées fécondent les femelles en interne grâce au gonopode. La femelle est vivipare et donne naissance à 20-80 alevins tous les 28 jours à 26°C. Retirez les adultes après la naissance car ils mangent leurs petits, ou utilisez un bac séparateur. Les alevins acceptent la nourriture en poudre dès la naissance. Condition idéale : pH 7-7.5, 24-28°C, bon filtrage.",
+      },
     },
   },
   {
@@ -192,6 +200,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
       tailleAdulte: '4 à 6 cm',
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le platy est vivipare comme le guppy. La femelle gestante présente une tache sombre (tache de gravité) près de l'anale. Après 28 jours de gestation à 26°C, elle libère 20-50 alevins autonomes. Fournissez des plantes denses (mousse de java, vallisnéria) pour que les alevins se cachent. Nourrissez-les avec des aliments en poudre et nauplies d'artémia. Un couple isolé dans un bac de 30L suffit pour démarrer un élevage.",
+      },
     },
   },
   {
@@ -246,6 +258,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
       tailleAdulte: '2,5 à 3 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "La reproduction du néon bleu en captivité est délicate. Il faut un bac spécifique de 30-40L, eau très douce (GH < 4, KH < 2, pH 5.5-6.5), température 24-26°C et obscurité totale. Les œufs sont photosensibles : couvrez entièrement le bac. La ponte a lieu le matin sur des plantes à feuilles fines ou une boîte de ponte. Retirez les parents après la ponte. Les larves éclosent en 24h et nagent librement après 4-5 jours. Nourrissez avec des infusoires puis nauplies d'artémia.",
+      },
     },
   },
   {
@@ -300,6 +316,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4 à 5 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Reproduction possible en aquarium doux et légèrement acide (pH 6-6.5, GH < 6). Conditionnez les géniteurs séparément avec des aliments vivants pendant 2 semaines. Le mâle courtise la femelle en parade nuptiale. Les œufs sont déposés sur des plantes à feuilles fines ou un filtre de ponte. Retirez les parents après la ponte. Eau légèrement tamisée, température 26-27°C. Les larves sont libres après 3-4 jours et acceptent les infusoires.",
+      },
     },
   },
   {
@@ -354,6 +374,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4,5 à 5,5 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le tétra-empereur se reproduit en eau douce et acide (pH 5.8-6.5, GH < 5, T° 26-28°C). Préparez un bac de 40L avec de la tourbe ou des feuilles de catappa pour acidifier l'eau. Les géniteurs pondent sur des plantes fines ou dans un filet de ponte. Les œufs sont sensibles à la lumière. Retirez les adultes après la ponte. Alevins libres après 4-5 jours, nourris d'infusoires puis de nauplies d'artémia.",
+      },
     },
   },
   {
@@ -408,6 +432,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore de fond : pastilles/tablettes spécial poissons de fond, restes de nourriture qui coulent.",
       tailleAdulte: '6 à 7 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le corydoras bronze se reproduit facilement avec un groupe de 2-3 mâles pour 1 femelle. La femelle transporte les œufs entre ses nageoires ventrales pour les déposer sur des surfaces planes (vitres, feuilles). Simulez la saison des pluies avec une baisse de température de 2-3°C et des apports d'eau fraîche. Retirez les œufs dans un bac d'éclosion avec légère aération. Les larves éclosent en 4-5 jours. pH 6.5-7.5, T° 22-26°C.",
+      },
     },
   },
   {
@@ -462,6 +490,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore de fond : micro-granulés, restes de nourriture qui coulent.",
       tailleAdulte: '2 à 2,5 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le corydoras pygmée peut se reproduire en aquarium bien planté avec eau douce (pH 6.5-7, GH 4-8). Maintenez un groupe mixte de 6 individus minimum. La femelle colle ses œufs sur les vitres ou feuilles larges. Pour maximiser la survie, transférez les œufs dans un bac d'éclosion séparé. Les alevins sont très petits et nécessitent des infusoires puis du microworm en premier aliment. T° 22-26°C.",
+      },
     },
   },
   {
@@ -516,6 +548,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore : granulés/paillettes, complétés par des vers de vase et artémias congelés.",
       tailleAdulte: '12 à 15 cm de long (jusqu’à 25 cm de hauteur avec les nageoires)',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le scalaire forme des couples durables. Les géniteurs nettoient soigneusement une surface plane (feuille large, vitre, ardoise) avant la ponte. La femelle dépose 200-700 œufs en rangées que le mâle fertilise. Les parents gardent les œufs et ventilent avec leurs nageoires. À 26-27°C, les larves éclosent en 60h et sont libres après 5 jours. Première nourriture : nauplies d'artémia. Les parents inexpérimentés mangent parfois la ponte – retirez-la dans un bac séparé.",
+      },
     },
   },
   {
@@ -570,6 +606,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
       tailleAdulte: '5 à 8 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le gourami nain est un constructeur de nid de bulles. Le mâle construit un nid flottant parmi les plantes de surface. La femelle dépose 200-300 œufs que le mâle récupère dans sa bouche pour les déposer dans le nid. Retirez la femelle après la ponte (le mâle peut l'agresser). Le mâle surveille le nid. Larves libres après 3-4 jours, nourries d'infusoires. pH 6.5-7, T° 26-28°C, couverture sur le bac pour humidifier l'air.",
+      },
     },
   },
   {
@@ -624,6 +664,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
       tailleAdulte: '4 à 5 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le gourami miel construit un nid de bulles sous des plantes flottantes. Le mâle en période nuptiale prend une couleur orange vif. Après la parade, il fertilise 300-800 œufs qui remontent dans le nid. Retirez la femelle après la ponte pour éviter l'agression du mâle. Les larves éclosent en 24-48h et nagent librement après 2-3 jours. pH 6-7, T° 25-28°C. Premiers aliments : infusoires puis nauplies d'artémia. Bac de 40L avec végétation dense.",
+      },
     },
   },
   {
@@ -678,6 +722,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, granulés, très peu difficile.",
       tailleAdulte: '4 à 5 cm',
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le danio léopard est un des poissons les plus simples à reproduire. En groupe de 6 individus minimum, les femelles pondent spontanément sur les plantes ou le substrat. Utilisez un bac de ponte avec fond de billes ou grille pour protéger les œufs des adultes. T° 24-26°C, légère courantologie. Les œufs éclosent en 48-72h. Retirez les géniteurs après la ponte. Alevins nourris d'infusoires puis nauplies d'artémia dès 5 jours. pH 6.5-7.5.",
+      },
     },
   },
   {
@@ -732,6 +780,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes et granulés, larves congelées appréciées.",
       tailleAdulte: '3 à 4 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le barbus cerise se reproduit en eau douce et acide (pH 6-7, GH < 8, T° 24-27°C). Conditionnez les géniteurs avec des aliments vivants. Le mâle, rouge vif en période de frai, chasse la femelle entre les plantes. La femelle disperse 200-300 petits œufs collants sur des plantes à feuilles fines. Retirez les adultes après la ponte. Les œufs éclosent en 24-48h. Alevins libres après 5 jours. Infusoires et nauplies d'artémia pour les premiers repas.",
+      },
     },
   },
   {
@@ -787,6 +839,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Omnivore : granulés de fond, légumes blanchis, proies occasionnelles.",
       tailleAdulte: "Jusqu'à 30 cm",
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction de la loche clown en captivité est quasiment impossible pour un aquariophile amateur. Dans la nature, elle migre sur de longues distances pour frayer. Les rares succès en captivité nécessitent des installations professionnelles avec simulation de la saison des pluies, induction hormonale (injections de GnRH), et contrôle très précis des paramètres. Déconseillé pour un aquarium domestique. Préférez des spécimens élevés en captivité pour limiter la pression sur les populations sauvages.",
+      },
     },
   },
   {
@@ -841,6 +897,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Algivore/omnivore : pastilles à base de spiruline, légumes blanchis (courgette, concombre), bois flotté.",
       tailleAdulte: '12 à 15 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'ancistrus se reproduit facilement en aquarium. Le mâle occupe une grotte (tube en céramique, tronc creux) et attire la femelle pour pondre 50-150 œufs orangés. Il surveille et ventile les œufs seul. Placez plusieurs grottes de tailles différentes. Les larves éclosent en 5-7 jours à 26°C et restent dans la grotte 3-4 jours le temps de résorber leur sac vitellin. Nourrissez avec concombre, courgette, pastilles de spiruline. pH 6.5-7.5, T° 24-28°C.",
+      },
     },
   },
   {
@@ -896,6 +956,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore : granulés, vers de vase et artémias congelés.",
       tailleAdulte: '7 à 10 cm (mâle plus grand que la femelle)',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le kribensis est un des cichlidés nains les plus faciles à reproduire. La femelle aux flancs violets choisit une grotte (noix de coco coupée, grotte en céramique). Elle dépose 50-200 œufs violacés que le couple surveille ensemble. Les parents protègent férocement la couvée. Larves libres après 4-5 jours. Les deux parents guident les alevins lors des premières semaines. Retirez les autres poissons du bac. pH 6.5-7.5, T° 24-27°C. Eau légèrement douce pour des alevins bien équilibrés.",
+      },
     },
   },
   {
@@ -950,6 +1014,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore : paillettes, granulés, complément de larves congelées.",
       tailleAdulte: '10 à 12 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le poisson arc-en-ciel australien pond parmi les plantes à feuilles fines (mousse de java, plantes à longues feuilles). Après la parade matinale, la femelle dépose quelques œufs chaque jour pendant plusieurs jours. Les œufs ont des filaments adhésifs. Installez des touffes de plantes ou une vadrouille de ponte. Retirez les œufs régulièrement dans un bac d'éclosion. À 26°C, les larves éclosent en 7-10 jours. pH 7-7.5, T° 24-27°C. Premiers aliments très fins : infusoires.",
+      },
     },
   },
   {
@@ -1004,6 +1072,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Algivore : algues et biofilm, complément de pastilles à base de spiruline si besoin.",
       tailleAdulte: '4 à 5 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "L'otocinclus se reproduit rarement en aquarium amateur. Simulez la saison sèche (baisse de l'alimentation, eau plus chaude) puis la saison des pluies (eau fraîche, fortes pluies simulées, alimentation abondante). Les œufs sont déposés sur des feuilles larges ou des vitres. Les œufs sont petits et transparents, difficiles à repérer. Retirez les parents. Les larves éclosent en 48-72h et sont très petites. Nourrissez avec algues vivantes, infusoires, spiruline broyée. pH 6-7.5, T° 20-27°C.",
+      },
     },
   },
   {
@@ -1058,6 +1130,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4 à 5 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "La rasbora tête de cuivre pond sous les feuilles larges (type Cryptocoryne ou Anubias), côté inférieur de la feuille. Conditionnez les géniteurs avec des aliments vivants. Eau douce et légèrement acide requise (pH 6-6.5, GH < 5). Le mâle fertilise les œufs en parallèle. Retirez les adultes après la ponte. Les larves restent fixées sous les feuilles 1-2 jours puis nagent librement. Nourrissez d'infusoires puis de nauplies d'artémia. T° 24-27°C.",
+      },
     },
   },
   {
@@ -1113,6 +1189,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Carnivore : insectes, proies vivantes ou congelées en surface.",
       tailleAdulte: '15 à 20 cm',
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du poisson archer en captivité est extrêmement rare. Dans la nature, il vit en eau saumâtre et migre en mer pour frayer. Un bac saumâtre très grand (300L+), une simulation des marées et des conditions hormonales précises seraient nécessaires. Aucun succès reproductif documenté de façon régulière en aquarium amateur. L'espèce est appréciée pour son comportement de chasse et non pour sa reproduction.",
+      },
     },
   },
   {
@@ -1167,6 +1247,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore/carnivore : granulés coulants, larves congelées, proies occasionnelles.",
       tailleAdulte: '10 à 12 cm',
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du pictus en aquarium domestique est quasi impossible. Dans la nature, il migre sur de longues distances pour frayer à la saison des pluies. Les tentatives en captivité nécessitent de grands bassins (500L+), des changements drastiques de paramètres (T°, pH, dureté) et souvent des injections hormonales. Cette espèce est maintenue uniquement pour ses qualités esthétiques et son comportement. Préférez des spécimens issus d'élevage commercial.",
+      },
     },
   },
   {
@@ -1222,6 +1306,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore de fond : granulés coulants, algues, restes de nourriture.",
       tailleAdulte: '12 à 15 cm',
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le requin arc-en-ciel est difficile voire impossible à reproduire en aquarium domestique. Cette espèce migratrice fraye naturellement dans les grands fleuves d'Asie du Sud-Est lors de migrations saisonnières. Un très grand bac (600L+), des simulations de migration et des inductions hormonales seraient nécessaires. Les reproductions en captivité sont rares et réalisées dans des élevages spécialisés en Asie. Appréciez-le pour sa beauté plutôt que pour tenter de le reproduire chez vous.",
+      },
     },
   },
   {
@@ -1276,6 +1364,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Herbivore/omnivore : légumes blanchis, granulés végétaux, complément de paillettes.",
       tailleAdulte: '12 à 15 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le Metynnis argenteus se reproduit en eau douce et légèrement acide (pH 6-7, T° 26-28°C). Le mâle poursuit la femelle lors d'une parade nuptiale matinale. La femelle disperse 500-2000 petits œufs semi-pélagiques dans la colonne d'eau. Les œufs coulent lentement et ne sont pas gardés par les parents. Retirez les géniteurs immédiatement après la ponte. Les larves éclosent en 3-4 jours. Les alevins nagent librement après 5-6 jours. Nourrissez de spiruline broyée et nauplies d'artémia.",
+      },
     },
   },
   {
@@ -1331,6 +1423,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Omnivore de surface : insectes, granulés flottants, petites proies.",
       tailleAdulte: '20 à 30 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "L'anableps est vivipare mais sa reproduction en captivité est complexe. L'organe reproducteur du mâle est latéralisé (gauche ou droit) et doit correspondre à celui de la femelle pour l'accouplement. La femelle porte ses petits 8 semaines. Elle donne naissance à 4-10 gros alevins déjà formés capables de nager et manger immédiatement. Eau saumâtre (densité 1.002-1.005), T° 24-28°C. Assurez un accès à la surface car les anableps respirent à l'air libre.",
+      },
     },
   },
   {
@@ -1385,6 +1481,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Carnivore : vers de vase, larves congelées, artémias.",
       tailleAdulte: '20 à 23 cm',
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La reproduction du poisson éléphant (Gnathonemus petersii) en aquarium est considérée comme impossible. Dans la nature, ces poissons communiquent par champs électriques lors de la reproduction et migrent vers des zones de ponte spécifiques. Aucun cas de reproduction réussie en aquarium amateur n'est documenté. Les spécimens vendus dans le commerce proviennent tous d'importation sauvage. Maintenez-le pour son comportement fascinant de navigation par électrolocalisation.",
+      },
     },
   },
   {
@@ -1441,6 +1541,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Carnivore : proies vivantes ou congelées, granulés spécifiques grands prédateurs.",
       tailleAdulte: "Jusqu'à 60-90 cm",
+      reproduction: {
+        facilite: "Très difficile",
+        description: "L'arowana asiatique (Scleropages formosus) est une espèce CITES annexe I, protégée. Sa reproduction en captivité est légale uniquement dans des fermes agréées munies de microprocesseurs d'identification. Le mâle incube les œufs dans sa bouche (espèce ophiophage). La gestation dure 3-4 semaines. Les alevins restent dans la bouche du père jusqu'à résorption du sac vitellin. Un bac de 2000L+ est nécessaire. Vérifiez toujours la légalité et la traçabilité avant d'acquérir cette espèce.",
+      },
     },
   },
   {
@@ -1496,6 +1600,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore : granulés flottants spécial koï, alimentation réduite voire stoppée en dessous de 10°C.",
       tailleAdulte: '40 à 90 cm selon la variété et le volume du bassin',
+      reproduction: {
+        facilite: "Modérée",
+        description: "La carpe koi se reproduit facilement dans un grand bassin extérieur au printemps (T° 16-20°C). Les femelles ventripotentes (pleines d'œufs) sont poursuivies et bousculées par les mâles. Les œufs adhèrent aux plantes aquatiques ou aux brosses de ponte. Une femelle peut pondre 100000-200000 œufs. Les œufs éclosent en 3-5 jours. Retirez rapidement les adultes pour éviter la prédation des alevins. Nourrissez les alevins avec des nauplies d'artémia. Grand bassin de 5000L+ recommandé pour les reproducteurs.",
+      },
     },
   },
   {
@@ -1550,6 +1658,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore de fond : invertébrés, débris organiques, granulés coulants.",
       tailleAdulte: '20 à 40 cm en bassin',
+      reproduction: {
+        facilite: "Difficile",
+        description: "La tanche (Tinca tinca) est difficile à reproduire en captivité car elle a besoin de conditions printanières très précises. Elle nécessite une longue période froide (hivernage à 4-8°C), puis un réchauffement progressif au printemps (T° montant de 10 à 22°C). La ponte a lieu parmi les végétaux aquatiques denses. Les œufs sont très petits et collants. Les alevins sont minuscules et nécessitent des infusoires puis des nauplies d'artémia. Grand bassin de jardin requis (10000L+). Espèce de pêche sportive appréciée.",
+      },
     },
   },
   {
@@ -1605,6 +1717,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '20 à 25 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "La loche de rivière (Cobitis taenia) ou loche de bassin se reproduit rarement en captivité. Elle a besoin d'un hivernage (T° 4-8°C) suivi d'un réchauffement progressif au printemps pour déclencher le frai. Les œufs sont petits et adhèrent aux plantes et graviers. Les alevins minuscules nécessitent des soins particuliers (infusoires, nauplies). Un bac ou bassin spacieux avec fond sableux fin, végétation dense et bonne oxygénation est requis. pH 7-8, eau douce à modérément dure.",
+      },
     },
   },
   {
@@ -1660,6 +1776,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Herbivore : plantes aquatiques, légumes, granulés végétaux en complément.",
       tailleAdulte: "Jusqu'à 100 cm",
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction de l'amour blanc (Ctenopharyngodon idella) en aquarium est impossible pour un aquariophile amateur. Cette espèce atteint 120cm et 35kg à l'âge adulte. Dans la nature, elle migre sur de longues distances dans les grands fleuves d'Asie pour frayer. La reproduction commerciale nécessite des injections hormonales et des bassins de plusieurs dizaines de milliers de litres. De plus, l'amour blanc est une espèce invasive en Europe : sa détention est soumise à réglementation. Maintenez-le dans un grand bassin pour ses qualités d'entretien des plantes aquatiques.",
+      },
     },
   },
   {
@@ -1727,6 +1847,10 @@ export const ESPECES: Espece[] = [
         origine: "Pacifique ouest (nord-est de l'Australie, Mélanésie)",
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le poisson clown percula se reproduit bien en aquarium récifal. Formez un couple stable (ou achetez un couple). Le mâle s'occupe du territoire autour de son anémone. La femelle pond 100-1500 œufs orangés sur une roche plate nettoyée à proximité de l'anémone. Le mâle garde et ventile les œufs pendant 8-10 jours. Les larves sont planctoniques et très délicates à élever. Nourrissez avec des rotifères puis nauplies d'artémia. T° 25-27°C, densité 1.024-1.026.",
       },
     },
   },
@@ -1796,6 +1920,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Tous niveaux',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du chirurgien voile jaune (Zebrasoma flavescens) en aquarium est extrêmement rare et réservée à des installations professionnelles. Dans la nature, ils frayent la nuit en grands groupes sur les récifs. Les larves sont planctoniques (leptocéphales) pendant des semaines et nécessitent des aliments vivants spécifiques (microalgues, petits copépodes). La reproduction en captivité nécessite des bassins très grands, un contrôle précis de la photopériode et des aliments spécialisés. Actuellement quasi-impossible en aquarium amateur.",
+      },
     },
   },
   {
@@ -1863,6 +1991,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La demoiselle verte (Chromis viridis) se reproduit parfois en grand aquarium récifal bien établi. Le mâle prépare un site de ponte sur le substrat ou entre les coraux. La femelle dépose des œufs filamenteux que le mâle fertilise et garde. Incubation de 2-4 jours à 26°C. Les larves planctoniques sont très difficiles à élever : elles nécessitent des rotifères enrichis puis des nauplies d'artémia de petite taille, dans des conditions d'eau très stables.",
       },
     },
   },
@@ -1933,6 +2065,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Les poissons-anges nains (Centropyge sp.) se reproduisent rarement en aquarium. Un couple établi peut frayer à la tombée de la nuit : les œufs sont libérés dans la colonne d'eau. Les larves planctoniques sont extrêmement délicates à élever (microalgues, rotifères, copépodes nauplii). Des éleveurs professionnels ont obtenu des succès avec des protocoles très précis. Cette reproduction est actuellement en cours de développement par quelques structures spécialisées dans le monde pour réduire la pression sur les récifs naturels.",
+      },
     },
   },
   {
@@ -2002,6 +2138,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le gobie crevette (Amblyeleotris sp. ou Cryptocentrus sp.) peut se reproduire en aquarium récifal. Le couple, vivant en symbiose avec une crevette, pond dans un terrier. Les œufs sont gardés par les parents. Les larves planctoniques sont difficiles à capturer et à élever. Pour tenter la reproduction, maintenez un couple établi, fournissez du sable fin pour les terriers et proposez des aliments vivants de qualité. T° 25-27°C, densité 1.024-1.026.",
+      },
     },
   },
   {
@@ -2070,6 +2210,10 @@ export const ESPECES: Espece[] = [
         origine: "Indo-Pacifique (introduit dans l'Atlantique ouest et les Caraïbes)",
         reefSafe: 'Non',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le poisson lion (Pterois volitans) peut frayer en aquarium mais les larves sont quasi-impossibles à élever en amateur. Le couple fraye la nuit : la femelle libère une masse gélatineuse contenant les œufs (jusqu'à 15000) qui flottent en surface. Les larves planctoniques minuscules nécessitent des rotifères nauplii et des microalgues. L'élevage est réalisé dans quelques centres spécialisés aux USA. ATTENTION : espèce invasive hors de son aire naturelle. Ne jamais relâcher dans la nature.",
       },
     },
   },
@@ -2142,6 +2286,10 @@ export const ESPECES: Espece[] = [
         kh: '7 – 9 dKH',
         calcium: '400 – 450 mg/L',
         magnesium: '1280 – 1350 mg/L',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du bénitier Tridacna en aquarium est extrêmement difficile. Ces mollusques hermaphrodites libèrent leurs gamètes dans l'eau selon des cycles lunaires. Les larves véligères planctoniques nécessitent des microalgues spécifiques et des conditions très précises pour se métamorphoser. Quelques stations marines et éleveurs professionnels produisent des bénitiers d'élevage, rendant l'acquisition de spécimens captifs possible. ATTENTION : espèce protégée CITES – achetez uniquement des bénitiers certifiés élevés en captivité.",
       },
     },
   },
@@ -2232,6 +2380,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Semi-agressif',
         multiplication: "Bouturage d'une tête (polype) ou d'une branche avec une pince ou une scie fine, en laissant un peu de squelette ; la blessure doit cicatriser avant tout déplacement. Une colonie bien portante se divise aussi d'elle-même.",
       },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le corail marteau (Euphyllia ancora) se propage facilement par bouturage. Coupez proprement une tête avec une scie rotative dédiée et fixez-la sur un fragment de roche ou un support. La plaie cicatrise en 4-6 semaines. Évitez tout stress (qualité d'eau, lumière stable) pendant la cicatrisation. La reproduction sexuée (larves planctoniques lors d'une ponte massive) est rare en aquarium. T° 25-27°C, densité 1.025, KH 8-10, Ca 420-440ppm, Mg 1300-1350ppm.",
+      },
     },
   },
   {
@@ -2321,6 +2473,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Semi-agressif',
         multiplication: "Elle se divise spontanément (fission) dans un bac stable ; on ne cherche pas à la bouturer, car la blessure est risquée pour l'animal.",
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "L'anémone bulle (Entacmaea quadricolor) peut se diviser asexuellement en aquarium récifal établi. Elle se fissure longitudinalement pour donner deux individus — généralement quand ses conditions sont optimales (forte lumière, courant modéré, alimentation régulière). La reproduction sexuée (ovules et spermatozoïdes libérés dans l'eau) est rare en captivité. Pour favoriser la division, maintenez une alimentation régulière avec petits morceaux de chair de crevette ou de moule. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -2400,6 +2556,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Tous niveaux',
       },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La crevette nettoyeuse de Lysmata amboinensis est hermaphrodite simultanée. Deux individus peuvent s'accoupler et les deux portent les œufs sous l'abdomen. Les larves planctoniques (zoées) sont très difficiles à élever et nécessitent des microalgues vivantes et des conditions très précises. Quelques éleveurs spécialisés ont réussi des élevages larvaires complets. La principale difficulté est l'élevage des larves. La reproduction des adultes en bac récifal est fréquente. T° 24-26°C, densité 1.024-1.026.",
+      },
     },
   },
   {
@@ -2467,6 +2627,10 @@ export const ESPECES: Espece[] = [
         origine: "Caraïbes et Indo-Pacifique (selon l'espèce)",
         reefSafe: 'Avec précautions',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction des bernards-l'hermite marins en aquarium est extrêmement difficile. La femelle porte ses œufs sous son abdomen. Les larves planctoniques (zoées puis mégalopes) ont besoin de phytoplancton spécifique et de conditions très précises pour survivre. Quelques institutions spécialisées ont documenté des élevages larvaires partiels. Pour l'aquariophile amateur, la reproduction n'est pas réaliste. Maintenez-les pour leur rôle d'éboueurs du récifal. Fournissez plusieurs coquilles de rechange de différentes tailles.",
       },
     },
   },
@@ -2537,6 +2701,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Tous niveaux',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction des escargots Turbo en aquarium est très difficile. La ponte est libérée dans l'eau sous forme de ruban gélatineux contenant des milliers d'œufs. Les larves véligères planctoniques nécessitent des microalgues spécifiques (diatomées, etc.) et des conditions très contrôlées. Quelques éleveurs spécialisés ont eu des succès partiels. Pour l'aquariophile, les pontes se produisent parfois en bac mais l'élevage des larves reste la principale difficulté. Maintenez-les pour leur efficacité à brouter les algues indésirables.",
+      },
     },
   },
   {
@@ -2606,6 +2774,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Non',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "Le cône textile (Conus textile) est un des mollusques les plus dangereux du monde. Son harpon venimeux peut tuer un humain. Sa détention en aquarium est extrêmement dangereuse et déconseillée. Sa reproduction en captivité est techniquement possible mais n'est réalisée que dans des laboratoires de recherche par du personnel qualifié. La femelle pond des capsules ovifères fixées sur le substrat. Les larves véligères sont planctoniques. Ne maintenez JAMAIS cette espèce dans un aquarium domestique.",
+      },
     },
   },
   {
@@ -2660,6 +2832,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
       tailleAdulte: '2 à 3 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "La crevette Crystal Red (Caridina cantonensis) est délicate à reproduire car ses exigences sont très précises. Eau très douce et acide (GH 3-6, KH 0-2, pH 5.8-6.5, TDS 100-150ppm), T° 20-23°C. La femelle porte 20-30 œufs sous l'abdomen 4 semaines. Les alevins mini-adultes sortent autonomes. Ne mélangez pas avec d'autres espèces. Évitez tout cuivre (antiparasitaires). Utilisez un filtre à spongieux pour éviter d'aspirer les alevins. Eau de pluie ou osmosée avec minéralisation spécifique Caridina.",
+      },
     },
   },
   {
@@ -2714,6 +2890,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes.",
       tailleAdulte: '2,5 à 3,5 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "La crevette fantôme (Caridina multidentata) se reproduit en eau douce mais ses larves sont planctoniques et nécessitent une eau saumâtre pour se développer (c'est une espèce amphidrome). Après la naissance, les larves doivent être transférées en eau légèrement saumâtre (densité 1.010-1.015) avec du phytoplancton. Après métamorphose (4-6 semaines), les juvéniles retournent en eau douce. Ce processus compliqué rend la reproduction en aquarium fermé très difficile mais possible avec les bons équipements.",
+      },
     },
   },
   {
@@ -2768,6 +2948,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Algivore : algues et biofilm ; complément de pastilles à base de spiruline si les algues manquent.",
       tailleAdulte: '2 à 2,5 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "Les néritines (Neritina sp.) peuvent pondre en aquarium : les capsules ovifères blanches sont visibles sur les vitres et décorations. Cependant, leurs larves sont marines et amphidromes : elles ont besoin d'eau de mer pour se développer. Sans eau salée, les larves périssent rapidement. La reproduction complète en aquarium d'eau douce fermé est donc quasi-impossible. Pour l'espèce Neritina natalensis (olive à picots), quelques tentatives en bac saumâtre ont eu lieu mais restent rares et complexes.",
+      },
     },
   },
   {
@@ -2822,6 +3006,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture.",
       tailleAdulte: '1 à 1,5 cm',
+      reproduction: {
+        facilite: "Très facile",
+        description: "La physe (Physa sp.) se reproduit de façon explosive en aquarium. Hermaphrodite, elle pond des pontes gélatineuses transparentes contenant 10-50 œufs directement sur les plantes, vitres et décors. Les jeunes éclosent en 2-3 semaines. Leur population peut exploser rapidement. Pour contrôler la population : réduisez l'alimentation, retirez manuellement les pontes, ou introduisez des poissons mangeurs d'escargots (LoachesClown, Botia). Si la présence d'escargots est indésirable, évitez toute introduction de plante non traitée.",
+      },
     },
   },
   {
@@ -2876,6 +3064,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Photosynthèse : une lumière faible à modérée suffit, le CO2 additionnel n'est pas indispensable.",
       tailleAdulte: "Tapis de quelques millimètres à plusieurs centimètres d'épaisseur selon l'entretien",
+      reproduction: {
+        facilite: "Très facile",
+        description: "La mousse de java (Vesicularia dubyana) se multiplie végétativement par simple fragmentation. Divisez la touffe et fixez les portions sur les roches, racines ou grilles avec du fil de pêche ou de la colle gel. Chaque fragment se développe en nouvelle touffe. Croissance lente mais régulière sous faible à moyen éclairage. Aucun engrais ni CO2 requis. Idéale comme refuge pour les alevins et les crevettes. Résistante et tolérante à des paramètres variés. pH 5-7.5, T° 18-28°C.",
+      },
     },
   },
   {
@@ -2930,6 +3122,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Photosynthèse + racines dans un substrat nutritif ; CO2 non indispensable mais accélère la croissance.",
       tailleAdulte: '10 à 20 cm de hauteur',
+      reproduction: {
+        facilite: "Facile",
+        description: "La cryptocoryne wendtii se propage naturellement par stolons. La plante mère émet des tiges latérales qui portent de nouvelles rosettes. Quand la plantule a 3-4 feuilles, coupez le stolon et replantez la jeune plante dans le substrat. Croissance lente à modérée. Pas de CO2 requis mais bénéfique. Substrat nutritif conseillé. Ne pas changer brutalement ses paramètres (maladie de la cryptocoryne). pH 6-7.5, T° 22-28°C.",
+      },
     },
   },
   {
@@ -2984,6 +3180,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Photosynthèse + racines dans le substrat ; CO2 non indispensable.",
       tailleAdulte: "30 à 100 cm de long selon la lumière disponible",
+      reproduction: {
+        facilite: "Très facile",
+        description: "La vallisnérie se multiplie très facilement par stolons. Elle émet des tiges courantes latérales qui produisent de nouvelles plantes tous les 5-10cm. Laissez-les se développer et séparez-les pour garnir votre aquarium. Croissance rapide sous bon éclairage. Idéale pour les aquariums de fond. CO2 non indispensable. Peut former une forêt dense en quelques semaines. pH 6-8, T° 18-28°C. Taillez les vieilles feuilles pour maintenir la plante en forme.",
+      },
     },
   },
   {
@@ -3038,6 +3238,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Photosynthèse ; se contente d'un éclairage modéré, CO2 non indispensable.",
       tailleAdulte: '30 à 40 cm de hauteur',
+      reproduction: {
+        facilite: "Très facile",
+        description: "L'hygrophile polysperme se multiplie par simple bouturage. Coupez une tige sous un nœud (5-10cm minimum) et replantez-la dans le substrat. Des racines se développent rapidement. Croissance très rapide sous bon éclairage, idéale pour absorber les nitrates. Taillez régulièrement et replantez les sommets. ATTENTION : espèce potentiellement invasive. Ne la relâchez jamais dans la nature. Réglementation variable selon les pays (interdite dans certains États américains). pH 6-7.5, T° 22-30°C.",
+      },
     },
   },
   {
@@ -3093,6 +3297,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Photosynthèse + racines dans un substrat nutritif ; profite d'un apport de CO2 et d'engrais.",
       tailleAdulte: '20 à 40 cm de hauteur',
+      reproduction: {
+        facilite: "Très facile",
+        description: "La ludwigia repens se multiplie très facilement par bouturage. Coupez une tige de 5-10cm juste sous un nœud et replantez-la dans le substrat. Des racines apparaissent rapidement. La couleur rouge s'intensifie sous fort éclairage et avec apport de CO2. Taillez les tiges hautes et replantez les sommets pour densifier la végétation. Croissance modérée à rapide selon les conditions. pH 6-7.5, T° 20-28°C. Excellente plante pour les débutants.",
+      },
     },
   },
   {
@@ -3147,6 +3355,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore à tendance algivore : granulés spécifiques cichlidés africains, spiruline.",
       tailleAdulte: '10 à 12 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le cichlide zèbre (Maylandia zebra) est un incubateur buccal maternel très facile à reproduire. Le mâle creuse un nid sableux et parade avec ses couleurs vives. La femelle pond 30-60 œufs que le mâle fertilise. La femelle incube les œufs et les alevins dans sa bouche 3 semaines. Retirez la femelle gestante dans un bac calme. Les alevins sortent autonomes et peuvent manger des nauplies d'artémia immédiatement. pH 7.8-8.5, T° 24-27°C, eau dure.",
+      },
     },
   },
   {
@@ -3201,6 +3413,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés africains, larves congelées.",
       tailleAdulte: '12 à 14 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'Aulonocara (cichlidé paon) est un incubateur buccal maternel relativement facile. Le mâle aux couleurs spectaculaires parade devant la femelle sur un nid de sable. La femelle pond 20-50 œufs et les incube dans sa bouche 3-4 semaines. Isolez la femelle gestante (joues gonflées, refuse de manger) dans un bac calme. Relâchez les alevins dans le bac principal progressivement. pH 7.5-8.5, eau dure (GH 15-20), T° 24-28°C.",
+      },
     },
   },
   {
@@ -3256,6 +3472,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
       tailleAdulte: '7 à 10 cm',
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le cichlide convict est l'un des cichlidés les plus faciles à reproduire. Le couple nettoie méticuleusement une surface plate (pierre, vitre). La femelle pond 200-500 œufs violacés. Les deux parents montent une garde très agressive. Les larves éclosent en 48-60h et sont transférées dans des trous creusés dans le sable. Les alevins nagent librement après 5-7 jours. La famille est admirablement organisée. pH 6.5-8, T° 24-27°C. Attention : ils agressent tout dans le bac !",
+      },
     },
   },
   {
@@ -3312,6 +3532,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Omnivore : granulés, légumes, proies occasionnelles.",
       tailleAdulte: "Jusqu'à 100-130 cm",
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La reproduction du Pangasius (Pangasianodon hypophthalmus) en aquarium est impossible. Cette espèce atteint 130cm et plusieurs kilos à l'âge adulte. Dans la nature, elle migre sur des milliers de kilomètres dans le Mékong pour frayer. Sa reproduction commerciale nécessite des bassins de plusieurs milliers de litres, des injections hormonales spécialisées et des équipements de pisciculture industriels. Cette espèce ne devrait pas être maintenue en aquarium domestique en raison de sa taille adulte massive.",
+      },
     },
   },
   {
@@ -3366,6 +3590,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '3,5 à 4,5 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le tétra-glowlight se reproduit en eau douce et acide (pH 5.8-6.5, GH < 4, T° 26-28°C). Conditionnez les géniteurs séparément avec des nauplies d'artémia et des vers de vase. Bac de ponte avec filtre de mousse et fond de billes. Les œufs, légèrement photosensibles, sont dispersés sur les plantes. Retirez les adultes après la ponte. Les larves éclosent en 24-36h et nagent librement après 4-5 jours. Premiers aliments : infusoires très fins, puis nauplies d'artémia.",
+      },
     },
   },
   {
@@ -3420,6 +3648,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '2 à 3 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "La rasbora arlequin pond sous les feuilles larges de plantes (Cryptocoryne, Nymphaea). La femelle, ventrale dilatée, se retourne sous une feuille pour déposer ses œufs sur la face inférieure. Eau douce et acide (pH 5.8-6.5, GH < 5, T° 24-26°C). Conditionnez avec des aliments vivants. Retirez les adultes après la ponte. Les larves restent fixées 1-2 jours puis nagent librement. Infusoires puis nauplies d'artémia comme premiers aliments.",
+      },
     },
   },
   {
@@ -3474,6 +3706,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes, granulés, complément végétal apprécié.",
       tailleAdulte: '6 à 8 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le xenotoca est vivipare (goodeidae). La femelle porte ses petits 6-8 semaines et donne naissance à 10-30 alevins autonomes. Aucune ponte externe. Les alevins sont déjà bien formés et acceptent immédiatement les nauplies d'artémia. Eau fraîche (T° 18-22°C), pH 7-7.8. Séparez les adultes des alevins après la naissance. La femelle peut être fécondée à nouveau immédiatement. Note : espèce proche de l'extinction dans la nature (Mexique) — sa reproduction en captivité est un véritable acte de conservation.",
+      },
     },
   },
   {
@@ -3528,6 +3764,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '2 à 3,5 cm (mâle plus petit que la femelle)',
+      reproduction: {
+        facilite: "Très facile",
+        description: "L'endler est encore plus facile à reproduire que le guppy. Vivipare, la femelle donne naissance à 5-30 alevins toutes les 3-4 semaines à 26°C. Les alevins sont minuscules mais autonomes immédiatement. Placez des plantes denses pour que les alevins se cachent des adultes. Nourrissez avec de la nourriture en poudre très fine. Les endlers hybrident facilement avec les guppys : maintenez-les séparément si vous voulez conserver les souches pures. pH 7-8.5, T° 24-28°C.",
+      },
     },
   },
   {
@@ -3582,6 +3822,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore : granulés coulants, larves congelées, restes de nourriture.",
       tailleAdulte: '8 à 9 cm',
+      reproduction: {
+        facilite: "Difficile",
+        description: "La reproduction des synodontis en aquarium amateur est rarement documentée et difficile. Certaines espèces comme Synodontis multipunctatus sont des parasites de couvaison des cichlidés du lac Tanganyika (leurs œufs sont incubés par des cichlidés hôtes sans que ces derniers s'en rendent compte). Cette particularité rend la reproduction très spécifique. Pour les autres espèces, des injections hormonales et de grands bacs sont nécessaires. La plupart des synodontis vendus sont issus d'importation sauvage ou d'élevages commerciaux spécialisés.",
+      },
     },
   },
   {
@@ -3636,6 +3880,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
       tailleAdulte: '30 à 40 cm',
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le poisson roseau (Erpetoichthys calabaricus) se reproduit rarement en captivité. Dans la nature, il fraie pendant la saison des pluies dans des zones inondées. Un grand bac (200L+), une simulation de saison des pluies (variation T° 2-4°C, baisse du niveau d'eau puis remplissage), et végétation dense sont nécessaires. Les œufs sont déposés parmi les plantes. Incubation longue (14-20 jours). Les alevins sont rares et délicats. Espèce maintenue principalement pour son aspect serpentiforme fascinant.",
+      },
     },
   },
   {
@@ -3692,6 +3940,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Carnivore : larves congelées, petits invertébrés aquatiques.",
       tailleAdulte: '5 à 6 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "L'Elassoma (perche soleil naine) se reproduit en bac bien végétalisé. Le mâle en couleurs nuptiales parade et courtise la femelle. Les œufs sont déposés un par un sur des plantes à feuilles fines ou de la mousse. Pas de garde parentale. Retirez les adultes après la ponte. Eau fraîche (T° 18-22°C), légèrement acide (pH 6.5-7), bonne oxygénation. Les larves éclosent en 4-5 jours et sont libres après 2-3 jours supplémentaires. Nourrissez d'infusoires et de nauplies d'artémia.",
+      },
     },
   },
   {
@@ -3761,6 +4013,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique et mer Rouge',
         reefSafe: 'Non',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La reproduction du poisson-ange royal (Pygoplites diacanthus) en aquarium est considérée comme impossible. Cette espèce hermaphrodite protogyne vit sur les récifs et nécessite des conditions très spécifiques de profondeur, lumière et territoire pour frayer. Aucune reproduction documentée en aquarium public ou privé. Les spécimens vendus dans le commerce proviennent tous de collecte dans la nature. Considérez plutôt des espèces de poissons-anges nains (Centropyge) mieux adaptées à la captivité.",
       },
     },
   },
@@ -3832,6 +4088,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Difficile",
+        description: "Le poisson mandarin (Synchiropus splendidus) peut se reproduire en grand aquarium récifal très établi. Les adultes frayent à la tombée de la nuit (15-30 min après le coucher du soleil). Observez leurs parades nuptiales. Les œufs planctiques et les larves sont très difficiles à élever : ils nécessitent des copépodes vivants (Tisbe, Tigriopus). Quelques éleveurs spécialisés ont obtenu des succès. La principale difficulté reste l'alimentation : les mandarins n'acceptent que les copépodes vivants du récifal.",
+      },
     },
   },
   {
@@ -3899,6 +4159,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique et mer Rouge',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Modérée",
+        description: "La demoiselle à trois bandes (Dascyllus aruanus) se reproduit en grand aquarium récifal. Le mâle prépare un site de ponte dans les coraux branchus ou sur une roche plate. La femelle pond des œufs filamenteux gardés par le mâle. Les larves planctoniques nécessitent des rotifères enrichis puis des nauplies d'artémia. Cette espèce est plus facile à reproduire que d'autres demoiselles grâce à sa bonne adaptation à la captivité. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -3968,6 +4232,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction des crabes porcelaine (Neopetrolisthes maculatus) en aquarium est très difficile. La femelle porte ses œufs sous son abdomen. Les larves planctoniques (zoées) nécessitent des conditions très spécifiques pour leur métamorphose. Quelques éleveurs spécialisés ont réussi des élevages larvaires. Pour la majorité des aquariophiles, la reproduction n'est pas réaliste. Ces crabes vivent en symbiose avec les anémones, maintenez-les donc avec leur anémone hôte. Densité 1.024-1.026.",
       },
     },
   },
@@ -4059,6 +4327,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Semi-agressif',
         multiplication: "Division d'une colonie en détachant quelques polypes avec un scalpel (de préférence sous l'eau) ou en séparant un morceau de roche : les fragments reprennent facilement s'ils sont fixés.",
       },
+      reproduction: {
+        facilite: "Très facile",
+        description: "Les zoanthaires se reproduisent très facilement en aquarium récifal par bourgeonnement asexué. De nouveaux polypes apparaissent spontanément autour des colonies existantes, formant des tapis denses. Pour accélérer la propagation : découpez un morceau de roche support avec quelques polypes et repositionnez-le. La reproduction sexuée (larves planctoniques) est rare en captivité. Attention : certains zoanthaires contiennent de la palyctoxine, très toxique. Ne manipulez jamais sans gants et évitez tout contact avec les yeux.",
+      },
     },
   },
   {
@@ -4121,6 +4393,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "La crevette Blue Dream (Neocaridina davidi var. Blue Dream) se reproduit facilement avec des paramètres stables. La femelle porte 20-40 œufs sous l'abdomen pendant 3-4 semaines à 22°C. Les alevins mini-adultes sont autonomes immédiatement. Eau douce moyennement minéralisée (GH 6-12, KH 2-6, pH 7-7.8), T° 18-24°C. Utilisez un filtre à éponge (pas de turbine qui aspirerait les alevins). Végétation dense (mousse de java) pour les cacher. Évitez tout cuivre ou pesticide. Espèce idéale pour débuter avec les crevettes naines.",
+      },
     },
   },
   {
@@ -4175,6 +4451,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture, granulés coulants en complément.",
       tailleAdulte: '5 à 8 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le Tylomelania (escargot de Sulawesi) est vivipare. La femelle met au monde 1-3 juvéniles miniatures mais déjà formés après une gestation de plusieurs semaines. La reproduction est lente mais régulière. Les juvéniles sont identiques aux adultes et acceptent immédiatement les mêmes aliments. Eau chaude (T° 28-32°C), pH légèrement alcalin (7.5-8.5), dure (GH > 8). Cette espèce est endémique du lac Sulawesi (Indonésie) et protégée — préférez des spécimens élevés en captivité.",
+      },
     },
   },
   {
@@ -4229,6 +4509,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Photosynthèse + racines ; profite d'un apport de CO2 et d'engrais.",
       tailleAdulte: '20 à 40 cm de hauteur',
+      reproduction: {
+        facilite: "Très facile",
+        description: "La limnophile sessiliflore se multiplie très facilement par bouturage. Coupez les extrémités de tiges (5-10cm), retirez les feuilles de la base sur 2-3cm et replantez dans le substrat. Des racines se développent en quelques jours. Croissance rapide, idéale pour les aquariums débutants. Absorbe efficacement les nitrates. Taillez régulièrement et replantez les sommets pour maintenir une végétation dense et buissonnante. pH 6-7.5, T° 22-28°C. Peu exigeante en lumière.",
+      },
     },
   },
   {
@@ -4283,6 +4567,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Photosynthèse + racines dans un substrat nutritif ; CO2 non indispensable mais accélère la croissance.",
       tailleAdulte: '5 à 8 cm de hauteur',
+      reproduction: {
+        facilite: "Modérée",
+        description: "La cryptocoryne parva se propage par stolons comme les autres cryptocorynes, mais sa croissance est notablement plus lente. La plante mère émet des stolons portant de petites rosettes. Quand la plantule est suffisamment développée (4-5 feuilles), coupez le stolon et replantez. C'est la plus petite cryptocoryne connue, idéale pour les nano-aquariums et les avant-plans. Substrat nutritif recommandé. Lumière modérée. CO2 bénéfique. pH 6-7.5, T° 22-28°C. Patience requise !",
+      },
     },
   },
   {
@@ -4338,6 +4626,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Photosynthèse + racines ; profite d'un apport de CO2 pour un tapis dense.",
       tailleAdulte: '5 à 15 cm de hauteur',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'Eleocharis parvula (herbe aiguille naine) se propage par stolons souterrains. Elle forme naturellement un tapis dense en envoyant de nouveaux plants de proche en proche. Pour accélérer la propagation, plantez en petits groupes espacés de 3-5cm et laissez les stolons faire le reste. Bon éclairage et CO2 sont recommandés pour former un tapis dense. Substrat fin. pH 6-7.5, T° 18-26°C. Idéale pour les aquariums naturels de style Iwagumi.",
+      },
     },
   },
   {
@@ -4392,6 +4684,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Débutant',
       alimentation: "Photosynthèse ; absorbe les nutriments dissous dans l'eau (nitrates, phosphates).",
       tailleAdulte: '30 à 100 cm de long',
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le cornifle (Ceratophyllum demersum) se multiplie de manière végétative très facilement. Il suffit de casser un rameau et de le laisser flotter dans l'eau : il va naturellement se déposer sur le substrat et développer de nouvelles tiges. La reproduction sexuée (fleurs) est rare en aquarium. La plante est excellente pour oxygéner l'eau et absorber les nitrates. Croissance rapide : taillez régulièrement pour éviter l'envahissement. Aucun besoin de CO2 ni d'engrais particulier.",
+      },
     },
   },
   {
@@ -4446,6 +4742,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Intermédiaire',
       alimentation: "Omnivore/carnivore : granulés, larves congelées, artémias.",
       tailleAdulte: '5 à 7 cm (mâle plus grand que la femelle)',
+      reproduction: {
+        facilite: "Modérée",
+        description: "L'Apistogramma viejita pond dans des grottes (noix de coco, grottes en céramique). La femelle devient jaune vif pour signaler la reproduction. Elle dépose 50-150 œufs rouges que le couple surveille ensemble, bien que la femelle prenne souvent la charge principale. Les larves éclosent en 2-3 jours à 27°C. Les alevins sont guidés par les parents et nagent librement après 5 jours. Eau douce et acide (pH 5.5-6.5, GH < 6, T° 26-29°C). Feuilles de catappa et tourbe pour conditionner l'eau.",
+      },
     },
   },
   {
@@ -4502,6 +4802,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '8 à 12 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'écrevisse américaine (Procambarus clarkii) se reproduit facilement en aquarium. La femelle porte ses œufs sous l'abdomen pendant 3-4 semaines. Elle donne naissance à 50-300 jeunes écrevisses miniatures autonomes. Eau fraîche (T° 15-22°C), pH 7-8, dure. Séparez les adultes des jeunes pour éviter le cannibalisme. ATTENTION : espèce hautement invasive classée parmi les plus nuisibles d'Europe. Sa détention et sa vente sont interdites en France depuis 2020 en vertu du règlement européen 1143/2014. Ne la relâchez surtout pas dans la nature.",
+      },
     },
   },
   {
@@ -4558,6 +4862,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '15 à 20 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'écrevisse du Yabby (Cherax destructor) se reproduit facilement en aquarium. La femelle porte 200-1000 œufs sous l'abdomen pendant 5-7 semaines. Les jeunes sont autonomes dès la naissance. Eau fraîche (T° 15-22°C), pH 7-8, bien oxygénée. Fournissez des cachettes pour les mues. Séparez les géniteurs après la reproduction. Nourrissez les juvéniles avec les mêmes aliments que les adultes. Espèce rustique et peu exigeante.",
+      },
     },
   },
   {
@@ -4614,6 +4922,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "feuilles de 1 à 2 cm, tapis flottant illimité",
+      reproduction: {
+        facilite: "Très facile",
+        description: "La salvinie géante (Salvinia molesta) se multiplie végétativement de façon très rapide. Les tiges se divisent spontanément et chaque segment flottant forme un nouveau plant. Ne nécessite aucune intervention. Sa croissance peut être explosive sous bonnes conditions (lumière intense, eau eutrophe). ATTENTION : l'une des plantes aquatiques les plus envahissantes au monde. Sa détention est interdite en Europe (directive REACH). Ne jamais l'introduire dans la nature. Vérifiez la légalité dans votre pays avant acquisition.",
+      },
     },
   },
   {
@@ -4670,6 +4982,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '3 à 7 cm',
+      reproduction: {
+        facilite: "Très facile",
+        description: "La gambusie (Gambusia affinis) est un poisson vivipare très facile à reproduire. La femelle porte ses jeunes et donne naissance à 20-100 alevins autonomes toutes les 4-6 semaines. Les alevins sont très résistants et acceptent immédiatement les aliments en poudre. ATTENTION : espèce hautement invasive, classée parmi les 100 espèces les plus nuisibles au monde par l'UICN. Interdite de détention dans de nombreux pays. En France, sa possession et son relâcher sont illégaux. Sa reproduction en aquarium domestique n'est pas recommandée.",
+      },
     },
   },
   {
@@ -4726,6 +5042,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '5 à 11 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "Le pseudorasbora (Pseudorasbora parva) se reproduit facilement. Le mâle nettoie un support (pierre plate, vitre) sur lequel la femelle dépose des œufs adhésifs. Le mâle les surveille et les ventile jusqu'à l'éclosion (5-7 jours). T° 15-22°C, pH 7-8. ATTENTION : espèce hautement invasive en Europe, porteuse d'un parasite (Sphaerothecum destruens) dévastatrice pour les cyprinidés autochtones. Sa détention et vente sont INTERDITES en France et dans la plupart des pays européens. Ne maintenez jamais cette espèce.",
+      },
     },
   },
   {
@@ -4782,6 +5102,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '8 à 15 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le carassin (Carassius carassius) ou choquemort se reproduit en aquarium de grande taille ou en bassin. Les adultes frayent parmi les plantes aquatiques denses lors des températures printanières (10-18°C). Les œufs adhèrent aux plantes et éclosent en 5-7 jours. Les géniteurs mangent les œufs : retirez-les ou transférez les plantes ovigères dans un bac séparé. Les alevins acceptent des aliments en poudre après résorption du sac vitellin. pH 7-8, T° 15-22°C. Espèce résistante aux faibles niveaux d'oxygène.",
+      },
     },
   },
   {
@@ -4838,6 +5162,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '5 à 6 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "La vivipare chinoise (Cipangopaludina chinensis) est vivipare. La femelle porte ses œufs en interne et donne naissance à 20-50 juvéniles miniatures chaque année. La reproduction est lente mais régulière. Eau neutre à alcaline (pH 7-8), fraîche (T° 15-22°C), dure (GH > 10). Ces escargots sont de bons nettoyeurs de vitres et substrats. ATTENTION : espèce invasive dans certaines régions. Ne jamais relâcher dans la nature. Vérifiez la réglementation locale.",
+      },
     },
   },
   {
@@ -4894,6 +5222,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '8 à 12 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'écrevisse à pinces bleues (Cherax quadricarinatus ou Procambarus alleni) se reproduit facilement en captivité. La femelle porte ses œufs sous son abdomen pendant 5-7 semaines. Les juvéniles sont autonomes dès la naissance. Eau fraîche à tiède (T° 18-25°C), pH 7-8, bien oxygénée. Fournissez de nombreuses cachettes (tubes PVC, ardoises) pour les mues et éviter le cannibalisme. Nourrissez avec légumes, granulés, algues.",
+      },
     },
   },
   {
@@ -4950,6 +5282,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "rosette de 10 à 30 cm de hauteur",
+      reproduction: {
+        facilite: "Très facile",
+        description: "La jacinthe d'eau (Eichhornia crassipes) se multiplie végétativement de façon explosive par des stolons latéraux qui produisent de nouveaux plants. Il suffit de séparer les plantules et de les laisser flotter. Elle peut envahir très rapidement un bassin. Sous bonnes conditions (lumière intense, eau eutrophe), elle peut doubler sa superficie en quelques semaines. ATTENTION : espèce invasive interdite dans plusieurs pays. En France, sa mise en vente et son introduction dans la nature sont interdites. Ne jamais la relâcher.",
+      },
     },
   },
   {
@@ -5005,6 +5341,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "tiges rampantes de plusieurs mètres",
+      reproduction: {
+        facilite: "Très facile",
+        description: "L'Hydrocotyle tripartita se multiplie végétativement de façon très rapide. Les tiges rampantes développent des nœuds qui produisent des racines et de nouvelles pousses. Pour la multiplier, coupez une tige de 5-10cm avec quelques feuilles et replantez-la dans le substrat. Elle s'ancre rapidement. Croissance rapide sous bon éclairage avec CO2. Cette plante crée un tapis dense idéal comme plante de fond ou de milieu de bac.",
+      },
     },
   },
   {
@@ -5061,6 +5401,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "rosette de 10 à 15 cm de diamètre",
+      reproduction: {
+        facilite: "Très facile",
+        description: "La laitue d'eau (Pistia stratiotes) se multiplie végétativement de façon explosive par des stolons émettant de nouvelles rosettes. Laissez les plantules se développer et séparez-les. Sa croissance est rapide sous bonne lumière. Excellente pour absorber les nitrates et phosphates. ATTENTION : espèce exotique envahissante. Sa détention en bassin ouvert ou en mare est risquée. En France, son introduction dans la nature est interdite. Gérez vos déchets de taille avec soin. Ne jamais relâcher dans les milieux naturels.",
+      },
     },
   },
   {
@@ -5117,6 +5461,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '5 à 7 cm',
+      reproduction: {
+        facilite: "Facile",
+        description: "L'escargot de Ramshorn géant (Marisa cornuarietis) se reproduit facilement. Il pond des capsules gélatineuses contenant 10-30 œufs sur les plantes et décorations. Les juvéniles éclosent en 2-3 semaines selon la température et sont immédiatement autonomes. Eau neutre à alcaline (pH 7-8), T° 22-28°C. ATTENTION : ils mangent les plantes et peuvent défolier un aquarium planté rapidement. Maintenez-les dans un bac de reproduction ou un aquarium sans plantes délicates. Excellents nettoyeurs dans les bacs communautaires robustes.",
+      },
     },
   },
   {
@@ -5173,6 +5521,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "tiges pouvant dépasser 1 m de long",
+      reproduction: {
+        facilite: "Facile",
+        description: "Le myriophylle hétérophylle se multiplie par bouturage de tiges. Coupez une tige de 10-15cm juste sous un nœud et replantez dans le substrat. Les racines se développent rapidement. Cette plante à croissance rapide est excellente pour la filtration biologique et offre des cachettes pour les alevins. Taillez les têtes et replantez-les pour densifier la végétation. CO2 et bon éclairage améliorent la croissance. ATTENTION : espèce potentiellement invasive, ne pas relâcher dans la nature.",
+      },
     },
   },
   {
@@ -5229,6 +5581,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '15 à 25 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le goujon de l'amour (Pseudorasbora parva)... ATTENTION : si vous cherchez le vrai goujon de l'Amour (Gnathopogon strigatus ou Abbottina rivularis), sa reproduction en aquarium est possible avec un bac spacieux, fond sableux, eau fraîche (T° 15-20°C) et réduction de température hivernale. Pour Rhodeus amarus (bouvière), la reproduction est unique : la femelle pond ses œufs dans les branchies de moules d'eau douce grâce à un long tube ovipositeur. Fascinant mais nécessite la présence de moules vivantes (Unio, Anodonta). pH 7-8.",
+      },
     },
   },
   {
@@ -5285,6 +5641,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '20 à 40 cm',
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le poisson-chat brun (Ameiurus nebulosus) peut se reproduire dans un grand bassin. Les parents construisent un nid dans une grotte ou sous une pierre plate. La femelle pond plusieurs centaines d'œufs et le couple les surveille. Les larves restent groupées sous la surveillance parentale pendant 1-2 semaines. T° 15-22°C, pH 7-8. Espèce invasive en Europe — sa détention est réglementée ou interdite dans plusieurs pays dont la France. Vérifiez la législation avant toute acquisition.",
+      },
     },
   },
   {
@@ -5341,6 +5701,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: '2 à 3 cm',
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction de la moule pygmée (Anodonta ou Pisidium sp.) en aquarium doux est très difficile. Les larves (glochidies) sont parasites de branchies de poissons spécifiques pour se développer. Sans hôte approprié, la reproduction est impossible. En captivité, certains aquariophiles spécialisés ont réussi avec des poissons hôtes précis. Si vous souhaitez maintenir cette espèce, renseignez-vous sur l'espèce exacte et les hôtes requis. Eau fraîche, bien oxygénée, pH neutre.",
+      },
     },
   },
   {
@@ -5397,6 +5761,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "tiges de 1 à 3 m",
+      reproduction: {
+        facilite: "Très facile",
+        description: "L'Elodée (Egeria densa) se multiplie extrêmement facilement par bouturage. Coupez une tige de 10-15cm et replantez-la directement dans le substrat ou laissez-la flotter. Elle développe rapidement des racines et des nouvelles pousses. C'est l'une des plantes les plus faciles à propager. ATTENTION : l'Elodée dense est une espèce invasive en France. Ne la relâchez jamais dans les milieux naturels, sous peine de lourdes sanctions. Taillez régulièrement.",
+      },
     },
   },
   {
@@ -5453,6 +5821,10 @@ export const ESPECES: Espece[] = [
       difficulte: 'Expert',
       alimentation: "Non applicable.",
       tailleAdulte: "tiges de 2 à 3 m",
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le lagarosiphon (Lagarosiphon major) se multiplie végétativement de manière très efficace. Coupez une tige de 10-15cm et laissez-la dans l'eau : elle développe rapidement des racines. Croissance rapide. Plante idéale pour oxygéner l'eau et limiter la prolifération d'algues. ATTENTION : espèce invasive classifiée nuisible en Europe. Sa détention en bassin ouvert est risquée car le moindre fragment peut coloniser les plans d'eau naturels. En France, son introduction dans la nature est interdite. Gérez les déchets de taille avec soin.",
+      },
     },
   },
   {
@@ -9502,6 +9874,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le poisson clown tomate (Amphiprion frenatus) se reproduit facilement dans un aquarium récifal avec une anémone hôte. Le couple nettoie une roche plate près de l'anémone. La femelle, plus grande, dirige. Elle pond 200-600 œufs orangés que le mâle garde et oxygène. Incubation de 8-10 jours. Les larves planctoniques sont délicates : nourrissez avec des rotifères enrichis puis nauplies d'artémia. T° 25-27°C, densité 1.024-1.026.",
+      },
     },
   },
   {
@@ -9569,6 +9945,10 @@ export const ESPECES: Espece[] = [
         origine: "Pacifique ouest (golfe de Thaïlande, Mélanésie, nord de l'Australie, Samoa)",
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le poisson clown skunk (Amphiprion akallopisos) se reproduit comme les autres clowns. Le couple pond sur une surface propre près de l'anémone hôte. Les œufs sont gardés et ventilés par le mâle. Incubation de 8-10 jours. Larves planctoniques nourries de rotifères enrichis, puis nauplies d'artémia. Quelques éleveurs produisent cette espèce régulièrement. T° 25-27°C, densité 1.024-1.026. Préférez les spécimens élevés en captivité.",
       },
     },
   },
@@ -9638,6 +10018,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le poisson clown marron (Premnas biaculeatus) se reproduit dans les aquariums récifaux avec une anémone Entacmaea. Le couple pond sur une roche plate nettoyée. La femelle est notablement plus grande que le mâle. Les œufs sont gardés par les deux parents (principalement le mâle). Incubation de 8-10 jours. Les larves planctoniques nécessitent des rotifères enrichis. Plus territoriaux et agressifs que les autres clowns, ce qui peut compliquer la gestion du bac pendant la reproduction.",
+      },
     },
   },
   {
@@ -9705,6 +10089,10 @@ export const ESPECES: Espece[] = [
         origine: "Indo-Pacifique (mer Rouge et Afrique de l'Est au Pacifique central)",
         reefSafe: 'Avec précautions',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La demoiselle à trois points (Dascyllus trimaculatus) se reproduit parfois en grand aquarium récifal. Le mâle prépare un site de ponte et courtise la femelle. Les œufs filamenteux collés au substrat sont gardés par le mâle. Incubation de 2-4 jours. Les larves planctoniques nécessitent rotifères et nauplies d'artémia de très petite taille. Quelques éleveurs amateurs ont obtenu des résultats. T° 25-27°C, densité 1.024, bonne qualité d'eau requise.",
       },
     },
   },
@@ -9774,6 +10162,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le pseudochromis de Fridman (Pseudochromis fridmani) se reproduit dans des grottes en aquarium récifal. Formez un couple (les pseudochromis sont des hermaphrodites protogyniques, le dominant devient mâle). Le mâle garde les œufs dans la grotte. Larves planctoniques à élever avec rotifères. Quelques éleveurs professionnels ont réussi à les produire en captivité. Maintenez des grottes et abris dans le bac. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -9842,6 +10234,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le gramma royal (Gramma loreto) se reproduit en aquarium récifal dans des grottes. Le mâle construit un nid de débris algaux dans sa grotte. Les œufs sont gardés dans ce nid. Larves planctoniques délicates à élever avec rotifères enrichis. Quelques éleveurs ont réussi la reproduction en captivité. Maintenez des grottes dans le bac et évitez les espèces trop agressives. T° 25-27°C, densité 1.024-1.026, eau de très bonne qualité.",
+      },
     },
   },
   {
@@ -9908,6 +10304,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique (Maldives au Pacifique central)',
         reefSafe: 'Avec précautions',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La blennie bicolore (Ecsenius bicolor) peut se reproduire en aquarium récifal établi. Le mâle occupe une grotte ou un trou dans le substrat et attire la femelle pour pondre. Les œufs sont gardés par le mâle. Les larves planctoniques sont difficiles à élever. Nourriture requise : rotifères enrichis puis nauplies d'artémia. Assurez de nombreuses grottes dans le bac. T° 25-27°C, densité 1.024-1.026.",
       },
     },
   },
@@ -9977,6 +10377,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le gobie clown (Gobiodon sp.) est souvent vendu en couples et se reproduit dans les coraux branchus (Acropora). Le couple pond sur les branches du corail. Les œufs sont gardés par les parents. Les larves planctoniques minuscules nécessitent des rotifères fins. Quelques éleveurs ont réussi à élever les larves. Pour favoriser la reproduction, maintenez un couple dans un bac avec des Acropora. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -10044,6 +10448,10 @@ export const ESPECES: Espece[] = [
         origine: "Indo-Pacifique (Afrique de l'Est aux Tuamotu)",
         reefSafe: 'Oui',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Les gobies nettoyeurs de sable (Valenciennea sp.) peuvent se reproduire en grand bac récifal avec fond sableux profond. Le couple creuse un terrier dans le sable où les œufs sont pondus et gardés. Les larves sont planctoniques. Pour favoriser la reproduction, maintenez des couples, fournissez 10-15cm de sable fin et proposez des aliments vivants. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -10113,6 +10521,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le gobie à longs filaments (Nemateleotris magnifica) peut se reproduire en aquarium récifal. Le couple creuse un terrier dans le substrat où les œufs sont déposés et gardés. Les larves planctoniques sont difficiles à capturer et élever. Pour favoriser la reproduction : maintenez un couple établi, fournissez du gravier fin pour les terriers et évitez les perturbations. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -10179,6 +10591,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique (Java aux Fidji, Ryukyu, Grande Barrière)',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le cardinal pyjama (Sphaeramia nematoptera) est une espèce incubatrice buccale paternelle. La femelle pond des œufs que le mâle fertilise et incube dans sa bouche 3-4 semaines. Le mâle ne mange pas pendant l'incubation. Isolez le mâle gestant (joues gonflées) dans un bac calme. Les alevins libérés sont relativement grands et acceptent les nauplies d'artémia enrichies. T° 25-27°C, densité 1.024-1.026. Espèce qui se reproduit régulièrement chez des aquariophiles expérimentés.",
       },
     },
   },
@@ -10247,6 +10663,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du poisson-ange citron (Centropyge flavissima) en aquarium est très rare. Quelques éleveurs professionnels ont réussi la reproduction, mais les larves planctoniques sont extrêmement délicates. Elles nécessitent des copépodes de très petite taille (nauplii de copépodes) en alimentation. Même avec une reproduction observée en bac récifal, l'élevage des larves reste le principal défi. Ces tentatives sont actuellement menées par des éleveurs spécialisés pour réduire la dépendance aux prélèvements sauvages.",
+      },
     },
   },
   {
@@ -10313,6 +10733,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique (Philippines, Indonésie, Papouasie, Palau ; Cocos-Keeling)',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le poisson-ange de Bellus (Genicanthus bellus) est un des rares anges à dimorphisme sexuel marqué. Cette espèce de grande profondeur (60-100m) est difficile à maintenir et encore plus à reproduire. Quelques aquariophiles très expérimentés ont observé des frayages en grands bacs récifaux, mais l'élevage des larves planctoniques reste quasi-impossible en amateur. Les progrès dans l'élevage marin permettent d'espérer des avancées, mais pour l'heure, cette reproduction reste hors de portée du grand public.",
       },
     },
   },
@@ -10382,6 +10806,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Tous niveaux',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction des chirurgiens-voile (Zebrasoma sp.) en captivité est quasi impossible pour un aquariophile amateur. Ces poissons frayent naturellement en groupes sur les récifs, libérant des œufs pélagiques dans la colonne d'eau. Les larves sont des leptocéphales qui dérivent pendant des semaines dans le plancton, se nourrissant d'organismes microscopiques très spécifiques. Quelques institutions spécialisées (Sea Life, aquariums publics) ont réussi des élevages. Pour l'instant, hors de portée du grand public.",
+      },
     },
   },
   {
@@ -10450,6 +10878,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Tous niveaux',
       },
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La reproduction du chirurgien bleu poudre (Paracanthurus hepatus) en aquarium est considérée comme impossible. Cette espèce emblématique fraie en groupes sur les récifs et ses larves planctoniques (leptocéphales) dérivent des semaines dans l'océan. Aucune reproduction réussie n'est documentée en aquarium amateur ou public. Tous les spécimens du commerce proviennent de collecte dans les récifs. Des efforts sont menés par des institutions scientifiques pour développer des protocoles d'élevage, mais sans succès grand public à ce jour.",
+      },
     },
   },
   {
@@ -10516,6 +10948,10 @@ export const ESPECES: Espece[] = [
         origine: 'Pacifique sud-ouest et central',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le labre fée de Scott (Cirrhilabrus scottorum) peut frayer en grand bac récifal mais les larves planctoniques sont quasi-impossibles à élever en amateur. Les labres sont hermaphrodites protogyniques : la femelle dominante devient mâle. Observez les parades nuptiales en fin d'après-midi. Des éleveurs très spécialisés ont obtenu quelques succès avec des protocoles très précis d'élevage larvaire (copépodes, microalgues). Pour la majorité des aquariophiles, la reproduction n'est pas réaliste.",
       },
     },
   },
@@ -10585,6 +11021,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le labre à six lignes (Pseudocheilinus hexataenia) fraye parfois en grand aquarium récifal. Les individus dominants deviennent mâles (hermaphroditisme protogynique). Les œufs pélagiques et les larves planctoniques sont difficiles à capturer et élever. Des éleveurs spécialisés ont des protocoles, mais pour l'aquariophile amateur, la reproduction n'est pas accessible. Appréciez ce poisson pour ses couleurs et son comportement de nettoyage des parasites.",
+      },
     },
   },
   {
@@ -10651,6 +11091,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Avec précautions',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du labre léopard (Macropharyngodon meleagris) en captivité est très rare. Hermaphrodite protogynique, l'individu dominant du groupe devient mâle. Les œufs pélagiques et les larves planctoniques nécessitent des infrastructures d'élevage profesionnelles. Quelques éleveurs marins spécialisés ont tenté la reproduction avec des résultats mitigés. Pour l'aquariophile, cette espèce est appréciée pour ses magnifiques taches léopard et son activité de nettoyage.",
       },
     },
   },
@@ -10720,6 +11164,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Difficile",
+        description: "Le poisson comète (Calloplesiops altivelis) peut frayer en grand aquarium récifal établi. Le couple pond dans des grottes profondes. Les œufs sont gardés par les parents. Les larves planctoniques sont très petites et difficiles à élever. Cette espèce craintive nécessite beaucoup d'abris et de caves dans le bac. La reproduction n'est pas fréquente en captivité et l'élevage des larves reste le principal obstacle. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -10786,6 +11234,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Non',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du baliste picasso (Rhinecanthus aculeatus) en aquarium est extrêmement rare. Cette espèce très territoriale est difficile à maintenir en couple. Dans la nature, elle creuse des nids dans le sable dans lesquels la femelle pond et que les deux parents défendent férocement. Les larves planctoniques sont difficiles à élever. Les adultes sont extrêmement agressifs : en période de reproduction, ils peuvent mordre même les bras de l'aquariophile. À réserver aux experts.",
       },
     },
   },
@@ -10854,6 +11306,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du baliste noir (Odonus niger) en aquarium est quasi-impossible pour un amateur. Cette espèce atteint 50cm et est très territorialle. La reproduction nécessite un immense bac (1000L+) pour maintenir un couple. Les balistes creusent des nids dans le substrat. Les larves planctoniques sont difficiles à élever. La principale difficulté reste de maintenir un couple sans qu'il se blesse mutuellement, et d'élever des larves planctoniques très spécifiques dans leurs besoins alimentaires.",
+      },
     },
   },
   {
@@ -10920,6 +11376,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Avec précautions',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du canthigaster de Valentin (Canthigaster valentini) en aquarium est très rare. Le mâle, plus grand, courtise la femelle en nageant sous elle. Les œufs déposés sur les algues sont gardés par le mâle. Les larves planctoniques sont très difficiles à élever. Quelques éleveurs très spécialisés ont obtenu des résultats. De plus, cette espèce est protégée par certaines législations car elle mime les poissons toxiques feuilles mortes. Maintenu pour sa beauté et son comportement curieux.",
       },
     },
   },
@@ -10989,6 +11449,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Milieu',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "L'hippocampe kuda (Hippocampus kuda) est vivipare côté mâle : la femelle dépose ses œufs dans la poche incubatrice du mâle, qui porte la gestation 14-28 jours selon la température. À maturité, le mâle expulse 100-400 alevins autonomes. Nourrissez les alevins avec des amphipodes et copépodes vivants, puis nauplies d'artémia enrichies. ATTENTION : espèce protégée (CITES). Achetez uniquement des individus certifiés élevés en captivité. T° 22-26°C, densité 1.024-1.026.",
+      },
     },
   },
   {
@@ -11056,6 +11520,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "L'opistognathe à front jaune (Opistognathus aurifrons) est un incubateur buccal paternel. La femelle pond des œufs que le mâle incube dans sa bouche. Fournissez un fond sableux profond (10-15cm) pour que le mâle creuse son terrier d'incubation. Isolez le mâle gestant. Les larves planctoniques sont difficiles à élever mais quelques éleveurs spécialisés ont réussi avec des rotifères enrichis. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -11122,6 +11590,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Non',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La reproduction de l'idole des maures (Zanclus cornutus) en aquarium est considérée comme impossible. Cette espèce fraie naturellement en haute mer dans des conditions très spécifiques. Les larves sont des acronurus (larves pélagiques très spécialisées) qui dérivent des mois dans l'océan. De plus, l'idole des maures est extrêmement difficile à maintenir en captivité du fait de ses exigences alimentaires très particulières. Son maintien en aquarium est controversé en raison de la mortalité élevée en captivité.",
       },
     },
   },
@@ -11191,6 +11663,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Non',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La reproduction du napoléon (Cheilinus undulatus) en aquarium est impossible. Cette espèce, la plus grande des labres, atteint 230cm et 190kg à l'état adulte. Elle est hermaphrodite protogynique et fraie sur les récifs. Espèce classée Vulnérable par l'UICN et protégée par la CITES (annexe II). La détention en aquarium est soumise à réglementation. Sa reproduction nécessiterait des installations gigantesques. Sa présence en aquarium domestique est inappropriée et souvent illégale sans permis.",
       },
     },
   },
@@ -11271,6 +11747,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Rapide',
         agressivite: 'Paisible',
         multiplication: 'Bouturage : on détache un morceau du bord de la plaque avec une pince coupante ou une scie à corail, puis on le colle sur un support avec de la colle cyanoacrylate ou époxy. Les fragments qui se détachent naturellement peuvent aussi reprendre.',
+      },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le corail plaque (Fungia sp.) se reproduit par bouturage en produisant naturellement de petits pédoncules (frustules) sur sa face inférieure. Ces frustules se détachent et donnent de nouveaux individus. Pour accélérer la propagation, découpez proprement un fragment du disque et fixez-le sur un substrat. Le fragment cicatrise en quelques semaines dans de bonnes conditions. La reproduction sexuée est rare en captivité. Maintenez-le sur le substrat (sable fin) et non accroché.",
       },
     },
   },
@@ -11361,6 +11841,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: "Bouturage simple : coupez l'extrémité d'une branche à la pince, puis fixez le fragment avec de la colle gel ou de la pâte époxy. La reprise est rapide en eau stable.",
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le corail à épingles (Stylophora pistillata ou Pocillopora damicornis) se propage facilement par bouturage. Cassez ou coupez une branche de 3-5cm et fixez-la sur un fragment de roche avec du gel de corail ou de la colle époxy. La cicatrisation prend 2-4 semaines. Ce corail LPS résiste bien aux opérations de bouturage. La reproduction sexuée est rare en aquarium amateur. Maintenez une bonne qualité d'eau et un éclairage adapté. T° 25-27°C, KH 8-10, Ca 420ppm.",
+      },
     },
   },
   {
@@ -11450,6 +11934,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: "Bouturage facile : coupez une branche à la pince, puis collez-la avec de la colle gel ou de la pâte époxy. L'espèce libère aussi des larves en bac, qui peuvent s'installer sur la roche.",
       },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le Pocillopora est un des coraux branchus les plus faciles à bouturer. Cassez proprement une branche de 3-5cm et fixez-la avec de la colle époxy sur un fragment de roche ou un plugin. La cicatrisation est rapide (2-3 semaines) dans des conditions optimales. Ce SPS tolère bien les opérations de fragmentation. Idéal pour débuter dans le bouturage de coraux. Qualité d'eau SPS standard : KH 8-9, Ca 420ppm, Mg 1300ppm, T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -11538,6 +12026,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Moyenne',
         agressivite: 'Agressif',
         multiplication: "Bouturage par coupe d'une branche à la scie ou au sécateur à corail, puis collage sur un support ; laissez cicatriser dans une eau calme. Les têtes se multiplient aussi spontanément par division.",
+      },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le corail torche (Euphyllia glabrescens) se propage par bouturage comme les autres Euphyllia. Utilisez une scie rotative pour couper une tête, puis fixez le fragment sur un support avec de la colle époxy ou du gel de corail. La cicatrisation prend 4-6 semaines. Évitez tout stress pendant cette période. Ce LPS spectaculaire pousse relativement vite dans de bonnes conditions (KH 8-10, Ca 420ppm, T° 25-27°C). La reproduction sexuée est rare en captivité.",
       },
     },
   },
@@ -11629,6 +12121,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: "Bouturage par coupe d'une branche à la scie ou à la pince, puis collage du fragment sur un support. Le fragment reprend en quelques semaines.",
       },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le corail trompette (Caulastrea furcata) est excellent pour débuter en bouturage de coraux. Découpez proprement un ou plusieurs polypes avec leur squelette et fixez-les sur un support. La cicatrisation est rapide. Ce LPS produit également de nouveaux polypes spontanément en conditions favorables. Eau SPS standard : KH 8-10, Ca 420-440ppm, Mg 1300ppm, T° 25-27°C, densité 1.025. Ce corail est peu exigeant en lumière et adapté aux aquariophiles débutants en eau de mer.",
+      },
     },
   },
   {
@@ -11718,6 +12214,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Lente',
         agressivite: 'Semi-agressif',
         multiplication: 'Bouturage par coupe de la colonie à la scie, entre les têtes, puis collage sur un support. Les têtes cicatrisent bien.',
+      },
+      reproduction: {
+        facilite: "Modérée",
+        description: "L'Acanthastrea se propage par bouturage en découpant un ou plusieurs polypes avec leur squelette calcaire. Utilisez une scie rotative diamantée et fixez le fragment sur un support. La cicatrisation prend 4-8 semaines selon les conditions. Ce LPS coloré est assez robuste mais nécessite une bonne stabilité des paramètres. La reproduction sexuée (larves planula) est rare en captivité. Éclairage modéré à intense, courant modéré. KH 8-10, Ca 420ppm, T° 25-27°C.",
       },
     },
   },
@@ -11809,6 +12309,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: 'Bouturage par coupe de la colonie à la scie ou à la pince, entre les têtes, puis collage sur un support. La croissance est lente.',
       },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le Blastomussa wellsi se reproduit facilement par fission asexuée, produisant spontanément de nouveaux polypes autour des anciens. Pour le bouturer, découpez proprement un polype avec son squelette et fixez-le sur un support. La cicatrisation est relativement rapide. Ce LPS magnifique est peu exigeant en lumière et convient aux bacs récifaux débutants. Éclairage modéré, courant léger, eau stable. KH 8-10, Ca 420ppm, T° 25-27°C.",
+      },
     },
   },
   {
@@ -11897,6 +12401,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Lente',
         agressivite: 'Semi-agressif',
         multiplication: "Bouturage par coupe d'une colonie à la scie, au risque de pertes de tissu ; peu pratiqué. Les colonies d'élevage restent peu nombreuses.",
+      },
+      reproduction: {
+        facilite: "Difficile",
+        description: "Le Goniopora est notoire pour sa difficulté en captivité, mais le bouturage reste possible pour les spécimens acclimatés. Découpez une portion et fixez-la sur un support. La cicatrisation est longue et incertaine. La reproduction asexuée par bourgeonnement peut aussi se produire spontanément. Ce corail requiert une excellente qualité d'eau et une alimentation régulière (zooplancton, copépodes). Sa durée de vie en captivité est souvent limitée. Pour experts uniquement. T° 25-27°C, KH 8-9.",
       },
     },
   },
@@ -11988,6 +12496,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Semi-agressif',
         multiplication: "Multiplication amateur rarement pratiquée : les jeunes se forment sur un pied qui se détache, et les fragments se bouturent peu. Les colonies d'élevage restent rares.",
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Les coraux champignons durs (Cynarina, Acanthophyllia) peuvent se propager par bouturage avec une scie rotative. Découpez soigneusement un fragment incluant plusieurs tentacules et fixez-le sur un support. La cicatrisation prend 6-10 semaines. Ces coraux produisent aussi naturellement de petits bourgeons (frustules) autour de leur base. Éclairage modéré, peu de courant. KH 8-10, Ca 420ppm, Mg 1300ppm, T° 25-27°C. La reproduction sexuée est exceptionnelle en captivité.",
+      },
     },
   },
   {
@@ -12075,6 +12587,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Moyenne',
         agressivite: 'Agressif',
         multiplication: 'Bouturage par coupe de la colonie à la scie ou à la pince, puis collage sur un support. La reprise est bonne.',
+      },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le Galaxea fascicularis se propage par bouturage, mais ses tentacules balayeurs le rendent agressif envers ses voisins. Coupez proprement un fragment avec plusieurs polypes et fixez-le sur un substrat. La cicatrisation prend 4-6 semaines. Isolez les fragments des autres coraux (distance de 20-30cm minimum) car les tentacules sweepers peuvent dépasser 30cm. Éclairage intense, courant modéré à fort. KH 8-10, Ca 420ppm, T° 25-27°C.",
       },
     },
   },
@@ -12166,6 +12682,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: 'Bouturage facile : coupez une branche portant un ou plusieurs polypes avec une pince ou une scie, puis fixez-la avec de la colle gel. Chaque tronçon reforme une colonie en quelques mois.',
       },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le corail Duncan (Duncanopsammia axifuga) est excellent pour débuter en bouturage. Il produit spontanément de nouveaux polypes, et vous pouvez aussi couper une tête et la fixer sur un support. Ce LPS est très tolérant et cicatrise rapidement. Il accepte une alimentation au pipette (crevettes hachées, mysis). Ce corail produit de nouveaux polypes régulièrement en bonnes conditions, formant de belles colonies. Éclairage modéré, peu exigeant. KH 8-10, Ca 420ppm, T° 25-27°C.",
+      },
     },
   },
   {
@@ -12256,6 +12776,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: 'Bouturage par cassure de branches ou de plaques avec une pince ou une scie ; la cicatrisation est lente. Fixez la bouture avec de la colle gel sur un support stable.',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Le corail bleu (Heliopora coerulea) est un octocoralliaire qui se propage par bouturage. Coupez proprement un fragment et fixez-le sur un support. Sa croissance est lente et la cicatrisation prend plusieurs semaines. La couleur bleue caractéristique provient des sels biliaires dans son squelette. Éclairage intense, courant modéré à fort. KH 8-10, Ca 420ppm, T° 25-27°C. Ce corail est protégé (CITES) ; assurez-vous que les spécimens sont issus d'élevage.",
+      },
     },
   },
   {
@@ -12345,6 +12869,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: "Coupez une tige avec des ciseaux, puis collez-la ou attachez-la sur un support avec de la colle gel ou un élastique. Il se multiplie aussi tout seul en lâchant des fragments et en s'étalant sur la roche.",
       },
+      reproduction: {
+        facilite: "Très facile",
+        description: "La Xenia est l'un des coraux les plus faciles à propager en aquarium récifal. Elle se reproduit asexuellement de façon explosive : les polypes se divisent et migrent sur les roches avoisinantes. Pour la bouturer, détachez simplement un pompom de la colonie et fixez-le avec de la colle gel sur un support. La cicatrisation est quasi-immédiate. Sa croissance peut devenir envahissante : surveillez son expansion. T° 25-27°C, KH 8-10, densité 1.025. Une des meilleures espèces pour débuter.",
+      },
     },
   },
   {
@@ -12432,6 +12960,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Moyenne',
         agressivite: 'Paisible',
         multiplication: 'Il se divise par fission du pied et par bourgeonnement ; on le bouture en découpant le disque avec un scalpel, puis en laissant chaque morceau se refermer sur un support.',
+      },
+      reproduction: {
+        facilite: "Très facile",
+        description: "Les corallimorphaires champignons (Rhodactis, Discosoma) se propagent très facilement par fission asexuée. Un disque se divise spontanément en deux individus dans de bonnes conditions. Vous pouvez aussi découper un individu en deux avec des ciseaux propres : chaque moitié se régénère. Ils peuvent aussi développer des bourgeons. Très robustes, ils tolèrent des variations de paramètres. Idéal pour débuter. T° 24-28°C, densité 1.023-1.026, éclairage faible à modéré.",
       },
     },
   },
@@ -12521,6 +13053,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Semi-agressif',
         multiplication: 'On le bouture en détachant un fragment de tapis avec un scalpel, uniquement avec gants et lunettes, puis en le fixant sur un support avec de la colle gel. Il se propage aussi seul par bourgeonnement du coenenchyme.',
       },
+      reproduction: {
+        facilite: "Très facile",
+        description: "Les palythoa et zoanthides se propagent facilement par bourgeonnement asexué. De nouveaux polypes apparaissent régulièrement autour des colonies. Pour bouturer, détachez un fragment de roche support avec quelques polypes. Fixez sur un nouveau support et laissez la colonie s'étendre. La croissance peut être rapide. ATTENTION : les palythoa contiennent de la palyctoxine, une des substances les plus toxiques connues. Portez toujours des gants, lunettes de protection, et ne laissez pas de vapeurs entrer dans vos yeux ou votre bouche.",
+      },
     },
   },
   {
@@ -12608,6 +13144,10 @@ export const ESPECES: Espece[] = [
         croissance: 'Moyenne',
         agressivite: 'Semi-agressif',
         multiplication: 'Coupez un lobe ou un morceau de crête avec un scalpel, laissez la plaie cicatriser puis fixez la bouture avec de la colle gel ou un élastique sur un support.',
+      },
+      reproduction: {
+        facilite: "Facile",
+        description: "Le Lobophytum (cuir de vache) est un des coraux mous les plus faciles à bouturer. Découpez proprement un morceau d'au moins 3-5cm avec une lame propre et fixez-le avec un élastique ou du fil de coton sur un support. La cicatrisation prend 1-3 semaines selon la taille. Il sécrète une muqueuse pendant ce processus, c'est normal. Croissance modérée à rapide selon les conditions. Éclairage modéré à intense, courant modéré. T° 25-27°C, densité 1.025. KH 8-10.",
       },
     },
   },
@@ -12697,6 +13237,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Paisible',
         multiplication: "On coupe une branche avec une pince ou des ciseaux et on la fixe dans un support ou une roche trouée avec de la colle gel, sans l'exposer à l'air. La reprise est lente et irrégulière.",
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Les gorgones peuvent se propager par bouturage. Coupez proprement une branche et fixez-la sur un support avec de la colle époxy. La cicatrisation prend plusieurs semaines. Les gorgones photosynthétiques (contenant des zooxanthelles) sont plus faciles que les non-photosynthétiques qui nécessitent une alimentation intensive en zooplancton. Pour les espèces photosynthétiques, maintenez un bon éclairage et un courant modéré à fort. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -12785,6 +13329,10 @@ export const ESPECES: Espece[] = [
         agressivite: 'Semi-agressif',
         multiplication: "Elle se multiplie parfois par fission longitudinale. Aucune technique de bouturage n'est pratiquée en aquarium.",
       },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La reproduction de l'anémone des Caraïbes (Condylactis gigantea) en aquarium est difficile. La division asexuelle (fission) peut se produire spontanément dans de très bonnes conditions. La reproduction sexuée produit des larves planula. Ces processus sont imprévisibles. Maintenez une excellente qualité d'eau, une alimentation régulière (chair de crevette, moule), et un éclairage adapté pour favoriser les divisions. T° 24-27°C, densité 1.024-1.026. Cette anémone ne vit pas en symbiose avec les poissons clowns.",
+      },
     },
   },
   {
@@ -12863,6 +13411,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La crevette de feu (Lysmata debelius) est hermaphrodite simultanée. En groupe de 2-3 individus, les accouplements sont fréquents. La femelle porte des œufs verts sous l'abdomen pendant 2 semaines. Les larves planctoniques sont extrêmement difficiles à élever : elles nécessitent une succession précise d'aliments (phytoplancton, rotifères, nauplies d'artémia) dans des conditions très stables. Quelques éleveurs spécialisés ont documenté des élevages. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -12931,6 +13483,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La crevette baguée ou Stenopus hispidus est difficile à reproduire en aquarium. Les adultes sont très territoriaux et ne tolèrent qu'un seul partenaire. La femelle porte des œufs sous l'abdomen. Les larves planctoniques nécessitent des aliments spécialisés et des conditions précises. Quelques éleveurs spécialisés ont obtenu des succès. Pour l'aquariophile, maintenez exactement un couple et fournissez un terrier. Ne mélangez jamais deux individus du même sexe. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -12998,6 +13554,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Oui',
         zone: 'Milieu',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La crevette d'anémone (Periclimenes brevicarpalis) est très difficile à reproduire en aquarium. La femelle porte des œufs transparents sous l'abdomen. Les larves planctoniques sont minuscules et nécessitent des soins très spécialisés. La principale difficulté reste l'élevage larvaire. Ces crevettes vivent en symbiose avec des anémones spécifiques, maintenez-les donc avec leur anémone hôte. T° 25-27°C, densité 1.025. La reproduction des adultes est possible mais l'élevage des larves requiert une expertise avancée.",
       },
     },
   },
@@ -13135,6 +13695,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Modérée",
+        description: "Les ophiures (étoiles sablier) peuvent se reproduire asexuellement par fission : l'animal se divise en deux et chaque moitié régénère les bras manquants. Ce processus peut se produire spontanément en aquarium récifal bien établi. La reproduction sexuée (larves planctoniques) est rare en captivité. Pour favoriser les divisions asexuées, maintenez une alimentation régulière (détritus, phytoplancton, petits aliments carnés) et d'excellentes conditions d'eau. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -13201,6 +13765,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique',
         reefSafe: 'Oui',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction des oursins tuxedo (Mespilia globulus) en aquarium est très difficile. Ils libèrent leurs gamètes dans l'eau lors de pontes massives synchronisées. Les larves planctoniques (pluteus) nécessitent des microalgues spécifiques et des conditions très contrôlées. Quelques institutions spécialisées ont documenté des élevages. Pour l'aquariophile, la reproduction spontanée est possible mais l'élevage larvaire n'est pas réaliste. Maintenez-les pour leur rôle de brouteurs d'algues. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -13269,6 +13837,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique (de la mer Rouge au Japon)',
         reefSafe: 'Avec précautions',
         zone: 'Tous niveaux',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction de l'oursin diadème (Diadema setosum) en aquarium est très difficile. Ces oursins libèrent leurs gamètes dans l'eau. Les larves planctoniques (pluteus) nécessitent des microalgues précises et des conditions très stables. L'élevage larvaire est réservé à des institutions spécialisées. De plus, le diadème est extrêmement piquant : manipulez-le toujours avec des gants épais. Maintenez-le pour son efficacité de broutage des algues indésirables. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -13341,6 +13913,10 @@ export const ESPECES: Espece[] = [
         kh: '7 – 9 dKH',
         calcium: '400 – 450 mg/L',
         magnesium: '1280 – 1350 mg/L',
+      },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le bénitier crocea (Tridacna crocea), comme tous les Tridacna, est protégé par la CITES. Sa reproduction en aquarium nécessite des conditions très contrôlées. Les larves véligères planctoniques nécessitent des microalgues spécifiques pour leur alimentation. Quelques fermes spécialisées (Hawaii, Australie) produisent des bénitiers d'élevage. Achetez uniquement des spécimens certifiés élevés en captivité. T° 25-27°C, densité 1.025, KH 8-10, éclairage intense (LED ou T5).",
       },
     },
   },
@@ -13418,6 +13994,10 @@ export const ESPECES: Espece[] = [
         calcium: '400 – 450 mg/L',
         magnesium: '1280 – 1350 mg/L',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "Le bénitier Squamosa (Tridacna squamosa) est protégé (CITES). Sa reproduction suit le même processus que les autres Tridacna : libération synchronisée des gamètes dans l'eau, larves véligères planctoniques qui nécessitent des microalgues et des conditions très contrôlées pour leur métamorphose. Des fermes spécialisées produisent des spécimens d'élevage. Achetez uniquement des individus certifiés d'élevage. Ce bénitier aux bords ondulés est particulièrement beau mais exigeant. T° 25-27°C, éclairage intense.",
+      },
     },
   },
   {
@@ -13485,6 +14065,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique et Atlantique tropical selon les espèces',
         reefSafe: 'Oui',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Difficile",
+        description: "Les escargots cerites (Cerithium sp.) peuvent pondre en aquarium récifal : leurs rubans d'œufs spiralés se retrouvent parfois sur les roches vivantes. Les larves véligères planctoniques nécessitent des microalgues et des conditions spécifiques pour survivre. L'élevage des larves en captivité est très difficile. La ponte en bac récifal est relativement fréquente mais l'élevage larvaire est le principal obstacle. Maintenez-les pour leur rôle précieux d'herbivores dans le bac. Densité 1.024-1.026.",
       },
     },
   },
@@ -13554,6 +14138,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Avec précautions',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction du lièvre de mer (Aplysia sp.) en aquarium est très difficile. Ces opisthobranches sont hermaphrodites et forment parfois des chaînes d'accouplement. La ponte est un ruban rose gélatineux contenant des millions d'œufs. Les larves véligères planctoniques nécessitent des microalgues spécifiques. L'élevage est documenté dans quelques laboratoires. Note importante : le lièvre de mer sécrète une encre violette très toxique pour les poissons. Maintenez-le uniquement dans un bac spécifique. T° 18-22°C.",
+      },
     },
   },
   {
@@ -13622,6 +14210,10 @@ export const ESPECES: Espece[] = [
         reefSafe: 'Oui',
         zone: 'Fond',
       },
+      reproduction: {
+        facilite: "Très difficile",
+        description: "La reproduction des vers plumeau (Sabella, Spirobranchus) en aquarium est très difficile. Ces annélides libèrent leurs gamètes dans l'eau et les larves trochophores puis véligères sont planctoniques. Les conditions pour l'élevage larvaire sont très spécifiques et rarement réussies en amateur. La ponte peut se produire spontanément en bac récifal établi, mais l'élevage des larves est quasiment impossible sans équipements professionnels. Maintenez-les pour leurs panaches décoratifs fascinants. T° 25-27°C, densité 1.025.",
+      },
     },
   },
   {
@@ -13689,6 +14281,10 @@ export const ESPECES: Espece[] = [
         origine: "Pacifique tropical (nord de l'Australie, Asie du Sud-Est)",
         reefSafe: 'Non',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Impossible en captivité",
+        description: "La pieuvre à anneaux bleus (Hapalochlaena sp.) est une des créatures les plus venimeuses du monde. Son venin (tétrodotoxine) peut tuer un humain en quelques minutes. Sa détention en aquarium est fortement déconseillée voire illégale dans plusieurs pays. La reproduction en captivité est techniquement possible (la femelle broie et incube 50-100 œufs) mais les alevins sont également venimeux. Ne maintenez jamais cette espèce si vous n'êtes pas un professionnel certifié. Cette espèce n'a pas sa place dans un aquarium domestique.",
       },
     },
   },
@@ -13768,6 +14364,10 @@ export const ESPECES: Espece[] = [
         usage: 'Exportation des nitrates et phosphates en refuge ; tapis décoratif. Usage à encadrer strictement en raison du risque de sporulation et de dispersion.',
         risque: 'Élevé',
         multiplication: 'Par fragmentation des stolons et des frondes : tout morceau peut former une nouvelle colonie. Elle se reproduit aussi par émission massive de gamètes, déclenchée par le stress.',
+      },
+      reproduction: {
+        facilite: "Très facile",
+        description: "La Caulerpa brachypus se multiplie végétativement de façon très simple : détachez un fragment de stolon avec quelques feuilles et posez-le sur le substrat ou fixez-le sur une roche. Il s'ancre rapidement par ses rhizoïdes. Croissance rapide sous bonne lumière. Excellente pour la filtration naturelle (export de nutriments). ATTENTION : comme toutes les Caulerpe, elle peut devenir envahissante et est potentiellement invasive. Ne la relâchez jamais dans la nature. Vérifiez la réglementation locale sur sa détention.",
       },
     },
   },
@@ -13850,6 +14450,10 @@ export const ESPECES: Espece[] = [
         risque: 'Élevé',
         multiplication: 'Elle se propage par fragmentation des stolons et des ramules, et par émission massive de gamètes en cas de stress.',
       },
+      reproduction: {
+        facilite: "Très facile",
+        description: "Le raisin de mer (Caulerpa racemosa) se multiplie par fragmentation végétative. Détachez un fragment de stolon et posez-le sur le substrat ; il s'ancre seul. Croissance explosive sous bonne lumière. Excellent exportateur de nitrates et phosphates. ATTENTION : espèce classée parmi les 100 pires espèces envahissantes mondiales par l'UICN. Sa détention est INTERDITE en France métropolitaine. Ne la relâchez JAMAIS dans la nature. Si vous la possédez, renseignez-vous sur sa réglementation dans votre pays.",
+      },
     },
   },
   {
@@ -13931,6 +14535,10 @@ export const ESPECES: Espece[] = [
         risque: 'Faible',
         multiplication: "Par fragmentation : il suffit de séparer un morceau de la boule pour obtenir une nouvelle touffe. Elle peut aussi sporuler en cas de stress brutal (lumière, nutriments), ce qui trouble l'eau.",
       },
+      reproduction: {
+        facilite: "Très facile",
+        description: "La Chaetomorpha (algue luffa) se multiplie très facilement par fragmentation. Divisez simplement la touffe de filaments et répartissez les morceaux dans le bac ou le refugium. Croissance rapide sous bonne lumière, idéale pour la filtration naturelle dans un refugium. Elle absorbe efficacement les nitrates et phosphates. Non invasive et facile à retirer du bac. C'est l'algue idéale pour le filtrage naturel en aquarium récifal. T° 24-27°C, densité 1.025. Retirez régulièrement une partie pour exporter les nutriments.",
+      },
     },
   },
   {
@@ -14009,6 +14617,10 @@ export const ESPECES: Espece[] = [
         usage: "Exportation des nitrates et phosphates dans un refuge, abri pour micro-faune et aliment frais d'appoint pour herbivores.",
         risque: 'Modéré',
         multiplication: "Par fragmentation : tout morceau de rameau peut donner une nouvelle touffe. Elle peut aussi sporuler en cas de stress, ce qui trouble l'eau.",
+      },
+      reproduction: {
+        facilite: "Très facile",
+        description: "La Gracilaria se multiplie très facilement par fragmentation végétative. Détachez des morceaux de la touffe et répartissez-les dans le bac ou le refugium. Croissance rapide et excellente absorbeuse de nitrates et phosphates. Très appréciée des herbivores comme les tangs et les oursins. Idéale pour le refugium d'un aquarium récifal. Pas invasive. Récoltez régulièrement une portion pour exporter les nutriments. T° 22-28°C, densité 1.023-1.026. Ne nécessite pas de CO2.",
       },
     },
   },
@@ -14090,6 +14702,10 @@ export const ESPECES: Espece[] = [
         risque: 'Modéré',
         multiplication: "Par division de la cellule en bulles filles, par fragments de rhizoïdes laissés sur la roche et, selon certaines sources, par spores libérées lorsqu'une bulle éclate.",
       },
+      reproduction: {
+        facilite: "Très facile",
+        description: "L'algue bulle (Valonia ventricosa) se reproduit de façon asexuée très facilement par fragmentation : chaque bulle peut se diviser ou libérer des spores. Attention : cette facilité de reproduction peut devenir problématique en aquarium récifal où elle peut envahir les roches vivantes et étouffer les coraux. Si elle prolifère, retirez manuellement chaque bulle entière (sans la crever) pour éviter de libérer des spores. Les oursins et certains crustacés peuvent aider à la contrôler.",
+      },
     },
   },
   {
@@ -14163,6 +14779,10 @@ export const ESPECES: Espece[] = [
         origine: 'Indo-Pacifique et mer Rouge ; introduit en Méditerranée orientale',
         reefSafe: 'Non',
         zone: 'Fond',
+      },
+      reproduction: {
+        facilite: "Difficile",
+        description: "La reproduction du balibot rayé (Assessor flavissimus ou Assessor macneilli) en aquarium récifal est difficile mais possible. Le mâle incube les œufs dans sa bouche. Maintenez un groupe de 3-5 individus et laissez-les former des couples naturellement. Isolez le mâle gestant dans un bac calme. Les larves planctoniques sont difficiles à élever. Cette espèce peu commune mérite une attention particulière de la part des éleveurs pour réduire la pression sur les populations sauvages. T° 25-27°C, densité 1.025.",
       },
     },
   },
