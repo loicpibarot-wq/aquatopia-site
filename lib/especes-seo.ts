@@ -154,25 +154,48 @@ const enumeration = (items: string[]) =>
 export function faqEspece(e: EspecePubliee): QuestionReponse[] {
   const f = e.fiche;
   const nom = e.nomCommun;
-  const sel = f.marin ? `une salinité de ${f.marin.salinite}` : null;
-  const ph = f.phMin !== null && f.phMax !== null ? `un pH de ${f.phMin} à ${f.phMax}` : null;
-  const temp = f.tempMin !== null && f.tempMax !== null ? `une température de ${f.tempMin} à ${f.tempMax}°C` : null;
-  const parametres = enumeration([sel, ph, temp].filter((x): x is string => Boolean(x)));
   const faq: QuestionReponse[] = [];
   const vigilance = f.plante || f.algue || f.corail ? 'Points de vigilance' : 'À éviter';
 
-  if (parametres) {
-    const m = f.marin;
-    const chimie =
-      m && (m.kh || m.calcium || m.magnesium)
-        ? ` Chimie de l'eau : ${[m.kh && `KH ${m.kh}`, m.calcium && `calcium ${m.calcium}`, m.magnesium && `magnésium ${m.magnesium}`].filter(Boolean).join(', ')}.`
-        : '';
+  // ── Paramètres eau — questions individuelles (= requêtes Google ciblées) ──
+  if (f.tempMin !== null && f.tempMax !== null) {
     faq.push({
-      question: `Quels paramètres d'eau pour ${nom} ?`,
-      reponse: `Prévoyez ${parametres}.${chimie}${f.incompatibilite ? ` ${vigilance} : ${minuscule(f.incompatibilite)}` : ''}`.trim(),
+      question: `Quelle température pour ${nom} ?`,
+      reponse: `${nom} vit entre ${f.tempMin} et ${f.tempMax} °C.`,
     });
   }
 
+  if (f.phMin !== null && f.phMax !== null) {
+    faq.push({
+      question: `Quel pH pour ${nom} ?`,
+      reponse: `Le pH idéal pour ${nom} est compris entre ${f.phMin} et ${f.phMax}.`,
+    });
+  }
+
+  if (f.marin?.salinite) {
+    faq.push({
+      question: `Quelle salinité pour ${nom} ?`,
+      reponse: `${nom} nécessite une salinité de ${f.marin.salinite}.`,
+    });
+  }
+
+  // Chimie avancée pour coraux / marins (KH, calcium, magnésium)
+  const m = f.marin;
+  if (m && (m.kh || m.calcium || m.magnesium)) {
+    const chimie = [
+      m.kh && `KH ${m.kh}`,
+      m.calcium && `calcium ${m.calcium}`,
+      m.magnesium && `magnésium ${m.magnesium}`,
+    ]
+      .filter(Boolean)
+      .join(', ');
+    faq.push({
+      question: `Quels paramètres chimiques avancés pour ${nom} ?`,
+      reponse: `Chimie de l'eau recommandée : ${chimie}.`,
+    });
+  }
+
+  // ── Branches par type de vivant ────────────────────────────────────
   if (f.corail) {
     const c = f.corail;
     faq.push({
@@ -207,10 +230,21 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
     });
     faq.push({ question: `Comment multiplier ${nom} ?`, reponse: phrase(majuscule(p.multiplication)) });
   } else {
+    // Poissons, crustacés, invertébrés eau douce et marins
     if (f.volumeMinLitres) {
       faq.push({
-        question: `Quel volume minimum pour ${nom} ?`,
-        reponse: `${f.volumeMinLitres} L minimum${f.tailleGroupeMin && f.tailleGroupeMin > 1 ? `, en groupe d'au moins ${f.tailleGroupeMin} individus` : ''}.`,
+        question: `Combien de litres pour ${nom} ?`,
+        reponse: `Il faut un aquarium d'au moins ${f.volumeMinLitres} litres pour ${nom}${
+          f.tailleGroupeMin && f.tailleGroupeMin > 1
+            ? `, gardé en groupe d'au moins ${f.tailleGroupeMin} individus`
+            : ''
+        }.`,
+      });
+    }
+    if (f.tailleGroupeMin && f.tailleGroupeMin > 1) {
+      faq.push({
+        question: `En combien d'exemplaires garder ${nom} ?`,
+        reponse: `${nom} est une espèce grégaire qui doit être gardée en groupe d'au moins ${f.tailleGroupeMin} individus.`,
       });
     }
     if (f.marin?.reefSafe) {
@@ -225,8 +259,21 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
         reponse: `${intro} ${phrase(f.incompatibilite)}`,
       });
     }
-    faq.push({ question: `Avec quelles espèces associer ${nom} ?`, reponse: phrase(f.compatibilite) });
+    faq.push({
+      question: `Avec quelles espèces associer ${nom} ?`,
+      reponse: `${phrase(f.compatibilite)}${f.incompatibilite ? ` ${vigilance} : ${minuscule(f.incompatibilite)}` : ''}`.trim(),
+    });
     faq.push({ question: `Que mange ${nom} ?`, reponse: phrase(f.alimentation) });
+    faq.push({
+      question: `Quelle taille adulte pour ${nom} ?`,
+      reponse: `${nom} atteint ${f.tailleAdulte} à l'âge adulte.`,
+    });
+    if (f.reproduction) {
+      faq.push({
+        question: `La reproduction de ${nom} est-elle facile ?`,
+        reponse: `Reproduction ${f.reproduction.facilite.toLowerCase()}. ${phrase(f.reproduction.description)}`,
+      });
+    }
   }
 
   faq.push({
@@ -234,6 +281,7 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
     reponse: `Niveau ${f.difficulte.toLowerCase()}. ${phrase(f.conseil)}`,
   });
 
+  // ── Statut légal ───────────────────────────────────────────────────
   if (e.statutLegal === 'interdite') {
     faq.push({
       question: `Peut-on acheter ou vendre ${nom} en France ?`,

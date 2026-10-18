@@ -18,6 +18,41 @@ const ETAT_VERS_SCHEMA: Record<string, string> = {
 
 const dansJours = (n: number) => new Date(Date.now() + n * 86_400_000).toISOString().slice(0, 10);
 
+// Politique de retour commune à toutes les annonces.
+// Sur une place de marché C2C, les retours ne sont généralement pas acceptés
+// (échange de particulier à particulier). La déclarer évite l'avertissement
+// non-critique Google « hasMerchantReturnPolicy manquant ».
+const RETURN_POLICY = {
+  '@type': 'MerchantReturnPolicy',
+  applicableCountry: 'FR',
+  returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+};
+
+// Détails d'expédition selon que le vendeur propose l'envoi ou non.
+function shippingDetails(envoi: boolean) {
+  if (envoi) {
+    return {
+      '@type': 'OfferShippingDetails',
+      shippingDestination: {
+        '@type': 'DefinedRegion',
+        addressCountry: 'FR',
+      },
+      // Frais à définir entre acheteur et vendeur — on déclare le minimum
+      // pour satisfaire le champ obligatoire sans induire en erreur.
+      shippingRate: {
+        '@type': 'MonetaryAmount',
+        currency: 'EUR',
+        minValue: 0,
+      },
+    };
+  }
+  // Remise en main propre uniquement.
+  return {
+    '@type': 'OfferShippingDetails',
+    doesNotShip: true,
+  };
+}
+
 export function annonceJsonLd(annonce: Annonce, photos: string[]) {
   const url = `${SITE_URL}/annonce/${buildSlug(annonce)}`;
   const description = metaDescription(annonce);
@@ -61,6 +96,13 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
     description,
     image: images,
     category: annonce.categorie,
+    // Identifiant de marque : les animaux et plantes n'ont pas de GTIN ;
+    // déclarer Aquatopia comme marque-distributeur satisfait l'exigence
+    // Google « identifiant global manquant ».
+    brand: {
+      '@type': 'Brand',
+      name: 'Aquatopia',
+    },
     ...(annonce.nom_scientifique ? { alternateName: annonce.nom_scientifique } : {}),
     offers: {
       '@type': 'Offer',
@@ -73,6 +115,8 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
       ...(condition ? { itemCondition: condition } : {}),
       ...(annonce.quantite ? { inventoryLevel: { '@type': 'QuantitativeValue', value: annonce.quantite } } : {}),
       areaServed: annonce.ville ?? 'France',
+      hasMerchantReturnPolicy: RETURN_POLICY,
+      shippingDetails: shippingDetails(Boolean(annonce.envoi_possible)),
     },
   };
 }

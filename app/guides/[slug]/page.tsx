@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { GUIDES, fetchGuideParSlug } from '@/lib/guides';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
+import SignalementModal from '@/components/SignalementModal';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -122,6 +123,8 @@ export default function GuideArticlePage({ params }: { params: { slug: string } 
           </div>
         </section>
       )}
+
+      <SignalementModal />
     </div>
   );
 }

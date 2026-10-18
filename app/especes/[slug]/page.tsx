@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { ESPECES_PUBLIEES, fetchEspeceParSlug, categorieAnnonceSlug, biotopeSlug } from '@/lib/especes';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { descriptionEspece, especesLiees, faqEspece, nomsIdentiques, titreEspece, tuilesEspece } from '@/lib/especes-seo';
+import EspeceImage from '@/components/EspeceImage';
+import SignalementModal from '@/components/SignalementModal';
+import VuesEspece from '@/components/VuesEspece';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -80,6 +83,15 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
+      {/* Bouton retour — visible immédiatement, style pill */}
+      <Link href="/especes" className="btn-retour">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        Espèces
+      </Link>
+
+      {/* Fil d'Ariane (SEO uniquement — visuellement discret) */}
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · <Link href="/especes">Espèces</Link> · {espece.nomCommun}
       </div>
@@ -95,7 +107,10 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
             Aussi appelé{espece.autresNoms.length > 1 ? 's' : ''} : {espece.autresNoms.join(', ')}
           </p>
         )}
+        <VuesEspece slug={espece.slug} />
       </div>
+
+      <EspeceImage src={`/especes/${espece.slug}.webp`} alt={espece.nomCommun} />
 
       {espece.remarqueLegale && (
         <div
@@ -247,6 +262,18 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       )}
+
+      {/* Retour bas de page */}
+      <div style={{ marginTop: 48, paddingTop: 24, borderTop: '1px solid var(--border)' }}>
+        <Link href="/especes" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          color: 'var(--text-muted)', fontSize: '0.9rem', textDecoration: 'none',
+        }}>
+          ← Retour aux fiches espèces
+        </Link>
+      </div>
+
+      <SignalementModal />
     </div>
   );
 }

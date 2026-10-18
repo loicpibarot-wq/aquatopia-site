@@ -385,7 +385,18 @@
      écrase aussi le padding gauche/droite hérité de .wrap, qui a la même
      spécificité et perd le conflit selon l'ordre de sortie du CSS compilé. */
   .annonce-wrap{ padding-top:40px; padding-bottom:80px; }
-  .breadcrumb{ font-size:0.82rem; color:var(--text-faint); margin-bottom:24px; }
+  .breadcrumb{
+    font-size:0.82rem; color:var(--text-faint);
+    margin-bottom:24px;
+    position:sticky; top:68px; z-index:30;
+    background:var(--bg);
+    padding:10px 0;
+    /* étend le fond jusqu'aux bords du .wrap pour couvrir le contenu qui défile */
+    margin-left:-32px; margin-right:-32px; padding-left:32px; padding-right:32px;
+  }
+  @media (max-width:640px){
+    .breadcrumb{ top:62px; margin-left:-24px; margin-right:-24px; padding-left:24px; padding-right:24px; }
+  }
   .breadcrumb a{ text-decoration:none; color:var(--text-faint); }
   .breadcrumb a:hover{ color:var(--teal); }
   .annonce-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start; }

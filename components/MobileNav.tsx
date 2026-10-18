@@ -3,14 +3,13 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-// Mêmes liens que ceux masqués en desktop-only (`.hide-mobile`) dans
-// Header.tsx : le menu hamburger leur redonne un accès sur mobile, où ils
-// étaient auparavant simplement invisibles jusqu'au footer.
 const LIENS: { href: string; label: string; ancre: boolean }[] = [
+  { href: '/', label: 'Accueil', ancre: false },
   { href: '/#fonctionnement', label: 'Comment ça marche', ancre: true },
   { href: '/#categories', label: 'Annonces', ancre: true },
   { href: '/guides', label: 'Guides', ancre: false },
   { href: '/especes', label: 'Espèces', ancre: false },
+  { href: '/configurateur', label: 'Configurateur', ancre: false },
   { href: '/#confiance', label: 'Confiance', ancre: true },
   { href: '/faq', label: 'FAQ débutant', ancre: false },
 ];
@@ -27,8 +26,6 @@ export default function MobileNav() {
     return () => document.removeEventListener('keydown', surEchap);
   }, [ouvert]);
 
-  // Ferme le menu automatiquement si on passe en largeur desktop (rotation
-  // d'écran, redimensionnement), pour ne pas le laisser ouvert par erreur.
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 821px)');
     function surChangement() {

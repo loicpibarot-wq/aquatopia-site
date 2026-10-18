@@ -9,14 +9,15 @@ import {
   BIOTOPE_VERS_SLUG,
 } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
+import DownloadButton from '@/components/DownloadButton';
 
 const SITE_URL = 'https://aquatopia.fr';
-const PAR_PAGE = 24;
+const PAR_PAGE = 8;
 
-// Même principe que app/categorie/[slug]/page.tsx, mais sur la colonne
-// `biotope` plutôt que `categorie` : Eau Douce / Eau de Mer / Bassin. Un
-// contenu unique par biotope pour que ces pages ne soient pas de simples
-// filtres, mais de vraies pages d'entrée sur le sujet.
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+}
+
 const CONTENU: Record<
   string,
   { h1: string; intro: string; conseil: string; metaTitre: string; metaDescription: string }
@@ -59,24 +60,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-  searchParams,
 }: {
   params: { slug: string };
-  searchParams: { page?: string };
 }): Promise<Metadata> {
   const biotope = SLUG_VERS_BIOTOPE[params.slug];
   if (!biotope) return {};
   const contenu = CONTENU[params.slug];
-  const page = Math.max(1, Number(searchParams?.page) || 1);
-  const suffixe = page > 1 ? ` — page ${page}` : '';
-  const url = `/biotope/${params.slug}${page > 1 ? `?page=${page}` : ''}`;
+  const url = `/biotope/${params.slug}`;
 
   return {
-    title: `${contenu.metaTitre}${suffixe}`,
+    title: contenu.metaTitre,
     description: contenu.metaDescription,
     alternates: { canonical: url },
     openGraph: {
-      title: `${contenu.metaTitre}${suffixe} | Aquatopia`,
+      title: `${contenu.metaTitre} | Aquatopia`,
       description: contenu.metaDescription,
       url,
       type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR',
@@ -88,20 +85,14 @@ export const revalidate = 300;
 
 export default async function BiotopePage({
   params,
-  searchParams,
 }: {
   params: { slug: string };
-  searchParams: { page?: string };
 }) {
   const biotope = SLUG_VERS_BIOTOPE[params.slug];
   if (!biotope) notFound();
   const contenu = CONTENU[params.slug];
 
-  const page = Math.max(1, Number(searchParams?.page) || 1);
-  const offset = (page - 1) * PAR_PAGE;
-
-  const { annonces, total } = await fetchAnnoncesParBiotope(biotope, { limit: PAR_PAGE, offset });
-  const totalPages = Math.max(1, Math.ceil(total / PAR_PAGE));
+  const { annonces, total } = await fetchAnnoncesParBiotope(biotope, { limit: PAR_PAGE });
 
   const autresBiotopes = Object.entries(BIOTOPE_VERS_SLUG).filter(([label]) => label !== biotope);
 
@@ -156,37 +147,31 @@ export default async function BiotopePage({
               <Link key={a.id} href={`/annonce/${buildSlug(a)}`} className="annonce-card-mini">
                 {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
                 <div className="body">
-                  <h4>{a.titre}</h4>
-                  <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                  <h4 style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{a.titre}</h4>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                    <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                    <span style={{ fontSize: '0.72rem', color: 'var(--text-faint)', flexShrink: 0 }}>{formatDate(a.created_at)}</span>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          {totalPages > 1 && (
-            <nav
-              aria-label="Pagination"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 18, marginTop: 40 }}
-            >
-              {page > 1 ? (
-                <Link href={`/biotope/${params.slug}${page - 1 > 1 ? `?page=${page - 1}` : ''}`} className="btn btn-ghost">
-                  ← Précédent
-                </Link>
-              ) : (
-                <span />
-              )}
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-faint)' }}>
-                Page {page} / {totalPages}
-              </span>
-              {page < totalPages ? (
-                <Link href={`/biotope/${params.slug}?page=${page + 1}`} className="btn btn-ghost">
-                  Suivant →
-                </Link>
-              ) : (
-                <span />
-              )}
-            </nav>
-          )}
+          {/* CTA téléchargement app */}
+          <div style={{ marginTop: 32, textAlign: 'center', padding: '28px 20px', background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 16 }}>
+            <p style={{ margin: '0 0 6px', fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>
+              {total > PAR_PAGE
+                ? `+${total - PAR_PAGE} autres annonces disponibles`
+                : 'Toutes les annonces sur l\'app'}
+            </p>
+            <p style={{ margin: '0 0 22px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+              Téléchargez l&apos;application Aquatopia pour voir toutes les annonces,<br />
+              être alerté des nouveautés et contacter les vendeurs.
+            </p>
+            <DownloadButton className="btn btn-primary" style={{ fontSize: '1rem', padding: '13px 36px' }}>
+              Télécharger l&apos;application
+            </DownloadButton>
+          </div>
         </>
       ) : (
         <p style={{ color: 'var(--text-muted)' }}>

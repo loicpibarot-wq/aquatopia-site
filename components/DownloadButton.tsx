@@ -1,18 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 
 const IOS_STORE = 'https://apps.apple.com/app/id6774605218';
 const ANDROID_STORE = 'https://play.google.com/store/apps/details?id=com.noula34.aquatopia';
 
-// Même logique que le <script> de l'ancien site statique : sur mobile, on
-// pointe directement vers le bon store selon l'OS détecté ; sur desktop (ou
-// avant hydratation), on retombe sur l'App Store par défaut.
 export default function DownloadButton({
   className,
+  style,
   children,
 }: {
   className?: string;
+  style?: CSSProperties;
   children: React.ReactNode;
 }) {
   const [href, setHref] = useState(IOS_STORE);
@@ -23,7 +22,7 @@ export default function DownloadButton({
   }, []);
 
   return (
-    <a href={href} target="_blank" rel="noopener" className={className}>
+    <a href={href} target="_blank" rel="noopener" className={className} style={style}>
       {children}
     </a>
   );

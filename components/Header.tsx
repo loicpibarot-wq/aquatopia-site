@@ -16,6 +16,8 @@ export default function Header() {
           <a href="/#fonctionnement" className="hide-mobile">Comment ça marche</a>
           <a href="/#categories" className="hide-mobile">Annonces</a>
           <Link href="/guides" className="hide-mobile">Guides</Link>
+          <Link href="/especes" className="hide-mobile">Espèces</Link>
+          <Link href="/configurateur" className="hide-mobile">Configurateur</Link>
           <a href="/#confiance" className="hide-mobile">Confiance</a>
           <Link href="/faq" className="hide-mobile">FAQ débutant</Link>
           <DownloadButton className="btn btn-primary">Télécharger</DownloadButton>

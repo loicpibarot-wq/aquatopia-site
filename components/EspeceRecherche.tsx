@@ -17,16 +17,50 @@ const normaliser = (t: string) =>
   t
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
+    .replace(/[̀-ͯ]/g, '');
 
-// Filtre côté client sur nom courant, nom scientifique ET autres noms (les
-// façons de chercher une espèce), avec un filtre de catégorie : un simple
-// .filter() suffit largement, la liste reste petite (quelques centaines
-// d'entrées au maximum).
+const EMOJI: Record<string, string> = {
+  'Eau douce':              '🐟',
+  'Plantes':                '🌿',
+  'Crevettes / Invertébrés eau douce': '🦐',
+  'Coraux et anémones':     '🪸',
+  'Eau de mer':             '🐠',
+  'Macroalgues marines':    '🌊',
+  'Bassin':                 '🏞️',
+};
+const emoji = (cat: string) => EMOJI[cat] ?? '🐾';
+
+function BadgeLegal({ statut }: { statut: EspeceCarte['statutLegal'] }) {
+  if (statut === 'autorise') return null;
+  const cls = statut === 'interdite' || statut === 'autorisation_requise' ? 'interdite' : 'cites';
+  const label =
+    statut === 'interdite'            ? 'Vente interdite en France' :
+    statut === 'autorisation_requise' ? 'Autorisation requise' :
+                                        'CITES à justifier';
+  return <span className={`badge-legal ${cls}`} style={{ marginTop: 12 }}>{label}</span>;
+}
+
+function CarteEspece({ e }: { e: EspeceCarte }) {
+  return (
+    <Link key={e.slug} href={`/especes/${e.slug}`} className="guide-card">
+      <span className="eyebrow">{e.categorie}</span>
+      <h3>{e.nomCommun}</h3>
+      {normaliser(e.nomCommun) !== normaliser(e.nomScientifique) && (
+        <p style={{ fontStyle: 'italic' }}>{e.nomScientifique}</p>
+      )}
+      <BadgeLegal statut={e.statutLegal} />
+    </Link>
+  );
+}
+
 export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] }) {
   const [recherche, setRecherche] = useState('');
   const [categorie, setCategorie] = useState('');
-  const categories = useMemo(() => Array.from(new Set(especes.map((e) => e.categorie))).sort((a, b) => a.localeCompare(b, 'fr')), [especes]);
+
+  const categories = useMemo(
+    () => Array.from(new Set(especes.map((e) => e.categorie))).sort((a, b) => a.localeCompare(b, 'fr')),
+    [especes],
+  );
 
   const filtrees = useMemo(() => {
     const q = normaliser(recherche.trim());
@@ -37,8 +71,34 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
     });
   }, [especes, recherche, categorie]);
 
+  // Groupement par catégorie (uniquement quand aucun filtre n'est actif)
+  const grouped = useMemo(() => {
+    if (recherche.trim() || categorie) return null;
+    const map = new Map<string, EspeceCarte[]>();
+    for (const e of filtrees) {
+      if (!map.has(e.categorie)) map.set(e.categorie, []);
+      map.get(e.categorie)!.push(e);
+    }
+    return map;
+  }, [filtrees, recherche, categorie]);
+
+  const pillStyle = (active: boolean): React.CSSProperties => ({
+    padding: '8px 12px',
+    borderRadius: 999,
+    border: `1.5px solid ${active ? 'var(--teal)' : 'var(--border)'}`,
+    background: active ? 'rgba(47,217,190,0.12)' : 'var(--bg-2)',
+    color: active ? 'var(--teal)' : 'var(--text-muted)',
+    fontSize: '0.82rem',
+    fontWeight: active ? 700 : 400,
+    cursor: 'pointer',
+    transition: 'all .15s',
+    textAlign: 'center' as const,
+    width: '100%',
+  });
+
   return (
     <>
+      {/* Barre de recherche */}
       <input
         type="search"
         className="espece-recherche"
@@ -47,40 +107,58 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
         onChange={(e) => setRecherche(e.target.value)}
         aria-label="Rechercher une espèce"
       />
-      <select
-        className="espece-recherche"
-        style={{ marginTop: 12 }}
-        value={categorie}
-        onChange={(e) => setCategorie(e.target.value)}
-        aria-label="Filtrer par catégorie"
-      >
-        <option value="">Toutes les catégories ({especes.length})</option>
-        {categories.map((c) => (
-          <option key={c} value={c}>
-            {c} ({especes.filter((e) => e.categorie === c).length})
-          </option>
-        ))}
-      </select>
 
+      {/* Pills de catégories */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(175px, 1fr))', gap: 8, marginTop: 14 }}>
+        <button type="button" onClick={() => setCategorie('')} style={pillStyle(!categorie)}>
+          Toutes ({especes.length})
+        </button>
+        {categories.map((c) => {
+          const count = especes.filter((e) => e.categorie === c).length;
+          return (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setCategorie(categorie === c ? '' : c)}
+              style={pillStyle(categorie === c)}
+            >
+              {emoji(c)} {c} ({count})
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Résultats */}
       {filtrees.length === 0 ? (
         <p className="espece-vide">Aucune espèce ne correspond à votre recherche.</p>
-      ) : (
-        <div className="guide-grid" style={{ marginTop: 28 }}>
-          {filtrees.map((e) => (
-            <Link key={e.slug} href={`/especes/${e.slug}`} className="guide-card">
-              <span className="eyebrow">{e.categorie}</span>
-              <h3>{e.nomCommun}</h3>
-              {normaliser(e.nomCommun) !== normaliser(e.nomScientifique) && <p style={{ fontStyle: 'italic' }}>{e.nomScientifique}</p>}
-              {e.statutLegal !== 'autorise' && (
-                <span
-                  className={`badge-legal ${e.statutLegal === 'interdite' || e.statutLegal === 'autorisation_requise' ? 'interdite' : 'cites'}`}
-                  style={{ marginTop: 12 }}
-                >
-                  {e.statutLegal === 'interdite' ? 'Vente interdite en France' : e.statutLegal === 'autorisation_requise' ? 'Autorisation requise' : 'CITES à justifier'}
+      ) : grouped ? (
+        /* Mode par défaut — regroupé par catégorie */
+        <div style={{ marginTop: 36, display: 'flex', flexDirection: 'column', gap: 48 }}>
+          {Array.from(grouped.entries()).map(([cat, items]) => (
+            <section key={cat}>
+              <h2 style={{
+                fontFamily: "'Fredoka',sans-serif",
+                fontSize: '1.25rem',
+                color: 'var(--text)',
+                marginBottom: 20,
+                display: 'flex', alignItems: 'center', gap: 10,
+              }}>
+                <span>{emoji(cat)}</span>
+                {cat}
+                <span style={{ fontSize: '0.8rem', fontWeight: 400, color: 'var(--text-muted)', fontFamily: 'inherit' }}>
+                  — {items.length} espèce{items.length > 1 ? 's' : ''}
                 </span>
-              )}
-            </Link>
+              </h2>
+              <div className="guide-grid">
+                {items.map((e) => <CarteEspece key={e.slug} e={e} />)}
+              </div>
+            </section>
           ))}
+        </div>
+      ) : (
+        /* Mode filtré / recherche — liste plate */
+        <div className="guide-grid" style={{ marginTop: 28 }}>
+          {filtrees.map((e) => <CarteEspece key={e.slug} e={e} />)}
         </div>
       )}
     </>
