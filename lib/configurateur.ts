@@ -1,4 +1,6 @@
 // lib/configurateur.ts
+import type { IconeNom } from './icones';
+import { construireSections, construirePresets, type SectionEspeces, type SetupPret } from './configurateur-especes';
 // Logique du configurateur « clé en main » – pure TypeScript, zéro dépendance externe.
 
 export type Niveau      = 'Debutant' | 'Intermediaire' | 'Expert';
@@ -6,6 +8,9 @@ export type TypeBac     = 'douce-plante' | 'douce-biotope' | 'marin' | 'bassin';
 export type VolumeBac   = 'nano' | 'moyen' | 'grand' | 'tres-grand';
 export type NiveauDiff  = 'Débutant' | 'Intermédiaire' | 'Expert';
 export type CatEspece   = string;
+export type VolumeChoix = VolumeBac | 'auto';
+export type Budget      = 'eco' | 'moyen' | 'haut';
+export type TempsEntretien = 'faible' | 'moyen' | 'passion';
 
 export interface EspeceLight {
   slug:             string;
@@ -20,10 +25,16 @@ export interface EspeceLight {
   placementPlante?: string;
   corailType?:      string;
   reefSafe?:        string;
+  /** Niveau de la colonne d'eau (poissons et invertébrés marins). */
+  zone?:            string;
+  tempMin?:         number | null;
+  tempMax?:         number | null;
+  phMin?:           number | null;
+  phMax?:           number | null;
 }
 
 export interface LigneSetup {
-  emoji:     string;
+  icone:     IconeNom;
   categorie: string;
   item:      string;
   detail:    string;
@@ -37,30 +48,49 @@ export interface SetupComplet {
   conseils:   string[];
 }
 
+export interface EspeceReco extends EspeceLight {
+  /** Quantité indicative conseillée (ex : « 8 à 10 », « 2 à 4 »). */
+  quantite: string;
+}
+
+export interface CuveIdeale {
+  titre:  string;
+  detail: string;
+}
+
 export interface ResultatRecommandation {
-  especes: EspeceLight[];
-  setup:   SetupComplet;
+  /** Liste à plat de toutes les espèces affichées (sert au comptage des annonces). */
+  especes:     EspeceReco[];
+  /** Espèces classées par type puis par zone du bac. */
+  sections:    SectionEspeces[];
+  /** Associations prêtes à l'emploi, compatibles entre elles. */
+  presets:     SetupPret[];
+  setup:       SetupComplet;
+  cuve:        CuveIdeale;
+  /** Volume réellement utilisé (résolu si l'utilisateur a répondu « Je ne sais pas »). */
+  volume:      VolumeBac;
+  volumeAuto:  boolean;
 }
 
 // ─── Métadonnées wizard ────────────────────────────────────────────────────────
 
-export const NIVEAUX: { id: Niveau; label: string; desc: string; emoji: string }[] = [
-  { id: 'Debutant',      label: 'Débutant',      emoji: '🌱',
+export const NIVEAUX: { id: Niveau; label: string; desc: string; icone: IconeNom; repete?: number }[] = [
+  { id: 'Debutant',      label: 'Débutant',      icone: 'pousse',
     desc: "Premier aquarium ou moins de 2 ans d'expérience. Je préfère la simplicité." },
-  { id: 'Intermediaire', label: 'Intermédiaire', emoji: '🐠',
+  { id: 'Intermediaire', label: 'Intermédiaire', icone: 'poisson',
     desc: "Quelques années de pratique, à l'aise avec le cycle de l'azote et les paramètres d'eau." },
-  { id: 'Expert',        label: 'Expert',        emoji: '🪸',
+  { id: 'Expert',        label: 'Expert',        icone: 'corail',
     desc: 'Éleveur expérimenté, je veux des espèces exigeantes et des setups techniques.' },
 ];
 
-export const TYPES_BAC: { id: TypeBac; label: string; desc: string; emoji: string }[] = [
-  { id: 'douce-plante',  label: 'Eau douce planté',   emoji: '🌿',
+export const TYPES_BAC: { id: TypeBac; label: string; desc: string; icone: IconeNom; repete?: number }[] = [
+  { id: 'douce-plante',  label: 'Eau douce planté',   icone: 'plante',
     desc: 'Aquarium tropical densément végétalisé avec poissons et plantes aquatiques.' },
-  { id: 'douce-biotope', label: 'Eau douce biotope',  emoji: '🪨',
+  { id: 'douce-biotope', label: 'Eau douce biotope',  icone: 'substrat',
     desc: "Décor naturel (Amazonie, Rift africain…) centré sur les poissons, peu ou pas de plantes." },
-  { id: 'marin',         label: 'Eau de mer récifal', emoji: '🐡',
+  { id: 'marin',         label: 'Eau de mer récifal', icone: 'vagues',
     desc: 'Aquarium marin avec poissons, coraux et invertébrés. Plus technique mais spectaculaire.' },
-  { id: 'bassin',        label: 'Bassin de jardin',   emoji: '🏞️',
+  { id: 'bassin',        label: 'Bassin de jardin',   icone: 'arbre',
     desc: 'Bassin extérieur avec koïs, poissons rouges ou plantes de bassin.' },
 ];
 
@@ -91,37 +121,50 @@ export const VOLUMES_BAC: Record<TypeBac, { id: VolumeBac; label: string; detail
   ],
 };
 
-export const PREFERENCES: Record<TypeBac, { id: string; label: string }[]> = {
+export const BUDGETS: { id: Budget; label: string; desc: string; icone: IconeNom; repete?: number }[] = [
+  { id: 'eco',   label: 'Économique',        icone: 'euro', repete: 1,
+    desc: "Priorité au matériel d'occasion et aux petits prix." },
+  { id: 'moyen', label: 'Moyen / raisonnable', icone: 'euro', repete: 2,
+    desc: 'Un bon équilibre entre neuf et occasion.' },
+  { id: 'haut',  label: 'Sans concession',   icone: 'euro', repete: 3,
+    desc: 'Matériel haut de gamme, je veux le meilleur.' },
+];
+
+export const TEMPS_ENTRETIEN: { id: TempsEntretien; label: string; desc: string; icone: IconeNom; repete?: number }[] = [
+  { id: 'faible',  label: "Moins de 15 min / semaine", icone: 'minuteur',
+    desc: 'Système basse maintenance, plantes et espèces faciles.' },
+  { id: 'moyen',   label: '30 min à 1 h / semaine',    icone: 'minuteur',
+    desc: "Maintenance classique, changements d'eau réguliers." },
+  { id: 'passion', label: 'Passionné (pas de limite !)', icone: 'minuteur',
+    desc: "Projets complexes, engrais, CO₂, paramètres d'eau stricts." },
+];
+
+// Une seule réponse : « Qu'aimerais-tu voir principalement dans ton bac ? ».
+export const STYLES: Record<TypeBac, { id: string; label: string; desc: string; icone: IconeNom; repete?: number }[]> = {
   'douce-plante': [
-    { id: 'plantes-dense', label: 'Jungle aquatique dense' },
-    { id: 'sans-co2',      label: 'Sans injection de CO₂' },
-    { id: 'crevettes',     label: 'Crevettes ornementales' },
-    { id: 'colorés',       label: 'Poissons très colorés' },
-    { id: 'fond',          label: 'Poissons de fond (corydoras, loches)' },
-    { id: 'facile',        label: 'Entretien minimal' },
+    { id: 'plantes-dense', label: 'Un paysage très planté',   icone: 'plante', desc: 'Aquascaping : plantes, racines, crevettes et petits poissons.' },
+    { id: 'colorés',       label: 'Un banc de poissons colorés', icone: 'poisson', desc: 'Guppys, tétras, rasboras…' },
+    { id: 'majestueux',    label: 'Des poissons majestueux',  icone: 'couronne', desc: 'Discus, scalaires, grands cichlidés : des spécimens.' },
+    { id: 'crevettes',     label: "Un univers d'invertébrés", icone: 'coquillage', desc: 'Crevettes Neocaridina / Caridina, escargots.' },
   ],
   'douce-biotope': [
-    { id: 'colorés',   label: 'Poissons très colorés' },
-    { id: 'fond',      label: 'Poissons de fond (corydoras, loches)' },
-    { id: 'cichlides', label: 'Cichlidés africains' },
-    { id: 'amazonie',  label: 'Biotope Amazonie' },
-    { id: 'crevettes', label: 'Crevettes et invertébrés' },
-    { id: 'facile',    label: 'Entretien minimal' },
+    { id: 'amazonie',   label: 'Un biotope Amazonie',      icone: 'arbre', desc: 'Eau douce, racines, feuilles mortes, poissons sud-américains.' },
+    { id: 'colorés',    label: 'Un banc de poissons colorés', icone: 'poisson', desc: 'Guppys, tétras, rasboras…' },
+    { id: 'majestueux', label: 'Des poissons majestueux',  icone: 'couronne', desc: 'Cichlidés africains, discus, scalaires : des spécimens.' },
+    { id: 'crevettes',  label: "Un univers d'invertébrés", icone: 'coquillage', desc: 'Crevettes, écrevisses naines, escargots.' },
   ],
   'marin': [
-    { id: 'reef-poissons',      label: 'Principalement des poissons' },
-    { id: 'reef-coraux-mous',   label: 'Coraux mous et anémones' },
-    { id: 'reef-coraux-durs',   label: 'Coraux durs (LPS / SPS)' },
-    { id: 'reef-invertebres',   label: 'Crevettes et invertébrés marins' },
-    { id: 'reef-algues',        label: 'Macroalgues (refugium)' },
-    { id: 'reef-peu-entretien', label: 'Entretien simplifié' },
+    { id: 'reef-poissons',    label: 'Surtout des poissons',    icone: 'poisson', desc: 'Poissons-clowns, gobies et compagnie.' },
+    { id: 'reef-coraux-mous', label: 'Coraux mous et anémones', icone: 'corail', desc: 'Faciles et très colorés.' },
+    { id: 'reef-coraux-durs', label: 'Coraux durs (LPS / SPS)', icone: 'brassage', desc: 'Plus exigeants, spectaculaires.' },
+    { id: 'reef-invertebres', label: 'Crevettes et invertébrés', icone: 'coquillage', desc: "Nettoyeurs et animaux utiles à l'équilibre du bac." },
+    { id: 'reef-algues',      label: 'Macroalgues (refugium)',  icone: 'pousse', desc: "Pour stabiliser l'eau naturellement." },
   ],
   'bassin': [
-    { id: 'koi',           label: 'Carpes Koï' },
-    { id: 'poissons-rouge', label: 'Poissons rouges / Comètes' },
-    { id: 'plantes-bassin', label: 'Plantes aquatiques' },
-    { id: 'faune-locale',   label: 'Faune locale et naturel' },
-    { id: 'facile',         label: 'Entretien minimal' },
+    { id: 'koi',            label: 'Des carpes koï',         icone: 'poisson-symbole', desc: "Les stars du bassin, besoin d'espace et de filtration." },
+    { id: 'poissons-rouge', label: 'Poissons rouges / comètes', icone: 'poisson', desc: 'Robustes et faciles.' },
+    { id: 'plantes-bassin', label: 'Des plantes aquatiques', icone: 'corail', desc: 'Nénuphars, plantes de berge.' },
+    { id: 'faune-locale',   label: 'Faune locale et naturel', icone: 'tortue', desc: 'Un bassin vivant, au plus près de la nature.' },
   ],
 };
 
@@ -150,17 +193,21 @@ const DIFF_OK: Record<Niveau, NiveauDiff[]> = {
 // ─── Recommandation ────────────────────────────────────────────────────────────
 
 export function recommander(
-  pool:        EspeceLight[],
-  niveau:      Niveau,
-  typeBac:     TypeBac,
-  volume:      VolumeBac,
-  preferences: string[],
+  pool:         EspeceLight[],
+  niveau:       Niveau,
+  typeBac:      TypeBac,
+  volumeChoix:  VolumeChoix,
+  style:        string | null,
+  budget:       Budget = 'moyen',
+  temps:        TempsEntretien = 'moyen',
 ): ResultatRecommandation {
+  const volumeAuto = volumeChoix === 'auto';
+  const volume: VolumeBac = volumeAuto ? volumeConseille(typeBac, niveau, budget) : volumeChoix;
   const cats   = CATS_BAC[typeBac];
-  const diffs  = DIFF_OK[niveau];
+  // Peu de temps d'entretien : on ne propose que des espèces faciles, quel que
+  // soit le niveau déclaré (un expert pressé ne veut pas d'un bac capricieux).
+  const diffs  = temps === 'faible' ? (['Débutant'] as NiveauDiff[]) : DIFF_OK[niveau];
   const volMax = VOL_MAX[typeBac][volume];
-  const has    = (id: string) => preferences.includes(id);
-
   const filtered = pool.filter((e) => {
     if (!cats.includes(e.categorie)) return false;
     if (e.statutLegal === 'interdite' || e.statutLegal === 'autorisation_requise') return false;
@@ -171,85 +218,153 @@ export function recommander(
     return true;
   });
 
-  function pick(cat: string, n: number, predicate?: (e: EspeceLight) => boolean): EspeceLight[] {
-    if (n <= 0) return [];
-    let src = filtered.filter((e) => e.categorie === cat);
-    if (predicate) {
-      const narrow = src.filter(predicate);
-      if (narrow.length >= Math.min(n, 2)) src = narrow;
+  const ctx = { filtered, typeBac, volume, niveau, style, temps, quantite: quantiteConseillee };
+  const sections = construireSections(ctx);
+  const presets  = construirePresets(ctx);
+
+  // Liste à plat (sans doublon) : sert au comptage des annonces en ligne.
+  const vus = new Set<string>();
+  const especesReco: EspeceReco[] = sections
+    .flatMap((sec) => sec.groupes.flatMap((g) => g.especes))
+    .filter((e) => (vus.has(e.slug) ? false : (vus.add(e.slug), true)));
+
+  return {
+    especes: especesReco,
+    sections,
+    presets,
+    setup:   genererSetup(niveau, typeBac, volume, budget, temps),
+    cuve:    cuveIdeale(typeBac, volume),
+    volume,
+    volumeAuto,
+  };
+}
+
+// ─── Volume conseillé (« Je ne sais pas encore ») ─────────────────────────────
+
+export function volumeConseille(typeBac: TypeBac, niveau: Niveau, budget: Budget): VolumeBac {
+  // Marin : un nano est trop instable pour être conseillé d'office.
+  if (typeBac === 'marin') return budget === 'haut' && niveau === 'Expert' ? 'grand' : 'moyen';
+  if (budget === 'eco') return 'nano';
+  if (budget === 'haut' && niveau === 'Expert') return 'grand';
+  return 'moyen';
+}
+
+// ─── Cuve idéale ──────────────────────────────────────────────────────────────
+
+export function cuveIdeale(typeBac: TypeBac, volume: VolumeBac): CuveIdeale {
+  const detail = VOLUMES_BAC[typeBac].find((v) => v.id === volume)?.detail ?? '';
+  const titres: Record<TypeBac, Record<VolumeBac, string>> = {
+    'douce-plante': {
+      nano:         'Aquarium 40 L avec filtre interne et sol nutritif',
+      moyen:        'Aquarium 100 L (80 cm) avec filtre externe et sol nutritif',
+      grand:        'Aquarium 250 L (120 cm) avec filtre externe et sol nutritif',
+      'tres-grand': 'Aquarium 500 L et plus avec double filtre externe',
+    },
+    'douce-biotope': {
+      nano:         'Aquarium 40 L avec filtre interne',
+      moyen:        'Aquarium 100 L (80 cm) avec filtre externe',
+      grand:        'Aquarium 250 L (120 cm) avec filtre externe',
+      'tres-grand': 'Aquarium 500 L et plus avec double filtre externe',
+    },
+    'marin': {
+      nano:         'Nano-récif 60 L tout-en-un',
+      moyen:        'Récif 200 L (100 cm) avec décanteur / sump',
+      grand:        'Récif 400 L avec sump dédié',
+      'tres-grand': 'Récif 700 L et plus avec sump dédié',
+    },
+    'bassin': {
+      nano:         'Bassin de 800 L (profondeur 60 cm)',
+      moyen:        'Bassin de 3 000 L (profondeur 80 cm)',
+      grand:        'Bassin de 10 000 L (profondeur 1 m)',
+      'tres-grand': 'Bassin de 25 000 L et plus',
+    },
+  };
+  return { titre: titres[typeBac][volume], detail };
+}
+
+// ─── Quantités indicatives ────────────────────────────────────────────────────
+
+export function quantiteConseillee(e: EspeceLight, volume: VolumeBac): string {
+  const idx = ['nano', 'moyen', 'grand', 'tres-grand'].indexOf(volume);
+  const pick = (vals: string[]) => vals[Math.max(0, idx)];
+  switch (e.categorie) {
+    case 'Plantes':                           return '3 à 5 pieds';
+    case 'Crustacés / Invertébrés eau douce': return pick(['10', '10 à 15', '15 à 20', '20 et plus']);
+    case 'Mollusques eau douce':              return '3 à 5';
+    case 'Poissons marins':                   return pick(['1', '2', '3 à 4', '4 à 6']);
+    case 'Coraux et anémones':                return '1 colonie';
+    case 'Invertébrés marins':                return '2 à 3';
+    case 'Macroalgues marines':               return '1 touffe';
+    case 'Bassin': {
+      const koi = /koï|koi|cyprinus carpio/i.test(`${e.nomCommun} ${e.nomScientifique}`);
+      return koi ? pick(['2', '4 à 6', '8 à 10', '12 et plus']) : pick(['3', '5 à 8', '10 à 15', '15 et plus']);
     }
-    const ord = ['Débutant', 'Intermédiaire', 'Expert'];
-    src.sort((a, b) => {
-      const d = ord.indexOf(a.difficulte) - ord.indexOf(b.difficulte);
-      return d !== 0 ? d : a.nomCommun.localeCompare(b.nomCommun, 'fr');
-    });
-    return src.slice(0, n);
+    default: // Eau Douce (poissons)
+      // Espèces territoriales : un seul individu (ex : betta).
+      if (/betta|combattant/i.test(`${e.nomCommun} ${e.nomScientifique}`)) return '1';
+      if ((e.volumeMin ?? 0) >= 100) return '2 à 4';
+      return pick(['6', '8 à 10', '10 à 15', '15 à 20']);
   }
-
-  let especes: EspeceLight[] = [];
-
-  if (typeBac === 'douce-plante') {
-    const co2Pred = has('sans-co2')
-      ? (e: EspeceLight) => e.co2 === 'Inutile' || e.co2 === 'Recommandé'
-      : undefined;
-    especes = [
-      ...pick('Eau Douce', 3),
-      ...pick('Plantes', has('plantes-dense') ? 4 : 2, co2Pred),
-      ...pick('Crustacés / Invertébrés eau douce', has('crevettes') ? 2 : 1),
-      ...pick('Mollusques eau douce', 1),
-    ];
-  } else if (typeBac === 'douce-biotope') {
-    especes = [
-      ...pick('Eau Douce', 5),
-      ...pick('Crustacés / Invertébrés eau douce', has('crevettes') ? 2 : 1),
-    ];
-  } else if (typeBac === 'marin') {
-    const corailPred = has('reef-coraux-durs')
-      ? (e: EspeceLight) => e.corailType === 'LPS' || e.corailType === 'SPS'
-      : has('reef-coraux-mous')
-        ? (e: EspeceLight) => ['Corail mou', 'Anémone', 'Zoanthaire', 'Corallimorphe'].includes(e.corailType ?? '')
-        : undefined;
-    especes = [
-      ...pick('Poissons marins', 3),
-      ...pick('Coraux et anémones', (has('reef-coraux-mous') || has('reef-coraux-durs')) ? 3 : 1, corailPred),
-      ...pick('Invertébrés marins', has('reef-invertebres') ? 3 : 2),
-      ...pick('Macroalgues marines', has('reef-algues') ? 2 : 1),
-    ];
-  } else {
-    especes = [
-      ...pick('Bassin', has('plantes-bassin') ? 3 : 5),
-      ...pick('Plantes', has('plantes-bassin') ? 3 : 0,
-        (e) => e.placementPlante === 'Plante de bassin' || e.placementPlante === 'Plante de berge'),
-    ];
-  }
-
-  const seen = new Set<string>();
-  especes = especes.filter((e) => {
-    if (seen.has(e.slug)) return false;
-    seen.add(e.slug);
-    return true;
-  }).slice(0, 8);
-
-  return { especes, setup: genererSetup(niveau, typeBac, volume) };
 }
 
 // ─── Génération du setup équipement ───────────────────────────────────────────
 
-export function genererSetup(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac): SetupComplet {
+export function genererSetup(
+  niveau:  Niveau,
+  typeBac: TypeBac,
+  volume:  VolumeBac,
+  budget:  Budget = 'moyen',
+  temps:   TempsEntretien = 'moyen',
+): SetupComplet {
+  const base = genererSetupBrut(niveau, typeBac, volume, budget);
+  const arrondi = (n: number) => Math.round(n / 10) * 10;
+  const facteur = budget === 'eco' ? 0.75 : budget === 'haut' ? 1.35 : 1;
+
+  let lignes = base.lignes;
+  const conseils = [...base.conseils];
+
+  // Peu de temps d'entretien en eau douce plantée : pas de CO₂ ni d'osmoseur.
+  if (temps === 'faible' && typeBac === 'douce-plante') {
+    lignes = lignes.filter((l) => l.categorie !== 'CO₂' && l.categorie !== 'Osmose');
+    conseils.unshift('Pas de CO₂ : choisis des plantes robustes (anubias, fougère java, cryptocorynes) et un éclairage modéré pour limiter algues et entretien.');
+  }
+
+  if (budget === 'eco') {
+    conseils.push("Budget serré : achète filtre, éclairage et chauffage d'occasion — jusqu'à 50 % d'économie sur Aquatopia.");
+  } else if (budget === 'haut') {
+    conseils.push('Budget confortable : investis d\'abord dans la filtration et l\'éclairage, ils conditionnent tout le reste du projet.');
+  }
+  if (temps === 'faible') {
+    conseils.push('Avec peu de temps : un changement d\'eau de 20 % par semaine et un bac bien planté suffisent pour un aquarium stable.');
+  } else if (temps === 'passion') {
+    conseils.push('Passionné : tu peux viser des espèces exigeantes et suivre tes paramètres (GH, KH, nitrates) avec des tests réguliers.');
+  }
+
+  return {
+    ...base,
+    lignes,
+    conseils,
+    budgetMin: arrondi(base.budgetMin * facteur),
+    budgetMax: arrondi(base.budgetMax * facteur),
+  };
+}
+
+function genererSetupBrut(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac, budget: Budget): SetupComplet {
   const isNano  = volume === 'nano';
   const isMoyen = volume === 'moyen';
   const isGrand = volume === 'grand';
-  const isDeb   = niveau === 'Debutant';
+  // Budget serré → équipement d'entrée de gamme ; haut de gamme → équipement avancé.
+  const isDeb   = budget === 'eco' || (niveau === 'Debutant' && budget !== 'haut');
 
   if (typeBac === 'douce-plante') {
     const lignes: LigneSetup[] = [
-      { emoji: '🫧', categorie: 'Filtration',
+      { icone: 'filtration', categorie: 'Filtration',
         item: isNano
           ? 'Filtre interne (Fluval U2 / Eheim Aquaball)'
           : isMoyen ? 'Filtre externe 600-900 L/h (Eheim Classic 350 / JBL CristalProfi e702)'
           : 'Double filtre externe 1 200-2 400 L/h + pompe de brassage',
         detail: isNano ? 'Débit ~300 L/h' : isMoyen ? 'Débit 4-5× le volume du bac' : 'Débit 6-8× le volume' },
-      { emoji: '💡', categorie: 'Éclairage',
+      { icone: 'eclairage', categorie: 'Éclairage',
         item: isNano
           ? (isDeb ? 'Rampe LED 6 500 K 20 W (Aquael Leddy / Chihiros A-201)'
                    : 'Rampe LED fine spectrale (Chihiros WRGB II 30 / Twinstar 300E)')
@@ -258,29 +373,29 @@ export function genererSetup(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac
                      : 'Rampe LED haut de gamme (Twinstar 900E / Chihiros WRGB II 60)')
             : 'Série de 2-3 rampes LED haut de gamme (Twinstar 1200S / ATI SolarNode)',
         detail: 'Photopériode 8-10 h/j — timer recommandé' },
-      { emoji: '🌡️', categorie: 'Chauffage',
+      { icone: 'chauffage', categorie: 'Chauffage',
         item: isNano ? 'Thermostat 50 W (Aquael Ultra / Eheim Jäger)'
             : isMoyen ? 'Thermostat 100-150 W (Eheim Jäger / Fluval M)'
             : 'Thermostat 200-300 W (ou 2 × 150 W)',
         detail: '24-26 °C selon les espèces' },
-      { emoji: '🪨', categorie: 'Substrat',
+      { icone: 'substrat', categorie: 'Substrat',
         item: isDeb
           ? 'Sol nutritif débutant (Dennerle Power Soil / JBL Manado Dark) 3-5 cm'
           : 'Sol nutritif professionnel (ADA Amazonia / Tropica Aquarium Soil) 5-7 cm',
         detail: 'Optionnel : 2 cm de sable fin décoratif par-dessus' },
-      { emoji: '💨', categorie: 'CO₂',
+      { icone: 'co2', categorie: 'CO₂',
         item: (isDeb || isNano)
           ? 'Système CO₂ liquide (Dennerle S35 95 g + diffuseur)'
           : isMoyen
             ? 'Bouteille CO₂ rechargeable 500 g + réducteur double jauge + diffuseur verre atomiseur'
             : 'Bouteille CO₂ 2 kg + réducteur électronique + diffuseur en ligne',
         detail: '20-30 ppm en photopériode — arrêt automatique la nuit' },
-      { emoji: '💧', categorie: 'Entretien eau',
+      { icone: 'eau', categorie: 'Entretien eau',
         item: 'Conditionneur (Seachem Prime) + engrais liquide macro/micro (Tropica / Seachem Flourish)',
         detail: 'Changement 20-30 % hebdomadaire — test GH/KH/nitrates mensuel' },
     ];
     if (!isNano && !isDeb) {
-      lignes.push({ emoji: '🔬', categorie: 'Osmose',
+      lignes.push({ icone: 'osmose', categorie: 'Osmose',
         item: 'Osmoseur 100-200 GPD + reminéralisation (Salty Shrimp GH+)',
         detail: 'Recommandé si eau du robinet > 15° GH' });
     }
@@ -301,23 +416,23 @@ export function genererSetup(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac
 
   if (typeBac === 'douce-biotope') {
     const lignes: LigneSetup[] = [
-      { emoji: '🫧', categorie: 'Filtration',
+      { icone: 'filtration', categorie: 'Filtration',
         item: isNano ? 'Filtre interne (Eheim Aquaball / Fluval U2)'
             : isMoyen ? 'Filtre externe (Eheim Classic 350 / JBL CristalProfi e702)'
             : 'Filtre externe puissant 1 200-2 000 L/h (Eheim Pro 4 / Fluval FX4)',
         detail: "Privilégier un débit doux pour les espèces d'eaux calmes" },
-      { emoji: '💡', categorie: 'Éclairage',
+      { icone: 'eclairage', categorie: 'Éclairage',
         item: isNano ? 'Rampe LED 6 500 K 15-25 W (Aquael Leddy / Fluval Plant nano)'
             : isMoyen ? 'Rampe LED 40-60 W (Aquael Leddy XXL / Beamwork DA FSPEC)'
             : 'Rampe LED 80-120 W ou 2 × 50 W',
         detail: "Photopériode 8-10 h/j — limiter pour biotopes ombragés (Amazonie)" },
-      { emoji: '🌡️', categorie: 'Chauffage',
+      { icone: 'chauffage', categorie: 'Chauffage',
         item: isNano ? 'Thermostat 50 W' : isMoyen ? 'Thermostat 100-150 W' : 'Thermostat 200-300 W',
         detail: '24-28 °C — les cichlidés du Rift préfèrent 25-27 °C' },
-      { emoji: '🪨', categorie: 'Substrat & décor',
+      { icone: 'substrat', categorie: 'Substrat & décor',
         item: 'Sable fin 0,2-1 mm (JBL Sansibar) + décor biotope adapté',
         detail: 'Racines + feuilles mortes (Amazonie) | Roches calcaires (Rift africain)' },
-      { emoji: '💧', categorie: 'Paramètres',
+      { icone: 'eau', categorie: 'Paramètres',
         item: 'Conditionneur (Seachem Prime) + test pH/GH/KH hebdomadaire',
         detail: 'Eau noire (Amazonie) : tourbe ou feuilles de catappa, pH 6-7, GH < 8' },
     ];
@@ -336,35 +451,35 @@ export function genererSetup(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac
 
   if (typeBac === 'marin') {
     const lignes: LigneSetup[] = [
-      { emoji: '🫧', categorie: 'Filtration / Sump',
+      { icone: 'filtration', categorie: 'Filtration / Sump',
         item: isNano
           ? 'Bac tout-en-un (Red Sea Max Nano / Fluval Evo) ou décanteur externe'
           : isMoyen ? 'Sump 50-80 L + décanteur en verre (Deltec / Bubble Magus)'
           : 'Sump 100-150 L + décanteur haut de gamme (Bubble King / Royal Exclusiv)',
         detail: 'Le sump augmente le volume total — facteur clé de stabilité' },
-      { emoji: '⚡', categorie: 'Écumeur (skimmer)',
+      { icone: 'ecumeur', categorie: 'Écumeur (skimmer)',
         item: isNano ? 'Mini-skimmer (Tunze 9001 / Reef Octopus Nano)'
             : isMoyen ? 'Skimmer externe (Bubble Magus Curve A5 / Deltec SC 1455)'
             : 'Skimmer haut de gamme (Bubble King / Royal Exclusiv)',
         detail: 'Élimine la matière organique avant décomposition — indispensable' },
-      { emoji: '💡', categorie: 'Éclairage',
+      { icone: 'eclairage', categorie: 'Éclairage',
         item: isNano
           ? (isDeb ? 'LED marin (Kessil A80 / AI Prime HD)' : 'LED performante (Radion XR15 / Kessil A160WE)')
           : isMoyen
             ? 'LED suspendue × 1-2 (Radion XR15 / AI Hydra 32 / Kessil A360X)'
             : 'LED haut de gamme × 2-3 (Radion XR30 / ATI SolarNode)',
         detail: 'Spectre 14 000-20 000 K + UV/violet — progression sur 2-4 semaines' },
-      { emoji: '🌊', categorie: 'Brassage',
+      { icone: 'brassage', categorie: 'Brassage',
         item: isNano ? 'Pompe de brassage 1 000-2 000 L/h (Jebao SLW-10 / Tunze 6015)'
             : isMoyen ? '2 × pompes de brassage (Jebao RW-8 / Tunze 6055)'
             : 'Gyre (Maxspect / Panta Rei) ou 2-3 × Tunze 6105',
         detail: 'Viser 15-25× le volume du bac en brassage total' },
-      { emoji: '🌡️', categorie: 'Chauffage',
+      { icone: 'chauffage', categorie: 'Chauffage',
         item: isNano ? '2 × thermostat 100 W (redondance de sécurité)'
             : isMoyen ? '2 × thermostat 150-200 W'
             : '2 × thermostat 300 W ou refroidisseur/chauffe-eau (Teco TC15)',
         detail: '25-26 °C — TOUJOURS deux thermostats indépendants' },
-      { emoji: '🧪', categorie: "Chimie de l'eau",
+      { icone: 'chimie', categorie: "Chimie de l'eau",
         item: (isNano || isDeb)
           ? 'Sel de qualité (Red Sea Coral Pro / Tropic Marin) + osmoseur 75 GPD + réfractomètre'
           : isMoyen
@@ -373,7 +488,7 @@ export function genererSetup(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac
         detail: 'Salinité 1.023-1.025 — 100 % eau osmosée RODI < 5 ppm TDS' },
     ];
     if (!isDeb || !isNano) {
-      lignes.push({ emoji: '☀️', categorie: 'UV stérilisateur',
+      lignes.push({ icone: 'uv', categorie: 'UV stérilisateur',
         item: isNano ? 'UV 9 W en ligne' : 'UV 18-36 W (TMC Vecton / Aqua Ultraviolet)',
         detail: 'Réduit les agents pathogènes — optionnel mais recommandé' });
     }
@@ -395,27 +510,27 @@ export function genererSetup(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac
 
   // bassin
   const lignes: LigneSetup[] = [
-    { emoji: '🫧', categorie: 'Filtration',
+    { icone: 'filtration', categorie: 'Filtration',
       item: isNano ? 'Filtre de bassin pression (Oase BioPress 6000 / Pontec PondoPress)'
           : isMoyen ? 'Filtre à tambour ou boîte de filtration (Oase Biotec ScreenMatic / BioTec Koi 6)'
           : 'Filtre boîte + filtre à tambour automatique (Oase BioTec Screenmatic2)',
       detail: 'Capacité filtrante = 2× le volume du bassin pour les koïs' },
-    { emoji: '💧', categorie: 'Pompe de circulation',
+    { icone: 'eau', categorie: 'Pompe de circulation',
       item: isNano ? 'Pompe de bassin 3 000-5 000 L/h (Oase AquaMax Eco 4000)'
           : isMoyen ? 'Pompe 8 000-15 000 L/h (Oase AquaMax Eco Premium)'
           : 'Pompe 20 000-40 000 L/h (Oase AquaMax Eco Expert)',
       detail: 'Débit = volume du bassin par heure minimum' },
-    { emoji: '☀️', categorie: 'UV stérilisateur',
+    { icone: 'uv', categorie: 'UV stérilisateur',
       item: isNano ? 'UV 9-18 W (JBL ProCristal UV-C 18W)' : isMoyen ? 'UV 36-55 W (TMC Vecton 300)' : 'UV 75-110 W ou double UV 36 W',
       detail: 'Traite les algues en suspension (eau verte) et les bactéries pathogènes' },
-    { emoji: '🌿', categorie: 'Plantes aquatiques',
+    { icone: 'plante', categorie: 'Plantes aquatiques',
       item: 'Nénuphars (≥ 40 % couverture) + plantes oxygénantes + plantes de berge',
       detail: "Les plantes sont le premier filtre naturel — indispensables pour la qualité de l'eau" },
-    { emoji: '🪨', categorie: 'Fond & structure',
+    { icone: 'substrat', categorie: 'Fond & structure',
       item: isNano ? 'Bâche EPDM 0,5 mm + feutre de protection + substrat pour plantes'
           : "Bâche EPDM 1 mm ou béton projeté + fond sans substrat (facilite l'entretien pour les koïs)",
       detail: 'Profondeur min. 80 cm pour que les koïs hivernent sans gel' },
-    { emoji: '💨', categorie: 'Oxygénation',
+    { icone: 'co2', categorie: 'Oxygénation',
       item: isNano ? 'Aérateur 40 L/min' : isMoyen ? 'Aérateur 80-150 L/min (Oase OxyTex 1500)' : 'Aérateur 300+ L/min ou cascade décorative',
       detail: "Essentiel en été (eau chaude = moins d'O₂) et pour les bacs à koïs" },
   ];

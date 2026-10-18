@@ -10,7 +10,7 @@ import type { EspeceLight } from '@/lib/configurateur';
 const SITE_URL = 'https://aquatopia.fr';
 const TITRE = "Configurateur aquarium : trouvez votre setup clé en main";
 const DESCRIPTION =
-  "Répondez à 4 questions sur votre niveau et vos envies — obtenez une liste d'équipements et d'espèces compatibles, adaptés à votre volume et votre budget.";
+  "Répondez à quelques questions sur votre niveau, votre budget et vos envies — obtenez la cuve idéale, une liste d'équipements et d'espèces compatibles, et les annonces disponibles.";
 
 export const metadata: Metadata = {
   title: TITRE,
@@ -46,6 +46,11 @@ export default function ConfigurateurPage() {
       placementPlante: e.fiche!.plante?.placement,
       corailType:      e.fiche!.corail?.type,
       reefSafe:        e.fiche!.marin?.reefSafe,
+      zone:            e.fiche!.marin?.zone,
+      tempMin:         e.fiche!.tempMin,
+      tempMax:         e.fiche!.tempMax,
+      phMin:           e.fiche!.phMin,
+      phMax:           e.fiche!.phMax,
     }));
 
   const jsonLd = {

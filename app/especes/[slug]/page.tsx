@@ -5,8 +5,10 @@ import { ESPECES_PUBLIEES, fetchEspeceParSlug, categorieAnnonceSlug, biotopeSlug
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { descriptionEspece, especesLiees, faqEspece, nomsIdentiques, titreEspece, tuilesEspece } from '@/lib/especes-seo';
 import EspeceImage from '@/components/EspeceImage';
+import Icone from '@/components/Icone';
 import SignalementModal from '@/components/SignalementModal';
 import VuesEspece from '@/components/VuesEspece';
+import LienRetour from '@/components/LienRetour';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -84,12 +86,21 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* Bouton retour — visible immédiatement, style pill */}
-      <Link href="/especes" className="btn-retour">
+      <LienRetour
+        href="/especes"
+        className="btn-retour"
+        texteDepuisConfigurateur={<>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Configurateur
+        </>}
+      >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         Espèces
-      </Link>
+      </LienRetour>
 
       {/* Fil d'Ariane (SEO uniquement — visuellement discret) */}
       <div className="breadcrumb">
@@ -110,7 +121,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         <VuesEspece slug={espece.slug} />
       </div>
 
-      <EspeceImage src={`/especes/${espece.slug}.webp`} alt={espece.nomCommun} />
+      <EspeceImage src={`/especes/${espece.slug}.webp`} alt={espece.nomCommun} slug={espece.slug} />
 
       {espece.remarqueLegale && (
         <div
@@ -120,13 +131,18 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         >
           <p>
             <strong>
+              <Icone
+                nom={espece.statutLegal === 'autorise' ? 'info' : 'alerte'}
+                size={16}
+                style={{ marginRight: 6, verticalAlign: '-3px' }}
+              />
               {espece.statutLegal === 'interdite'
-                ? '⚠ Vente et détention interdites en France. '
+                ? 'Vente et détention interdites en France. '
                 : espece.statutLegal === 'autorisation_requise'
-                  ? '⚠ Détention soumise à autorisation (certificat de capacité) : fermée aux particuliers. '
+                  ? 'Détention soumise à autorisation (certificat de capacité) : fermée aux particuliers. '
                   : espece.statutLegal === 'cites_a_signaler'
-                    ? '⚠ Espèce réglementée (CITES) : conservez la preuve de son origine légale. '
-                    : 'ℹ Point de vigilance. '}
+                    ? 'Espèce réglementée (CITES) : conservez la preuve de son origine légale. '
+                    : 'Point de vigilance. '}
             </strong>
             {espece.remarqueLegale}
             {espece.citesAnnexe && ` (Annexe ${espece.citesAnnexe})`}
@@ -265,12 +281,12 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
 
       {/* Retour bas de page */}
       <div style={{ marginTop: 48, paddingTop: 24, borderTop: '1px solid var(--border)' }}>
-        <Link href="/especes" style={{
+        <LienRetour href="/especes" texteDepuisConfigurateur="← Retour au configurateur" style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
           color: 'var(--text-muted)', fontSize: '0.9rem', textDecoration: 'none',
         }}>
           ← Retour aux fiches espèces
-        </Link>
+        </LienRetour>
       </div>
 
       <SignalementModal />

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import DownloadButton from '@/components/DownloadButton';
+import Icone from '@/components/Icone';
 import {
   fetchAnnonceParId,
   fetchAnnoncesActives,
@@ -132,7 +133,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
           {annonce.nom_scientifique && <p className="annonce-sous-titre">{annonce.nom_scientifique}</p>}
 
           <div className="annonce-meta">
-            {annonce.ville && <span>📍 {annonce.ville}{annonce.code_postal ? ` (${annonce.code_postal})` : ''}</span>}
+            {annonce.ville && <span><Icone nom="lieu" size={15} style={{ marginRight: 4, verticalAlign: '-2px' }} />{annonce.ville}{annonce.code_postal ? ` (${annonce.code_postal})` : ''}</span>}
             {annonce.quantite ? <span>{annonce.quantite} spécimen{annonce.quantite > 1 ? 's' : ''}</span> : null}
             {annonce.volume && <span>{annonce.volume}</span>}
             {annonce.etat && <span>{annonce.etat}</span>}

@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import Icone from '@/components/Icone';
+import type { IconeNom } from '@/lib/icones';
 
 interface EspeceCarte {
   slug: string;
@@ -19,16 +21,16 @@ const normaliser = (t: string) =>
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '');
 
-const EMOJI: Record<string, string> = {
-  'Eau douce':              '🐟',
-  'Plantes':                '🌿',
-  'Crevettes / Invertébrés eau douce': '🦐',
-  'Coraux et anémones':     '🪸',
-  'Eau de mer':             '🐠',
-  'Macroalgues marines':    '🌊',
-  'Bassin':                 '🏞️',
+const ICONES_CATEGORIE: Record<string, IconeNom> = {
+  'Eau douce':              'poisson',
+  'Plantes':                'plante',
+  'Crevettes / Invertébrés eau douce': 'coquillage',
+  'Coraux et anémones':     'corail',
+  'Eau de mer':             'vagues',
+  'Macroalgues marines':    'pousse',
+  'Bassin':                 'arbre',
 };
-const emoji = (cat: string) => EMOJI[cat] ?? '🐾';
+const iconeCategorie = (cat: string): IconeNom => ICONES_CATEGORIE[cat] ?? 'patte';
 
 function BadgeLegal({ statut }: { statut: EspeceCarte['statutLegal'] }) {
   if (statut === 'autorise') return null;
@@ -122,7 +124,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
               onClick={() => setCategorie(categorie === c ? '' : c)}
               style={pillStyle(categorie === c)}
             >
-              {emoji(c)} {c} ({count})
+              <Icone nom={iconeCategorie(c)} size={15} style={{ marginRight: 6, verticalAlign: '-2px' }} />{c} ({count})
             </button>
           );
         })}
@@ -143,7 +145,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
                 marginBottom: 20,
                 display: 'flex', alignItems: 'center', gap: 10,
               }}>
-                <span>{emoji(cat)}</span>
+                <span style={{ display: 'inline-flex', color: 'var(--teal)' }}><Icone nom={iconeCategorie(cat)} size={22} /></span>
                 {cat}
                 <span style={{ fontSize: '0.8rem', fontWeight: 400, color: 'var(--text-muted)', fontFamily: 'inherit' }}>
                   — {items.length} espèce{items.length > 1 ? 's' : ''}

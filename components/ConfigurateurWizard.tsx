@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Icone, { IconePastille } from '@/components/Icone';
+import type { IconeNom } from '@/lib/icones';
 import {
-  type Niveau, type TypeBac, type VolumeBac,
-  type EspeceLight, type ResultatRecommandation,
-  NIVEAUX, TYPES_BAC, VOLUMES_BAC, PREFERENCES,
+  type Niveau, type TypeBac, type VolumeChoix, type Budget, type TempsEntretien,
+  type EspeceLight, type EspeceReco, type ResultatRecommandation,
+  NIVEAUX, TYPES_BAC, VOLUMES_BAC, BUDGETS, STYLES, TEMPS_ENTRETIEN,
   recommander,
 } from '@/lib/configurateur';
 
@@ -13,18 +15,39 @@ interface Props {
   pool: EspeceLight[];
 }
 
-type Etape = 1 | 2 | 3 | 4 | 'resultats';
+const CLE_SESSION = 'aquatopia_configurateur_v1';
+
+type Etape = 1 | 2 | 3 | 4 | 5 | 6 | 'resultats';
 
 interface WizardState {
   etape:       Etape;
   niveau:      Niveau | null;
   typeBac:     TypeBac | null;
-  volume:      VolumeBac | null;
-  preferences: string[];
+  volume:      VolumeChoix | null;
+  budget:      Budget | null;
+  style:       string | null;
+  temps:       TempsEntretien | null;
   resultats:   ResultatRecommandation | null;
 }
 
-const ETAPES_LABEL = ['Niveau', 'Type de bac', 'Volume', 'Préférences'];
+interface AnnonceReco {
+  slug:  string;
+  titre: string;
+  ville: string | null;
+  prix:  number | null;
+  is_don: boolean;
+  is_echange: boolean;
+  photo: string | null;
+  nom_scientifique: string | null;
+}
+
+interface AnnoncesInfo {
+  counts:   Record<string, number>;
+  annonces: AnnonceReco[];
+  total:    number;
+}
+
+const ETAPES_LABEL = ['Niveau', 'Type de bac', 'Volume', 'Budget', 'Style', 'Entretien'];
 
 // ─── Badge de catégorie ────────────────────────────────────────────────────────
 function BadgeCategorie({ cat }: { cat: string }) {
@@ -58,7 +81,7 @@ function BadgeCategorie({ cat }: { cat: string }) {
 
 // ─── Barre de progression ──────────────────────────────────────────────────────
 function BarreProgression({ etape }: { etape: Etape }) {
-  const courante = etape === 'resultats' ? 4 : (etape as number);
+  const courante = etape === 'resultats' ? ETAPES_LABEL.length : (etape as number);
   return (
     <div style={{ marginBottom: 32 }}>
       <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 10 }}>
@@ -67,7 +90,7 @@ function BarreProgression({ etape }: { etape: Etape }) {
           const active = num === courante;
           const done   = num < courante || etape === 'resultats';
           return (
-            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, flex: i < 3 ? '1' : undefined }}>
+            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, flex: i < ETAPES_LABEL.length - 1 ? '1' : undefined }}>
               <div style={{
                 width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -76,7 +99,7 @@ function BarreProgression({ etape }: { etape: Etape }) {
                 color: (done || active) ? '#052027' : 'var(--text-muted)',
                 transition: 'all .2s',
               }}>
-                {done ? '✓' : num}
+                {done ? <Icone nom="valide" size={15} strokeWidth={2.6} /> : num}
               </div>
               <span style={{
                 fontSize: '0.8rem',
@@ -88,7 +111,7 @@ function BarreProgression({ etape }: { etape: Etape }) {
               >
                 {label}
               </span>
-              {i < 3 && (
+              {i < ETAPES_LABEL.length - 1 && (
                 <div style={{
                   flex: 1, height: 2,
                   background: done ? 'var(--teal)' : 'var(--border)',
@@ -102,8 +125,8 @@ function BarreProgression({ etape }: { etape: Etape }) {
       </div>
       <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.06em' }}>
         {etape === 'resultats'
-          ? 'Votre setup clé en main'
-          : `Étape ${courante} sur 4 — ${ETAPES_LABEL[(courante as number) - 1]}`}
+          ? 'Votre projet Aquatopia sur mesure'
+          : `Étape ${courante} sur ${ETAPES_LABEL.length} — ${ETAPES_LABEL[(courante as number) - 1]}`}
       </div>
     </div>
   );
@@ -111,8 +134,8 @@ function BarreProgression({ etape }: { etape: Etape }) {
 
 // ─── Card de sélection ─────────────────────────────────────────────────────────
 function ChoixCard({
-  emoji, label, desc, selected, onClick,
-}: { emoji: string; label: string; desc?: string; selected: boolean; onClick: () => void }) {
+  icone, repete, label, desc, selected, onClick,
+}: { icone: IconeNom; repete?: number; label: string; desc?: string; selected: boolean; onClick: () => void }) {
   return (
     <button
       type="button"
@@ -128,7 +151,7 @@ function ChoixCard({
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>{emoji}</span>
+        <IconePastille nom={icone} repete={repete} />
         <span style={{
           fontFamily: "'Fredoka', sans-serif", fontWeight: 600,
           fontSize: '1.08rem', color: selected ? 'var(--teal)' : 'var(--text)',
@@ -141,7 +164,7 @@ function ChoixCard({
             background: 'var(--teal)', color: '#052027', display: 'flex',
             alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem',
             fontWeight: 800, flexShrink: 0,
-          }}>✓</span>
+          }}><Icone nom="valide" size={12} strokeWidth={3} /></span>
         )}
       </div>
       {desc && (
@@ -171,13 +194,13 @@ function Chip({
         transition: 'all .15s',
       }}
     >
-      {selected && '✓ '}{label}
+      {selected && <Icone nom="valide" size={14} strokeWidth={2.6} style={{ marginRight: 6, verticalAlign: '-2px' }} />}{label}
     </button>
   );
 }
 
 // ─── Carte espèce résultat ─────────────────────────────────────────────────────
-function CarteEspece({ e }: { e: EspeceLight }) {
+function CarteEspece({ e, nbAnnonces }: { e: EspeceReco; nbAnnonces?: number }) {
   return (
     <Link href={`/especes/${e.slug}`} style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
       <div style={{
@@ -208,9 +231,13 @@ function CarteEspece({ e }: { e: EspeceLight }) {
               {e.nomScientifique}
             </div>
           </div>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 3, color: 'var(--text-faint)' }}>
-            <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <span style={{
+            flexShrink: 0, padding: '2px 9px', borderRadius: 20,
+            background: 'rgba(47,217,190,0.12)', border: '1px solid rgba(47,217,190,0.35)',
+            color: 'var(--teal)', fontSize: '0.74rem', fontWeight: 700, whiteSpace: 'nowrap',
+          }}>
+            × {e.quantite}
+          </span>
         </div>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
           <BadgeCategorie cat={e.categorie} />
@@ -221,6 +248,11 @@ function CarteEspece({ e }: { e: EspeceLight }) {
             {e.difficulte} · {e.volumeMin ? `${e.volumeMin} L min` : e.tailleAdulte}
           </span>
         </div>
+        {nbAnnonces !== undefined && nbAnnonces > 0 && (
+          <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--teal)' }}>
+            <Icone nom="panier" size={14} style={{ marginRight: 6, verticalAlign: '-2px' }} />{nbAnnonces} annonce{nbAnnonces > 1 ? 's' : ''} en ligne
+          </div>
+        )}
       </div>
     </Link>
   );
@@ -230,46 +262,87 @@ function CarteEspece({ e }: { e: EspeceLight }) {
 export default function ConfigurateurWizard({ pool }: Props) {
   const [state, setState] = useState<WizardState>({
     etape: 1, niveau: null, typeBac: null, volume: null,
-    preferences: [], resultats: null,
+    budget: null, style: null, temps: null, resultats: null,
   });
+  const [annoncesInfo, setAnnoncesInfo] = useState<AnnoncesInfo | null>(null);
+  const [restaure, setRestaure] = useState(false);
+
+  // Les réponses survivent à un aller-retour vers une fiche espèce : on les
+  // garde dans sessionStorage et on recalcule les résultats au retour.
+  useEffect(() => {
+    try {
+      const brut = sessionStorage.getItem(CLE_SESSION);
+      if (brut) {
+        const d = JSON.parse(brut) as Partial<WizardState>;
+        if (d.etape === 'resultats' && d.niveau && d.typeBac && d.volume && d.temps) {
+          const resultats = recommander(pool, d.niveau, d.typeBac, d.volume, d.style ?? null, d.budget ?? 'moyen', d.temps);
+          setState({ ...(d as WizardState), resultats });
+        } else if (typeof d.etape === 'number') {
+          setState({ etape: d.etape, niveau: d.niveau ?? null, typeBac: d.typeBac ?? null, volume: d.volume ?? null,
+            budget: d.budget ?? null, style: d.style ?? null, temps: d.temps ?? null, resultats: null });
+        }
+      }
+    } catch { /* stockage indisponible : on repart de zéro */ }
+    setRestaure(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!restaure) return;
+    try {
+      const { resultats: _r, ...reponses } = state;
+      sessionStorage.setItem(CLE_SESSION, JSON.stringify(reponses));
+    } catch { /* ignoré */ }
+  }, [state, restaure]);
 
   function choisirNiveau(n: Niveau) {
     setState((s) => ({ ...s, niveau: n, etape: 2 }));
   }
   function choisirTypeBac(t: TypeBac) {
-    setState((s) => ({ ...s, typeBac: t, volume: null, preferences: [], etape: 3 }));
+    setState((s) => ({ ...s, typeBac: t, volume: null, style: null, etape: 3 }));
   }
-  function choisirVolume(v: VolumeBac) {
+  function choisirVolume(v: VolumeChoix) {
     setState((s) => ({ ...s, volume: v, etape: 4 }));
   }
-  function togglePref(id: string) {
-    setState((s) => ({
-      ...s,
-      preferences: s.preferences.includes(id)
-        ? s.preferences.filter((p) => p !== id)
-        : [...s.preferences, id],
-    }));
+  function choisirBudget(b: Budget | null) {
+    setState((s) => ({ ...s, budget: b, etape: 5 }));
   }
-  function calculer() {
-    if (!state.niveau || !state.typeBac || !state.volume) return;
-    const resultats = recommander(pool, state.niveau, state.typeBac, state.volume, state.preferences);
-    setState((s) => ({ ...s, etape: 'resultats', resultats }));
+  function choisirStyle(id: string | null) {
+    setState((s) => ({ ...s, style: id, etape: 6 }));
+  }
+  function choisirTemps(t: TempsEntretien) {
+    const { niveau, typeBac, volume, budget, style } = state;
+    if (!niveau || !typeBac || !volume) return;
+    const resultats = recommander(pool, niveau, typeBac, volume, style, budget ?? 'moyen', t);
+    setState((s) => ({ ...s, temps: t, etape: 'resultats', resultats }));
     fetch('/api/stats/configurateur_utilisations', { method: 'POST' }).catch(() => {});
   }
   function recommencer() {
-    setState({ etape: 1, niveau: null, typeBac: null, volume: null, preferences: [], resultats: null });
+    setState({ etape: 1, niveau: null, typeBac: null, volume: null, budget: null, style: null, temps: null, resultats: null });
+    setAnnoncesInfo(null);
   }
   function retour() {
     setState((s) => {
-      if (s.etape === 'resultats') return { ...s, etape: 4 };
-      if (s.etape === 2) return { ...s, etape: 1 };
-      if (s.etape === 3) return { ...s, etape: 2 };
-      if (s.etape === 4) return { ...s, etape: 3 };
+      if (s.etape === 'resultats') return { ...s, etape: 6 };
+      if (typeof s.etape === 'number' && s.etape > 1) return { ...s, etape: (s.etape - 1) as Etape };
       return s;
     });
   }
 
-  const { etape, niveau, typeBac, volume, preferences, resultats } = state;
+  const { etape, niveau, typeBac, volume, budget, style, temps, resultats } = state;
+
+  // Annonces réellement en ligne pour les espèces conseillées (nombre + quelques
+  // annonces récentes). Échec silencieux : la page reste utile sans.
+  useEffect(() => {
+    if (!resultats || resultats.especes.length === 0) { setAnnoncesInfo(null); return; }
+    let annule = false;
+    const noms = resultats.especes.map((e) => e.nomScientifique).join(',');
+    fetch(`/api/configurateur/annonces?noms=${encodeURIComponent(noms)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (!annule && d) setAnnoncesInfo(d as AnnoncesInfo); })
+      .catch(() => {});
+    return () => { annule = true; };
+  }, [resultats]);
 
   return (
     <div style={{ maxWidth: 720, margin: '0 auto' }}>
@@ -291,7 +364,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {NIVEAUX.map((n) => (
-              <ChoixCard key={n.id} emoji={n.emoji} label={n.label} desc={n.desc}
+              <ChoixCard key={n.id} icone={n.icone} repete={n.repete} label={n.label} desc={n.desc}
                 selected={niveau === n.id} onClick={() => choisirNiveau(n.id)} />
             ))}
           </div>
@@ -309,7 +382,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
             {TYPES_BAC.map((t) => (
-              <ChoixCard key={t.id} emoji={t.emoji} label={t.label} desc={t.desc}
+              <ChoixCard key={t.id} icone={t.icone} repete={t.repete} label={t.label} desc={t.desc}
                 selected={typeBac === t.id} onClick={() => choisirTypeBac(t.id)} />
             ))}
           </div>
@@ -331,9 +404,12 @@ export default function ConfigurateurWizard({ pool }: Props) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {VOLUMES_BAC[typeBac].map((v) => (
-              <ChoixCard key={v.id} emoji="📐" label={v.label} desc={v.detail}
+              <ChoixCard key={v.id} icone="regle" label={v.label} desc={v.detail}
                 selected={volume === v.id} onClick={() => choisirVolume(v.id)} />
             ))}
+            <ChoixCard icone="aide" label="Je ne sais pas encore"
+              desc="Laissez le configurateur recommander la taille idéale selon votre niveau et votre budget."
+              selected={volume === 'auto'} onClick={() => choisirVolume('auto')} />
           </div>
           <button type="button" onClick={retour} style={{
             marginTop: 20, background: 'none', border: 'none', color: 'var(--text-muted)',
@@ -342,33 +418,81 @@ export default function ConfigurateurWizard({ pool }: Props) {
         </section>
       )}
 
-      {/* ── Étape 4 : Préférences ────────────────────────────────────────── */}
-      {etape === 4 && typeBac && (
+      {/* ── Étape 4 : Budget ─────────────────────────────────────────────── */}
+      {etape === 4 && (
         <section>
           <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
-            Quelles sont vos préférences ?
+            Quel est votre budget global ?
           </h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
-            Sélectionnez autant d'options que vous souhaitez — ou aucune pour un setup équilibré.
+            Aquarium et animaux compris. Il adapte le niveau de gamme du matériel conseillé — étape facultative.
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 32 }}>
-            {PREFERENCES[typeBac].map((p) => (
-              <Chip key={p.id} label={p.label}
-                selected={preferences.includes(p.id)}
-                onClick={() => togglePref(p.id)} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {BUDGETS.map((b) => (
+              <ChoixCard key={b.id} icone={b.icone} repete={b.repete} label={b.label} desc={b.desc}
+                selected={budget === b.id} onClick={() => choisirBudget(b.id)} />
             ))}
           </div>
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-            <button type="button" onClick={calculer}
-              className="btn btn-primary"
-              style={{ fontSize: '1rem', padding: '12px 28px' }}>
-              Voir mon setup clé en main →
-            </button>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginTop: 20, flexWrap: 'wrap' }}>
             <button type="button" onClick={retour} style={{
               background: 'none', border: 'none', color: 'var(--text-muted)',
               cursor: 'pointer', fontSize: '0.86rem', padding: '4px 0',
             }}>← Retour</button>
+            <button type="button" onClick={() => choisirBudget(null)} style={{
+              background: 'none', border: 'none', color: 'var(--teal)',
+              cursor: 'pointer', fontSize: '0.86rem', padding: '4px 0',
+            }}>Passer cette étape →</button>
           </div>
+        </section>
+      )}
+
+      {/* ── Étape 5 : Style ──────────────────────────────────────────────── */}
+      {etape === 5 && typeBac && (
+        <section>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+            Qu'aimeriez-vous voir principalement dans votre bac ?
+          </h2>
+          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+            Cela oriente les espèces phares et le décor conseillés.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
+            {STYLES[typeBac].map((st) => (
+              <ChoixCard key={st.id} icone={st.icone} repete={st.repete} label={st.label} desc={st.desc}
+                selected={style === st.id} onClick={() => choisirStyle(st.id)} />
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginTop: 20, flexWrap: 'wrap' }}>
+            <button type="button" onClick={retour} style={{
+              background: 'none', border: 'none', color: 'var(--text-muted)',
+              cursor: 'pointer', fontSize: '0.86rem', padding: '4px 0',
+            }}>← Retour</button>
+            <button type="button" onClick={() => choisirStyle(null)} style={{
+              background: 'none', border: 'none', color: 'var(--teal)',
+              cursor: 'pointer', fontSize: '0.86rem', padding: '4px 0',
+            }}>Peu importe, un bac équilibré →</button>
+          </div>
+        </section>
+      )}
+
+      {/* ── Étape 6 : Temps d'entretien ──────────────────────────────────── */}
+      {etape === 6 && (
+        <section>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+            Combien de temps pouvez-vous accorder à l'entretien ?
+          </h2>
+          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+            Indispensable pour ne pas vous orienter vers des espèces trop exigeantes.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {TEMPS_ENTRETIEN.map((t) => (
+              <ChoixCard key={t.id} icone={t.icone} repete={t.repete} label={t.label} desc={t.desc}
+                selected={temps === t.id} onClick={() => choisirTemps(t.id)} />
+            ))}
+          </div>
+          <button type="button" onClick={retour} style={{
+            marginTop: 20, background: 'none', border: 'none', color: 'var(--text-muted)',
+            cursor: 'pointer', fontSize: '0.86rem', padding: '4px 0',
+          }}>← Retour</button>
         </section>
       )}
 
@@ -382,10 +506,39 @@ export default function ConfigurateurWizard({ pool }: Props) {
             border: '1px solid rgba(47,217,190,0.25)',
             marginBottom: 32,
           }}>
-            <div className="eyebrow" style={{ marginBottom: 8 }}>Setup recommandé</div>
+            <div className="eyebrow" style={{ marginBottom: 8 }}>Ton projet Aquatopia sur mesure</div>
             <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.4rem', marginBottom: 14 }}>
               {resultats.setup.titre}
             </h2>
+
+            {/* Cuve idéale */}
+            <div style={{
+              display: 'flex', gap: 14, alignItems: 'flex-start',
+              padding: '14px 16px', marginBottom: 14,
+              borderRadius: 'var(--radius-s)',
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid var(--border)',
+            }}>
+              <IconePastille nom="cuve" taille={44} />
+              <div>
+                <div style={{ fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.08em', color: 'var(--teal)', marginBottom: 4, textTransform: 'uppercase' }}>
+                  La cuve idéale
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>
+                  {resultats.cuve.titre}
+                </div>
+                {resultats.cuve.detail && (
+                  <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginTop: 2 }}>
+                    {resultats.cuve.detail}
+                  </div>
+                )}
+                {resultats.volumeAuto && (
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-faint)', marginTop: 6 }}>
+                    Volume choisi pour vous (« Je ne sais pas encore ») selon votre niveau et votre budget.
+                  </div>
+                )}
+              </div>
+            </div>
 
             {/* Comparaison prix neuf vs Aquatopia */}
             <div style={{
@@ -458,7 +611,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
               onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
             >
-              <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>📱</span>
+              <Icone nom="mobile" size={26} />
               <div>
                 <div>Trouver ce setup en occasion sur Aquatopia</div>
                 <div style={{ fontSize: '0.78rem', fontWeight: 400, opacity: 0.75, marginTop: 1 }}>
@@ -471,7 +624,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
 
           {/* Setup équipement */}
           <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 16 }}>
-            🔧 Équipement nécessaire
+            <Icone nom="outil" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Équipement nécessaire
           </h3>
           <div style={{
             borderRadius: 'var(--radius-m)',
@@ -487,7 +640,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
                 background: i % 2 === 0 ? 'var(--bg-2)' : 'var(--bg)',
                 transition: 'background .12s',
               }}>
-                <span style={{ fontSize: '1.3rem', lineHeight: 1.4 }}>{ligne.emoji}</span>
+                <span style={{ color: 'var(--teal)', paddingTop: 2 }}><Icone nom={ligne.icone} size={22} /></span>
                 <div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', alignItems: 'baseline' }}>
                     <span style={{
@@ -511,7 +664,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
 
           {/* Conseils */}
           <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 16 }}>
-            💡 Conseils essentiels
+            <Icone nom="eclairage" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Conseils essentiels
           </h3>
           <ul style={{
             margin: '0 0 32px', padding: '16px 20px 16px 36px',
@@ -532,17 +685,41 @@ export default function ConfigurateurWizard({ pool }: Props) {
             ))}
           </ul>
 
-          {/* Espèces recommandées */}
+          {/* Espèces recommandées, classées par type puis par zone du bac */}
           <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
-            🐟 Espèces compatibles avec votre setup
+            <Icone nom="poisson" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Espèces compatibles avec votre setup
           </h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 16, marginTop: 0 }}>
-            Sélection adaptée à votre niveau et votre volume — cliquez sur une fiche pour tous les détails.
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 20, marginTop: 0 }}>
+            Sélection adaptée à votre niveau, votre volume et vos envies, rangée par emplacement dans le bac. Les quantités sont indicatives — cliquez sur une fiche pour tous les détails.
           </p>
-          {resultats.especes.length > 0 ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10, marginBottom: 32 }}>
-              {resultats.especes.map((e) => (
-                <CarteEspece key={e.slug} e={e} />
+          {resultats.sections.length > 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 28, marginBottom: 36 }}>
+              {resultats.sections.map((sec) => (
+                <div key={sec.id}>
+                  <h4 style={{
+                    fontFamily: "'Fredoka',sans-serif", fontSize: '1.05rem', margin: '0 0 12px',
+                    paddingBottom: 8, borderBottom: '1px solid var(--border)',
+                  }}>
+                    <Icone nom={sec.icone} size={18} style={{ marginRight: 8, verticalAlign: '-3px', color: 'var(--teal)' }} />{sec.titre}
+                  </h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+                    {sec.groupes.map((g) => (
+                      <div key={g.id}>
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap', marginBottom: 8 }}>
+                          <span style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--text)' }}>{g.label}</span>
+                          {g.astuce && (
+                            <span style={{ fontSize: '0.8rem', color: 'var(--text-faint)' }}>{g.astuce}</span>
+                          )}
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 10 }}>
+                          {g.especes.map((e) => (
+                            <CarteEspece key={e.slug} e={e} nbAnnonces={annoncesInfo?.counts[e.nomScientifique]} />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           ) : (
@@ -553,6 +730,67 @@ export default function ConfigurateurWizard({ pool }: Props) {
             }}>
               Aucune fiche ne correspond exactement à vos critères pour l'instant.{' '}
               <Link href="/especes" style={{ color: 'var(--teal)' }}>Voir toutes les espèces →</Link>
+            </div>
+          )}
+
+          {/* Setups prêts à l'emploi */}
+          {resultats.presets.length > 0 && (
+            <div style={{ marginBottom: 32 }}>
+              <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
+                <Icone nom="cuve" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Setups prêts à l'emploi
+              </h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 16, marginTop: 0 }}>
+                Des associations toutes faites, une espèce par zone du bac. Elles partagent la même température et un pH commun : vous pouvez les prendre telles quelles.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
+                {resultats.presets.map((p) => (
+                  <div key={p.id} style={{
+                    padding: '16px 18px', borderRadius: 'var(--radius-m)',
+                    border: '1px solid var(--border)', background: 'var(--bg-2)',
+                    display: 'flex', flexDirection: 'column', gap: 10,
+                  }}>
+                    <div>
+                      <div style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.05rem', fontWeight: 600, color: 'var(--text)' }}>
+                        {p.titre}
+                      </div>
+                      <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: 1.5, marginTop: 4 }}>
+                        {p.desc}
+                      </div>
+                    </div>
+                    <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                      {p.membres.map((m, i) => (
+                        <li key={`${m.role}-${m.espece.slug}-${i}`} style={{
+                          display: 'flex', alignItems: 'baseline', gap: 10, fontSize: '0.88rem',
+                        }}>
+                          <span style={{
+                            flex: '0 0 92px', fontSize: '0.7rem', letterSpacing: '0.04em', textTransform: 'uppercase',
+                            color: 'var(--text-faint)', fontFamily: "'IBM Plex Mono',monospace",
+                          }}>{m.role}</span>
+                          <Link href={`/especes/${m.espece.slug}`} style={{ color: 'var(--text)', fontWeight: 600, textDecoration: 'none', flex: 1, minWidth: 0 }}>
+                            {m.espece.nomCommun}
+                          </Link>
+                          <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
+                            × {m.espece.quantite}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    {(p.temp || p.ph) && (
+                      <div style={{
+                        display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 'auto', paddingTop: 10,
+                        borderTop: '1px solid var(--border)', fontSize: '0.8rem', color: 'var(--text-muted)',
+                      }}>
+                        {p.temp && (
+                          <span><Icone nom="chauffage" size={14} style={{ marginRight: 5, verticalAlign: '-2px', color: 'var(--teal)' }} />{p.temp}</span>
+                        )}
+                        {p.ph && (
+                          <span><Icone nom="gouttes" size={14} style={{ marginRight: 5, verticalAlign: '-2px', color: 'var(--teal)' }} />pH {p.ph}</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
