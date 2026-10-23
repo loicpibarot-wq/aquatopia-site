@@ -167,9 +167,13 @@
   .hero{
     position:relative; overflow:hidden;
     padding:84px 0 60px;
+  }
+  /* Même halo turquoise / bleu que l'accueil sur toutes les pages (posé sur <main>,
+     donc identique derrière le hero de l'accueil et en haut des autres pages). */
+  main{
     background:
-      radial-gradient(760px 460px at 86% -8%, rgba(47,217,190,0.16), transparent 70%),
-      radial-gradient(620px 520px at -8% 24%, rgba(44,166,222,0.14), transparent 70%);
+      radial-gradient(760px 460px at 86% -8%, rgba(47,217,190,0.16), transparent 70%) no-repeat 0 0 / 100% 640px,
+      radial-gradient(620px 520px at -8% 24%, rgba(44,166,222,0.14), transparent 70%) no-repeat 0 0 / 100% 640px;
   }
   .hero-grid{
     display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
@@ -243,9 +247,14 @@
 
   /* ---------- sections ---------- */
   section{ padding:80px 0; }
-  .section-head{ max-width:640px; margin-bottom:50px; }
+  /* Saut d'ancre : le contenu (eyebrow) atterrit juste sous l'entête, sans le grand vide du padding de section */
+  main section[id]:not([style*="padding:0"]){ scroll-margin-top:-76px; }
+  #confiance, #telecharger{ scroll-margin-top:-28px; }
+  /* Titres de page / de section centrés ; le petit libellé (.eyebrow, flex) et le fil d'Ariane restent à gauche. */
+  .section-head{ max-width:none; margin-bottom:50px; text-align:center; text-wrap:balance; }
   .section-head h2{ font-size:clamp(1.6rem, 2.8vw, 2.2rem); margin-top:14px; }
-  .section-head p{ margin-top:14px; color:var(--text-muted); font-size:1.02rem; }
+  .section-head p{ margin-top:14px; color:var(--text-muted); font-size:1.02rem; max-width:640px; margin-left:auto; margin-right:auto; }
+  .section-head .eyebrow{ text-align:left; }
 
   .steps-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
   @media (max-width:900px){ .steps-wrap{ grid-template-columns:1fr; } }
@@ -455,14 +464,15 @@
   .breadcrumb{
     font-size:0.82rem; color:var(--text-faint);
     margin-bottom:24px;
-    position:sticky; top:68px; z-index:30;
-    background:var(--bg);
+    /* plus sticky : une bande de fond pleine coupait le halo de la page */
+    position:static;
+    background:transparent;
     padding:10px 0;
     /* étend le fond jusqu'aux bords du .wrap pour couvrir le contenu qui défile */
     margin-left:-32px; margin-right:-32px; padding-left:32px; padding-right:32px;
   }
   @media (max-width:640px){
-    .breadcrumb{ top:62px; margin-left:-24px; margin-right:-24px; padding-left:24px; padding-right:24px; }
+    .breadcrumb{ margin-left:-24px; margin-right:-24px; padding-left:24px; padding-right:24px; }
   }
   .breadcrumb a{ text-decoration:none; color:var(--text-faint); }
   .breadcrumb a:hover{ color:var(--teal); }

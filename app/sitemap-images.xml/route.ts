@@ -4,7 +4,7 @@ const SITE_URL = 'https://aquatopia.fr';
 
 // Sitemap dédié aux images des annonces, au format d'extension Google Image
 // Sitemap. Next.js (14.2) ne supporte pas nativement ce champ dans
-// MetadataRoute.Sitemap : on génère donc le XML à la main dans un route
+// MetadataRoute.Sitemap : on génère donc le XML à la main dans un route
 // handler plutôt que via la convention app/sitemap.ts.
 export const revalidate = 600;
 

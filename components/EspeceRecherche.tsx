@@ -38,7 +38,7 @@ const iconeCategorie = (cat: string): IconeNom => ICONES_CATEGORIE[cat] ?? 'patt
 
 function BadgeLegal({ statut }: { statut: EspeceCarte['statutLegal'] }) {
   if (statut === 'autorise') return null;
-  const cls = statut === 'interdite' || statut === 'autorisation_requise' ? 'interdite' : 'cites';
+  const cls = statut === 'interdite' || statut === 'autorisation_requise' ? 'interdite' : 'cites';
   const label =
     statut === 'interdite'            ? 'Vente interdite en France' :
     statut === 'autorisation_requise' ? 'Autorisation requise' :
@@ -50,7 +50,7 @@ function CarteEspece({ e }: { e: EspeceCarte }) {
   // Photo de la fiche en miniature ; si le fichier manque, la carte reste telle quelle.
   const [photoOk, setPhotoOk] = useState(true);
   return (
-    <Link key={e.slug} href={`/especes/${e.slug}`} className={`guide-card${photoOk ? ' avec-photo' : ''}`}>
+    <Link key={e.slug} href={`/especes/${e.slug}`} className={`guide-card${photoOk ? ' avec-photo' : ''}`}>
       <div className="carte-texte">
         <span className="eyebrow">{e.categorie}</span>
         <h3>{e.nomCommun}</h3>
@@ -77,7 +77,7 @@ function CarteEspece({ e }: { e: EspeceCarte }) {
 
 // Mémorise l'état de la liste quand on ouvre une fiche, pour le retrouver
 // (filtres + position) quand on revient avec « Espèces ». Le drapeau « retour »
-// est posé par LienRetour : sans lui, une visite normale repart de zéro.
+// est posé par LienRetour : sans lui, une visite normale repart de zéro.
 export const CLE_LISTE_ESPECES = 'aquatopia_especes_liste_v1';
 export const CLE_RETOUR_ESPECES = 'aquatopia_especes_retour_v1';
 
@@ -100,7 +100,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
       }
       if (sessionStorage.getItem(CLE_RETOUR_ESPECES)) sessionStorage.removeItem(CLE_LISTE_ESPECES);
       sessionStorage.removeItem(CLE_RETOUR_ESPECES);
-    } catch { /* stockage indisponible : liste de départ */ }
+    } catch { /* stockage indisponible : liste de départ */ }
     setRestauree(true);
   }, []);
 
@@ -137,7 +137,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
     });
   }, [especes, recherche, categorie]);
 
-  // Pendant la saisie : liste compacte de suggestions affichée juste sous la
+  // Pendant la saisie : liste compacte de suggestions affichée juste sous la
   // barre de recherche, sur toutes les catégories (le filtre de catégorie est
   // mis de côté tant qu'on tape). Les noms qui COMMENCENT par la saisie
   // passent en premier, puis ceux qui la contiennent.
@@ -170,11 +170,11 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
   const pillStyle = (active: boolean): React.CSSProperties => ({
     padding: '8px 12px',
     borderRadius: 999,
-    border: `1.5px solid ${active ? 'var(--teal)' : 'var(--border)'}`,
-    background: active ? 'rgba(47,217,190,0.12)' : 'var(--bg-2)',
-    color: active ? 'var(--teal)' : 'var(--text-muted)',
+    border: `1.5px solid ${active ? 'var(--teal)' : 'var(--border)'}`,
+    background: active ? 'rgba(47,217,190,0.12)' : 'var(--bg-2)',
+    color: active ? 'var(--teal)' : 'var(--text-muted)',
     fontSize: '0.82rem',
-    fontWeight: active ? 700 : 400,
+    fontWeight: active ? 700 : 400,
     cursor: 'pointer',
     transition: 'all .15s',
     textAlign: 'center' as const,
@@ -195,7 +195,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
         enterKeyHint="search"
       />
 
-      {/* Pills de catégories (masquées pendant la saisie : la liste de
+      {/* Pills de catégories (masquées pendant la saisie : la liste de
           suggestions prend la place, juste sous la barre de recherche) */}
       {!enRecherche && (
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(175px, 1fr))', gap: 8, marginTop: 14 }}>
@@ -208,7 +208,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
             <button
               key={c}
               type="button"
-              onClick={() => setCategorie(categorie === c ? '' : c)}
+              onClick={() => setCategorie(categorie === c ? '' : c)}
               style={pillStyle(categorie === c)}
             >
               <Icone nom={iconeCategorie(c)} size={15} style={{ marginRight: 6, verticalAlign: '-2px' }} />{c} ({count})
@@ -226,7 +226,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
         ) : (
           <div style={{ marginTop: 14 }}>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: '0 0 8px 4px' }}>
-              {suggestions.length} résultat{suggestions.length > 1 ? 's' : ''}
+              {suggestions.length} résultat{suggestions.length > 1 ? 's' : ''}
             </p>
             <div role="list" style={{ border: '1px solid var(--border)', borderRadius: 14, overflow: 'hidden', background: 'var(--bg-2)' }}>
               {suggestions.map((e, i) => (
@@ -237,7 +237,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
                   style={{
                     display: 'flex', alignItems: 'center', gap: 12,
                     padding: '12px 14px',
-                    borderTop: i === 0 ? 'none' : '1px solid var(--border)',
+                    borderTop: i === 0 ? 'none' : '1px solid var(--border)',
                     textDecoration: 'none', color: 'inherit',
                   }}
                 >
@@ -255,10 +255,10 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
                   </span>
                   {e.statutLegal !== 'autorise' && (
                     <span
-                      className={`badge-legal ${e.statutLegal === 'interdite' || e.statutLegal === 'autorisation_requise' ? 'interdite' : 'cites'}`}
+                      className={`badge-legal ${e.statutLegal === 'interdite' || e.statutLegal === 'autorisation_requise' ? 'interdite' : 'cites'}`}
                       style={{ flexShrink: 0, fontSize: '0.7rem' }}
                     >
-                      {e.statutLegal === 'interdite' ? 'Interdite' : e.statutLegal === 'autorisation_requise' ? 'Autorisation' : 'CITES'}
+                      {e.statutLegal === 'interdite' ? 'Interdite' : e.statutLegal === 'autorisation_requise' ? 'Autorisation' : 'CITES'}
                     </span>
                   )}
                 </Link>
@@ -266,13 +266,13 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
             </div>
           </div>
         )
-      ) : filtrees.length === 0 ? (
+      ) : filtrees.length === 0 ? (
         <p className="espece-vide">Aucune espèce ne correspond à votre recherche.</p>
-      ) : grouped ? (
+      ) : grouped ? (
         /* Mode par défaut — regroupé par catégorie */
-        <div style={{ marginTop: 36, display: 'flex', flexDirection: 'column', gap: 48 }}>
+        <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 32 }}>
           {Array.from(grouped.entries()).map(([cat, items]) => (
-            <section key={cat}>
+            <section key={cat} style={{ padding: 0 }}>
               <h2 style={{
                 fontFamily: "'Fredoka',sans-serif",
                 fontSize: '1.25rem',
@@ -283,7 +283,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
                 <span style={{ display: 'inline-flex', color: 'var(--teal)' }}><Icone nom={iconeCategorie(cat)} size={22} /></span>
                 {cat}
                 <span style={{ fontSize: '0.8rem', fontWeight: 400, color: 'var(--text-muted)', fontFamily: 'inherit' }}>
-                  — {items.length} espèce{items.length > 1 ? 's' : ''}
+                  — {items.length} espèce{items.length > 1 ? 's' : ''}
                 </span>
               </h2>
               <div className="guide-grid">

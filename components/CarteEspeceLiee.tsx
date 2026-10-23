@@ -17,7 +17,7 @@ interface Props {
 export default function CarteEspeceLiee({ slug, nomCommun, categorie, nomScientifique }: Props) {
   const [photoOk, setPhotoOk] = useState(true);
   return (
-    <Link href={`/especes/${slug}`} className={`guide-card${photoOk ? ' avec-photo' : ''}`}>
+    <Link href={`/especes/${slug}`} className={`guide-card${photoOk ? ' avec-photo' : ''}`}>
       <div className="carte-texte">
         <span className="eyebrow">{categorie}</span>
         <h3>{nomCommun}</h3>

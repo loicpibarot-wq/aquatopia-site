@@ -4,9 +4,9 @@ import { GUIDES } from '@/lib/guides';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
-const TITRE = "Guides aquariophilie : conseils pour bien débuter et progresser";
+const TITRE = "Guides aquariophilie : conseils pour bien débuter et progresser";
 const DESCRIPTION =
-  "Des guides pratiques sur l'aquariophilie d'eau douce, le récifal et les bassins de jardin : cyclage, choix des poissons, matériel et entretien.";
+  "Des guides pratiques sur l'aquariophilie d'eau douce, le récifal et les bassins de jardin : cyclage, choix des poissons, matériel et entretien.";
 
 export const metadata: Metadata = {
   title: TITRE,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/guides', type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
 };
 
-// Ordre d'affichage volontairement pédagogique : du plus généraliste
+// Ordre d'affichage volontairement pédagogique : du plus généraliste
 // (débuter, comprendre) vers le plus spécialisé (récifal, bassin), puis le
 // pratico-pratique (entretien, décoration, matériel) et enfin les
 // comparatifs, plus orientés décision d'achat.
@@ -49,19 +49,19 @@ export default function GuidesPage() {
         <Link href="/">Accueil</Link> · Guides
       </div>
 
-      <div className="section-head" style={{ marginBottom: 36 }}>
+      <div className="section-head" style={{ marginBottom: 24 }}>
         <span className="eyebrow">Guides</span>
         <h1 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', marginTop: 14 }}>{TITRE}</h1>
         <p style={{ marginTop: 14 }}>{DESCRIPTION}</p>
       </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 48 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gridAutoRows: '1fr', gap: 10, marginBottom: 28 }}>
         {categories.map((cat) => (
           <a
             key={cat.eyebrow}
             href={`#${slugifyEyebrow(cat.eyebrow)}`}
             className="subcat-chip"
-            style={{ padding: '8px 16px', fontSize: '0.82rem' }}
+            style={{ padding: '10px 16px', fontSize: '0.82rem', justifyContent: 'center', textAlign: 'center' }}
           >
             {cat.eyebrow}
           </a>
@@ -69,9 +69,9 @@ export default function GuidesPage() {
       </div>
 
       {categories.map((cat) => (
-        <section key={cat.eyebrow} id={slugifyEyebrow(cat.eyebrow)} style={{ marginBottom: 48, scrollMarginTop: 90 }}>
-          <h2 style={{ fontSize: '1.2rem', marginBottom: 18 }}>{cat.eyebrow}</h2>
-          <div className="guide-grid">
+        <section key={cat.eyebrow} id={slugifyEyebrow(cat.eyebrow)} style={{ marginBottom: 28, padding: 0, scrollMarginTop: -8 }}>
+          <h2 style={{ fontSize: '1.2rem', marginBottom: 10, textAlign: 'center' }}>{cat.eyebrow}</h2>
+          <div className="guide-grid" style={{ marginTop: 0, gap: 14 }}>
             {cat.guides.map((guide) => (
               <Link key={guide.slug} href={`/guides/${guide.slug}`} className="guide-card">
                 <span className="eyebrow">{guide.eyebrow}</span>

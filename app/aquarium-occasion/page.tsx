@@ -9,7 +9,7 @@ export const revalidate = 600;
 export const metadata: Metadata = {
   title: "Annonces d'aquariophilie par ville et département",
   description:
-    "Trouvez des aquariums d'occasion, des poissons, des plantes et du matériel près de chez vous : annonces par ville et par département, entre particuliers.",
+    "Trouvez des aquariums d'occasion, des poissons, des plantes et du matériel près de chez vous : annonces par ville et par département, entre particuliers.",
   alternates: { canonical: '/aquarium-occasion' },
 };
 
@@ -21,7 +21,7 @@ export default async function HubLieux() {
     villes = grouperVilles(liste);
     depts = grouperDepartements(liste);
   } catch {
-    // Supabase injoignable : la page s'affiche sans listes plutôt que d'échouer.
+    // Supabase injoignable : la page s'affiche sans listes plutôt que d'échouer.
   }
   const fil = [{ name: 'Accueil', url: '/' }, { name: 'Annonces par ville' }];
 

@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: { ville: string } }
   if (!r) return { robots: { index: false } };
   const { ville } = r;
   const n = ville.annonces.length;
-  const titre = `Aquarium d'occasion à ${ville.nom} (${ville.dep}) : poissons, matériel`;
+  const titre = `Aquarium d'occasion à ${ville.nom} (${ville.dep}) : poissons, matériel`;
   const description = `${n} annonces d'aquariophilie à ${ville.nom} : aquariums d'occasion, poissons, plantes et matériel entre particuliers. Gratuit, annonces vérifiées avant publication.`;
   const url = `/aquarium-occasion/${ville.slug}`;
   return {
@@ -69,7 +69,7 @@ export default async function VillePage({ params }: { params: { ville: string } 
     },
     {
       q: `Peut-on donner ou échanger du matériel d'aquarium à ${ville.nom} ?`,
-      a: `Oui : chaque annonce peut être une vente, un don ou un échange. Vous pouvez aussi consulter les annonces à donner et les annonces d'échange sur Aquatopia.`,
+      a: `Oui : chaque annonce peut être une vente, un don ou un échange. Vous pouvez aussi consulter les annonces à donner et les annonces d'échange sur Aquatopia.`,
     },
   ];
 
@@ -119,7 +119,7 @@ export default async function VillePage({ params }: { params: { ville: string } 
         </h1>
         <p style={{ marginTop: 14 }}>
           {n} annonces d&apos;aquariophilie sont actuellement en ligne à {ville.nom} : {resume}.
-          {dons > 0 ? ` ${dons} ${dons > 1 ? 'sont proposées' : 'est proposée'} gratuitement.` : ''}
+          {dons > 0 ? ` ${dons} ${dons > 1 ? 'sont proposées' : 'est proposée'} gratuitement.` : ''}
           {' '}Particuliers et éleveurs vendent, donnent ou échangent près de chez vous, avec remise en main propre.
         </p>
       </div>
@@ -142,7 +142,7 @@ export default async function VillePage({ params }: { params: { ville: string } 
           )}
           <li><Link href="/categorie/cuves">Aquariums d&apos;occasion</Link></li>
           <li><Link href="/categorie/vivant">Poissons, crevettes et coraux à vendre</Link></li>
-          <li><Link href="/guides/acheter-aquarium-occasion-verifications">Acheter un aquarium d&apos;occasion : points à vérifier</Link></li>
+          <li><Link href="/guides/acheter-aquarium-occasion-verifications">Acheter un aquarium d&apos;occasion : points à vérifier</Link></li>
           <li><Link href="/guides/deposer-annonce-aquariophilie-gratuite">Déposer une annonce gratuite</Link></li>
         </ul>
 

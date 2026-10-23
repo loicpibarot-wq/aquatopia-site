@@ -1,6 +1,6 @@
 // Données structurées (JSON-LD) d'une page annonce.
-// Règle d'or : on ne déclare à Google que ce qui est vrai et visible sur la
-// page. Aucune note ni aucun avis n'est fabriqué : l'appli n'a pas de système
+// Règle d'or : on ne déclare à Google que ce qui est vrai et visible sur la
+// page. Aucune note ni aucun avis n'est fabriqué : l'appli n'a pas de système
 // d'avis, donc `aggregateRating` / `review` restent volontairement absents
 // (ce sont des champs facultatifs, seulement signalés comme « non critiques »).
 import { buildSlug, metaDescription, nomAffiche, type Annonce } from '@/lib/annonces';
@@ -63,7 +63,7 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
 
   const prixConnu = annonce.is_don || (typeof annonce.prix === 'number' && annonce.prix > 0);
 
-  // Échange sans prix (ou prix absent) : déclarer un prix de 0 € laisserait
+  // Échange sans prix (ou prix absent) : déclarer un prix de 0 € laisserait
   // croire à un produit gratuit. On décrit alors la page comme une page de
   // détail, sans offre chiffrée.
   if (!prixConnu) {
@@ -96,7 +96,7 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
     description,
     image: images,
     category: annonce.categorie,
-    // Identifiant de marque : les animaux et plantes n'ont pas de GTIN ;
+    // Identifiant de marque : les animaux et plantes n'ont pas de GTIN ;
     // déclarer Aquatopia comme marque-distributeur satisfait l'exigence
     // Google « identifiant global manquant ».
     brand: {
@@ -107,7 +107,7 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
     offers: {
       '@type': 'Offer',
       url,
-      price: annonce.is_don ? 0 : annonce.prix,
+      price: annonce.is_don ? 0 : annonce.prix,
       priceCurrency: 'EUR',
       priceValidUntil: dansJours(30),
       validFrom: annonce.created_at,

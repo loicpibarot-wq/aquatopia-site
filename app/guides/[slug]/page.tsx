@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ctaPour } from '@/lib/cta';
 import { notFound } from 'next/navigation';
 import { GUIDES, fetchGuideParSlug } from '@/lib/guides';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
@@ -74,13 +75,21 @@ export default function GuideArticlePage({ params }: { params: { slug: string } 
               <h2 style={{ fontSize: '1.2rem', marginBottom: 10 }}>{section.titre}</h2>
             )}
             {section.paragraphes.map((p, j) => (
-              <p key={j} className="annonce-desc" style={{ marginTop: j === 0 ? 0 : 12 }}>
+              <p key={j} className="annonce-desc" style={{ marginTop: j === 0 ? 0 : 12 }}>
                 {p}
               </p>
             ))}
           </div>
         ))}
       </div>
+
+      {ctaPour(guide.titre) && (
+        <div style={{ maxWidth: 720, marginTop: 8, marginBottom: 28, textAlign: 'center' }}>
+          <Link href={ctaPour(guide.titre)!.href} className="btn btn-primary">
+            {ctaPour(guide.titre)!.label}
+          </Link>
+        </div>
+      )}
 
       {guide.liensUtiles.length > 0 && (
         <div

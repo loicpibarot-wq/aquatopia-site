@@ -1,6 +1,6 @@
-// 'autorisation_requise' : espèce dont la détention exige un certificat de capacité
+// 'autorisation_requise' : espèce dont la détention exige un certificat de capacité
 // et une autorisation d'ouverture dès le premier spécimen (arrêté du 8 octobre 2018,
-// annexe 2, colonne c) : impossible pour un particulier, donc pas de vente entre particuliers.
+// annexe 2, colonne c) : impossible pour un particulier, donc pas de vente entre particuliers.
 export type StatutLegal = 'autorise' | 'cites_a_signaler' | 'autorisation_requise' | 'interdite';
 
 export type CategorieEspece =
@@ -36,11 +36,11 @@ export interface InfosMarin {
   salinite: string;
   // Zone d'origine, ex. « Indo-Pacifique ».
   origine: string;
-  // Poissons et invertébrés : compatibilité avec un bac récifal (coraux, invertébrés).
+  // Poissons et invertébrés : compatibilité avec un bac récifal (coraux, invertébrés).
   reefSafe?: 'Oui' | 'Avec précautions' | 'Non';
-  // Poissons et invertébrés : niveau de la colonne d'eau fréquenté.
+  // Poissons et invertébrés : niveau de la colonne d'eau fréquenté.
   zone?: 'Surface' | 'Milieu' | 'Fond' | 'Tous niveaux';
-  // Coraux et bénitiers : paramètres chimiques conseillés (texte libre avec unités).
+  // Coraux et bénitiers : paramètres chimiques conseillés (texte libre avec unités).
   kh?: string;
   calcium?: string;
   magnesium?: string;
@@ -81,7 +81,7 @@ export interface FicheTechnique {
   difficulte: 'Débutant' | 'Intermédiaire' | 'Expert';
   alimentation: string;
   tailleAdulte: string;
-  // Renseigné pour les plantes seulement : remplace, sur la page, les cases
+  // Renseigné pour les plantes seulement : remplace, sur la page, les cases
   // « volume minimum » et « groupe minimum » qui n'ont pas de sens pour elles.
   plante?: InfosPlante;
   marin?: InfosMarin;
@@ -102,7 +102,7 @@ export interface Espece {
   statutLegal: StatutLegal;
   remarqueLegale: string | null;
   citesAnnexe: string | null;
-  // Autres noms français ou noms de vente usités : affichés sur la fiche, utilisés par la
+  // Autres noms français ou noms de vente usités : affichés sur la fiche, utilisés par la
   // recherche et déclarés à Google (alternateName).
   autresNoms?: string[];
   // Renseigné uniquement une fois la fiche technique rédigée — voir ESPECES_PUBLIEES.
@@ -110,7 +110,7 @@ export interface Espece {
 }
 
 // Catalogue des 307 especes de la table de reference interne de l'app (186 a
-// l'origine, moins deux doublons fusionnes : Colisa lalia = gourami nain, et
+// l'origine, moins deux doublons fusionnes : Colisa lalia = gourami nain, et
 // poisson-clown d'eau douce = loche clown)
 // (statut legal / CITES). Genere une fois depuis un export Supabase, puis enrichi
 // manuellement au champ `fiche` au fur et a mesure de la redaction des pages.
@@ -128,23 +128,23 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Le guppy est LE poisson d'aquarium par excellence pour débuter : vivipare (il donne naissance à des alevins déjà formés, pas d'œufs), très coloré chez le mâle, et extrêmement prolifique — une femelle peut donner naissance toutes les 4 à 6 semaines. Robuste et tolérant sur la qualité de l'eau, c'est souvent le premier poisson d'un aquariophile débutant.",
+        "Le guppy est LE poisson d'aquarium par excellence pour débuter : vivipare (il donne naissance à des alevins déjà formés, pas d'œufs), très coloré chez le mâle, et extrêmement prolifique — une femelle peut donner naissance toutes les 4 à 6 semaines. Robuste et tolérant sur la qualité de l'eau, c'est souvent le premier poisson d'un aquariophile débutant.",
       conseil:
-        "Prévoyez toujours plus de femelles que de mâles (au moins 2 pour 1) : les mâles harcèlent sans relâche les femelles pour se reproduire, et un ratio déséquilibré les épuise. Si vous ne voulez pas de reproduction incontrôlée, séparez les sexes ou acceptez de gérer une population croissante.",
+        "Prévoyez toujours plus de femelles que de mâles (au moins 2 pour 1) : les mâles harcèlent sans relâche les femelles pour se reproduire, et un ratio déséquilibré les épuise. Si vous ne voulez pas de reproduction incontrôlée, séparez les sexes ou acceptez de gérer une population croissante.",
       volumeMinLitres: 40,
       tailleGroupeMin: 6,
-      compatibilite: "Poissons paisibles de petite taille : corydoras, escargots, crevettes, autres vivipares (molly, platy).",
+      compatibilite: "Poissons paisibles de petite taille : corydoras, escargots, crevettes, autres vivipares (molly, platy).",
       incompatibilite: "Poissons qui mordillent les nageoires (barbus de Sumatra) et gros cichlidés susceptibles de les manger.",
       phMin: 7,
       phMax: 8,
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes/granulés du quotidien, complétés occasionnellement par des proies vivantes ou congelées (artémias).",
+      alimentation: "Omnivore : paillettes/granulés du quotidien, complétés occasionnellement par des proies vivantes ou congelées (artémias).",
       tailleAdulte: '3 à 6 cm (le mâle est plus petit et plus coloré que la femelle)',
       reproduction: {
         facilite: "Très facile",
-        description: "Le guppy est l'un des poissons les plus faciles à reproduire en aquarium. Les mâles reconnaissables à leurs nageoires colorées fécondent les femelles en interne grâce au gonopode. La femelle est vivipare et donne naissance à 20-80 alevins tous les 28 jours à 26°C. Retirez les adultes après la naissance car ils mangent leurs petits, ou utilisez un bac séparateur. Les alevins acceptent la nourriture en poudre dès la naissance. Condition idéale : pH 7-7.5, 24-28°C, bon filtrage.",
+        description: "Le guppy est l'un des poissons les plus faciles à reproduire en aquarium. Les mâles reconnaissables à leurs nageoires colorées fécondent les femelles en interne grâce au gonopode. La femelle est vivipare et donne naissance à 20-80 alevins tous les 28 jours à 26°C. Retirez les adultes après la naissance car ils mangent leurs petits, ou utilisez un bac séparateur. Les alevins acceptent la nourriture en poudre dès la naissance. Condition idéale : pH 7-7.5, 24-28°C, bon filtrage.",
       },
     },
   },
@@ -171,7 +171,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore avec une tendance algivore : granulés, algues, un peu de matière végétale.",
+      alimentation: "Omnivore avec une tendance algivore : granulés, algues, un peu de matière végétale.",
       tailleAdulte: '8 à 12 cm',
     },
   },
@@ -198,7 +198,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
+      alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
       tailleAdulte: '4 à 6 cm',
       reproduction: {
         facilite: "Très facile",
@@ -219,7 +219,7 @@ export const ESPECES: Espece[] = [
       description:
         "Vivipare actif reconnaissable à la longue extension caudale du mâle qui rappelle une épée, d'où son nom. Sociable et rustique, il peut parfois se montrer un peu compétitif entre mâles pour la hiérarchie, sans réelle agressivité destructrice.",
       conseil:
-        "Comme les autres vivipares, gardez plus de femelles que de mâles pour limiter le harcèlement reproductif. Prévoyez un bac assez long : c'est un excellent nageur qui apprécie l'espace.",
+        "Comme les autres vivipares, gardez plus de femelles que de mâles pour limiter le harcèlement reproductif. Prévoyez un bac assez long : c'est un excellent nageur qui apprécie l'espace.",
       volumeMinLitres: 100,
       tailleGroupeMin: 6,
       compatibilite: "Autres vivipares (guppy, molly, platy), corydoras, tétras robustes.",
@@ -229,7 +229,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
+      alimentation: "Omnivore : paillettes/granulés, complément végétal apprécié.",
       tailleAdulte: '8 à 12 cm (épée caudale du mâle en plus)',
     },
   },
@@ -256,11 +256,11 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
       tailleAdulte: '2,5 à 3 cm',
       reproduction: {
         facilite: "Difficile",
-        description: "La reproduction du néon bleu en captivité est délicate. Il faut un bac spécifique de 30-40L, eau très douce (GH < 4, KH < 2, pH 5.5-6.5), température 24-26°C et obscurité totale. Les œufs sont photosensibles : couvrez entièrement le bac. La ponte a lieu le matin sur des plantes à feuilles fines ou une boîte de ponte. Retirez les parents après la ponte. Les larves éclosent en 24h et nagent librement après 4-5 jours. Nourrissez avec des infusoires puis nauplies d'artémia.",
+        description: "La reproduction du néon bleu en captivité est délicate. Il faut un bac spécifique de 30-40L, eau très douce (GH < 4, KH < 2, pH 5.5-6.5), température 24-26°C et obscurité totale. Les œufs sont photosensibles : couvrez entièrement le bac. La ponte a lieu le matin sur des plantes à feuilles fines ou une boîte de ponte. Retirez les parents après la ponte. Les larves éclosent en 24h et nagent librement après 4-5 jours. Nourrissez avec des infusoires puis nauplies d'artémia.",
       },
     },
   },
@@ -287,7 +287,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias.",
       tailleAdulte: '2,5 à 3 cm',
     },
   },
@@ -314,7 +314,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4 à 5 cm',
       reproduction: {
         facilite: "Modérée",
@@ -345,7 +345,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4 à 5 cm',
     },
   },
@@ -372,7 +372,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4,5 à 5,5 cm',
       reproduction: {
         facilite: "Modérée",
@@ -403,7 +403,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
       tailleAdulte: '6 à 7 cm',
     },
   },
@@ -420,7 +420,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson de fond grégaire et paisible, le corydoras bronze passe son temps à fouiller le substrat à la recherche de restes de nourriture à l'aide de ses barbillons sensoriels. Il remonte aussi régulièrement respirer une bulle d'air en surface, un comportement tout à fait normal.",
       conseil:
-        "Le substrat doit être fin et non coupant (sable ou gravier arrondi) : un substrat tranchant abîme ses barbillons au fil du temps. Ne jamais le maintenir seul, il stresse en isolement.",
+        "Le substrat doit être fin et non coupant (sable ou gravier arrondi) : un substrat tranchant abîme ses barbillons au fil du temps. Ne jamais le maintenir seul, il stresse en isolement.",
       volumeMinLitres: 80,
       tailleGroupeMin: 6,
       compatibilite: "Quasiment tous les poissons paisibles de surface et de pleine eau (guppys, tétras, scalaires).",
@@ -430,7 +430,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore de fond : pastilles/tablettes spécial poissons de fond, restes de nourriture qui coulent.",
+      alimentation: "Omnivore de fond : pastilles/tablettes spécial poissons de fond, restes de nourriture qui coulent.",
       tailleAdulte: '6 à 7 cm',
       reproduction: {
         facilite: "Facile",
@@ -451,17 +451,17 @@ export const ESPECES: Espece[] = [
       description:
         "Petit corydoras au masque noir caractéristique autour des yeux, qui lui vaut son nom. Un peu plus sensible aux hautes températures que d'autres corydoras plus rustiques comme le bronze, il préfère une eau plus fraîche.",
       conseil:
-        "Évitez de le maintenir au-dessus de 25°C sur la durée : contrairement au corydoras bronze, il supporte mal la chaleur prolongée, ce qui peut poser problème dans un bac communautaire partagé avec des espèces tropicales plus exigeantes en température.",
+        "Évitez de le maintenir au-dessus de 25°C sur la durée : contrairement au corydoras bronze, il supporte mal la chaleur prolongée, ce qui peut poser problème dans un bac communautaire partagé avec des espèces tropicales plus exigeantes en température.",
       volumeMinLitres: 80,
       tailleGroupeMin: 6,
-      compatibilite: "Poissons paisibles de température modérée : tétras, danios, autres corydoras.",
+      compatibilite: "Poissons paisibles de température modérée : tétras, danios, autres corydoras.",
       incompatibilite: "Bac maintenu à température tropicale élevée en continu (au-delà de 25-26°C), substrat tranchant.",
       phMin: 6,
       phMax: 7.5,
       tempMin: 20,
       tempMax: 25,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
       tailleAdulte: '5 cm',
     },
   },
@@ -478,7 +478,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le plus petit des corydoras couramment maintenus, à peine plus grand qu'un ongle. Contrairement aux autres corydoras, il nage aussi volontiers en pleine eau qu'au fond du bac, en petits groupes actifs.",
       conseil:
-        "Sa taille minuscule le rend vulnérable : évitez tout compagnon plus grand susceptible de le considérer comme une proie, même des poissons réputés paisibles mais de gabarit nettement supérieur.",
+        "Sa taille minuscule le rend vulnérable : évitez tout compagnon plus grand susceptible de le considérer comme une proie, même des poissons réputés paisibles mais de gabarit nettement supérieur.",
       volumeMinLitres: 40,
       tailleGroupeMin: 8,
       compatibilite: "Petits characidés paisibles, crevettes, petits poissons de surface non prédateurs.",
@@ -488,7 +488,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore de fond : micro-granulés, restes de nourriture qui coulent.",
+      alimentation: "Omnivore de fond : micro-granulés, restes de nourriture qui coulent.",
       tailleAdulte: '2 à 2,5 cm',
       reproduction: {
         facilite: "Modérée",
@@ -507,7 +507,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Contrairement à l'idée reçue, le combattant n'est pas fait pour vivre dans un petit bocal sans chauffage : dans la nature, il vit dans des rizières et mares peu profondes mais chaudes. Son organe labyrinthique lui permet de respirer l'air en surface, ce qui explique sa réputation (fausse) de poisson increvable en bocal. Très territorial, un mâle ne tolère aucun autre mâle de son espèce.",
+        "Contrairement à l'idée reçue, le combattant n'est pas fait pour vivre dans un petit bocal sans chauffage : dans la nature, il vit dans des rizières et mares peu profondes mais chaudes. Son organe labyrinthique lui permet de respirer l'air en surface, ce qui explique sa réputation (fausse) de poisson increvable en bocal. Très territorial, un mâle ne tolère aucun autre mâle de son espèce.",
       conseil:
         "Un aquarium chauffé avec couvercle est indispensable (le betta est un excellent sauteur). Ne jamais mettre deux mâles ensemble, et éviter les poissons aux nageoires voilées qui pourraient être pris pour un rival.",
       volumeMinLitres: 20,
@@ -519,7 +519,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Carnivore : granulés spécifiques betta, larves de moustique congelées.",
+      alimentation: "Carnivore : granulés spécifiques betta, larves de moustique congelées.",
       tailleAdulte: '6 à 7 cm',
     },
   },
@@ -546,11 +546,11 @@ export const ESPECES: Espece[] = [
       tempMin: 25,
       tempMax: 29,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés/paillettes, complétés par des vers de vase et artémias congelés.",
+      alimentation: "Omnivore : granulés/paillettes, complétés par des vers de vase et artémias congelés.",
       tailleAdulte: '12 à 15 cm de long (jusqu’à 25 cm de hauteur avec les nageoires)',
       reproduction: {
         facilite: "Modérée",
-        description: "Le scalaire forme des couples durables. Les géniteurs nettoient soigneusement une surface plane (feuille large, vitre, ardoise) avant la ponte. La femelle dépose 200-700 œufs en rangées que le mâle fertilise. Les parents gardent les œufs et ventilent avec leurs nageoires. À 26-27°C, les larves éclosent en 60h et sont libres après 5 jours. Première nourriture : nauplies d'artémia. Les parents inexpérimentés mangent parfois la ponte – retirez-la dans un bac séparé.",
+        description: "Le scalaire forme des couples durables. Les géniteurs nettoient soigneusement une surface plane (feuille large, vitre, ardoise) avant la ponte. La femelle dépose 200-700 œufs en rangées que le mâle fertilise. Les parents gardent les œufs et ventilent avec leurs nageoires. À 26-27°C, les larves éclosent en 60h et sont libres après 5 jours. Première nourriture : nauplies d'artémia. Les parents inexpérimentés mangent parfois la ponte – retirez-la dans un bac séparé.",
       },
     },
   },
@@ -565,9 +565,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Cichlidé amazonien au corps discoïdal et aux couleurs spectaculaires, le discus a la réputation méritée d'être exigeant : il demande une eau douce et stable, des changements d'eau réguliers, et ne tolère pas les variations brutales de paramètres. Grégaire, il vit en groupe hiérarchisé.",
+        "Cichlidé amazonien au corps discoïdal et aux couleurs spectaculaires, le discus a la réputation méritée d'être exigeant : il demande une eau douce et stable, des changements d'eau réguliers, et ne tolère pas les variations brutales de paramètres. Grégaire, il vit en groupe hiérarchisé.",
       conseil:
-        "Ce n'est pas un poisson pour un premier aquarium : réservez-le à un bac déjà mature et stable depuis plusieurs mois, avec des changements d'eau fréquents (20-30% par semaine). Attendez d'avoir de l'expérience avec des espèces plus tolérantes avant de vous lancer.",
+        "Ce n'est pas un poisson pour un premier aquarium : réservez-le à un bac déjà mature et stable depuis plusieurs mois, avec des changements d'eau fréquents (20-30% par semaine). Attendez d'avoir de l'expérience avec des espèces plus tolérantes avant de vous lancer.",
       volumeMinLitres: 300,
       tailleGroupeMin: 6,
       compatibilite: "Autres cichlidés amazoniens calmes, characidés de taille moyenne, corydoras.",
@@ -577,7 +577,7 @@ export const ESPECES: Espece[] = [
       tempMin: 28,
       tempMax: 30,
       difficulte: 'Expert',
-      alimentation: "Omnivore : granulés spécifiques discus, vers de vase et cœur de bœuf congelés.",
+      alimentation: "Omnivore : granulés spécifiques discus, vers de vase et cœur de bœuf congelés.",
       tailleAdulte: '15 à 20 cm',
     },
   },
@@ -604,7 +604,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
       tailleAdulte: '5 à 8 cm',
       reproduction: {
         facilite: "Modérée",
@@ -625,7 +625,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plus grand que le gourami nain, le gourami perlé arbore un motif de points argentés qui évoquent des perles sur tout le corps. Calme et sociable, il est moins territorial que d'autres labyrinthidés et cohabite bien en communauté.",
       conseil:
-        "Comme tous les labyrinthidés, il respire l'air en surface : évitez un couvercle trop hermétique qui empêcherait l'accès à l'air ambiant, plus chaud et humide que l'eau, dont il a besoin pour cet organe respiratoire.",
+        "Comme tous les labyrinthidés, il respire l'air en surface : évitez un couvercle trop hermétique qui empêcherait l'accès à l'air ambiant, plus chaud et humide que l'eau, dont il a besoin pour cet organe respiratoire.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Characidés, corydoras, autres poissons paisibles de communauté.",
@@ -635,7 +635,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
       tailleAdulte: '10 à 12 cm',
     },
   },
@@ -652,7 +652,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit labyrinthidé au corps doré-orangé rappelant la couleur du miel, particulièrement le mâle en période de reproduction. Plus discret et paisible que le gourami nain, il convient bien aux petits bacs communautaires.",
       conseil:
-        "Comme les autres labyrinthidés, il respire l'air en surface : laissez un espace d'air libre au-dessus de l'eau et évitez un courant trop fort qui gênerait ses remontées.",
+        "Comme les autres labyrinthidés, il respire l'air en surface : laissez un espace d'air libre au-dessus de l'eau et évitez un courant trop fort qui gênerait ses remontées.",
       volumeMinLitres: 60,
       tailleGroupeMin: 1,
       compatibilite: "Characidés, corydoras, autres poissons paisibles de petit gabarit.",
@@ -662,11 +662,11 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
       tailleAdulte: '4 à 5 cm',
       reproduction: {
         facilite: "Facile",
-        description: "Le gourami miel construit un nid de bulles sous des plantes flottantes. Le mâle en période nuptiale prend une couleur orange vif. Après la parade, il fertilise 300-800 œufs qui remontent dans le nid. Retirez la femelle après la ponte pour éviter l'agression du mâle. Les larves éclosent en 24-48h et nagent librement après 2-3 jours. pH 6-7, T° 25-28°C. Premiers aliments : infusoires puis nauplies d'artémia. Bac de 40L avec végétation dense.",
+        description: "Le gourami miel construit un nid de bulles sous des plantes flottantes. Le mâle en période nuptiale prend une couleur orange vif. Après la parade, il fertilise 300-800 œufs qui remontent dans le nid. Retirez la femelle après la ponte pour éviter l'agression du mâle. Les larves éclosent en 24-48h et nagent librement après 2-3 jours. pH 6-7, T° 25-28°C. Premiers aliments : infusoires puis nauplies d'artémia. Bac de 40L avec végétation dense.",
       },
     },
   },
@@ -681,7 +681,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Petit poisson rayé très vif et rustique, le danio zébré est un excellent choix pour un bac communautaire débutant : robuste, tolérant sur la température, et infatigable nageur de pleine eau. C'est aussi l'un des organismes modèles les plus utilisés en recherche scientifique.",
+        "Petit poisson rayé très vif et rustique, le danio zébré est un excellent choix pour un bac communautaire débutant : robuste, tolérant sur la température, et infatigable nageur de pleine eau. C'est aussi l'un des organismes modèles les plus utilisés en recherche scientifique.",
       conseil:
         "Très actif et rapide, il a besoin d'un bac assez long pour nager en banc — évitez les bacs trop hauts et étroits. Sa vivacité peut stresser des poissons plus lents ou timides partagés dans un espace restreint.",
       volumeMinLitres: 60,
@@ -693,7 +693,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, très peu difficile.",
+      alimentation: "Omnivore : paillettes, granulés, très peu difficile.",
       tailleAdulte: '4 à 5 cm',
     },
   },
@@ -710,7 +710,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété tachetée du danio zébré, au corps argenté ponctué de taches sombres évoquant un pelage de léopard. Même tempérament vif et grégaire que le danio zébré classique, excellent nageur de surface.",
       conseil:
-        "Très actif et sauteur : un couvercle bien ajusté est indispensable pour éviter qu'il ne saute hors du bac, en particulier lors des changements d'eau ou d'un stress ponctuel.",
+        "Très actif et sauteur : un couvercle bien ajusté est indispensable pour éviter qu'il ne saute hors du bac, en particulier lors des changements d'eau ou d'un stress ponctuel.",
       volumeMinLitres: 60,
       tailleGroupeMin: 6,
       compatibilite: "Autres cyprinidés actifs, characidés robustes, corydoras.",
@@ -720,7 +720,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, très peu difficile.",
+      alimentation: "Omnivore : paillettes, granulés, très peu difficile.",
       tailleAdulte: '4 à 5 cm',
       reproduction: {
         facilite: "Très facile",
@@ -739,9 +739,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Poisson rayé actif et grégaire, tristement connu pour mordiller les nageoires des poissons plus lents ou aux voiles longues quand il est maintenu en trop petit nombre. En banc suffisamment nombreux, ce comportement disparaît presque entièrement : l'énergie du groupe se dirige vers ses propres congénères plutôt que vers les autres espèces.",
+        "Poisson rayé actif et grégaire, tristement connu pour mordiller les nageoires des poissons plus lents ou aux voiles longues quand il est maintenu en trop petit nombre. En banc suffisamment nombreux, ce comportement disparaît presque entièrement : l'énergie du groupe se dirige vers ses propres congénères plutôt que vers les autres espèces.",
       conseil:
-        "La règle d'or : jamais moins de 8-10 individus. Un petit groupe de 3-4 barbus de Sumatra devient quasi systématiquement un problème pour les poissons à nageoires longues du bac (guppy, betta, voile de Chine).",
+        "La règle d'or : jamais moins de 8-10 individus. Un petit groupe de 3-4 barbus de Sumatra devient quasi systématiquement un problème pour les poissons à nageoires longues du bac (guppy, betta, voile de Chine).",
       volumeMinLitres: 100,
       tailleGroupeMin: 8,
       compatibilite: "Autres poissons robustes et rapides sans grandes nageoires (danios, autres barbus).",
@@ -751,7 +751,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, un peu de végétal.",
+      alimentation: "Omnivore : paillettes, granulés, un peu de végétal.",
       tailleAdulte: '5 à 7 cm',
     },
   },
@@ -768,7 +768,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit barbus paisible et discret, apprécié pour la couleur rouge cerise intense que prend le mâle en période de parade. Contrairement à d'autres barbus, il n'est pas un nageur agité et reste plutôt calme.",
       conseil:
-        "Un bac bien planté avec une lumière tamisée met en valeur ses couleurs et le rassure : c'est une espèce plutôt craintive qui apprécie les cachettes et la végétation dense.",
+        "Un bac bien planté avec une lumière tamisée met en valeur ses couleurs et le rassure : c'est une espèce plutôt craintive qui apprécie les cachettes et la végétation dense.",
       volumeMinLitres: 60,
       tailleGroupeMin: 6,
       compatibilite: "Autres petits characidés et cyprinidés paisibles, corydoras, crevettes.",
@@ -778,7 +778,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes et granulés, larves congelées appréciées.",
+      alimentation: "Omnivore : paillettes et granulés, larves congelées appréciées.",
       tailleAdulte: '3 à 4 cm',
       reproduction: {
         facilite: "Modérée",
@@ -799,7 +799,7 @@ export const ESPECES: Espece[] = [
       description:
         "Barbus robuste et actif à la teinte rosée-cuivrée, particulièrement vive chez le mâle. Plus rustique et tolérant que d'autres cyprinidés, il convient bien à un aquariophile débutant.",
       conseil:
-        "Un peu plus vif que le barbus cerise : privilégiez un groupe suffisant pour répartir son énergie et éviter qu'il ne harcèle des voisins plus calmes et plus lents.",
+        "Un peu plus vif que le barbus cerise : privilégiez un groupe suffisant pour répartir son énergie et éviter qu'il ne harcèle des voisins plus calmes et plus lents.",
       volumeMinLitres: 80,
       tailleGroupeMin: 6,
       compatibilite: "Autres cyprinidés actifs, danios, corydoras.",
@@ -809,7 +809,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes et granulés, larves congelées appréciées.",
+      alimentation: "Omnivore : paillettes et granulés, larves congelées appréciées.",
       tailleAdulte: '5 à 6 cm',
     },
   },
@@ -821,13 +821,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Chromobotia macracanthus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Peut atteindre 30 cm à l'âge adulte et vivre plus de 15 ans : un engagement sur le très long terme qui dépasse largement le petit poisson d'aquarium acheté juvénile.",
+      "Peut atteindre 30 cm à l'âge adulte et vivre plus de 15 ans : un engagement sur le très long terme qui dépasse largement le petit poisson d'aquarium acheté juvénile.",
     citesAnnexe: null,
     fiche: {
       description:
         "Poisson-chat grégaire et joueur, très prisé pour son caractère attachant et sa couleur orange vif rayée de noir, aussi appelé botia clown ou poisson-clown d'eau douce. Souvent vendu juvénile de quelques centimètres, il grandit cependant énormément avec le temps.",
       conseil:
-        "Anticipez la taille adulte avant l'achat : un bac de 700 L minimum est nécessaire à terme. Espèce grégaire qui a besoin de congénères pour s'épanouir et ne pas rester stressée.",
+        "Anticipez la taille adulte avant l'achat : un bac de 700 L minimum est nécessaire à terme. Espèce grégaire qui a besoin de congénères pour s'épanouir et ne pas rester stressée.",
       volumeMinLitres: 700,
       tailleGroupeMin: 5,
       compatibilite: "Grands characidés, autres poissons-chats paisibles, dans un bac à sa mesure.",
@@ -837,7 +837,7 @@ export const ESPECES: Espece[] = [
       tempMin: 26,
       tempMax: 30,
       difficulte: 'Expert',
-      alimentation: "Omnivore : granulés de fond, légumes blanchis, proies occasionnelles.",
+      alimentation: "Omnivore : granulés de fond, légumes blanchis, proies occasionnelles.",
       tailleAdulte: "Jusqu'à 30 cm",
       reproduction: {
         facilite: "Très difficile",
@@ -858,7 +858,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson serpentiforme rayé, la loche kuhli fouille le substrat à la recherche de nourriture et se cache dès que la lumière est trop vive. Discrète et grégaire, elle s'épanouit vraiment en groupe, où elle devient plus visible et active.",
       conseil:
-        "Un substrat fin (sable) est indispensable : elle s'enfouit régulièrement dedans, un gravier grossier blesse son corps sans écailles rigides. Prévoyez de nombreuses cachettes (racines, plantes denses) pour qu'elle se sente en sécurité et sorte plus volontiers.",
+        "Un substrat fin (sable) est indispensable : elle s'enfouit régulièrement dedans, un gravier grossier blesse son corps sans écailles rigides. Prévoyez de nombreuses cachettes (racines, plantes denses) pour qu'elle se sente en sécurité et sorte plus volontiers.",
       volumeMinLitres: 80,
       tailleGroupeMin: 5,
       compatibilite: "Poissons paisibles de surface et de pleine eau qui ne se disputent pas le substrat.",
@@ -868,7 +868,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent, vers de vase.",
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent, vers de vase.",
       tailleAdulte: '8 à 10 cm',
     },
   },
@@ -885,7 +885,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit pléco nocturne surtout connu pour son rôle de nettoyeur de vitres et de décor (algues). Le mâle adulte développe des excroissances ressemblant à des tentacules sur le museau, absentes chez la femelle. Discret le jour, actif la nuit.",
       conseil:
-        "Fournissez impérativement une racine de bois flotté : l'ancistrus en râcle des fibres qui l'aident à digérer, indépendamment de son régime alimentaire. Évitez plusieurs mâles adultes dans un bac trop petit, ils se disputent les cachettes.",
+        "Fournissez impérativement une racine de bois flotté : l'ancistrus en râcle des fibres qui l'aident à digérer, indépendamment de son régime alimentaire. Évitez plusieurs mâles adultes dans un bac trop petit, ils se disputent les cachettes.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Quasiment tous les poissons paisibles ; cohabite bien en solitaire ou en couple.",
@@ -895,7 +895,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Algivore/omnivore : pastilles à base de spiruline, légumes blanchis (courgette, concombre), bois flotté.",
+      alimentation: "Algivore/omnivore : pastilles à base de spiruline, légumes blanchis (courgette, concombre), bois flotté.",
       tailleAdulte: '12 à 15 cm',
       reproduction: {
         facilite: "Facile",
@@ -911,13 +911,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Hypostomus plecostomus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Peut dépasser 40 cm à l'âge adulte : très souvent vendu juvénile sans que l'acheteur anticipe cette taille finale, l'une des causes fréquentes d'abandon de cette espèce.",
+      "Peut dépasser 40 cm à l'âge adulte : très souvent vendu juvénile sans que l'acheteur anticipe cette taille finale, l'une des causes fréquentes d'abandon de cette espèce.",
     citesAnnexe: null,
     fiche: {
       description:
         "Poisson-chat nocturne au corps cuirassé, réputé pour nettoyer les vitres et le décor des algues. Discret le jour, actif la nuit, il grandit cependant bien au-delà de ce que sa taille en animalerie laisse penser.",
       conseil:
-        "Vérifiez la taille adulte avant l'achat plutôt que la taille en magasin : un juvénile de 5 cm réclame à terme un bac de plusieurs centaines de litres et une filtration robuste pour supporter sa bioload.",
+        "Vérifiez la taille adulte avant l'achat plutôt que la taille en magasin : un juvénile de 5 cm réclame à terme un bac de plusieurs centaines de litres et une filtration robuste pour supporter sa bioload.",
       volumeMinLitres: 400,
       tailleGroupeMin: 1,
       compatibilite: "Grands cichlidés et characidés robustes, poissons paisibles de bac assez grand.",
@@ -927,7 +927,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Algivore/omnivore : pastilles de fond, légumes blanchis, bois flotté indispensable à sa digestion.",
+      alimentation: "Algivore/omnivore : pastilles de fond, légumes blanchis, bois flotté indispensable à sa digestion.",
       tailleAdulte: "Jusqu'à 40-50 cm",
     },
   },
@@ -954,7 +954,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés, vers de vase et artémias congelés.",
+      alimentation: "Omnivore : granulés, vers de vase et artémias congelés.",
       tailleAdulte: '7 à 10 cm (mâle plus grand que la femelle)',
       reproduction: {
         facilite: "Facile",
@@ -975,7 +975,7 @@ export const ESPECES: Espece[] = [
       description:
         "Cichlidé nain sud-américain au corps orangé et à la nageoire dorsale caractéristique en forme de crête, d'où le surnom \"cacatoès\". Le mâle défend un petit territoire mais reste globalement gérable en communauté paisible.",
       conseil:
-        "Prévoyez des cachettes (racines, noix de coco, pots retournés) pour que la femelle puisse s'isoler lors de la ponte : cela réduit fortement le stress du couple et des poissons voisins.",
+        "Prévoyez des cachettes (racines, noix de coco, pots retournés) pour que la femelle puisse s'isoler lors de la ponte : cela réduit fortement le stress du couple et des poissons voisins.",
       volumeMinLitres: 80,
       tailleGroupeMin: 1,
       compatibilite: "Characidés, corydoras, autres poissons paisibles d'eau douce chaude.",
@@ -985,7 +985,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore/carnivore : granulés, larves congelées, artémias.",
+      alimentation: "Omnivore/carnivore : granulés, larves congelées, artémias.",
       tailleAdulte: '6 à 9 cm (mâle plus grand que la femelle)',
     },
   },
@@ -1002,7 +1002,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson d'eau douce originaire de Nouvelle-Guinée, réputé pour son corps bicolore bleu-argenté à l'avant et orange à l'arrière, particulièrement marqué chez le mâle adulte. Grégaire et actif, il nage sur tous les niveaux du bac.",
       conseil:
-        "Ses couleurs se développent pleinement avec l'âge et prennent plusieurs mois : ne jugez pas un jeune sujet terne en animalerie, il se révèle progressivement dans de bonnes conditions.",
+        "Ses couleurs se développent pleinement avec l'âge et prennent plusieurs mois : ne jugez pas un jeune sujet terne en animalerie, il se révèle progressivement dans de bonnes conditions.",
       volumeMinLitres: 150,
       tailleGroupeMin: 6,
       compatibilite: "Autres arc-en-ciel, characidés et cyprinidés de taille et tempérament similaires.",
@@ -1012,11 +1012,11 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : paillettes, granulés, complément de larves congelées.",
+      alimentation: "Omnivore : paillettes, granulés, complément de larves congelées.",
       tailleAdulte: '10 à 12 cm',
       reproduction: {
         facilite: "Modérée",
-        description: "Le poisson arc-en-ciel australien pond parmi les plantes à feuilles fines (mousse de java, plantes à longues feuilles). Après la parade matinale, la femelle dépose quelques œufs chaque jour pendant plusieurs jours. Les œufs ont des filaments adhésifs. Installez des touffes de plantes ou une vadrouille de ponte. Retirez les œufs régulièrement dans un bac d'éclosion. À 26°C, les larves éclosent en 7-10 jours. pH 7-7.5, T° 24-27°C. Premiers aliments très fins : infusoires.",
+        description: "Le poisson arc-en-ciel australien pond parmi les plantes à feuilles fines (mousse de java, plantes à longues feuilles). Après la parade matinale, la femelle dépose quelques œufs chaque jour pendant plusieurs jours. Les œufs ont des filaments adhésifs. Installez des touffes de plantes ou une vadrouille de ponte. Retirez les œufs régulièrement dans un bac d'éclosion. À 26°C, les larves éclosent en 7-10 jours. pH 7-7.5, T° 24-27°C. Premiers aliments très fins : infusoires.",
       },
     },
   },
@@ -1031,9 +1031,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Petit poisson annuel d'Afrique de l'Est aux couleurs spectaculaires, dont le cycle de vie très court reflète son habitat naturel : des mares temporaires qui s'assèchent chaque année. Ses œufs peuvent survivre plusieurs mois dans la boue sèche.",
+        "Petit poisson annuel d'Afrique de l'Est aux couleurs spectaculaires, dont le cycle de vie très court reflète son habitat naturel : des mares temporaires qui s'assèchent chaque année. Ses œufs peuvent survivre plusieurs mois dans la boue sèche.",
       conseil:
-        "Sa durée de vie est naturellement courte, souvent moins d'un an : ce n'est pas un signe de maladie ou de mauvais entretien mais une caractéristique biologique de l'espèce, à accepter avant l'achat.",
+        "Sa durée de vie est naturellement courte, souvent moins d'un an : ce n'est pas un signe de maladie ou de mauvais entretien mais une caractéristique biologique de l'espèce, à accepter avant l'achat.",
       volumeMinLitres: 40,
       tailleGroupeMin: 6,
       compatibilite: "Petits poissons paisibles compatibles avec une eau douce et acide, ou bac dédié entre killies.",
@@ -1043,7 +1043,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 24,
       difficulte: 'Expert',
-      alimentation: "Carnivore : artémias vivantes ou congelées, proies de petite taille.",
+      alimentation: "Carnivore : artémias vivantes ou congelées, proies de petite taille.",
       tailleAdulte: '5 à 6 cm',
     },
   },
@@ -1060,7 +1060,7 @@ export const ESPECES: Espece[] = [
       description:
         "Minuscule poisson-chat algivore très prisé pour nettoyer les vitres et les feuilles des plantes en douceur, sans les abîmer contrairement à certains plécos. Grégaire et paisible, il complète bien une équipe de nettoyage.",
       conseil:
-        "Introduisez-le uniquement dans un bac déjà mature avec suffisamment d'algues et de biofilm : il s'acclimate mal dans un aquarium tout neuf où la nourriture naturelle manque encore.",
+        "Introduisez-le uniquement dans un bac déjà mature avec suffisamment d'algues et de biofilm : il s'acclimate mal dans un aquarium tout neuf où la nourriture naturelle manque encore.",
       volumeMinLitres: 60,
       tailleGroupeMin: 6,
       compatibilite: "Characidés, corydoras, crevettes, autres poissons paisibles de petite taille.",
@@ -1070,7 +1070,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Algivore : algues et biofilm, complément de pastilles à base de spiruline si besoin.",
+      alimentation: "Algivore : algues et biofilm, complément de pastilles à base de spiruline si besoin.",
       tailleAdulte: '4 à 5 cm',
       reproduction: {
         facilite: "Difficile",
@@ -1091,7 +1091,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit cyprinidé au corps rosé-orangé marqué d'une tache triangulaire noire caractéristique, l'un des grands classiques des bacs communautaires paisibles. Nage en banc compact et coloré à mi-hauteur d'eau.",
       conseil:
-        "Un bac légèrement acide et planté, avec un fond sombre, met particulièrement en valeur ses couleurs et le rassure : il apprécie les zones de végétation dense où se réfugier.",
+        "Un bac légèrement acide et planté, avec un fond sombre, met particulièrement en valeur ses couleurs et le rassure : il apprécie les zones de végétation dense où se réfugier.",
       volumeMinLitres: 60,
       tailleGroupeMin: 8,
       compatibilite: "Autres petits cyprinidés et characidés paisibles, corydoras, crevettes.",
@@ -1101,7 +1101,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '2 à 4 cm',
     },
   },
@@ -1118,7 +1118,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit cyprinidé argenté à reflets cuivrés sur la tête, moins connu que le rasbora arlequin mais tout aussi grégaire et paisible. Nage en banc dynamique à mi-hauteur d'eau.",
       conseil:
-        "Comme les autres petits cyprinidés, il se sent en sécurité en groupe conséquent : un trop petit nombre le rend craintif et il reste alors caché plutôt que d'occuper l'espace du bac.",
+        "Comme les autres petits cyprinidés, il se sent en sécurité en groupe conséquent : un trop petit nombre le rend craintif et il reste alors caché plutôt que d'occuper l'espace du bac.",
       volumeMinLitres: 60,
       tailleGroupeMin: 8,
       compatibilite: "Autres petits cyprinidés et characidés paisibles, corydoras, crevettes.",
@@ -1128,7 +1128,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '4 à 5 cm',
       reproduction: {
         facilite: "Modérée",
@@ -1149,7 +1149,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson-chat au corps totalement transparent laissant voir sa colonne vertébrale et ses organes internes, un phénomène naturel et non une coloration artificielle. Grégaire et fragile, il n'exprime son comportement naturel qu'en groupe.",
       conseil:
-        "Ne l'achetez jamais seul ou en trop petit nombre : isolé, il reste caché, stressé et dépérit progressivement. Un groupe conséquent dans un courant modéré est indispensable à son bien-être.",
+        "Ne l'achetez jamais seul ou en trop petit nombre : isolé, il reste caché, stressé et dépérit progressivement. Un groupe conséquent dans un courant modéré est indispensable à son bien-être.",
       volumeMinLitres: 100,
       tailleGroupeMin: 8,
       compatibilite: "Autres poissons paisibles d'eau douce, characidés, corydoras.",
@@ -1159,7 +1159,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Carnivore : petites proies vivantes ou congelées (artémias, daphnies), granulés parfois refusés.",
+      alimentation: "Carnivore : petites proies vivantes ou congelées (artémias, daphnies), granulés parfois refusés.",
       tailleAdulte: '6 à 8 cm',
     },
   },
@@ -1171,13 +1171,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Toxotes jaculatrix',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Vit naturellement en eau saumâtre : sa vente n'est pas interdite mais il a besoin d'un ajout de sel adapté, souvent négligé par méconnaissance de ce besoin spécifique.",
+      "Vit naturellement en eau saumâtre : sa vente n'est pas interdite mais il a besoin d'un ajout de sel adapté, souvent négligé par méconnaissance de ce besoin spécifique.",
     citesAnnexe: null,
     fiche: {
       description:
-        "Poisson célèbre pour sa technique de chasse unique : il projette un jet d'eau précis depuis la surface pour faire tomber les insectes posés sur la végétation au-dessus de l'eau, qu'il gobe ensuite.",
+        "Poisson célèbre pour sa technique de chasse unique : il projette un jet d'eau précis depuis la surface pour faire tomber les insectes posés sur la végétation au-dessus de l'eau, qu'il gobe ensuite.",
       conseil:
-        "Contrairement à la majorité des poissons d'aquarium d'eau douce, il a besoin d'une eau légèrement salée (saumâtre) pour rester en bonne santé sur le long terme : renseignez-vous sur le bon dosage avant l'achat.",
+        "Contrairement à la majorité des poissons d'aquarium d'eau douce, il a besoin d'une eau légèrement salée (saumâtre) pour rester en bonne santé sur le long terme : renseignez-vous sur le bon dosage avant l'achat.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Autres poissons tolérants à l'eau saumâtre (certains gobies, poissons-clowns d'eau douce).",
@@ -1187,7 +1187,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Carnivore : insectes, proies vivantes ou congelées en surface.",
+      alimentation: "Carnivore : insectes, proies vivantes ou congelées en surface.",
       tailleAdulte: '15 à 20 cm',
       reproduction: {
         facilite: "Très difficile",
@@ -1208,7 +1208,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit cichlidé nain très coloré (bleu, jaune, orangé selon les variétés), apprécié pour son comportement de couple fidèle et son caractère globalement paisible malgré son appartenance à la famille des cichlidés.",
       conseil:
-        "Plus sensible aux variations de qualité d'eau que la plupart des poissons de communauté : des changements d'eau réguliers et une eau stable sont essentiels à sa longévité, surtout les premières semaines après l'achat.",
+        "Plus sensible aux variations de qualité d'eau que la plupart des poissons de communauté : des changements d'eau réguliers et une eau stable sont essentiels à sa longévité, surtout les premières semaines après l'achat.",
       volumeMinLitres: 80,
       tailleGroupeMin: 1,
       compatibilite: "Tétras, corydoras, autres poissons de communauté paisibles d'eau douce chaude.",
@@ -1218,7 +1218,7 @@ export const ESPECES: Espece[] = [
       tempMin: 26,
       tempMax: 29,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
+      alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
       tailleAdulte: '5 à 7 cm',
     },
   },
@@ -1235,7 +1235,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson-chat argenté élancé, couvert de taches noires et pourvu de longues barbillons sensitives. Grégaire et très actif la nuit, il apprécie de nager en groupe dans la colonne d'eau plutôt que de rester posé au fond.",
       conseil:
-        "Ses nageoires pectorales sont pourvues d'épines pointues qui peuvent se prendre dans les filets : manipulez-le avec précaution lors des changements d'eau ou des déplacements en bac.",
+        "Ses nageoires pectorales sont pourvues d'épines pointues qui peuvent se prendre dans les filets : manipulez-le avec précaution lors des changements d'eau ou des déplacements en bac.",
       volumeMinLitres: 150,
       tailleGroupeMin: 5,
       compatibilite: "Characidés et cyprinidés de taille moyenne, autres poissons-chats paisibles.",
@@ -1245,7 +1245,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore/carnivore : granulés coulants, larves congelées, proies occasionnelles.",
+      alimentation: "Omnivore/carnivore : granulés coulants, larves congelées, proies occasionnelles.",
       tailleAdulte: '10 à 12 cm',
       reproduction: {
         facilite: "Très difficile",
@@ -1261,13 +1261,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Poecilia sphenops (var.)',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Forme sélective au corps arrondi issue d'une déformation de la colonne vertébrale : sa vente n'est pas interdite, mais cette conformation peut s'accompagner de difficultés de nage et de troubles digestifs à connaître avant l'achat.",
+      "Forme sélective au corps arrondi issue d'une déformation de la colonne vertébrale : sa vente n'est pas interdite, mais cette conformation peut s'accompagner de difficultés de nage et de troubles digestifs à connaître avant l'achat.",
     citesAnnexe: null,
     fiche: {
       description:
         "Variété de molly au corps rond et compact, obtenue par sélection d'une déformation vertébrale. Son allure atypique le rend populaire, même si sa morphologie diffère nettement de celle d'un molly \"classique\".",
       conseil:
-        "Sa forme comprimée peut gêner la nage et la digestion : proposez une nourriture facile à digérer en petites quantités plusieurs fois par jour plutôt qu'un seul gros repas.",
+        "Sa forme comprimée peut gêner la nage et la digestion : proposez une nourriture facile à digérer en petites quantités plusieurs fois par jour plutôt qu'un seul gros repas.",
       volumeMinLitres: 80,
       tailleGroupeMin: 3,
       compatibilite: "Autres vivipares paisibles (guppy, platy), corydoras.",
@@ -1277,7 +1277,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : paillettes fines faciles à digérer, complément végétal (spiruline, légumes blanchis).",
+      alimentation: "Omnivore : paillettes fines faciles à digérer, complément végétal (spiruline, légumes blanchis).",
       tailleAdulte: '5 à 7 cm',
     },
   },
@@ -1294,7 +1294,7 @@ export const ESPECES: Espece[] = [
       description:
         "Malgré son nom, ce n'est pas un requin mais un cyprinidé de fond au corps gris-doré et aux nageoires orangées, à l'allure profilée qui rappelle un requin miniature. Plutôt paisible entre espèces différentes, il peut être territorial envers ses congénères.",
       conseil:
-        "Évitez de maintenir deux individus dans un bac trop petit : ils se disputeront le territoire au fond. Un seul par bac, ou un très grand volume avec de multiples cachettes, limite les conflits.",
+        "Évitez de maintenir deux individus dans un bac trop petit : ils se disputeront le territoire au fond. Un seul par bac, ou un très grand volume avec de multiples cachettes, limite les conflits.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Characidés, corydoras, autres poissons paisibles occupant d'autres niveaux du bac.",
@@ -1304,7 +1304,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore de fond : granulés coulants, algues, restes de nourriture.",
+      alimentation: "Omnivore de fond : granulés coulants, algues, restes de nourriture.",
       tailleAdulte: '12 à 15 cm',
       reproduction: {
         facilite: "Très difficile",
@@ -1325,7 +1325,7 @@ export const ESPECES: Espece[] = [
       description:
         "Cyprinidé de fond au corps noir profond contrastant avec une nageoire caudale rouge vif, très reconnaissable. Nettement plus territorial que son cousin arc-en-ciel, il ne tolère généralement aucun congénère dans son bac.",
       conseil:
-        "Ne maintenez jamais deux requins à queue rouge ensemble, même dans un grand bac : la territorialité entre individus de cette espèce est presque systématique et peut aller jusqu'à des blessures graves.",
+        "Ne maintenez jamais deux requins à queue rouge ensemble, même dans un grand bac : la territorialité entre individus de cette espèce est presque systématique et peut aller jusqu'à des blessures graves.",
       volumeMinLitres: 250,
       tailleGroupeMin: 1,
       compatibilite: "Characidés, corydoras, autres poissons paisibles occupant d'autres niveaux du bac.",
@@ -1335,7 +1335,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore de fond : granulés coulants, algues, restes de nourriture.",
+      alimentation: "Omnivore de fond : granulés coulants, algues, restes de nourriture.",
       tailleAdulte: '12 à 15 cm',
     },
   },
@@ -1352,7 +1352,7 @@ export const ESPECES: Espece[] = [
       description:
         "Characidé argenté au corps rond et aplati rappelant un disque, cousin herbivore et paisible du piranha. Grégaire, il se nourrit essentiellement de végétaux et ne présente aucune agressivité malgré sa parenté.",
       conseil:
-        "Il consomme activement les plantes aquariophiles tendres : optez pour des plantes robustes (anubias, fougère de Java) fixées sur support plutôt que des plantes de premier plan délicates.",
+        "Il consomme activement les plantes aquariophiles tendres : optez pour des plantes robustes (anubias, fougère de Java) fixées sur support plutôt que des plantes de premier plan délicates.",
       volumeMinLitres: 200,
       tailleGroupeMin: 5,
       compatibilite: "Autres characidés de taille moyenne, poissons paisibles non territoriaux.",
@@ -1362,7 +1362,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Herbivore/omnivore : légumes blanchis, granulés végétaux, complément de paillettes.",
+      alimentation: "Herbivore/omnivore : légumes blanchis, granulés végétaux, complément de paillettes.",
       tailleAdulte: '12 à 15 cm',
       reproduction: {
         facilite: "Modérée",
@@ -1383,7 +1383,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson de surface au ventre très bombé rappelant la forme d'une hachette, capable de véritables bonds hors de l'eau pour attraper des insectes volants. Grégaire et paisible, il reste presque exclusivement en surface.",
       conseil:
-        "C'est un excellent sauteur : un couvercle bien ajusté sans ouverture est indispensable, sous peine de le retrouver hors du bac après un sursaut.",
+        "C'est un excellent sauteur : un couvercle bien ajusté sans ouverture est indispensable, sous peine de le retrouver hors du bac après un sursaut.",
       volumeMinLitres: 60,
       tailleGroupeMin: 6,
       compatibilite: "Characidés et cyprinidés paisibles occupant les niveaux inférieurs du bac.",
@@ -1393,7 +1393,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Carnivore de surface : petits insectes, artémias, paillettes flottantes.",
+      alimentation: "Carnivore de surface : petits insectes, artémias, paillettes flottantes.",
       tailleAdulte: '3,5 à 4,5 cm',
     },
   },
@@ -1405,13 +1405,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Anableps anableps',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Espèce peu courante en aquarium et aux besoins très spécifiques (eau saumâtre, grand volume de surface) : une validation au cas par cas est préférable à un achat en libre-service.",
+      "Espèce peu courante en aquarium et aux besoins très spécifiques (eau saumâtre, grand volume de surface) : une validation au cas par cas est préférable à un achat en libre-service.",
     citesAnnexe: null,
     fiche: {
       description:
         "Poisson de surface reconnaissable à ses yeux divisés en deux parties distinctes, l'une adaptée à la vision aérienne, l'autre à la vision sous-marine, lui permettant de surveiller à la fois au-dessus et en dessous de la surface simultanément.",
       conseil:
-        "Réservez cette espèce à un bac spécifiquement dédié avec une grande surface et une eau légèrement salée : ce n'est pas un poisson de communauté classique et ses besoins sont trop spécifiques pour un bac généraliste.",
+        "Réservez cette espèce à un bac spécifiquement dédié avec une grande surface et une eau légèrement salée : ce n'est pas un poisson de communauté classique et ses besoins sont trop spécifiques pour un bac généraliste.",
       volumeMinLitres: 400,
       tailleGroupeMin: 4,
       compatibilite: "Autres poissons tolérants à l'eau saumâtre, dans un bac dédié à grande surface.",
@@ -1421,7 +1421,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Omnivore de surface : insectes, granulés flottants, petites proies.",
+      alimentation: "Omnivore de surface : insectes, granulés flottants, petites proies.",
       tailleAdulte: '20 à 30 cm',
       reproduction: {
         facilite: "Difficile",
@@ -1442,7 +1442,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson électrique nocturne au corps noir allongé et sans nageoire dorsale, se déplaçant par ondulation continue de sa longue nageoire anale. Discret le jour, il devient actif la nuit à la recherche de nourriture.",
       conseil:
-        "Fournissez de nombreuses cachettes (tubes, racines) où il peut se réfugier le jour : sans ces abris, il reste stressé en permanence dans un bac trop éclairé ou trop ouvert.",
+        "Fournissez de nombreuses cachettes (tubes, racines) où il peut se réfugier le jour : sans ces abris, il reste stressé en permanence dans un bac trop éclairé ou trop ouvert.",
       volumeMinLitres: 250,
       tailleGroupeMin: 1,
       compatibilite: "Poissons calmes de taille moyenne à grande, non agressifs.",
@@ -1452,7 +1452,7 @@ export const ESPECES: Espece[] = [
       tempMin: 25,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Carnivore : vers de vase, larves congelées, proies occasionnelles.",
+      alimentation: "Carnivore : vers de vase, larves congelées, proies occasionnelles.",
       tailleAdulte: '45 à 50 cm',
     },
   },
@@ -1469,7 +1469,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson africain nocturne à la trompe caractéristique, capable de percevoir son environnement grâce à un champ électrique faible qu'il génère lui-même. Discret le jour, il devient très actif à la tombée de la nuit.",
       conseil:
-        "Très sensible aux médicaments à base de cuivre ou de sel utilisés contre les maladies : évitez ces traitements et préférez des alternatives douces en cas de problème sanitaire dans le bac.",
+        "Très sensible aux médicaments à base de cuivre ou de sel utilisés contre les maladies : évitez ces traitements et préférez des alternatives douces en cas de problème sanitaire dans le bac.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Poissons calmes et non agressifs qui ne le dérangent pas dans son activité nocturne.",
@@ -1479,7 +1479,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Carnivore : vers de vase, larves congelées, artémias.",
+      alimentation: "Carnivore : vers de vase, larves congelées, artémias.",
       tailleAdulte: '20 à 23 cm',
       reproduction: {
         facilite: "Impossible en captivité",
@@ -1495,13 +1495,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Potamotrygon motoro',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "La famille des Potamotrygonidae est en partie listée CITES Annexe III depuis 2019 et soumise à une traçabilité renforcée : demandez systématiquement une validation de l'origine avant tout achat ou vente.",
+      "La famille des Potamotrygonidae est en partie listée CITES Annexe III depuis 2019 et soumise à une traçabilité renforcée : demandez systématiquement une validation de l'origine avant tout achat ou vente.",
     citesAnnexe: 'C',
     fiche: {
       description:
         "Raie d'eau douce sud-américaine au disque rond tacheté d'ocelles, impressionnante mais fragile et exigeante. Possède un aiguillon venimeux caudal qui impose des précautions particulières lors de toute manipulation.",
       conseil:
-        "Ne manipulez jamais cette espèce sans expérience préalable : son aiguillon caudal peut infliger une blessure douloureuse. Réservez cet achat à un bassin ou grand bac dédié avec un sol fin et sans aspérités.",
+        "Ne manipulez jamais cette espèce sans expérience préalable : son aiguillon caudal peut infliger une blessure douloureuse. Réservez cet achat à un bassin ou grand bac dédié avec un sol fin et sans aspérités.",
       volumeMinLitres: 1500,
       tailleGroupeMin: 1,
       compatibilite: "Grands poissons calmes non agressifs qui ne la piétineront pas.",
@@ -1511,7 +1511,7 @@ export const ESPECES: Espece[] = [
       tempMin: 25,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Carnivore : proies vivantes ou congelées (vers, crevettes, poissons entiers).",
+      alimentation: "Carnivore : proies vivantes ou congelées (vers, crevettes, poissons entiers).",
       tailleAdulte: '35 à 45 cm de diamètre de disque',
     },
   },
@@ -1523,13 +1523,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Scleropages formosus',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Espèce classée CITES Annexe I, le niveau de protection le plus strict : chaque individu doit être identifié par puce électronique et accompagné d'un certificat individuel intra-communautaire. Aucune vente ni détention n'est possible sans ces documents.",
+      "Espèce classée CITES Annexe I, le niveau de protection le plus strict : chaque individu doit être identifié par puce électronique et accompagné d'un certificat individuel intra-communautaire. Aucune vente ni détention n'est possible sans ces documents.",
     citesAnnexe: 'A',
     fiche: {
       description:
         "Grand poisson d'ornement légendaire en Asie, au corps allongé et aux écailles reflétant des teintes dorées, rouges ou argentées selon la variété. Sa rareté et son statut CITES en font une espèce très prisée mais lourdement encadrée.",
       conseil:
-        "N'envisagez cet achat que via un éleveur ou revendeur agréé capable de fournir la puce et le certificat CITES individuel du poisson : sans ces documents, la détention est illégale, quel que soit le prix ou l'origine annoncée.",
+        "N'envisagez cet achat que via un éleveur ou revendeur agréé capable de fournir la puce et le certificat CITES individuel du poisson : sans ces documents, la détention est illégale, quel que soit le prix ou l'origine annoncée.",
       volumeMinLitres: 1500,
       tailleGroupeMin: 1,
       compatibilite: "Grands poissons calmes de même gabarit, dans un bac à sa mesure.",
@@ -1539,7 +1539,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 30,
       difficulte: 'Expert',
-      alimentation: "Carnivore : proies vivantes ou congelées, granulés spécifiques grands prédateurs.",
+      alimentation: "Carnivore : proies vivantes ou congelées, granulés spécifiques grands prédateurs.",
       tailleAdulte: "Jusqu'à 60-90 cm",
       reproduction: {
         facilite: "Très difficile",
@@ -1555,13 +1555,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Acipenser ruthenus (formes naines)',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Toute la famille des esturgeons est listée CITES Annexe II en raison de la surexploitation historique liée au caviar : un certificat ou une preuve d'origine légale (élevage en captivité) est exigé, à vérifier au cas par cas avant tout achat ou vente.",
+      "Toute la famille des esturgeons est listée CITES Annexe II en raison de la surexploitation historique liée au caviar : un certificat ou une preuve d'origine légale (élevage en captivité) est exigé, à vérifier au cas par cas avant tout achat ou vente.",
     citesAnnexe: 'B',
     fiche: {
       description:
         "Poisson au corps allongé et cuirassé de plaques osseuses, vestige d'un groupe très ancien de poissons. Les formes naines restent plus adaptées à un bassin qu'un esturgeon classique, mais grandissent tout de même bien au-delà d'un poisson d'ornement courant.",
       conseil:
-        "Exigez systématiquement une preuve d'origine d'élevage (et non de prélèvement sauvage) avant l'achat : c'est une condition légale liée à son statut CITES, pas une simple recommandation.",
+        "Exigez systématiquement une preuve d'origine d'élevage (et non de prélèvement sauvage) avant l'achat : c'est une condition légale liée à son statut CITES, pas une simple recommandation.",
       volumeMinLitres: 2000,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de bassin ou de grand bac froid, non agressifs.",
@@ -1571,7 +1571,7 @@ export const ESPECES: Espece[] = [
       tempMin: 12,
       tempMax: 20,
       difficulte: 'Expert',
-      alimentation: "Carnivore de fond : granulés coulants spécifiques esturgeons, vers.",
+      alimentation: "Carnivore de fond : granulés coulants spécifiques esturgeons, vers.",
       tailleAdulte: '40 à 60 cm (formes naines)',
     },
   },
@@ -1598,7 +1598,7 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés flottants spécial koï, alimentation réduite voire stoppée en dessous de 10°C.",
+      alimentation: "Omnivore : granulés flottants spécial koï, alimentation réduite voire stoppée en dessous de 10°C.",
       tailleAdulte: '40 à 90 cm selon la variété et le volume du bassin',
       reproduction: {
         facilite: "Modérée",
@@ -1617,9 +1617,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Souvent vendu comme petit poisson de bocal, le poisson rouge est en réalité un poisson de bassin à part entière : il peut atteindre 20-30 cm et vivre plus de 20 ans dans de bonnes conditions. Grégaire et très résistant au froid, il hiberne dans les zones profondes d'un bassin en hiver.",
+        "Souvent vendu comme petit poisson de bocal, le poisson rouge est en réalité un poisson de bassin à part entière : il peut atteindre 20-30 cm et vivre plus de 20 ans dans de bonnes conditions. Grégaire et très résistant au froid, il hiberne dans les zones profondes d'un bassin en hiver.",
       conseil:
-        "Le mythe du \"petit bocal\" est l'une des principales causes de mortalité précoce de cette espèce : sans volume suffisant, sa croissance est stoppée et sa santé se dégrade. Un bassin extérieur ou un grand aquarium (300 L+) sont le minimum pour un groupe adulte.",
+        "Le mythe du \"petit bocal\" est l'une des principales causes de mortalité précoce de cette espèce : sans volume suffisant, sa croissance est stoppée et sa santé se dégrade. Un bassin extérieur ou un grand aquarium (300 L+) sont le minimum pour un groupe adulte.",
       volumeMinLitres: 300,
       tailleGroupeMin: 3,
       compatibilite: "Autres poissons rouges, carpes koï calmes, tanches nettoyeuses de fond.",
@@ -1629,7 +1629,7 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés flottants, un peu de végétal, alimentation réduite en dessous de 10°C.",
+      alimentation: "Omnivore : granulés flottants, un peu de végétal, alimentation réduite en dessous de 10°C.",
       tailleAdulte: '15 à 30 cm selon le volume disponible',
     },
   },
@@ -1656,7 +1656,7 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore de fond : invertébrés, débris organiques, granulés coulants.",
+      alimentation: "Omnivore de fond : invertébrés, débris organiques, granulés coulants.",
       tailleAdulte: '20 à 40 cm en bassin',
       reproduction: {
         facilite: "Difficile",
@@ -1677,7 +1677,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson de rivière grégaire et rustique, traditionnellement utilisé en bassin pour sa robustesse et son comportement de banc très vivant en surface. Apprécie l'eau fraîche et bien oxygénée.",
       conseil:
-        "Une bonne oxygénation de l'eau (cascade, fontaine, brasseur) est essentielle : le vairon est habitué aux eaux courantes et vives et supporte mal une eau stagnante et chaude.",
+        "Une bonne oxygénation de l'eau (cascade, fontaine, brasseur) est essentielle : le vairon est habitué aux eaux courantes et vives et supporte mal une eau stagnante et chaude.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 8,
       compatibilite: "Autres poissons de bassin rustiques, tanche, poisson rouge dans un grand volume.",
@@ -1687,7 +1687,7 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 20,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés fins, petits invertébrés aquatiques.",
+      alimentation: "Omnivore : granulés fins, petits invertébrés aquatiques.",
       tailleAdulte: '6 à 9 cm',
     },
   },
@@ -1699,16 +1699,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Misgurnus anguillicaudatus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante avec des populations déjà établies en France : sa vente et son introduction en bassin ou milieu naturel sont interdites.",
+      "Espèce exotique envahissante avec des populations déjà établies en France : sa vente et son introduction en bassin ou milieu naturel sont interdites.",
     citesAnnexe: null,
     fiche: {
       description:
         "Poisson allongé et fouisseur d'origine asiatique, capable de respirer l'air atmosphérique et de survivre hors de l'eau plusieurs heures, ce qui a favorisé sa propagation rapide dans les milieux naturels français.",
       conseil:
-        "Sa capacité à survivre hors de l'eau et à se propager facilement en fait une espèce particulièrement problématique une fois relâchée : ne jamais introduire un poisson de bassin dans un point d'eau naturel, quelle que soit l'espèce.",
+        "Sa capacité à survivre hors de l'eau et à se propager facilement en fait une espèce particulièrement problématique une fois relâchée : ne jamais introduire un poisson de bassin dans un point d'eau naturel, quelle que soit l'espèce.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -1736,7 +1736,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson de bassin grégaire et élégant, apprécié pour sa nage vive en surface et sa robustesse face aux variations de température. La variété dorée est particulièrement recherchée pour l'ornement des bassins de jardin.",
       conseil:
-        "Grégaire par nature, il s'épanouit bien mieux en groupe qu'isolé : prévoyez plusieurs individus pour observer son comportement de banc naturel en surface du bassin.",
+        "Grégaire par nature, il s'épanouit bien mieux en groupe qu'isolé : prévoyez plusieurs individus pour observer son comportement de banc naturel en surface du bassin.",
       volumeMinLitres: 2000,
       tailleGroupeMin: 5,
       compatibilite: "Carpes koï, autres poissons de bassin rustiques.",
@@ -1746,7 +1746,7 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés flottants, insectes de surface.",
+      alimentation: "Omnivore : granulés flottants, insectes de surface.",
       tailleAdulte: '30 à 50 cm',
     },
   },
@@ -1758,13 +1758,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Ctenopharyngodon idella',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Sa détention est réglementée dans certains départements en dehors d'un bassin clos et étanche, en raison de son usage historique de régulation des plantes aquatiques : vérifiez la réglementation locale avant l'achat.",
+      "Sa détention est réglementée dans certains départements en dehors d'un bassin clos et étanche, en raison de son usage historique de régulation des plantes aquatiques : vérifiez la réglementation locale avant l'achat.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grand cyprinidé herbivore originaire d'Asie, historiquement introduit pour réguler naturellement la végétation aquatique envahissante des plans d'eau. Peut atteindre une taille très importante en bassin.",
       conseil:
-        "Vérifiez que votre bassin est bien clos et étanche avant l'achat : c'est une condition réglementaire dans plusieurs départements, précisément pour éviter toute fuite vers le milieu naturel.",
+        "Vérifiez que votre bassin est bien clos et étanche avant l'achat : c'est une condition réglementaire dans plusieurs départements, précisément pour éviter toute fuite vers le milieu naturel.",
       volumeMinLitres: 5000,
       tailleGroupeMin: 1,
       compatibilite: "Carpes koï, autres poissons de bassin de grande taille.",
@@ -1774,11 +1774,11 @@ export const ESPECES: Espece[] = [
       tempMin: 10,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Herbivore : plantes aquatiques, légumes, granulés végétaux en complément.",
+      alimentation: "Herbivore : plantes aquatiques, légumes, granulés végétaux en complément.",
       tailleAdulte: "Jusqu'à 100 cm",
       reproduction: {
         facilite: "Très difficile",
-        description: "La reproduction de l'amour blanc (Ctenopharyngodon idella) en aquarium est impossible pour un aquariophile amateur. Cette espèce atteint 120cm et 35kg à l'âge adulte. Dans la nature, elle migre sur de longues distances dans les grands fleuves d'Asie pour frayer. La reproduction commerciale nécessite des injections hormonales et des bassins de plusieurs dizaines de milliers de litres. De plus, l'amour blanc est une espèce invasive en Europe : sa détention est soumise à réglementation. Maintenez-le dans un grand bassin pour ses qualités d'entretien des plantes aquatiques.",
+        description: "La reproduction de l'amour blanc (Ctenopharyngodon idella) en aquarium est impossible pour un aquariophile amateur. Cette espèce atteint 120cm et 35kg à l'âge adulte. Dans la nature, elle migre sur de longues distances dans les grands fleuves d'Asie pour frayer. La reproduction commerciale nécessite des injections hormonales et des bassins de plusieurs dizaines de milliers de litres. De plus, l'amour blanc est une espèce invasive en Europe : sa détention est soumise à réglementation. Maintenez-le dans un grand bassin pour ses qualités d'entretien des plantes aquatiques.",
       },
     },
   },
@@ -1794,9 +1794,9 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Faux percula', 'Poisson-clown de Nemo', 'Clown ocellaris'],
     fiche: {
       description:
-        "Poisson marin emblématique, rendu célèbre par le cinéma d'animation. Il vit naturellement en symbiose avec des anémones de mer, mais s'en passe très bien en aquarium récifal. Sa hiérarchie sociale est stricte : la femelle est toujours l'individu dominant et le plus grand du groupe.",
+        "Poisson marin emblématique, rendu célèbre par le cinéma d'animation. Il vit naturellement en symbiose avec des anémones de mer, mais s'en passe très bien en aquarium récifal. Sa hiérarchie sociale est stricte : la femelle est toujours l'individu dominant et le plus grand du groupe.",
       conseil:
-        "Privilégiez toujours un sujet né en élevage (c'est aujourd'hui la quasi-totalité de ceux vendus) plutôt qu'un prélèvement sauvage : plus résistant et sans impact sur les populations naturelles. Introduisez-le seul ou en couple déjà formé — deux individus non appariés se bagarrent souvent.",
+        "Privilégiez toujours un sujet né en élevage (c'est aujourd'hui la quasi-totalité de ceux vendus) plutôt qu'un prélèvement sauvage : plus résistant et sans impact sur les populations naturelles. Introduisez-le seul ou en couple déjà formé — deux individus non appariés se bagarrent souvent.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Gobies, demoiselles calmes, crevettes de nettoyage.",
@@ -1806,7 +1806,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '8 à 9 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -1830,7 +1830,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le plus emblématique des poissons-clowns, orange vif à trois bandes blanches bordées de noir. Très majoritairement issu d'élevage aujourd'hui, il s'adapte facilement à la vie en aquarium récifal et forme un couple durable.",
       conseil:
-        "Il n'a pas besoin d'une anémone pour vivre : en aquarium, il s'accommode très bien d'un simple rocher ou corail comme point de repère, l'association avec une anémone étant un plus esthétique, non une nécessité.",
+        "Il n'a pas besoin d'une anémone pour vivre : en aquarium, il s'accommode très bien d'un simple rocher ou corail comme point de repère, l'association avec une anémone étant un plus esthétique, non une nécessité.",
       volumeMinLitres: 100,
       tailleGroupeMin: 2,
       compatibilite: "Autres poissons de récif paisibles, crevettes nettoyeuses, gobies.",
@@ -1840,7 +1840,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '6 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -1868,7 +1868,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson marin au bleu vif et à la silhouette ovale caractéristique, popularisé par le cinéma d'animation. Contrairement au poisson-clown, il n'est pratiquement jamais né en élevage à grande échelle et grandit vite — il a besoin d'un volume bien plus important qu'on ne l'imagine souvent.",
       conseil:
-        "Ne l'achetez jamais juvénile en pensant qu'un petit bac suffira : il atteint 25 à 30 cm et nage sur de grandes distances en milieu naturel, ce qui impose un bac long (au moins 1,5 m). Une épine acérée de chaque côté de la base de la queue (d'où son nom « chirurgien ») peut blesser en cas de manipulation imprudente : utilisez une épuisette et des gants plutôt que les mains nues. Il est sensible à l'oodinium (« ich ») : une quarantaine avant introduction et un bac riche en algues limitent le risque. Choisissez un sujet qui mange déjà en magasin, car il est presque toujours prélevé dans la nature.",
+        "Ne l'achetez jamais juvénile en pensant qu'un petit bac suffira : il atteint 25 à 30 cm et nage sur de grandes distances en milieu naturel, ce qui impose un bac long (au moins 1,5 m). Une épine acérée de chaque côté de la base de la queue (d'où son nom « chirurgien ») peut blesser en cas de manipulation imprudente : utilisez une épuisette et des gants plutôt que les mains nues. Il est sensible à l'oodinium (« ich ») : une quarantaine avant introduction et un bac riche en algues limitent le risque. Choisissez un sujet qui mange déjà en magasin, car il est presque toujours prélevé dans la nature.",
       volumeMinLitres: 500,
       tailleGroupeMin: 1,
       compatibilite: "Poissons-clowns, demoiselles, gobies — bac récifal ou marin établi de grand volume.",
@@ -1878,7 +1878,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Principalement algivore : algues, nori, complété par des granulés/paillettes marines.",
+      alimentation: "Principalement algivore : algues, nori, complété par des granulés/paillettes marines.",
       tailleAdulte: 'Jusqu’à 30 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -1902,7 +1902,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson-chirurgien entièrement jaune vif, très populaire en aquarium récifal pour sa couleur éclatante. Comme les autres chirurgiens, il porte une épine tranchante près de la queue qui lui donne son nom.",
       conseil:
-        "Il a besoin d'espace pour nager et brouter en continu : un bac trop petit ou pauvre en algues favorise le stress et les maladies, notamment l'ich, auquel ce genre est assez sensible. Prévoyez une quarantaine avant l'introduction et complétez son régime avec du nori ou des algues séchées chaque jour. Les épines tranchantes situées à la base de la queue peuvent blesser : manipulez-le avec une épuisette et des gants, jamais à mains nues.",
+        "Il a besoin d'espace pour nager et brouter en continu : un bac trop petit ou pauvre en algues favorise le stress et les maladies, notamment l'ich, auquel ce genre est assez sensible. Prévoyez une quarantaine avant l'introduction et complétez son régime avec du nori ou des algues séchées chaque jour. Les épines tranchantes situées à la base de la queue peuvent blesser : manipulez-le avec une épuisette et des gants, jamais à mains nues.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Autres poissons de récif paisibles, évitez plusieurs chirurgiens de la même espèce dans un bac trop petit.",
@@ -1912,7 +1912,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Principalement algivore : algues, nori, complété par des granulés/paillettes marines.",
+      alimentation: "Principalement algivore : algues, nori, complété par des granulés/paillettes marines.",
       tailleAdulte: '15 à 20 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -1940,7 +1940,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson récifal au bleu électrique intense, souvent l'un des premiers poissons introduits dans un aquarium marin débutant grâce à sa robustesse. Peut se montrer territorial une fois installé.",
       conseil:
-        "Très résistante mais aussi assez territoriale : introduisez-la en dernier ou en petit nombre impair, car plusieurs individus se disputent souvent âprement le territoire dans un bac de taille modeste.",
+        "Très résistante mais aussi assez territoriale : introduisez-la en dernier ou en petit nombre impair, car plusieurs individus se disputent souvent âprement le territoire dans un bac de taille modeste.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Autres poissons de récif de gabarit similaire ou supérieur.",
@@ -1950,7 +1950,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '6 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -1974,7 +1974,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson vert-argenté très grégaire, l'un des rares poissons de récif à réellement apprécier la vie en banc nombreux plutôt qu'en couple ou solitaire. Nage en groupe compact près des coraux.",
       conseil:
-        "Contrairement à beaucoup de demoiselles territoriales, elle s'épanouit en groupe conséquent : privilégiez un nombre suffisant plutôt qu'un ou deux individus isolés qui resteraient stressés.",
+        "Contrairement à beaucoup de demoiselles territoriales, elle s'épanouit en groupe conséquent : privilégiez un nombre suffisant plutôt qu'un ou deux individus isolés qui resteraient stressés.",
       volumeMinLitres: 150,
       tailleGroupeMin: 6,
       compatibilite: "Autres poissons de récif paisibles, coraux.",
@@ -1984,7 +1984,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '6 à 7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -1994,7 +1994,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Difficile",
-        description: "La demoiselle verte (Chromis viridis) se reproduit parfois en grand aquarium récifal bien établi. Le mâle prépare un site de ponte sur le substrat ou entre les coraux. La femelle dépose des œufs filamenteux que le mâle fertilise et garde. Incubation de 2-4 jours à 26°C. Les larves planctoniques sont très difficiles à élever : elles nécessitent des rotifères enrichis puis des nauplies d'artémia de petite taille, dans des conditions d'eau très stables.",
+        description: "La demoiselle verte (Chromis viridis) se reproduit parfois en grand aquarium récifal bien établi. Le mâle prépare un site de ponte sur le substrat ou entre les coraux. La femelle dépose des œufs filamenteux que le mâle fertilise et garde. Incubation de 2-4 jours à 26°C. Les larves planctoniques sont très difficiles à élever : elles nécessitent des rotifères enrichis puis des nauplies d'artémia de petite taille, dans des conditions d'eau très stables.",
       },
     },
   },
@@ -2006,14 +2006,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Labroides dimidiatus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Se nourrit quasi exclusivement de parasites prélevés sur d'autres poissons dans la nature : sa vente n'est pas interdite, mais son alimentation très spécialisée le rend difficile à maintenir durablement en aquarium fermé, où les parasites hôtes viennent à manquer.",
+      "Se nourrit quasi exclusivement de parasites prélevés sur d'autres poissons dans la nature : sa vente n'est pas interdite, mais son alimentation très spécialisée le rend difficile à maintenir durablement en aquarium fermé, où les parasites hôtes viennent à manquer.",
     citesAnnexe: null,
     autresNoms: ['Labre nettoyeur commun', 'Poisson nettoyeur'],
     fiche: {
       description:
         "Petit labre rayé de noir et de bleu, réputé dans la nature pour ses stations de nettoyage où d'autres poissons viennent se faire débarrasser de leurs parasites. Ce comportement très spécialisé se reproduit mal en captivité.",
       conseil:
-        "Réfléchissez sérieusement avant l'achat : privé de parasites naturels en aquarium fermé, il dépérit souvent lentement par sous-nutrition malgré des tentatives de nourrissage alternatif, même chez un aquariophile expérimenté. Il est préférable de renoncer à ce poisson plutôt que de le prélever dans la nature, car une grande partie des sujets ne survit pas plus de quelques mois.",
+        "Réfléchissez sérieusement avant l'achat : privé de parasites naturels en aquarium fermé, il dépérit souvent lentement par sous-nutrition malgré des tentatives de nourrissage alternatif, même chez un aquariophile expérimenté. Il est préférable de renoncer à ce poisson plutôt que de le prélever dans la nature, car une grande partie des sujets ne survit pas plus de quelques mois.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Grand bac récifal mature avec une population de poissons hôtes suffisante.",
@@ -2047,7 +2047,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson-ange rouge-orangé strié de violet sur l'arrière du corps, apprécié pour ses couleurs vives et sa taille modeste qui le rend adapté à des bacs plus petits que les grands poissons-anges.",
       conseil:
-        "Prévoyez suffisamment de roches vivantes avec des algues et du biofilm : il broute le décor toute la journée en complément de sa nourriture distribuée. Il n'est compatible avec un récif qu'avec précautions : certains individus grignotent le manteau des bénitiers, les polypes de certains LPS et les zoanthaires, surtout si le bac manque d'algues. Introduisez-le en dernier, après une quarantaine, dans un décor offrant de nombreuses cachettes, et limitez-vous à un seul poisson-ange nain dans un bac de moins de 400 L. Il est presque toujours prélevé dans la nature : choisissez un sujet qui mange déjà en magasin.",
+        "Prévoyez suffisamment de roches vivantes avec des algues et du biofilm : il broute le décor toute la journée en complément de sa nourriture distribuée. Il n'est compatible avec un récif qu'avec précautions : certains individus grignotent le manteau des bénitiers, les polypes de certains LPS et les zoanthaires, surtout si le bac manque d'algues. Introduisez-le en dernier, après une quarantaine, dans un décor offrant de nombreuses cachettes, et limitez-vous à un seul poisson-ange nain dans un bac de moins de 400 L. Il est presque toujours prélevé dans la nature : choisissez un sujet qui mange déjà en magasin.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Autres poissons de récif paisibles, éviter deux poissons-anges nains de même genre.",
@@ -2057,7 +2057,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore à tendance algivore : algues du décor, granulés/paillettes marines enrichis en spiruline.",
+      alimentation: "Omnivore à tendance algivore : algues du décor, granulés/paillettes marines enrichis en spiruline.",
       tailleAdulte: '7 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2067,7 +2067,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "Les poissons-anges nains (Centropyge sp.) se reproduisent rarement en aquarium. Un couple établi peut frayer à la tombée de la nuit : les œufs sont libérés dans la colonne d'eau. Les larves planctoniques sont extrêmement délicates à élever (microalgues, rotifères, copépodes nauplii). Des éleveurs professionnels ont obtenu des succès avec des protocoles très précis. Cette reproduction est actuellement en cours de développement par quelques structures spécialisées dans le monde pour réduire la pression sur les récifs naturels.",
+        description: "Les poissons-anges nains (Centropyge sp.) se reproduisent rarement en aquarium. Un couple établi peut frayer à la tombée de la nuit : les œufs sont libérés dans la colonne d'eau. Les larves planctoniques sont extrêmement délicates à élever (microalgues, rotifères, copépodes nauplii). Des éleveurs professionnels ont obtenu des succès avec des protocoles très précis. Cette reproduction est actuellement en cours de développement par quelques structures spécialisées dans le monde pour réduire la pression sur les récifs naturels.",
       },
     },
   },
@@ -2079,14 +2079,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Scarus sp.',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Cette espèce est rarement adaptée à l'aquarium domestique : sa taille adulte importante et son alimentation naturelle à base de corail vivant en font un poisson à réserver aux très grands bassins publics, à valider au cas par cas plutôt qu'à acheter en impulsion.",
+      "Cette espèce est rarement adaptée à l'aquarium domestique : sa taille adulte importante et son alimentation naturelle à base de corail vivant en font un poisson à réserver aux très grands bassins publics, à valider au cas par cas plutôt qu'à acheter en impulsion.",
     citesAnnexe: null,
     autresNoms: [],
     fiche: {
       description:
         "Poisson récifal aux couleurs vives, dont les dents soudées forment un bec puissant qui racle algues et surface du calcaire sur les récifs. L'appellation « Scarus sp. » recouvre de nombreuses espèces du genre Scarus, de 30 à plus de 70 cm. Grand nageur actif en permanence, il est quasi impossible à maintenir durablement en aquarium domestique et reste réservé aux très grands bassins publics.",
       conseil:
-        "Nous déconseillons son achat : le poisson-perroquet est quasi impossible à maintenir à long terme en aquarium domestique. Il dépasse souvent 30 à 50 cm, nage en permanence et racle sans cesse roches et décor, et son régime de brouteur de récif ne peut pas être reproduit : les sujets prélevés dépérissent le plus souvent en quelques mois. Ne l'achetez pas sur un coup de cœur, même juvénile ; si le comportement de brouteur vous attire, un petit chirurgien ou une blennie brouteuse, dans un bac adapté, est une alternative bien plus réaliste.",
+        "Nous déconseillons son achat : le poisson-perroquet est quasi impossible à maintenir à long terme en aquarium domestique. Il dépasse souvent 30 à 50 cm, nage en permanence et racle sans cesse roches et décor, et son régime de brouteur de récif ne peut pas être reproduit : les sujets prélevés dépérissent le plus souvent en quelques mois. Ne l'achetez pas sur un coup de cœur, même juvénile ; si le comportement de brouteur vous attire, un petit chirurgien ou une blennie brouteuse, dans un bac adapté, est une alternative bien plus réaliste.",
       volumeMinLitres: 2000,
       tailleGroupeMin: 1,
       compatibilite: "Grands poissons de récif dans un bassin de très grand volume.",
@@ -2118,9 +2118,9 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Gobie crevette jaune'],
     fiche: {
       description:
-        "Petit gobie doré-tacheté connu pour son association symbiotique naturelle avec une crevette pistolet : le gobie surveille les alentours pendant que la crevette, presque aveugle, creuse et entretient un terrier partagé par les deux.",
+        "Petit gobie doré-tacheté connu pour son association symbiotique naturelle avec une crevette pistolet : le gobie surveille les alentours pendant que la crevette, presque aveugle, creuse et entretient un terrier partagé par les deux.",
       conseil:
-        "Pour reproduire cette relation naturelle, associez-le à une crevette pistolet dans le même bac : les deux espèces s'adoptent souvent spontanément et ce comportement de coopération est fascinant à observer.",
+        "Pour reproduire cette relation naturelle, associez-le à une crevette pistolet dans le même bac : les deux espèces s'adoptent souvent spontanément et ce comportement de coopération est fascinant à observer.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Crevette pistolet (association naturelle), autres poissons de récif paisibles.",
@@ -2130,7 +2130,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '6 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2158,7 +2158,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson de fond tacheté, excellent brouteur d'algues qui passe la majorité de son temps à racler les roches et les vitres. Paisible et attachant, il se pose souvent sur le décor pour observer son environnement.",
       conseil:
-        "Il a besoin d'un bac déjà mature avec suffisamment d'algues naturelles pour se nourrir : un aquarium trop récent ou trop propre ne lui apporte pas assez de nourriture naturelle et peut le faire dépérir.",
+        "Il a besoin d'un bac déjà mature avec suffisamment d'algues naturelles pour se nourrir : un aquarium trop récent ou trop propre ne lui apporte pas assez de nourriture naturelle et peut le faire dépérir.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles, autres brouteurs d'algues non concurrents directs.",
@@ -2168,7 +2168,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Algivore : algues naturelles du bac, complément de nori et granulés à base de spiruline.",
+      alimentation: "Algivore : algues naturelles du bac, complément de nori et granulés à base de spiruline.",
       tailleAdulte: '10 à 14 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2186,14 +2186,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pterois volitans',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Poisson venimeux : sa vente est autorisée, mais ses épines dorsales injectent un venin douloureux au contact. Manipulez-le toujours avec précaution et jamais à mains nues lors de l'entretien du bac.",
+      "Poisson venimeux : sa vente est autorisée, mais ses épines dorsales injectent un venin douloureux au contact. Manipulez-le toujours avec précaution et jamais à mains nues lors de l'entretien du bac.",
     citesAnnexe: null,
     autresNoms: ['Rascasse volante', 'Poisson-lion rouge'],
     fiche: {
       description:
         "Prédateur de récif de l'Indo-Pacifique, reconnaissable à ses longues nageoires pectorales et dorsales rayées de rouge et de blanc qui évoquent une crinière. Chasseur à l'affût, surtout actif au crépuscule, il avale d'un coup poissons et crevettes presque aussi grands que sa bouche. Ses épines dorsales, anales et pelviennes portent un venin douloureux ; introduit accidentellement dans l'Atlantique ouest et les Caraïbes, il y est devenu très envahissant.",
       conseil:
-        "Le venin des épines provoque une douleur intense, un gonflement, parfois des nausées ou un malaise : en cas de piqûre, plongez la zone dans une eau aussi chaude que supportable (environ 45 °C) pendant 30 à 90 minutes et appelez le 15 ou le centre antipoison sans attendre. Ne manipulez jamais ce poisson à mains nues, même hors de l'eau, et ne le relâchez jamais dans la nature ni dans les canalisations. Carnivore strict, il avale tous les poissons et crevettes à portée de sa bouche : réservez-le à un bac spécialisé sans colocataires pouvant servir de proies, avec des cachettes et un éclairage tamisable.",
+        "Le venin des épines provoque une douleur intense, un gonflement, parfois des nausées ou un malaise : en cas de piqûre, plongez la zone dans une eau aussi chaude que supportable (environ 45 °C) pendant 30 à 90 minutes et appelez le 15 ou le centre antipoison sans attendre. Ne manipulez jamais ce poisson à mains nues, même hors de l'eau, et ne le relâchez jamais dans la nature ni dans les canalisations. Carnivore strict, il avale tous les poissons et crevettes à portée de sa bouche : réservez-le à un bac spécialisé sans colocataires pouvant servir de proies, avec des cachettes et un éclairage tamisable.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: 'Grands poissons de récif (de taille nettement supérieure à sa bouche) dans un bac spécialisé ; incompatible avec les poissons plus petits et tout invertébré.',
@@ -2203,7 +2203,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: 'Carnivore strict : petits poissons vivants ou décongelés, crevettes ; peut être entraîné à accepter des proies mortes sur baguette.',
+      alimentation: 'Carnivore strict : petits poissons vivants ou décongelés, crevettes ; peut être entraîné à accepter des proies mortes sur baguette.',
       tailleAdulte: '30 à 38 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2213,7 +2213,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "Le poisson lion (Pterois volitans) peut frayer en aquarium mais les larves sont quasi-impossibles à élever en amateur. Le couple fraye la nuit : la femelle libère une masse gélatineuse contenant les œufs (jusqu'à 15000) qui flottent en surface. Les larves planctoniques minuscules nécessitent des rotifères nauplii et des microalgues. L'élevage est réalisé dans quelques centres spécialisés aux USA. ATTENTION : espèce invasive hors de son aire naturelle. Ne jamais relâcher dans la nature.",
+        description: "Le poisson lion (Pterois volitans) peut frayer en aquarium mais les larves sont quasi-impossibles à élever en amateur. Le couple fraye la nuit : la femelle libère une masse gélatineuse contenant les œufs (jusqu'à 15000) qui flottent en surface. Les larves planctoniques minuscules nécessitent des rotifères nauplii et des microalgues. L'élevage est réalisé dans quelques centres spécialisés aux USA. ATTENTION : espèce invasive hors de son aire naturelle. Ne jamais relâcher dans la nature.",
       },
     },
   },
@@ -2231,7 +2231,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson marin emblématique à la nage verticale unique, l'hippocampe est un nageur lent et un chasseur à l'affût, très différent des poissons récifaux classiques. Il forme des couples fidèles, et c'est le mâle qui porte les œufs dans une poche ventrale jusqu'à l'éclosion.",
       conseil:
-        "Choisissez exclusivement un hippocampe né en élevage et déjà habitué aux mysis congelées, plutôt qu'un prélèvement dans la nature : les sujets sauvages dépérissent souvent et refusent la nourriture inerte. Installez-le dans un bac dédié et calme, sans courant fort ni poissons rapides qui lui voleraient sa nourriture, avec des supports (gorgones artificielles, macroalgues) où enrouler sa queue, et nourrissez-le au moins deux fois par jour. Gardez une température stable, sans dépasser 25 °C, et évitez les coraux urticants et les anémones : il est fragile face aux infections bactériennes, et une perte d'appétit ou des bulles sous la peau demandent une réaction immédiate.",
+        "Choisissez exclusivement un hippocampe né en élevage et déjà habitué aux mysis congelées, plutôt qu'un prélèvement dans la nature : les sujets sauvages dépérissent souvent et refusent la nourriture inerte. Installez-le dans un bac dédié et calme, sans courant fort ni poissons rapides qui lui voleraient sa nourriture, avec des supports (gorgones artificielles, macroalgues) où enrouler sa queue, et nourrissez-le au moins deux fois par jour. Gardez une température stable, sans dépasser 25 °C, et évitez les coraux urticants et les anémones : il est fragile face aux infections bactériennes, et une perte d'appétit ou des bulles sous la peau demandent une réaction immédiate.",
       volumeMinLitres: 150,
       tailleGroupeMin: 2,
       compatibilite: "Bac spécifique et calme, crevettes de nettoyage, poissons très lents et non compétiteurs pour la nourriture.",
@@ -2241,7 +2241,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 25,
       difficulte: 'Expert',
-      alimentation: "Carnivore : petits crustacés vivants ou congelés (mysis), difficile à faire accepter des aliments inertes.",
+      alimentation: "Carnivore : petits crustacés vivants ou congelés (mysis), difficile à faire accepter des aliments inertes.",
       tailleAdulte: '12 à 18 cm selon l’espèce',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2259,14 +2259,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Tridacna maxima',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Espèce classée CITES Annexe II : un certificat justifiant une origine d'élevage ou d'importation légale est obligatoire pour la vente et l'achat.",
+      "Espèce classée CITES Annexe II : un certificat justifiant une origine d'élevage ou d'importation légale est obligatoire pour la vente et l'achat.",
     citesAnnexe: 'B',
     autresNoms: ['Bénitier maxima', 'Petit bénitier'],
     fiche: {
       description:
         "Grand bénitier au manteau aux couleurs vives (bleu, vert, doré), vivant en symbiose avec des algues photosynthétiques comme les coraux. Immobile une fois installé, il se ferme rapidement en cas de danger perçu.",
       conseil:
-        "Il a besoin d'un éclairage intense proche de celui des coraux durs pour nourrir ses algues symbiotiques : un bac trop faiblement éclairé le fait dépérir lentement sans autre symptôme visible.",
+        "Il a besoin d'un éclairage intense proche de celui des coraux durs pour nourrir ses algues symbiotiques : un bac trop faiblement éclairé le fait dépérir lentement sans autre symptôme visible.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Coraux et poissons de récif paisibles, dans un bac mature et bien éclairé.",
@@ -2289,7 +2289,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "La reproduction du bénitier Tridacna en aquarium est extrêmement difficile. Ces mollusques hermaphrodites libèrent leurs gamètes dans l'eau selon des cycles lunaires. Les larves véligères planctoniques nécessitent des microalgues spécifiques et des conditions très précises pour se métamorphoser. Quelques stations marines et éleveurs professionnels produisent des bénitiers d'élevage, rendant l'acquisition de spécimens captifs possible. ATTENTION : espèce protégée CITES – achetez uniquement des bénitiers certifiés élevés en captivité.",
+        description: "La reproduction du bénitier Tridacna en aquarium est extrêmement difficile. Ces mollusques hermaphrodites libèrent leurs gamètes dans l'eau selon des cycles lunaires. Les larves véligères planctoniques nécessitent des microalgues spécifiques et des conditions très précises pour se métamorphoser. Quelques stations marines et éleveurs professionnels produisent des bénitiers d'élevage, rendant l'acquisition de spécimens captifs possible. ATTENTION : espèce protégée CITES – achetez uniquement des bénitiers certifiés élevés en captivité.",
       },
     },
   },
@@ -2305,9 +2305,9 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Acropore', 'Corail corne de cerf'],
     fiche: {
       description:
-        "Genre de corail dur (SPS) parmi les plus prisés en récifal pour ses formes ramifiées ou en table et ses couleurs vives sous éclairage adapté. Il compte aussi parmi les plus exigeants : stabilité des paramètres d'eau (kH, calcium, magnésium), éclairage puissant et fort courant sont indispensables. « Acropora sp. » regroupe de très nombreuses espèces, aux besoins proches mais pas identiques.",
+        "Genre de corail dur (SPS) parmi les plus prisés en récifal pour ses formes ramifiées ou en table et ses couleurs vives sous éclairage adapté. Il compte aussi parmi les plus exigeants : stabilité des paramètres d'eau (kH, calcium, magnésium), éclairage puissant et fort courant sont indispensables. « Acropora sp. » regroupe de très nombreuses espèces, aux besoins proches mais pas identiques.",
       conseil:
-        "Ne l'introduisez que dans un bac mature depuis plus de 6 à 12 mois, aux paramètres très stables (kH de 7 à 8,5 dKH, calcium vers 420 mg/L, magnésium vers 1 300 mg/L) et aux nitrates et phosphates bas mais non nuls. Prévoyez un éclairage puissant et un brassage vigoureux, et acclimatez la bouture à la lumière progressivement pour éviter le blanchiment. Préférez les boutures cultivées en aquarium, bien plus tolérantes que les colonies prélevées. Surveillez les signes d'alerte : perte de couleur, tissus qui se détachent du squelette et apparition de planaires mangeuses d'acropores.",
+        "Ne l'introduisez que dans un bac mature depuis plus de 6 à 12 mois, aux paramètres très stables (kH de 7 à 8,5 dKH, calcium vers 420 mg/L, magnésium vers 1 300 mg/L) et aux nitrates et phosphates bas mais non nuls. Prévoyez un éclairage puissant et un brassage vigoureux, et acclimatez la bouture à la lumière progressivement pour éviter le blanchiment. Préférez les boutures cultivées en aquarium, bien plus tolérantes que les colonies prélevées. Surveillez les signes d'alerte : perte de couleur, tissus qui se détachent du squelette et apparition de planaires mangeuses d'acropores.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Bac récifal mature avec paramètres stables, éclairage LED/HQI puissant, brassage important.",
@@ -2333,7 +2333,7 @@ export const ESPECES: Espece[] = [
         placement: 'Haut de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: 'Bouturage par fragmentation : on coupe une branche à la pince ou à la scie fine et on la colle sur un support avec de la colle cyanoacrylate gel ou une résine époxy. Les fragments reprennent vite dans un bac stable et bien éclairé.',
+        multiplication: 'Bouturage par fragmentation : on coupe une branche à la pince ou à la scie fine et on la colle sur un support avec de la colle cyanoacrylate gel ou une résine époxy. Les fragments reprennent vite dans un bac stable et bien éclairé.',
       },
     },
   },
@@ -2345,14 +2345,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Euphyllia ancora',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Comme la plupart des coraux durs, il est listé CITES Annexe II : sa vente et son achat nécessitent une origine d'élevage ou d'importation légale traçable, à vérifier avant toute transaction.",
+      "Comme la plupart des coraux durs, il est listé CITES Annexe II : sa vente et son achat nécessitent une origine d'élevage ou d'importation légale traçable, à vérifier avant toute transaction.",
     citesAnnexe: 'B',
     autresNoms: ['Euphyllia marteau'],
     fiche: {
       description:
         "Corail dur (LPS) aux tentacules en forme de marteau ou de fer à cheval, qui se déploient largement de jour comme de nuit. Apprécié pour son mouvement gracieux et sa relative facilité par rapport à d'autres LPS.",
       conseil:
-        "Ses tentacules urticants peuvent atteindre et irriter les coraux voisins placés trop près : prévoyez un espace suffisant autour de la colonie pour éviter les conflits de territoire.",
+        "Ses tentacules urticants peuvent atteindre et irriter les coraux voisins placés trop près : prévoyez un espace suffisant autour de la colonie pour éviter les conflits de territoire.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Autres LPS à distance suffisante, poissons de récif paisibles.",
@@ -2394,14 +2394,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Sarcophyton sp.',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Les coraux mous non scléractiniaires comme celui-ci ne sont généralement pas listés CITES, contrairement aux coraux durs : à confirmer espèce par espèce en cas de doute avant une vente.",
+      "Les coraux mous non scléractiniaires comme celui-ci ne sont généralement pas listés CITES, contrairement aux coraux durs : à confirmer espèce par espèce en cas de doute avant une vente.",
     citesAnnexe: null,
     autresNoms: ['Corail toadstool', 'Corail champignon de cuir'],
     fiche: {
       description:
         "Corail mou en forme de champignon ou de plateau, souvent recommandé aux débutants en récifal car plus tolérant que les coraux durs face aux variations de paramètres. Ondule doucement au courant.",
       conseil:
-        "Nettement plus tolérant que les LPS/SPS : c'est un excellent premier corail pour se lancer dans le récifal, à condition de garder un éclairage et un brassage modérés mais réguliers.",
+        "Nettement plus tolérant que les LPS/SPS : c'est un excellent premier corail pour se lancer dans le récifal, à condition de garder un éclairage et un brassage modérés mais réguliers.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Autres coraux mous, poissons de récif paisibles.",
@@ -2445,7 +2445,7 @@ export const ESPECES: Espece[] = [
       description:
         "Anémone hôte reconnaissable à ses tentacules renflés en forme de bulbe, souvent choisie pour héberger un couple de poissons-clowns. Contrairement à l'anémone à tapis, elle est réputée plus tolérante pour un aquariophile expérimenté.",
       conseil:
-        "Un éclairage puissant et stable ainsi qu'un brassage adapté sont indispensables : une anémone qui se rétracte ou se déplace sans cesse signale des conditions inadéquates, à corriger avant qu'elle ne dépérisse.",
+        "Un éclairage puissant et stable ainsi qu'un brassage adapté sont indispensables : une anémone qui se rétracte ou se déplace sans cesse signale des conditions inadéquates, à corriger avant qu'elle ne dépérisse.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Poissons-clowns, dans un bac mature avec un éclairage et une chimie d'eau stables.",
@@ -2455,7 +2455,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Carnivore : morceaux de poisson ou de crevette, mysis, 1 à 2 fois par semaine.",
+      alimentation: "Carnivore : morceaux de poisson ou de crevette, mysis, 1 à 2 fois par semaine.",
       tailleAdulte: '15 à 30 cm de diamètre',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2487,14 +2487,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Stichodactyla sp.',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Réputée plus difficile à maintenir durablement que l'anémone bulbe : un taux de survie plus faible est couramment observé en aquarium, même chez des aquariophiles expérimentés.",
+      "Réputée plus difficile à maintenir durablement que l'anémone bulbe : un taux de survie plus faible est couramment observé en aquarium, même chez des aquariophiles expérimentés.",
     citesAnnexe: null,
     autresNoms: ['Anémone tapis', 'Carpet'],
     fiche: {
       description:
         "Grande anémone hôte qui s'étale largement sur le substrat comme un tapis, d'où son nom. Peut héberger des poissons-clowns, mais reste réputée plus délicate que l'anémone bulbe à maintenir sur la durée.",
       conseil:
-        "Réservez-la à un bac déjà bien établi (plus d'un an) avec un éclairage puissant et une chimie d'eau irréprochable : c'est une espèce à réserver à un aquariophile confirmé, pas à un premier récifal.",
+        "Réservez-la à un bac déjà bien établi (plus d'un an) avec un éclairage puissant et une chimie d'eau irréprochable : c'est une espèce à réserver à un aquariophile confirmé, pas à un premier récifal.",
       volumeMinLitres: 300,
       tailleGroupeMin: null,
       compatibilite: "Poissons-clowns, dans un bac mature avec un éclairage puissant et stable.",
@@ -2504,7 +2504,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Carnivore : morceaux de poisson ou de crevette, mysis, 1 à 2 fois par semaine.",
+      alimentation: "Carnivore : morceaux de poisson ou de crevette, mysis, 1 à 2 fois par semaine.",
       tailleAdulte: '30 à 50 cm de diamètre',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2536,9 +2536,9 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Crevette nettoyeuse rouge et blanche', 'Crevette Lysmata'],
     fiche: {
       description:
-        "Crevette marine rayée de rouge et blanc, réputée pour son comportement de nettoyage : elle débarrasse les poissons de leurs parasites externes lors de véritables séances de \"toilettage\" au niveau de stations dédiées.",
+        "Crevette marine rayée de rouge et blanc, réputée pour son comportement de nettoyage : elle débarrasse les poissons de leurs parasites externes lors de véritables séances de \"toilettage\" au niveau de stations dédiées.",
       conseil:
-        "Elle supporte généralement ses congénères et s'associe volontiers en couple ou en petit groupe ; offrez-lui quelques cachettes, les frictions étant surtout possibles à l'introduction dans un petit bac. Son point faible est l'acclimatation : comme tous les crustacés, elle est très sensible aux variations de salinité et de densité, aux nitrates élevés et au cuivre, donc acclimatez-la lentement, au goutte-à-goutte. Elle mue régulièrement : l'exosquelette retrouvé dans le bac n'est pas un cadavre, mais une carapace molle ou un animal prostré signale une eau déséquilibrée.",
+        "Elle supporte généralement ses congénères et s'associe volontiers en couple ou en petit groupe ; offrez-lui quelques cachettes, les frictions étant surtout possibles à l'introduction dans un petit bac. Son point faible est l'acclimatation : comme tous les crustacés, elle est très sensible aux variations de salinité et de densité, aux nitrates élevés et au cuivre, donc acclimatez-la lentement, au goutte-à-goutte. Elle mue régulièrement : l'exosquelette retrouvé dans le bac n'est pas un cadavre, mais une carapace molle ou un animal prostré signale une eau déséquilibrée.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles, autres invertébrés non prédateurs.",
@@ -2548,7 +2548,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore/nettoyeuse : parasites et mucus des poissons hôtes, complément de granulés marins.",
+      alimentation: "Omnivore/nettoyeuse : parasites et mucus des poissons hôtes, complément de granulés marins.",
       tailleAdulte: '5 à 6 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2576,7 +2576,7 @@ export const ESPECES: Espece[] = [
       description:
         "Crevette fouisseuse presque aveugle, célèbre pour sa pince surdimensionnée capable de produire un claquement sonore surprenant utilisé pour étourdir ses proies. S'associe souvent en symbiose avec un gobie crevette.",
       conseil:
-        "Associez-la à un gobie crevette pour recréer leur relation naturelle : le gobie surveille les prédateurs pendant que la crevette creuse et entretient le terrier partagé, un comportement fascinant à observer.",
+        "Associez-la à un gobie crevette pour recréer leur relation naturelle : le gobie surveille les prédateurs pendant que la crevette creuse et entretient le terrier partagé, un comportement fascinant à observer.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Gobie crevette (association naturelle), poissons de récif paisibles.",
@@ -2586,7 +2586,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore/détritivore : restes de nourriture, granulés/paillettes marines coulants.",
+      alimentation: "Omnivore/détritivore : restes de nourriture, granulés/paillettes marines coulants.",
       tailleAdulte: '4 à 6 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2620,7 +2620,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, restes de nourriture, granulés/paillettes marines coulants.",
+      alimentation: "Omnivore/détritivore : algues, restes de nourriture, granulés/paillettes marines coulants.",
       tailleAdulte: '2 à 4 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2642,14 +2642,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Linckia laevigata',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Réputée fragile avec un taux de survie faible en captivité, notamment en bac trop jeune ou pauvre en nourriture naturelle : à réserver à un aquariophile expérimenté disposant d'un bac mature.",
+      "Réputée fragile avec un taux de survie faible en captivité, notamment en bac trop jeune ou pauvre en nourriture naturelle : à réserver à un aquariophile expérimenté disposant d'un bac mature.",
     citesAnnexe: null,
     autresNoms: ['Linckia bleue', 'Étoile de mer Linckia'],
     fiche: {
       description:
         "Grande étoile de mer au bleu éclatant très photogénique, mais notoirement difficile à maintenir sur la durée en captivité, se nourrissant essentiellement de biofilm et de micro-organismes présents sur les roches vivantes.",
       conseil:
-        "Réservez-la à un bac très mature (plus d'un an) avec une quantité abondante de roches vivantes couvertes de biofilm : sans cette base alimentaire naturelle, elle dépérit lentement malgré une apparence de bonne santé initiale.",
+        "Réservez-la à un bac très mature (plus d'un an) avec une quantité abondante de roches vivantes couvertes de biofilm : sans cette base alimentaire naturelle, elle dépérit lentement malgré une apparence de bonne santé initiale.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Bac récifal mature avec une population abondante de roches vivantes.",
@@ -2659,7 +2659,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Détritivore : biofilm et micro-organismes sur les roches vivantes.",
+      alimentation: "Détritivore : biofilm et micro-organismes sur les roches vivantes.",
       tailleAdulte: '25 à 30 cm de diamètre',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2683,7 +2683,7 @@ export const ESPECES: Espece[] = [
       description:
         "Grand escargot marin à coquille conique robuste, considéré comme l'un des meilleurs nettoyeurs d'algues pour un aquarium récifal. Se déplace lentement sur les roches et les vitres en broutant en continu.",
       conseil:
-        "Sa coquille peut se renverser et le piéger : un décor avec suffisamment de roches et de surfaces variées lui permet de se retourner facilement s'il tombe sur le dos.",
+        "Sa coquille peut se renverser et le piéger : un décor avec suffisamment de roches et de surfaces variées lui permet de se retourner facilement s'il tombe sur le dos.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Poissons de récif paisibles, autres invertébrés non prédateurs.",
@@ -2693,7 +2693,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Algivore : algues et biofilm des roches et des vitres.",
+      alimentation: "Algivore : algues et biofilm des roches et des vitres.",
       tailleAdulte: '4 à 5 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2721,7 +2721,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit escargot fouisseur qui passe la majorité de son temps enfoui dans le sable, ne ressortant que pour se nourrir de restes de nourriture ou de matière organique en décomposition. Très utile pour garder un sable propre et aéré.",
       conseil:
-        "Excellent nettoyeur de fond dans un bac récifal : il détecte rapidement les restes de nourriture tombés au sol et les consomme avant qu'ils ne se décomposent et ne dégradent la qualité de l'eau.",
+        "Excellent nettoyeur de fond dans un bac récifal : il détecte rapidement les restes de nourriture tombés au sol et les consomme avant qu'ils ne se décomposent et ne dégradent la qualité de l'eau.",
       volumeMinLitres: 100,
       tailleGroupeMin: 5,
       compatibilite: "Poissons de récif paisibles, autres invertébrés non prédateurs.",
@@ -2731,7 +2731,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Détritivore : restes de nourriture, matière organique en décomposition dans le sable.",
+      alimentation: "Détritivore : restes de nourriture, matière organique en décomposition dans le sable.",
       tailleAdulte: '2 à 3 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2749,14 +2749,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Conus textile',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Ce coquillage possède un venin qui peut être mortel pour l'humain : il tire un harpon venimeux pour capturer ses proies et peut piquer une main qui le manipule. Cette espèce ne doit jamais être proposée en libre-service ; toute demande doit être orientée vers une validation systématique par précaution.",
+      "Ce coquillage possède un venin qui peut être mortel pour l'humain : il tire un harpon venimeux pour capturer ses proies et peut piquer une main qui le manipule. Cette espèce ne doit jamais être proposée en libre-service ; toute demande doit être orientée vers une validation systématique par précaution.",
     citesAnnexe: null,
     autresNoms: ['Cône textile'],
     fiche: {
       description:
-        "Escargot marin prédateur de l'Indo-Pacifique, à la coquille conique ornée de motifs triangulaires évoquant un tissu brodé, d'où son nom. Il chasse surtout la nuit en projetant une dent creuse en forme de harpon, reliée à une glande à venin, qui paralyse sa proie en quelques secondes. Son venin neurotoxique est potentiellement mortel pour l'humain : des accidents graves et des décès sont documentés dans la littérature médicale.",
+        "Escargot marin prédateur de l'Indo-Pacifique, à la coquille conique ornée de motifs triangulaires évoquant un tissu brodé, d'où son nom. Il chasse surtout la nuit en projetant une dent creuse en forme de harpon, reliée à une glande à venin, qui paralyse sa proie en quelques secondes. Son venin neurotoxique est potentiellement mortel pour l'humain : des accidents graves et des décès sont documentés dans la littérature médicale.",
       conseil:
-        "Ne touchez jamais un cône, vivant ou non, et ne le ramassez ni à mains nues ni avec des gants fins : le harpon traverse les matières souples. En cas de piqûre, appelez immédiatement le 15, gardez la personne au calme, immobilisez le membre sans comprimer fortement, et ne pratiquez ni incision ni succion. Si un cône arrive dans le bac par hasard (sable, roche vivante), ne le manipulez pas et demandez conseil à un professionnel. Son alimentation très spécialisée (gastéropodes vivants) et le danger constant qu'il représente lors de toute intervention rendent son entretien réservé à des aquariophiles très expérimentés disposant d'équipements de protection adaptés.",
+        "Ne touchez jamais un cône, vivant ou non, et ne le ramassez ni à mains nues ni avec des gants fins : le harpon traverse les matières souples. En cas de piqûre, appelez immédiatement le 15, gardez la personne au calme, immobilisez le membre sans comprimer fortement, et ne pratiquez ni incision ni succion. Si un cône arrive dans le bac par hasard (sable, roche vivante), ne le manipulez pas et demandez conseil à un professionnel. Son alimentation très spécialisée (gastéropodes vivants) et le danger constant qu'il représente lors de toute intervention rendent son entretien réservé à des aquariophiles très expérimentés disposant d'équipements de protection adaptés.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Aucun colocataire recommandé en aquarium général ; uniquement dans un bac spécialisé sous surveillance et sans accès sans protection.',
@@ -2766,7 +2766,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Carnivore molluscivore : principalement des gastéropodes (escargots marins), capturés au harpon venimeux ; les « petits poissons et vers marins » indiqués dans la fiche d'origine ne correspondent pas au régime typique de Conus textile.",
+      alimentation: "Carnivore molluscivore : principalement des gastéropodes (escargots marins), capturés au harpon venimeux ; les « petits poissons et vers marins » indiqués dans la fiche d'origine ne correspondent pas au régime typique de Conus textile.",
       tailleAdulte: '10 à 15 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2791,9 +2791,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Petite crevette d'eau douce très facile à maintenir et à reproduire dans un bac mature — une population s'installe souvent d'elle-même sans intervention. Excellent indicateur de la qualité de l'eau : elle est très sensible aux pics d'ammoniac et de nitrites.",
+        "Petite crevette d'eau douce très facile à maintenir et à reproduire dans un bac mature — une population s'installe souvent d'elle-même sans intervention. Excellent indicateur de la qualité de l'eau : elle est très sensible aux pics d'ammoniac et de nitrites.",
       conseil:
-        "Ne traitez jamais un bac qui héberge des crevettes avec un médicament à base de cuivre : c'est mortel pour elles, même à faible dose. Attention aussi à tout poisson introduit par la suite, qui pourrait chasser les juvéniles.",
+        "Ne traitez jamais un bac qui héberge des crevettes avec un médicament à base de cuivre : c'est mortel pour elles, même à faible dose. Attention aussi à tout poisson introduit par la suite, qui pourrait chasser les juvéniles.",
       volumeMinLitres: 20,
       tailleGroupeMin: 10,
       compatibilite: "Autres crevettes Neocaridina, escargots, poissons très calmes et non prédateurs.",
@@ -2803,7 +2803,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
     },
   },
@@ -2820,7 +2820,7 @@ export const ESPECES: Espece[] = [
       description:
         "Crevette d'ornement très recherchée pour son motif blanc et rouge marqué, issue de sélections poussées du genre Caridina. Plus exigeante que les Neocaridina (red cherry), elle demande une eau plus douce et stable.",
       conseil:
-        "Contrairement aux crevettes red cherry, elle a besoin d'un GH et d'un pH plus bas et stables : un sol actif spécifique crevettes et une eau osmosée reminéralisée sont fortement recommandés pour la maintenir durablement.",
+        "Contrairement aux crevettes red cherry, elle a besoin d'un GH et d'un pH plus bas et stables : un sol actif spécifique crevettes et une eau osmosée reminéralisée sont fortement recommandés pour la maintenir durablement.",
       volumeMinLitres: 40,
       tailleGroupeMin: 10,
       compatibilite: "Autres Caridina de même exigence, petits poissons très paisibles et non prédateurs.",
@@ -2830,7 +2830,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 24,
       difficulte: 'Expert',
-      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
+      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Difficile",
@@ -2851,7 +2851,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plus grande que la Red Cherry, la crevette Amano est réputée pour son appétit vorace envers les algues, y compris les algues filamenteuses coriaces que peu d'autres espèces consomment. Rendue célèbre par l'aquascaper Takashi Amano qui l'utilisait pour entretenir ses bacs plantés.",
       conseil:
-        "Contrairement aux Neocaridina, l'Amano ne se reproduit pas en eau douce (ses larves ont besoin d'eau saumâtre) : pas de risque de prolifération, mais pas de population auto-entretenue non plus — il faut racheter des individus si besoin de renouveler le groupe.",
+        "Contrairement aux Neocaridina, l'Amano ne se reproduit pas en eau douce (ses larves ont besoin d'eau saumâtre) : pas de risque de prolifération, mais pas de population auto-entretenue non plus — il faut racheter des individus si besoin de renouveler le groupe.",
       volumeMinLitres: 40,
       tailleGroupeMin: 5,
       compatibilite: "Poissons paisibles de petite et moyenne taille, autres crevettes, escargots.",
@@ -2861,7 +2861,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Algivore vorace : algues filamenteuses, biofilm, complément de légumes blanchis si besoin.",
+      alimentation: "Algivore vorace : algues filamenteuses, biofilm, complément de légumes blanchis si besoin.",
       tailleAdulte: '4 à 6 cm',
     },
   },
@@ -2878,7 +2878,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petite crevette d'eau douce presque totalement transparente, d'où son nom. Moins colorée que la red cherry mais tout aussi facile à maintenir, elle se fond discrètement dans le décor.",
       conseil:
-        "Sa transparence la rend difficile à repérer : comptez-la régulièrement lors des observations plutôt que de vous fier à un simple coup d'œil pour suivre l'évolution de la population.",
+        "Sa transparence la rend difficile à repérer : comptez-la régulièrement lors des observations plutôt que de vous fier à un simple coup d'œil pour suivre l'évolution de la population.",
       volumeMinLitres: 20,
       tailleGroupeMin: 6,
       compatibilite: "Poissons très paisibles et non prédateurs, autres crevettes d'ornement.",
@@ -2888,7 +2888,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes.",
       tailleAdulte: '2,5 à 3,5 cm',
       reproduction: {
         facilite: "Modérée",
@@ -2909,7 +2909,7 @@ export const ESPECES: Espece[] = [
       description:
         "Gros escargot d'eau douce disponible dans de nombreuses couleurs (doré, bleu, ivoire), apprécié pour sa taille imposante et son caractère paisible. Il respire à la fois par des branchies et un siphon respiratoire, remontant régulièrement chercher de l'air en surface.",
       conseil:
-        "Vérifiez toujours l'espèce exacte avant l'achat : le genre Pomacea contient aussi des espèces invasives interdites en France (P. canaliculata, P. maculata), visuellement très proches de l'escargot mystère autorisé. En cas de doute sur l'origine ou l'identification, ne prenez pas le risque.",
+        "Vérifiez toujours l'espèce exacte avant l'achat : le genre Pomacea contient aussi des espèces invasives interdites en France (P. canaliculata, P. maculata), visuellement très proches de l'escargot mystère autorisé. En cas de doute sur l'origine ou l'identification, ne prenez pas le risque.",
       volumeMinLitres: 40,
       tailleGroupeMin: 1,
       compatibilite: "Poissons paisibles, crevettes, autres escargots non prédateurs.",
@@ -2919,7 +2919,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : algues, biofilm, légumes blanchis, restes de nourriture.",
+      alimentation: "Omnivore : algues, biofilm, légumes blanchis, restes de nourriture.",
       tailleAdulte: '4 à 6 cm',
     },
   },
@@ -2934,9 +2934,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Escargot d'eau douce parmi les plus appréciés pour lutter contre les algues : il en consomme de grandes quantités sans jamais toucher aux plantes saines, contrairement à d'autres espèces plus opportunistes. Sa coquille présente des motifs variés selon les variétés (zébrée, tigrée, à cornes...).",
+        "Escargot d'eau douce parmi les plus appréciés pour lutter contre les algues : il en consomme de grandes quantités sans jamais toucher aux plantes saines, contrairement à d'autres espèces plus opportunistes. Sa coquille présente des motifs variés selon les variétés (zébrée, tigrée, à cornes...).",
       conseil:
-        "La néritine ne se reproduit pas en eau douce (elle a besoin d'eau saumâtre pour ses larves) : pas de risque de prolifération incontrôlée, contrairement aux escargots planorbes ou physes. Les œufs blancs qu'elle pond sur le décor n'écloront donc jamais en aquarium d'eau douce pure.",
+        "La néritine ne se reproduit pas en eau douce (elle a besoin d'eau saumâtre pour ses larves) : pas de risque de prolifération incontrôlée, contrairement aux escargots planorbes ou physes. Les œufs blancs qu'elle pond sur le décor n'écloront donc jamais en aquarium d'eau douce pure.",
       volumeMinLitres: 20,
       tailleGroupeMin: 1,
       compatibilite: "Quasiment tous les poissons et invertébrés paisibles ; excellent compagnon des bacs à crevettes.",
@@ -2946,11 +2946,11 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Algivore : algues et biofilm ; complément de pastilles à base de spiruline si les algues manquent.",
+      alimentation: "Algivore : algues et biofilm ; complément de pastilles à base de spiruline si les algues manquent.",
       tailleAdulte: '2 à 2,5 cm',
       reproduction: {
         facilite: "Difficile",
-        description: "Les néritines (Neritina sp.) peuvent pondre en aquarium : les capsules ovifères blanches sont visibles sur les vitres et décorations. Cependant, leurs larves sont marines et amphidromes : elles ont besoin d'eau de mer pour se développer. Sans eau salée, les larves périssent rapidement. La reproduction complète en aquarium d'eau douce fermé est donc quasi-impossible. Pour l'espèce Neritina natalensis (olive à picots), quelques tentatives en bac saumâtre ont eu lieu mais restent rares et complexes.",
+        description: "Les néritines (Neritina sp.) peuvent pondre en aquarium : les capsules ovifères blanches sont visibles sur les vitres et décorations. Cependant, leurs larves sont marines et amphidromes : elles ont besoin d'eau de mer pour se développer. Sans eau salée, les larves périssent rapidement. La reproduction complète en aquarium d'eau douce fermé est donc quasi-impossible. Pour l'espèce Neritina natalensis (olive à picots), quelques tentatives en bac saumâtre ont eu lieu mais restent rares et complexes.",
       },
     },
   },
@@ -2967,7 +2967,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit escargot d'aquarium à coquille discoïdale rouge-orangé, très facile à maintenir et utile pour nettoyer les débris et le biofilm. Se reproduit facilement dès que les conditions sont favorables.",
       conseil:
-        "Sa reproduction est rapide en conditions favorables (nourriture abondante) : surveillez la population et réduisez les apports de nourriture si elle devient trop importante, plutôt que de chercher à l'éliminer complètement.",
+        "Sa reproduction est rapide en conditions favorables (nourriture abondante) : surveillez la population et réduisez les apports de nourriture si elle devient trop importante, plutôt que de chercher à l'éliminer complètement.",
       volumeMinLitres: 20,
       tailleGroupeMin: null,
       compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
@@ -2977,7 +2977,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture.",
+      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture.",
       tailleAdulte: '1,5 à 2 cm',
     },
   },
@@ -2994,7 +2994,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit escargot à coquille pointue et allongée, souvent introduit involontairement via des plantes achetées en animalerie. Se reproduit très rapidement dès que la nourriture est abondante.",
       conseil:
-        "Souvent perçu comme envahissant à cause de sa reproduction rapide, il reste totalement inoffensif : réduire les apports de nourriture suffit généralement à stabiliser naturellement sa population sans intervention.",
+        "Souvent perçu comme envahissant à cause de sa reproduction rapide, il reste totalement inoffensif : réduire les apports de nourriture suffit généralement à stabiliser naturellement sa population sans intervention.",
       volumeMinLitres: 20,
       tailleGroupeMin: null,
       compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
@@ -3004,11 +3004,11 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture.",
+      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture.",
       tailleAdulte: '1 à 1,5 cm',
       reproduction: {
         facilite: "Très facile",
-        description: "La physe (Physa sp.) se reproduit de façon explosive en aquarium. Hermaphrodite, elle pond des pontes gélatineuses transparentes contenant 10-50 œufs directement sur les plantes, vitres et décors. Les jeunes éclosent en 2-3 semaines. Leur population peut exploser rapidement. Pour contrôler la population : réduisez l'alimentation, retirez manuellement les pontes, ou introduisez des poissons mangeurs d'escargots (LoachesClown, Botia). Si la présence d'escargots est indésirable, évitez toute introduction de plante non traitée.",
+        description: "La physe (Physa sp.) se reproduit de façon explosive en aquarium. Hermaphrodite, elle pond des pontes gélatineuses transparentes contenant 10-50 œufs directement sur les plantes, vitres et décors. Les jeunes éclosent en 2-3 semaines. Leur population peut exploser rapidement. Pour contrôler la population : réduisez l'alimentation, retirez manuellement les pontes, ou introduisez des poissons mangeurs d'escargots (LoachesClown, Botia). Si la présence d'escargots est indésirable, évitez toute introduction de plante non traitée.",
       },
     },
   },
@@ -3025,7 +3025,7 @@ export const ESPECES: Espece[] = [
       description:
         "Escargot fouisseur à la coquille conique allongée, qui passe le jour enfoui dans le substrat et ressort la nuit. Très utile pour aérer naturellement le sol et prévenir les poches de gaz toxiques qui peuvent s'y former.",
       conseil:
-        "Sa présence est un signe positif pour la santé du substrat : en fouissant en permanence, il empêche le sol de se compacter et de développer des zones anaérobies nauséabondes.",
+        "Sa présence est un signe positif pour la santé du substrat : en fouissant en permanence, il empêche le sol de se compacter et de développer des zones anaérobies nauséabondes.",
       volumeMinLitres: 20,
       tailleGroupeMin: null,
       compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
@@ -3035,7 +3035,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Détritivore : restes de nourriture et matière organique dans le substrat.",
+      alimentation: "Détritivore : restes de nourriture et matière organique dans le substrat.",
       tailleAdulte: '2 à 3 cm',
     },
   },
@@ -3062,7 +3062,7 @@ export const ESPECES: Espece[] = [
       tempMin: 15,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Photosynthèse : une lumière faible à modérée suffit, le CO2 additionnel n'est pas indispensable.",
+      alimentation: "Photosynthèse : une lumière faible à modérée suffit, le CO2 additionnel n'est pas indispensable.",
       tailleAdulte: "Tapis de quelques millimètres à plusieurs centimètres d'épaisseur selon l'entretien",
       reproduction: {
         facilite: "Très facile",
@@ -3083,7 +3083,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante d'aquarium parmi les plus faciles et les plus utilisées en aquascaping, l'anubias nana se fixe sur du bois ou de la roche plutôt que dans le substrat. Sa croissance très lente et ses feuilles épaisses et coriaces la rendent quasiment indestructible.",
       conseil:
-        "Ne jamais enterrer le rhizome (la tige horizontale) dans le substrat : il doit rester à l'air libre, sinon il pourrit. Fixez-la avec du fil ou de la colle sur un support jusqu'à ce que les racines s'accrochent naturellement.",
+        "Ne jamais enterrer le rhizome (la tige horizontale) dans le substrat : il doit rester à l'air libre, sinon il pourrit. Fixez-la avec du fil ou de la colle sur un support jusqu'à ce que les racines s'accrochent naturellement.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la quasi-totalité des bacs d'eau douce, y compris ceux avec des poissons herbivores (résiste bien au grignotage grâce à ses feuilles coriaces).",
@@ -3093,7 +3093,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Photosynthèse : pousse même en lumière faible, CO2 non indispensable.",
+      alimentation: "Photosynthèse : pousse même en lumière faible, CO2 non indispensable.",
       tailleAdulte: '10 à 15 cm de hauteur',
     },
   },
@@ -3110,7 +3110,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante d'aquarium très populaire et adaptable, disponible en plusieurs teintes (verte, brune, rouge). Elle se plante dans le substrat et forme des touffes denses utilisées en premier plan ou en plan intermédiaire selon la variété.",
       conseil:
-        "Ne paniquez pas si toutes les feuilles fondent d'un coup après une introduction ou un changement de paramètres (le fameux \"crypto melt\") : c'est un stress temporaire normal chez cette plante, et de nouvelles feuilles mieux adaptées repoussent en général en quelques semaines.",
+        "Ne paniquez pas si toutes les feuilles fondent d'un coup après une introduction ou un changement de paramètres (le fameux \"crypto melt\") : c'est un stress temporaire normal chez cette plante, et de nouvelles feuilles mieux adaptées repoussent en général en quelques semaines.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la quasi-totalité des bacs d'eau douce plantés.",
@@ -3141,7 +3141,7 @@ export const ESPECES: Espece[] = [
       description:
         "Grande plante d'arrière-plan aux larges feuilles vert brillant en forme de lame, l'une des plus populaires et des plus faciles à cultiver en aquarium d'eau douce. Devient rapidement imposante dans un bac de taille suffisante.",
       conseil:
-        "Un substrat nutritif ou des racines nourrissantes (pastilles d'engrais) favorisent une croissance vigoureuse : c'est une plante assez gourmande qui profite d'un apport en fer et en macronutriments.",
+        "Un substrat nutritif ou des racines nourrissantes (pastilles d'engrais) favorisent une croissance vigoureuse : c'est une plante assez gourmande qui profite d'un apport en fer et en macronutriments.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à quasiment tous les habitants d'un bac d'eau douce assez grand.",
@@ -3168,7 +3168,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante de fond classique aux longs rubans fins, la vallisneria forme un rideau vert dense en arrière-plan et se multiplie rapidement par stolons (rejets qui courent sous le substrat). Excellente pour créer une zone de nage naturelle pour les poissons tout en filtrant les nitrates.",
       conseil:
-        "Sa croissance rapide par stolons peut vite coloniser tout le fond du bac : prévoyez de retirer régulièrement les jeunes pousses en excès si vous ne voulez pas qu'elle envahisse l'espace. Évitez de la tailler par le haut (contrairement à d'autres plantes), coupez plutôt les feuilles individuelles à la base si elles jaunissent.",
+        "Sa croissance rapide par stolons peut vite coloniser tout le fond du bac : prévoyez de retirer régulièrement les jeunes pousses en excès si vous ne voulez pas qu'elle envahisse l'espace. Évitez de la tailler par le haut (contrairement à d'autres plantes), coupez plutôt les feuilles individuelles à la base si elles jaunissent.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la quasi-totalité des bacs d'eau douce, notamment les bacs communautaires avec poissons qui apprécient les cachettes en arrière-plan.",
@@ -3199,7 +3199,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante d'aquarium parmi les plus populaires et les plus robustes, aux feuilles vert foncé fixées sur bois ou roche plutôt que plantées dans le substrat. Excellente pour les débutants et pour créer des cachettes naturelles.",
       conseil:
-        "Ne l'enterrez jamais dans le substrat : son rhizome doit rester à l'air libre, fixé sur un support avec du fil ou de la colle spéciale plantes, sous peine de pourrir.",
+        "Ne l'enterrez jamais dans le substrat : son rhizome doit rester à l'air libre, fixé sur un support avec du fil ou de la colle spéciale plantes, sous peine de pourrir.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à quasiment tous les habitants d'un bac d'eau douce.",
@@ -3226,7 +3226,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante de croissance rapide aux feuilles vert clair allongées, très utilisée par les débutants pour occuper rapidement l'arrière-plan d'un bac. Facile à bouturer et tolérante à des conditions variées.",
       conseil:
-        "Sa croissance rapide demande une taille régulière : sans entretien, elle peut vite envahir le bac et faire de l'ombre aux plantes plus basses.",
+        "Sa croissance rapide demande une taille régulière : sans entretien, elle peut vite envahir le bac et faire de l'ombre aux plantes plus basses.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -3240,7 +3240,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '30 à 40 cm de hauteur',
       reproduction: {
         facilite: "Très facile",
-        description: "L'hygrophile polysperme se multiplie par simple bouturage. Coupez une tige sous un nœud (5-10cm minimum) et replantez-la dans le substrat. Des racines se développent rapidement. Croissance très rapide sous bon éclairage, idéale pour absorber les nitrates. Taillez régulièrement et replantez les sommets. ATTENTION : espèce potentiellement invasive. Ne la relâchez jamais dans la nature. Réglementation variable selon les pays (interdite dans certains États américains). pH 6-7.5, T° 22-30°C.",
+        description: "L'hygrophile polysperme se multiplie par simple bouturage. Coupez une tige sous un nœud (5-10cm minimum) et replantez-la dans le substrat. Des racines se développent rapidement. Croissance très rapide sous bon éclairage, idéale pour absorber les nitrates. Taillez régulièrement et replantez les sommets. ATTENTION : espèce potentiellement invasive. Ne la relâchez jamais dans la nature. Réglementation variable selon les pays (interdite dans certains États américains). pH 6-7.5, T° 22-30°C.",
       },
     },
   },
@@ -3257,7 +3257,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante de milieu très populaire aux tiges fines qui virent au rose-orangé sous un bon éclairage, apportant un contraste de couleur apprécié dans les compositions plantées. Pousse en touffes denses.",
       conseil:
-        "Pour obtenir sa belle coloration rose, un éclairage puissant et un apport de CO2 sont recommandés : sous une lumière faible, elle reste surtout verte et s'étiole.",
+        "Pour obtenir sa belle coloration rose, un éclairage puissant et un apport de CO2 sont recommandés : sous une lumière faible, elle reste surtout verte et s'étiole.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -3279,13 +3279,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Ludwigia repens',
     statutLegal: 'autorise',
     remarqueLegale:
-      "À ne pas confondre avec les jussies (Ludwigia grandiflora / peploides), des espèces cousines interdites en France car classées invasives : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion.",
+      "À ne pas confondre avec les jussies (Ludwigia grandiflora / peploides), des espèces cousines interdites en France car classées invasives : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion.",
     citesAnnexe: null,
     fiche: {
       description:
         "Plante de milieu ou d'arrière-plan aux tiges rougeâtres et aux feuilles ovales, appréciée pour la touche de couleur chaude qu'elle apporte à un bac essentiellement vert. Facile à bouturer pour multiplier les plants.",
       conseil:
-        "Une lumière assez intense fait ressortir sa couleur rouge caractéristique : sous un éclairage faible, elle reste plus verte et moins spectaculaire.",
+        "Une lumière assez intense fait ressortir sa couleur rouge caractéristique : sous un éclairage faible, elle reste plus verte et moins spectaculaire.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -3316,7 +3316,7 @@ export const ESPECES: Espece[] = [
       description:
         "Minuscule plante flottante indigène en France, autorisée en aquarium contrairement à d'autres flottantes invasives. Se multiplie très rapidement à la surface et filtre efficacement les nitrates.",
       conseil:
-        "Sa croissance rapide peut vite couvrir toute la surface et priver les plantes immergées de lumière : retirez-en régulièrement une partie pour garder un bon équilibre lumineux dans le bac.",
+        "Sa croissance rapide peut vite couvrir toute la surface et priver les plantes immergées de lumière : retirez-en régulièrement une partie pour garder un bon équilibre lumineux dans le bac.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des bacs d'eau douce, utile pour absorber les nitrates.",
@@ -3343,7 +3343,7 @@ export const ESPECES: Espece[] = [
       description:
         "Cichlidé africain du lac Malawi, coloré et au tempérament vif, souvent maintenu en communauté d'espèces similaires façon \"bac Malawi\". Territorial, il établit une hiérarchie marquée entre mâles.",
       conseil:
-        "Maintenez-le uniquement avec d'autres cichlidés du Malawi de tempérament comparable, jamais avec des poissons paisibles d'Amérique du Sud ou d'Asie : l'eau dure et alcaline qu'il requiert et son agressivité ne conviennent pas à un bac communautaire classique.",
+        "Maintenez-le uniquement avec d'autres cichlidés du Malawi de tempérament comparable, jamais avec des poissons paisibles d'Amérique du Sud ou d'Asie : l'eau dure et alcaline qu'il requiert et son agressivité ne conviennent pas à un bac communautaire classique.",
       volumeMinLitres: 250,
       tailleGroupeMin: 6,
       compatibilite: "Autres cichlidés du lac Malawi de gabarit similaire (Aulonocara, Labidochromis).",
@@ -3353,7 +3353,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore à tendance algivore : granulés spécifiques cichlidés africains, spiruline.",
+      alimentation: "Omnivore à tendance algivore : granulés spécifiques cichlidés africains, spiruline.",
       tailleAdulte: '10 à 12 cm',
       reproduction: {
         facilite: "Facile",
@@ -3374,7 +3374,7 @@ export const ESPECES: Espece[] = [
       description:
         "Grand cichlidé du lac Tanganyika, reconnaissable à ses rayures verticales et à la bosse frontale qui se développe avec l'âge chez les mâles dominants. Contrairement aux cichlidés du Malawi, il vit en groupe hiérarchisé plus calme.",
       conseil:
-        "Maintenez-le en groupe d'au moins 6 individus avec un ratio orienté vers les femelles : c'est une espèce qui a besoin d'une structure sociale de groupe pour exprimer un comportement naturel et non stressé.",
+        "Maintenez-le en groupe d'au moins 6 individus avec un ratio orienté vers les femelles : c'est une espèce qui a besoin d'une structure sociale de groupe pour exprimer un comportement naturel et non stressé.",
       volumeMinLitres: 400,
       tailleGroupeMin: 6,
       compatibilite: "Autres cichlidés du lac Tanganyika de tempérament similaire.",
@@ -3384,7 +3384,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés du Tanganyika, larves congelées.",
+      alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés du Tanganyika, larves congelées.",
       tailleAdulte: '25 à 35 cm',
     },
   },
@@ -3401,7 +3401,7 @@ export const ESPECES: Espece[] = [
       description:
         "Cichlidé du lac Malawi aux couleurs électriques (bleu, orange, jaune selon les variétés), plus paisible que le zébré et souvent choisi pour adoucir un bac Malawi grâce à son tempérament plus calme.",
       conseil:
-        "Moins agressif que d'autres cichlidés du Malawi mais toujours à maintenir uniquement avec des cichlidés africains : ses besoins en eau dure et alcaline restent incompatibles avec un bac communautaire classique.",
+        "Moins agressif que d'autres cichlidés du Malawi mais toujours à maintenir uniquement avec des cichlidés africains : ses besoins en eau dure et alcaline restent incompatibles avec un bac communautaire classique.",
       volumeMinLitres: 250,
       tailleGroupeMin: 4,
       compatibilite: "Autres cichlidés du lac Malawi de tempérament calme.",
@@ -3411,7 +3411,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés africains, larves congelées.",
+      alimentation: "Carnivore/omnivore : granulés spécifiques cichlidés africains, larves congelées.",
       tailleAdulte: '12 à 14 cm',
       reproduction: {
         facilite: "Facile",
@@ -3427,13 +3427,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Astronotus ocellatus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Peut atteindre 30 à 35 cm et vivre plus de 10 ans : souvent vendu juvénile à quelques centimètres sans que sa taille et sa bioload adulte soient anticipées.",
+      "Peut atteindre 30 à 35 cm et vivre plus de 10 ans : souvent vendu juvénile à quelques centimètres sans que sa taille et sa bioload adulte soient anticipées.",
     citesAnnexe: null,
     fiche: {
       description:
-        "Grand cichlidé sud-américain réputé pour son intelligence et son caractère très attachant : il reconnaît son propriétaire et interagit avec lui. Sa taille adulte impressionnante en fait un poisson pour aquariophile préparé.",
+        "Grand cichlidé sud-américain réputé pour son intelligence et son caractère très attachant : il reconnaît son propriétaire et interagit avec lui. Sa taille adulte impressionnante en fait un poisson pour aquariophile préparé.",
       conseil:
-        "Prévoyez le volume adulte dès l'achat plutôt que d'agrandir au fur et à mesure : un bac trop petit freine sa croissance et nuit à sa santé. Une filtration puissante est indispensable vu sa production de déchets.",
+        "Prévoyez le volume adulte dès l'achat plutôt que d'agrandir au fur et à mesure : un bac trop petit freine sa croissance et nuit à sa santé. Une filtration puissante est indispensable vu sa production de déchets.",
       volumeMinLitres: 400,
       tailleGroupeMin: 1,
       compatibilite: "Autres grands cichlidés sud-américains de tempérament et gabarit similaires.",
@@ -3443,7 +3443,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Omnivore/carnivore : granulés spécifiques grands cichlidés, proies occasionnelles.",
+      alimentation: "Omnivore/carnivore : granulés spécifiques grands cichlidés, proies occasionnelles.",
       tailleAdulte: '30 à 35 cm',
     },
   },
@@ -3460,7 +3460,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit cichlidé rayé de noir et blanc rappelant un uniforme de bagnard (d'où son surnom \"convict\"), robuste et facile à reproduire. Très territorial en période de reproduction malgré sa petite taille.",
       conseil:
-        "Prévoyez suffisamment de cachettes et un bac dédié si vous souhaitez le reproduire : le couple devient très protecteur envers ses alevins et peut se montrer agressif envers tout voisin approchant.",
+        "Prévoyez suffisamment de cachettes et un bac dédié si vous souhaitez le reproduire : le couple devient très protecteur envers ses alevins et peut se montrer agressif envers tout voisin approchant.",
       volumeMinLitres: 100,
       tailleGroupeMin: 2,
       compatibilite: "Autres cichlidés nains de tempérament similaire, characidés robustes.",
@@ -3470,11 +3470,11 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
+      alimentation: "Omnivore : granulés, paillettes, larves congelées appréciées.",
       tailleAdulte: '7 à 10 cm',
       reproduction: {
         facilite: "Très facile",
-        description: "Le cichlide convict est l'un des cichlidés les plus faciles à reproduire. Le couple nettoie méticuleusement une surface plate (pierre, vitre). La femelle pond 200-500 œufs violacés. Les deux parents montent une garde très agressive. Les larves éclosent en 48-60h et sont transférées dans des trous creusés dans le sable. Les alevins nagent librement après 5-7 jours. La famille est admirablement organisée. pH 6.5-8, T° 24-27°C. Attention : ils agressent tout dans le bac !",
+        description: "Le cichlide convict est l'un des cichlidés les plus faciles à reproduire. Le couple nettoie méticuleusement une surface plate (pierre, vitre). La femelle pond 200-500 œufs violacés. Les deux parents montent une garde très agressive. Les larves éclosent en 48-60h et sont transférées dans des trous creusés dans le sable. Les alevins nagent librement après 5-7 jours. La famille est admirablement organisée. pH 6.5-8, T° 24-27°C. Attention : ils agressent tout dans le bac !",
       },
     },
   },
@@ -3486,13 +3486,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Osphronemus goramy',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Sa taille adulte est très importante (jusqu'à 60-70 cm) : un achat à valider au cas par cas pour vérifier la compatibilité réelle avec votre aquarium avant de vous engager.",
+      "Sa taille adulte est très importante (jusqu'à 60-70 cm) : un achat à valider au cas par cas pour vérifier la compatibilité réelle avec votre aquarium avant de vous engager.",
     citesAnnexe: null,
     fiche: {
       description:
         "Le plus grand des gouramis couramment rencontrés, souvent vendu juvénile sans que sa taille adulte impressionnante soit anticipée. Intelligent et curieux, il reconnaît facilement son propriétaire.",
       conseil:
-        "Anticipez sérieusement le volume nécessaire avant l'achat : un juvénile discret de quelques centimètres devient en quelques années un poisson de plusieurs dizaines de centimètres réclamant un très grand volume.",
+        "Anticipez sérieusement le volume nécessaire avant l'achat : un juvénile discret de quelques centimètres devient en quelques années un poisson de plusieurs dizaines de centimètres réclamant un très grand volume.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 1,
       compatibilite: "Grands poissons calmes de gabarit similaire.",
@@ -3502,7 +3502,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Omnivore : granulés, légumes, larves congelées, devient plus végétarien avec l'âge.",
+      alimentation: "Omnivore : granulés, légumes, larves congelées, devient plus végétarien avec l'âge.",
       tailleAdulte: "Jusqu'à 60-70 cm",
     },
   },
@@ -3514,13 +3514,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pangasianodon hypophthalmus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Sa taille adulte est très importante et généralement inadaptée à l'aquarium domestique, même de grande taille : un achat à valider au cas par cas plutôt qu'en impulsion sur un juvénile de quelques centimètres.",
+      "Sa taille adulte est très importante et généralement inadaptée à l'aquarium domestique, même de grande taille : un achat à valider au cas par cas plutôt qu'en impulsion sur un juvénile de quelques centimètres.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grand poisson-chat argenté à la nage vive, très souvent vendu juvénile en animalerie sans que sa taille adulte impressionnante soit anticipée. Grégaire à l'état sauvage, il peut devenir nerveux et se blesser contre les vitres en captivité.",
       conseil:
-        "Réfléchissez sérieusement avant l'achat : un juvénile de 5 cm peut dépasser 1 mètre à l'âge adulte, une taille incompatible avec la quasi-totalité des bacs domestiques, même les plus grands.",
+        "Réfléchissez sérieusement avant l'achat : un juvénile de 5 cm peut dépasser 1 mètre à l'âge adulte, une taille incompatible avec la quasi-totalité des bacs domestiques, même les plus grands.",
       volumeMinLitres: 3000,
       tailleGroupeMin: 5,
       compatibilite: "Grands poissons calmes, dans un bassin ou un très grand bac.",
@@ -3530,7 +3530,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Omnivore : granulés, légumes, proies occasionnelles.",
+      alimentation: "Omnivore : granulés, légumes, proies occasionnelles.",
       tailleAdulte: "Jusqu'à 100-130 cm",
       reproduction: {
         facilite: "Impossible en captivité",
@@ -3551,7 +3551,7 @@ export const ESPECES: Espece[] = [
       description:
         "Grand characidé africain aux reflets métalliques irisés et à la nageoire caudale prolongée chez le mâle, l'un des characidés les plus spectaculaires en mouvement sous un bon éclairage.",
       conseil:
-        "Ses longues nageoires sont fragiles : évitez les décors aux arêtes vives ou les compagnons qui pourraient les mordiller, ce qui abîmerait durablement son apparence.",
+        "Ses longues nageoires sont fragiles : évitez les décors aux arêtes vives ou les compagnons qui pourraient les mordiller, ce qui abîmerait durablement son apparence.",
       volumeMinLitres: 150,
       tailleGroupeMin: 6,
       compatibilite: "Characidés et cyprinidés de taille moyenne, corydoras.",
@@ -3561,7 +3561,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : paillettes, granulés, larves congelées appréciées.",
+      alimentation: "Omnivore : paillettes, granulés, larves congelées appréciées.",
       tailleAdulte: '8 à 9 cm',
     },
   },
@@ -3578,7 +3578,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit characidé argenté traversé d'une ligne rouge-orangé fluorescente qui semble s'illuminer dans la pénombre, d'où son nom. Grégaire et paisible, il apprécie un bac planté avec un éclairage tamisé.",
       conseil:
-        "Sa ligne fluorescente ressort particulièrement dans un bac sombre avec des plantes flottantes qui tamisent la lumière : un cadre idéal pour l'admirer pleinement.",
+        "Sa ligne fluorescente ressort particulièrement dans un bac sombre avec des plantes flottantes qui tamisent la lumière : un cadre idéal pour l'admirer pleinement.",
       volumeMinLitres: 60,
       tailleGroupeMin: 6,
       compatibilite: "Autres characidés paisibles, corydoras, gouramis calmes.",
@@ -3588,11 +3588,11 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '3,5 à 4,5 cm',
       reproduction: {
         facilite: "Modérée",
-        description: "Le tétra-glowlight se reproduit en eau douce et acide (pH 5.8-6.5, GH < 4, T° 26-28°C). Conditionnez les géniteurs séparément avec des nauplies d'artémia et des vers de vase. Bac de ponte avec filtre de mousse et fond de billes. Les œufs, légèrement photosensibles, sont dispersés sur les plantes. Retirez les adultes après la ponte. Les larves éclosent en 24-36h et nagent librement après 4-5 jours. Premiers aliments : infusoires très fins, puis nauplies d'artémia.",
+        description: "Le tétra-glowlight se reproduit en eau douce et acide (pH 5.8-6.5, GH < 4, T° 26-28°C). Conditionnez les géniteurs séparément avec des nauplies d'artémia et des vers de vase. Bac de ponte avec filtre de mousse et fond de billes. Les œufs, légèrement photosensibles, sont dispersés sur les plantes. Retirez les adultes après la ponte. Les larves éclosent en 24-36h et nagent librement après 4-5 jours. Premiers aliments : infusoires très fins, puis nauplies d'artémia.",
       },
     },
   },
@@ -3619,7 +3619,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '5 à 6 cm',
     },
   },
@@ -3646,7 +3646,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Modérée",
@@ -3667,7 +3667,7 @@ export const ESPECES: Espece[] = [
       description:
         "Loche grégaire au motif réticulé évoquant des lettres ou des chiffres sur le corps, d'où son surnom \"yoyo\". Très sociable entre congénères, elle établit une hiérarchie ludique faite de petites poursuites sans agressivité réelle.",
       conseil:
-        "Ne la maintenez jamais seule : isolée, elle devient craintive et stressée. Un groupe d'au moins 5 individus lui permet d'exprimer ses interactions sociales naturelles sans reporter cette énergie sur d'autres poissons.",
+        "Ne la maintenez jamais seule : isolée, elle devient craintive et stressée. Un groupe d'au moins 5 individus lui permet d'exprimer ses interactions sociales naturelles sans reporter cette énergie sur d'autres poissons.",
       volumeMinLitres: 150,
       tailleGroupeMin: 5,
       compatibilite: "Characidés et cyprinidés robustes, autres loches, corydoras.",
@@ -3677,7 +3677,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore/carnivore : granulés coulants, escargots, larves congelées.",
+      alimentation: "Omnivore/carnivore : granulés coulants, escargots, larves congelées.",
       tailleAdulte: '10 à 12 cm',
     },
   },
@@ -3704,11 +3704,11 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, complément végétal apprécié.",
+      alimentation: "Omnivore : paillettes, granulés, complément végétal apprécié.",
       tailleAdulte: '6 à 8 cm',
       reproduction: {
         facilite: "Facile",
-        description: "Le xenotoca est vivipare (goodeidae). La femelle porte ses petits 6-8 semaines et donne naissance à 10-30 alevins autonomes. Aucune ponte externe. Les alevins sont déjà bien formés et acceptent immédiatement les nauplies d'artémia. Eau fraîche (T° 18-22°C), pH 7-7.8. Séparez les adultes des alevins après la naissance. La femelle peut être fécondée à nouveau immédiatement. Note : espèce proche de l'extinction dans la nature (Mexique) — sa reproduction en captivité est un véritable acte de conservation.",
+        description: "Le xenotoca est vivipare (goodeidae). La femelle porte ses petits 6-8 semaines et donne naissance à 10-30 alevins autonomes. Aucune ponte externe. Les alevins sont déjà bien formés et acceptent immédiatement les nauplies d'artémia. Eau fraîche (T° 18-22°C), pH 7-7.8. Séparez les adultes des alevins après la naissance. La femelle peut être fécondée à nouveau immédiatement. Note : espèce proche de l'extinction dans la nature (Mexique) — sa reproduction en captivité est un véritable acte de conservation.",
       },
     },
   },
@@ -3725,7 +3725,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété de molly au mâle doté d'une grande nageoire dorsale déployée en forme de voile, utilisée pour parader devant les femelles. Vivipare robuste, il apprécie une eau légèrement dure et minéralisée.",
       conseil:
-        "Un peu de sel d'aquarium (non iodé, à faible dose) dans l'eau douce peut améliorer sa santé générale : le molly tolère bien une eau légèrement saumâtre, contrairement à beaucoup d'autres poissons de communauté.",
+        "Un peu de sel d'aquarium (non iodé, à faible dose) dans l'eau douce peut améliorer sa santé générale : le molly tolère bien une eau légèrement saumâtre, contrairement à beaucoup d'autres poissons de communauté.",
       volumeMinLitres: 100,
       tailleGroupeMin: 3,
       compatibilite: "Autres vivipares (guppy, platy), corydoras, poissons paisibles d'eau dure.",
@@ -3735,7 +3735,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, complément végétal (spiruline, légumes blanchis).",
+      alimentation: "Omnivore : paillettes, granulés, complément végétal (spiruline, légumes blanchis).",
       tailleAdulte: '8 à 10 cm',
     },
   },
@@ -3752,7 +3752,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit cousin sauvage du guppy, aux couleurs métalliques éclatantes et à la taille plus modeste. Très prolifique, il se croise facilement avec le guppy, ce qui dilue les lignées pures très recherchées par les passionnés.",
       conseil:
-        "Pour préserver une lignée pure d'Endler, ne le maintenez jamais avec des guppys : les deux espèces s'hybrident facilement et les descendants perdent les caractéristiques recherchées de l'Endler pur.",
+        "Pour préserver une lignée pure d'Endler, ne le maintenez jamais avec des guppys : les deux espèces s'hybrident facilement et les descendants perdent les caractéristiques recherchées de l'Endler pur.",
       volumeMinLitres: 40,
       tailleGroupeMin: 6,
       compatibilite: "Autres vivipares paisibles (en évitant l'hybridation avec le guppy), corydoras, crevettes.",
@@ -3762,11 +3762,11 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
+      alimentation: "Omnivore : paillettes fines, micro-granulés, artémias occasionnelles.",
       tailleAdulte: '2 à 3,5 cm (mâle plus petit que la femelle)',
       reproduction: {
         facilite: "Très facile",
-        description: "L'endler est encore plus facile à reproduire que le guppy. Vivipare, la femelle donne naissance à 5-30 alevins toutes les 3-4 semaines à 26°C. Les alevins sont minuscules mais autonomes immédiatement. Placez des plantes denses pour que les alevins se cachent des adultes. Nourrissez avec de la nourriture en poudre très fine. Les endlers hybrident facilement avec les guppys : maintenez-les séparément si vous voulez conserver les souches pures. pH 7-8.5, T° 24-28°C.",
+        description: "L'endler est encore plus facile à reproduire que le guppy. Vivipare, la femelle donne naissance à 5-30 alevins toutes les 3-4 semaines à 26°C. Les alevins sont minuscules mais autonomes immédiatement. Placez des plantes denses pour que les alevins se cachent des adultes. Nourrissez avec de la nourriture en poudre très fine. Les endlers hybrident facilement avec les guppys : maintenez-les séparément si vous voulez conserver les souches pures. pH 7-8.5, T° 24-28°C.",
       },
     },
   },
@@ -3783,7 +3783,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit pléco au museau orné de tentacules ramifiés (plus développés chez le mâle), bien plus adapté aux bacs domestiques que l'ancistrus/pléco commun grâce à sa taille adulte modeste.",
       conseil:
-        "Contrairement au pléco commun qui devient très grand, le bristlenose reste de taille raisonnable toute sa vie : c'est le choix à privilégier pour un poisson nettoyeur de vitres dans un bac de taille standard.",
+        "Contrairement au pléco commun qui devient très grand, le bristlenose reste de taille raisonnable toute sa vie : c'est le choix à privilégier pour un poisson nettoyeur de vitres dans un bac de taille standard.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Quasiment tous les poissons paisibles d'eau douce.",
@@ -3793,7 +3793,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Algivore/omnivore : pastilles à base de spiruline, légumes blanchis, bois flotté.",
+      alimentation: "Algivore/omnivore : pastilles à base de spiruline, légumes blanchis, bois flotté.",
       tailleAdulte: '10 à 14 cm',
     },
   },
@@ -3810,7 +3810,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson-chat africain surnommé \"poisson à l'envers\" pour son habitude de nager le ventre vers le haut, un comportement naturel qui facilite l'alimentation en surface et sous les feuilles. Paisible et grégaire.",
       conseil:
-        "Ne vous inquiétez pas de le voir nager sur le dos : c'est un comportement parfaitement normal et caractéristique de l'espèce, pas un signe de maladie ou de détresse.",
+        "Ne vous inquiétez pas de le voir nager sur le dos : c'est un comportement parfaitement normal et caractéristique de l'espèce, pas un signe de maladie ou de détresse.",
       volumeMinLitres: 100,
       tailleGroupeMin: 4,
       compatibilite: "Characidés, corydoras, autres poissons paisibles d'eau douce.",
@@ -3820,7 +3820,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés coulants, larves congelées, restes de nourriture.",
+      alimentation: "Omnivore : granulés coulants, larves congelées, restes de nourriture.",
       tailleAdulte: '8 à 9 cm',
       reproduction: {
         facilite: "Difficile",
@@ -3841,7 +3841,7 @@ export const ESPECES: Espece[] = [
       description:
         "Corydoras moins courant que les espèces classiques, au corps tacheté et au comportement fouisseur paisible identique aux autres corydoras. Grégaire, il apprécie un substrat fin pour fouiller sans se blesser.",
       conseil:
-        "Comme tous les corydoras, préférez un sable fin ou un gravier arrondi : un substrat grossier peut abîmer ses barbillons sensitives utilisées pour fouiller le fond à la recherche de nourriture.",
+        "Comme tous les corydoras, préférez un sable fin ou un gravier arrondi : un substrat grossier peut abîmer ses barbillons sensitives utilisées pour fouiller le fond à la recherche de nourriture.",
       volumeMinLitres: 80,
       tailleGroupeMin: 6,
       compatibilite: "Characidés, autres poissons paisibles de communauté.",
@@ -3851,7 +3851,7 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
+      alimentation: "Omnivore de fond : pastilles/tablettes, restes de nourriture qui coulent.",
       tailleAdulte: '5 à 6 cm',
     },
   },
@@ -3868,7 +3868,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson primitif au corps allongé façon serpent, cousin des bichirs, capable de respirer l'air atmosphérique grâce à un poumon rudimentaire. Nocturne et discret le jour, il se déplace en ondulant lentement au fond du bac.",
       conseil:
-        "Prévoyez un couvercle bien ajusté et sans ouverture : ce poisson est un excellent contorsionniste capable de se faufiler par la moindre fente pour sortir du bac.",
+        "Prévoyez un couvercle bien ajusté et sans ouverture : ce poisson est un excellent contorsionniste capable de se faufiler par la moindre fente pour sortir du bac.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Poissons calmes de taille moyenne, non agressifs.",
@@ -3878,7 +3878,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
+      alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
       tailleAdulte: '30 à 40 cm',
       reproduction: {
         facilite: "Très difficile",
@@ -3900,7 +3900,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson au corps allongé façon anguille, museau pointu et comportement fouisseur nocturne. S'enterre volontiers dans le substrat meuble pendant la journée et devient actif à la tombée de la nuit.",
       conseil:
-        "Prévoyez un substrat fin et meuble (sable) sans arêtes vives : il s'y enfouit régulièrement et un gravier grossier pourrait le blesser lors de ce comportement naturel.",
+        "Prévoyez un substrat fin et meuble (sable) sans arêtes vives : il s'y enfouit régulièrement et un gravier grossier pourrait le blesser lors de ce comportement naturel.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Poissons calmes de taille moyenne à grande, non agressifs.",
@@ -3910,7 +3910,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
+      alimentation: "Carnivore : vers, larves congelées, proies occasionnelles.",
       tailleAdulte: '60 à 90 cm',
     },
   },
@@ -3922,13 +3922,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Enneacanthus chaetodon',
     statutLegal: 'autorise',
     remarqueLegale:
-      "À ne pas confondre avec la perche soleil Lepomis gibbosus, une espèce cousine interdite en France car classée envahissante : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion ou entre particuliers.",
+      "À ne pas confondre avec la perche soleil Lepomis gibbosus, une espèce cousine interdite en France car classée envahissante : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion ou entre particuliers.",
     citesAnnexe: null,
     fiche: {
       description:
         "Petite perche décorative au corps sombre traversé d'une bande noire diagonale évoquant un masque, bien plus discrète et de taille modeste que sa cousine invasive Lepomis gibbosus. Paisible, elle convient à un petit bassin ou grand bac froid.",
       conseil:
-        "Vérifiez toujours le nom scientifique exact (Enneacanthus chaetodon) avant l'achat : la confusion avec la perche soleil interdite est fréquente à cause d'un nom commun proche, alors que les deux espèces n'ont pas le même statut légal.",
+        "Vérifiez toujours le nom scientifique exact (Enneacanthus chaetodon) avant l'achat : la confusion avec la perche soleil interdite est fréquente à cause d'un nom commun proche, alors que les deux espèces n'ont pas le même statut légal.",
       volumeMinLitres: 100,
       tailleGroupeMin: 4,
       compatibilite: "Autres poissons paisibles d'eau froide à tempérée, petits cyprinidés.",
@@ -3938,7 +3938,7 @@ export const ESPECES: Espece[] = [
       tempMin: 10,
       tempMax: 22,
       difficulte: 'Intermédiaire',
-      alimentation: "Carnivore : larves congelées, petits invertébrés aquatiques.",
+      alimentation: "Carnivore : larves congelées, petits invertébrés aquatiques.",
       tailleAdulte: '5 à 6 cm',
       reproduction: {
         facilite: "Modérée",
@@ -3954,14 +3954,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Chaetodon auriga',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Certaines espèces de poissons-papillons ont une alimentation naturelle corallivore et un taux de survie faible en captivité : à valider au cas par cas selon l'espèce précise avant tout achat.",
+      "Certaines espèces de poissons-papillons ont une alimentation naturelle corallivore et un taux de survie faible en captivité : à valider au cas par cas selon l'espèce précise avant tout achat.",
     citesAnnexe: null,
     autresNoms: ['Papillon auriga', 'Poisson-papillon à filament'],
     fiche: {
       description:
         "Poisson-papillon au corps aplati blanc argenté, parcouru de fines lignes sombres en chevrons et barré d'une bande noire sur l'œil ; l'adulte porte souvent un filament au bout de la nageoire dorsale. Il grignote en permanence les petits invertébrés fixés, les polypes de coraux, les anémones et les algues. Réputé l'un des papillons les plus tolérants à l'élevage, il reste un poisson prélevé dans la nature et incompatible avec un bac récifal.",
       conseil:
-        "Choisissez un sujet qui mange déjà en magasin (mysis, artémias enrichies, nori) et introduisez-le après une quarantaine dans un bac mature de gros volume. Il grignote coraux mous, LPS, anémones, bénitiers et vers tubicoles : n'espérez pas le garder en récif, même si certains individus s'attaquent aux aiptasias. Proposez-lui plusieurs petits repas par jour et surveillez les signes d'ich ou de refus alimentaire. Ne l'achetez pas dans le seul but de « nettoyer » le bac.",
+        "Choisissez un sujet qui mange déjà en magasin (mysis, artémias enrichies, nori) et introduisez-le après une quarantaine dans un bac mature de gros volume. Il grignote coraux mous, LPS, anémones, bénitiers et vers tubicoles : n'espérez pas le garder en récif, même si certains individus s'attaquent aux aiptasias. Proposez-lui plusieurs petits repas par jour et surveillez les signes d'ich ou de refus alimentaire. Ne l'achetez pas dans le seul but de « nettoyer » le bac.",
       volumeMinLitres: 500,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles, bac sans coraux sensibles au broutage.",
@@ -3971,7 +3971,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: 'Omnivore : mysis, artémias enrichies, chair de crustacés et algues (nori) en plusieurs petits repas ; il grignote aussi polypes et petits invertébrés fixés.',
+      alimentation: 'Omnivore : mysis, artémias enrichies, chair de crustacés et algues (nori) en plusieurs petits repas ; il grignote aussi polypes et petits invertébrés fixés.',
       tailleAdulte: '15 à 23 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -3989,14 +3989,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pygoplites diacanthus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Son alimentation naturelle très spécialisée (éponges) entraîne un taux de survie faible en captivité chez la plupart des aquariophiles : un achat à valider au cas par cas plutôt qu'en impulsion, réservé à un aquariophile confirmé.",
+      "Son alimentation naturelle très spécialisée (éponges) entraîne un taux de survie faible en captivité chez la plupart des aquariophiles : un achat à valider au cas par cas plutôt qu'en impulsion, réservé à un aquariophile confirmé.",
     citesAnnexe: null,
     autresNoms: ['Ange royal', 'Pygoplite'],
     fiche: {
       description:
         "Poisson-ange aux couleurs somptueuses (orange, bleu, jaune) considéré comme l'un des plus beaux du récif, mais aussi l'un des plus difficiles à maintenir en captivité en raison de son régime alimentaire naturel très spécialisé.",
       conseil:
-        "Avant tout achat, vérifiez que le spécimen accepte déjà une alimentation de substitution en animalerie : de nombreux individus refusent toute nourriture inerte et dépérissent progressivement même chez un aquariophile expérimenté. Nous déconseillons son prélèvement dans la nature ; un poisson-ange nain est une alternative plus réaliste. S'il est tenté malgré tout, il exige un très grand bac mature, riche en roches vivantes, et des repas variés (mysis, spiruline, éponges alimentaires).",
+        "Avant tout achat, vérifiez que le spécimen accepte déjà une alimentation de substitution en animalerie : de nombreux individus refusent toute nourriture inerte et dépérissent progressivement même chez un aquariophile expérimenté. Nous déconseillons son prélèvement dans la nature ; un poisson-ange nain est une alternative plus réaliste. S'il est tenté malgré tout, il exige un très grand bac mature, riche en roches vivantes, et des repas variés (mysis, spiruline, éponges alimentaires).",
       volumeMinLitres: 500,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles, dans un très grand bac mature.",
@@ -4006,7 +4006,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Spongivore/omnivore : éponges naturelles, algues, granulés marins enrichis en spiruline (acceptation variable).",
+      alimentation: "Spongivore/omnivore : éponges naturelles, algues, granulés marins enrichis en spiruline (acceptation variable).",
       tailleAdulte: '20 à 25 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4045,7 +4045,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Carnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Carnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '7 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4063,14 +4063,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Synchiropus splendidus',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Son alimentation très spécialisée (copépodes vivants) entraîne un taux de mortalité élevé chez les aquariophiles débutants qui le maintiennent sans bac suffisamment mature : un achat à valider au cas par cas plutôt qu'en impulsion.",
+      "Son alimentation très spécialisée (copépodes vivants) entraîne un taux de mortalité élevé chez les aquariophiles débutants qui le maintiennent sans bac suffisamment mature : un achat à valider au cas par cas plutôt qu'en impulsion.",
     citesAnnexe: null,
     autresNoms: ['Dragonnet mandarin', 'Mandarin'],
     fiche: {
       description:
         "L'un des poissons marins les plus colorés, aux motifs bleu, orange et vert sur une peau dépourvue d'écailles, recouverte d'un mucus épais à l'odeur et au goût repoussants pour les prédateurs. Se déplace lentement en broutant le décor en continu, à la recherche de minuscules crustacés.",
       conseil:
-        "Réservez-le à un bac très mature (plus d'un an) avec une population abondante de copépodes : sans cette base alimentaire vivante, il dépérit lentement. Privilégiez un sujet né en élevage, habitué aux mysis congelées, plutôt qu'un sujet sauvage qui refuse presque toujours les aliments inertes. Ne gardez qu'un seul mâle par bac, sauf très grand volume, car les mâles se battent.",
+        "Réservez-le à un bac très mature (plus d'un an) avec une population abondante de copépodes : sans cette base alimentaire vivante, il dépérit lentement. Privilégiez un sujet né en élevage, habitué aux mysis congelées, plutôt qu'un sujet sauvage qui refuse presque toujours les aliments inertes. Ne gardez qu'un seul mâle par bac, sauf très grand volume, car les mâles se battent.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles et non concurrents pour les copépodes, dans un bac mature.",
@@ -4080,7 +4080,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: 'Carnivore spécialisé : copépodes et minuscules crustacés du bac ; les sujets nés en élevage acceptent le plus souvent mysis ou artémias congelés, les sauvages presque jamais.',
+      alimentation: 'Carnivore spécialisé : copépodes et minuscules crustacés du bac ; les sujets nés en élevage acceptent le plus souvent mysis ou artémias congelés, les sauvages presque jamais.',
       tailleAdulte: '6 à 7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4090,7 +4090,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Difficile",
-        description: "Le poisson mandarin (Synchiropus splendidus) peut se reproduire en grand aquarium récifal très établi. Les adultes frayent à la tombée de la nuit (15-30 min après le coucher du soleil). Observez leurs parades nuptiales. Les œufs planctiques et les larves sont très difficiles à élever : ils nécessitent des copépodes vivants (Tisbe, Tigriopus). Quelques éleveurs spécialisés ont obtenu des succès. La principale difficulté reste l'alimentation : les mandarins n'acceptent que les copépodes vivants du récifal.",
+        description: "Le poisson mandarin (Synchiropus splendidus) peut se reproduire en grand aquarium récifal très établi. Les adultes frayent à la tombée de la nuit (15-30 min après le coucher du soleil). Observez leurs parades nuptiales. Les œufs planctiques et les larves sont très difficiles à élever : ils nécessitent des copépodes vivants (Tisbe, Tigriopus). Quelques éleveurs spécialisés ont obtenu des succès. La principale difficulté reste l'alimentation : les mandarins n'acceptent que les copépodes vivants du récifal.",
       },
     },
   },
@@ -4108,7 +4108,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit gobie élégant au corps blanc-orangé et à la nageoire dorsale allongée qu'il déploie et agite en permanence, comme un petit drapeau. Reste souvent en suspension près de son terrier, prêt à s'y réfugier au moindre danger.",
       conseil:
-        "Sauteur occasionnel : un couvercle bien ajusté évite les mauvaises surprises, surtout dans les premières semaines suivant son introduction dans un bac inconnu.",
+        "Sauteur occasionnel : un couvercle bien ajusté évite les mauvaises surprises, surtout dans les premières semaines suivant son introduction dans un bac inconnu.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles, peut vivre en couple.",
@@ -4118,7 +4118,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Carnivore : petits crustacés vivants ou congelés (mysis, artémias).",
+      alimentation: "Carnivore : petits crustacés vivants ou congelés (mysis, artémias).",
       tailleAdulte: '7 à 9 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4142,7 +4142,7 @@ export const ESPECES: Espece[] = [
       description:
         "Poisson blanc et noir rayé de trois bandes verticales caractéristiques, très robuste et tolérant, souvent proposé aux débutants. Vit naturellement en petites colonies autour des coraux branchus.",
       conseil:
-        "Comme les autres demoiselles, elle peut devenir territoriale en grandissant : introduisez-la de préférence en petit groupe impair dès le départ plutôt que d'ajouter des individus plus tard.",
+        "Comme les autres demoiselles, elle peut devenir territoriale en grandissant : introduisez-la de préférence en petit groupe impair dès le départ plutôt que d'ajouter des individus plus tard.",
       volumeMinLitres: 100,
       tailleGroupeMin: 3,
       compatibilite: "Autres poissons de récif de gabarit similaire ou supérieur.",
@@ -4152,7 +4152,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
+      alimentation: "Omnivore : granulés/paillettes marines, artémias et mysis congelés.",
       tailleAdulte: '7 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4174,14 +4174,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Hymenocera picta',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Se nourrit exclusivement d'étoiles de mer dans la nature comme en captivité : sa vente n'est pas interdite, mais son alimentation très spécialisée impose de lui fournir un approvisionnement régulier en étoiles de mer, à anticiper avant l'achat.",
+      "Se nourrit exclusivement d'étoiles de mer dans la nature comme en captivité : sa vente n'est pas interdite, mais son alimentation très spécialisée impose de lui fournir un approvisionnement régulier en étoiles de mer, à anticiper avant l'achat.",
     citesAnnexe: null,
     autresNoms: ['Crevette arlequin'],
     fiche: {
       description:
-        "Crevette spectaculaire aux couleurs et motifs très travaillés, mais au régime alimentaire extrêmement spécialisé : elle ne consomme que des étoiles de mer, qu'elle immobilise et découpe méthodiquement.",
+        "Crevette spectaculaire aux couleurs et motifs très travaillés, mais au régime alimentaire extrêmement spécialisé : elle ne consomme que des étoiles de mer, qu'elle immobilise et découpe méthodiquement.",
       conseil:
-        "Anticipez sérieusement l'approvisionnement en étoiles de mer avant l'achat : sans cette nourriture spécifique et régulière, elle ne survit pas, aucun aliment de substitution n'étant accepté durablement. Les petites étoiles Asterina, qui prolifèrent parfois en bac, sont une source plus durable que l'achat d'étoiles de mer prélevées dans la nature, qui ne survivent d'ailleurs souvent pas. Si vous ne pouvez pas garantir cet apport, renoncez à cette crevette.",
+        "Anticipez sérieusement l'approvisionnement en étoiles de mer avant l'achat : sans cette nourriture spécifique et régulière, elle ne survit pas, aucun aliment de substitution n'étant accepté durablement. Les petites étoiles Asterina, qui prolifèrent parfois en bac, sont une source plus durable que l'achat d'étoiles de mer prélevées dans la nature, qui ne survivent d'ailleurs souvent pas. Si vous ne pouvez pas garantir cet apport, renoncez à cette crevette.",
       volumeMinLitres: 60,
       tailleGroupeMin: 2,
       compatibilite: "Poissons de récif paisibles ne s'attaquant pas aux crevettes.",
@@ -4191,7 +4191,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: "Carnivore spécialisé : exclusivement des étoiles de mer.",
+      alimentation: "Carnivore spécialisé : exclusivement des étoiles de mer.",
       tailleAdulte: '4 à 5 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4215,7 +4215,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petit crabe filtreur souvent associé aux anémones où il trouve refuge, reconnaissable à ses pinces aplaties couvertes de taches. Contrairement à la plupart des crabes, il ne chasse pas mais filtre le plancton avec ses pattes en éventail.",
       conseil:
-        "Totalement pacifique envers les poissons et coraux, il peut vivre en toute sécurité dans un bac récifal mixte : sa seule exigence est un léger courant qui lui apporte du plancton à filtrer.",
+        "Totalement pacifique envers les poissons et coraux, il peut vivre en toute sécurité dans un bac récifal mixte : sa seule exigence est un léger courant qui lui apporte du plancton à filtrer.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: "Anémones (association naturelle), poissons et coraux de récif paisibles.",
@@ -4225,7 +4225,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Filtreur : plancton en suspension, complément de nourriture fine distribuée dans le courant.",
+      alimentation: "Filtreur : plancton en suspension, complément de nourriture fine distribuée dans le courant.",
       tailleAdulte: '2 à 3 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4247,14 +4247,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Sinularia sp.',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Corail mou non scléractiniaire, généralement non listé CITES contrairement aux coraux durs : à confirmer espèce par espèce en cas de doute.",
+      "Corail mou non scléractiniaire, généralement non listé CITES contrairement aux coraux durs : à confirmer espèce par espèce en cas de doute.",
     citesAnnexe: null,
     autresNoms: ['Corail doigts de cuir'],
     fiche: {
       description:
         "Corail mou souple à la texture rappelant le cuir, formant des lobes ondulants qui bougent doucement au courant. Comme les autres coraux mous, il est plus tolérant que les coraux durs face aux variations de paramètres.",
       conseil:
-        "Il libère parfois des substances chimiques (terpénoïdes) qui peuvent irriter certains coraux durs sensibles : gardez une distance suffisante ou un charbon actif efficace en cas de bac mixte.",
+        "Il libère parfois des substances chimiques (terpénoïdes) qui peuvent irriter certains coraux durs sensibles : gardez une distance suffisante ou un charbon actif efficace en cas de bac mixte.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Autres coraux mous, poissons de récif paisibles.",
@@ -4292,14 +4292,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Zoanthus sp.',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Certaines colonies de zoanthaires peuvent sécréter une toxine dangereuse, la palytoxine, en cas de manipulation à mains nues ou de découpe : portez systématiquement des gants et évitez tout contact avec les yeux ou une plaie ouverte lors de l'entretien.",
+      "Certaines colonies de zoanthaires peuvent sécréter une toxine dangereuse, la palytoxine, en cas de manipulation à mains nues ou de découpe : portez systématiquement des gants et évitez tout contact avec les yeux ou une plaie ouverte lors de l'entretien.",
     citesAnnexe: null,
     autresNoms: ['Zoa'],
     fiche: {
       description:
         "Corail mou colonial formant des tapis de polypes aux couleurs très variées (vert, orange, bleu, violet), l'un des coraux les plus faciles et les plus populaires pour débuter en récifal grâce à sa robustesse.",
       conseil:
-        "Portez toujours des gants et des lunettes de protection lors de toute manipulation, bouturage ou découpe de zoanthaires : certaines colonies contiennent de la palytoxine, une toxine très dangereuse en cas de contact avec une coupure, les yeux ou les muqueuses. Évitez de les sécher, de les chauffer ou de les rincer sous un jet projetant des gouttelettes, aérez la pièce, puis lavez soigneusement matériel et mains. En cas de projection dans l'œil ou de symptômes (nausées, fièvre, gêne respiratoire), rincez abondamment à l'eau et appelez le 15 ou le centre antipoison.",
+        "Portez toujours des gants et des lunettes de protection lors de toute manipulation, bouturage ou découpe de zoanthaires : certaines colonies contiennent de la palytoxine, une toxine très dangereuse en cas de contact avec une coupure, les yeux ou les muqueuses. Évitez de les sécher, de les chauffer ou de les rincer sous un jet projetant des gouttelettes, aérez la pièce, puis lavez soigneusement matériel et mains. En cas de projection dans l'œil ou de symptômes (nausées, fièvre, gêne respiratoire), rincez abondamment à l'eau et appelez le 15 ou le centre antipoison.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Autres coraux mous, poissons de récif paisibles.",
@@ -4325,11 +4325,11 @@ export const ESPECES: Espece[] = [
         placement: 'Milieu de roche',
         croissance: 'Rapide',
         agressivite: 'Semi-agressif',
-        multiplication: "Division d'une colonie en détachant quelques polypes avec un scalpel (de préférence sous l'eau) ou en séparant un morceau de roche : les fragments reprennent facilement s'ils sont fixés.",
+        multiplication: "Division d'une colonie en détachant quelques polypes avec un scalpel (de préférence sous l'eau) ou en séparant un morceau de roche : les fragments reprennent facilement s'ils sont fixés.",
       },
       reproduction: {
         facilite: "Très facile",
-        description: "Les zoanthaires se reproduisent très facilement en aquarium récifal par bourgeonnement asexué. De nouveaux polypes apparaissent spontanément autour des colonies existantes, formant des tapis denses. Pour accélérer la propagation : découpez un morceau de roche support avec quelques polypes et repositionnez-le. La reproduction sexuée (larves planctoniques) est rare en captivité. Attention : certains zoanthaires contiennent de la palyctoxine, très toxique. Ne manipulez jamais sans gants et évitez tout contact avec les yeux.",
+        description: "Les zoanthaires se reproduisent très facilement en aquarium récifal par bourgeonnement asexué. De nouveaux polypes apparaissent spontanément autour des colonies existantes, formant des tapis denses. Pour accélérer la propagation : découpez un morceau de roche support avec quelques polypes et repositionnez-le. La reproduction sexuée (larves planctoniques) est rare en captivité. Attention : certains zoanthaires contiennent de la palyctoxine, très toxique. Ne manipulez jamais sans gants et évitez tout contact avec les yeux.",
       },
     },
   },
@@ -4341,14 +4341,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Chiloscyllium punctatum',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Plusieurs espèces de requins de récif sont listées CITES Annexe II, et leur taille adulte est de toute façon incompatible avec un aquarium domestique standard : cette espèce ne doit jamais être vendue en libre-service, uniquement à des structures disposant d'un bassin adapté et d'une validation au cas par cas.",
+      "Plusieurs espèces de requins de récif sont listées CITES Annexe II, et leur taille adulte est de toute façon incompatible avec un aquarium domestique standard : cette espèce ne doit jamais être vendue en libre-service, uniquement à des structures disposant d'un bassin adapté et d'une validation au cas par cas.",
     citesAnnexe: null,
     autresNoms: ['Requin bambou', 'Requin-chabot bambou'],
     fiche: {
       description:
-        "Petit requin de fond de l'Indo-Pacifique, au corps allongé marqué de larges bandes brunes sur fond clair qui s'estompent avec l'âge. Il est nocturne et se nourrit au fond de petits poissons, de crustacés et de mollusques. Vendu tout jeune, il atteint 1 à 1,3 m et vit de nombreuses années : il devient trop grand pour tout aquarium domestique. Son nom courant « requin taupe » est trompeur : ce nom désigne en réalité des requins pélagiques (famille Lamnidae) sans rapport avec cette espèce.",
+        "Petit requin de fond de l'Indo-Pacifique, au corps allongé marqué de larges bandes brunes sur fond clair qui s'estompent avec l'âge. Il est nocturne et se nourrit au fond de petits poissons, de crustacés et de mollusques. Vendu tout jeune, il atteint 1 à 1,3 m et vit de nombreuses années : il devient trop grand pour tout aquarium domestique. Son nom courant « requin taupe » est trompeur : ce nom désigne en réalité des requins pélagiques (famille Lamnidae) sans rapport avec cette espèce.",
       conseil:
-        "Un juvénile de quelques dizaines de centimètres peut sembler gérable, mais l'adulte a besoin d'un bassin de plusieurs milliers de litres : il ne peut pas être maintenu chez un particulier. Ne l'achetez pas sur un coup de cœur, même si le vendeur affirme qu'il restera petit, ce qui est faux. Il peut mordre lorsqu'on le manipule. Pour un poisson de fond original, orientez-vous vers un gobie crevette, un poisson-mandarin né en élevage ou une blennie brouteuse dans un bac adapté.",
+        "Un juvénile de quelques dizaines de centimètres peut sembler gérable, mais l'adulte a besoin d'un bassin de plusieurs milliers de litres : il ne peut pas être maintenu chez un particulier. Ne l'achetez pas sur un coup de cœur, même si le vendeur affirme qu'il restera petit, ce qui est faux. Il peut mordre lorsqu'on le manipule. Pour un poisson de fond original, orientez-vous vers un gobie crevette, un poisson-mandarin né en élevage ou une blennie brouteuse dans un bac adapté.",
       volumeMinLitres: 10000,
       tailleGroupeMin: 1,
       compatibilite: 'Dans un bassin professionnel de plusieurs milliers de litres uniquement, avec de grands poissons robustes non agressifs.',
@@ -4358,7 +4358,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: 'Carnivore nocturne : petits poissons, crustacés et mollusques capturés au fond.',
+      alimentation: 'Carnivore nocturne : petits poissons, crustacés et mollusques capturés au fond.',
       tailleAdulte: '1 à 1,3 m',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -4381,7 +4381,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété bleue intense de Neocaridina, cousine de la red cherry avec la même facilité d'entretien. Sa couleur vive en fait une des crevettes d'ornement les plus demandées après la red cherry.",
       conseil:
-        "Comme la red cherry, elle est facile et prolifique : évitez de la mélanger avec d'autres variétés de Neocaridina de couleur différente, les croisements donnant des descendants ternes et peu colorés.",
+        "Comme la red cherry, elle est facile et prolifique : évitez de la mélanger avec d'autres variétés de Neocaridina de couleur différente, les croisements donnant des descendants ternes et peu colorés.",
       volumeMinLitres: 20,
       tailleGroupeMin: 10,
       compatibilite: "Poissons très paisibles et non prédateurs, autres Neocaridina de même couleur.",
@@ -4391,7 +4391,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Facile",
@@ -4412,7 +4412,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété de Caridina au corps translucide rayé de bandes sombres évoquant un pelage de tigre. Comme les autres Caridina, elle est plus exigeante que les Neocaridina en matière de stabilité de l'eau.",
       conseil:
-        "Un GH et un pH bas et stables, proches de son habitat naturel, sont indispensables à sa survie durable : un sol actif spécifique crevettes est fortement recommandé, comme pour la Crystal Red.",
+        "Un GH et un pH bas et stables, proches de son habitat naturel, sont indispensables à sa survie durable : un sol actif spécifique crevettes est fortement recommandé, comme pour la Crystal Red.",
       volumeMinLitres: 40,
       tailleGroupeMin: 10,
       compatibilite: "Autres Caridina de même exigence, petits poissons très paisibles et non prédateurs.",
@@ -4422,7 +4422,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 24,
       difficulte: 'Expert',
-      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
+      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques crevettes minéralisants.",
       tailleAdulte: '2 à 3 cm',
     },
   },
@@ -4439,7 +4439,7 @@ export const ESPECES: Espece[] = [
       description:
         "Grand escargot d'origine indonésienne à la coquille conique allongée, décliné en plusieurs couleurs selon les variétés. Contrairement aux escargots envahissants, il se reproduit très lentement, ce qui limite les populations incontrôlées.",
       conseil:
-        "Sa reproduction lente en fait un escargot facile à gérer sans risque de surpopulation : contrairement à la physe ou au ramshorn, vous ne le verrez pas envahir le bac même sans intervention.",
+        "Sa reproduction lente en fait un escargot facile à gérer sans risque de surpopulation : contrairement à la physe ou au ramshorn, vous ne le verrez pas envahir le bac même sans intervention.",
       volumeMinLitres: 40,
       tailleGroupeMin: 2,
       compatibilite: "Quasiment tous les poissons paisibles, crevettes.",
@@ -4449,7 +4449,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture, granulés coulants en complément.",
+      alimentation: "Détritivore/algivore : algues, biofilm, restes de nourriture, granulés coulants en complément.",
       tailleAdulte: '5 à 8 cm',
       reproduction: {
         facilite: "Facile",
@@ -4470,7 +4470,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante de milieu aux feuilles épaisses et charnues dégageant une légère odeur citronnée lorsqu'on les froisse. Ses tiges dressées forment de jolis massifs verts qui virent parfois au jaune-orangé sous forte lumière.",
       conseil:
-        "Ses feuilles épaisses la rendent plus tolérante que beaucoup de plantes de milieu face aux carences ponctuelles : un bon choix pour un aquariophile encore peu expérimenté en plantes exigeantes.",
+        "Ses feuilles épaisses la rendent plus tolérante que beaucoup de plantes de milieu face aux carences ponctuelles : un bon choix pour un aquariophile encore peu expérimenté en plantes exigeantes.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4497,7 +4497,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante d'arrière-plan au feuillage finement découpé et dense, formant une belle texture plumeuse qui contraste bien avec des plantes à larges feuilles. Croissance rapide sous un bon éclairage.",
       conseil:
-        "Une lumière assez intense et un apport de CO2 favorisent une croissance compacte et dense : sous un éclairage faible, ses tiges s'étiolent et perdent leurs feuilles inférieures.",
+        "Une lumière assez intense et un apport de CO2 favorisent une croissance compacte et dense : sous un éclairage faible, ses tiges s'étiolent et perdent leurs feuilles inférieures.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4528,7 +4528,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petite plante flottante ou fixable formant des amas denses de fines ramifications vert vif, très utilisée en aquascaping pour créer des tapis ou des boules décoratives (mousse de riccia).",
       conseil:
-        "Fixée sur un filet ou une pierre plate avec du fil, elle forme un tapis compact et dense particulièrement décoratif : sans fixation, elle flotte librement en surface et se propage plus difficilement à l'endroit voulu.",
+        "Fixée sur un filet ou une pierre plate avec du fil, elle forme un tapis compact et dense particulièrement décoratif : sans fixation, elle flotte librement en surface et se propage plus difficilement à l'endroit voulu.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4555,7 +4555,7 @@ export const ESPECES: Espece[] = [
       description:
         "La plus petite des cryptocorynes couramment cultivées, idéale pour un premier plan dense et bas. Croissance très lente mais stable une fois installée, avec un feuillage vert foncé compact.",
       conseil:
-        "Sa croissance très lente demande de la patience : ne vous découragez pas si elle semble stagner les premières semaines, elle finit par former un tapis dense et durable une fois acclimatée.",
+        "Sa croissance très lente demande de la patience : ne vous découragez pas si elle semble stagner les premières semaines, elle finit par former un tapis dense et durable une fois acclimatée.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4581,13 +4581,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Hydrocotyle leucocephala',
     statutLegal: 'autorise',
     remarqueLegale:
-      "À ne pas confondre avec Hydrocotyle ranunculoides, une espèce cousine interdite en France car classée invasive : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion.",
+      "À ne pas confondre avec Hydrocotyle ranunculoides, une espèce cousine interdite en France car classée invasive : vérifiez bien le nom scientifique exact avant tout achat, notamment d'occasion.",
     citesAnnexe: null,
     fiche: {
       description:
         "Plante aux feuilles rondes rappelant un trèfle, pouvant pousser immergée ou en émergé au-dessus de la surface. Croissance rapide qui apporte rapidement du volume et de la couleur claire à un aquarium.",
       conseil:
-        "Vérifiez bien le nom scientifique exact avant l'achat : à ne pas confondre avec Hydrocotyle ranunculoides, une cousine interdite en France car invasive dans les milieux naturels.",
+        "Vérifiez bien le nom scientifique exact avant l'achat : à ne pas confondre avec Hydrocotyle ranunculoides, une cousine interdite en France car invasive dans les milieux naturels.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4614,7 +4614,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante de premier plan formant un gazon dense de fines tiges verticales évoquant du gazon aquatique. Très utilisée en aquascaping pour recréer un effet de pelouse au sol du bac.",
       conseil:
-        "Une lumière assez intense favorise un tapis bas et dense plutôt que des tiges qui s'étirent vers la surface : sous éclairage faible, elle pousse en hauteur au lieu de former le gazon recherché.",
+        "Une lumière assez intense favorise un tapis bas et dense plutôt que des tiges qui s'étirent vers la surface : sous éclairage faible, elle pousse en hauteur au lieu de former le gazon recherché.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4645,7 +4645,7 @@ export const ESPECES: Espece[] = [
       description:
         "Petite plante de premier plan aux feuilles ondulées vert clair à bronze, très prisée en aquascaping pour sa texture originale qui se distingue des plantes de premier plan classiques.",
       conseil:
-        "Elle apprécie d'être divisée régulièrement en petites touffes plutôt que de pousser en un seul bloc dense : la division favorise un tapis plus homogène et esthétique.",
+        "Elle apprécie d'être divisée régulièrement en petites touffes plutôt que de pousser en un seul bloc dense : la division favorise un tapis plus homogène et esthétique.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce.",
@@ -4672,7 +4672,7 @@ export const ESPECES: Espece[] = [
       description:
         "Plante flottante ou faiblement enracinée au feuillage fin et dense, poussant très rapidement et servant souvent de cachette naturelle pour les alevins. Contribue efficacement à filtrer les nitrates de l'eau.",
       conseil:
-        "N'ayant pas besoin de racines pour se développer, elle peut simplement flotter librement dans le bac : idéale pour occuper rapidement l'espace et offrir des cachettes sans plantation fastidieuse.",
+        "N'ayant pas besoin de racines pour se développer, elle peut simplement flotter librement dans le bac : idéale pour occuper rapidement l'espace et offrir des cachettes sans plantation fastidieuse.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient à la plupart des habitants d'un bac d'eau douce, utile pour les alevins.",
@@ -4686,7 +4686,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '30 à 100 cm de long',
       reproduction: {
         facilite: "Très facile",
-        description: "Le cornifle (Ceratophyllum demersum) se multiplie de manière végétative très facilement. Il suffit de casser un rameau et de le laisser flotter dans l'eau : il va naturellement se déposer sur le substrat et développer de nouvelles tiges. La reproduction sexuée (fleurs) est rare en aquarium. La plante est excellente pour oxygéner l'eau et absorber les nitrates. Croissance rapide : taillez régulièrement pour éviter l'envahissement. Aucun besoin de CO2 ni d'engrais particulier.",
+        description: "Le cornifle (Ceratophyllum demersum) se multiplie de manière végétative très facilement. Il suffit de casser un rameau et de le laisser flotter dans l'eau : il va naturellement se déposer sur le substrat et développer de nouvelles tiges. La reproduction sexuée (fleurs) est rare en aquarium. La plante est excellente pour oxygéner l'eau et absorber les nitrates. Croissance rapide : taillez régulièrement pour éviter l'envahissement. Aucun besoin de CO2 ni d'engrais particulier.",
       },
     },
   },
@@ -4713,7 +4713,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
+      alimentation: "Omnivore : paillettes, granulés, larves congelées occasionnelles.",
       tailleAdulte: '10 à 15 cm',
     },
   },
@@ -4740,7 +4740,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 28,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore/carnivore : granulés, larves congelées, artémias.",
+      alimentation: "Omnivore/carnivore : granulés, larves congelées, artémias.",
       tailleAdulte: '5 à 7 cm (mâle plus grand que la femelle)',
       reproduction: {
         facilite: "Modérée",
@@ -4756,13 +4756,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Hypancistrus zebra',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Listé à l'Annexe C du règlement CE 338/97 (CITES) : ce classement encadre l'import et l'export international, mais pas la revente en France une fois l'animal légalement présent dans l'UE. Une déclaration d'élevage captif est demandée au vendeur par précaution.",
+      "Listé à l'Annexe C du règlement CE 338/97 (CITES) : ce classement encadre l'import et l'export international, mais pas la revente en France une fois l'animal légalement présent dans l'UE. Une déclaration d'élevage captif est demandée au vendeur par précaution.",
     citesAnnexe: 'C',
     fiche: {
       description:
         "Petit pléco brésilien au motif noir et blanc très contrasté et recherché, parmi les plus prisés des collectionneurs de poissons-chats L-number. Sa capture sauvage est interdite dans son pays d'origine depuis des années, ce qui a poussé son élevage en captivité.",
       conseil:
-        "Demandez systématiquement au vendeur une preuve d'élevage en captivité plutôt qu'un prélèvement sauvage : la pression sur les populations naturelles de cette espèce reste très forte à cause de sa popularité.",
+        "Demandez systématiquement au vendeur une preuve d'élevage en captivité plutôt qu'un prélèvement sauvage : la pression sur les populations naturelles de cette espèce reste très forte à cause de sa popularité.",
       volumeMinLitres: 100,
       tailleGroupeMin: 2,
       compatibilite: "Autres poissons-chats paisibles, characidés calmes, dans un bac à courant modéré.",
@@ -4772,7 +4772,7 @@ export const ESPECES: Espece[] = [
       tempMin: 27,
       tempMax: 30,
       difficulte: 'Expert',
-      alimentation: "Carnivore : granulés coulants riches en protéines, larves congelées.",
+      alimentation: "Carnivore : granulés coulants riches en protéines, larves congelées.",
       tailleAdulte: '7 à 8 cm',
     },
   },
@@ -4784,16 +4784,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Orconectes limosus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante avec des populations déjà largement établies dans les cours d'eau français : sa vente, son transport et sa détention sont interdits, tout comme sa réintroduction dans le milieu naturel.",
+      "Espèce exotique envahissante avec des populations déjà largement établies dans les cours d'eau français : sa vente, son transport et sa détention sont interdits, tout comme sa réintroduction dans le milieu naturel.",
     citesAnnexe: null,
     fiche: {
       description:
         "Écrevisse nord-américaine largement répandue dans les rivières et étangs français, où elle est porteuse saine d'un champignon mortel pour les écrevisses européennes indigènes, contribuant à leur déclin.",
       conseil:
-        "Sa présence répandue dans la nature ne signifie pas qu'elle est autorisée à la vente : de nombreuses espèces invasives bien installées restent interdites précisément à cause de leur impact écologique déjà avéré.",
+        "Sa présence répandue dans la nature ne signifie pas qu'elle est autorisée à la vente : de nombreuses espèces invasives bien installées restent interdites précisément à cause de leur impact écologique déjà avéré.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4804,7 +4804,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '8 à 12 cm',
       reproduction: {
         facilite: "Facile",
-        description: "L'écrevisse américaine (Procambarus clarkii) se reproduit facilement en aquarium. La femelle porte ses œufs sous l'abdomen pendant 3-4 semaines. Elle donne naissance à 50-300 jeunes écrevisses miniatures autonomes. Eau fraîche (T° 15-22°C), pH 7-8, dure. Séparez les adultes des jeunes pour éviter le cannibalisme. ATTENTION : espèce hautement invasive classée parmi les plus nuisibles d'Europe. Sa détention et sa vente sont interdites en France depuis 2020 en vertu du règlement européen 1143/2014. Ne la relâchez surtout pas dans la nature.",
+        description: "L'écrevisse américaine (Procambarus clarkii) se reproduit facilement en aquarium. La femelle porte ses œufs sous l'abdomen pendant 3-4 semaines. Elle donne naissance à 50-300 jeunes écrevisses miniatures autonomes. Eau fraîche (T° 15-22°C), pH 7-8, dure. Séparez les adultes des jeunes pour éviter le cannibalisme. ATTENTION : espèce hautement invasive classée parmi les plus nuisibles d'Europe. Sa détention et sa vente sont interdites en France depuis 2020 en vertu du règlement européen 1143/2014. Ne la relâchez surtout pas dans la nature.",
       },
     },
   },
@@ -4816,16 +4816,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Faxonius immunis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
     citesAnnexe: null,
     fiche: {
       description:
         "Écrevisse nord-américaine au corps tacheté rappelant un motif calico, capable de coloniser rapidement de nouveaux milieux grâce à sa tolérance à des conditions variées et sa reproduction rapide.",
       conseil:
-        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu, même issu d'un achat antérieur à l'interdiction : c'est le geste le plus problématique pour la propagation de ces espèces.",
+        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu, même issu d'un achat antérieur à l'interdiction : c'est le geste le plus problématique pour la propagation de ces espèces.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4844,16 +4844,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Cherax destructor',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France, dont le nom scientifique (destructor) résume bien l'impact constaté sur les milieux où elle a été introduite : sa vente et son introduction dans le milieu naturel sont interdites.",
+      "Espèce exotique envahissante réglementée en France, dont le nom scientifique (destructor) résume bien l'impact constaté sur les milieux où elle a été introduite : sa vente et son introduction dans le milieu naturel sont interdites.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grande écrevisse australienne originellement importée pour l'aquaculture alimentaire, dont l'appétit vorace et le comportement fouisseur peuvent déstabiliser fortement les berges et la végétation des milieux où elle s'installe.",
       conseil:
-        "Son origine d'élevage alimentaire ne change rien à son statut actuel : une espèce introduite pour un usage commercial peut être requalifiée comme invasive et interdite si son impact écologique se révèle négatif.",
+        "Son origine d'élevage alimentaire ne change rien à son statut actuel : une espèce introduite pour un usage commercial peut être requalifiée comme invasive et interdite si son impact écologique se révèle négatif.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4882,10 +4882,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante aquatique sud-américaine au feuillage fin et plumeux émergeant nettement au-dessus de la surface, formant des herbiers denses qui colonisent rapidement mares, fossés et cours d'eau à faible courant au détriment de la flore locale.",
       conseil:
-        "Comme pour la plupart des plantes aquatiques invasives, un simple fragment de tige jeté dans la nature suffit à cette espèce pour bouturer et coloniser un nouveau milieu : les résidus de taille doivent toujours être jetés avec les déchets ménagers, jamais dans un cours d'eau.",
+        "Comme pour la plupart des plantes aquatiques invasives, un simple fragment de tige jeté dans la nature suffit à cette espèce pour bouturer et coloniser un nouveau milieu : les résidus de taille doivent toujours être jetés avec les déchets ménagers, jamais dans un cours d'eau.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4910,10 +4910,10 @@ export const ESPECES: Espece[] = [
       description:
         "Fougère aquatique flottante sud-américaine à feuilles duveteuses repliées, capable de doubler sa biomasse en quelques jours et de former des tapis flottants si épais qu'ils bloquent totalement la lumière et l'oxygénation de l'eau en dessous.",
       conseil:
-        "Son nom scientifique \"molesta\" (nuisible) n'est pas usurpé : cette espèce figure parmi les plantes aquatiques les plus problématiques recensées au monde et fait l'objet de programmes de lutte biologique dans plusieurs pays.",
+        "Son nom scientifique \"molesta\" (nuisible) n'est pas usurpé : cette espèce figure parmi les plantes aquatiques les plus problématiques recensées au monde et fait l'objet de programmes de lutte biologique dans plusieurs pays.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4924,7 +4924,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: "feuilles de 1 à 2 cm, tapis flottant illimité",
       reproduction: {
         facilite: "Très facile",
-        description: "La salvinie géante (Salvinia molesta) se multiplie végétativement de façon très rapide. Les tiges se divisent spontanément et chaque segment flottant forme un nouveau plant. Ne nécessite aucune intervention. Sa croissance peut être explosive sous bonnes conditions (lumière intense, eau eutrophe). ATTENTION : l'une des plantes aquatiques les plus envahissantes au monde. Sa détention est interdite en Europe (directive REACH). Ne jamais l'introduire dans la nature. Vérifiez la légalité dans votre pays avant acquisition.",
+        description: "La salvinie géante (Salvinia molesta) se multiplie végétativement de façon très rapide. Les tiges se divisent spontanément et chaque segment flottant forme un nouveau plant. Ne nécessite aucune intervention. Sa croissance peut être explosive sous bonnes conditions (lumière intense, eau eutrophe). ATTENTION : l'une des plantes aquatiques les plus envahissantes au monde. Sa détention est interdite en Europe (directive REACH). Ne jamais l'introduire dans la nature. Vérifiez la légalité dans votre pays avant acquisition.",
       },
     },
   },
@@ -4942,10 +4942,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante amphibie sud-américaine à petites fleurs blanches en pompons, capable de croître aussi bien immergée qu'en berge, formant des peuplements denses qui concurrencent fortement la végétation aquatique indigène des cours d'eau.",
       conseil:
-        "Malgré son nom évoquant les hygrophiles d'aquarium couramment vendues, cette espèce est une plante distincte et interdite : ne vous fiez pas au seul nom commun pour juger de la légalité d'une plante aquatique.",
+        "Malgré son nom évoquant les hygrophiles d'aquarium couramment vendues, cette espèce est une plante distincte et interdite : ne vous fiez pas au seul nom commun pour juger de la légalité d'une plante aquatique.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4964,16 +4964,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Gambusia affinis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré son introduction historique pour la lutte antimoustique. Une espèce cousine très proche, Gambusia holbrooki, partage exactement le même statut.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré son introduction historique pour la lutte antimoustique. Une espèce cousine très proche, Gambusia holbrooki, partage exactement le même statut.",
     citesAnnexe: null,
     fiche: {
       description:
         "Petit poisson vivipare nord-américain introduit historiquement en Europe pour lutter contre les moustiques en consommant leurs larves, mais dont l'impact sur la faune aquatique locale s'est révélé fortement négatif.",
       conseil:
-        "Son introduction historique à des fins sanitaires ne rend pas sa détention légale aujourd'hui : de nombreuses espèces introduites pour un bénéfice supposé se sont révélées invasives et sont désormais interdites.",
+        "Son introduction historique à des fins sanitaires ne rend pas sa détention légale aujourd'hui : de nombreuses espèces introduites pour un bénéfice supposé se sont révélées invasives et sont désormais interdites.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -4984,7 +4984,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '3 à 7 cm',
       reproduction: {
         facilite: "Très facile",
-        description: "La gambusie (Gambusia affinis) est un poisson vivipare très facile à reproduire. La femelle porte ses jeunes et donne naissance à 20-100 alevins autonomes toutes les 4-6 semaines. Les alevins sont très résistants et acceptent immédiatement les aliments en poudre. ATTENTION : espèce hautement invasive, classée parmi les 100 espèces les plus nuisibles au monde par l'UICN. Interdite de détention dans de nombreux pays. En France, sa possession et son relâcher sont illégaux. Sa reproduction en aquarium domestique n'est pas recommandée.",
+        description: "La gambusie (Gambusia affinis) est un poisson vivipare très facile à reproduire. La femelle porte ses jeunes et donne naissance à 20-100 alevins autonomes toutes les 4-6 semaines. Les alevins sont très résistants et acceptent immédiatement les aliments en poudre. ATTENTION : espèce hautement invasive, classée parmi les 100 espèces les plus nuisibles au monde par l'UICN. Interdite de détention dans de nombreux pays. En France, sa possession et son relâcher sont illégaux. Sa reproduction en aquarium domestique n'est pas recommandée.",
       },
     },
   },
@@ -5002,10 +5002,10 @@ export const ESPECES: Espece[] = [
       description:
         "Le plus grand escargot-pomme introduit en Europe, à la coquille pouvant dépasser 8 cm, originaire d'Amérique du Sud. Comme les autres Pomacea invasives, il pond des amas d'œufs roses vifs hors de l'eau et dévaste la végétation aquatique là où il s'établit.",
       conseil:
-        "Ne relâchez jamais un escargot d'aquarium dans un point d'eau naturel : ses œufs et sa reproduction rapide suffisent à coloniser durablement un plan d'eau entier.",
+        "Ne relâchez jamais un escargot d'aquarium dans un point d'eau naturel : ses œufs et sa reproduction rapide suffisent à coloniser durablement un plan d'eau entier.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5024,16 +5024,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pseudorasbora parva',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment car elle est porteuse d'un agent pathogène dangereux pour les cyprinidés locaux.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment car elle est porteuse d'un agent pathogène dangereux pour les cyprinidés locaux.",
     citesAnnexe: null,
     fiche: {
       description:
         "Petit cyprinidé asiatique introduit accidentellement en Europe via le commerce de poissons d'élevage, aujourd'hui connu pour transmettre un parasite responsable d'une maladie mortelle chez plusieurs espèces de cyprinidés indigènes.",
       conseil:
-        "Au-delà de son statut envahissant, cette espèce représente un risque sanitaire réel pour la faune aquatique locale : ne jamais introduire un poisson d'origine incertaine dans un point d'eau naturel.",
+        "Au-delà de son statut envahissant, cette espèce représente un risque sanitaire réel pour la faune aquatique locale : ne jamais introduire un poisson d'origine incertaine dans un point d'eau naturel.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5044,7 +5044,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '5 à 11 cm',
       reproduction: {
         facilite: "Facile",
-        description: "Le pseudorasbora (Pseudorasbora parva) se reproduit facilement. Le mâle nettoie un support (pierre plate, vitre) sur lequel la femelle dépose des œufs adhésifs. Le mâle les surveille et les ventile jusqu'à l'éclosion (5-7 jours). T° 15-22°C, pH 7-8. ATTENTION : espèce hautement invasive en Europe, porteuse d'un parasite (Sphaerothecum destruens) dévastatrice pour les cyprinidés autochtones. Sa détention et vente sont INTERDITES en France et dans la plupart des pays européens. Ne maintenez jamais cette espèce.",
+        description: "Le pseudorasbora (Pseudorasbora parva) se reproduit facilement. Le mâle nettoie un support (pierre plate, vitre) sur lequel la femelle dépose des œufs adhésifs. Le mâle les surveille et les ventile jusqu'à l'éclosion (5-7 jours). T° 15-22°C, pH 7-8. ATTENTION : espèce hautement invasive en Europe, porteuse d'un parasite (Sphaerothecum destruens) dévastatrice pour les cyprinidés autochtones. Sa détention et vente sont INTERDITES en France et dans la plupart des pays européens. Ne maintenez jamais cette espèce.",
       },
     },
   },
@@ -5065,7 +5065,7 @@ export const ESPECES: Espece[] = [
         "Si vous recherchez un escargot mangeur d'algues pour votre aquarium, tournez-vous vers l'escargot mystère (Pomacea bridgesii), une espèce proche mais légalement autorisée en France.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5084,7 +5084,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Fundulus heteroclitus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré sa robustesse remarquable qui a facilité sa propagation.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré sa robustesse remarquable qui a facilité sa propagation.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5093,7 +5093,7 @@ export const ESPECES: Espece[] = [
         "Sa tolérance extrême aux variations de milieu, souvent citée comme un atout en aquariophilie, est précisément ce qui en fait une espèce invasive redoutable une fois relâchée dans la nature.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5104,7 +5104,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '8 à 15 cm',
       reproduction: {
         facilite: "Modérée",
-        description: "Le carassin (Carassius carassius) ou choquemort se reproduit en aquarium de grande taille ou en bassin. Les adultes frayent parmi les plantes aquatiques denses lors des températures printanières (10-18°C). Les œufs adhèrent aux plantes et éclosent en 5-7 jours. Les géniteurs mangent les œufs : retirez-les ou transférez les plantes ovigères dans un bac séparé. Les alevins acceptent des aliments en poudre après résorption du sac vitellin. pH 7-8, T° 15-22°C. Espèce résistante aux faibles niveaux d'oxygène.",
+        description: "Le carassin (Carassius carassius) ou choquemort se reproduit en aquarium de grande taille ou en bassin. Les adultes frayent parmi les plantes aquatiques denses lors des températures printanières (10-18°C). Les œufs adhèrent aux plantes et éclosent en 5-7 jours. Les géniteurs mangent les œufs : retirez-les ou transférez les plantes ovigères dans un bac séparé. Les alevins acceptent des aliments en poudre après résorption du sac vitellin. pH 7-8, T° 15-22°C. Espèce résistante aux faibles niveaux d'oxygène.",
       },
     },
   },
@@ -5122,10 +5122,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante amphibie sud-américaine à tiges rampantes et fleurs jaunes, l'une des jussies les plus problématiques des zones humides françaises, capable de former des radeaux végétaux denses qui recouvrent intégralement plans d'eau et canaux.",
       conseil:
-        "Vérifiez toujours le nom scientifique complet avant tout achat de jussie pour aquarium : la confusion avec Ludwigia repens, morphologiquement proche mais légale, est une source fréquente d'erreur.",
+        "Vérifiez toujours le nom scientifique complet avant tout achat de jussie pour aquarium : la confusion avec Ludwigia repens, morphologiquement proche mais légale, est une source fréquente d'erreur.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5144,16 +5144,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Cipangopaludina chinensis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grand escargot d'eau douce asiatique à la coquille arrondie, introduit accidentellement en Europe via le commerce aquariophile ou alimentaire, où il concurrence les mollusques indigènes pour la nourriture et l'espace.",
       conseil:
-        "N'introduisez jamais un mollusque ou un poisson dans un point d'eau naturel, même par simple geste de \"libération\" bienveillant : c'est la principale voie d'introduction des espèces invasives comme celle-ci.",
+        "N'introduisez jamais un mollusque ou un poisson dans un point d'eau naturel, même par simple geste de \"libération\" bienveillant : c'est la principale voie d'introduction des espèces invasives comme celle-ci.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5164,7 +5164,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '5 à 6 cm',
       reproduction: {
         facilite: "Facile",
-        description: "La vivipare chinoise (Cipangopaludina chinensis) est vivipare. La femelle porte ses œufs en interne et donne naissance à 20-50 juvéniles miniatures chaque année. La reproduction est lente mais régulière. Eau neutre à alcaline (pH 7-8), fraîche (T° 15-22°C), dure (GH > 10). Ces escargots sont de bons nettoyeurs de vitres et substrats. ATTENTION : espèce invasive dans certaines régions. Ne jamais relâcher dans la nature. Vérifiez la réglementation locale.",
+        description: "La vivipare chinoise (Cipangopaludina chinensis) est vivipare. La femelle porte ses œufs en interne et donne naissance à 20-50 juvéniles miniatures chaque année. La reproduction est lente mais régulière. Eau neutre à alcaline (pH 7-8), fraîche (T° 15-22°C), dure (GH > 10). Ces escargots sont de bons nettoyeurs de vitres et substrats. ATTENTION : espèce invasive dans certaines régions. Ne jamais relâcher dans la nature. Vérifiez la réglementation locale.",
       },
     },
   },
@@ -5176,16 +5176,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Eriocheir sinensis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment en raison de son comportement fouisseur qui déstabilise les berges.",
+      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment en raison de son comportement fouisseur qui déstabilise les berges.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grand crabe migrateur capable de vivre en eau douce puis de rejoindre la mer pour se reproduire, reconnaissable à ses pinces velues caractéristiques. Son comportement fouisseur peut fragiliser durablement les berges des cours d'eau colonisés.",
       conseil:
-        "Sa capacité à migrer entre eau douce et eau salée le rend particulièrement difficile à contenir une fois introduit : un geste isolé de relâcher peut suffire à établir une population durable sur tout un bassin versant.",
+        "Sa capacité à migrer entre eau douce et eau salée le rend particulièrement difficile à contenir une fois introduit : un geste isolé de relâcher peut suffire à établir une population durable sur tout un bassin versant.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5204,16 +5204,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Orconectes virilis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
     citesAnnexe: null,
     fiche: {
       description:
         "Écrevisse nord-américaine aux pinces teintées de bleu, robuste et adaptable, capable de coloniser rapidement de nouveaux milieux aquatiques une fois introduite, au détriment des espèces locales.",
       conseil:
-        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu dans la nature, même un seul : c'est ce geste isolé qui permet à ces espèces de fonder une population durable dans un nouveau cours d'eau.",
+        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu dans la nature, même un seul : c'est ce geste isolé qui permet à ces espèces de fonder une population durable dans un nouveau cours d'eau.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5236,7 +5236,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pacifastacus leniusculus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France, porteuse saine d'un champignon mortel pour les écrevisses européennes indigènes : sa vente et son introduction dans le milieu naturel sont interdites.",
+      "Espèce exotique envahissante réglementée en France, porteuse saine d'un champignon mortel pour les écrevisses européennes indigènes : sa vente et son introduction dans le milieu naturel sont interdites.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5245,7 +5245,7 @@ export const ESPECES: Espece[] = [
         "Son introduction historique à des fins commerciales illustre bien pourquoi une espèce exotique, même prometteuse au départ, peut devenir un problème écologique majeur des décennies plus tard.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5270,10 +5270,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante flottante sud-américaine aux belles fleurs mauves et aux pétioles renflés qui lui servent de flotteurs, capable de doubler sa surface de couverture en quelques jours seulement dans des conditions favorables.",
       conseil:
-        "Sa vitesse de prolifération record en fait une référence mondiale des espèces invasives : dans certains pays, elle a nécessité des campagnes de retrait mécanique à grande échelle pour rouvrir des voies navigables totalement obstruées.",
+        "Sa vitesse de prolifération record en fait une référence mondiale des espèces invasives : dans certains pays, elle a nécessité des campagnes de retrait mécanique à grande échelle pour rouvrir des voies navigables totalement obstruées.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5284,7 +5284,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: "rosette de 10 à 30 cm de hauteur",
       reproduction: {
         facilite: "Très facile",
-        description: "La jacinthe d'eau (Eichhornia crassipes) se multiplie végétativement de façon explosive par des stolons latéraux qui produisent de nouveaux plants. Il suffit de séparer les plantules et de les laisser flotter. Elle peut envahir très rapidement un bassin. Sous bonnes conditions (lumière intense, eau eutrophe), elle peut doubler sa superficie en quelques semaines. ATTENTION : espèce invasive interdite dans plusieurs pays. En France, sa mise en vente et son introduction dans la nature sont interdites. Ne jamais la relâcher.",
+        description: "La jacinthe d'eau (Eichhornia crassipes) se multiplie végétativement de façon explosive par des stolons latéraux qui produisent de nouveaux plants. Il suffit de séparer les plantules et de les laisser flotter. Elle peut envahir très rapidement un bassin. Sous bonnes conditions (lumière intense, eau eutrophe), elle peut doubler sa superficie en quelques semaines. ATTENTION : espèce invasive interdite dans plusieurs pays. En France, sa mise en vente et son introduction dans la nature sont interdites. Ne jamais la relâcher.",
       },
     },
   },
@@ -5304,14 +5304,14 @@ export const ESPECES: Espece[] = [
         "Cette espèce ne doit en aucun cas être achetée, vendue, transportée ou relâchée dans la nature en France (réglementation UE sur les espèces exotiques envahissantes). Si vous en observez dans un plan d'eau, signalez-le à la fédération de pêche locale plutôt que d'intervenir vous-même.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Très territoriale et agressive envers tout cohabitant, y compris ses propres congénères ; creuse et s'échappe facilement des bassins non sécurisés.",
       phMin: 6.5,
       phMax: 8,
       tempMin: 15,
       tempMax: 25,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore opportuniste : végétaux, invertébrés, œufs et alevins de poissons, cadavres.",
+      alimentation: "Omnivore opportuniste : végétaux, invertébrés, œufs et alevins de poissons, cadavres.",
       tailleAdulte: '10 à 12 cm',
     },
   },
@@ -5329,10 +5329,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante aquatique nord-américaine à feuilles arrondies rappelant la renoncule, capable de croître à la fois immergée et émergée et de former des tapis flottants denses qui obstruent les cours d'eau et fossés.",
       conseil:
-        "Vérifiez toujours le nom scientifique complet avant tout achat de plante à feuillage rond pour bassin : la confusion entre cette espèce interdite et l'Hydrocotyle leucocephala autorisée est fréquente sur le marché.",
+        "Vérifiez toujours le nom scientifique complet avant tout achat de plante à feuillage rond pour bassin : la confusion entre cette espèce interdite et l'Hydrocotyle leucocephala autorisée est fréquente sur le marché.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5355,16 +5355,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Misgurnus bipartitus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente et son introduction dans le milieu naturel sont interdites, cousine proche de la loche de bassin également interdite.",
+      "Espèce exotique envahissante réglementée en France : sa vente et son introduction dans le milieu naturel sont interdites, cousine proche de la loche de bassin également interdite.",
     citesAnnexe: null,
     fiche: {
       description:
         "Loche asiatique proche de la loche de bassin, capable elle aussi de respirer l'air atmosphérique et de survivre longtemps hors de l'eau, ce qui facilite sa propagation en cas d'introduction dans un point d'eau naturel.",
       conseil:
-        "Comme la loche de bassin, sa capacité à survivre hors de l'eau en fait une espèce particulièrement problématique une fois relâchée : ne jamais introduire un poisson de bassin dans un point d'eau naturel.",
+        "Comme la loche de bassin, sa capacité à survivre hors de l'eau en fait une espèce particulièrement problématique une fois relâchée : ne jamais introduire un poisson de bassin dans un point d'eau naturel.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5389,10 +5389,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante flottante tropicale à la rosette de feuilles veloutées rappelant une laitue, appréciée en bassin pour son aspect ornemental mais capable de recouvrir intégralement la surface d'un plan d'eau, privant la vie aquatique de lumière et d'oxygène.",
       conseil:
-        "Une surface d'eau entièrement recouverte de laitue d'eau bloque les échanges gazeux et peut provoquer des mortalités massives de poissons et d'invertébrés par manque d'oxygène : c'est ce mécanisme qui justifie son interdiction.",
+        "Une surface d'eau entièrement recouverte de laitue d'eau bloque les échanges gazeux et peut provoquer des mortalités massives de poissons et d'invertébrés par manque d'oxygène : c'est ce mécanisme qui justifie son interdiction.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5403,7 +5403,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: "rosette de 10 à 15 cm de diamètre",
       reproduction: {
         facilite: "Très facile",
-        description: "La laitue d'eau (Pistia stratiotes) se multiplie végétativement de façon explosive par des stolons émettant de nouvelles rosettes. Laissez les plantules se développer et séparez-les. Sa croissance est rapide sous bonne lumière. Excellente pour absorber les nitrates et phosphates. ATTENTION : espèce exotique envahissante. Sa détention en bassin ouvert ou en mare est risquée. En France, son introduction dans la nature est interdite. Gérez vos déchets de taille avec soin. Ne jamais relâcher dans les milieux naturels.",
+        description: "La laitue d'eau (Pistia stratiotes) se multiplie végétativement de façon explosive par des stolons émettant de nouvelles rosettes. Laissez les plantules se développer et séparez-les. Sa croissance est rapide sous bonne lumière. Excellente pour absorber les nitrates et phosphates. ATTENTION : espèce exotique envahissante. Sa détention en bassin ouvert ou en mare est risquée. En France, son introduction dans la nature est interdite. Gérez vos déchets de taille avec soin. Ne jamais relâcher dans les milieux naturels.",
       },
     },
   },
@@ -5421,10 +5421,10 @@ export const ESPECES: Espece[] = [
       description:
         "Petite plante aquatique australo-néozélandaise à tiges charnues, longtemps vendue comme plante de bassin avant d'être reconnue comme l'une des espèces végétales aquatiques les plus envahissantes d'Europe, formant des tapis denses qui étouffent les milieux humides.",
       conseil:
-        "Cette espèce illustre le risque des plantes de bassin échappées : jadis largement commercialisée, elle est aujourd'hui interdite et fait l'objet de programmes d'éradication coûteux dans plusieurs pays européens.",
+        "Cette espèce illustre le risque des plantes de bassin échappées : jadis largement commercialisée, elle est aujourd'hui interdite et fait l'objet de programmes d'éradication coûteux dans plusieurs pays européens.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5443,7 +5443,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Marisa cornuarietis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, comme pour les autres escargots du genre Pomacea/apparentés jugés invasifs.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, comme pour les autres escargots du genre Pomacea/apparentés jugés invasifs.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5452,7 +5452,7 @@ export const ESPECES: Espece[] = [
         "Un appétit vorace pour les algues, souvent vanté comme un atout en aquarium, est précisément ce qui rend une espèce dangereuse pour la végétation aquatique native une fois relâchée dans un milieu naturel.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5463,7 +5463,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '5 à 7 cm',
       reproduction: {
         facilite: "Facile",
-        description: "L'escargot de Ramshorn géant (Marisa cornuarietis) se reproduit facilement. Il pond des capsules gélatineuses contenant 10-30 œufs sur les plantes et décorations. Les juvéniles éclosent en 2-3 semaines selon la température et sont immédiatement autonomes. Eau neutre à alcaline (pH 7-8), T° 22-28°C. ATTENTION : ils mangent les plantes et peuvent défolier un aquarium planté rapidement. Maintenez-les dans un bac de reproduction ou un aquarium sans plantes délicates. Excellents nettoyeurs dans les bacs communautaires robustes.",
+        description: "L'escargot de Ramshorn géant (Marisa cornuarietis) se reproduit facilement. Il pond des capsules gélatineuses contenant 10-30 œufs sur les plantes et décorations. Les juvéniles éclosent en 2-3 semaines selon la température et sont immédiatement autonomes. Eau neutre à alcaline (pH 7-8), T° 22-28°C. ATTENTION : ils mangent les plantes et peuvent défolier un aquarium planté rapidement. Maintenez-les dans un bac de reproduction ou un aquarium sans plantes délicates. Excellents nettoyeurs dans les bacs communautaires robustes.",
       },
     },
   },
@@ -5475,13 +5475,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Cabomba caroliniana',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante inscrite sur la liste des espèces préoccupantes pour l'Union européenne (règlement UE 1143/2014) et interdite en France par l'arrêté du 14 février 2018 (annexe I-1) : sa détention, son transport, sa vente, son achat et son introduction dans la nature sont interdits. Toute observation dans le milieu naturel doit être signalée aux autorités compétentes.",
+      "Espèce exotique envahissante inscrite sur la liste des espèces préoccupantes pour l'Union européenne (règlement UE 1143/2014) et interdite en France par l'arrêté du 14 février 2018 (annexe I-1) : sa détention, son transport, sa vente, son achat et son introduction dans la nature sont interdits. Toute observation dans le milieu naturel doit être signalée aux autorités compétentes.",
     citesAnnexe: null,
     fiche: {
       description:
         "Plante aquatique oxygénante d'origine américaine, au feuillage fin et dentelé disposé en éventail, longtemps utilisée en aquariophilie pour son effet décoratif en arrière-plan. Elle prolifère fortement dans les cours d'eau tempérés, où elle forme des herbiers denses qui étouffent la flore locale.",
       conseil:
-        "Si vous en possédez encore, ne jetez jamais de résidus de cabomba dans un cours d'eau, un fossé ou une mare : un simple fragment peut bouturer et fonder une colonie. Remplacez-la par une plante autorisée à feuillage fin, comme le cornifle immergé.",
+        "Si vous en possédez encore, ne jetez jamais de résidus de cabomba dans un cours d'eau, un fossé ou une mare : un simple fragment peut bouturer et fonder une colonie. Remplacez-la par une plante autorisée à feuillage fin, comme le cornifle immergé.",
       volumeMinLitres: 60,
       tailleGroupeMin: null,
       compatibilite: "Bac communautaire d'eau douce bien éclairé, avec un substrat nutritif et un courant modéré favorisant sa croissance en éventail.",
@@ -5491,7 +5491,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Plante autotrophe : lumière intense, CO2 additionnel et engrais liquide recommandés pour un feuillage dense.",
+      alimentation: "Plante autotrophe : lumière intense, CO2 additionnel et engrais liquide recommandés pour un feuillage dense.",
       tailleAdulte: "tiges de 30 à 50 cm",
     },
   },
@@ -5509,10 +5509,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante aquatique nord-américaine à feuillage fin et dense, capable de former des herbiers très denses qui étouffent la végétation indigène et gênent la circulation de l'eau et des embarcations dans les cours d'eau colonisés.",
       conseil:
-        "Ne jetez jamais de résidus de taille de plante aquatique dans un cours d'eau ou un fossé : un simple fragment suffit à cette espèce pour bouturer et fonder une nouvelle colonie.",
+        "Ne jetez jamais de résidus de taille de plante aquatique dans un cours d'eau ou un fossé : un simple fragment suffit à cette espèce pour bouturer et fonder une nouvelle colonie.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5523,7 +5523,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: "tiges pouvant dépasser 1 m de long",
       reproduction: {
         facilite: "Facile",
-        description: "Le myriophylle hétérophylle se multiplie par bouturage de tiges. Coupez une tige de 10-15cm juste sous un nœud et replantez dans le substrat. Les racines se développent rapidement. Cette plante à croissance rapide est excellente pour la filtration biologique et offre des cachettes pour les alevins. Taillez les têtes et replantez-les pour densifier la végétation. CO2 et bon éclairage améliorent la croissance. ATTENTION : espèce potentiellement invasive, ne pas relâcher dans la nature.",
+        description: "Le myriophylle hétérophylle se multiplie par bouturage de tiges. Coupez une tige de 10-15cm juste sous un nœud et replantez dans le substrat. Les racines se développent rapidement. Cette plante à croissance rapide est excellente pour la filtration biologique et offre des cachettes pour les alevins. Taillez les têtes et replantez-les pour densifier la végétation. CO2 et bon éclairage améliorent la croissance. ATTENTION : espèce potentiellement invasive, ne pas relâcher dans la nature.",
       },
     },
   },
@@ -5535,16 +5535,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Lepomis gibbosus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré sa présence ancienne et répandue dans de nombreux cours d'eau et étangs français.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré sa présence ancienne et répandue dans de nombreux cours d'eau et étangs français.",
     citesAnnexe: null,
     fiche: {
       description:
         "Petit poisson d'origine nord-américaine largement répandu dans les eaux douces françaises depuis son introduction au 19e siècle, où il concurrence fortement les espèces locales. Sa large présence dans la nature ne rend pas sa détention légale.",
       conseil:
-        "Ne confondez pas \"présent partout dans les rivières\" et \"autorisé à la vente\" : de nombreuses espèces invasives bien installées restent interdites à la détention et au commerce précisément à cause de leur impact écologique.",
+        "Ne confondez pas \"présent partout dans les rivières\" et \"autorisé à la vente\" : de nombreuses espèces invasives bien installées restent interdites à la détention et au commerce précisément à cause de leur impact écologique.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5569,10 +5569,10 @@ export const ESPECES: Espece[] = [
       description:
         "Petit poisson d'eau douce originaire d'Extrême-Orient russe et de Chine, capable de survivre à des conditions extrêmes (eau gelée, très faible teneur en oxygène) qui lui permettent de coloniser des milieux où la plupart des poissons indigènes ne peuvent subsister.",
       conseil:
-        "Sa tolérance hors norme aux conditions extrêmes en fait une espèce redoutée des écologues : une fois établi, il est capable de survivre à des hivers rigoureux qui élimineraient la faune piscicole locale concurrente.",
+        "Sa tolérance hors norme aux conditions extrêmes en fait une espèce redoutée des écologues : une fois établi, il est capable de survivre à des hivers rigoureux qui élimineraient la faune piscicole locale concurrente.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5583,7 +5583,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '15 à 25 cm',
       reproduction: {
         facilite: "Modérée",
-        description: "Le goujon de l'amour (Pseudorasbora parva)... ATTENTION : si vous cherchez le vrai goujon de l'Amour (Gnathopogon strigatus ou Abbottina rivularis), sa reproduction en aquarium est possible avec un bac spacieux, fond sableux, eau fraîche (T° 15-20°C) et réduction de température hivernale. Pour Rhodeus amarus (bouvière), la reproduction est unique : la femelle pond ses œufs dans les branchies de moules d'eau douce grâce à un long tube ovipositeur. Fascinant mais nécessite la présence de moules vivantes (Unio, Anodonta). pH 7-8.",
+        description: "Le goujon de l'amour (Pseudorasbora parva)... ATTENTION : si vous cherchez le vrai goujon de l'Amour (Gnathopogon strigatus ou Abbottina rivularis), sa reproduction en aquarium est possible avec un bac spacieux, fond sableux, eau fraîche (T° 15-20°C) et réduction de température hivernale. Pour Rhodeus amarus (bouvière), la reproduction est unique : la femelle pond ses œufs dans les branchies de moules d'eau douce grâce à un long tube ovipositeur. Fascinant mais nécessite la présence de moules vivantes (Unio, Anodonta). pH 7-8.",
       },
     },
   },
@@ -5601,10 +5601,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante amphibie sud-américaine aux grandes fleurs jaunes voyantes, l'une des deux jussies les plus problématiques des zones humides françaises aux côtés de Ludwigia peploides, capable de recouvrir intégralement mares et canaux.",
       conseil:
-        "Vérifiez toujours le nom scientifique complet avant tout achat de jussie pour aquarium : la confusion avec Ludwigia repens, morphologiquement proche mais légale, est une source fréquente d'erreur.",
+        "Vérifiez toujours le nom scientifique complet avant tout achat de jussie pour aquarium : la confusion avec Ludwigia repens, morphologiquement proche mais légale, est une source fréquente d'erreur.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5623,16 +5623,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Ameiurus melas',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France, avec des populations déjà largement établies dans les cours d'eau et étangs : sa vente et son introduction dans le milieu naturel sont interdites.",
+      "Espèce exotique envahissante réglementée en France, avec des populations déjà largement établies dans les cours d'eau et étangs : sa vente et son introduction dans le milieu naturel sont interdites.",
     citesAnnexe: null,
     fiche: {
       description:
         "Poisson-chat nord-américain robuste et opportuniste, largement répandu dans les eaux douces françaises où il concurrence les espèces locales et peut proliférer rapidement dans les milieux pauvres en prédateurs.",
       conseil:
-        "Sa robustesse et sa large présence dans la nature ne rendent pas sa détention légale : de nombreuses espèces invasives bien installées restent interdites précisément à cause de leur impact déjà avéré sur les écosystèmes locaux.",
+        "Sa robustesse et sa large présence dans la nature ne rendent pas sa détention légale : de nombreuses espèces invasives bien installées restent interdites précisément à cause de leur impact déjà avéré sur les écosystèmes locaux.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5655,16 +5655,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Faxonius rusticus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et son introduction dans le milieu naturel sont interdits, en raison de son comportement agressif envers les écrevisses indigènes.",
+      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et son introduction dans le milieu naturel sont interdits, en raison de son comportement agressif envers les écrevisses indigènes.",
     citesAnnexe: null,
     fiche: {
       description:
         "Écrevisse nord-américaine reconnaissable aux deux taches rouges caractéristiques sur les côtés de la carapace, connue pour son comportement agressif qui lui permet de déplacer et supplanter les écrevisses locales dans les milieux colonisés.",
       conseil:
-        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu dans la nature : c'est précisément ce geste, même isolé, qui permet à ces espèces de s'établir durablement dans un nouveau cours d'eau.",
+        "Comme pour toute écrevisse exotique, ne relâchez jamais un individu dans la nature : c'est précisément ce geste, même isolé, qui permet à ces espèces de s'établir durablement dans un nouveau cours d'eau.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5683,16 +5683,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Limnoperna fortunei',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment en raison de sa capacité à obstruer massivement les infrastructures aquatiques.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, notamment en raison de sa capacité à obstruer massivement les infrastructures aquatiques.",
     citesAnnexe: null,
     fiche: {
       description:
         "Petite moule d'eau douce sud-américaine capable de se fixer en colonies très denses sur toutes sortes de surfaces immergées, y compris les canalisations et équipements techniques, où elle peut causer d'importants dégâts matériels.",
       conseil:
-        "Son impact ne se limite pas à l'écologie : elle peut obstruer des infrastructures entières (prises d'eau, canalisations), ce qui en fait une espèce à la fois écologiquement et économiquement problématique une fois installée.",
+        "Son impact ne se limite pas à l'écologie : elle peut obstruer des infrastructures entières (prises d'eau, canalisations), ce qui en fait une espèce à la fois écologiquement et économiquement problématique une fois installée.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5715,16 +5715,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Channa argus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France et dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de son statut de super-prédateur capable de survivre hors de l'eau et de coloniser de nouveaux milieux par voie terrestre.",
+      "Espèce exotique envahissante réglementée en France et dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de son statut de super-prédateur capable de survivre hors de l'eau et de coloniser de nouveaux milieux par voie terrestre.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grand poisson prédateur d'origine est-asiatique, doté d'un organe respiratoire accessoire lui permettant de survivre plusieurs jours hors de l'eau et de se déplacer sur un sol humide. Une fois établi, il élimine la faune piscicole locale par prédation directe.",
       conseil:
-        "Sa capacité unique à survivre hors de l'eau en fait l'une des espèces exotiques les plus redoutées des gestionnaires de milieux aquatiques : un individu relâché peut littéralement ramper vers un point d'eau voisin.",
+        "Sa capacité unique à survivre hors de l'eau en fait l'une des espèces exotiques les plus redoutées des gestionnaires de milieux aquatiques : un individu relâché peut littéralement ramper vers un point d'eau voisin.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5752,7 +5752,7 @@ export const ESPECES: Espece[] = [
         "Son ampleur d'implantation actuelle en France montre à quel point une plante d'aquarium en apparence anodine peut, une fois relâchée, devenir durablement établie dans tout un réseau hydrographique.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5763,7 +5763,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: "tiges de 1 à 3 m",
       reproduction: {
         facilite: "Très facile",
-        description: "L'Elodée (Egeria densa) se multiplie extrêmement facilement par bouturage. Coupez une tige de 10-15cm et replantez-la directement dans le substrat ou laissez-la flotter. Elle développe rapidement des racines et des nouvelles pousses. C'est l'une des plantes les plus faciles à propager. ATTENTION : l'Elodée dense est une espèce invasive en France. Ne la relâchez jamais dans les milieux naturels, sous peine de lourdes sanctions. Taillez régulièrement.",
+        description: "L'Elodée (Egeria densa) se multiplie extrêmement facilement par bouturage. Coupez une tige de 10-15cm et replantez-la directement dans le substrat ou laissez-la flotter. Elle développe rapidement des racines et des nouvelles pousses. C'est l'une des plantes les plus faciles à propager. ATTENTION : l'Elodée dense est une espèce invasive en France. Ne la relâchez jamais dans les milieux naturels, sous peine de lourdes sanctions. Taillez régulièrement.",
       },
     },
   },
@@ -5775,16 +5775,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Gambusia holbrooki',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré son introduction historique pour la lutte antimoustique.",
+      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, malgré son introduction historique pour la lutte antimoustique.",
     citesAnnexe: null,
     fiche: {
       description:
         "Petit poisson vivipare nord-américain introduit historiquement en Europe pour lutter contre les moustiques en consommant leurs larves, mais dont l'impact sur la faune aquatique locale s'est révélé fortement négatif.",
       conseil:
-        "Son introduction historique à des fins sanitaires ne rend pas sa détention légale aujourd'hui : de nombreuses espèces introduites pour un bénéfice supposé se sont révélées invasives et sont désormais interdites.",
+        "Son introduction historique à des fins sanitaires ne rend pas sa détention légale aujourd'hui : de nombreuses espèces introduites pour un bénéfice supposé se sont révélées invasives et sont désormais interdites.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5809,10 +5809,10 @@ export const ESPECES: Espece[] = [
       description:
         "Plante aquatique sud-africaine totalement immergée, aux feuilles recourbées disposées en spirale le long de tiges pouvant dépasser plusieurs mètres, formant des herbiers denses qui gênent la navigation et la biodiversité des lacs colonisés.",
       conseil:
-        "Sa ressemblance avec certaines élodées vendues en aquariophilie est trompeuse : vérifiez toujours le nom scientifique complet avant tout achat de plante immergée à feuillage spiralé.",
+        "Sa ressemblance avec certaines élodées vendues en aquariophilie est trompeuse : vérifiez toujours le nom scientifique complet avant tout achat de plante immergée à feuillage spiralé.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5823,7 +5823,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: "tiges de 2 à 3 m",
       reproduction: {
         facilite: "Très facile",
-        description: "Le lagarosiphon (Lagarosiphon major) se multiplie végétativement de manière très efficace. Coupez une tige de 10-15cm et laissez-la dans l'eau : elle développe rapidement des racines. Croissance rapide. Plante idéale pour oxygéner l'eau et limiter la prolifération d'algues. ATTENTION : espèce invasive classifiée nuisible en Europe. Sa détention en bassin ouvert est risquée car le moindre fragment peut coloniser les plans d'eau naturels. En France, son introduction dans la nature est interdite. Gérez les déchets de taille avec soin.",
+        description: "Le lagarosiphon (Lagarosiphon major) se multiplie végétativement de manière très efficace. Coupez une tige de 10-15cm et laissez-la dans l'eau : elle développe rapidement des racines. Croissance rapide. Plante idéale pour oxygéner l'eau et limiter la prolifération d'algues. ATTENTION : espèce invasive classifiée nuisible en Europe. Sa détention en bassin ouvert est risquée car le moindre fragment peut coloniser les plans d'eau naturels. En France, son introduction dans la nature est interdite. Gérez les déchets de taille avec soin.",
       },
     },
   },
@@ -5835,16 +5835,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Procambarus fallax',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de sa capacité unique à se reproduire par clonage, sans mâle, qui lui permet de fonder une population entière à partir d'un seul individu relâché.",
+      "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de sa capacité unique à se reproduire par clonage, sans mâle, qui lui permet de fonder une population entière à partir d'un seul individu relâché.",
     citesAnnexe: null,
     fiche: {
       description:
-        "Écrevisse d'aquarium née en captivité dans les années 1990, uniquement femelle et capable de se reproduire par parthénogenèse : chaque individu est génétiquement identique à sa mère, sans nécessiter de mâle ni de fécondation.",
+        "Écrevisse d'aquarium née en captivité dans les années 1990, uniquement femelle et capable de se reproduire par parthénogenèse : chaque individu est génétiquement identique à sa mère, sans nécessiter de mâle ni de fécondation.",
       conseil:
-        "Sa capacité à se cloner fait de cette espèce l'un des cas les plus emblématiques du risque invasif en aquariophilie : un unique individu relâché suffit, à lui seul, à fonder une population entière dans un nouveau milieu.",
+        "Sa capacité à se cloner fait de cette espèce l'un des cas les plus emblématiques du risque invasif en aquariophilie : un unique individu relâché suffit, à lui seul, à fonder une population entière dans un nouveau milieu.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
       incompatibilite: "Non applicable.",
       phMin: null,
       phMax: null,
@@ -5867,7 +5867,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Alternanthera reineckii 'Rosanervig'"],
     fiche: {
       description: "L'Alternanthera rosanervig est un cultivar de l'Alternanthera reineckii, une plante à tiges. Ses feuilles lancéolées, rose à vert olive, sont parcourues de nervures plus claires, et leur teinte rose s'intensifie sous une bonne lumière. Placée au milieu du bac, ou à l'avant une fois taillée, elle apporte une note rose-rouge franche aux compositions dominées par le vert.",
-      conseil: "Plantez des boutures de 8 à 10 cm, enfoncées de 2 à 3 cm et bien espacées pour que la lumière atteigne le bas des tiges. Un éclairage soutenu, du fer en engrais liquide et un peu de CO2 intensifient la couleur ; en lumière faible, les feuilles verdissent. Pour l'identifier : feuilles opposées rosées à nervures claires. Contrôlez le nom d'espèce avant l'achat.",
+      conseil: "Plantez des boutures de 8 à 10 cm, enfoncées de 2 à 3 cm et bien espacées pour que la lumière atteigne le bas des tiges. Un éclairage soutenu, du fer en engrais liquide et un peu de CO2 intensifient la couleur ; en lumière faible, les feuilles verdissent. Pour l'identifier : feuilles opposées rosées à nervures claires. Contrôlez le nom d'espèce avant l'achat.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe bien aux poissons de communauté paisibles (tétras, rasboras, corydoras) et aux crevettes, qui nettoient le biofilm de ses feuilles sans l'abîmer. Son feuillage coloré contraste avec les plantes vertes d'arrière-plan.",
@@ -5877,14 +5877,14 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle puise ses nutriments par les feuilles comme par les racines : engrais liquide complet riche en fer, substrat nutritif apprécié, lumière moyenne à forte et CO2 conseillé.",
+      alimentation: "Elle puise ses nutriments par les feuilles comme par les racines : engrais liquide complet riche en fer, substrat nutritif apprécié, lumière moyenne à forte et CO2 conseillé.",
       tailleAdulte: "tiges de 10 à 30 cm",
       plante: {
         placement: "Milieu de bac",
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Bouturage de tiges : les sommets coupés se replantent, des rejets partent des tiges étêtées.",
+        multiplication: "Bouturage de tiges : les sommets coupés se replantent, des rejets partent des tiges étêtées.",
       },
     },
   },
@@ -5899,7 +5899,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Ammannia gracilis, plante à tiges originaire d'Afrique de l'Ouest, porte des feuilles étroites qui passent du vert au brun-rouge, avec un dessous violacé, sous un éclairage intense. Groupée en bouquet au milieu ou à l'arrière du bac, elle apporte un accent chaud et une texture fine aux aquascapes. Elle demande plus d'attention que les plantes à tiges les plus faciles.",
-      conseil: "Plantez-la en bouquet de plusieurs tiges, enfoncées de 2 à 3 cm dans un substrat riche. Elle réclame une lumière forte, du CO2 et un apport régulier de fer : un manque de fer fait pâlir les feuilles. Elle monte vite vers la surface : recoupez le sommet et replantez-le quand les tiges du bas se dégarnissent.",
+      conseil: "Plantez-la en bouquet de plusieurs tiges, enfoncées de 2 à 3 cm dans un substrat riche. Elle réclame une lumière forte, du CO2 et un apport régulier de fer : un manque de fer fait pâlir les feuilles. Elle monte vite vers la surface : recoupez le sommet et replantez-le quand les tiges du bas se dégarnissent.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde avec les petits poissons de communauté (rasboras, tétras, poecilidés) et les crevettes d'eau douce, dans un bac planté et bien éclairé. Les plantes vert clair font ressortir ses teintes.",
@@ -5948,7 +5948,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Inutile",
-        multiplication: "Bouturage de tiges : chaque nœud peut raciner, les sommets coupés se replantent.",
+        multiplication: "Bouturage de tiges : chaque nœud peut raciner, les sommets coupés se replantent.",
       },
     },
   },
@@ -5963,7 +5963,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Cardamine lyrata, plante de marais d'Asie, porte des tiges rampantes puis retombantes, garnies de petites feuilles rondes, vert vif, sur de fins pétioles. Son port souple, avec de petites racines aériennes le long des tiges, donne au milieu du bac un feuillage aéré et délicat, surtout planté en groupe. Elle apprécie les aquariums plutôt frais.",
-      conseil: "Plantez les tiges espacées de quelques centimètres, sans enterrer les feuilles. Gardez l'eau en dessous de 28 °C, idéalement plus fraîche : à chaud, les feuilles rapetissent et les tiges s'étiolent. Taillez régulièrement pour la densifier. Une lumière moyenne, un engrais liquide et un peu de CO2 lui conviennent.",
+      conseil: "Plantez les tiges espacées de quelques centimètres, sans enterrer les feuilles. Gardez l'eau en dessous de 28 °C, idéalement plus fraîche : à chaud, les feuilles rapetissent et les tiges s'étiolent. Taillez régulièrement pour la densifier. Une lumière moyenne, un engrais liquide et un peu de CO2 lui conviennent.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va bien avec les poissons de bacs peu chauffés (danios, par exemple) et les crevettes Neocaridina, notamment dans un nano-bac sans chauffage.",
@@ -5980,7 +5980,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Bouturage de tiges : les tronçons replantés racinent facilement et la plante se densifie vite.",
+        multiplication: "Bouturage de tiges : les tronçons replantés racinent facilement et la plante se densifie vite.",
       },
     },
   },
@@ -5996,7 +5996,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Fougère de Sumatra"],
     fiche: {
       description: "La fougère aquatique Ceratopteris thalictroides, répandue dans les zones humides tropicales, déploie des frondes finement découpées, vert clair, en rosette fournie. Plantée dans le sol, elle s'élève au fond du bac ; laissée flottante, elle donne un couvert qui tamise la lumière. Sa croissance rapide en fait un bon écran d'arrière-plan et un abri pour les alevins.",
-      conseil: "Plantez-la en laissant la couronne hors du sol, ou laissez-la flotter pour qu'elle développe de longues racines. Des plantules se forment sur les frondes âgées : détachez-les et fixez-les ailleurs. En flottante, éclaircissez-la pour ne pas ombrer les plantes basses. Les feuilles fines peuvent fondre un peu à l'introduction.",
+      conseil: "Plantez-la en laissant la couronne hors du sol, ou laissez-la flotter pour qu'elle développe de longues racines. Des plantules se forment sur les frondes âgées : détachez-les et fixez-les ailleurs. En flottante, éclaircissez-la pour ne pas ombrer les plantes basses. Les feuilles fines peuvent fondre un peu à l'introduction.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux bacs de communauté, aux poissons qui aiment le couvert (tétras, gouramis, bettas) et aux pontes ou alevins qui s'y réfugient.",
@@ -6006,7 +6006,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Gourmande, elle puise ses nutriments par les racines et les frondes : engrais liquide régulier et sol nutritif, le CO2 n'étant pas indispensable.",
+      alimentation: "Gourmande, elle puise ses nutriments par les racines et les frondes : engrais liquide régulier et sol nutritif, le CO2 n'étant pas indispensable.",
       tailleAdulte: "frondes de 25 à 50 cm",
       plante: {
         placement: "Arrière-plan",
@@ -6028,7 +6028,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Didiplis diandra, originaire des zones humides de l'est de l'Amérique du Nord, est une plante à tiges fines garnies de minuscules feuilles étroites en verticilles, vert tendre virant à l'orange-rouge sous lumière vive. Ce rendu de petite plume en fait un bon choix pour le milieu de bac ou pour un massif touffu à l'arrière d'un nano-aquarium.",
-      conseil: "Plantez-la en bouquets serrés, tiges enterrées sur 2 cm : les brins sont fragiles et flottent facilement. Elle réclame une lumière forte et un engrais complet ; le CO2 améliore couleur et densité. Sans cela, elle perd ses feuilles du bas. Recoupez le sommet pour la ramifier, les tiges taillées donnent de nouveaux rejets.",
+      conseil: "Plantez-la en bouquets serrés, tiges enterrées sur 2 cm : les brins sont fragiles et flottent facilement. Elle réclame une lumière forte et un engrais complet ; le CO2 améliore couleur et densité. Sans cela, elle perd ses feuilles du bas. Recoupez le sommet pour la ramifier, les tiges taillées donnent de nouveaux rejets.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux crevettes naines, aux petits tétras, rasboras et autres poissons de nano-bac, qui la laissent intacte et profitent de ses abris.",
@@ -6060,17 +6060,17 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Heteranthera zosterifolia, l'hétéranthère à feuilles de zostère, est originaire d'Amérique du Sud. Ses longues tiges portent des feuilles étroites, vert tendre, qui rappellent celles des zostères. Plantée en bouquet à l'arrière ou au milieu du bac, elle crée un effet de prairie dense et lumineuse. En surface, elle peut produire de petites fleurs étoilées bleu pâle.",
-      conseil: "Plantez les tiges espacées de 2 à 3 cm, car elle se ramifie en largeur. Elle pousse vite : taillez les sommets toutes les deux semaines, sinon elle s'étale en surface et ombre ses voisines. Une lumière moyenne suffit ; elle apprécie des nitrates présents et un peu de CO2. Les feuilles du bas jaunissent si l'ombrage est excessif.",
+      conseil: "Plantez les tiges espacées de 2 à 3 cm, car elle se ramifie en largeur. Elle pousse vite : taillez les sommets toutes les deux semaines, sinon elle s'étale en surface et ombre ses voisines. Une lumière moyenne suffit ; elle apprécie des nitrates présents et un peu de CO2. Les feuilles du bas jaunissent si l'ombrage est excessif.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Elle convient aux bacs de communauté paisibles : tétras, rasboras, danios, corydoras, crevettes et escargots. Ses tiges souples abritent bien les alevins et les poissons timides.",
+      compatibilite: "Elle convient aux bacs de communauté paisibles : tétras, rasboras, danios, corydoras, crevettes et escargots. Ses tiges souples abritent bien les alevins et les poissons timides.",
       incompatibilite: "Les gros cichlidés fouisseurs, les poissons rouges et les brouteurs la hachent ou la déracinent. Dans une eau très pauvre en nutriments ou trop sombre, les feuilles jaunissent et tombent.",
       phMin: 6,
       phMax: 7.5,
       tempMin: 18,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Racines et feuilles lui fournissent ses nutriments : engrais liquide régulier, sol modérément riche et lumière moyenne, le CO2 restant facultatif.",
+      alimentation: "Racines et feuilles lui fournissent ses nutriments : engrais liquide régulier, sol modérément riche et lumière moyenne, le CO2 restant facultatif.",
       tailleAdulte: "tiges de 30 à 50 cm",
       plante: {
         placement: "Arrière-plan",
@@ -6092,7 +6092,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Heteranthera reniformis, l'hétéranthère réniforme, vient des zones humides d'Amérique. Elle porte de petites feuilles en forme de rein, d'un vert franc, sur des tiges rampantes qui couvrent peu à peu l'avant-plan ou le milieu du bac. Elle s'adapte aussi à la culture émergée, au bord d'un paludarium, où elle donne de petites fleurs blanches à bleu pâle.",
-      conseil: "Plantez les tiges à 1 ou 2 cm de profondeur, sans enterrer les feuilles, et espacez-les de quelques centimètres : elle s'étale en largeur. Une lumière moyenne et un engrais liquide suffisent, le CO2 reste facultatif. Coupez régulièrement les sommets pour la ramifier. Elle s'adapte aussi à la culture en bassin ou en paludarium.",
+      conseil: "Plantez les tiges à 1 ou 2 cm de profondeur, sans enterrer les feuilles, et espacez-les de quelques centimètres : elle s'étale en largeur. Une lumière moyenne et un engrais liquide suffisent, le CO2 reste facultatif. Coupez régulièrement les sommets pour la ramifier. Elle s'adapte aussi à la culture en bassin ou en paludarium.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde bien avec les poissons de communauté de petite taille, les crevettes et les escargots, et fonctionne en bord de paludarium, où ses feuilles peuvent sortir de l'eau.",
@@ -6123,7 +6123,7 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Hemianthus callitrichoides, plus connu sous le nom d'Hemianthus 'Cuba', compte parmi les plus petites plantes de tapis courantes : de minuscules feuilles ovales, vert vif, serrées sur des tiges rampantes. Originaire de Cuba, elle forme à l'avant-plan un gazon dense de quelques centimètres seulement. Très prisée en aquascaping, elle demande toutefois un bac bien conduit.",
+      description: "Hemianthus callitrichoides, plus connu sous le nom d'Hemianthus 'Cuba', compte parmi les plus petites plantes de tapis courantes : de minuscules feuilles ovales, vert vif, serrées sur des tiges rampantes. Originaire de Cuba, elle forme à l'avant-plan un gazon dense de quelques centimètres seulement. Très prisée en aquascaping, elle demande toutefois un bac bien conduit.",
       conseil: "Plantez-la en minuscules touffes de 3 à 5 tiges, espacées d'environ 2 cm, à la pince, en les enfonçant à peine. Elle exige une lumière forte, un apport constant de CO2 et un sol nutritif, sinon elle remonte à la surface au lieu de plaquer. Taillez au ciseau pour garder le tapis court et retirez les débris pour limiter les algues.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
@@ -6166,7 +6166,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Feuilles et racines absorbent les nutriments : engrais liquide régulier, substrat riche, éclairage moyen à fort et CO2 conseillé.",
+      alimentation: "Feuilles et racines absorbent les nutriments : engrais liquide régulier, substrat riche, éclairage moyen à fort et CO2 conseillé.",
       tailleAdulte: "tiges de 10 à 25 cm",
       plante: {
         placement: "Milieu de bac",
@@ -6199,7 +6199,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Gourmande : lumière moyenne à forte, CO2 conseillé, engrais liquide régulier et substrat riche pour un enracinement solide.",
+      alimentation: "Gourmande : lumière moyenne à forte, CO2 conseillé, engrais liquide régulier et substrat riche pour un enracinement solide.",
       tailleAdulte: "3 à 8 cm de hauteur",
       plante: {
         placement: "Tapis",
@@ -6222,7 +6222,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Hydrocotyle verticillée"],
     fiche: {
       description: "Hydrocotyle verticillata est une plante originaire d'Amérique, dont les feuilles rondes, crénelées, ressemblent à de petits parasols portés au centre par un pétiole. Elle développe des tiges rampantes ou retombantes, vert clair, qui habillent l'avant-plan ou le milieu du bac. Elle accepte aussi la culture émergée, en plante de rive de paludarium ou de bassin.",
-      conseil: "Plantez les tiges à 2 cm de profondeur ou laissez-les ramper sur le sol ; elle peut aussi flotter librement. Elle donne ses meilleurs résultats en lumière vive et en eau plutôt douce et légèrement acide. Taillez les pétioles trop longs pour garder un port compact. Pour l'identifier : feuilles rondes, crénelées et peltées, attachées par le centre du limbe.",
+      conseil: "Plantez les tiges à 2 cm de profondeur ou laissez-les ramper sur le sol ; elle peut aussi flotter librement. Elle donne ses meilleurs résultats en lumière vive et en eau plutôt douce et légèrement acide. Taillez les pétioles trop longs pour garder un port compact. Pour l'identifier : feuilles rondes, crénelées et peltées, attachées par le centre du limbe.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va bien avec les poissons de communauté paisibles et les crevettes, ainsi qu'au paludarium. Ses feuilles en ombrelle abritent les poissons craintifs.",
@@ -6296,14 +6296,14 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle se nourrit par les racines et les feuilles : un engrais liquide régulier suffit, avec un peu de fer, le CO2 n'étant pas nécessaire.",
+      alimentation: "Elle se nourrit par les racines et les feuilles : un engrais liquide régulier suffit, avec un peu de fer, le CO2 n'étant pas nécessaire.",
       tailleAdulte: "tiges de 30 à 60 cm",
       plante: {
         placement: "Arrière-plan",
         lumiere: "Moyenne",
         croissance: "Rapide",
         co2: "Inutile",
-        multiplication: "Bouturage de tiges : les sommets taillés se replantent et les nœuds racinent vite.",
+        multiplication: "Bouturage de tiges : les sommets taillés se replantent et les nœuds racinent vite.",
       },
     },
   },
@@ -6319,7 +6319,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Glycine d'eau"],
     fiche: {
       description: "Hygrophila difformis, la glycine d'eau, vient d'Asie. Ses feuilles vert clair, profondément découpées en lobes pointus quand elles sont immergées, forment de grandes touffes aérées qui évoquent le feuillage de la glycine. Elle se place en arrière-plan ou au milieu du bac, pousse vite et accepte plusieurs conditions d'eau.",
-      conseil: "À l'achat, les plants cultivés hors de l'eau perdent leurs feuilles émergées : laissez-la repartir en feuilles découpées immergées, c'est normal. Plantez les tiges à 2 cm de profondeur et taillez-les souvent pour garder la densité. Lumière moyenne ; un engrais liquide avec fer évite les feuilles pâles.",
+      conseil: "À l'achat, les plants cultivés hors de l'eau perdent leurs feuilles émergées : laissez-la repartir en feuilles découpées immergées, c'est normal. Plantez les tiges à 2 cm de profondeur et taillez-les souvent pour garder la densité. Lumière moyenne ; un engrais liquide avec fer évite les feuilles pâles.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde avec la plupart des poissons de communauté paisibles, des tétras aux gouramis, ainsi qu'avec les crevettes et les escargots. Elle abrite bien les alevins.",
@@ -6329,7 +6329,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle prélève ses nutriments par les racines et les feuilles : engrais liquide régulier avec fer, lumière moyenne, CO2 facultatif.",
+      alimentation: "Elle prélève ses nutriments par les racines et les feuilles : engrais liquide régulier avec fer, lumière moyenne, CO2 facultatif.",
       tailleAdulte: "tiges de 30 à 50 cm",
       plante: {
         placement: "Arrière-plan",
@@ -6351,7 +6351,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Hygrophila pinnatifida, originaire d'Inde, est une plante à tiges dressées et rampantes que l'on peut aussi fixer sur du bois ou de la roche, où ses racines s'accrochent. Ses feuilles lobées, coriaces, vert olive à brun-rouge, au dessous pourpre, sont ornées de motifs jaune pâle. Sa croissance moyenne en fait un accent de choix pour le milieu de bac ou sur un décor.",
-      conseil: "N'enterrez pas les tiges rampantes : posez-les sur une racine ou une pierre et fixez-les avec du fil de nylon ou de la colle cyanoacrylate en gel ; les racines s'accrochent ensuite seules. Elle s'accommode d'une lumière moyenne. Une carence en potassium se voit vite sur les feuilles : un engrais liquide complet est utile.",
+      conseil: "N'enterrez pas les tiges rampantes : posez-les sur une racine ou une pierre et fixez-les avec du fil de nylon ou de la colle cyanoacrylate en gel ; les racines s'accrochent ensuite seules. Elle s'accommode d'une lumière moyenne. Une carence en potassium se voit vite sur les feuilles : un engrais liquide complet est utile.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux bacs de communauté paisibles et aux aquariums décorés de bois et de roches, avec crevettes, escargots et petits poissons de banc.",
@@ -6361,7 +6361,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle absorbe ses nutriments par les feuilles et les racines : engrais liquide complet avec potassium, lumière moyenne, CO2 conseillé.",
+      alimentation: "Elle absorbe ses nutriments par les feuilles et les racines : engrais liquide complet avec potassium, lumière moyenne, CO2 conseillé.",
       tailleAdulte: "tiges de 15 à 40 cm",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -6447,7 +6447,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Ludwigia arcuata, plante du sud-est des États-Unis, se distingue par ses feuilles linéaires, très fines et opposées, dont les teintes passent du vert à l'orange vif puis au rouge sous un bon éclairage. Les tiges arquées donnent un feuillage léger, presque aérien. Elle s'utilise en bouquets au milieu du bac, ou à l'arrière dans les petits aquariums.",
-      conseil: "Plantez-la en groupes serrés, tiges enterrées sur 3 cm, car les feuilles fines sont fragiles. Elle apprécie une lumière moyenne à forte et du fer pour développer l'orange-rouge ; le CO2 favorise la croissance sans être indispensable. Pour l'identifier : feuilles linéaires étroites, opposées, très éloignées des larges feuilles alternes des grandes ludwigias.",
+      conseil: "Plantez-la en groupes serrés, tiges enterrées sur 3 cm, car les feuilles fines sont fragiles. Elle apprécie une lumière moyenne à forte et du fer pour développer l'orange-rouge ; le CO2 favorise la croissance sans être indispensable. Pour l'identifier : feuilles linéaires étroites, opposées, très éloignées des larges feuilles alternes des grandes ludwigias.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle fonctionne dans les bacs de communauté paisibles et les aquariums d'espèces naines (rasboras, tétras, crevettes), où sa finesse contraste avec les plantes à grandes feuilles.",
@@ -6479,7 +6479,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Ludwigia glandulosa est une plante à tiges du sud-est des États-Unis, aux feuilles lancéolées et alternes, vert olive dessus et pourpre-rouge dessous. Plus robuste que bien des ludwigias, elle forme avec le temps de beaux buissons rougeoyants à l'arrière ou au milieu du bac. Les aquariophiles apprécient sa croissance régulière.",
-      conseil: "Plantez les tiges espacées de 3 à 4 cm, enterrées sur 3 cm. Une lumière soutenue, du fer et du CO2 lui donnent son rouge ; en lumière faible, elle verdit. Taillez les sommets toutes les deux ou trois semaines et replantez-les. Ses feuilles sont alternes, comme celles des jussies interdites : faites confirmer l'espèce par le vendeur.",
+      conseil: "Plantez les tiges espacées de 3 à 4 cm, enterrées sur 3 cm. Une lumière soutenue, du fer et du CO2 lui donnent son rouge ; en lumière faible, elle verdit. Taillez les sommets toutes les deux ou trois semaines et replantez-les. Ses feuilles sont alternes, comme celles des jussies interdites : faites confirmer l'espèce par le vendeur.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux bacs de communauté avec des poissons de taille moyenne peu brouteurs (tétras, barbus, gouramis) et aux crevettes.",
@@ -6496,7 +6496,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Forte",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Bouturage de tiges : sommets recoupés replantés, rejets sur les tiges étêtées.",
+        multiplication: "Bouturage de tiges : sommets recoupés replantés, rejets sur les tiges étêtées.",
       },
     },
   },
@@ -6512,7 +6512,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Isnardie des marais"],
     fiche: {
       description: "La ludwigia des marais, ou Ludwigia palustris, est une espèce répandue dans les zones humides de nombreuses régions, Europe comprise. De petites feuilles ovales opposées, vert clair à rouge-brun selon l'éclairage, couvrent des tiges rampantes ou dressées. En aquarium, elle sert d'avant-plan élargi ou de milieu de bac ; au bassin, de plante de rive en eau très peu profonde.",
-      conseil: "Achetez des plants issus de culture et ne prélevez jamais dans la nature. Plantez les tiges à 2 cm, espacées. Lumière moyenne, CO2 facultatif : plus de lumière fait rougir les feuilles. Taillez pour densifier. Pour l'identifier : petites feuilles opposées sur tiges rampantes, loin du grand feuillage alterne des jussies.",
+      conseil: "Achetez des plants issus de culture et ne prélevez jamais dans la nature. Plantez les tiges à 2 cm, espacées. Lumière moyenne, CO2 facultatif : plus de lumière fait rougir les feuilles. Taillez pour densifier. Pour l'identifier : petites feuilles opposées sur tiges rampantes, loin du grand feuillage alterne des jussies.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle supporte les bacs de communauté tempérés ou peu chauffés (danios, crevettes), ainsi que le bord d'un bassin ou d'un paludarium.",
@@ -6544,7 +6544,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Ludwigia sedioides forme à la surface de l'eau des rosettes de petites feuilles rondes à ovales, vert clair à brun-rouge, qui s'assemblent en mosaïque. Originaire d'Amérique tropicale, elle laisse pendre ses racines dans l'eau et peut produire des fleurs jaunes en eau chaude et bien éclairée. Elle décore un bac ouvert, un paludarium ou un petit bassin chaud.",
-      conseil: "Posez les rosettes à la surface sans les enterrer, sous un éclairage vif. Éclaircissez-la régulièrement pour que les plantes du dessous reçoivent encore de la lumière. C'est une plante tropicale : en bassin, rentrez-la dès que l'eau se refroidit, car elle ne supporte pas le gel. Vérifiez le nom d'espèce complet auprès du vendeur.",
+      conseil: "Posez les rosettes à la surface sans les enterrer, sous un éclairage vif. Éclaircissez-la régulièrement pour que les plantes du dessous reçoivent encore de la lumière. C'est une plante tropicale : en bassin, rentrez-la dès que l'eau se refroidit, car elle ne supporte pas le gel. Vérifiez le nom d'espèce complet auprès du vendeur.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux grands bacs ouverts ou aux petits bassins d'eau chaude avec des poissons de communauté paisibles, et aux crevettes qui apprécient l'ombre de ses rosettes.",
@@ -6554,7 +6554,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 30,
       difficulte: "Intermédiaire",
-      alimentation: "Elle prélève ses nutriments dans l'eau par ses racines pendantes : engrais liquide léger et lumière vive, sans CO2 puisque ses feuilles respirent à l'air libre.",
+      alimentation: "Elle prélève ses nutriments dans l'eau par ses racines pendantes : engrais liquide léger et lumière vive, sans CO2 puisque ses feuilles respirent à l'air libre.",
       tailleAdulte: "rosettes de 5 à 15 cm",
       plante: {
         placement: "Flottante",
@@ -6586,7 +6586,7 @@ export const ESPECES: Espece[] = [
       tempMin: -7,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Plante de pleine terre : sol riche, humide en permanence, avec un engrais à libération lente pour plantes de bassin au printemps.",
+      alimentation: "Plante de pleine terre : sol riche, humide en permanence, avec un engrais à libération lente pour plantes de bassin au printemps.",
       tailleAdulte: "tiges de 60 à 90 cm",
       plante: {
         placement: "Plante de berge",
@@ -6608,7 +6608,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Mayaca fluviatilis, plante aquatique des Amériques, forme de longues tiges molles garnies de feuilles très fines, vert tendre, serrées en spirale, qui donnent l'aspect d'une mousse dressée. Cette texture légère tranche avec les plantes à grandes feuilles. On la place en touffe au milieu ou à l'arrière du bac pour créer un fond délicat et dense, mais elle reste délicate.",
-      conseil: "Plantez-la en touffe sans trop l'enfoncer : les tiges sont cassantes et les racines délicates. Elle réclame un bon éclairage, du CO2 et un engrais riche en fer, de préférence dans une eau douce et légèrement acide, qu'elle préfère sans exiger. Un manque de fer pâlit ses pousses. Taillez aux ciseaux pour la ramifier et évitez les courants forts.",
+      conseil: "Plantez-la en touffe sans trop l'enfoncer : les tiges sont cassantes et les racines délicates. Elle réclame un bon éclairage, du CO2 et un engrais riche en fer, de préférence dans une eau douce et légèrement acide, qu'elle préfère sans exiger. Un manque de fer pâlit ses pousses. Taillez aux ciseaux pour la ramifier et évitez les courants forts.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux poissons calmes de petite taille (rasboras, tétras) en eau douce, et aux crevettes naines qui se glissent entre ses tiges.",
@@ -6640,7 +6640,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Myriophyllum mattogrossense, ou myriophylle du Mato Grosso, est originaire du Brésil. Ses tiges rigides portent des verticilles de feuilles très finement divisées, vert olive à rougeâtre aux pointes sous lumière vive. Dense et plumeuse, elle structure l'arrière-plan et offre un abri aux alevins. Sa croissance régulière demande toutefois un bon éclairage.",
-      conseil: "Plantez-la en bouquet, tiges enfoncées de 3 cm et bien espacées. Elle demande un bon éclairage, du CO2 et des nutriments, faute de quoi elle perd ses aiguilles par le bas. Taillez régulièrement et retirez les débris entre les verticilles, où s'accrochent les algues. Pour l'identifier : verticilles serrés de feuilles fines sur tiges rigides ; demandez au vendeur le nom d'espèce complet.",
+      conseil: "Plantez-la en bouquet, tiges enfoncées de 3 cm et bien espacées. Elle demande un bon éclairage, du CO2 et des nutriments, faute de quoi elle perd ses aiguilles par le bas. Taillez régulièrement et retirez les débris entre les verticilles, où s'accrochent les algues. Pour l'identifier : verticilles serrés de feuilles fines sur tiges rigides ; demandez au vendeur le nom d'espèce complet.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux poissons de communauté paisibles (tétras, rasboras, poecilidés), aux crevettes et aux pontes, qui trouvent refuge dans ses tiges plumeuses.",
@@ -6650,14 +6650,14 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle prélève ses nutriments par les tiges et les racines : bon éclairage, CO2, engrais liquide complet et substrat nutritif.",
+      alimentation: "Elle prélève ses nutriments par les tiges et les racines : bon éclairage, CO2, engrais liquide complet et substrat nutritif.",
       tailleAdulte: "tiges de 30 à 60 cm",
       plante: {
         placement: "Arrière-plan",
         lumiere: "Moyenne",
         croissance: "Rapide",
         co2: "Recommandé",
-        multiplication: "Bouturage de tiges : les sommets recoupés se replantent, les fragments flottants peuvent raciner.",
+        multiplication: "Bouturage de tiges : les sommets recoupés se replantent, les fragments flottants peuvent raciner.",
       },
     },
   },
@@ -6673,7 +6673,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Najas", "Naïade"],
     fiche: {
       description: "La naïade de Guadalupe (Najas guadalupensis) est une plante de tige originaire du continent américain, aux rameaux fins et très ramifiés garnis de feuilles étroites finement dentées. Elle forme rapidement un buisson vert tendre qui trouve sa place à l'arrière-plan ou dans un bac en démarrage. Son appétit en nutriments en fait une alliée pour concurrencer les algues dans un aquarium fraîchement monté.",
-      conseil: "Plantez les tiges sans trop les enterrer, ou laissez-les flotter près du fond : elles s'enracinent d'elles-mêmes. Les rameaux sont cassants, manipulez-la avec douceur et ramassez les fragments à l'épuisette. Taillez régulièrement pour garder un buisson dense. Les feuilles du bas jaunissent et tombent si la lumière n'atteint plus la base.",
+      conseil: "Plantez les tiges sans trop les enterrer, ou laissez-les flotter près du fond : elles s'enracinent d'elles-mêmes. Les rameaux sont cassants, manipulez-la avec douceur et ramassez les fragments à l'épuisette. Taillez régulièrement pour garder un buisson dense. Les feuilles du bas jaunissent et tombent si la lumière n'atteint plus la base.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe bien aux crevettes, qui apprécient son feuillage fin, et aux poissons de communauté paisibles comme les rasboras ou les tétras. Elle s'accommode d'une eau de dureté moyenne à élevée.",
@@ -6683,7 +6683,7 @@ export const ESPECES: Espece[] = [
       tempMin: 15,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle absorbe ses nutriments surtout par les feuilles : une fertilisation liquide régulière et une lumière moyenne suffisent, sans CO2 obligatoire ni substrat riche.",
+      alimentation: "Elle absorbe ses nutriments surtout par les feuilles : une fertilisation liquide régulière et une lumière moyenne suffisent, sans CO2 obligatoire ni substrat riche.",
       tailleAdulte: "tiges de 30 à 60 cm, davantage sans taille",
       plante: {
         placement: "Arrière-plan",
@@ -6738,7 +6738,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Pogostemon deccanensis"],
     fiche: {
       description: "Pogostemon erectus est une plante de tige originaire d'Inde, aux verticilles de feuilles fines d'un vert clair lumineux. Ses tiges poussent bien droites et, plantées en groupe serré, composent un fond dense tout en restant aérées. Elle se place à l'arrière-plan ou en milieu de bac et se prête bien à la taille en buisson. Dans le commerce, la plante vendue sous ce nom est aussi désignée Pogostemon deccanensis.",
-      conseil: "Une plante cultivée en émersion perd souvent des feuilles à l'introduction : laissez-la s'adapter sans la déplacer. Plantez les tiges en bouquet, à 2 ou 3 cm de profondeur. Recoupez le sommet pour épaissir le buisson, les boutures replantées s'enracinent vite. Les feuilles basses jaunissent en cas de carence en fer ou d'ombrage excessif.",
+      conseil: "Une plante cultivée en émersion perd souvent des feuilles à l'introduction : laissez-la s'adapter sans la déplacer. Plantez les tiges en bouquet, à 2 ou 3 cm de profondeur. Recoupez le sommet pour épaissir le buisson, les boutures replantées s'enracinent vite. Les feuilles basses jaunissent en cas de carence en fer ou d'ombrage excessif.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle fait bonne figure avec les petits poissons de communauté, les crevettes Neocaridina et les escargots, dans un bac au courant modéré qui répartit bien les nutriments.",
@@ -6771,7 +6771,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Eusteralis stellata"],
     fiche: {
       description: "Pogostemon stellatus, longtemps commercialisé sous le nom d'Eusteralis stellata, est une plante de tige des zones humides d'Asie et du nord de l'Australie. Ses feuilles étroites sont disposées en étoiles régulières le long de la tige, vert olive à rougeâtres selon la lumière. On l'emploie en groupes serrés à l'arrière-plan ou en milieu de bac pour apporter une texture graphique et des reflets cuivrés.",
-      conseil: "Plantez-la par touffes de plusieurs tiges espacées de quelques centimètres pour obtenir un effet de massif. Les verticilles inférieurs tombent si la lumière n'y parvient pas : recoupez les tiges trop hautes et replantez les sommets. La teinte rouge demande une lumière forte et des apports en nutriments équilibrés. Elle fond parfois au début si elle vient d'une culture émergée.",
+      conseil: "Plantez-la par touffes de plusieurs tiges espacées de quelques centimètres pour obtenir un effet de massif. Les verticilles inférieurs tombent si la lumière n'y parvient pas : recoupez les tiges trop hautes et replantez les sommets. La teinte rouge demande une lumière forte et des apports en nutriments équilibrés. Elle fond parfois au début si elle vient d'une culture émergée.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux tétras, aux rasboras, à d'autres petits poissons de communauté et aux crevettes d'ornement, dans un bac tropical bien planté et bien éclairé.",
@@ -6803,7 +6803,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Proserpinaca palustris est une plante de tige des zones humides d'Amérique, appréciée pour ses feuilles plumeuses finement dentées, qui prennent des teintes brun-rouge à cuivrées sous une lumière soutenue. Elle forme des touffes aérées et légèrement irrégulières, idéales en milieu de bac pour casser la rigidité des plantes à verticilles. Les cultures en serre la proposent souvent en forme émergée, aux feuilles plus larges.",
-      conseil: "Plantez-la sans trop l'enfoncer, sur 2 cm environ. Une plante vendue en émersion perd ses feuilles larges avant de produire des feuilles immergées plus fines : ne la remplacez pas trop tôt. Recoupez régulièrement pour qu'elle reste touffue. La couleur dépend de la lumière et du fer, tandis qu'un éclairage trop faible la fait filer.",
+      conseil: "Plantez-la sans trop l'enfoncer, sur 2 cm environ. Une plante vendue en émersion perd ses feuilles larges avant de produire des feuilles immergées plus fines : ne la remplacez pas trop tôt. Recoupez régulièrement pour qu'elle reste touffue. La couleur dépend de la lumière et du fer, tandis qu'un éclairage trop faible la fait filer.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle cohabite sans souci avec les petits poissons paisibles, les crevettes et les escargots, et accepte une eau fraîche comme une eau tropicale.",
@@ -6834,7 +6834,7 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Rotala macrandra est une plante de tige originaire d'Inde, prisée pour ses grandes feuilles ovales à lancéolées, rouge vif à rose saumon sous une forte lumière. Elle sert de point focal à l'arrière-plan ou en milieu de bac dans les aquariums de style néerlandais. Sa couleur spectaculaire va de pair avec une vraie exigence : eau tendre, lumière et CO2 maîtrisés.",
+      description: "Rotala macrandra est une plante de tige originaire d'Inde, prisée pour ses grandes feuilles ovales à lancéolées, rouge vif à rose saumon sous une forte lumière. Elle sert de point focal à l'arrière-plan ou en milieu de bac dans les aquariums de style néerlandais. Sa couleur spectaculaire va de pair avec une vraie exigence : eau tendre, lumière et CO2 maîtrisés.",
       conseil: "Plantez les tiges en les espaçant de plusieurs centimètres, car la lumière doit atteindre toute la hauteur. Recoupez les sommets dès qu'elles approchent de la surface pour densifier la touffe. Un apport régulier en fer, nitrates et phosphates évite la pâleur et la chute des feuilles. Les variations brusques de paramètres provoquent la fonte.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
@@ -6845,7 +6845,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Expert",
-      alimentation: "Elle exige une lumière forte, un CO2 injecté, un engrais liquide complet riche en fer et un substrat nutritif : elle réagit vite à toute carence.",
+      alimentation: "Elle exige une lumière forte, un CO2 injecté, un engrais liquide complet riche en fer et un substrat nutritif : elle réagit vite à toute carence.",
       tailleAdulte: "tiges de 30 à 50 cm",
       plante: {
         placement: "Arrière-plan",
@@ -6877,7 +6877,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Expert",
-      alimentation: "Lumière forte, CO2 stable, engrais liquide complet avec fer et substrat nutritif : elle absorbe vite les nutriments par les feuilles comme par les racines.",
+      alimentation: "Lumière forte, CO2 stable, engrais liquide complet avec fer et substrat nutritif : elle absorbe vite les nutriments par les feuilles comme par les racines.",
       tailleAdulte: "tiges de 30 à 40 cm",
       plante: {
         placement: "Arrière-plan",
@@ -6899,7 +6899,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Rotala indica est une plante de tige répandue en Asie, jusque dans les rizières, aux petites feuilles opposées vertes qui passent à l'orangé sous forte lumière. Plantée en bouquet, elle forme un rideau dense en milieu de bac ou à l'arrière-plan d'un aquarium de taille moyenne. Plus tolérante que les Rotala les plus colorés, elle convient dès que le bac est stable et bien éclairé.",
-      conseil: "Plantez les tiges en touffe, à 2 ou 3 cm de profondeur, avec un écart de 1 à 2 cm. Recoupez à la hauteur voulue : chaque coupe donne souvent deux nouvelles pousses. Sans lumière forte elle reste verte ; avec un peu de CO2 et du fer, les sommets virent à l'orange. Ne la laissez pas s'étaler en surface, elle ombrage ses voisines.",
+      conseil: "Plantez les tiges en touffe, à 2 ou 3 cm de profondeur, avec un écart de 1 à 2 cm. Recoupez à la hauteur voulue : chaque coupe donne souvent deux nouvelles pousses. Sans lumière forte elle reste verte ; avec un peu de CO2 et du fer, les sommets virent à l'orange. Ne la laissez pas s'étaler en surface, elle ombrage ses voisines.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle se marie bien avec les poissons de communauté paisibles, les crevettes et les escargots, dans un bac tempéré ou tropical.",
@@ -6931,7 +6931,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Staurogyne repens est une petite plante d'Amérique du Sud, au port rampant, dont les feuilles ovales vert clair sont portées par des tiges courtes qui s'étalent en tapis. Elle s'installe à l'avant-plan ou entre deux pierres, où elle forme un coussin dense. Assez facile à vivre pour un tapis, elle accepte une lumière moyenne mais s'épaissit nettement sous un éclairage soutenu.",
-      conseil: "Plantez-la en petits bouquets espacés de 2 à 3 cm, les tiges enterrées sur 1 à 2 cm. Taillez à ras aux ciseaux courbes pour la densifier : les repousses restent compactes. Faute de lumière, les tiges s'allongent et le tapis s'aère. Elle fond parfois à l'introduction si elle vient d'une culture émergée, puis reprend en quelques semaines.",
+      conseil: "Plantez-la en petits bouquets espacés de 2 à 3 cm, les tiges enterrées sur 1 à 2 cm. Taillez à ras aux ciseaux courbes pour la densifier : les repousses restent compactes. Faute de lumière, les tiges s'allongent et le tapis s'aère. Elle fond parfois à l'introduction si elle vient d'une culture émergée, puis reprend en quelques semaines.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accommode des petits poissons de communauté, des crevettes et des escargots, qui circulent dans son tapis sans l'abîmer.",
@@ -6963,7 +6963,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Tonina fluviatilis est une plante de tige d'Amérique tropicale, aux tiges grêles recouvertes de petites feuilles étroites et claires, densément serrées autour de l'axe. Plantée en groupe, elle compose un massif vert tendre en milieu de bac. Sa sensibilité à la qualité de l'eau et ses besoins en lumière et en CO2 la réservent aux aquariums stables et aux aquariophiles expérimentés.",
-      conseil: "Plantez de petits bouquets de tiges sans trop les enterrer : la base pourrit vite dans un substrat compact. Une eau tendre et acide, une lumière forte et un apport régulier de CO2 limitent sa fonte. Évitez de déranger une touffe installée. Les algues la colonisent facilement si les nutriments sont déséquilibrés : préférez des apports réguliers et légers.",
+      conseil: "Plantez de petits bouquets de tiges sans trop les enterrer : la base pourrit vite dans un substrat compact. Une eau tendre et acide, une lumière forte et un apport régulier de CO2 limitent sa fonte. Évitez de déranger une touffe installée. Les algues la colonisent facilement si les nutriments sont déséquilibrés : préférez des apports réguliers et légers.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe à des poissons d'eau tendre et calmes (rasboras, tétras) ainsi qu'à des crevettes naines.",
@@ -6995,7 +6995,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Le cabomba rouge (Cabomba furcata) est une plante de tige d'Amérique tropicale, aux feuilles en éventail finement découpées, rouge cuivré à pourpres sous une lumière soutenue. Planté en bouquet à l'arrière-plan, il offre une touche de couleur et un feuillage de dentelle. Il est bien plus exigeant que les cabombas verts et réclame une eau tendre et acide, beaucoup de lumière et des nutriments.",
-      conseil: "Vérifiez son identité à l'achat : la couleur ne suffit pas, car des formes pourpres de Cabomba caroliniana, espèce interdite, existent. Exigez le nom scientifique complet et renoncez à l'achat s'il reste vague. Plantez les tiges à 2 ou 3 cm sans écraser les feuilles, puis recoupez et replantez les sommets. Il se dégarnit à la base si la lumière manque ou si l'eau est dure.",
+      conseil: "Vérifiez son identité à l'achat : la couleur ne suffit pas, car des formes pourpres de Cabomba caroliniana, espèce interdite, existent. Exigez le nom scientifique complet et renoncez à l'achat s'il reste vague. Plantez les tiges à 2 ou 3 cm sans écraser les feuilles, puis recoupez et replantez les sommets. Il se dégarnit à la base si la lumière manque ou si l'eau est dure.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il s'intègre aux aquariums d'eau douce et plutôt tendre avec de petits poissons de communauté (tétras, rasboras) et des crevettes d'ornement.",
@@ -7005,7 +7005,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Expert",
-      alimentation: "Lumière forte, CO2 injecté et engrais liquide régulier : il absorbe ses nutriments surtout par les feuilles et réagit à la moindre carence.",
+      alimentation: "Lumière forte, CO2 injecté et engrais liquide régulier : il absorbe ses nutriments surtout par les feuilles et réagit à la moindre carence.",
       tailleAdulte: "tiges de 30 à 60 cm",
       plante: {
         placement: "Arrière-plan",
@@ -7023,12 +7023,12 @@ export const ESPECES: Espece[] = [
     nomCommun: "Egeria dense (élodée dense)",
     nomScientifique: "Egeria densa",
     statutLegal: 'autorise',
-    remarqueLegale: "Espèce considérée comme envahissante dans plusieurs pays. Elle ne figure pas sur la liste de l'Union européenne ni sur l'arrêté du 14 février 2018 (texte consolidé consulté le 3 octobre 2026) : sa vente n'est donc pas interdite au niveau national, mais ne la rejetez jamais dans la nature, des restrictions locales pouvant exister.",
+    remarqueLegale: "Espèce considérée comme envahissante dans plusieurs pays. Elle ne figure pas sur la liste de l'Union européenne ni sur l'arrêté du 14 février 2018 (texte consolidé consulté le 3 octobre 2026) : sa vente n'est donc pas interdite au niveau national, mais ne la rejetez jamais dans la nature, des restrictions locales pouvant exister.",
     citesAnnexe: null,
     autresNoms: ["Égéria", "Elodea densa"],
     fiche: {
       description: "L'egeria dense, ou élodée dense (Egeria densa), est une plante de tige originaire d'Amérique du Sud, aux verticilles de feuilles vert vif, plus longues et plus larges que celles de l'élodée du Canada. Très courante en aquariophilie, elle s'emploie à l'arrière-plan, sur les côtés ou en bac frais. Ses tiges croissent vite et gagnent la surface en peu de temps, ce qui aide à couvrir un fond.",
-      conseil: "Plantez les tiges par bouquets en enterrant à peine la base, ou laissez-les flotter. Recoupez souvent : sans taille, elles s'étalent en surface et ombragent le reste du bac. Les feuilles s'éclaircissent et tombent sous une lumière insuffisante. Ramassez soigneusement tous les fragments issus de la taille.",
+      conseil: "Plantez les tiges par bouquets en enterrant à peine la base, ou laissez-les flotter. Recoupez souvent : sans taille, elles s'étalent en surface et ombragent le reste du bac. Les feuilles s'éclaircissent et tombent sous une lumière insuffisante. Ramassez soigneusement tous les fragments issus de la taille.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle fonctionne bien avec les petits poissons de communauté, les crevettes et les escargots, dans des bacs d'eau fraîche comme tempérée ou tropicale.",
@@ -7038,7 +7038,7 @@ export const ESPECES: Espece[] = [
       tempMin: 12,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle se nourrit surtout par ses tiges et ses feuilles : lumière moyenne et fertilisation liquide légère suffisent, sans CO2 ni substrat riche.",
+      alimentation: "Elle se nourrit surtout par ses tiges et ses feuilles : lumière moyenne et fertilisation liquide légère suffisent, sans CO2 ni substrat riche.",
       tailleAdulte: "tiges de 50 cm à plus d'un mètre",
       plante: {
         placement: "Arrière-plan",
@@ -7056,12 +7056,12 @@ export const ESPECES: Espece[] = [
     nomCommun: "Élodée du Canada",
     nomScientifique: "Elodea canadensis",
     statutLegal: 'autorise',
-    remarqueLegale: "Espèce considérée comme envahissante dans plusieurs pays. Elle ne figure pas sur la liste de l'Union européenne ni sur l'arrêté du 14 février 2018 (texte consolidé consulté le 3 octobre 2026) : sa vente n'est donc pas interdite au niveau national, mais ne la rejetez jamais dans la nature, des restrictions locales pouvant exister.",
+    remarqueLegale: "Espèce considérée comme envahissante dans plusieurs pays. Elle ne figure pas sur la liste de l'Union européenne ni sur l'arrêté du 14 février 2018 (texte consolidé consulté le 3 octobre 2026) : sa vente n'est donc pas interdite au niveau national, mais ne la rejetez jamais dans la nature, des restrictions locales pouvant exister.",
     citesAnnexe: null,
     autresNoms: ["Peste d'eau"],
     fiche: {
       description: "L'élodée du Canada (Elodea canadensis) est une plante de tige d'origine nord-américaine, aux petites feuilles vert vif et translucides disposées par trois autour de fines tiges. Plus compacte et moins vigoureuse que l'egeria, elle sert surtout en aquarium d'eau froide, en bac non chauffé ou en bassin. Elle abrite les alevins et contribue à l'oxygénation de l'eau en pleine lumière.",
-      conseil: "Cette élodée aime l'eau fraîche : au-delà de 25 °C environ, elle végète puis se dégarnit. Plantez-la en bouquet ou laissez-la flotter, en pleine lumière. Taillez-la en fin de saison pour contenir son extension et ramassez tous les fragments. Achetez des plants issus de culture : ne prélevez jamais d'élodée dans un cours d'eau ou une mare.",
+      conseil: "Cette élodée aime l'eau fraîche : au-delà de 25 °C environ, elle végète puis se dégarnit. Plantez-la en bouquet ou laissez-la flotter, en pleine lumière. Taillez-la en fin de saison pour contenir son extension et ramassez tous les fragments. Achetez des plants issus de culture : ne prélevez jamais d'élodée dans un cours d'eau ou une mare.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux poissons d'eau froide paisibles (vairons, bouvières), aux escargots et aux crevettes d'eau fraîche, en aquarium non chauffé ou en bassin.",
@@ -7071,7 +7071,7 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 25,
       difficulte: "Débutant",
-      alimentation: "Elle puise ses nutriments dans l'eau par ses feuilles : lumière naturelle ou moyenne et eau fraîche suffisent, sans CO2 ni engrais racinaire.",
+      alimentation: "Elle puise ses nutriments dans l'eau par ses feuilles : lumière naturelle ou moyenne et eau fraîche suffisent, sans CO2 ni engrais racinaire.",
       tailleAdulte: "tiges de 30 cm à plus d'un mètre",
       plante: {
         placement: "Arrière-plan",
@@ -7094,7 +7094,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Red root floater"],
     fiche: {
       description: "Le phyllanthus flottant (Phyllanthus fluitans) est une petite plante flottante originaire d'Amérique tropicale, formée de rosettes de feuilles arrondies vert tendre dont les bords et les racines rougissent sous forte lumière. Il couvre la surface d'un aquarium, tamise la lumière pour les plantes d'ombre et apporte un cachet décoratif aux bacs tropicaux.",
-      conseil: "Posez-le simplement sur l'eau et gardez une surface calme : un fort remous noie les feuilles, qui pourrissent. Un couvercle maintient l'air humide au-dessus. Il faut une lumière forte et un apport de fer pour qu'il rougisse. Écrémez-le régulièrement pour ne pas priver de lumière les plantes situées dessous.",
+      conseil: "Posez-le simplement sur l'eau et gardez une surface calme : un fort remous noie les feuilles, qui pourrissent. Un couvercle maintient l'air humide au-dessus. Il faut une lumière forte et un apport de fer pour qu'il rougisse. Écrémez-le régulièrement pour ne pas priver de lumière les plantes situées dessous.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il convient aux poissons de surface calmes, aux gouramis nains et aux bettas qui apprécient l'ombrage, ainsi qu'aux crevettes qui broutent ses racines.",
@@ -7104,7 +7104,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Il prélève ses nutriments dans l'eau par ses racines : lumière forte et engrais liquide léger suffisent, sans CO2 ni substrat.",
+      alimentation: "Il prélève ses nutriments dans l'eau par ses racines : lumière forte et engrais liquide léger suffisent, sans CO2 ni substrat.",
       tailleAdulte: "rosettes de quelques centimètres",
       plante: {
         placement: "Flottante",
@@ -7126,8 +7126,8 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     autresNoms: ["Lentille d'eau géante"],
     fiche: {
-      description: "La spirodèle à plusieurs racines (Spirodela polyrhiza) est la plus grande de nos lentilles d'eau : ses frondes arrondies de 5 à 10 mm, vertes et parfois rougeâtres, portent plusieurs racines fines. Présente dans les eaux calmes de nombreuses régions du monde, dont l'Europe, elle forme des tapis flottants en bassin comme en bac. Elle ombrage, abrite les alevins et absorbe les nutriments en concurrence avec les algues.",
-      conseil: "Posez-la en surface et retirez régulièrement l'excédent à l'épuisette : un tapis trop épais prive de lumière les plantes du dessous. En bassin, elle passe l'hiver au fond sous forme de petits bourgeons, puis remonte au printemps. Achetez des plants de culture : ne prélevez jamais de lentilles dans les mares ou les rivières.",
+      description: "La spirodèle à plusieurs racines (Spirodela polyrhiza) est la plus grande de nos lentilles d'eau : ses frondes arrondies de 5 à 10 mm, vertes et parfois rougeâtres, portent plusieurs racines fines. Présente dans les eaux calmes de nombreuses régions du monde, dont l'Europe, elle forme des tapis flottants en bassin comme en bac. Elle ombrage, abrite les alevins et absorbe les nutriments en concurrence avec les algues.",
+      conseil: "Posez-la en surface et retirez régulièrement l'excédent à l'épuisette : un tapis trop épais prive de lumière les plantes du dessous. En bassin, elle passe l'hiver au fond sous forme de petits bourgeons, puis remonte au printemps. Achetez des plants de culture : ne prélevez jamais de lentilles dans les mares ou les rivières.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux bassins et aux bacs frais ou tempérés, avec des poissons de surface calmes, des vairons, des crevettes et des escargots.",
@@ -7137,7 +7137,7 @@ export const ESPECES: Espece[] = [
       tempMin: 5,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle prélève ses nutriments dans l'eau par ses racines : lumière moyenne à forte et eau modérément riche, sans CO2 ni substrat.",
+      alimentation: "Elle prélève ses nutriments dans l'eau par ses racines : lumière moyenne à forte et eau modérément riche, sans CO2 ni substrat.",
       tailleAdulte: "frondes de 5 à 10 mm",
       plante: {
         placement: "Flottante",
@@ -7155,12 +7155,12 @@ export const ESPECES: Espece[] = [
     nomCommun: "Azolla fausse-fougère",
     nomScientifique: "Azolla filiculoides",
     statutLegal: 'autorise',
-    remarqueLegale: "Espèce considérée comme envahissante dans plusieurs pays. Elle ne figure pas sur la liste de l'Union européenne ni sur l'arrêté du 14 février 2018 (texte consolidé consulté le 3 octobre 2026) : sa vente n'est donc pas interdite au niveau national, mais ne la rejetez jamais dans la nature, des restrictions locales pouvant exister.",
+    remarqueLegale: "Espèce considérée comme envahissante dans plusieurs pays. Elle ne figure pas sur la liste de l'Union européenne ni sur l'arrêté du 14 février 2018 (texte consolidé consulté le 3 octobre 2026) : sa vente n'est donc pas interdite au niveau national, mais ne la rejetez jamais dans la nature, des restrictions locales pouvant exister.",
     citesAnnexe: null,
     autresNoms: ["Azolla fausse-filicule"],
     fiche: {
       description: "L'azolla fausse-fougère (Azolla filiculoides) est une minuscule fougère flottante originaire du continent américain, dont les rosettes de 1 à 2 cm, couvertes d'écailles imbriquées, sont vert tendre et virent au rouge sous forte lumière ou par temps frais. Elle compose un tapis décoratif et ombrageant sur un bassin ou un bac découvert, et offre un abri aux alevins.",
-      conseil: "Posez-la sur une eau calme, à l'abri des remous qui la font couler. Elle réclame une lumière vive, des nutriments et de l'air libre au-dessus d'elle : un couvercle bas l'étouffe. Éclaircissez-la souvent à l'épuisette pour éviter un tapis épais qui pourrit. Achetez des plants issus de culture et compostez les excédents.",
+      conseil: "Posez-la sur une eau calme, à l'abri des remous qui la font couler. Elle réclame une lumière vive, des nutriments et de l'air libre au-dessus d'elle : un couvercle bas l'étouffe. Éclaircissez-la souvent à l'épuisette pour éviter un tapis épais qui pourrit. Achetez des plants issus de culture et compostez les excédents.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux bassins, aux poissons de surface tranquilles et aux bacs ouverts, où les alevins profitent de son abri.",
@@ -7170,7 +7170,7 @@ export const ESPECES: Espece[] = [
       tempMin: 5,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Elle vit en symbiose avec une cyanobactérie qui fixe l'azote de l'air : lumière vive et eau un peu enrichie en fer et en phosphore lui suffisent.",
+      alimentation: "Elle vit en symbiose avec une cyanobactérie qui fixe l'azote de l'air : lumière vive et eau un peu enrichie en fer et en phosphore lui suffisent.",
       tailleAdulte: "rosettes de 1 à 2 cm",
       plante: {
         placement: "Flottante",
@@ -7193,7 +7193,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Pavot d'eau", "Pavot aquatique"],
     fiche: {
       description: "Le faux nénuphar (Hydrocleys nymphoides), aussi appelé pavot d'eau, est une plante de bassin originaire d'Amérique centrale et du Sud. Ses feuilles rondes et luisantes, vert franc, flottent à la surface au bout de longs pétioles, et ses fleurs jaune citron à trois pétales s'ouvrent au fil de l'été, chacune pendant une journée. Il se plante en bordure de bassin ou en bac d'extérieur, en plein soleil.",
-      conseil: "Plantez-le en panier dans un terreau lourd non amendé, à quelques dizaines de centimètres sous la surface. Il exige du plein soleil pour fleurir. Sa rusticité est limitée : en cas de gel marqué, rentrez-le dans un bac clair à l'abri du gel. Retirez les feuilles abîmées après les premiers froids et laissez-le repartir au printemps.",
+      conseil: "Plantez-le en panier dans un terreau lourd non amendé, à quelques dizaines de centimètres sous la surface. Il exige du plein soleil pour fleurir. Sa rusticité est limitée : en cas de gel marqué, rentrez-le dans un bac clair à l'abri du gel. Retirez les feuilles abîmées après les premiers froids et laissez-le repartir au printemps.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux nénuphars et aux iris d'eau ; l'ombre de ses feuilles profite aux poissons de bassin.",
@@ -7226,7 +7226,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Plante banane", "Banana plant"],
     fiche: {
       description: "Nymphoides aquatica, la plante banane, est originaire du sud-est des États-Unis. Elle doit son surnom aux épais tubercules en forme de bananes regroupés à la base de ses feuilles. Ses feuilles arrondies, échancrées à la base, flottent à la surface, et de petites fleurs blanches apparaissent parfois. Elle s'emploie dans les aquariums spacieux comme en bassin d'ornement.",
-      conseil: "Plantez-la dans un substrat nutritif en laissant les tubercules en forme de bananes à découvert : enterrés, ils pourrissent. Les feuilles montent à la surface et ombragent le bac ; coupez-en une partie pour laisser passer la lumière. Retirez celles qui jaunissent. Pour la multiplier, séparez les stolons ou divisez la souche.",
+      conseil: "Plantez-la dans un substrat nutritif en laissant les tubercules en forme de bananes à découvert : enterrés, ils pourrissent. Les feuilles montent à la surface et ombragent le bac ; coupez-en une partie pour laisser passer la lumière. Retirez celles qui jaunissent. Pour la multiplier, séparez les stolons ou divisez la souche.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle fonctionne dans les aquariums spacieux d'eau douce tempérée à tropicale avec de petits poissons de communauté, ainsi qu'en bassin d'agrément.",
@@ -7236,7 +7236,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle se nourrit par les racines et les tubercules : substrat nutritif ou pastilles d'engrais racinaire, lumière soutenue, CO2 non nécessaire.",
+      alimentation: "Elle se nourrit par les racines et les tubercules : substrat nutritif ou pastilles d'engrais racinaire, lumière soutenue, CO2 non nécessaire.",
       tailleAdulte: "feuilles flottantes jusqu'à 10 cm",
       plante: {
         placement: "Flottante",
@@ -7259,7 +7259,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Nymphoides Taiwan"],
     fiche: {
       description: "Nymphoides hydrophylla est souvent vendue sous le nom de Nymphoides 'Taiwan', dont l'identification botanique reste discutée. Cette plante d'Asie a des feuilles rondes à cordiformes, vert vif, un peu translucides et ondulées, qui flottent à la surface, avec parfois de petites fleurs blanches. Enracinée au fond, elle pousse vite et s'emploie en milieu de bac ou à l'arrière-plan.",
-      conseil: "Enterrez ses racines mais laissez la base des feuilles à l'air libre. Coupez au ras les feuilles qui atteignent la surface si vous voulez garder de la lumière au bac : elle en refait vite. Un substrat nutritif et un engrais racinaire entretiennent sa croissance. Elle perd parfois des feuilles après l'introduction avant de repartir.",
+      conseil: "Enterrez ses racines mais laissez la base des feuilles à l'air libre. Coupez au ras les feuilles qui atteignent la surface si vous voulez garder de la lumière au bac : elle en refait vite. Un substrat nutritif et un engrais racinaire entretiennent sa croissance. Elle perd parfois des feuilles après l'introduction avant de repartir.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle fait bonne figure dans les bacs communautaires avec de petits poissons paisibles, des crevettes et des escargots, dans les décors à faible courant.",
@@ -7269,7 +7269,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Elle se nourrit surtout par les racines : substrat riche ou engrais en pastilles, lumière moyenne, sans CO2.",
+      alimentation: "Elle se nourrit surtout par les racines : substrat riche ou engrais en pastilles, lumière moyenne, sans CO2.",
       tailleAdulte: "jusqu'à 60 cm de hauteur",
       plante: {
         placement: "Flottante",
@@ -7292,7 +7292,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Singapore moss"],
     fiche: {
       description: "La mousse de Singapour (Vesicularia dubyana) est une mousse d'Asie tropicale aux tiges irrégulièrement ramifiées, garnies de petites feuilles vert vif. Elle s'accroche aux racines, aux pierres et aux supports décoratifs pour y former un manteau dense. À ne pas confondre avec la mousse de Java (Taxiphyllum barbieri), qui pousse plus vite et forme un manteau moins dense.",
-      conseil: "Fixez-la sur du bois ou de la roche avec du fil de coton ou de la colle cyanoacrylate gel, plutôt que de l'enterrer : elle étouffe dans le substrat. Rincez régulièrement les détritus qui s'accumulent entre ses tiges. Taillez aux ciseaux pour garder une forme nette. Sans nettoyage, elle brunit et se couvre d'algues.",
+      conseil: "Fixez-la sur du bois ou de la roche avec du fil de coton ou de la colle cyanoacrylate gel, plutôt que de l'enterrer : elle étouffe dans le substrat. Rincez régulièrement les détritus qui s'accumulent entre ses tiges. Taillez aux ciseaux pour garder une forme nette. Sans nettoyage, elle brunit et se couvre d'algues.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde avec presque tous les poissons de communauté, les crevettes et les escargots, qui s'y abritent et y broutent le biofilm.",
@@ -7302,7 +7302,7 @@ export const ESPECES: Espece[] = [
       tempMin: 15,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Elle absorbe ses nutriments par ses tiges : lumière faible à moyenne et un peu d'engrais liquide, sans CO2 ni substrat.",
+      alimentation: "Elle absorbe ses nutriments par ses tiges : lumière faible à moyenne et un peu d'engrais liquide, sans CO2 ni substrat.",
       tailleAdulte: "tiges de 5 à 10 cm",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -7368,7 +7368,7 @@ export const ESPECES: Espece[] = [
       tempMin: 15,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Ses pousses captent les nutriments dans l'eau : une lumière moyenne et un peu d'engrais liquide suffisent, sans substrat.",
+      alimentation: "Ses pousses captent les nutriments dans l'eau : une lumière moyenne et un peu d'engrais liquide suffisent, sans substrat.",
       tailleAdulte: "pousses retombantes de 3 à 5 cm et plus",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -7390,8 +7390,8 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     autresNoms: ["Flame moss"],
     fiche: {
-      description: "La mousse flamme (Taxiphyllum sp. 'Flame'), d'Asie, se reconnaît à sa croissance verticale : ses tiges peu ramifiées montent en spirales qui évoquent des flammèches, d'un vert vif. Elle se fixe à la roche ou au bois et produit l'effet de petites flammes qui s'élèvent d'un tronc ou du fond d'un décor. Sa croissance est lente et plus dressée que celle des mousses rampantes classiques.",
-      conseil: "Fixez-la à plat sur la roche ou le bois avec du fil ou de la colle, sans enterrer la base. Elle pousse vers le haut et ne s'étale pas : attendez quelques semaines avant de juger sa croissance. Rincez les tiges dès que des dépôts apparaissent. Une lumière moyenne la garde verte et compacte.",
+      description: "La mousse flamme (Taxiphyllum sp. 'Flame'), d'Asie, se reconnaît à sa croissance verticale : ses tiges peu ramifiées montent en spirales qui évoquent des flammèches, d'un vert vif. Elle se fixe à la roche ou au bois et produit l'effet de petites flammes qui s'élèvent d'un tronc ou du fond d'un décor. Sa croissance est lente et plus dressée que celle des mousses rampantes classiques.",
+      conseil: "Fixez-la à plat sur la roche ou le bois avec du fil ou de la colle, sans enterrer la base. Elle pousse vers le haut et ne s'étale pas : attendez quelques semaines avant de juger sa croissance. Rincez les tiges dès que des dépôts apparaissent. Une lumière moyenne la garde verte et compacte.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle se marie bien aux petits poissons de communauté et aux crevettes, qui la nettoient du biofilm, dans un bac tempéré ou tropical.",
@@ -7424,7 +7424,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Phoenix moss"],
     fiche: {
       description: "Fissidens fontanus, la mousse Phoenix, est une mousse aquatique aux frondes plates et vert franc, qui évoquent de petites plumes ou des fougères miniatures. Ses touffes en éventail se fixent sur la roche et le bois et donnent un aspect dense et très structuré. Appréciée pour l'avant-plan des petits aquascapes, elle se développe lentement.",
-      conseil: "Fixez-la sur la roche ou le bois avec du fil ou de la colle, en touffes espacées d'un ou deux centimètres. Elle supporte une lumière moyenne mais s'encrasse vite de poussières et d'algues : rincez-la et entretenez régulièrement. Évitez les engrais en excès. Sa croissance est lente, patientez plusieurs semaines avant de couper.",
+      conseil: "Fixez-la sur la roche ou le bois avec du fil ou de la colle, en touffes espacées d'un ou deux centimètres. Elle supporte une lumière moyenne mais s'encrasse vite de poussières et d'algues : rincez-la et entretenez régulièrement. Évitez les engrais en excès. Sa croissance est lente, patientez plusieurs semaines avant de couper.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux crevettes, aux escargots et aux petits poissons de communauté dans un bac planté, avec un courant doux.",
@@ -7434,7 +7434,7 @@ export const ESPECES: Espece[] = [
       tempMin: 16,
       tempMax: 26,
       difficulte: "Intermédiaire",
-      alimentation: "Elle prélève ses nutriments par ses frondes : lumière moyenne, eau propre et engrais liquide très léger, CO2 non obligatoire.",
+      alimentation: "Elle prélève ses nutriments par ses frondes : lumière moyenne, eau propre et engrais liquide très léger, CO2 non obligatoire.",
       tailleAdulte: "touffes de quelques centimètres",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -7457,7 +7457,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Coral moss"],
     fiche: {
       description: "Riccardia chamedryfolia, que l'on nomme mousse corail, est en réalité une hépatique à thalle ramifié, vert foncé, dont les branches en relief ressemblent à du corail miniature. Originaire d'Asie, elle se fixe sur la roche ou le bois et forme des coussinets denses, surtout appréciés à l'avant d'un décor rocheux. Sa croissance est lente.",
-      conseil: "Fixez-la sur la roche ou le bois avec du fil ou de la colle, en petits coussinets. Son thalle est cassant : manipulez-la avec précaution. Elle pousse lentement et les algues la recouvrent vite ; un entretien régulier et un éclairage moyen la gardent propre. Taillez doucement aux ciseaux fins.",
+      conseil: "Fixez-la sur la roche ou le bois avec du fil ou de la colle, en petits coussinets. Son thalle est cassant : manipulez-la avec précaution. Elle pousse lentement et les algues la recouvrent vite ; un entretien régulier et un éclairage moyen la gardent propre. Taillez doucement aux ciseaux fins.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va bien avec les crevettes, les escargots et les petits poissons paisibles, dans un bac stable et bien filtré.",
@@ -7467,7 +7467,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle se nourrit par son thalle : lumière moyenne, eau stable et propre, engrais liquide très léger, sans CO2 ni substrat.",
+      alimentation: "Elle se nourrit par son thalle : lumière moyenne, eau stable et propre, engrais liquide très léger, sans CO2 ni substrat.",
       tailleAdulte: "coussinets de quelques centimètres",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -7489,8 +7489,8 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     autresNoms: ["Pellia"],
     fiche: {
-      description: "La pellia, ou Monosolenium tenerum, est une hépatique d'Asie dont le thalle vert tendre, lobé et légèrement translucide, forme des coussins irréguliers d'allure rocheuse. Elle n'a rien d'une mousse filamenteuse : on la fixe sur une pierre ou une racine pour créer un relief organique, ou on la laisse s'étaler en masses lâches sur le décor. Sa croissance reste lente.",
-      conseil: "Fixez le thalle avec un fil de nylon ou une pointe de colle gel cyanoacrylate, sans l'enfouir dans le substrat. Un éclairage modéré lui suffit : trop de lumière favorise les algues, très difficiles à retirer de ses lobes. Pour la multiplier, découpez des fragments à la lame propre et fixez-les ailleurs. Un léger courant évite que les débris s'y déposent.",
+      description: "La pellia, ou Monosolenium tenerum, est une hépatique d'Asie dont le thalle vert tendre, lobé et légèrement translucide, forme des coussins irréguliers d'allure rocheuse. Elle n'a rien d'une mousse filamenteuse : on la fixe sur une pierre ou une racine pour créer un relief organique, ou on la laisse s'étaler en masses lâches sur le décor. Sa croissance reste lente.",
+      conseil: "Fixez le thalle avec un fil de nylon ou une pointe de colle gel cyanoacrylate, sans l'enfouir dans le substrat. Un éclairage modéré lui suffit : trop de lumière favorise les algues, très difficiles à retirer de ses lobes. Pour la multiplier, découpez des fragments à la lame propre et fixez-les ailleurs. Un léger courant évite que les débris s'y déposent.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde bien avec les crevettes naines, les escargots et les petits poissons paisibles d'un bac d'ensemble ou d'un décor de pierres et de bois. Ses lobes offrent aussi un abri aux jeunes crevettes.",
@@ -7500,14 +7500,14 @@ export const ESPECES: Espece[] = [
       tempMin: 10,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle absorbe ses nutriments directement dans l'eau par le thalle : un léger apport d'engrais liquide suffit, et le CO2 n'est pas nécessaire.",
+      alimentation: "Elle absorbe ses nutriments directement dans l'eau par le thalle : un léger apport d'engrais liquide suffit, et le CO2 n'est pas nécessaire.",
       tailleAdulte: "lobes de 1 à 3 cm, en coussins de 1 à 5 cm",
       plante: {
         placement: "Fixée sur bois ou roche",
         lumiere: "Moyenne",
         croissance: "Lente",
         co2: "Inutile",
-        multiplication: "Fragmentation du thalle : chaque morceau fixé repart seul.",
+        multiplication: "Fragmentation du thalle : chaque morceau fixé repart seul.",
       },
     },
   },
@@ -7523,7 +7523,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Fontinale commune", "Mousse des fontaines"],
     fiche: {
       description: "La mousse de source, Fontinalis antipyretica, est une mousse aquatique répandue dans les eaux douces de l'hémisphère nord, aux tiges longues et ramifiées, garnies de petites feuilles vert sombre carénées. Elle flotte en panaches ou s'ancre sur racines et pierres. Elle habille les bois d'un aquarium d'eau fraîche ou d'un bassin, et sert de refuge aux alevins comme de support de ponte pour de nombreux poissons.",
-      conseil: "Attachez les tiges avec du fil sur une racine ou une roche : elles s'y accrochent d'elles-mêmes en quelques semaines. Elle réclame une eau fraîche et bien oxygénée, idéalement sous 22 °C, et dépérit au-delà de 26 °C. Rincez-la de temps en temps pour la débarrasser des particules. Achetez-la issue de culture et ne la prélevez jamais en rivière.",
+      conseil: "Attachez les tiges avec du fil sur une racine ou une roche : elles s'y accrochent d'elles-mêmes en quelques semaines. Elle réclame une eau fraîche et bien oxygénée, idéalement sous 22 °C, et dépérit au-delà de 26 °C. Rincez-la de temps en temps pour la débarrasser des particules. Achetez-la issue de culture et ne la prélevez jamais en rivière.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va bien avec les poissons d'eau fraîche ou d'eau non chauffée (bouvières, vairons, loches d'étang), les crevettes tempérées et les bassins de jardin.",
@@ -7533,14 +7533,14 @@ export const ESPECES: Espece[] = [
       tempMin: 5,
       tempMax: 22,
       difficulte: "Débutant",
-      alimentation: "Elle prélève ses nutriments dans l'eau par les feuilles : une eau fraîche, une lumière modérée et un léger apport d'engrais liquide suffisent, sans CO2.",
+      alimentation: "Elle prélève ses nutriments dans l'eau par les feuilles : une eau fraîche, une lumière modérée et un léger apport d'engrais liquide suffisent, sans CO2.",
       tailleAdulte: "tiges de 10 à 60 cm",
       plante: {
         placement: "Fixée sur bois ou roche",
         lumiere: "Faible",
         croissance: "Moyenne",
         co2: "Inutile",
-        multiplication: "Bouturage de tiges : tout fragment ramifié reprend une fois fixé.",
+        multiplication: "Bouturage de tiges : tout fragment ramifié reprend une fois fixé.",
       },
     },
   },
@@ -7555,7 +7555,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Le glossostigma, Glossostigma elatinoides, vient d'Australie. Ses minuscules feuilles en spatule, vert clair, portées par des tiges rampantes, composent un tapis dense de quelques centimètres, très recherché en avant-plan des aquascapes soignés. Il exige beaucoup de lumière et un entretien rigoureux, mais le rendu est celui d'une pelouse miniature.",
-      conseil: "Plantez de petits brins espacés de 2 à 3 cm à la pince, enfoncés d'un demi-centimètre dans un sol fin. Il lui faut une lumière forte, un apport de CO2 et un engrais complet : faute de lumière, il s'étire en tiges dressées. Taillez-le au ciseau pour densifier le tapis et surveillez les algues qui s'y collent.",
+      conseil: "Plantez de petits brins espacés de 2 à 3 cm à la pince, enfoncés d'un demi-centimètre dans un sol fin. Il lui faut une lumière forte, un apport de CO2 et un engrais complet : faute de lumière, il s'étire en tiges dressées. Taillez-le au ciseau pour densifier le tapis et surveillez les algues qui s'y collent.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il convient aux aquariums de crevettes naines et de petits poissons calmes (rasboras, tétras nains), comme tapis d'avant-plan d'un bac dense et bien éclairé.",
@@ -7572,7 +7572,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Forte",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Stolons rampants : on découpe des morceaux de tapis à replanter.",
+        multiplication: "Stolons rampants : on découpe des morceaux de tapis à replanter.",
       },
     },
   },
@@ -7587,7 +7587,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Lilaeopsis brasiliensis, ou lilaeopsis du Brésil, est une petite plante amphibie d'Amérique du Sud aux feuilles cylindriques, fines et d'un vert frais, qui s'étalent par stolons en gazon serré. Sa croissance est plutôt lente. On l'emploie en avant-plan pour imiter une prairie miniature, parfois sous des tiges plus hautes ; elle supporte une très faible salinité.",
-      conseil: "Plantez-la par touffes de quelques brins, espacées de 3 à 4 cm, racines bien enterrées dans un sol nutritif : sans substrat riche, elle ne s'étale pas. Une lumière forte et un peu de CO2 densifient le tapis. Elle perd parfois ses feuilles après la mise en place avant de repartir ; coupez les brins fanés au lieu de tout arracher.",
+      conseil: "Plantez-la par touffes de quelques brins, espacées de 3 à 4 cm, racines bien enterrées dans un sol nutritif : sans substrat riche, elle ne s'étale pas. Une lumière forte et un peu de CO2 densifient le tapis. Elle perd parfois ses feuilles après la mise en place avant de repartir ; coupez les brins fanés au lieu de tout arracher.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'intègre bien aux aquariums de crevettes naines, de petits characidés et de poissons de fond tranquilles, avec un décor de roches et de racines.",
@@ -7604,7 +7604,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Lente",
         co2: "Recommandé",
-        multiplication: "Stolons fins : l'extension est lente, on peut diviser les touffes.",
+        multiplication: "Stolons fins : l'extension est lente, on peut diviser les touffes.",
       },
     },
   },
@@ -7636,7 +7636,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Stolons : de nouvelles touffes se forment autour du pied, à séparer.",
+        multiplication: "Stolons : de nouvelles touffes se forment autour du pied, à séparer.",
       },
     },
   },
@@ -7651,7 +7651,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "L'utriculaire gazon, Utricularia graminifolia, est une petite plante carnivore d'Asie dont les feuilles, fines comme des lames d'herbe, composent un tapis vert vif très dense. Elle porte de minuscules vessies qui piègent de très petits organismes. Elle s'utilise en avant-plan de bacs lumineux, où elle donne l'impression d'une pelouse fine, mais elle reste réservée aux aquariophiles expérimentés.",
-      conseil: "Plantez-la en minuscules touffes enfoncées dans un sol fin : tant qu'elle n'est pas enracinée, elle a tendance à remonter, et quelques pierres ou une grille l'aident les premiers jours. Elle réclame une lumière soutenue et du CO2 ; la mise en place peut être lente, puis le tapis accélère. Taillez à ras au ciseau pour garder une pelouse basse.",
+      conseil: "Plantez-la en minuscules touffes enfoncées dans un sol fin : tant qu'elle n'est pas enracinée, elle a tendance à remonter, et quelques pierres ou une grille l'aident les premiers jours. Elle réclame une lumière soutenue et du CO2 ; la mise en place peut être lente, puis le tapis accélère. Taillez à ras au ciseau pour garder une pelouse basse.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle se marie avec les crevettes naines, les petits poissons de banc et les escargots, dans un aquascape lumineux et bien fertilisé.",
@@ -7668,7 +7668,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Stolons fins : le tapis s'étend, on divise des plaques à replanter.",
+        multiplication: "Stolons fins : le tapis s'étend, on divise des plaques à replanter.",
       },
     },
   },
@@ -7701,7 +7701,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Stolons fins et division : le gazon s'étale, on replante les touffes séparées.",
+        multiplication: "Stolons fins et division : le gazon s'étale, on replante les touffes séparées.",
       },
     },
   },
@@ -7715,8 +7715,8 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Eleocharis vivipara est un jonc aquatique d'Amérique dont les tiges fines, souples et d'un vert tendre, longues de 20 à 60 cm, retombent en gerbe aérée. Leur sommet forme de petites plantules qui s'arquent et s'enracinent à distance, d'où son nom. Plus haute que E. parvula, elle ne fait pas de tapis ras : on l'installe au milieu de bac ou en fond de décor pour apporter de la légèreté.",
-      conseil: "Plantez des touffes serrées dans un substrat nutritif, à 5 cm les unes des autres. Les plantules apparues au sommet des tiges se couchent et s'enracinent : il suffit de les replanter. Une lumière moyenne suffit, un peu de CO2 l'aide. Recoupez les tiges au ciseau quand elles dominent trop le décor.",
+      description: "Eleocharis vivipara est un jonc aquatique d'Amérique dont les tiges fines, souples et d'un vert tendre, longues de 20 à 60 cm, retombent en gerbe aérée. Leur sommet forme de petites plantules qui s'arquent et s'enracinent à distance, d'où son nom. Plus haute que E. parvula, elle ne fait pas de tapis ras : on l'installe au milieu de bac ou en fond de décor pour apporter de la légèreté.",
+      conseil: "Plantez des touffes serrées dans un substrat nutritif, à 5 cm les unes des autres. Les plantules apparues au sommet des tiges se couchent et s'enracinent : il suffit de les replanter. Une lumière moyenne suffit, un peu de CO2 l'aide. Recoupez les tiges au ciseau quand elles dominent trop le décor.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde avec les poissons de banc paisibles, les crevettes et les escargots, et souligne bien un décor de racines ou de roches.",
@@ -7748,7 +7748,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Cyperus helferi est un souchet aquatique d'Asie du Sud-Est, originaire de Thaïlande, dont les rubans vert tendre, longs de 20 à 35 cm, rappellent ceux d'une vallisnérie mais restent plus fermes. La rosette mesure 15 à 25 cm de large. Au centre ou en arrière-plan d'un aquarium de taille moyenne, elle ajoute un effet de touffe herbacée très naturel, qui contraste bien avec des plantes à feuilles rondes.",
-      conseil: "Posez le rhizome à plat à la surface du substrat sans l'enterrer : seules les racines doivent être couvertes. Elle apprécie un sol nutritif, une lumière moyenne et un peu de CO2. Après l'achat, les plus vieilles feuilles jaunissent souvent le temps de l'adaptation ; coupez-les à la base. Les jeunes plants se détachent une fois enracinés.",
+      conseil: "Posez le rhizome à plat à la surface du substrat sans l'enterrer : seules les racines doivent être couvertes. Elle apprécie un sol nutritif, une lumière moyenne et un peu de CO2. Après l'achat, les plus vieilles feuilles jaunissent souvent le temps de l'adaptation ; coupez-les à la base. Les jeunes plants se détachent une fois enracinés.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va avec les poissons paisibles d'un bac communautaire (tétras, rasboras, corydoras), les crevettes et les escargots.",
@@ -7797,7 +7797,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Inutile",
-        multiplication: "Rhizome rampant : on le sectionne et on replante les morceaux.",
+        multiplication: "Rhizome rampant : on le sectionne et on replante les morceaux.",
       },
     },
   },
@@ -7812,7 +7812,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Blyxa japonica est une plante d'Asie de l'Est et du Sud-Est qui forme de petites rosettes de feuilles étroites, rubanées, d'un vert clair. Elle donne un aspect de touffe graminée délicate en avant-plan ou en milieu de bac. Plus exigeante que la moyenne des plantes de bac, elle s'épanouit surtout dans un aquarium mature, à l'eau douce, bien éclairé et bien fertilisé.",
-      conseil: "Plantez-la en petites touffes, collet affleurant, dans un sol riche. Les feuilles d'origine, cultivées émergées, peuvent fondre à l'introduction : laissez la plante repartir avant de tailler. Elle apprécie une lumière soutenue, du CO2 et une fertilisation régulière ; sans cela, les feuilles jaunissent et se désagrègent.",
+      conseil: "Plantez-la en petites touffes, collet affleurant, dans un sol riche. Les feuilles d'origine, cultivées émergées, peuvent fondre à l'introduction : laissez la plante repartir avant de tailler. Elle apprécie une lumière soutenue, du CO2 et une fertilisation régulière ; sans cela, les feuilles jaunissent et se désagrègent.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe à de petits poissons paisibles (rasboras, tétras nains), à des crevettes naines et à un décor de bois et de roches dans un bac mature et soigné.",
@@ -7854,14 +7854,14 @@ export const ESPECES: Espece[] = [
       tempMin: 16,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle prélève l'essentiel de ses nutriments par les racines : un sol riche ou des pastilles racinaires, avec peu d'engrais liquide, suffisent sans CO2.",
+      alimentation: "Elle prélève l'essentiel de ses nutriments par les racines : un sol riche ou des pastilles racinaires, avec peu d'engrais liquide, suffisent sans CO2.",
       tailleAdulte: "10 à 40 cm de hauteur",
       plante: {
         placement: "Tapis",
         lumiere: "Moyenne",
         croissance: "Rapide",
         co2: "Inutile",
-        multiplication: "Stolons nombreux : les plantules s'enracinent seules et se détachent.",
+        multiplication: "Stolons nombreux : les plantules s'enracinent seules et se détachent.",
       },
     },
   },
@@ -7876,7 +7876,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Sagittaria platyphylla est une sagittaire du sud et de l'est des États-Unis, dont la rosette porte des feuilles rubanées, lancéolées, vert franc, de 20 à 40 cm, plus larges et plus fermes que celles de la sagittaire naine. Elle se place au milieu de bac ou en arrière-plan d'un aquarium moyen, où elle donne du volume. Peu exigeante, elle forme de grandes touffes régulières en quelques mois.",
-      conseil: "Enterrez les racines en laissant le collet à l'air, dans un sol nutritif ; une pastille d'engrais racinaire au pied soutient sa croissance. Elle émet des stolons qui donnent de nouvelles rosettes : détachez-les quand elles ont 3 ou 4 feuilles. Supprimez les feuilles âgées à la base. Sous lumière faible, elle s'allonge et se garnit moins.",
+      conseil: "Enterrez les racines en laissant le collet à l'air, dans un sol nutritif ; une pastille d'engrais racinaire au pied soutient sa croissance. Elle émet des stolons qui donnent de nouvelles rosettes : détachez-les quand elles ont 3 ou 4 feuilles. Supprimez les feuilles âgées à la base. Sous lumière faible, elle s'allonge et se garnit moins.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle est adaptée aux aquariums d'ensemble avec poissons de banc, vivipares, escargots et crevettes de taille moyenne.",
@@ -7909,7 +7909,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Echinodorus 'Quadricostatus'"],
     fiche: {
       description: "Helanthium bolivianum, longtemps vendu sous le nom d'Echinodorus 'Quadricostatus', est une alismatacée d'Amérique tropicale aux feuilles rubanées d'un vert franc, qui forment une rosette basse. Elle se multiplie par stolons et couvre peu à peu l'avant-plan d'un aquarium moyen. Un peu plus haute que les tapis fins, elle donne du volume là où ceux-ci paraîtraient trop ras.",
-      conseil: "Plantez les rosettes en laissant le cœur à l'air, à 5 ou 8 cm d'écart : les stolons feront le reste. Une lumière moyenne à forte, du CO2 en option et un sol nutritif donnent des feuilles courtes et un tapis serré. Éclaircissez les stolons envahissants ; sous lumière faible, les feuilles s'allongent et la plante gagne en hauteur.",
+      conseil: "Plantez les rosettes en laissant le cœur à l'air, à 5 ou 8 cm d'écart : les stolons feront le reste. Une lumière moyenne à forte, du CO2 en option et un sol nutritif donnent des feuilles courtes et un tapis serré. Éclaircissez les stolons envahissants ; sous lumière faible, les feuilles s'allongent et la plante gagne en hauteur.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle fonctionne bien avec les poissons d'ensemble, les crevettes, les escargots et les vivipares, dans un bac de style nature ou un décor japonais.",
@@ -7926,7 +7926,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Recommandé",
-        multiplication: "Stolons qui couvrent le sol : on détache les rosettes une fois enracinées.",
+        multiplication: "Stolons qui couvrent le sol : on détache les rosettes une fois enracinées.",
       },
     },
   },
@@ -7974,7 +7974,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Vallisnérie d'Amérique", "Vallisnérie américaine"],
     fiche: {
       description: "Vallisneria americana est une vallisnérie d'Amérique du Nord aux rubans souples d'un vert franc, assez larges, qui peuvent mesurer de 50 à 100 cm dans un bac profond. Elle forme en arrière-plan ou sur le côté un rideau dense qui masque le matériel et tamise la lumière. Elle tolère une faible salinité, se multiplie sans effort et convient aux aquariums de grande taille.",
-      conseil: "Enterrez les racines sans recouvrir le collet, avec 10 cm entre les pieds. Les feuilles atteignent vite la surface où elles s'enroulent : coupez-les à la base pour libérer la lumière. Un sol nutritif et des pastilles racinaires suffisent, et elle apprécie une eau plutôt dure. Après l'introduction, elle peut perdre ses premières feuilles avant de repartir.",
+      conseil: "Enterrez les racines sans recouvrir le collet, avec 10 cm entre les pieds. Les feuilles atteignent vite la surface où elles s'enroulent : coupez-les à la base pour libérer la lumière. Un sol nutritif et des pastilles racinaires suffisent, et elle apprécie une eau plutôt dure. Après l'introduction, elle peut perdre ses premières feuilles avant de repartir.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle offre un bon fond aux poissons de banc, aux vivipares et aux poissons de pleine eau qui nagent entre les rubans, ainsi qu'aux crevettes et aux escargots.",
@@ -7991,7 +7991,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Rapide",
         co2: "Inutile",
-        multiplication: "Stolons nombreux : les jeunes pieds se détachent à la taille voulue.",
+        multiplication: "Stolons nombreux : les jeunes pieds se détachent à la taille voulue.",
       },
     },
   },
@@ -8006,7 +8006,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "La vallisnérie géante, Vallisneria gigantea, vient d'Asie et dépasse volontiers le mètre dans un aquarium haut. Ses rubans, larges d'environ 2 cm, ondulent jusqu'en surface avant de s'étaler. Le nom recouvre souvent des vallisnéries géantes de provenance variable. Plante réservée aux grands volumes, elle forme un rideau végétal imposant à l'arrière du décor et offre un refuge aux poissons de pleine eau.",
-      conseil: "Plantez-la au fond du bac, racines enterrées et collet libre, avec 15 cm entre les pieds. Les rubans peuvent dépasser un mètre : coupez les feuilles trop hautes à la base quand elles étouffent la lumière. Sol nutritif et pastilles racinaires. Les jeunes plants issus des stolons se détachent après quelques feuilles.",
+      conseil: "Plantez-la au fond du bac, racines enterrées et collet libre, avec 15 cm entre les pieds. Les rubans peuvent dépasser un mètre : coupez les feuilles trop hautes à la base quand elles étouffent la lumière. Sol nutritif et pastilles racinaires. Les jeunes plants issus des stolons se détachent après quelques feuilles.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux grands bacs avec poissons de pleine eau, grands characidés et cyprinidés paisibles, qui trouvent refuge entre les rubans.",
@@ -8023,7 +8023,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Rapide",
         co2: "Inutile",
-        multiplication: "Stolons : les jeunes plants se séparent dès qu'ils ont quelques feuilles.",
+        multiplication: "Stolons : les jeunes plants se séparent dès qu'ils ont quelques feuilles.",
       },
     },
   },
@@ -8055,7 +8055,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Moyenne",
         co2: "Inutile",
-        multiplication: "Rejets très nombreux : un massif dense se forme vite, à éclaircir.",
+        multiplication: "Rejets très nombreux : un massif dense se forme vite, à éclaircir.",
       },
     },
   },
@@ -8080,7 +8080,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle se nourrit par les racines : un sol riche, éventuellement enrichi de pastilles, lui suffit, avec un engrais liquide léger. Elle supporte l'eau dure et se passe de CO2.",
+      alimentation: "Elle se nourrit par les racines : un sol riche, éventuellement enrichi de pastilles, lui suffit, avec un engrais liquide léger. Elle supporte l'eau dure et se passe de CO2.",
       tailleAdulte: "feuilles de 20 à 60 cm",
       plante: {
         placement: "Arrière-plan",
@@ -8101,8 +8101,8 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Cryptocoryne beckettii est une petite cryptocoryne de Sri Lanka à la silhouette compacte : feuilles ovales à lancéolées, vert olive à brun sur le dessus et souvent rougeâtres au revers. Haute de 10 à 15 cm environ, elle se place au milieu de bac ou en avant-plan d'un aquarium moyen et forme avec le temps un massif régulier grâce à ses stolons.",
-      conseil: "Plantez-la dans un sol riche, collet à fleur de substrat, puis ne la déplacez plus. Elle s'accommode d'un éclairage faible à moyen et d'un bac sans CO2. Une fonte des feuilles peut survenir à l'introduction : attendez de nouveaux départs avant de couper. Chaque rejet se détache une fois bien enraciné.",
+      description: "Cryptocoryne beckettii est une petite cryptocoryne de Sri Lanka à la silhouette compacte : feuilles ovales à lancéolées, vert olive à brun sur le dessus et souvent rougeâtres au revers. Haute de 10 à 15 cm environ, elle se place au milieu de bac ou en avant-plan d'un aquarium moyen et forme avec le temps un massif régulier grâce à ses stolons.",
+      conseil: "Plantez-la dans un sol riche, collet à fleur de substrat, puis ne la déplacez plus. Elle s'accommode d'un éclairage faible à moyen et d'un bac sans CO2. Une fonte des feuilles peut survenir à l'introduction : attendez de nouveaux départs avant de couper. Chaque rejet se détache une fois bien enraciné.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux aquariums de petits poissons calmes, aux crevettes et aux escargots, ainsi qu'aux décors sombres de racines.",
@@ -8112,14 +8112,14 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Peu gourmande : un sol riche ou quelques pastilles racinaires suffisent, sans CO2, avec très peu d'engrais liquide.",
+      alimentation: "Peu gourmande : un sol riche ou quelques pastilles racinaires suffisent, sans CO2, avec très peu d'engrais liquide.",
       tailleAdulte: "10 à 15 cm de hauteur",
       plante: {
         placement: "Milieu de bac",
         lumiere: "Faible",
         croissance: "Lente",
         co2: "Inutile",
-        multiplication: "Stolons souterrains : le massif s'étoffe, rejets à séparer une fois enracinés.",
+        multiplication: "Stolons souterrains : le massif s'étoffe, rejets à séparer une fois enracinés.",
       },
     },
   },
@@ -8134,7 +8134,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Cryptocoryne undulata est une cryptocoryne de Sri Lanka à feuilles allongées et lancéolées, aux bords ondulés ; leur vert olive tacheté de brun varie selon la lumière. Elle atteint 15 à 40 cm, soit davantage que C. beckettii, et trouve sa place au milieu de bac ou en arrière-plan d'un aquarium moyen, où ses feuilles froissées donnent du relief. Bien installée, elle fait un massif dense en quelques mois.",
-      conseil: "Choisissez un sol meuble et riche, plantez la souche sans ensevelir le cœur, puis laissez-la s'installer : la première rosette fond souvent avant que de nouvelles feuilles, mieux adaptées à votre eau, repartent. Gardez des paramètres stables, une lumière moyenne et un engrais racinaire. Évitez les gros changements d'eau d'une composition très différente.",
+      conseil: "Choisissez un sol meuble et riche, plantez la souche sans ensevelir le cœur, puis laissez-la s'installer : la première rosette fond souvent avant que de nouvelles feuilles, mieux adaptées à votre eau, repartent. Gardez des paramètres stables, une lumière moyenne et un engrais racinaire. Évitez les gros changements d'eau d'une composition très différente.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va avec les poissons de communauté calmes, les crevettes tropicales et les corydoras, dans un décor de racines.",
@@ -8151,7 +8151,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Lente",
         co2: "Inutile",
-        multiplication: "Stolons chez la forme diploïde : rosettes à séparer une fois robustes.",
+        multiplication: "Stolons chez la forme diploïde : rosettes à séparer une fois robustes.",
       },
     },
   },
@@ -8165,8 +8165,8 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Cryptocoryne lutea, originaire de Sri Lanka, est aussi vendue sous le nom de C. walkeri 'Lutea'. Ses feuilles étroites et lancéolées, d'un vert olive à brun, mesurent 10 à 20 cm et gardent un port rigide et dressé. Moins haute que C. undulata ou C. usteriana, elle se place en milieu de bac, en petits groupes, et s'installe lentement : c'est une plante pour aquarium déjà stabilisé.",
-      conseil: "Plantez-la en groupes de 3 à 5 pieds pour obtenir un effet de touffe, dans un sol nutritif, collet à l'air. Elle s'accommode d'une lumière moyenne et se passe de CO2, mais déteste les chocs : la fonte à la mise en place est fréquente, ne retirez pas la souche, de nouvelles feuilles reviendront. Ajoutez des pastilles racinaires régulièrement.",
+      description: "Cryptocoryne lutea, originaire de Sri Lanka, est aussi vendue sous le nom de C. walkeri 'Lutea'. Ses feuilles étroites et lancéolées, d'un vert olive à brun, mesurent 10 à 20 cm et gardent un port rigide et dressé. Moins haute que C. undulata ou C. usteriana, elle se place en milieu de bac, en petits groupes, et s'installe lentement : c'est une plante pour aquarium déjà stabilisé.",
+      conseil: "Plantez-la en groupes de 3 à 5 pieds pour obtenir un effet de touffe, dans un sol nutritif, collet à l'air. Elle s'accommode d'une lumière moyenne et se passe de CO2, mais déteste les chocs : la fonte à la mise en place est fréquente, ne retirez pas la souche, de nouvelles feuilles reviendront. Ajoutez des pastilles racinaires régulièrement.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'entend avec les petits poissons de banc calmes, les crevettes naines et les escargots, dans un aquarium bien stabilisé.",
@@ -8183,7 +8183,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Lente",
         co2: "Inutile",
-        multiplication: "Stolons discrets : on divise les touffes au ciseau ou au couteau.",
+        multiplication: "Stolons discrets : on divise les touffes au ciseau ou au couteau.",
       },
     },
   },
@@ -8198,7 +8198,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Cryptocoryne pontederiifolia emprunte son nom à la pontédérie dont elle rappelle les feuilles. Elle vient d'Asie du Sud-Est insulaire (Sumatra notamment). Ses grandes feuilles en forme de cœur ou de fer de flèche, vert vif, sont portées par de longs pétioles et se dressent en rosette de 15 à 40 cm. Son feuillage ample et plus arrondi que celui des autres cryptos s'emploie en arrière-plan.",
-      conseil: "Plantez-la en sol riche, collet affleurant, et ne la déplacez plus ensuite : le déplacement et les changements brusques de paramètres déclenchent la fonte. Sous un éclairage trop faible, les feuilles s'étirent sur leurs pétioles. Elle peut aussi vivre en culture émergée dans un paludarium, où elle peut fleurir.",
+      conseil: "Plantez-la en sol riche, collet affleurant, et ne la déplacez plus ensuite : le déplacement et les changements brusques de paramètres déclenchent la fonte. Sous un éclairage trop faible, les feuilles s'étirent sur leurs pétioles. Elle peut aussi vivre en culture émergée dans un paludarium, où elle peut fleurir.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va avec les poissons de communauté tropicaux, les crevettes et les escargots, avec un décor de racines, en eau douce à moyennement dure.",
@@ -8230,7 +8230,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Cryptocoryne spiralis, originaire d'Inde, a des feuilles longues et étroites (1 à 1,5 cm de large), vert moyen à foncé, qui s'élèvent en touffe d'allure herbacée sur 20 à 50 cm. On la confond volontiers avec une jeune vallisnérie, mais sa croissance est bien plus lente et son aspect varie beaucoup d'un spécimen à l'autre. Elle trouve sa place en milieu de bac ou en second plan, en groupes serrés.",
-      conseil: "Plantez-la dans un sol riche, collet à l'air, et évitez de la déranger. La croissance est lente : comptez plusieurs semaines avant les premiers rejets, et la fonte des vieilles feuilles est courante à l'introduction. Éclairage moyen, pastilles d'engrais racinaire, eau douce à moyennement dure.",
+      conseil: "Plantez-la dans un sol riche, collet à l'air, et évitez de la déranger. La croissance est lente : comptez plusieurs semaines avant les premiers rejets, et la fonte des vieilles feuilles est courante à l'introduction. Éclairage moyen, pastilles d'engrais racinaire, eau douce à moyennement dure.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux poissons de banc paisibles, aux crevettes et aux escargots dans un aquarium stable, aux côtés d'autres cryptocorynes.",
@@ -8247,7 +8247,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Lente",
         co2: "Inutile",
-        multiplication: "Stolons souterrains : premiers rejets après plusieurs semaines, à séparer une fois enracinés.",
+        multiplication: "Stolons souterrains : premiers rejets après plusieurs semaines, à séparer une fois enracinés.",
       },
     },
   },
@@ -8261,8 +8261,8 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Cryptocoryne usteriana, endémique des Philippines, est l'une des plus grandes cryptocorynes d'aquarium : de larges feuilles lancéolées, gaufrées, vert olive à brun, de 3 à 5 cm de large, dressées en rosette de 30 à 60 cm, parfois davantage. En solitaire au fond d'un grand bac, elle fait office de plante spécimen. Elle exige de l'espace et de la patience ; achetez-la issue de culture, l'espèce étant menacée à l'état sauvage.",
-      conseil: "Réservez-lui un sol épais et riche et un emplacement définitif en arrière-plan : elle supporte mal le déplacement. La fonte est fréquente à l'introduction (crypto melt) ; laissez la souche en place, de nouvelles feuilles repartiront. Apportez des pastilles racinaires régulières et une lumière moyenne.",
+      description: "Cryptocoryne usteriana, endémique des Philippines, est l'une des plus grandes cryptocorynes d'aquarium : de larges feuilles lancéolées, gaufrées, vert olive à brun, de 3 à 5 cm de large, dressées en rosette de 30 à 60 cm, parfois davantage. En solitaire au fond d'un grand bac, elle fait office de plante spécimen. Elle exige de l'espace et de la patience ; achetez-la issue de culture, l'espèce étant menacée à l'état sauvage.",
+      conseil: "Réservez-lui un sol épais et riche et un emplacement définitif en arrière-plan : elle supporte mal le déplacement. La fonte est fréquente à l'introduction (crypto melt) ; laissez la souche en place, de nouvelles feuilles repartiront. Apportez des pastilles racinaires régulières et une lumière moyenne.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Elle va dans de grands aquariums de communauté avec poissons de pleine eau, grands characidés, barbus paisibles et cichlidés non fouisseurs.",
@@ -8279,7 +8279,7 @@ export const ESPECES: Espece[] = [
         lumiere: "Moyenne",
         croissance: "Lente",
         co2: "Inutile",
-        multiplication: "Stolons : multiplication lente, les rejets se séparent une fois robustes.",
+        multiplication: "Stolons : multiplication lente, les rejets se séparent une fois robustes.",
       },
     },
   },
@@ -8304,7 +8304,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle se nourrit surtout par ses racines : un sol riche ou une pastille d'engrais au pied, sous une lumière faible à moyenne.",
+      alimentation: "Elle se nourrit surtout par ses racines : un sol riche ou une pastille d'engrais au pied, sous une lumière faible à moyenne.",
       tailleAdulte: "feuilles de 15 à 30 cm de long",
       plante: {
         placement: "Milieu de bac",
@@ -8326,7 +8326,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Cryptocoryne cordata se distingue par des feuilles ovales à base en forme de cœur, vert olive à brun, à la surface légèrement bullée et souvent rougeâtre au revers. Originaire d'Asie du Sud-Est, cette cryptocoryne de taille moyenne prend place en milieu de bac ou en avant-plan d'un grand aquarium, où elle étend peu à peu sa colonie par stolons. Son aspect varie selon la provenance et l'éclairage.",
-      conseil: "Offrez-lui un sol riche et stable, puis laissez-la tranquille. La fonte des premières feuilles à l'introduction est normale : de nouvelles feuilles, adaptées à l'eau du bac, repoussent ensuite. Évitez les changements d'eau brutaux et les écarts de température. Une pastille d'engrais au pied tous les deux ou trois mois favorise les stolons.",
+      conseil: "Offrez-lui un sol riche et stable, puis laissez-la tranquille. La fonte des premières feuilles à l'introduction est normale : de nouvelles feuilles, adaptées à l'eau du bac, repoussent ensuite. Évitez les changements d'eau brutaux et les écarts de température. Une pastille d'engrais au pied tous les deux ou trois mois favorise les stolons.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va bien avec les petits poissons de banc (characidés, rasboras), les poissons de fond calmes et les crevettes. Elle s'accorde avec un décor de racines et de roches.",
@@ -8358,7 +8358,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Echinodorus amazonicus, l'épée d'Amazone, porte des feuilles étroites, lancéolées, vert franc, parfois recourbées en faucille sous l'eau. Originaire du bassin amazonien au Brésil, elle forme une touffe plus aérée que celle des épées à larges feuilles, haute d'environ 40 cm, parfois davantage. On la place en arrière-plan ou en milieu de bac, là où sa silhouette légère ne masque pas le décor.",
-      conseil: "Enterrez les racines sans recouvrir le cœur et fournissez un sol riche, complété de pastilles d'engrais racinaire renouvelées tous les deux à trois mois. Sa croissance est assez rapide : coupez à la base les feuilles abîmées ou envahies d'algues. Un apport de fer en liquide aide à garder un vert soutenu. Le CO2 n'est pas indispensable.",
+      conseil: "Enterrez les racines sans recouvrir le cœur et fournissez un sol riche, complété de pastilles d'engrais racinaire renouvelées tous les deux à trois mois. Sa croissance est assez rapide : coupez à la base les feuilles abîmées ou envahies d'algues. Un apport de fer en liquide aide à garder un vert soutenu. Le CO2 n'est pas indispensable.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle accompagne bien les poissons de communauté, les cichlidés nains et les poissons de bancs. Elle supporte aussi les crevettes et les escargots.",
@@ -8390,7 +8390,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Echinodorus cordifolius se reconnaît à ses grandes feuilles en forme de cœur, vert moyen, portées par de longs pétioles. Présente du sud-est des États-Unis jusqu'en Amérique du Sud, elle vit dans la nature dans les marais, les fossés et les eaux peu profondes. En aquarium, elle devient grande, souvent plus de 50 cm, et demande un arrière-plan spacieux.",
-      conseil: "Plantez-la profondément dans un sol riche et prévoyez de l'espace : ses feuilles s'étalent largement. Les feuilles émergées, plus épaisses, apparaissent facilement si le niveau d'eau est bas ; coupez-les pour la forcer à produire des feuilles immergées. Rabattez les vieilles feuilles abîmées et fertilisez au pied.",
+      conseil: "Plantez-la profondément dans un sol riche et prévoyez de l'espace : ses feuilles s'étalent largement. Les feuilles émergées, plus épaisses, apparaissent facilement si le niveau d'eau est bas ; coupez-les pour la forcer à produire des feuilles immergées. Rabattez les vieilles feuilles abîmées et fertilisez au pied.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux aquariums de communauté de bonne taille et aux bacs de poissons sud-américains. Elle peut aussi servir en bac ouvert ou en paludarium.",
@@ -8422,8 +8422,8 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     autresNoms: ["Echinodorus martii"],
     fiche: {
-      description: "Echinodorus major, souvent commercialisé sous le nom d'Echinodorus martii, est une grande échinodorus du Brésil oriental aux larges feuilles vert clair, translucides, au bord fortement ondulé. Sa rosette imposante atteint environ 60 cm de haut. Ses feuilles restent immergées : elle convient en solitaire dans un grand aquarium, en arrière-plan ou comme pièce maîtresse.",
-      conseil: "Réservez-la à un grand bac : son feuillage s'étend largement. Plantez-la dans un sol épais et riche, en laissant le cœur à l'air libre, et renouvelez les pastilles d'engrais racinaire. Coupez les vieilles feuilles à la base. Si les feuilles jaunissent, pensez à une carence en fer ou en nutriments.",
+      description: "Echinodorus major, souvent commercialisé sous le nom d'Echinodorus martii, est une grande échinodorus du Brésil oriental aux larges feuilles vert clair, translucides, au bord fortement ondulé. Sa rosette imposante atteint environ 60 cm de haut. Ses feuilles restent immergées : elle convient en solitaire dans un grand aquarium, en arrière-plan ou comme pièce maîtresse.",
+      conseil: "Réservez-la à un grand bac : son feuillage s'étend largement. Plantez-la dans un sol épais et riche, en laissant le cœur à l'air libre, et renouvelez les pastilles d'engrais racinaire. Coupez les vieilles feuilles à la base. Si les feuilles jaunissent, pensez à une carence en fer ou en nutriments.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Elle s'harmonise avec les grands poissons de communauté, les cichlidés sud-américains paisibles et les barbus. Elle sert d'abri et d'ombrage aux poissons.",
@@ -8518,7 +8518,7 @@ export const ESPECES: Espece[] = [
     remarqueLegale: null,
     citesAnnexe: null,
     fiche: {
-      description: "Echinodorus uruguayensis vient du sud de l'Amérique du Sud : sud du Brésil, Paraguay, Uruguay et nord-est de l'Argentine. Très variable, il forme une rosette de feuilles allongées, vert olive à vert foncé, haute de 30 à 70 cm. Plus à l'aise que beaucoup d'échinodorus dans une eau plutôt fraîche, il se place en arrière-plan d'un aquarium tempéré assez grand.",
+      description: "Echinodorus uruguayensis vient du sud de l'Amérique du Sud : sud du Brésil, Paraguay, Uruguay et nord-est de l'Argentine. Très variable, il forme une rosette de feuilles allongées, vert olive à vert foncé, haute de 30 à 70 cm. Plus à l'aise que beaucoup d'échinodorus dans une eau plutôt fraîche, il se place en arrière-plan d'un aquarium tempéré assez grand.",
       conseil: "Enterrez-la dans un sol riche, cœur dégagé, et renouvelez les pastilles d'engrais racinaire. Elle préfère une eau plutôt fraîche, autour de 16 à 24 °C. Taillez les feuilles âgées à la base. Les feuilles émergées sont possibles si elles atteignent la surface ; coupez-les si vous préférez un port immergé.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
@@ -8529,7 +8529,7 @@ export const ESPECES: Espece[] = [
       tempMin: 16,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elle prélève ses nutriments par les racines : sol riche ou pastilles d'engrais, avec un apport en fer sous lumière moyenne.",
+      alimentation: "Elle prélève ses nutriments par les racines : sol riche ou pastilles d'engrais, avec un apport en fer sous lumière moyenne.",
       tailleAdulte: "30 à 70 cm de hauteur",
       plante: {
         placement: "Arrière-plan",
@@ -8551,7 +8551,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Echinodorus horizontalis se remarque à ses feuilles largement ovales, vert moyen, qui s'étalent presque à l'horizontale. Originaire du nord de l'Amérique du Sud, dans le bassin amazonien, elle forme une rosette plus large que haute, de 15 à 35 cm de haut pour 30 à 50 cm de large. Elle pousse lentement et convient en milieu de bac, où son port étalé peut ombrager les plantes voisines.",
-      conseil: "Laissez-lui de la place : sa rosette s'élargit avec l'âge. Plantez-la dans un sol nourrissant, sans enfouir le cœur, avec un engrais racinaire. Ne la mettez pas à l'ombre d'autres plantes : elle apprécie une bonne lumière et un apport de CO2. Surveillez les jaunissements dus à un manque de fer.",
+      conseil: "Laissez-lui de la place : sa rosette s'élargit avec l'âge. Plantez-la dans un sol nourrissant, sans enfouir le cœur, avec un engrais racinaire. Ne la mettez pas à l'ombre d'autres plantes : elle apprécie une bonne lumière et un apport de CO2. Surveillez les jaunissements dus à un manque de fer.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle va bien avec les poissons de communauté paisibles, les gouramis nains et les crevettes. Ses larges feuilles offrent un abri apprécié des poissons.",
@@ -8583,7 +8583,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     autresNoms: ["Ozelot"],
     fiche: {
-      description: "Echinodorus 'Ozelot' est un cultivar décoratif aux feuilles vert clair à brun rouge, marquées de taches sombres allongées qui évoquent la robe d'un ocelot. Il existe des variantes vertes et rouges. Il garde ses taches même sous une lumière faible. La rosette atteint 20 à 30 cm de haut pour 20 à 40 cm de large : on l'utilise en arrière-plan ou en milieu de bac.",
+      description: "Echinodorus 'Ozelot' est un cultivar décoratif aux feuilles vert clair à brun rouge, marquées de taches sombres allongées qui évoquent la robe d'un ocelot. Il existe des variantes vertes et rouges. Il garde ses taches même sous une lumière faible. La rosette atteint 20 à 30 cm de haut pour 20 à 40 cm de large : on l'utilise en arrière-plan ou en milieu de bac.",
       conseil: "Plantez-le dans un sol riche, cœur de la rosette à l'air libre, et complétez avec des pastilles d'engrais racinaire. Il conserve ses taches même sous une lumière faible, ce qui le rend facile à vivre. Un apport de fer en liquide aide à garder un feuillage bien coloré. Taillez régulièrement les feuilles les plus âgées.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
@@ -8594,7 +8594,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Il prélève ses nutriments par les racines : sol riche ou pastilles d'engrais, lumière même faible et complément liquide en fer.",
+      alimentation: "Il prélève ses nutriments par les racines : sol riche ou pastilles d'engrais, lumière même faible et complément liquide en fer.",
       tailleAdulte: "20 à 30 cm de hauteur, rosette de 20 à 40 cm",
       plante: {
         placement: "Arrière-plan",
@@ -8616,7 +8616,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Anubias barteri var. barteri est une plante d'Afrique de l'Ouest aux feuilles épaisses et coriaces, vert foncé, ovales à lancéolées, portées par un rhizome rampant. Haute de 20 à 30 cm, elle croît lentement mais dure des années. Elle se fixe sur bois ou roche et orne le milieu de bac ou l'arrière-plan d'un décor racinaire. Ses feuilles résistent bien aux poissons herbivores.",
-      conseil: "Ne l'enterrez jamais : le rhizome pourrit sous le substrat. Attachez-le avec du fil de pêche ou de la colle cyanoacrylate gel sur une racine ou une roche. Une lumière trop forte favorise les algues sur ses feuilles lentes à se renouveler ; préférez un éclairage doux. Coupez le rhizome pour multiplier.",
+      conseil: "Ne l'enterrez jamais : le rhizome pourrit sous le substrat. Attachez-le avec du fil de pêche ou de la colle cyanoacrylate gel sur une racine ou une roche. Une lumière trop forte favorise les algues sur ses feuilles lentes à se renouveler ; préférez un éclairage doux. Coupez le rhizome pour multiplier.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle accompagne tous les aquariums de communauté, les cichlidés, les crevettes et les escargots. Ses feuilles coriaces résistent à la plupart des poissons.",
@@ -8626,7 +8626,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Elle absorbe ses nutriments surtout par les feuilles et le rhizome : un engrais liquide léger suffit, sans nécessité de CO2.",
+      alimentation: "Elle absorbe ses nutriments surtout par les feuilles et le rhizome : un engrais liquide léger suffit, sans nécessité de CO2.",
       tailleAdulte: "20 à 30 cm de hauteur",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -8648,7 +8648,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Anubias gracilis, originaire d'Afrique de l'Ouest, a des feuilles triangulaires à en forme de cœur ou de fer de flèche, de 7 à 12 cm de long, portées par de longs pétioles qui lui donnent un port plus élancé que l'Anubias barteri. Elle atteint 30 à 60 cm et s'utilise en arrière-plan ou en milieu de bac, fixée sur un bois ou une roche. Elle résiste bien aux cichlidés.",
-      conseil: "Le rhizome doit rester à l'air libre : fixez-le sur une racine ou une roche avec du fil ou de la colle gel, sans l'enfouir. Sa croissance est très lente, il faut de la patience. Elle s'adapte à des éclairages variés, mais une lumière modérée limite les algues. Elle accepte aussi la culture hors de l'eau, par exemple en paludarium.",
+      conseil: "Le rhizome doit rester à l'air libre : fixez-le sur une racine ou une roche avec du fil ou de la colle gel, sans l'enfouir. Sa croissance est très lente, il faut de la patience. Elle s'adapte à des éclairages variés, mais une lumière modérée limite les algues. Elle accepte aussi la culture hors de l'eau, par exemple en paludarium.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux poissons de communauté, aux cichlidés paisibles et aux crevettes. Elle est utile pour habiller un fond de bac avec des racines.",
@@ -8681,7 +8681,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Anubias congensis"],
     fiche: {
       description: "Anubias heterophylla, vendu aussi sous le nom d'Anubias congensis, est un anubias d'Afrique centrale à grandes feuilles vert moyen à vert foncé, de forme très variable, ovales à lancéolées. Ses longs pétioles lui donnent un port dressé de 25 à 60 cm. Il convient à l'arrière-plan d'un aquarium moyen à grand, fixé sur un bois ou une roche.",
-      conseil: "Fixez son rhizome sur une racine ou une roche ; ne l'enfouissez pas. Son développement reste lent mais il devient imposant : choisissez bien l'emplacement, car le déplacer le stresse. Il tolère des éclairages très variés, mais une lumière modérée limite les algues sur ses grandes feuilles. Retirez les feuilles abîmées à la base.",
+      conseil: "Fixez son rhizome sur une racine ou une roche ; ne l'enfouissez pas. Son développement reste lent mais il devient imposant : choisissez bien l'emplacement, car le déplacer le stresse. Il tolère des éclairages très variés, mais une lumière modérée limite les algues sur ses grandes feuilles. Retirez les feuilles abîmées à la base.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il s'accorde avec les cichlidés, les poissons de communauté de taille moyenne et les crevettes. Sa taille en fait un bon fond de décor.",
@@ -8691,7 +8691,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Il absorbe ses nutriments par les feuilles et le rhizome : engrais liquide léger, lumière faible à moyenne, aucun besoin de CO2.",
+      alimentation: "Il absorbe ses nutriments par les feuilles et le rhizome : engrais liquide léger, lumière faible à moyenne, aucun besoin de CO2.",
       tailleAdulte: "25 à 60 cm de hauteur",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -8713,7 +8713,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Anubias hastifolia, originaire d'Afrique de l'Ouest et centrale, tire son nom de ses feuilles hastées, en fer de lance, dont les deux lobes basaux s'écartent nettement. Vert moyen à vert foncé, coriaces, elles s'élèvent sur de longs pétioles et donnent à la plante un port aéré. On l'utilise en arrière-plan, fixée sur un bois ou une roche, dans un aquarium de bonne taille.",
-      conseil: "Laissez le rhizome hors du sol et attachez-le à une racine ou une roche. Cette espèce a des pétioles plus longs que la moyenne des anubias et s'adapte moins facilement à une immersion totale prolongée : choisissez un plant sain. Une lumière douce limite les algues ; un engrais liquide léger suffit.",
+      conseil: "Laissez le rhizome hors du sol et attachez-le à une racine ou une roche. Cette espèce a des pétioles plus longs que la moyenne des anubias et s'adapte moins facilement à une immersion totale prolongée : choisissez un plant sain. Une lumière douce limite les algues ; un engrais liquide léger suffit.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle accompagne les poissons de communauté de taille moyenne, les cichlidés paisibles et les crevettes. Ses grandes feuilles servent d'abri.",
@@ -8723,7 +8723,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle se nourrit par ses feuilles et son rhizome : engrais liquide léger, lumière faible à moyenne, pas de CO2 indispensable.",
+      alimentation: "Elle se nourrit par ses feuilles et son rhizome : engrais liquide léger, lumière faible à moyenne, pas de CO2 indispensable.",
       tailleAdulte: "20 à 60 cm environ, pétioles compris",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -8745,7 +8745,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Anubias 'Coffeefolia' est un cultivar d'Anubias barteri aux feuilles ovales, vert foncé, dont les nervures creusées donnent un aspect gaufré, évoquant une feuille de caféier. Les jeunes pousses sont brun rouge. Compact par rapport aux grands anubias, il mesure 15 à 30 cm et se place au milieu de bac, fixé sur un bois ou une pierre.",
-      conseil: "Attachez le rhizome sans le recouvrir de substrat et patientez : la croissance est lente. Il se contente d'une lumière faible ; un éclairage fort favorise les algues sur le feuillage. Retirez les feuilles ternies. Un bout de rhizome avec quelques feuilles suffit à bouturer. Ses feuilles coriaces résistent aux poissons herbivores.",
+      conseil: "Attachez le rhizome sans le recouvrir de substrat et patientez : la croissance est lente. Il se contente d'une lumière faible ; un éclairage fort favorise les algues sur le feuillage. Retirez les feuilles ternies. Un bout de rhizome avec quelques feuilles suffit à bouturer. Ses feuilles coriaces résistent aux poissons herbivores.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il s'harmonise avec les aquariums de communauté, les crevettes et les escargots, et supporte les poissons brouteurs.",
@@ -8755,7 +8755,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Il absorbe ses nutriments par les feuilles et le rhizome : un peu d'engrais liquide suffit, sans CO2 particulier.",
+      alimentation: "Il absorbe ses nutriments par les feuilles et le rhizome : un peu d'engrais liquide suffit, sans CO2 particulier.",
       tailleAdulte: "15 à 30 cm de hauteur",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -8777,7 +8777,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Les bucephalandra sont de petites aracées de Bornéo qui poussent sur les roches et les berges de cours d'eau rapides. Le genre compte de nombreuses formes cultivées, aux feuilles vertes, bleutées ou brunes, souvent irisées sous un bon éclairage. De quelques centimètres à une quinzaine, elles se fixent sur bois ou roche pour habiller l'avant-plan et le milieu de bac, et conviennent aux nano-aquariums.",
-      conseil: "Fixez le rhizome sur une roche ou un bois avec du fil ou de la colle gel : il ne doit jamais être enterré. Une lumière moyenne révèle les reflets irisés, mais trop de lumière favorise les algues. La croissance est lente et la fonte à l'introduction possible : patientez, de nouvelles feuilles repartent du rhizome.",
+      conseil: "Fixez le rhizome sur une roche ou un bois avec du fil ou de la colle gel : il ne doit jamais être enterré. Une lumière moyenne révèle les reflets irisés, mais trop de lumière favorise les algues. La croissance est lente et la fonte à l'introduction possible : patientez, de nouvelles feuilles repartent du rhizome.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elles vivent bien dans les nano-aquariums avec crevettes, escargots et petits poissons paisibles. Elles forment un bel ensemble avec les pierres de type dragon ou les racines fines.",
@@ -8787,7 +8787,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Elles absorbent leurs nutriments par les feuilles et le rhizome : engrais liquide léger, lumière moyenne, CO2 facultatif.",
+      alimentation: "Elles absorbent leurs nutriments par les feuilles et le rhizome : engrais liquide léger, lumière moyenne, CO2 facultatif.",
       tailleAdulte: "5 à 15 cm de hauteur environ selon la variété",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -8819,7 +8819,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle absorbe ses nutriments par les frondes et le rhizome : engrais liquide léger, lumière moyenne, CO2 bénéfique mais facultatif.",
+      alimentation: "Elle absorbe ses nutriments par les frondes et le rhizome : engrais liquide léger, lumière moyenne, CO2 bénéfique mais facultatif.",
       tailleAdulte: "frondes de 15 à 30 cm",
       plante: {
         placement: "Fixée sur bois ou roche",
@@ -8905,7 +8905,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Crinum thaianum est un grand crinum de Thaïlande, qui vit au bord de cours d'eau à courant moyen à rapide. Son gros bulbe émet de longues feuilles rubanées, étroites et vert vif, pouvant atteindre un à deux mètres. Dans un aquarium spacieux, elle sert de plante d'arrière-plan spectaculaire. Menacée à l'état sauvage, elle gagne à être achetée issue de culture.",
-      conseil: "Enterrez seulement le tiers inférieur du bulbe : la partie haute doit rester dégagée, sinon il pourrit. Prévoyez un aquarium profond, car les feuilles atteignent vite la surface. Coupez les feuilles âgées à leur base. Un sol riche ou des pastilles d'engrais racinaire alimentent le bulbe ; un peu de CO2 favorise la pousse.",
+      conseil: "Enterrez seulement le tiers inférieur du bulbe : la partie haute doit rester dégagée, sinon il pourrit. Prévoyez un aquarium profond, car les feuilles atteignent vite la surface. Coupez les feuilles âgées à leur base. Un sol riche ou des pastilles d'engrais racinaire alimentent le bulbe ; un peu de CO2 favorise la pousse.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Elle accompagne les grands poissons de communauté, les cichlidés d'Amérique du Sud paisibles et les poissons de rivière.",
@@ -8915,7 +8915,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 30,
       difficulte: "Débutant",
-      alimentation: "Le gros bulbe est un réservoir : sol riche ou pastilles d'engrais racinaire, avec un complément liquide en fer.",
+      alimentation: "Le gros bulbe est un réservoir : sol riche ou pastilles d'engrais racinaire, avec un complément liquide en fer.",
       tailleAdulte: "feuilles de 60 à 200 cm",
       plante: {
         placement: "Arrière-plan",
@@ -8937,7 +8937,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Crinum calamistratum est un crinum du Cameroun dont les feuilles étroites, vert foncé et fortement frisées, forment des boucles qui rappellent des rubans enroulés. Elles naissent d'un bulbe épais en forme d'oignon et peuvent dépasser un mètre. Plante imposante, elle convient en arrière-plan, ou en milieu de bac dans un grand aquarium, où ses lanières ondulent au courant.",
-      conseil: "Laissez dégagée au moins la moitié supérieure du bulbe et plantez-le dans un sol riche. Sa croissance est lente : ne le déplacez pas, car les déménagements font perdre des feuilles. Elle apprécie une lumière moyenne à forte et un apport de CO2, et s'accommode d'une eau douce comme dure. Coupez les feuilles jaunies à la base.",
+      conseil: "Laissez dégagée au moins la moitié supérieure du bulbe et plantez-le dans un sol riche. Sa croissance est lente : ne le déplacez pas, car les déménagements font perdre des feuilles. Elle apprécie une lumière moyenne à forte et un apport de CO2, et s'accommode d'une eau douce comme dure. Coupez les feuilles jaunies à la base.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Elle fonctionne avec les poissons de communauté et les crevettes, et tolère une eau très légèrement saumâtre. Ses feuilles fines se prêtent bien aux bacs à courant doux.",
@@ -8947,7 +8947,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Elle se nourrit par le bulbe et les racines : sol riche ou pastilles d'engrais racinaire, avec un apport liquide léger.",
+      alimentation: "Elle se nourrit par le bulbe et les racines : sol riche ou pastilles d'engrais racinaire, avec un apport liquide léger.",
       tailleAdulte: "feuilles de 1 à 2 m",
       plante: {
         placement: "Arrière-plan",
@@ -8979,7 +8979,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Il se nourrit par le bulbe et les racines : sol riche ou pastilles d'engrais racinaire, complétés par un engrais liquide.",
+      alimentation: "Il se nourrit par le bulbe et les racines : sol riche ou pastilles d'engrais racinaire, complétés par un engrais liquide.",
       tailleAdulte: "30 à 50 cm de hauteur",
       plante: {
         placement: "Milieu de bac",
@@ -9034,7 +9034,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Aponogeton fenestralis"],
     fiche: {
       description: "La plante dentelle de Madagascar, Aponogeton madagascariensis, est célèbre pour ses feuilles ajourées, réduites à un treillis de nervures vert olive sans tissu entre elles. Originaire de Madagascar, elle émerge d'un bulbe et forme une touffe de 25 à 50 cm. Elle tient la vedette en milieu de bac dans un aquarium calme, et demande plus d'attention que la plupart des aponogétons.",
-      conseil: "Posez le bulbe à moitié enterré dans un sol meuble et nourrissant. Elle préfère une eau douce, propre et plutôt fraîche : sa croissance ralentit nettement quand la température monte. Un apport de CO2 et de fer est conseillé. Sa dentelle fragile attire les algues : donnez-lui une lumière directe mais modérée.",
+      conseil: "Posez le bulbe à moitié enterré dans un sol meuble et nourrissant. Elle préfère une eau douce, propre et plutôt fraîche : sa croissance ralentit nettement quand la température monte. Un apport de CO2 et de fer est conseillé. Sa dentelle fragile attire les algues : donnez-lui une lumière directe mais modérée.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle convient aux aquariums calmes avec petits poissons paisibles, comme les characidés, et des crevettes. Elle apprécie une eau douce et peu chargée.",
@@ -9066,7 +9066,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Aponogeton undulatus est un aponogéton des eaux calmes de l'Asie tropicale, aux feuilles allongées, vert clair, à bord ondulé, qui sortent d'un bulbe. Plus tolérant que ses cousins malgaches, il forme une touffe d'environ 40 cm, adaptée au milieu de bac ou à l'arrière-plan d'un aquarium moyen. Il produit souvent des plantules au bout de ses hampes florales, ce qui facilite sa multiplication.",
-      conseil: "Enterrez le bulbe à moitié, pointe en haut. Il s'adapte à des eaux variées et pousse bien dans un sol riche. Certains plants entrent en repos en hiver, d'autres poussent toute l'année : si le feuillage décline, laissez le bulbe en place. Coupez les feuilles jaunes à la base et évitez de le déplacer en pleine croissance.",
+      conseil: "Enterrez le bulbe à moitié, pointe en haut. Il s'adapte à des eaux variées et pousse bien dans un sol riche. Certains plants entrent en repos en hiver, d'autres poussent toute l'année : si le feuillage décline, laissez le bulbe en place. Coupez les feuilles jaunes à la base et évitez de le déplacer en pleine croissance.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Il se marie avec la plupart des poissons de communauté, les barbus, les rasboras et les crevettes d'eau douce.",
@@ -9098,7 +9098,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "L'Aponogeton boivinianus, originaire de Madagascar, forme une rosette de longues feuilles ondulées, d'un vert plus clair à la pousse puis plus sombre. Plantée sur un bulbe, cette espèce d'aquarium chaud demande un grand bac et se place en arrière-plan. Son cycle comporte une période de repos pendant laquelle le feuillage peut disparaître.",
-      conseil: "Plantez le bulbe en laissant son sommet dégagé, sans l'enterrer complètement, sous peine de pourrissement. Préférez un sol nutritif et une eau plutôt douce. La plante a besoin d'une période de repos de quelques semaines : le feuillage peut alors disparaître, mais ne jetez pas le bulbe tant qu'il reste ferme. Retirez les feuilles abîmées à la base.",
+      conseil: "Plantez le bulbe en laissant son sommet dégagé, sans l'enterrer complètement, sous peine de pourrissement. Préférez un sol nutritif et une eau plutôt douce. La plante a besoin d'une période de repos de quelques semaines : le feuillage peut alors disparaître, mais ne jetez pas le bulbe tant qu'il reste ferme. Retirez les feuilles abîmées à la base.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "S'associe bien aux petits poissons de banc paisibles (characidés, rasboras) et aux crevettes dans un bac d'eau douce tiède. Elle s'accorde avec des plantes de même exigence comme les cryptocorynes.",
@@ -9108,7 +9108,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 28,
       difficulte: "Intermédiaire",
-      alimentation: "Plante gourmande : un substrat nutritif, des engrais racinaires et un apport liquide régulier favorisent la croissance du bulbe.",
+      alimentation: "Plante gourmande : un substrat nutritif, des engrais racinaires et un apport liquide régulier favorisent la croissance du bulbe.",
       tailleAdulte: "feuilles jusqu'à 80 cm de long, rosette de 30 à 50 cm",
       plante: {
         placement: "Arrière-plan",
@@ -9131,7 +9131,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Vanille d'eau", "Aponogéton odorant"],
     fiche: {
       description: "L'aponogéton à deux épis, Aponogeton distachyos, est une vivace aquatique originaire d'Afrique du Sud. Ses feuilles oblongues flottent en surface et ses inflorescences blanches, fourchues en deux épis, dégagent un parfum de vanille. Assez rustique, elle orne les bassins de jardin et fleurit surtout au printemps et à l'automne, en ralentissant lors des fortes chaleurs de l'été.",
-      conseil: "Plantez-la dans un panier garni de terre de jardin riche, avec le rhizome à 30 à 60 cm sous la surface ; là où il gèle, descendez le panier plus profondément. Elle apprécie le soleil à la mi-ombre et une eau fraîche : en plein été chaud, elle peut ralentir ou entrer en repos. Divisez les touffes lorsqu'elles s'entassent.",
+      conseil: "Plantez-la dans un panier garni de terre de jardin riche, avec le rhizome à 30 à 60 cm sous la surface ; là où il gèle, descendez le panier plus profondément. Elle apprécie le soleil à la mi-ombre et une eau fraîche : en plein été chaud, elle peut ralentir ou entrer en repos. Divisez les touffes lorsqu'elles s'entassent.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Fonctionne bien dans les bassins ornementaux et les mares d'eau fraîche, aux côtés des nénuphars, avec poissons rouges, orfes et gardons.",
@@ -9195,7 +9195,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description: "Nymphaea micrantha est un nénuphar tropical d'Afrique de l'Ouest apprécié des aquariophiles pour ses feuilles tachetées. Ses feuilles ovales, vert clair marquées de brun rougeâtre, portent à la base du limbe de petites plantules qui permettent de la multiplier. Elle trouve sa place en milieu ou en arrière-plan d'un aquarium chauffé ; ses fleurs vont du blanc au bleu clair.",
-      conseil: "Plantez environ les deux tiers du bulbe dans un sol nutritif, le reste restant visible. Pour obtenir de nouveaux plants, détachez une feuille portant une plantule : celle-ci se développe pleinement une fois la feuille séparée, puis replantez-la. Offrez-lui une lumière soutenue et éclaircissez les feuilles flottantes si elles privent le bac de lumière.",
+      conseil: "Plantez environ les deux tiers du bulbe dans un sol nutritif, le reste restant visible. Pour obtenir de nouveaux plants, détachez une feuille portant une plantule : celle-ci se développe pleinement une fois la feuille séparée, puis replantez-la. Offrez-lui une lumière soutenue et éclaircissez les feuilles flottantes si elles privent le bac de lumière.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "S'intègre bien dans un aquarium communautaire tiède avec des poissons paisibles (rasboras, tétras, corydoras) et des plantes de taille moyenne comme les cryptocorynes.",
@@ -9228,17 +9228,17 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Nymphéa rustique", "Nénuphar rustique"],
     fiche: {
       description: "Les nénuphars de bassin, hybrides de Nymphaea, rassemblent des centaines de variétés, du blanc au rouge en passant par le jaune et le rose. Leurs feuilles rondes flottent en surface et leurs fleurs en étoile ou en coupe s'épanouissent en été. Rustiques, ils habillent le bassin d'ombre et de couleur, avec des variétés naines pour les petits volumes et d'autres pour les grands plans d'eau.",
-      conseil: "Choisissez la variété selon la profondeur du bassin : les formes naines conviennent aux faibles profondeurs, les vigoureuses aux eaux plus profondes. Plantez le rhizome dans un panier de terre de jardin lourde recouverte de gravier, en plein soleil (6 heures minimum). Divisez tous les 3 à 4 ans, au printemps ou en septembre, et supprimez les feuilles jaunies.",
+      conseil: "Choisissez la variété selon la profondeur du bassin : les formes naines conviennent aux faibles profondeurs, les vigoureuses aux eaux plus profondes. Plantez le rhizome dans un panier de terre de jardin lourde recouverte de gravier, en plein soleil (6 heures minimum). Divisez tous les 3 à 4 ans, au printemps ou en septembre, et supprimez les feuilles jaunies.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
-      compatibilite: "Parfaits avec les poissons rouges, les orfes et les carpes dans un bassin de jardin assez profond : leur couvert ombrage l'eau et limite les algues.",
+      compatibilite: "Parfaits avec les poissons rouges, les orfes et les carpes dans un bassin de jardin assez profond : leur couvert ombrage l'eau et limite les algues.",
       incompatibilite: "Les koï fouisseurs déracinent les rhizomes. Les nénuphars souffrent d'un fort courant, d'une chute d'eau directe sur les feuilles et d'un emplacement trop ombragé.",
       phMin: 6,
       phMax: 7.5,
       tempMin: -15,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Gros mangeurs : une terre argileuse sans compost et un engrais en tablettes pour plantes aquatiques enfoncé dans le panier chaque printemps.",
+      alimentation: "Gros mangeurs : une terre argileuse sans compost et un engrais en tablettes pour plantes aquatiques enfoncé dans le panier chaque printemps.",
       tailleAdulte: "étalement variable selon la variété, souvent jusqu'à 1 m",
       plante: {
         placement: "Plante de bassin",
@@ -9271,7 +9271,7 @@ export const ESPECES: Espece[] = [
       tempMin: -5,
       tempMax: 30,
       difficulte: "Intermédiaire",
-      alimentation: "Gourmand : substrat riche et lourd, engrais en tablettes pour plantes aquatiques dès la reprise au printemps, plein soleil.",
+      alimentation: "Gourmand : substrat riche et lourd, engrais en tablettes pour plantes aquatiques dès la reprise au printemps, plein soleil.",
       tailleAdulte: "feuilles de 30 à 60 cm de large, hauteur de 0,4 à 2 m selon les variétés",
       plante: {
         placement: "Plante de bassin",
@@ -9294,7 +9294,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Pontédérie", "Pontédérie à feuilles cordées"],
     fiche: {
       description: "La pontédérie à feuilles en cœur, Pontederia cordata, est une plante de berge originaire des zones humides des Amériques. Ses feuilles luisantes en forme de cœur composent une touffe haute, surmontée de juin à septembre d'épis serrés de petites fleurs bleu violacé. Utile pour verdir les rives d'un bassin, elle se plante dans quelques dizaines de centimètres d'eau au plus.",
-      conseil: "Installez le panier en eau peu profonde, jusqu'à 30 cm de profondeur, en plein soleil de préférence : la floraison demande beaucoup de lumière. Coupez feuilles et hampes fanées à l'automne et divisez la souche au printemps lorsqu'elle devient trop dense. Un terreau riche favorise la croissance.",
+      conseil: "Installez le panier en eau peu profonde, jusqu'à 30 cm de profondeur, en plein soleil de préférence : la floraison demande beaucoup de lumière. Coupez feuilles et hampes fanées à l'automne et divisez la souche au printemps lorsqu'elle devient trop dense. Un terreau riche favorise la croissance.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "S'associe bien aux iris, aux joncs et aux nénuphars dans un bassin de jardin avec poissons rouges ; sa touffe offre de l'ombre et un abri.",
@@ -9327,7 +9327,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Iris jaune", "Iris faux acore", "Flambe d'eau"],
     fiche: {
       description: "L'iris des marais, ou iris jaune, Iris pseudacorus, pousse à l'état sauvage dans les zones humides d'Europe, d'Asie occidentale et d'Afrique du Nord. Ses feuilles en sabre, dressées, forment de grandes touffes qui portent de mai à juillet de belles fleurs jaune d'or veinées de brun. Plante de berge vigoureuse et très rustique, elle structure les rives des bassins de grand volume.",
-      conseil: "Achetez des plants issus de culture et ne prélevez jamais d'iris dans la nature. Plantez en panier, en eau de 0 à 30 cm, au soleil ou à mi-ombre. Les rhizomes colonisent vite : divisez les touffes après la floraison ou à l'automne. Portez des gants, car la plante est toxique, et coupez les feuilles en fin d'automne.",
+      conseil: "Achetez des plants issus de culture et ne prélevez jamais d'iris dans la nature. Plantez en panier, en eau de 0 à 30 cm, au soleil ou à mi-ombre. Les rhizomes colonisent vite : divisez les touffes après la floraison ou à l'automne. Portez des gants, car la plante est toxique, et coupez les feuilles en fin d'automne.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Convient aux grands bassins, aux mares et aux berges avec poissons rouges, carpes et gardons, auprès des massettes et des salicaires, pour un rendu naturel.",
@@ -9337,7 +9337,7 @@ export const ESPECES: Espece[] = [
       tempMin: -20,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Peu exigeante : un terreau de jardin en panier lui suffit, sans engrais riche qui ne ferait qu'amplifier un feuillage déjà vigoureux.",
+      alimentation: "Peu exigeante : un terreau de jardin en panier lui suffit, sans engrais riche qui ne ferait qu'amplifier un feuillage déjà vigoureux.",
       tailleAdulte: "100 à 150 cm de hauteur",
       plante: {
         placement: "Plante de berge",
@@ -9360,7 +9360,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Souci d'eau", "Souci des marais"],
     fiche: {
       description: "Le populage des marais, Caltha palustris, est une vivace des prairies humides et des berges de ruisseaux d'Europe et d'une grande partie de l'hémisphère nord. Ses feuilles rondes, luisantes et vert foncé accompagnent, dès le printemps, de grosses fleurs jaune vif proches du bouton-d'or. Précoce, il apporte de la couleur au bassin avant la plupart des autres plantes aquatiques.",
-      conseil: "Achetez des sujets de culture : le populage ne se prélève jamais dans la nature. Plantez-le en eau très peu profonde, de 0 à 5 cm, au soleil ou à mi-ombre, avec un sol constamment humide. Divisez la touffe à l'automne ou en fin d'hiver, hors période de gel. Si le feuillage jaunit pendant un été chaud, coupez-le : la plante repartira.",
+      conseil: "Achetez des sujets de culture : le populage ne se prélève jamais dans la nature. Plantez-le en eau très peu profonde, de 0 à 5 cm, au soleil ou à mi-ombre, avec un sol constamment humide. Divisez la touffe à l'automne ou en fin d'hiver, hors période de gel. Si le feuillage jaunit pendant un été chaud, coupez-le : la plante repartira.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "S'installe bien en bordure de mare, de petit bassin ombragé ou de fossé paysager, près de la menthe aquatique, des iris et du myosotis des marais, avec poissons rouges ou petits poissons de mare.",
@@ -9393,7 +9393,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Menthe d'eau"],
     fiche: {
       description: "La menthe aquatique, Mentha aquatica, croît naturellement au bord des eaux douces d'Europe et des régions voisines. Ses tiges dressées, légèrement velues, portent des feuilles ovales dentées au parfum mentholé marqué, puis des boules de petites fleurs lilas de juillet à septembre. Vigoureuse, elle couvre vite les rives d'un bassin si on la laisse faire.",
-      conseil: "Cultivez-la obligatoirement en panier ou en bac enterré : ses stolons colonisent toute la berge. Elle pousse en eau peu profonde, de 0 à 10 cm, au soleil ou à mi-ombre, de préférence à l'ombre légère dans le Sud. Taillez les tiges après la floraison et préférez les plants de pépinière : ne prélevez jamais de menthe dans la nature.",
+      conseil: "Cultivez-la obligatoirement en panier ou en bac enterré : ses stolons colonisent toute la berge. Elle pousse en eau peu profonde, de 0 à 10 cm, au soleil ou à mi-ombre, de préférence à l'ombre légère dans le Sud. Taillez les tiges après la floraison et préférez les plants de pépinière : ne prélevez jamais de menthe dans la nature.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Fonctionne bien en bordure de petit ou de grand bassin, avec poissons rouges ou petits poissons de mare, ou dans un bac de jardin humide, où elle dégage un parfum mentholé quand on froisse ses feuilles.",
@@ -9426,7 +9426,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Massette", "Quenouille"],
     fiche: {
       description: "La massette à larges feuilles, Typha latifolia, colonise roselières et berges d'étangs sous de nombreux climats. Ses longues feuilles en lanières, dressées, accompagnent en été des épis cylindriques brun foncé, les fameuses quenouilles, qui persistent jusqu'à l'hiver. Elle convient aux grands plans d'eau et aux bassins naturels, mais demande une surveillance étroite.",
-      conseil: "Plantez-la seulement dans un grand plan d'eau, toujours en panier ou en bac fermé : ses rhizomes progressent à grande vitesse. Profondeur de 20 à 40 cm, plein soleil. Coupez les feuilles en fin d'automne et arrachez les excédents au printemps. Achetez des plants de culture, sans jamais en prélever dans la nature.",
+      conseil: "Plantez-la seulement dans un grand plan d'eau, toujours en panier ou en bac fermé : ses rhizomes progressent à grande vitesse. Profondeur de 20 à 40 cm, plein soleil. Coupez les feuilles en fin d'automne et arrachez les excédents au printemps. Achetez des plants de culture, sans jamais en prélever dans la nature.",
       volumeMinLitres: 500,
       tailleGroupeMin: null,
       compatibilite: "Idéale pour les grands étangs, mares naturelles et lagunes de phytoépuration, où poissons rouges, carpes et gardons évoluent entre ses tiges et où ses feuilles abritent insectes et oiseaux.",
@@ -9459,7 +9459,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Herbe aux coliques"],
     fiche: {
       description: "La salicaire commune, Lythrum salicaria, est une vivace des fossés, prairies humides et bords de rivières, répandue en Europe, en Asie et en Afrique du Nord. Ses tiges dressées se couronnent, de juin à septembre, d'épis serrés de fleurs rose pourpre. Plante de berge robuste et très rustique, elle apporte volume et couleur en été et en fin de saison.",
-      conseil: "Installez-la sur la berge humide ou dans 0 à 10 cm d'eau, au soleil ou à mi-ombre. Coupez les épis fanés avant la maturité des graines : elle se ressème facilement. Taillez les tiges à 10 cm du sol en fin d'automne et divisez les touffes au printemps. Choisissez des plants de culture, sans prélèvement en milieu naturel.",
+      conseil: "Installez-la sur la berge humide ou dans 0 à 10 cm d'eau, au soleil ou à mi-ombre. Coupez les épis fanés avant la maturité des graines : elle se ressème facilement. Taillez les tiges à 10 cm du sol en fin d'automne et divisez les touffes au printemps. Choisissez des plants de culture, sans prélèvement en milieu naturel.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "S'associe très bien aux iris des marais, à la menthe aquatique et au populage, en bord de mare ou de bassin naturel avec poissons rouges ou petits poissons de mare.",
@@ -9492,7 +9492,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Flûteau", "Pain de grenouille"],
     fiche: {
       description: "Le plantain d'eau, Alisma plantago-aquatica, vit dans les mares, fossés et berges d'étangs d'Europe et d'Asie. Ses feuilles ovales aux nervures arquées, proches de celles du plantain, forment une rosette d'où s'élèvent en été de légères panicules de petites fleurs blanc rosé. Discret et élégant, il se plante en bordure de bassin naturel ou de mare.",
-      conseil: "Achetez des plants de culture, car l'espèce ne se prélève pas en milieu naturel. Plantez en panier dans 5 à 30 cm d'eau, au soleil ou à mi-ombre. Les fleurs fanées donnent beaucoup de graines : coupez les hampes pour éviter les semis. Retirez les feuilles abîmées en automne et divisez les touffes à l'automne ou au printemps.",
+      conseil: "Achetez des plants de culture, car l'espèce ne se prélève pas en milieu naturel. Plantez en panier dans 5 à 30 cm d'eau, au soleil ou à mi-ombre. Les fleurs fanées donnent beaucoup de graines : coupez les hampes pour éviter les semis. Retirez les feuilles abîmées en automne et divisez les touffes à l'automne ou au printemps.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "S'harmonise avec les iris, les sagittaires et les joncs dans un bassin naturel ou une mare, en compagnie de poissons rouges ou de poissons de mare. Il apprécie les eaux calmes.",
@@ -9525,7 +9525,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Vrai acore", "Jonc parfumé"],
     fiche: {
       description: "L'acore odorant, Acorus calamus, est une plante de berge aux feuilles en sabre d'un vert lumineux, qui dégagent une odeur aromatique quand on les froisse. Son origine exacte reste débattue ; cultivé depuis longtemps, il est aujourd'hui répandu dans de nombreuses régions du monde. Il forme des touffes denses à partir de rhizomes épais et se plante dans l'eau peu profonde des bassins de jardin.",
-      conseil: "Contenez-le en panier : ses rhizomes traçants s'étendent vite. Plantez-le dans 0 à 10 cm d'eau, au soleil ou à mi-ombre. Très rustique, il supporte le gel ; coupez les feuilles brunies en fin d'automne et divisez la touffe au printemps. Ne consommez pas la plante : certaines formes contiennent de l'asarone, une substance toxique.",
+      conseil: "Contenez-le en panier : ses rhizomes traçants s'étendent vite. Plantez-le dans 0 à 10 cm d'eau, au soleil ou à mi-ombre. Très rustique, il supporte le gel ; coupez les feuilles brunies en fin d'automne et divisez la touffe au printemps. Ne consommez pas la plante : certaines formes contiennent de l'asarone, une substance toxique.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Se plaît dans les bassins de jardin et les mares, avec poissons rouges et poissons de mare, en compagnie d'iris et de pontédéries. Ses feuilles dressées structurent la berge.",
@@ -9558,7 +9558,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Acore graminée"],
     fiche: {
       description: "L'acore nain, Acorus gramineus, est une petite plante persistante d'Asie orientale dont les feuilles étroites, disposées en éventail, évoquent une touffe d'herbe fine. Selon les cultivars, le feuillage est vert uni, panaché de blanc ou doré. Elle s'emploie en bordure de bassin, en bac de berge ou en paludarium, les pieds dans l'eau ou en sol constamment humide.",
-      conseil: "Plantez-la dans 0 à 10 cm d'eau ou en sol constamment humide, à la lumière ou à mi-ombre, plutôt à l'ombre légère dans le Sud. Divisez les touffes au printemps et rabattez les feuilles abîmées après l'hiver. Certaines variétés craignent le gel : plantez-les une fois les dernières gelées passées et protégez-les l'hiver en région froide.",
+      conseil: "Plantez-la dans 0 à 10 cm d'eau ou en sol constamment humide, à la lumière ou à mi-ombre, plutôt à l'ombre légère dans le Sud. Divisez les touffes au printemps et rabattez les feuilles abîmées après l'hiver. Certaines variétés craignent le gel : plantez-les une fois les dernières gelées passées et protégez-les l'hiver en région froide.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'accorde avec les bordures de bassin garnies de petites plantes de berge, les bacs de berge et les paludariums.",
@@ -9591,7 +9591,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Sagittaire", "Sagittaire à feuilles en flèche", "Fléchière"],
     fiche: {
       description: "La flèche d'eau, Sagittaria sagittifolia, est une plante de marais d'Europe et d'Asie, nommée d'après ses feuilles émergées en fer de flèche. En été, des hampes dressées portent des fleurs blanches à étamines pourpres. Selon la profondeur, elle développe aussi des feuilles flottantes ou rubanées. Elle forme des tubercules au bout de ses stolons et décore les bords des bassins naturels.",
-      conseil: "Choisissez des plants de culture, jamais prélevés dans la nature. Plantez en panier dans 5 à 40 cm d'eau, en plein soleil. Elle forme des tubercules au bout de ses stolons : détachez-les et replantez-les au printemps ou à l'automne. Coupez les feuilles fanées en fin d'automne. Elle est très rustique.",
+      conseil: "Choisissez des plants de culture, jamais prélevés dans la nature. Plantez en panier dans 5 à 40 cm d'eau, en plein soleil. Elle forme des tubercules au bout de ses stolons : détachez-les et replantez-les au printemps ou à l'automne. Coupez les feuilles fanées en fin d'automne. Elle est très rustique.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "S'associe aux pontédéries, aux iris et au plantain d'eau en mare ou en bassin naturel avec poissons rouges ou petits poissons de mare ; elle aime l'eau calme.",
@@ -9624,17 +9624,17 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Papyrus d'Égypte", "Souchet à papier"],
     fiche: {
       description: "Le papyrus, Cyperus papyrus, est un grand souchet d'Afrique tropicale, lié à la vallée du Nil et à ses marais, dont les Égyptiens tiraient autrefois leur papier. Ses tiges triangulaires, nues et robustes, se terminent par un panache de fins filaments. Plante d'architecture pour le bassin ou la terrasse en été, elle doit être protégée du froid hivernal.",
-      conseil: "Plantez-le en panier, en eau peu profonde, en plein soleil. Il craint le gel : rentrez-le avant les premières gelées, en pièce claire et fraîche, entre 10 et 15 °C, pot dans une coupelle d'eau. Taillez les tiges abîmées, divisez la touffe au printemps et ressortez-le progressivement en mai. Un sol riche favorise la croissance.",
+      conseil: "Plantez-le en panier, en eau peu profonde, en plein soleil. Il craint le gel : rentrez-le avant les premières gelées, en pièce claire et fraîche, entre 10 et 15 °C, pot dans une coupelle d'eau. Taillez les tiges abîmées, divisez la touffe au printemps et ressortez-le progressivement en mai. Un sol riche favorise la croissance.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Se plaît dans un bassin ensoleillé, une vasque ou un grand bac de terrasse avec poissons rouges, associé à des plantes de berge comme les pontédéries. Il s'utilise souvent comme plante de saison.",
-      incompatibilite: "Il dépérit au froid : gel, courant d'air glacé ou hiver extérieur sans protection. Un éclairage insuffisant et un terreau pauvre donnent des tiges grêles et jaunies.",
+      incompatibilite: "Il dépérit au froid : gel, courant d'air glacé ou hiver extérieur sans protection. Un éclairage insuffisant et un terreau pauvre donnent des tiges grêles et jaunies.",
       phMin: 6,
       phMax: 7.5,
       tempMin: 10,
       tempMax: 30,
       difficulte: "Intermédiaire",
-      alimentation: "Plante gourmande : terreau riche et engrais en tablettes pour plantes aquatiques durant la belle saison, en plein soleil.",
+      alimentation: "Plante gourmande : terreau riche et engrais en tablettes pour plantes aquatiques durant la belle saison, en plein soleil.",
       tailleAdulte: "1,5 à 3 m de hauteur",
       plante: {
         placement: "Plante de bassin",
@@ -9657,7 +9657,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Plante caméléon"],
     fiche: {
       description: "Houttuynia cordata est une vivace de berge originaire d'Asie orientale, au feuillage vert bleuté en forme de cœur, qui dégage une odeur marquée lorsqu'on le froisse. En été, ses petites fleurs sont entourées de bractées blanches. La forme panachée de rose, de crème et de vert, souvent appelée caméléon, est très recherchée pour border un bassin.",
-      conseil: "Gardez-la strictement en panier ou en bac enterré : ses rhizomes colonisent la berge et peuvent parcourir plus d'un mètre sous terre, ce qui la rend difficile à éradiquer. Plantez-la dans 0 à 5 cm d'eau ou en sol constamment humide, au soleil ou à mi-ombre. Coupez le feuillage fané en automne et arrachez les rejets qui s'échappent du panier au printemps.",
+      conseil: "Gardez-la strictement en panier ou en bac enterré : ses rhizomes colonisent la berge et peuvent parcourir plus d'un mètre sous terre, ce qui la rend difficile à éradiquer. Plantez-la dans 0 à 5 cm d'eau ou en sol constamment humide, au soleil ou à mi-ombre. Coupez le feuillage fané en automne et arrachez les rejets qui s'échappent du panier au printemps.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Convient aux bordures de bassin de jardin et aux bacs de berge, avec poissons rouges et poissons de mare, pour un feuillage coloré durant toute la belle saison.",
@@ -9667,7 +9667,7 @@ export const ESPECES: Espece[] = [
       tempMin: -15,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Un terreau de jardin humide lui suffit, sans engrais riche : elle pousse déjà assez vite seule.",
+      alimentation: "Un terreau de jardin humide lui suffit, sans engrais riche : elle pousse déjà assez vite seule.",
       tailleAdulte: "30 à 40 cm de hauteur",
       plante: {
         placement: "Plante de berge",
@@ -9690,17 +9690,17 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Arum blanc", "Calla"],
     fiche: {
       description: "L'arum d'Éthiopie, Zantedeschia aethiopica, est une grande vivace originaire d'Afrique australe. Ses feuilles vert vif en fer de flèche, luisantes, forment une touffe imposante d'où s'élèvent de la fin du printemps à l'été de grandes spathes blanches enroulées autour d'un spadice jaune. Elle prospère en bordure de bassin ou en eau peu profonde, mais sa rusticité reste limitée.",
-      conseil: "Plantez-la dans 0 à 30 cm d'eau, au soleil ou à mi-ombre, dans un terreau riche. Sa rusticité varie : sous climat doux, un paillage épais protège le rhizome ; ailleurs, immergez le panier à 30 cm de profondeur ou rentrez-le à l'abri du gel. La sève irrite la peau : portez des gants. Divisez la touffe au printemps.",
+      conseil: "Plantez-la dans 0 à 30 cm d'eau, au soleil ou à mi-ombre, dans un terreau riche. Sa rusticité varie : sous climat doux, un paillage épais protège le rhizome ; ailleurs, immergez le panier à 30 cm de profondeur ou rentrez-le à l'abri du gel. La sève irrite la peau : portez des gants. Divisez la touffe au printemps.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "S'associe bien aux iris, aux pontédéries et aux plantes de berge, dans un bassin de jardin avec poissons rouges, ou en bac sur terrasse en saison douce.",
-      incompatibilite: "Elle redoute les fortes gelées et la sécheresse estivale. La plante est toxique : à éviter si des enfants ou des animaux fouillent les abords du bassin.",
+      incompatibilite: "Elle redoute les fortes gelées et la sécheresse estivale. La plante est toxique : à éviter si des enfants ou des animaux fouillent les abords du bassin.",
       phMin: 6,
       phMax: 7.5,
       tempMin: -5,
       tempMax: 28,
       difficulte: "Débutant",
-      alimentation: "Gourmande : terreau riche et engrais en tablette pour plantes aquatiques au printemps.",
+      alimentation: "Gourmande : terreau riche et engrais en tablette pour plantes aquatiques au printemps.",
       tailleAdulte: "60 à 100 cm de hauteur",
       plante: {
         placement: "Plante de berge",
@@ -9723,7 +9723,7 @@ export const ESPECES: Espece[] = [
     autresNoms: ["Myosotis palustris"],
     fiche: {
       description: "Le myosotis des marais, Myosotis scorpioides, est une petite vivace des fossés, sources et berges humides d'Europe et d'Asie. Ses tiges rampantes portent de petites fleurs bleu ciel à cœur jaune, groupées en cymes recourbées, de la fin du printemps à l'été. Compagne délicate des berges, elle se faufile entre les autres plantes et tapisse l'eau peu profonde de son feuillage tendre.",
-      conseil: "Achetez des plants issus de culture : le prélèvement en milieu naturel est à proscrire. Installez-la dans 0 à 10 cm d'eau, à mi-ombre ou au soleil sans excès de chaleur. Elle s'étend par ses tiges rampantes ; coupez les tiges abîmées en fin d'été pour stimuler le feuillage et divisez au printemps.",
+      conseil: "Achetez des plants issus de culture : le prélèvement en milieu naturel est à proscrire. Installez-la dans 0 à 10 cm d'eau, à mi-ombre ou au soleil sans excès de chaleur. Elle s'étend par ses tiges rampantes ; coupez les tiges abîmées en fin d'été pour stimuler le feuillage et divisez au printemps.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Se plaît en bordure de mare, de petit bassin ou de bac de berge, avec poissons rouges, poissons de mare ou grenouilles, au pied des iris et des populages.",
@@ -9784,28 +9784,28 @@ export const ESPECES: Espece[] = [
     nomCommun: "Herbe à alligators",
     nomScientifique: "Alternanthera philoxeroides",
     statutLegal: 'interdite',
-    remarqueLegale: "Espèce exotique envahissante inscrite sur la liste des espèces préoccupantes pour l'Union européenne et interdite en France par l'arrêté du 14 février 2018 (annexe I-2) : sa détention, son transport, sa vente, son achat et son introduction dans la nature sont interdits. À ne pas confondre avec Alternanthera reineckii, qui reste autorisée.",
+    remarqueLegale: "Espèce exotique envahissante inscrite sur la liste des espèces préoccupantes pour l'Union européenne et interdite en France par l'arrêté du 14 février 2018 (annexe I-2) : sa détention, son transport, sa vente, son achat et son introduction dans la nature sont interdits. À ne pas confondre avec Alternanthera reineckii, qui reste autorisée.",
     citesAnnexe: null,
     fiche: {
       description: "L'herbe à alligators, Alternanthera philoxeroides, est une plante amphibie originaire d'Amérique du Sud, aux tiges étalées ou flottantes, ramifiées et enchevêtrées, et aux petites fleurs blanches en boules. Elle forme des tapis denses qui étouffent la végétation et gênent l'écoulement de l'eau. Espèce exotique envahissante, il ne faut jamais la cultiver ni la relâcher dans la nature.",
-      conseil: "Ne l'achetez ni ne la plantez jamais. Si vous en possédez, ne la jetez ni dans un cours d'eau, ni dans un fossé, ni au compost : des fragments de tige peuvent repartir. Pour savoir comment vous en défaire, contactez la préfecture ou la DDT. Préférez Alternanthera reineckii, autorisée, à ne pas confondre avec elle.",
+      conseil: "Ne l'achetez ni ne la plantez jamais. Si vous en possédez, ne la jetez ni dans un cours d'eau, ni dans un fossé, ni au compost : des fragments de tige peuvent repartir. Pour savoir comment vous en défaire, contactez la préfecture ou la DDT. Préférez Alternanthera reineckii, autorisée, à ne pas confondre avec elle.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette espèce ne doit pas être cultivée.",
+      compatibilite: "Sans objet : cette espèce ne doit pas être cultivée.",
       incompatibilite: "Elle menace les milieux aquatiques et ne doit jamais entrer en contact avec la nature. Aucune association n'est envisageable.",
       phMin: 6,
       phMax: 8,
       tempMin: 0,
       tempMax: 35,
       difficulte: "Expert",
-      alimentation: "Sans objet : plante à ne pas cultiver.",
+      alimentation: "Sans objet : plante à ne pas cultiver.",
       tailleAdulte: "tiges de plusieurs dizaines de centimètres, en tapis",
       plante: {
         placement: "Flottante",
         lumiere: "Forte",
         croissance: "Rapide",
         co2: "Inutile",
-        multiplication: "Fragments de tige : c'est ce qui rend sa dissémination si dangereuse.",
+        multiplication: "Fragments de tige : c'est ce qui rend sa dissémination si dangereuse.",
       },
     },
   },
@@ -9816,22 +9816,22 @@ export const ESPECES: Espece[] = [
     nomCommun: "Faux arum (Lysichiton)",
     nomScientifique: "Lysichiton americanus",
     statutLegal: 'interdite',
-    remarqueLegale: "Espèce exotique envahissante inscrite sur la liste des espèces préoccupantes pour l'Union européenne et interdite en France par l'arrêté du 14 février 2018 (annexe I-1) : sa détention, son transport, sa vente, son achat et son introduction dans la nature sont interdits.",
+    remarqueLegale: "Espèce exotique envahissante inscrite sur la liste des espèces préoccupantes pour l'Union européenne et interdite en France par l'arrêté du 14 février 2018 (annexe I-1) : sa détention, son transport, sa vente, son achat et son introduction dans la nature sont interdits.",
     citesAnnexe: null,
     autresNoms: ["Lysichite jaune", "Arum bananier jaune"],
     fiche: {
       description: "Le faux arum, Lysichiton americanus, est une grande plante de zones humides originaire de l'ouest de l'Amérique du Nord. Ses larges feuilles et sa spathe jaune vif, apparue au premier printemps, accompagnent une odeur désagréable. Échappée des jardins, elle forme des colonies denses qui éliminent la flore locale des berges. Espèce exotique envahissante, elle ne doit jamais être cultivée ni introduite dans la nature.",
-      conseil: "Ne l'achetez ni ne la plantez jamais. Si vous en possédez, ne la jetez ni dans un cours d'eau, ni dans un fossé, ni au compost : graines et fragments de rhizome peuvent repartir. Contactez la préfecture ou la DDT pour savoir comment vous en défaire. Préférez l'iris des marais ou le populage des marais, autorisés.",
+      conseil: "Ne l'achetez ni ne la plantez jamais. Si vous en possédez, ne la jetez ni dans un cours d'eau, ni dans un fossé, ni au compost : graines et fragments de rhizome peuvent repartir. Contactez la préfecture ou la DDT pour savoir comment vous en défaire. Préférez l'iris des marais ou le populage des marais, autorisés.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette espèce ne doit pas être cultivée.",
-      incompatibilite: "Elle ne doit jamais être associée à un milieu naturel : ses colonies denses menacent la flore des zones humides. Aucun usage n'est envisageable.",
+      compatibilite: "Sans objet : cette espèce ne doit pas être cultivée.",
+      incompatibilite: "Elle ne doit jamais être associée à un milieu naturel : ses colonies denses menacent la flore des zones humides. Aucun usage n'est envisageable.",
       phMin: 5,
       phMax: 7,
       tempMin: -20,
       tempMax: 25,
       difficulte: "Expert",
-      alimentation: "Sans objet : plante à ne pas cultiver.",
+      alimentation: "Sans objet : plante à ne pas cultiver.",
       tailleAdulte: "grandes feuilles de plus de 60 cm",
       plante: {
         placement: "Plante de berge",
@@ -9856,7 +9856,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-clown tomate (Amphiprion frenatus) vit dans le Pacifique ouest, du golfe de Thaïlande au sud du Japon et à l'Indonésie. Sa robe rouge uni porte une seule bande blanche derrière l'œil, qui s'estompe avec l'âge chez la femelle. Celle-ci, dominante, atteint 12 à 14 cm et se montre nettement plus autoritaire que le mâle. L'espèce se tient près d'une anémone (Entacmaea quadricolor dans la nature) ou d'un point d'ancrage dans le décor, au milieu du bac.",
       conseil:
-        "Choisissez un sujet né en élevage, plus résistant que les poissons prélevés et sans pression sur les populations sauvages. Introduisez-le seul ou en couple déjà formé : deux adultes non appariés se battent, parfois jusqu'à la mort du plus faible. Il devient territorial en vieillissant et harcèle les autres poissons-clowns ; ne le mélangez donc pas avec d'autres Amphiprion. Une anémone n'est pas nécessaire, mais un poisson qui s'y installe la défend vivement ; surveillez les nageoires déchirées ou un individu isolé qui se cache.",
+        "Choisissez un sujet né en élevage, plus résistant que les poissons prélevés et sans pression sur les populations sauvages. Introduisez-le seul ou en couple déjà formé : deux adultes non appariés se battent, parfois jusqu'à la mort du plus faible. Il devient territorial en vieillissant et harcèle les autres poissons-clowns ; ne le mélangez donc pas avec d'autres Amphiprion. Une anémone n'est pas nécessaire, mais un poisson qui s'y installe la défend vivement ; surveillez les nageoires déchirées ou un individu isolé qui se cache.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
       compatibilite: "Il s'entend avec les poissons de récif paisibles de taille comparable, comme les gobies, les gramma ou les cardinaux. Les crevettes de nettoyage et les coraux sont bien tolérés.",
@@ -9866,7 +9866,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : granulés et paillettes marines de qualité, mysis, artémias et chair de poisson ou de crustacé finement hachée, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines de qualité, mysis, artémias et chair de poisson ou de crustacé finement hachée, 1 à 2 fois par jour.',
       tailleAdulte: '12 à 14 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -9876,7 +9876,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Facile",
-        description: "Le poisson clown tomate (Amphiprion frenatus) se reproduit facilement dans un aquarium récifal avec une anémone hôte. Le couple nettoie une roche plate près de l'anémone. La femelle, plus grande, dirige. Elle pond 200-600 œufs orangés que le mâle garde et oxygène. Incubation de 8-10 jours. Les larves planctoniques sont délicates : nourrissez avec des rotifères enrichis puis nauplies d'artémia. T° 25-27°C, densité 1.024-1.026.",
+        description: "Le poisson clown tomate (Amphiprion frenatus) se reproduit facilement dans un aquarium récifal avec une anémone hôte. Le couple nettoie une roche plate près de l'anémone. La femelle, plus grande, dirige. Elle pond 200-600 œufs orangés que le mâle garde et oxygène. Incubation de 8-10 jours. Les larves planctoniques sont délicates : nourrissez avec des rotifères enrichis puis nauplies d'artémia. T° 25-27°C, densité 1.024-1.026.",
       },
     },
   },
@@ -9904,7 +9904,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et petits morceaux de chair de poisson, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et petits morceaux de chair de poisson, 1 à 2 fois par jour.',
       tailleAdulte: '12 à 15 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -9931,14 +9931,14 @@ export const ESPECES: Espece[] = [
         "Privilégiez un individu né en élevage, plus robuste que ceux prélevés dans le milieu naturel. Introduisez une paire déjà formée ou deux juvéniles de taille très différente, afin que la hiérarchie s'établisse sans heurts. Il reste plutôt calme pour un poisson-clown, mais il défend son territoire face aux congénères étrangers au couple. Une anémone n'est pas nécessaire ; un poisson qui refuse de manger ou se tient figé dans un coin signale un problème de qualité d'eau ou de stress.",
       volumeMinLitres: 100,
       tailleGroupeMin: 2,
-      compatibilite: 'Il se marie bien avec les poissons de récif paisibles : gobies, gramma, cardinaux, blennies. Les crevettes et les coraux ne risquent rien.',
+      compatibilite: 'Il se marie bien avec les poissons de récif paisibles : gobies, gramma, cardinaux, blennies. Les crevettes et les coraux ne risquent rien.',
       incompatibilite: 'Évitez les autres poissons-clowns, surtout plus gros, et les espèces très agressives qui le harcèleraient.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : granulés et paillettes marines, mysis et artémias congelés, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines, mysis et artémias congelés, 1 à 2 fois par jour.',
       tailleAdulte: '8 à 10 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -9966,7 +9966,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-clown à dos rouge (Amphiprion melanopus), appelé aussi poisson-clown bistré ou cannelle, vit dans le Pacifique ouest et central, de l'est de l'Indonésie à la Polynésie. Son corps rouge à orangé porte une large bande blanc bleuté liserée de noir derrière l'œil, et ses nageoires pelviennes sont noires. Il atteint environ 12 cm et sa teinte fonce avec l'âge. Il forme des couples territoriaux, associés dans la nature surtout à l'anémone Entacmaea quadricolor, et occupe le milieu du bac.",
       conseil:
-        "Choisissez un individu né en élevage, qui accepte plus facilement les aliments du commerce. Introduisez-le seul ou en couple déjà formé, jamais avec un autre poisson-clown : il devient agressif en vieillissant. Une anémone n'est pas indispensable, mais il peut défendre vivement son refuge et chasser les poissons voisins. Surveillez les plaies, les nageoires effilochées et une femelle qui isole son partenaire.",
+        "Choisissez un individu né en élevage, qui accepte plus facilement les aliments du commerce. Introduisez-le seul ou en couple déjà formé, jamais avec un autre poisson-clown : il devient agressif en vieillissant. Une anémone n'est pas indispensable, mais il peut défendre vivement son refuge et chasser les poissons voisins. Surveillez les plaies, les nageoires effilochées et une femelle qui isole son partenaire.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
       compatibilite: "Il s'associe à des poissons de récif calmes ou vifs de taille voisine, comme les gobies, les pseudochromis ou les demoiselles. Il tolère bien les crevettes et les coraux.",
@@ -9976,7 +9976,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : granulés et paillettes marines de qualité, mysis, artémias et chair de poisson hachée, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines de qualité, mysis, artémias et chair de poisson hachée, 1 à 2 fois par jour.',
       tailleAdulte: '12 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10000,7 +10000,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-clown marron (Amphiprion biaculeatus, anciennement Premnas biaculeatus) vit de l'Inde à l'ouest du Pacifique. La femelle dominante, rouge sombre à marron et barrée de trois bandes blanches ou jaunes, mesure 12 à 17 cm, tandis que le mâle, bien plus petit, est d'un rouge plus vif. Une épine acérée orne chaque joue, d'où son nom d'« épineux ». Il vit au milieu du bac, souvent adossé à une anémone, et compte parmi les poissons-clowns les plus territoriaux.",
       conseil:
-        "Prenez un sujet né en élevage. Manipulez-le avec précaution : les épines des joues s'accrochent à l'épuisette et peuvent blesser le poisson comme la main ; transférez-le avec un récipient. Introduisez une paire déjà constituée, car la femelle peut tuer un partenaire non apparié. Son caractère s'affirme avec l'âge : prévoyez un grand volume, des abris et surveillez les compagnons pour éviter les blessures.",
+        "Prenez un sujet né en élevage. Manipulez-le avec précaution : les épines des joues s'accrochent à l'épuisette et peuvent blesser le poisson comme la main ; transférez-le avec un récipient. Introduisez une paire déjà constituée, car la femelle peut tuer un partenaire non apparié. Son caractère s'affirme avec l'âge : prévoyez un grand volume, des abris et surveillez les compagnons pour éviter les blessures.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Il s'entend avec des poissons de récif robustes et d'une taille comparable, comme certains chirurgiens, les poissons-anges nains ou les gobies. Il tolère les coraux.",
@@ -10010,7 +10010,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et petits morceaux de chair de poisson ou de crevette, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et petits morceaux de chair de poisson ou de crevette, 1 à 2 fois par jour.',
       tailleAdulte: 'Femelle 12 à 17 cm, mâle nettement plus petit',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10048,7 +10048,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés et paillettes marines, mysis, artémias et nourriture à base d'algues, 1 à 2 fois par jour.",
+      alimentation: "Omnivore : granulés et paillettes marines, mysis, artémias et nourriture à base d'algues, 1 à 2 fois par jour.",
       tailleAdulte: '7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10072,7 +10072,7 @@ export const ESPECES: Espece[] = [
       description:
         "La demoiselle à trois points (Dascyllus trimaculatus) est répandue de la mer Rouge et de l'Afrique de l'Est au Pacifique central. Le juvénile est noir avec trois taches blanches (une sur le front, une sur chaque flanc) ; l'adulte devient gris foncé et les taches s'estompent. Elle atteint 12 à 14 cm. Très robuste, elle passe de poisson inoffensif à tyran territorial en grandissant, et occupe tous les niveaux du bac.",
       conseil:
-        "Évitez de l'acheter comme poisson « de départ » dans un bac mixte : elle devient agressive avec l'âge et harcèle les poissons plus paisibles. Réservez-la à un grand bac peuplé de poissons robustes et introduisez-la en dernier. Prévoyez une roche ajourée avec plusieurs abris. Si l'un de ses voisins est poursuivi en permanence ou se cache, retirez-la sans attendre.",
+        "Évitez de l'acheter comme poisson « de départ » dans un bac mixte : elle devient agressive avec l'âge et harcèle les poissons plus paisibles. Réservez-la à un grand bac peuplé de poissons robustes et introduisez-la en dernier. Prévoyez une roche ajourée avec plusieurs abris. Si l'un de ses voisins est poursuivi en permanence ou se cache, retirez-la sans attendre.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Elle accompagne des poissons robustes de taille comparable, comme les chirurgiens, les poissons-anges ou les grosses demoiselles. Les crevettes et les coraux sont globalement ignorés.',
@@ -10082,7 +10082,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et nourriture végétale, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et nourriture végétale, 1 à 2 fois par jour.',
       tailleAdulte: '12 à 14 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10120,7 +10120,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et nourriture végétale, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore : granulés et paillettes marines, mysis, artémias et nourriture végétale, 1 à 2 fois par jour.',
       tailleAdulte: '6 à 7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10144,7 +10144,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le pseudochromis de Fridman (Pseudochromis fridmani) est endémique de la mer Rouge, où il vit sous les surplombs et sur les parois rocheuses, réfugié dans de petits trous. Son corps violet-magenta intense mesure 6 à 7 cm ; il circule entre le fond et mi-hauteur, toujours près des cavités. Très largement produit en élevage, il est plus paisible que d'autres pseudochromis, mais reste territorial envers les poissons de forme voisine.",
       conseil:
-        "Prenez un sujet né en élevage, bien adapté au bac. Un seul individu convient dans un bac de taille moyenne : il poursuit ses congénères et les autres pseudochromis. Fournissez des roches creuses où il pourra se réfugier ; sans cachette, il reste figé et stressé. Il peut manger de petites crevettes et des juvéniles de poissons, surtout si le bac est petit.",
+        "Prenez un sujet né en élevage, bien adapté au bac. Un seul individu convient dans un bac de taille moyenne : il poursuit ses congénères et les autres pseudochromis. Fournissez des roches creuses où il pourra se réfugier ; sans cachette, il reste figé et stressé. Il peut manger de petites crevettes et des juvéniles de poissons, surtout si le bac est petit.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: 'Il se marie bien avec les poissons-clowns, les gobies, les cardinaux et les anthias. Les coraux ne risquent rien.',
@@ -10154,7 +10154,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Carnivore : mysis, artémias, krill et chair de poisson, ainsi que des granulés carnés, 1 à 2 fois par jour.',
+      alimentation: 'Carnivore : mysis, artémias, krill et chair de poisson, ainsi que des granulés carnés, 1 à 2 fois par jour.',
       tailleAdulte: '6 à 7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10182,7 +10182,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le pseudochromis royal (Pictichromis paccagnellae, anciennement Pseudochromis paccagnellae) est un petit poisson du Pacifique ouest, de Java et Sulawesi jusqu'au Vanuatu et à Palau. Son corps est violet à l'avant et jaune orangé à l'arrière, une coloration qui rappelle le gramma royal des Caraïbes. Il mesure environ 7 cm. Territorial, il se faufile entre les roches et défend son abri avec énergie.",
       conseil:
-        "Privilégiez un sujet né en élevage. Ne gardez qu'un seul individu, même dans un bac de taille moyenne : il attaque ses congénères et les poissons proches de sa forme. Introduisez-le en dernier, une fois la hiérarchie établie. Il peut capturer de petites crevettes et des juvéniles de poissons, et il est facilement agressif au moment de manger.",
+        "Privilégiez un sujet né en élevage. Ne gardez qu'un seul individu, même dans un bac de taille moyenne : il attaque ses congénères et les poissons proches de sa forme. Introduisez-le en dernier, une fois la hiérarchie établie. Il peut capturer de petites crevettes et des juvéniles de poissons, et il est facilement agressif au moment de manger.",
       volumeMinLitres: 120,
       tailleGroupeMin: 1,
       compatibilite: "Il s'accorde avec des poissons de tempérament assuré, comme les poissons-clowns, les gobies, les cardinaux ou les chirurgiens, qui s'éloignent facilement de lui.",
@@ -10192,7 +10192,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : mysis, artémias, krill et chair de poisson, ainsi que des granulés carnés, 1 à 2 fois par jour.',
+      alimentation: 'Carnivore : mysis, artémias, krill et chair de poisson, ainsi que des granulés carnés, 1 à 2 fois par jour.',
       tailleAdulte: '7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10216,7 +10216,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le gramma royal (Gramma loreto) est un petit poisson des Caraïbes, qui vit dans les anfractuosités des récifs. Sa moitié avant est violet vif et sa moitié arrière jaune doré, avec une fine ligne noire à travers l'œil. Il mesure 6 à 8 cm et nage souvent à l'envers sous les surplombs de roche, au milieu du bac près des cachettes. Son comportement est assez paisible, sauf avec les poissons de même forme.",
       conseil:
-        "Installez des surplombs et des cavités rocheuses dès l'introduction : sans abri, il reste caché ou stressé. Un seul individu convient dans un bac de taille moyenne, car les adultes se disputent le territoire. Il accepte facilement les aliments du commerce, mais veillez à ce que les poissons plus vifs ne lui volent pas sa part. Il peut sauter hors d'un bac ouvert.",
+        "Installez des surplombs et des cavités rocheuses dès l'introduction : sans abri, il reste caché ou stressé. Un seul individu convient dans un bac de taille moyenne, car les adultes se disputent le territoire. Il accepte facilement les aliments du commerce, mais veillez à ce que les poissons plus vifs ne lui volent pas sa part. Il peut sauter hors d'un bac ouvert.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: 'Il cohabite bien avec les poissons-clowns, les gobies, les blennies, les cardinaux et les demoiselles calmes. Coraux et invertébrés sont ignorés.',
@@ -10226,7 +10226,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore à tendance carnée : mysis, artémias, petites proies congelées et granulés marins, 1 à 2 fois par jour.',
+      alimentation: 'Omnivore à tendance carnée : mysis, artémias, petites proies congelées et granulés marins, 1 à 2 fois par jour.',
       tailleAdulte: '6 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10253,7 +10253,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'assessor bleu (Assessor macneilli) est un petit poisson cavernicole de la Grande Barrière de corail et de Nouvelle-Calédonie, qui se rassemble dans les grottes et sous les surplombs, souvent à l'envers. Son corps est bleu électrique, avec une nageoire caudale aux lobes allongés. Il mesure 6 cm. Il reste souvent près de son abri, au milieu du bac, et peut se montrer territorial envers ses congénères.",
       conseil:
-        "Fournissez de nombreuses cavités et surplombs : il passe l'essentiel de la journée à l'abri. Un seul individu est le choix le plus sûr, car les assessors se disputent le territoire ; un petit groupe n'est envisageable que dans un grand bac, introduit en une seule fois. Évitez les poissons rapides qui l'empêchent de manger, et nourrissez-le près de son abri. S'il maigrit ou reste immobile, cherchez un compétiteur alimentaire.",
+        "Fournissez de nombreuses cavités et surplombs : il passe l'essentiel de la journée à l'abri. Un seul individu est le choix le plus sûr, car les assessors se disputent le territoire ; un petit groupe n'est envisageable que dans un grand bac, introduit en une seule fois. Évitez les poissons rapides qui l'empêchent de manger, et nourrissez-le près de son abri. S'il maigrit ou reste immobile, cherchez un compétiteur alimentaire.",
       volumeMinLitres: 120,
       tailleGroupeMin: 1,
       compatibilite: 'Il se marie bien avec des poissons paisibles comme les gobies, les cardinaux, les gramma ou les poissons-clowns. Il accepte les coraux et les invertébrés.',
@@ -10263,7 +10263,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : mysis, artémias, krill et petites proies congelées, distribuées à proximité de ses abris, 1 à 2 fois par jour.',
+      alimentation: 'Carnivore : mysis, artémias, krill et petites proies congelées, distribuées à proximité de ses abris, 1 à 2 fois par jour.',
       tailleAdulte: '6 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10287,17 +10287,17 @@ export const ESPECES: Espece[] = [
       description:
         "La blennie bicolore (Ecsenius bicolor) est un petit poisson de l'Indo-Pacifique, qui vit sur les récifs en eau peu profonde, dans des tubes ou des trous abandonnés. Sa livrée sombre à l'avant devient orange ou brune à l'arrière, avec des flancs parfois rayés selon son humeur. Elle mesure environ 10 cm. Elle se perche sur les roches, d'où elle surveille son territoire, au fond du bac, et broute les algues du décor.",
       conseil:
-        "Fournissez des trous de la taille de sa tête (tubes ou roches percées) : elle s'y glisse dès qu'elle est inquiète et y dort. Gardez un couvercle sur le bac, car elle saute volontiers. Elle broute les algues du décor, mais complétez avec des paillettes végétales et de la nori. Ne la mélangez pas avec d'autres blennies, surtout si le bac est petit : elle les poursuit.",
+        "Fournissez des trous de la taille de sa tête (tubes ou roches percées) : elle s'y glisse dès qu'elle est inquiète et y dort. Gardez un couvercle sur le bac, car elle saute volontiers. Elle broute les algues du décor, mais complétez avec des paillettes végétales et de la nori. Ne la mélangez pas avec d'autres blennies, surtout si le bac est petit : elle les poursuit.",
       volumeMinLitres: 80,
       tailleGroupeMin: 1,
       compatibilite: "Elle s'entend avec les poissons-clowns, les gobies, les cardinaux, les gramma et les demoiselles paisibles. Les coraux et les crevettes ne risquent rien.",
-      incompatibilite: 'Évitez les autres blennies, avec lesquelles elle se dispute son territoire. Quelques cas de grignotage du manteau des bénitiers et de polypes charnus sont rapportés : surveillez-la en présence de bénitiers.',
+      incompatibilite: 'Évitez les autres blennies, avec lesquelles elle se dispute son territoire. Quelques cas de grignotage du manteau des bénitiers et de polypes charnus sont rapportés : surveillez-la en présence de bénitiers.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Surtout herbivore : algues du décor, nori, paillettes et granulés végétaux, avec un complément de mysis et d'artémias.",
+      alimentation: "Surtout herbivore : algues du décor, nori, paillettes et granulés végétaux, avec un complément de mysis et d'artémias.",
       tailleAdulte: 'Environ 10 cm (11 cm au maximum)',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10307,7 +10307,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Difficile",
-        description: "La blennie bicolore (Ecsenius bicolor) peut se reproduire en aquarium récifal établi. Le mâle occupe une grotte ou un trou dans le substrat et attire la femelle pour pondre. Les œufs sont gardés par le mâle. Les larves planctoniques sont difficiles à élever. Nourriture requise : rotifères enrichis puis nauplies d'artémia. Assurez de nombreuses grottes dans le bac. T° 25-27°C, densité 1.024-1.026.",
+        description: "La blennie bicolore (Ecsenius bicolor) peut se reproduire en aquarium récifal établi. Le mâle occupe une grotte ou un trou dans le substrat et attire la femelle pour pondre. Les œufs sont gardés par le mâle. Les larves planctoniques sont difficiles à élever. Nourriture requise : rotifères enrichis puis nauplies d'artémia. Assurez de nombreuses grottes dans le bac. T° 25-27°C, densité 1.024-1.026.",
       },
     },
   },
@@ -10325,7 +10325,7 @@ export const ESPECES: Espece[] = [
       description:
         "La blennie à queue fourchue (Meiacanthus atrodorsalis) vit dans le Pacifique ouest, de Bali et des Philippines aux Samoa. Elle mesure 8 à 11 cm, avec une livrée bleutée vers l'avant et jaune à l'arrière, une bande noire en diagonale à travers l'œil et une queue fourchue. Elle porte deux crocs sur la mâchoire inférieure reliés à des glandes à venin, qui la protègent des prédateurs. Active, elle nage à mi-hauteur au lieu de se poser comme les autres blennies.",
       conseil:
-        "Ses crocs sont reliés à des glandes à venin : elle peut mordre lors des manipulations, aussi transférez-la avec un récipient plutôt qu'avec une épuisette, où elle s'accroche. En cas de morsure suivie d'une douleur marquée, d'un gonflement ou d'un malaise, demandez rapidement un avis médical (15 ou 112 en cas de malaise). Gardez un couvercle sur le bac, car elle saute. En petit volume, ne conservez qu'un seul sujet : deux individus se battent.",
+        "Ses crocs sont reliés à des glandes à venin : elle peut mordre lors des manipulations, aussi transférez-la avec un récipient plutôt qu'avec une épuisette, où elle s'accroche. En cas de morsure suivie d'une douleur marquée, d'un gonflement ou d'un malaise, demandez rapidement un avis médical (15 ou 112 en cas de malaise). Gardez un couvercle sur le bac, car elle saute. En petit volume, ne conservez qu'un seul sujet : deux individus se battent.",
       volumeMinLitres: 120,
       tailleGroupeMin: 1,
       compatibilite: 'Elle cohabite avec la plupart des poissons de récif paisibles ou de caractère moyen. Les coraux et les invertébrés sont ignorés.',
@@ -10335,7 +10335,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : mysis, artémias, copépodes, paillettes et granulés marins, ainsi qu'un peu de nourriture végétale, 2 fois par jour.",
+      alimentation: "Omnivore : mysis, artémias, copépodes, paillettes et granulés marins, ainsi qu'un peu de nourriture végétale, 2 fois par jour.",
       tailleAdulte: '8 à 11 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10359,7 +10359,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le gobie clown (Gobiodon okinawae) est un minuscule gobie du Pacifique ouest, jaune citron uni à vert-jaune, long de 3 à 4 cm. Dans la nature, il vit perché sur des Acropora branchus et d'autres coraux ramifiés, parfois en petits groupes de 5 à 15 individus. Il se déplace par petits sauts sur le décor et reste plutôt statique. Discret, il se garde seul ou en couple en aquarium.",
       conseil:
-        "Installez-le dans un bac mature riche en micro-organismes, avec des coraux branchus ou des roches à surface irrégulière. Il peut refuser les aliments secs : proposez-lui du plancton congelé, des copépodes et des mysis finement hachés, en plusieurs petits repas. Évitez les courants violents près de lui et les poissons qui le dérangent. Stressé, notamment lors d'un transport en petit volume, il libère un mucus toxique qui peut intoxiquer les autres poissons du bac.",
+        "Installez-le dans un bac mature riche en micro-organismes, avec des coraux branchus ou des roches à surface irrégulière. Il peut refuser les aliments secs : proposez-lui du plancton congelé, des copépodes et des mysis finement hachés, en plusieurs petits repas. Évitez les courants violents près de lui et les poissons qui le dérangent. Stressé, notamment lors d'un transport en petit volume, il libère un mucus toxique qui peut intoxiquer les autres poissons du bac.",
       volumeMinLitres: 60,
       tailleGroupeMin: 1,
       compatibilite: 'Il cohabite bien avec les poissons paisibles et de petite taille comme les gramma, les cardinaux, les blennies et les gobies. Il tolère coraux et invertébrés.',
@@ -10369,7 +10369,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : copépodes, mysis finement hachés, artémias enrichis et petites proies vivantes ou congelées, distribués à proximité de lui en plusieurs petits repas.',
+      alimentation: 'Carnivore : copépodes, mysis finement hachés, artémias enrichis et petites proies vivantes ou congelées, distribués à proximité de lui en plusieurs petits repas.',
       tailleAdulte: '3 à 4 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10397,7 +10397,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le gobie néon (Elacatinus oceanops) est un minuscule gobie de l'Atlantique ouest, du sud de la Floride au golfe du Mexique et au Belize, long de 4 à 5 cm. Sa robe sombre est barrée d'une ligne bleu électrique qui court du museau à la queue. Dans la nature, il nettoie les parasites de poissons plus gros depuis des stations de nettoyage. Il se pose sur la roche, au fond du bac, et se déplace par petits bonds ; il est très largement produit en élevage.",
       conseil:
-        "Choisissez un sujet né en élevage, plus résistant et déjà habitué aux aliments du commerce. Introduisez-le seul, ou en couple formé : deux adultes non appariés peuvent se battre. Prévoyez une roche avec des surfaces plates où il pourra s'installer pour nettoyer ses voisins. Son appétit est faible : s'il maigrit, c'est souvent que les autres poissons lui prennent la nourriture.",
+        "Choisissez un sujet né en élevage, plus résistant et déjà habitué aux aliments du commerce. Introduisez-le seul, ou en couple formé : deux adultes non appariés peuvent se battre. Prévoyez une roche avec des surfaces plates où il pourra s'installer pour nettoyer ses voisins. Son appétit est faible : s'il maigrit, c'est souvent que les autres poissons lui prennent la nourriture.",
       volumeMinLitres: 60,
       tailleGroupeMin: 1,
       compatibilite: 'Il cohabite avec la plupart des poissons paisibles de récif, comme les poissons-clowns, les gramma, les cardinaux et les blennies. Il tolère coraux et invertébrés.',
@@ -10407,7 +10407,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Carnivore : mysis, artémias, petits copépodes et granulés fins, 1 à 2 fois par jour, en plus des parasites qu'il retire à ses voisins.",
+      alimentation: "Carnivore : mysis, artémias, petits copépodes et granulés fins, 1 à 2 fois par jour, en plus des parasites qu'il retire à ses voisins.",
       tailleAdulte: '4 à 5 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10431,17 +10431,17 @@ export const ESPECES: Espece[] = [
       description:
         "Le gobie nettoyeur de sable (Valenciennea strigata) est un gobie de l'Indo-Pacifique, au corps allongé clair rayé de bleu et à tête jaune doré. Il mesure 12 à 15 cm, jusqu'à 18 cm selon FishBase. Il passe son temps à filtrer le sable dans la bouche pour en extraire de petits organismes, qu'il recrache ensuite. Il se tient au fond du bac et vit en couple dans la nature.",
       conseil:
-        "Un bac mature, avec au moins 5 cm de sable fin et propre, est indispensable : en bac récent, la microfaune est insuffisante et il dépérit. Complétez son régime avec des mysis et des artémias congelés, que certains sujets acceptent difficilement. Recouvrez le bac, car il saute facilement. Il épuise la faune du sable : n'en prenez pas plus d'un par bac, sauf en grand volume.",
+        "Un bac mature, avec au moins 5 cm de sable fin et propre, est indispensable : en bac récent, la microfaune est insuffisante et il dépérit. Complétez son régime avec des mysis et des artémias congelés, que certains sujets acceptent difficilement. Recouvrez le bac, car il saute facilement. Il épuise la faune du sable : n'en prenez pas plus d'un par bac, sauf en grand volume.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
-      compatibilite: "Il s'associe aux poissons paisibles et à ceux qui ne vivent pas sur le sable : gramma, cardinaux, poissons-clowns, blennies. Il tolère les coraux et les crevettes.",
+      compatibilite: "Il s'associe aux poissons paisibles et à ceux qui ne vivent pas sur le sable : gramma, cardinaux, poissons-clowns, blennies. Il tolère les coraux et les crevettes.",
       incompatibilite: 'Évitez les poissons agressifs qui le harcèlent et les autres gobies fouilleurs de sable dans un petit bac.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore de microfaune : il fouille le sable pour en extraire des petits invertébrés (parfois des œufs de poissons), complétés par des mysis et des artémias, 1 à 2 fois par jour.',
+      alimentation: 'Carnivore de microfaune : il fouille le sable pour en extraire des petits invertébrés (parfois des œufs de poissons), complétés par des mysis et des artémias, 1 à 2 fois par jour.',
       tailleAdulte: "12 à 15 cm (jusqu'à 18 cm)",
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10469,7 +10469,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le gobie sifteur de sable (Amblygobius phalaena) est un gobie du Pacifique, des Philippines à la Polynésie, brun à beige avec de larges bandes sombres et claires le long du corps. Il mesure 10 à 15 cm. Il passe sa journée à prélever du sable avec sa bouche pour y chercher des micro-organismes et des algues. Il vit au fond du bac, seul ou en couple dans la nature, et reste très paisible.",
       conseil:
-        "Ne l'introduisez que dans un bac mature et bien peuplé en microfaune, avec du sable fin sur 5 cm au moins. Il est connu pour dépérir en quelques mois dans un bac trop propre : surveillez son ventre, qui doit rester rond. Proposez-lui des mysis, des artémias et des paillettes fines, mais sachez qu'ils ne remplacent pas la microfaune. Recouvrez le bac, car il saute.",
+        "Ne l'introduisez que dans un bac mature et bien peuplé en microfaune, avec du sable fin sur 5 cm au moins. Il est connu pour dépérir en quelques mois dans un bac trop propre : surveillez son ventre, qui doit rester rond. Proposez-lui des mysis, des artémias et des paillettes fines, mais sachez qu'ils ne remplacent pas la microfaune. Recouvrez le bac, car il saute.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
       compatibilite: 'Il cohabite avec des poissons paisibles, comme les gramma, les cardinaux, les poissons-clowns et les blennies. Coraux et invertébrés sont ignorés.',
@@ -10503,7 +10503,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le gobie à longs filaments (Stonogobiops nematodes) est un petit gobie de l'Indo-Pacifique (Philippines, Bali), blanc à bandes noires, long de 6 cm environ. Sa première nageoire dorsale se prolonge en un long filament qu'il déploie. Dans la nature, il partage un terrier avec la crevette fouisseuse Alpheus randalli. Il se tient au fond, près de son trou, et se retire à la moindre alerte.",
       conseil:
-        "Fournissez-lui du sable fin sur 5 cm au moins, avec des débris de corail ou des roches plates pour qu'il aménage un terrier. Introduisez-le seul ou en couple formé : deux sujets non appariés se disputent le terrier. Il s'associe volontiers à la crevette Alpheus randalli, mais ce n'est pas indispensable. Recouvrez le bac et évitez un courant fort sur le sable.",
+        "Fournissez-lui du sable fin sur 5 cm au moins, avec des débris de corail ou des roches plates pour qu'il aménage un terrier. Introduisez-le seul ou en couple formé : deux sujets non appariés se disputent le terrier. Il s'associe volontiers à la crevette Alpheus randalli, mais ce n'est pas indispensable. Recouvrez le bac et évitez un courant fort sur le sable.",
       volumeMinLitres: 80,
       tailleGroupeMin: 1,
       compatibilite: 'Il cohabite avec des poissons paisibles comme les gramma, les cardinaux, les blennies et les poissons-clowns. Il est compatible avec les crevettes fouisseuses du genre Alpheus.',
@@ -10513,7 +10513,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: 'Carnivore : mysis, artémias, copépodes et paillettes fines, 1 à 2 fois par jour, distribués près de son terrier.',
+      alimentation: 'Carnivore : mysis, artémias, copépodes et paillettes fines, 1 à 2 fois par jour, distribués près de son terrier.',
       tailleAdulte: '6 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10523,7 +10523,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Modérée",
-        description: "Le gobie à longs filaments (Nemateleotris magnifica) peut se reproduire en aquarium récifal. Le couple creuse un terrier dans le substrat où les œufs sont déposés et gardés. Les larves planctoniques sont difficiles à capturer et élever. Pour favoriser la reproduction : maintenez un couple établi, fournissez du gravier fin pour les terriers et évitez les perturbations. T° 25-27°C, densité 1.025.",
+        description: "Le gobie à longs filaments (Nemateleotris magnifica) peut se reproduire en aquarium récifal. Le couple creuse un terrier dans le substrat où les œufs sont déposés et gardés. Les larves planctoniques sont difficiles à capturer et élever. Pour favoriser la reproduction : maintenez un couple établi, fournissez du gravier fin pour les terriers et évitez les perturbations. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -10541,7 +10541,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'anthias à écailles carrées (Pseudanthias squamipinnis) est un poisson planctonophage de l'Indo-Pacifique, de la mer Rouge et de l'Afrique du Sud au Pacifique. Les femelles, orange doré, mesurent 7 à 10 cm et vivent en grands bancs dominés par un mâle magenta à rayon dorsal allongé, qui atteint 13 à 15 cm. Il nage à mi-hauteur au-dessus du récif. Ce poisson grégaire n'est spectaculaire en bac qu'en groupe.",
       conseil:
-        "Prévoyez au moins cinq individus, en majorité des femelles et avec un seul mâle : un sujet isolé dépérit, et deux mâles se battent. Nourrissez-le de petites proies 2 à 3 fois par jour, ce qui exige un bac bien filtré. Il est sensible au stress du transport et peut refuser de manger les premiers jours : proposez-lui des mysis et des artémias enrichis. Un couvercle est utile : effrayé, il peut sauter hors du bac.",
+        "Prévoyez au moins cinq individus, en majorité des femelles et avec un seul mâle : un sujet isolé dépérit, et deux mâles se battent. Nourrissez-le de petites proies 2 à 3 fois par jour, ce qui exige un bac bien filtré. Il est sensible au stress du transport et peut refuser de manger les premiers jours : proposez-lui des mysis et des artémias enrichis. Un couvercle est utile : effrayé, il peut sauter hors du bac.",
       volumeMinLitres: 400,
       tailleGroupeMin: 5,
       compatibilite: "Il s'associe aux poissons paisibles de récif comme les gobies, les poissons-clowns, les cardinaux et les chirurgiens calmes. Coraux et invertébrés sont ignorés.",
@@ -10551,7 +10551,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Planctonophage : mysis, artémias enrichis, krill, copépodes et granulés fins, à raison de 2 à 3 repas par jour.',
+      alimentation: 'Planctonophage : mysis, artémias enrichis, krill, copépodes et granulés fins, à raison de 2 à 3 repas par jour.',
       tailleAdulte: 'Femelles 7 à 10 cm, mâle 13 à 15 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10574,17 +10574,17 @@ export const ESPECES: Espece[] = [
       description:
         "Le cardinal pyjama (Sphaeramia nematoptera) vit dans les lagons de l'Indo-Pacifique, de Java aux Fidji. Il mesure 7 à 8 cm, avec une tête argentée, une large bande noire au milieu du corps et un arrière orangé parsemé de petits points rouges. Il forme des bancs qui se reposent le jour parmi les branches de coraux ou près des roches. Poisson paisible et peu actif, il reste calme au milieu du bac.",
       conseil:
-        "Introduisez-le en groupe de 3 à 5 sujets, qui se tiennent ensemble et se montrent moins timides qu'un individu isolé. Installez des abris et des surplombs pour qu'il puisse s'y réfugier le jour ; il est surtout actif au crépuscule. Il accepte facilement les aliments du commerce, à condition de ne pas être privé par des compagnons plus rapides. Les mâles incubent les œufs dans la bouche : ne le dérangez pas pendant cette période.",
+        "Introduisez-le en groupe de 3 à 5 sujets, qui se tiennent ensemble et se montrent moins timides qu'un individu isolé. Installez des abris et des surplombs pour qu'il puisse s'y réfugier le jour ; il est surtout actif au crépuscule. Il accepte facilement les aliments du commerce, à condition de ne pas être privé par des compagnons plus rapides. Les mâles incubent les œufs dans la bouche : ne le dérangez pas pendant cette période.",
       volumeMinLitres: 150,
       tailleGroupeMin: 3,
-      compatibilite: "Il s'entend avec la grande majorité des poissons paisibles de récif : gobies, gramma, poissons-clowns, blennies. Il tolère coraux et invertébrés.",
+      compatibilite: "Il s'entend avec la grande majorité des poissons paisibles de récif : gobies, gramma, poissons-clowns, blennies. Il tolère coraux et invertébrés.",
       incompatibilite: 'Évitez les poissons agressifs ou très rapides qui le stressent ou le privent de nourriture, ainsi que les gros prédateurs de petits poissons.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Carnivore : mysis, artémias, krill et granulés fins, 1 à 2 fois par jour, de préférence le soir.',
+      alimentation: 'Carnivore : mysis, artémias, krill et granulés fins, 1 à 2 fois par jour, de préférence le soir.',
       tailleAdulte: '7 à 8 cm (8,5 cm au maximum)',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10611,7 +10611,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-ange bicolore (Centropyge bicolor) est un poisson-ange nain de l'Indo-Pacifique, très répandu dans le Pacifique ouest. Sa moitié avant est jaune, sa moitié arrière bleu foncé, avec un masque bleu autour de l'œil. Il mesure 12 à 15 cm et explore les roches à la recherche d'algues et d'éponges, au milieu du bac. Territorial et assez robuste, il reste un poisson-ange qui peut grignoter les coraux.",
       conseil:
-        "Introduisez-le dans un bac mature, riche en algues et micro-organismes sur la roche, qui lui servent de garde-manger. Ne le mélangez pas avec d'autres poissons-anges nains dans moins de 400 L : il les harcèle. Le risque pour les coraux est réel : il peut grignoter les coraux charnus, les LPS, les zoanthaires et le manteau des bénitiers, ce qui le réserve aux bacs où ce risque est accepté. Un poisson amaigri ou des taches blanches sont un signal d'alerte à traiter vite.",
+        "Introduisez-le dans un bac mature, riche en algues et micro-organismes sur la roche, qui lui servent de garde-manger. Ne le mélangez pas avec d'autres poissons-anges nains dans moins de 400 L : il les harcèle. Le risque pour les coraux est réel : il peut grignoter les coraux charnus, les LPS, les zoanthaires et le manteau des bénitiers, ce qui le réserve aux bacs où ce risque est accepté. Un poisson amaigri ou des taches blanches sont un signal d'alerte à traiter vite.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Il s'associe à des poissons de récif de taille comparable, comme les poissons-clowns, les gobies, les gramma ou les chirurgiens peu agressifs.",
@@ -10621,7 +10621,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : algues du décor, nori et granulés végétaux, complétés par des mysis, des artémias et des préparations à base d'éponge, 2 fois par jour.",
+      alimentation: "Omnivore : algues du décor, nori et granulés végétaux, complétés par des mysis, des artémias et des préparations à base d'éponge, 2 fois par jour.",
       tailleAdulte: '12 à 15 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10645,7 +10645,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-ange citron (Centropyge flavissima) est un poisson-ange nain d'un jaune uni, avec un liseré bleu autour de l'œil et sur les nageoires. Il vit sur les récifs du Pacifique ouest et central, jusqu'aux îles Cocos-Keeling et Christmas dans l'océan Indien oriental. Il mesure 10 à 14 cm et occupe le milieu du bac, entre les roches, qu'il surveille avec vigilance. C'est un poisson territorial et plutôt sensible au stress.",
       conseil:
-        "Privilégiez un sujet qui mange déjà en magasin, et introduisez-le dans un bac mature, riche en algues, pour qu'il puisse brouter. Il est sensible à la maladie des points blancs : une quarantaine est utile. Ne le mélangez pas avec d'autres poissons-anges nains dans un bac de moins de 400 L. Il peut grignoter les coraux charnus et les manteaux de bénitiers, aussi observez son comportement les premiers mois.",
+        "Privilégiez un sujet qui mange déjà en magasin, et introduisez-le dans un bac mature, riche en algues, pour qu'il puisse brouter. Il est sensible à la maladie des points blancs : une quarantaine est utile. Ne le mélangez pas avec d'autres poissons-anges nains dans un bac de moins de 400 L. Il peut grignoter les coraux charnus et les manteaux de bénitiers, aussi observez son comportement les premiers mois.",
       volumeMinLitres: 250,
       tailleGroupeMin: 1,
       compatibilite: "Il s'accorde avec des poissons de récif calmes ou de taille comparable, comme les gobies, les gramma, les poissons-clowns et les chirurgiens peu agressifs.",
@@ -10655,7 +10655,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : algues du décor, nori et granulés végétaux, complétés par des mysis, des artémias et des préparations à base d'éponge, 2 fois par jour.",
+      alimentation: "Omnivore : algues du décor, nori et granulés végétaux, complétés par des mysis, des artémias et des préparations à base d'éponge, 2 fois par jour.",
       tailleAdulte: '10 à 14 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10683,7 +10683,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-ange cherub (Centropyge argi) est un poisson-ange nain de l'Atlantique ouest, des Bermudes et de la Floride à la Guyane française, golfe du Mexique et Caraïbes compris. Il mesure 7 à 8 cm, avec un corps bleu nuit et une face orange à jaune. Il explore le décor rocheux au milieu du bac et passe l'essentiel de son temps à brouter les algues. Plus petit que les autres poissons-anges nains, il peut néanmoins se montrer territorial.",
       conseil:
-        "Introduisez-le dans un bac mature, riche en algues sur la roche. Il est souvent considéré comme l'un des poissons-anges nains les moins nuisibles aux coraux, mais il peut grignoter les coraux à gros polypes et le manteau d'un bénitier : observez-le les premières semaines. Évitez de lui associer un autre poisson-ange nain dans un bac inférieur à 400 L. Offrez-lui des abris : s'il se cache trop longtemps ou refuse de manger, vérifiez la qualité de l'eau.",
+        "Introduisez-le dans un bac mature, riche en algues sur la roche. Il est souvent considéré comme l'un des poissons-anges nains les moins nuisibles aux coraux, mais il peut grignoter les coraux à gros polypes et le manteau d'un bénitier : observez-le les premières semaines. Évitez de lui associer un autre poisson-ange nain dans un bac inférieur à 400 L. Offrez-lui des abris : s'il se cache trop longtemps ou refuse de manger, vérifiez la qualité de l'eau.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Il se marie à des poissons de récif paisibles ou de même taille, comme les gobies, les gramma, les poissons-clowns et les cardinaux.',
@@ -10693,7 +10693,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : algues du décor, nori et granulés végétaux, complétés par des mysis, des artémias et des préparations à base d'éponge, 2 fois par jour.",
+      alimentation: "Omnivore : algues du décor, nori et granulés végétaux, complétés par des mysis, des artémias et des préparations à base d'éponge, 2 fois par jour.",
       tailleAdulte: '7 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10716,7 +10716,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-ange de Bellus (Genicanthus bellus) est un poisson-ange du Pacifique ouest et de l'océan Indien oriental, qui vit sur les pentes profondes du récif. Le mâle et la femelle, qui diffèrent nettement par leur coloration, mesurent 15 à 18 cm. Contrairement aux poissons-anges nains, il se nourrit de plancton et nage à mi-hauteur, ce qui le rend peu dangereux pour les coraux. Il reste coûteux, rarement exporté et délicat à acclimater après une pêche en eau profonde.",
       conseil:
-        "Réservez-le à un grand bac mature et paisible, car il est très sensible au stress et à l'agressivité des poissons rapides. Proposez-lui des mysis, des artémias enrichis et des petites particules à plusieurs reprises dans la journée : il maigrit vite s'il est privé. Choisissez un sujet qui mange déjà en magasin. Gardez un couvercle sur le bac, car il saute.",
+        "Réservez-le à un grand bac mature et paisible, car il est très sensible au stress et à l'agressivité des poissons rapides. Proposez-lui des mysis, des artémias enrichis et des petites particules à plusieurs reprises dans la journée : il maigrit vite s'il est privé. Choisissez un sujet qui mange déjà en magasin. Gardez un couvercle sur le bac, car il saute.",
       volumeMinLitres: 500,
       tailleGroupeMin: 1,
       compatibilite: "Il s'associe aux poissons paisibles de récif, comme les gobies, les cardinaux, les anthias et les poissons-clowns calmes. Il est généralement compatible avec les coraux.",
@@ -10726,7 +10726,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Planctonophage : mysis, artémias enrichis, copépodes et granulés fins, à raison de 3 repas par jour, complétés par un peu de nourriture végétale.',
+      alimentation: 'Planctonophage : mysis, artémias enrichis, copépodes et granulés fins, à raison de 3 repas par jour, complétés par un peu de nourriture végétale.',
       tailleAdulte: '15 à 18 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10754,7 +10754,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le chirurgien pourpre (Zebrasoma xanthurum) est un chirurgien de la mer Rouge, du golfe d'Aden et du golfe Persique. Il mesure 20 à 25 cm, avec un corps bleu-violet, une face piquetée de bleu clair et une queue jaune. Il broute les algues sur les roches et circule à tous les niveaux du bac. Il est très territorial envers les autres chirurgiens, surtout ceux de forme voisine.",
       conseil:
-        "Manipulez-le avec précaution : les épines tranchantes près de la queue peuvent couper la main de l'aquariophile, utilisez des gants et un récipient. En cas de coupure profonde ou qui saigne abondamment, nettoyez la plaie et demandez un avis médical. Introduisez-le en dernier, dans un grand bac aux roches ajourées, et prévoyez une quarantaine car il est sensible à la maladie des points blancs après un transfert. Proposez des algues séchées tous les jours : un sujet maigre ou à ventre creux est un signal d'alerte.",
+        "Manipulez-le avec précaution : les épines tranchantes près de la queue peuvent couper la main de l'aquariophile, utilisez des gants et un récipient. En cas de coupure profonde ou qui saigne abondamment, nettoyez la plaie et demandez un avis médical. Introduisez-le en dernier, dans un grand bac aux roches ajourées, et prévoyez une quarantaine car il est sensible à la maladie des points blancs après un transfert. Proposez des algues séchées tous les jours : un sujet maigre ou à ventre creux est un signal d'alerte.",
       volumeMinLitres: 500,
       tailleGroupeMin: 1,
       compatibilite: "Il s'accorde avec des poissons de récif robustes mais calmes, d'une autre forme, comme les poissons-clowns, les gobies ou les anthias. Les coraux sont ignorés.",
@@ -10764,7 +10764,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Herbivore : algues du décor, nori et algues séchées, complétées par des granulés végétaux, plusieurs fois par jour.',
+      alimentation: 'Herbivore : algues du décor, nori et algues séchées, complétées par des granulés végétaux, plusieurs fois par jour.',
       tailleAdulte: '20 à 25 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10788,7 +10788,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le chirurgien voile (Zebrasoma velifer) est un chirurgien du Pacifique et de l'est de l'océan Indien, reconnaissable à ses grandes nageoires dorsale et anale qui s'étalent comme des voiles. Son corps clair à jaunâtre est barré de larges bandes verticales brun foncé. Il peut dépasser 30 cm et atteindre 40 cm. Il broute les macroalgues sur tous les niveaux du récif, ce qui le destine à un très grand volume, et se montre souvent territorial envers ses congénères.",
       conseil:
-        "Ne l'achetez pas jeune pour un petit bac : sa taille adulte exige un très grand volume et de longs espaces de nage. Manipulez-le avec précaution : les épines près de la queue peuvent causer des coupures, utilisez des gants et un récipient ; en cas de coupure profonde ou qui saigne abondamment, nettoyez la plaie et demandez un avis médical. Il est sensible à la maladie des points blancs après un transfert : une quarantaine est utile. Il broute vite les algues du décor : offrez-lui de la nori ou des algues séchées chaque jour.",
+        "Ne l'achetez pas jeune pour un petit bac : sa taille adulte exige un très grand volume et de longs espaces de nage. Manipulez-le avec précaution : les épines près de la queue peuvent causer des coupures, utilisez des gants et un récipient ; en cas de coupure profonde ou qui saigne abondamment, nettoyez la plaie et demandez un avis médical. Il est sensible à la maladie des points blancs après un transfert : une quarantaine est utile. Il broute vite les algues du décor : offrez-lui de la nori ou des algues séchées chaque jour.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 1,
       compatibilite: "Il s'accorde avec des poissons de récif robustes d'une autre forme, comme les poissons-clowns, les gobies ou les anthias, dans un grand bac. Coraux et invertébrés sont généralement ignorés.",
@@ -10798,7 +10798,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Herbivore : algues du décor, nori et algues séchées, complétées par des granulés végétaux, plusieurs fois par jour.',
+      alimentation: 'Herbivore : algues du décor, nori et algues séchées, complétées par des granulés végétaux, plusieurs fois par jour.',
       tailleAdulte: '30 à 40 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10826,7 +10826,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le chirurgien kole est un poisson brun-gris, orné de fines lignes horizontales claires et d'un anneau jaune autour de l'œil, originaire surtout d'Hawaï et du Pacifique central. Il appartient aux chirurgiens à dents en pinceau, qui raclent la pellicule d'algues, de diatomées et de détritus sur la roche plutôt que de brouter de grandes algues. Son tempérament est plus calme que celui de la plupart des chirurgiens et sa taille reste modeste, autour de 15 à 18 cm. Il est très apprécié en bac récifal pour contenir les algues filamenteuses.",
       conseil:
-        "Choisissez un bac mature, avec de la roche vive couverte d'un film d'algues, car il y broute toute la journée et maigrit vite dans un aquarium neuf et trop propre. Complétez avec des algues séchées fixées sur une pince et des granulés végétaux marins. Faites-le passer par une quarantaine, comme tous les chirurgiens, et introduisez-le en dernier si le bac abrite déjà d'autres Acanthuridés. Le scalpel de son pédoncule caudal est discret mais capable de blesser : utilisez une épuisette et des gants pour toute manipulation.",
+        "Choisissez un bac mature, avec de la roche vive couverte d'un film d'algues, car il y broute toute la journée et maigrit vite dans un aquarium neuf et trop propre. Complétez avec des algues séchées fixées sur une pince et des granulés végétaux marins. Faites-le passer par une quarantaine, comme tous les chirurgiens, et introduisez-le en dernier si le bac abrite déjà d'autres Acanthuridés. Le scalpel de son pédoncule caudal est discret mais capable de blesser : utilisez une épuisette et des gants pour toute manipulation.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de récif paisibles à semi-agressifs ; d'autres chirurgiens sont possibles dans un bac de plus de 500 L, introduits avec précaution.",
@@ -10836,7 +10836,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Brouteur de film algal et de détritus : algues séchées, spiruline et granulés végétaux, avec un peu de mysis en complément.',
+      alimentation: 'Brouteur de film algal et de détritus : algues séchées, spiruline et granulés végétaux, avec un peu de mysis en complément.',
       tailleAdulte: '15 à 18 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10860,7 +10860,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le chirurgien bleu poudre arbore un bleu éclatant, une face noire, une bavette blanche et une nageoire dorsale jaune vif. Originaire de l'océan Indien, il atteint 20 à 25 cm en aquarium et nage en permanence sur de longues distances. Brouteur d'algues au tempérament vif, il est souvent agressif envers les autres chirurgiens et envers ses congénères. Sa grande sensibilité aux parasites cutanés en fait un poisson réservé aux aquariophiles expérimentés.",
       conseil:
-        "Imposez-lui une quarantaine rigoureuse de plusieurs semaines : il est très exposé à la maladie des points blancs, surtout après le transport. Offrez-lui un bac long (au moins 1,5 à 2 m), avec de larges zones de nage libre, des abris et des algues à brouter en permanence. Introduisez-le en dernier, ou en même temps que les autres chirurgiens, pour limiter les conflits. Son scalpel caudal est acéré : manipulez-le avec une épuisette et des gants.",
+        "Imposez-lui une quarantaine rigoureuse de plusieurs semaines : il est très exposé à la maladie des points blancs, surtout après le transport. Offrez-lui un bac long (au moins 1,5 à 2 m), avec de larges zones de nage libre, des abris et des algues à brouter en permanence. Introduisez-le en dernier, ou en même temps que les autres chirurgiens, pour limiter les conflits. Son scalpel caudal est acéré : manipulez-le avec une épuisette et des gants.",
       volumeMinLitres: 600,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif de taille comparable et peu territoriaux, dans un grand bac bien aménagé.',
@@ -10870,7 +10870,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Herbivore : algues séchées (nori, spiruline), macroalgues fraîches et granulés végétaux, avec un complément carné occasionnel (mysis).',
+      alimentation: 'Herbivore : algues séchées (nori, spiruline), macroalgues fraîches et granulés végétaux, avec un complément carné occasionnel (mysis).',
       tailleAdulte: '20 à 25 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10898,7 +10898,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le nason à licorne, aussi appelé naso tang, est un grand poisson de l'Indo-Pacifique au corps gris-vert, à la tête plus claire et à la nageoire dorsale marquée de jaune, avec deux éperons orange vif sur le pédoncule caudal. Il atteint 30 à 45 cm et nage sans cesse sur de longues distances. Brouteur d'algues très actif, il est utile en bac récifal, mais ses dimensions le réservent aux très grands volumes.",
       conseil:
-        "Prévoyez un bac de 1 000 L ou plus, long d'au moins 2,5 m, car un volume plus petit entraîne stress, maladie et agressivité. Une quarantaine est indispensable, car il est sujet à la maladie des points blancs et aux parasites branchiaux. Servez chaque jour des algues séchées et des macroalgues fraîches pour qu'il ne maigrisse pas. Ses deux éperons caudaux sont tranchants : utilisez une épuisette et des gants.",
+        "Prévoyez un bac de 1 000 L ou plus, long d'au moins 2,5 m, car un volume plus petit entraîne stress, maladie et agressivité. Une quarantaine est indispensable, car il est sujet à la maladie des points blancs et aux parasites branchiaux. Servez chaque jour des algues séchées et des macroalgues fraîches pour qu'il ne maigrisse pas. Ses deux éperons caudaux sont tranchants : utilisez une épuisette et des gants.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 1,
       compatibilite: "Grands poissons de récif paisibles à semi-agressifs, dans un bac de grande longueur. D'autres chirurgiens sont possibles s'ils sont introduits ensemble, avec assez d'espace.",
@@ -10908,7 +10908,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Brouteur : algues séchées, macroalgues fraîches et spiruline, avec granulés végétaux et mysis en complément.',
+      alimentation: 'Brouteur : algues séchées, macroalgues fraîches et spiruline, avec granulés végétaux et mysis en complément.',
       tailleAdulte: '30 à 45 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10931,7 +10931,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le labre fée de Scott est un petit labre du Pacifique sud-ouest et central, d'environ 10 à 12 cm. Le mâle arbore des couleurs vives, dominées par le rouge et l'orangé, et une dorsale qu'il déploie pour courtiser les femelles, plus ternes. Très actif, il nage dans la colonne d'eau et se glisse entre les roches. Il vit en harem, avec un seul mâle accompagné de plusieurs femelles.",
       conseil:
-        "Couvrez soigneusement l'aquarium : comme tous les Cirrhilabrus, il saute à la moindre frayeur. Installez-le dans un bac avec de la roche et du sable fin, où il se réfugie la nuit. Répartissez la nourriture carnée en plusieurs petits repas par jour pour qu'il ne maigrisse pas. Évitez de réunir plusieurs mâles, sauf dans un très grand bac.",
+        "Couvrez soigneusement l'aquarium : comme tous les Cirrhilabrus, il saute à la moindre frayeur. Installez-le dans un bac avec de la roche et du sable fin, où il se réfugie la nuit. Répartissez la nourriture carnée en plusieurs petits repas par jour pour qu'il ne maigrisse pas. Évitez de réunir plusieurs mâles, sauf dans un très grand bac.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Gobies, demoiselles paisibles, anthias et autres labres fées dans un bac spacieux, à raison d'un seul mâle par espèce.",
@@ -10941,7 +10941,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : mysis, artémias, copépodes et plancton congelés, avec des granulés marins fins, distribués 2 à 3 fois par jour.',
+      alimentation: 'Carnivore : mysis, artémias, copépodes et plancton congelés, avec des granulés marins fins, distribués 2 à 3 fois par jour.',
       tailleAdulte: '10 à 12 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -10951,7 +10951,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "Le labre fée de Scott (Cirrhilabrus scottorum) peut frayer en grand bac récifal mais les larves planctoniques sont quasi-impossibles à élever en amateur. Les labres sont hermaphrodites protogyniques : la femelle dominante devient mâle. Observez les parades nuptiales en fin d'après-midi. Des éleveurs très spécialisés ont obtenu quelques succès avec des protocoles très précis d'élevage larvaire (copépodes, microalgues). Pour la majorité des aquariophiles, la reproduction n'est pas réaliste.",
+        description: "Le labre fée de Scott (Cirrhilabrus scottorum) peut frayer en grand bac récifal mais les larves planctoniques sont quasi-impossibles à élever en amateur. Les labres sont hermaphrodites protogyniques : la femelle dominante devient mâle. Observez les parades nuptiales en fin d'après-midi. Des éleveurs très spécialisés ont obtenu quelques succès avec des protocoles très précis d'élevage larvaire (copépodes, microalgues). Pour la majorité des aquariophiles, la reproduction n'est pas réaliste.",
       },
     },
   },
@@ -10972,14 +10972,14 @@ export const ESPECES: Espece[] = [
         "Couvrez le bac, car ce labre saute facilement lorsqu'il est effrayé. Introduisez un seul mâle avec au moins deux ou trois femelles, de préférence ensemble ; deux mâles se battent, sauf dans un très grand bac. Il a besoin de plusieurs petits repas par jour (mysis, copépodes), faute de quoi il maigrit. Laissez une zone de nage dégagée au-dessus du décor de roche pour favoriser les parades.",
       volumeMinLitres: 250,
       tailleGroupeMin: 3,
-      compatibilite: 'Poissons de récif paisibles : gobies, poissons-clowns, anthias et autres labres fées introduits avec précaution.',
+      compatibilite: 'Poissons de récif paisibles : gobies, poissons-clowns, anthias et autres labres fées introduits avec précaution.',
       incompatibilite: 'Les poissons agressifs ou voraces (balistes, gros labres), deux mâles dans un bac de petit volume et les aquariums non couverts.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : mysis, artémias, copépodes et plancton congelés, avec des granulés fins, en 2 à 3 petits repas par jour.',
+      alimentation: 'Carnivore : mysis, artémias, copépodes et plancton congelés, avec des granulés fins, en 2 à 3 petits repas par jour.',
       tailleAdulte: '7 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11013,7 +11013,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: 'Carnivore : petits crustacés et vers de la roche, avec mysis, artémias et granulés marins.',
+      alimentation: 'Carnivore : petits crustacés et vers de la roche, avec mysis, artémias et granulés marins.',
       tailleAdulte: '8 à 10 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11051,7 +11051,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: 'Carnivore : mysis, artémias, plancton et granulés fins, avec les petits crustacés de la roche.',
+      alimentation: 'Carnivore : mysis, artémias, plancton et granulés fins, avec les petits crustacés de la roche.',
       tailleAdulte: '10 à 12 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11074,7 +11074,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le labre léopard est un petit labre de l'Indo-Pacifique de 12 à 15 cm, dont la robe tachetée diffère nettement entre le mâle et la femelle. Il fouille sans cesse la roche et le sable à la recherche de petits crustacés, de vers et de copépodes. Magnifique mais délicat, il compte parmi les labres les plus difficiles à maintenir en aquarium. Sa survie dépend presque entièrement de la richesse en microfaune du bac.",
       conseil:
-        "Réservez-le à un bac mature, installé depuis plus de six mois, avec de la roche vive, un sable fin vivant et une population de copépodes bien établie. Évitez d'acheter un sujet prélevé dans la nature si un autre choix existe : beaucoup dépérissent faute de trouver assez de proies vivantes. Proposez de petits repas fréquents de mysis, de copépodes et de plancton, et vérifiez qu'il mange avant de l'acheter. Un poisson amaigri, qui ne cherche plus sa nourriture sur la roche, est déjà en danger.",
+        "Réservez-le à un bac mature, installé depuis plus de six mois, avec de la roche vive, un sable fin vivant et une population de copépodes bien établie. Évitez d'acheter un sujet prélevé dans la nature si un autre choix existe : beaucoup dépérissent faute de trouver assez de proies vivantes. Proposez de petits repas fréquents de mysis, de copépodes et de plancton, et vérifiez qu'il mange avant de l'acheter. Un poisson amaigri, qui ne cherche plus sa nourriture sur la roche, est déjà en danger.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles et petits invertébrés dans un bac mature, sans concurrence alimentaire marquée.',
@@ -11084,7 +11084,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Micro-prédateur : copépodes, amphipodes et petits crustacés de la roche, complétés par mysis, artémias enrichies et plancton congelé.',
+      alimentation: 'Micro-prédateur : copépodes, amphipodes et petits crustacés de la roche, complétés par mysis, artémias enrichies et plancton congelé.',
       tailleAdulte: '12 à 15 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11146,7 +11146,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-comète est un poisson discret de l'Indo-Pacifique, brun-noir, semé de points bleu clair et marqué d'une grande tache ocellée à la base de la dorsale. Quand il est menacé, il glisse la tête dans une cavité et déploie ses nageoires dont l'ocelle évoque la tête d'une murène. Il mesure 15 à 16 cm, vit en retrait dans les anfractuosités et chasse surtout à la tombée de la nuit. Peu agressif, il avale tout ce qu'il peut engloutir, petits poissons et crevettes compris.",
       conseil:
-        "Fournissez de nombreuses cavités et grottes en roche où il se retire la journée. Sa timidité le pousse souvent à refuser de manger au début : proposez de petites proies vivantes, puis habituez-le au congelé à la tombée de la nuit. Installez-le dans un bac calme, avec peu de concurrents alimentaires, et vérifiez qu'il se nourrit réellement. Les petites crevettes et les petits poissons font partie de ses proies.",
+        "Fournissez de nombreuses cavités et grottes en roche où il se retire la journée. Sa timidité le pousse souvent à refuser de manger au début : proposez de petites proies vivantes, puis habituez-le au congelé à la tombée de la nuit. Installez-le dans un bac calme, avec peu de concurrents alimentaires, et vérifiez qu'il se nourrit réellement. Les petites crevettes et les petits poissons font partie de ses proies.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles de taille supérieure ou égale à la sienne, qui ne lui disputent ni la nourriture ni les cachettes.',
@@ -11156,7 +11156,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore nocturne : petits poissons et crustacés vivants, mysis, crevettes et morceaux de poisson congelés.',
+      alimentation: 'Carnivore nocturne : petits poissons et crustacés vivants, mysis, crevettes et morceaux de poisson congelés.',
       tailleAdulte: '15 à 16 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11184,7 +11184,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-cocher est un poisson-papillon de grande taille de l'Indo-Pacifique, au corps argenté barré de deux larges bandes noires et prolongé par un long filament dorsal blanc. Il atteint 20 à 25 cm. Sociable, il vit souvent en banc dans la nature, alors qu'en aquarium on le garde seul ou en petit groupe dans un grand bac. Facilement confondu avec Heniochus diphreutes, c'est l'un des Chaetodontidés les plus rustiques.",
       conseil:
-        "Choisissez un sujet qui mange déjà sous vos yeux : certains refusent toute nourriture après le transport et perdent vite du poids. Variez les repas (mysis, spiruline, artémias, plancton) et distribuez-les 2 à 3 fois par jour. Surveillez-le près des coraux mous, des zoanthaires et des vers tubicoles, qu'il peut grignoter. Prévoyez un bac de plus de 400 L, avec de la roche pour s'abriter et de la place pour nager.",
+        "Choisissez un sujet qui mange déjà sous vos yeux : certains refusent toute nourriture après le transport et perdent vite du poids. Variez les repas (mysis, spiruline, artémias, plancton) et distribuez-les 2 à 3 fois par jour. Surveillez-le près des coraux mous, des zoanthaires et des vers tubicoles, qu'il peut grignoter. Prévoyez un bac de plus de 400 L, avec de la roche pour s'abriter et de la place pour nager.",
       volumeMinLitres: 400,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons-anges nains paisibles, labres, demoiselles et chirurgiens dans un grand bac.',
@@ -11194,7 +11194,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Omnivore : mysis, artémias, plancton, spiruline et algues, en petits repas répartis dans la journée.',
+      alimentation: 'Omnivore : mysis, artémias, plancton, spiruline et algues, en petits repas répartis dans la journée.',
       tailleAdulte: '20 à 25 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11217,7 +11217,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le baliste picasso est un baliste de 20 à 30 cm de l'Indo-Pacifique, dont la robe bleu-vert, jaune et noire, rehaussée de lignes bleues sur le museau, évoque une toile abstraite. Il vit près du fond, dans les zones sableuses et rocheuses peu profondes, et il est souvent vu les nageoires dressées. C'est l'un des balistes les plus courants en aquarium. Il reste territorial et peut mordre, notamment pendant la période de reproduction.",
       conseil:
-        "Réservez-le à un bac sans coraux ni invertébrés d'ornement, car il croque crustacés, mollusques, oursins et vers tubicoles. Calez solidement la roche, car il déplace les pierres, et prévoyez des cachettes où il se coince la nuit en dressant sa dorsale. Introduisez-le en dernier, seul ou avec des poissons robustes, et ne mélangez pas plusieurs balistes dans un bac de moins de 1 000 L. Soyez prudent lors des interventions dans le bac : il peut mordre.",
+        "Réservez-le à un bac sans coraux ni invertébrés d'ornement, car il croque crustacés, mollusques, oursins et vers tubicoles. Calez solidement la roche, car il déplace les pierres, et prévoyez des cachettes où il se coince la nuit en dressant sa dorsale. Introduisez-le en dernier, seul ou avec des poissons robustes, et ne mélangez pas plusieurs balistes dans un bac de moins de 1 000 L. Soyez prudent lors des interventions dans le bac : il peut mordre.",
       volumeMinLitres: 400,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons robustes de taille voisine (chirurgiens, poissons-lapins, gros labres) dans un bac sans récif.',
@@ -11227,7 +11227,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : crevettes en coque, moules, calmar, poisson et mysis en morceaux, qui usent aussi ses dents.',
+      alimentation: 'Carnivore : crevettes en coque, moules, calmar, poisson et mysis en morceaux, qui usent aussi ses dents.',
       tailleAdulte: '20 à 30 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11237,7 +11237,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "La reproduction du baliste picasso (Rhinecanthus aculeatus) en aquarium est extrêmement rare. Cette espèce très territoriale est difficile à maintenir en couple. Dans la nature, elle creuse des nids dans le sable dans lesquels la femelle pond et que les deux parents défendent férocement. Les larves planctoniques sont difficiles à élever. Les adultes sont extrêmement agressifs : en période de reproduction, ils peuvent mordre même les bras de l'aquariophile. À réserver aux experts.",
+        description: "La reproduction du baliste picasso (Rhinecanthus aculeatus) en aquarium est extrêmement rare. Cette espèce très territoriale est difficile à maintenir en couple. Dans la nature, elle creuse des nids dans le sable dans lesquels la femelle pond et que les deux parents défendent férocement. Les larves planctoniques sont difficiles à élever. Les adultes sont extrêmement agressifs : en période de reproduction, ils peuvent mordre même les bras de l'aquariophile. À réserver aux experts.",
       },
     },
   },
@@ -11254,7 +11254,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le baliste clown est un très grand baliste de l'Indo-Pacifique, au corps sombre parsemé de grandes taches blanches et à la bouche ornée d'orange et de jaune. Il atteint 30 à 50 cm. Il mord avec une grande force et défend son territoire de manière agressive. En raison de sa taille et de son tempérament, il est adapté aux très grands aquariums et aux aquariophiles confirmés.",
       conseil:
-        "N'achetez jamais un juvénile en pensant qu'un petit bac suffira : sa croissance est rapide et il demande au moins 1 000 L, souvent davantage. Le bac doit être sans corail ni invertébré, avec une roche solidement calée, car il retourne les pierres. Il peut mordre profondément : n'introduisez pas la main dans le bac sans nécessité. Gardez-le seul ou avec de gros poissons robustes, et introduisez-le en dernier.",
+        "N'achetez jamais un juvénile en pensant qu'un petit bac suffira : sa croissance est rapide et il demande au moins 1 000 L, souvent davantage. Le bac doit être sans corail ni invertébré, avec une roche solidement calée, car il retourne les pierres. Il peut mordre profondément : n'introduisez pas la main dans le bac sans nécessité. Gardez-le seul ou avec de gros poissons robustes, et introduisez-le en dernier.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 1,
       compatibilite: 'Gros poissons robustes (grands chirurgiens, gros labres, poissons-lapins) dans un très grand bac sans récif.',
@@ -11264,7 +11264,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Carnivore : crevettes en coque, calmar, moules et poisson en morceaux, qui usent aussi ses dents.',
+      alimentation: 'Carnivore : crevettes en coque, calmar, moules et poisson en morceaux, qui usent aussi ses dents.',
       tailleAdulte: '30 à 50 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11288,17 +11288,17 @@ export const ESPECES: Espece[] = [
       description:
         "Le baliste noir à dents rouges est un baliste de l'Indo-Pacifique au corps bleu-noir et aux dents rouge-orangé, qui lui donnent son nom. Il atteint 30 à 40 cm. Contrairement à la plupart des balistes, il nage souvent en pleine eau et se nourrit de plancton, ce qui le rend moins destructeur envers les coraux. Son tempérament reste vif, parfois agressif envers ses voisins dans un bac trop petit.",
       conseil:
-        "Prévoyez au moins 600 L, avec une grande zone de nage dégagée, car c'est un nageur actif de pleine eau. Distribuez plusieurs repas par jour (mysis, krill, plancton), car il se nourrit en permanence dans la colonne d'eau. Il épargne généralement les coraux, mais surveillez les crevettes, les bénitiers et les vers tubicoles. Les groupes demandent un très grand volume et provoquent souvent des conflits : gardez-le seul si le bac est moyen.",
+        "Prévoyez au moins 600 L, avec une grande zone de nage dégagée, car c'est un nageur actif de pleine eau. Distribuez plusieurs repas par jour (mysis, krill, plancton), car il se nourrit en permanence dans la colonne d'eau. Il épargne généralement les coraux, mais surveillez les crevettes, les bénitiers et les vers tubicoles. Les groupes demandent un très grand volume et provoquent souvent des conflits : gardez-le seul si le bac est moyen.",
       volumeMinLitres: 600,
       tailleGroupeMin: 1,
-      compatibilite: 'Poissons robustes de récif : chirurgiens, poissons-lapins, gros labres et grands anthias.',
+      compatibilite: 'Poissons robustes de récif : chirurgiens, poissons-lapins, gros labres et grands anthias.',
       incompatibilite: 'Les poissons petits ou timides, les petits crustacés et les autres balistes dans un bac moyen.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore planctonophage : mysis, krill, calmar, crevettes et plancton congelé, en plusieurs repas.',
+      alimentation: 'Carnivore planctonophage : mysis, krill, calmar, crevettes et plancton congelé, en plusieurs repas.',
       tailleAdulte: '30 à 40 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11325,7 +11325,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-coffre jaune est un poisson de l'Indo-Pacifique au corps rigide en forme de cube. Le juvénile est jaune vif parsemé de points noirs, alors que l'adulte, de 30 à 45 cm, vire au brun-vert ou au bleuâtre avec des points clairs. Il nage lentement, à l'aide de ses petites nageoires, et fouille le fond à la recherche de petits invertébrés. Séduisant à l'achat, il grandit beaucoup et libère une toxine en cas de stress intense.",
       conseil:
-        "Danger : en cas de stress intense, de blessure ou de mort, il peut libérer dans l'eau une toxine (ostracitoxine) qui tue rapidement les autres poissons du bac ; gardez du charbon actif et prévoyez de gros changements d'eau en urgence. N'achetez jamais un juvénile en pensant qu'il restera petit : l'adulte demande environ 1 000 L et une roche stable. Évitez de le manipuler et déplacez-le plutôt avec un récipient qu'avec une épuisette. Un aquarium surpeuplé ou agité favorise le stress et la libération de la toxine.",
+        "Danger : en cas de stress intense, de blessure ou de mort, il peut libérer dans l'eau une toxine (ostracitoxine) qui tue rapidement les autres poissons du bac ; gardez du charbon actif et prévoyez de gros changements d'eau en urgence. N'achetez jamais un juvénile en pensant qu'il restera petit : l'adulte demande environ 1 000 L et une roche stable. Évitez de le manipuler et déplacez-le plutôt avec un récipient qu'avec une épuisette. Un aquarium surpeuplé ou agité favorise le stress et la libération de la toxine.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 1,
       compatibilite: "Poissons paisibles de grande taille, dans un bac sans corail fragile ni invertébrés d'ornement.",
@@ -11335,7 +11335,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Omnivore : mysis, artémias, algues, spiruline, moules et crevettes, en plusieurs petits repas.',
+      alimentation: 'Omnivore : mysis, artémias, algues, spiruline, moules et crevettes, en plusieurs petits repas.',
       tailleAdulte: '30 à 45 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11359,7 +11359,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le canthigaster de Valentin, ou tétrodon de Valentin, est un petit poisson-ballon de l'Indo-Pacifique de 10 à 11 cm, blanc à crème avec quatre larges selles sombres sur le dos et des lignes bleues autour des yeux. Il vit près du fond et fouille les anfractuosités, en broutant éponges, algues et petits invertébrés. Il est toxique par ses tissus et il a un comportement curieux, mais son régime en fait un poisson à surveiller autour des invertébrés.",
       conseil:
-        "Toxicité : sa peau et ses organes contiennent de la tétrodotoxine ; ne le manipulez jamais à mains nues et ne consommez jamais ce poisson. Retirez rapidement un sujet mort du bac. Évitez de le placer avec des crevettes d'ornement, des bénitiers ou des coraux délicats, qu'il peut mordiller, et prévoyez de nombreuses cachettes. Surveillez ses dents, qui poussent en continu : offrez régulièrement des aliments à coque ou à chair ferme.",
+        "Toxicité : sa peau et ses organes contiennent de la tétrodotoxine ; ne le manipulez jamais à mains nues et ne consommez jamais ce poisson. Retirez rapidement un sujet mort du bac. Évitez de le placer avec des crevettes d'ornement, des bénitiers ou des coraux délicats, qu'il peut mordiller, et prévoyez de nombreuses cachettes. Surveillez ses dents, qui poussent en continu : offrez régulièrement des aliments à coque ou à chair ferme.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif robustes et paisibles de taille voisine, dans un bac bien décoré.',
@@ -11369,7 +11369,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Omnivore : mysis, artémias, crevettes hachées, algues et crustacés à coque pour user ses dents.',
+      alimentation: 'Omnivore : mysis, artémias, crevettes hachées, algues et crustacés à coque pour user ses dents.',
       tailleAdulte: '10 à 11 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11397,17 +11397,17 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-rasoir est un étrange poisson de l'Indo-Pacifique au corps comprimé et translucide, orné d'une bande sombre. Il nage à la verticale, la tête vers le bas, souvent en banc, et se confond avec les piquants d'oursins ou les branches de corail. Il mesure environ 12 à 15 cm. Paisible, il ne s'en prend à aucun autre habitant du bac, mais son bec étroit ne lui permet d'avaler que de très petites proies, ce qui rend son alimentation délicate.",
       conseil:
-        "Ne l'introduisez que dans un bac mature, riche en copépodes, et en groupe d'au moins 4 à 6 individus, car isolé il dépérit. Prévoyez des supports verticaux (branches, tiges, gorgones artificielles) auxquels il se tient. Il a besoin de proies très petites en grande quantité : nauplii d'artémias, copépodes et mysis finement hachées plusieurs fois par jour. Évitez les poissons plus rapides à la nourriture, car il maigrit vite et meurt souvent de faim lentement.",
+        "Ne l'introduisez que dans un bac mature, riche en copépodes, et en groupe d'au moins 4 à 6 individus, car isolé il dépérit. Prévoyez des supports verticaux (branches, tiges, gorgones artificielles) auxquels il se tient. Il a besoin de proies très petites en grande quantité : nauplii d'artémias, copépodes et mysis finement hachées plusieurs fois par jour. Évitez les poissons plus rapides à la nourriture, car il maigrit vite et meurt souvent de faim lentement.",
       volumeMinLitres: 300,
       tailleGroupeMin: 4,
-      compatibilite: 'Poissons paisibles et lents : gobies, grammas, poissons-clowns calmes et crevettes nettoyeuses.',
+      compatibilite: 'Poissons paisibles et lents : gobies, grammas, poissons-clowns calmes et crevettes nettoyeuses.',
       incompatibilite: 'Les poissons rapides, voraces ou agressifs, ainsi que les coraux et anémones urticants dans lesquels il peut se piéger.',
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: "Micro-prédateur : copépodes, nauplii d'artémias, mysis finement hachées et petit plancton, plusieurs fois par jour.",
+      alimentation: "Micro-prédateur : copépodes, nauplii d'artémias, mysis finement hachées et petit plancton, plusieurs fois par jour.",
       tailleAdulte: '12 à 15 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11425,13 +11425,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Hippocampus kuda',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Hippocampes (genre Hippocampus) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Hippocampes (genre Hippocampus) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
         "L'hippocampe kuda est un hippocampe d'Asie et d'Indo-Pacifique à la robe très variable, jaune, orange, brune ou noire, dont l'intensité change avec l'humeur. Il mesure 15 à 25 cm et s'accroche par la queue aux gorgones, aux branches de corail et aux supports. Nageur lent, il vit en couple et chasse à vue de petits crustacés. Il est aujourd'hui produit en élevage dans plusieurs pays, ce qui rend le prélèvement sauvage inutile.",
       conseil:
-        "Choisissez toujours un sujet né en élevage, qui accepte les mysis congelées : un individu sauvage refuse souvent la nourriture inerte et reste fragile. Prévoyez un bac calme, avec un courant faible, des supports où se tenir (gorgones artificielles, cordes) et une température un peu plus fraîche que dans un récif, vers 22 à 25 °C. Nourrissez-le 2 à 3 fois par jour avec des mysis enrichies et retirez les restes pour préserver la qualité de l'eau. Évitez les coraux et anémones urticants, qui peuvent le piquer, et surveillez les blessures et les bulles de gaz sur le corps.",
+        "Choisissez toujours un sujet né en élevage, qui accepte les mysis congelées : un individu sauvage refuse souvent la nourriture inerte et reste fragile. Prévoyez un bac calme, avec un courant faible, des supports où se tenir (gorgones artificielles, cordes) et une température un peu plus fraîche que dans un récif, vers 22 à 25 °C. Nourrissez-le 2 à 3 fois par jour avec des mysis enrichies et retirez les restes pour préserver la qualité de l'eau. Évitez les coraux et anémones urticants, qui peuvent le piquer, et surveillez les blessures et les bulles de gaz sur le corps.",
       volumeMinLitres: 200,
       tailleGroupeMin: 2,
       compatibilite: 'Gobies calmes, grammas, crevettes et autres espèces lentes qui ne lui disputent pas la nourriture.',
@@ -11441,7 +11441,7 @@ export const ESPECES: Espece[] = [
       tempMin: 22,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore : mysis enrichies congelées plusieurs fois par jour, avec copépodes et petits crustacés vivants en complément.',
+      alimentation: 'Carnivore : mysis enrichies congelées plusieurs fois par jour, avec copépodes et petits crustacés vivants en complément.',
       tailleAdulte: '15 à 25 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11451,7 +11451,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Modérée",
-        description: "L'hippocampe kuda (Hippocampus kuda) est vivipare côté mâle : la femelle dépose ses œufs dans la poche incubatrice du mâle, qui porte la gestation 14-28 jours selon la température. À maturité, le mâle expulse 100-400 alevins autonomes. Nourrissez les alevins avec des amphipodes et copépodes vivants, puis nauplies d'artémia enrichies. ATTENTION : espèce protégée (CITES). Achetez uniquement des individus certifiés élevés en captivité. T° 22-26°C, densité 1.024-1.026.",
+        description: "L'hippocampe kuda (Hippocampus kuda) est vivipare côté mâle : la femelle dépose ses œufs dans la poche incubatrice du mâle, qui porte la gestation 14-28 jours selon la température. À maturité, le mâle expulse 100-400 alevins autonomes. Nourrissez les alevins avec des amphipodes et copépodes vivants, puis nauplies d'artémia enrichies. ATTENTION : espèce protégée (CITES). Achetez uniquement des individus certifiés élevés en captivité. T° 22-26°C, densité 1.024-1.026.",
       },
     },
   },
@@ -11478,7 +11478,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: "Micro-prédateur : copépodes, mysis vivantes ou congelées et nauplii d'artémias, plusieurs fois par jour.",
+      alimentation: "Micro-prédateur : copépodes, mysis vivantes ou congelées et nauplii d'artémias, plusieurs fois par jour.",
       tailleAdulte: '15 à 18 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11502,7 +11502,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'opistognathe à front jaune est un petit poisson de la Caraïbe et de l'Atlantique ouest, de 10 à 12 cm, à la tête jaune pâle et au corps bleu-gris. Il creuse un terrier vertical dans le sable et les débris coralliens, d'où il surveille les alentours, la tête dépassant, et il s'y réfugie à la moindre alerte. Le mâle incube les œufs dans sa bouche. Paisible et résistant, il offre un spectacle original dans un bac au fond sableux.",
       conseil:
-        "Prévoyez au moins 8 à 10 cm de sable grossier mêlé de petits débris coralliens, avec quelques pierres plates à proximité pour renforcer son terrier. N'empilez pas de roches sur la zone où il creuse : elles peuvent s'effondrer sur son abri. Couvrez bien l'aquarium, car il saute facilement lors de l'introduction. Nourrissez-le à la pipette, près de son terrier, avec des mysis et du plancton.",
+        "Prévoyez au moins 8 à 10 cm de sable grossier mêlé de petits débris coralliens, avec quelques pierres plates à proximité pour renforcer son terrier. N'empilez pas de roches sur la zone où il creuse : elles peuvent s'effondrer sur son abri. Couvrez bien l'aquarium, car il saute facilement lors de l'introduction. Nourrissez-le à la pipette, près de son terrier, avec des mysis et du plancton.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif paisibles, gobies et crevettes qui ne dérangent pas son terrier.',
@@ -11512,7 +11512,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: 'Carnivore : mysis, artémias, plancton et petits morceaux de chair de poisson, 2 fois par jour.',
+      alimentation: 'Carnivore : mysis, artémias, plancton et petits morceaux de chair de poisson, 2 fois par jour.',
       tailleAdulte: '10 à 12 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11540,7 +11540,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le poisson-lapin renard est un siganidé du Pacifique ouest, à la robe jaune vif, au visage blanc et noir qui évoque un renard et à la silhouette comprimée. Il atteint 20 à 24 cm. Il broute les algues sur la roche et dans le sable, ce qui en fait un auxiliaire pour limiter les algues filamenteuses. Sa robe devient marbrée et ternie la nuit ou en cas de stress, et ses nageoires portent des piquants venimeux.",
       conseil:
-        "Danger : les rayons de ses nageoires dorsale, anale et ventrales portent des glandes à venin et la piqûre est très douloureuse ; portez des gants épais et utilisez une épuisette ou un récipient pour le déplacer. En cas de piqûre, plongez la zone dans de l'eau chaude (aussi chaude que supportable) et consultez rapidement un médecin. Prévoyez un bac de 400 L avec un bon brassage et fournissez des algues chaque jour, faute de quoi il s'attaque aux zoanthaires, aux coraux mous et aux macroalgues du refuge. Surveillez-le à l'achat : un sujet maigre ou terne a souvent du mal à se remettre.",
+        "Danger : les rayons de ses nageoires dorsale, anale et ventrales portent des glandes à venin et la piqûre est très douloureuse ; portez des gants épais et utilisez une épuisette ou un récipient pour le déplacer. En cas de piqûre, plongez la zone dans de l'eau chaude (aussi chaude que supportable) et consultez rapidement un médecin. Prévoyez un bac de 400 L avec un bon brassage et fournissez des algues chaque jour, faute de quoi il s'attaque aux zoanthaires, aux coraux mous et aux macroalgues du refuge. Surveillez-le à l'achat : un sujet maigre ou terne a souvent du mal à se remettre.",
       volumeMinLitres: 400,
       tailleGroupeMin: 1,
       compatibilite: 'Chirurgiens, labres, poissons-anges nains et autres poissons de récif paisibles à semi-agressifs.',
@@ -11550,7 +11550,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Herbivore : algues séchées (nori), macroalgues fraîches et spiruline, avec granulés végétaux et mysis.',
+      alimentation: 'Herbivore : algues séchées (nori), macroalgues fraîches et spiruline, avec granulés végétaux et mysis.',
       tailleAdulte: '20 à 24 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11571,9 +11571,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "L'idole des Maures est un poisson de l'Indo-Pacifique à la silhouette inimitable : un disque comprimé barré de noir, de blanc et de jaune, prolongé par un long filament dorsal blanc. Elle atteint 20 à 23 cm. Dans la nature, elle broute des éponges et d'autres invertébrés des récifs. Célèbre, elle est aussi l'un des poissons de récif qui survivent le moins longtemps en aquarium : la plupart refusent toute nourriture et dépérissent en quelques semaines ou mois.",
+        "L'idole des Maures est un poisson de l'Indo-Pacifique à la silhouette inimitable : un disque comprimé barré de noir, de blanc et de jaune, prolongé par un long filament dorsal blanc. Elle atteint 20 à 23 cm. Dans la nature, elle broute des éponges et d'autres invertébrés des récifs. Célèbre, elle est aussi l'un des poissons de récif qui survivent le moins longtemps en aquarium : la plupart refusent toute nourriture et dépérissent en quelques semaines ou mois.",
       conseil:
-        "Nous en déconseillons l'achat : la majorité des sujets prélevés refusent les aliments proposés et meurent de faim malgré des soins attentifs. Seuls des aquariophiles très expérimentés, avec un très grand bac mature, peuvent espérer réussir, en variant l'alimentation (mysis, préparations à base d'éponge, algues). Un poisson qui mange déjà depuis plusieurs semaines en magasin est un préalable indispensable. Pour une silhouette comparable, mieux vaut se tourner vers le poisson-cocher, bien plus rustique.",
+        "Nous en déconseillons l'achat : la majorité des sujets prélevés refusent les aliments proposés et meurent de faim malgré des soins attentifs. Seuls des aquariophiles très expérimentés, avec un très grand bac mature, peuvent espérer réussir, en variant l'alimentation (mysis, préparations à base d'éponge, algues). Un poisson qui mange déjà depuis plusieurs semaines en magasin est un préalable indispensable. Pour une silhouette comparable, mieux vaut se tourner vers le poisson-cocher, bien plus rustique.",
       volumeMinLitres: 1000,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles de récif dans un très grand bac mature, sans concurrents alimentaires agressifs.',
@@ -11583,7 +11583,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: "Omnivore spécialisé, consommateur d'éponges et d'invertébrés sessiles : mysis, préparations à base d'éponge, algues et chair de crustacé.",
+      alimentation: "Omnivore spécialisé, consommateur d'éponges et d'invertébrés sessiles : mysis, préparations à base d'éponge, algues et chair de crustacé.",
       tailleAdulte: '20 à 23 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11611,7 +11611,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'anguille ruban est une murène de l'Indo-Pacifique au corps très allongé, fin comme un ruban, qui atteint 90 à 120 cm. Les juvéniles sont noirs, puis les mâles virent au bleu à nageoire jaune et les femelles deviennent jaunes à l'âge adulte. Elle vit enfouie dans le sable ou dans un tube, la tête dehors, et sort surtout la nuit. Elle est connue pour son régime strict de proies vivantes et pour son faible taux de survie en aquarium.",
       conseil:
-        "Nous déconseillons l'achat de cet animal prélevé dans la nature : la majorité des sujets refusent toute nourriture et meurent de faim en quelques mois. Elle exige un aquarium fermé hermétiquement, car elle s'échappe par la moindre ouverture, avec un fond de sable fin et des tubes ou cachettes adaptés. Seul un sujet qui s'alimente déjà régulièrement est acceptable, et il faut l'observer avant l'achat. Elle peut mordre lors du nourrissage à la main.",
+        "Nous déconseillons l'achat de cet animal prélevé dans la nature : la majorité des sujets refusent toute nourriture et meurent de faim en quelques mois. Elle exige un aquarium fermé hermétiquement, car elle s'échappe par la moindre ouverture, avec un fond de sable fin et des tubes ou cachettes adaptés. Seul un sujet qui s'alimente déjà régulièrement est acceptable, et il faut l'observer avant l'achat. Elle peut mordre lors du nourrissage à la main.",
       volumeMinLitres: 400,
       tailleGroupeMin: 1,
       compatibilite: "Poissons paisibles trop gros pour être avalés, dans un bac calme ; elle reste surtout à l'écart.",
@@ -11621,7 +11621,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Carnivore : poissons vivants ou congelés et crevettes, présentés à la pince ; beaucoup de sujets refusent toute alimentation en captivité.',
+      alimentation: 'Carnivore : poissons vivants ou congelés et crevettes, présentés à la pince ; beaucoup de sujets refusent toute alimentation en captivité.',
       tailleAdulte: '90 à 120 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11639,14 +11639,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Cheilinus undulatus',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Napoléon : espèce inscrite à la CITES (annexe II) et à l'annexe B de l'UE, menacée à l'état sauvage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Napoléon : espèce inscrite à la CITES (annexe II) et à l'annexe B de l'UE, menacée à l'état sauvage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Labre Napoléon', 'Poisson Napoléon'],
     fiche: {
       description:
-        "Le napoléon est le plus grand des labres : il peut dépasser 2 m dans la nature. Il se reconnaît à sa bosse frontale chez l'adulte, à ses grosses lèvres et à ses deux lignes sombres derrière l'œil. Il vit sur les récifs de l'Indo-Pacifique et se nourrit surtout de mollusques, de crustacés, d'oursins et même de poissons toxiques. Ses populations sauvages sont en déclin et l'espèce est classée « en danger » par l'UICN.",
+        "Le napoléon est le plus grand des labres : il peut dépasser 2 m dans la nature. Il se reconnaît à sa bosse frontale chez l'adulte, à ses grosses lèvres et à ses deux lignes sombres derrière l'œil. Il vit sur les récifs de l'Indo-Pacifique et se nourrit surtout de mollusques, de crustacés, d'oursins et même de poissons toxiques. Ses populations sauvages sont en déclin et l'espèce est classée « en danger » par l'UICN.",
       conseil:
-        "Cette espèce ne convient à aucun aquarium domestique : un juvénile de quelques dizaines de centimètres grandit vite et demande à terme plusieurs milliers de litres. N'achetez pas de jeune sujet pour le « faire grandir » en bac : la plupart finissent dans un volume bien trop petit et dépérissent. Il consomme crustacés, mollusques et oursins, et ravage un récif. Pour un labre spectaculaire, choisissez plutôt un labre fée comme le labre fée de Scott ou le labre de Carpenter.",
+        "Cette espèce ne convient à aucun aquarium domestique : un juvénile de quelques dizaines de centimètres grandit vite et demande à terme plusieurs milliers de litres. N'achetez pas de jeune sujet pour le « faire grandir » en bac : la plupart finissent dans un volume bien trop petit et dépérissent. Il consomme crustacés, mollusques et oursins, et ravage un récif. Pour un labre spectaculaire, choisissez plutôt un labre fée comme le labre fée de Scott ou le labre de Carpenter.",
       volumeMinLitres: 5000,
       tailleGroupeMin: 1,
       compatibilite: 'Uniquement de gros poissons robustes, dans un aquarium public de plusieurs milliers de litres.',
@@ -11656,7 +11656,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Carnivore : mollusques, crustacés, oursins et poissons, avec des coquillages à broyer.',
+      alimentation: 'Carnivore : mollusques, crustacés, oursins et poissons, avec des coquillages à broyer.',
       tailleAdulte: "Jusqu'à 2 m (adulte sauvage)",
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -11678,18 +11678,18 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Synanceia verrucosa',
     statutLegal: 'autorisation_requise',
     remarqueLegale:
-      "Poissons-pierres (Synanceiidés) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; espèce mortellement venimeuse.",
+      "Poissons-pierres (Synanceiidés) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; espèce mortellement venimeuse.",
     citesAnnexe: null,
     autresNoms: ['Poisson-pierre'],
     fiche: {
       description:
-        "Le poisson-pierre (Synanceia verrucosa) est un poisson de l'Indo-Pacifique, maître du camouflage, dont la peau verruqueuse, brun-gris, évoque un morceau de roche ou de corail. Il vit immobile sur le fond des récifs peu profonds et happe en un éclair les proies qui passent à sa portée. Il mesure jusqu'à 30 à 40 cm. Ses 13 piquants dorsaux sont reliés à des glandes à venin : c'est l'un des poissons les plus venimeux du monde, et son venin peut être mortel pour l'homme, ce qui explique le régime réglementaire strict qui lui est appliqué.",
+        "Le poisson-pierre (Synanceia verrucosa) est un poisson de l'Indo-Pacifique, maître du camouflage, dont la peau verruqueuse, brun-gris, évoque un morceau de roche ou de corail. Il vit immobile sur le fond des récifs peu profonds et happe en un éclair les proies qui passent à sa portée. Il mesure jusqu'à 30 à 40 cm. Ses 13 piquants dorsaux sont reliés à des glandes à venin : c'est l'un des poissons les plus venimeux du monde, et son venin peut être mortel pour l'homme, ce qui explique le régime réglementaire strict qui lui est appliqué.",
       conseil:
-        "Ce poisson n'est pas une espèce d'aquarium domestique : la piqûre de ses piquants dorsaux provoque une douleur extrême, une paralysie et peut entraîner la mort. Il est presque invisible, ce qui multiplie le risque de piqûre accidentelle lors d'un entretien ou d'un transport. Si vous découvrez un poisson-pierre, ne le touchez pas, ne mettez pas la main dans l'eau et prévenez le vendeur ainsi qu'un aquarium public ou une structure habilitée ; en cas de piqûre, appelez immédiatement le 15 ou le 112, plongez la zone dans de l'eau chaude (aussi chaude que supportable) et sachez qu'un antivenin existe, administrable uniquement en milieu médical. Pour un poisson original et sans danger, choisissez plutôt l'opistognathe à front jaune ou le poisson-comète.",
+        "Ce poisson n'est pas une espèce d'aquarium domestique : la piqûre de ses piquants dorsaux provoque une douleur extrême, une paralysie et peut entraîner la mort. Il est presque invisible, ce qui multiplie le risque de piqûre accidentelle lors d'un entretien ou d'un transport. Si vous découvrez un poisson-pierre, ne le touchez pas, ne mettez pas la main dans l'eau et prévenez le vendeur ainsi qu'un aquarium public ou une structure habilitée ; en cas de piqûre, appelez immédiatement le 15 ou le 112, plongez la zone dans de l'eau chaude (aussi chaude que supportable) et sachez qu'un antivenin existe, administrable uniquement en milieu médical. Pour un poisson original et sans danger, choisissez plutôt l'opistognathe à front jaune ou le poisson-comète.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : espèce que l'on ne doit pas détenir à titre privé.",
-      incompatibilite: 'Sans objet : sa seule présence dans un bac représente un danger pour toute personne qui intervient et pour les autres animaux.',
+      compatibilite: "Sans objet : espèce que l'on ne doit pas détenir à titre privé.",
+      incompatibilite: 'Sans objet : sa seule présence dans un bac représente un danger pour toute personne qui intervient et pour les autres animaux.',
       phMin: null,
       phMax: null,
       tempMin: null,
@@ -11713,14 +11713,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Montipora capricornis',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Montipora plaque'],
     fiche: {
       description:
         "Le corail plaque (Montipora capricornis) est un SPS de l'Indo-Pacifique qui forme de fines lames enroulées en spirale, en vase ou en plateau, aux nuances de vert, de brun, de rose ou de violet. Ses polypes très petits lui donnent un aspect velouté. Il se développe vite en conditions stables et finit par occuper beaucoup d'espace. C'est l'un des Montipora les plus appréciés en bac récifal, accessible à un aquariophile qui a déjà une première expérience des SPS.",
       conseil:
-        "Acclimatez-le progressivement à la lumière, par exemple en le plaçant d'abord bas dans la roche, car les coraux achetés en magasin sont souvent produits sous un éclairage plus faible. Stabilisez le KH, le calcium et le magnésium : de fortes variations provoquent une récession des tissus. Inspectez-le à l'achat pour repérer les nudibranches mangeurs de Montipora et leurs pontes blanches, puis traitez-le par un bain antiparasitaire. Laissez de l'espace autour de la colonie, pour que la plaque ne soit ni ombrée ni en contact avec d'autres coraux.",
+        "Acclimatez-le progressivement à la lumière, par exemple en le plaçant d'abord bas dans la roche, car les coraux achetés en magasin sont souvent produits sous un éclairage plus faible. Stabilisez le KH, le calcium et le magnésium : de fortes variations provoquent une récession des tissus. Inspectez-le à l'achat pour repérer les nudibranches mangeurs de Montipora et leurs pontes blanches, puis traitez-le par un bain antiparasitaire. Laissez de l'espace autour de la colonie, pour que la plaque ne soit ni ombrée ni en contact avec d'autres coraux.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: 'Autres SPS (Acropora, Montipora), coraux mous paisibles et poissons de récif, dans un bac stable.',
@@ -11746,7 +11746,7 @@ export const ESPECES: Espece[] = [
         placement: 'Milieu de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: 'Bouturage : on détache un morceau du bord de la plaque avec une pince coupante ou une scie à corail, puis on le colle sur un support avec de la colle cyanoacrylate ou époxy. Les fragments qui se détachent naturellement peuvent aussi reprendre.',
+        multiplication: 'Bouturage : on détache un morceau du bord de la plaque avec une pince coupante ou une scie à corail, puis on le colle sur un support avec de la colle cyanoacrylate ou époxy. Les fragments qui se détachent naturellement peuvent aussi reprendre.',
       },
       reproduction: {
         facilite: "Facile",
@@ -11762,13 +11762,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Montipora digitata',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
         "Montipora digitata est un corail dur SPS de l'Indo-Pacifique qui forme des colonies de branches courtes en forme de doigts, de teinte vert olive, brune, rose ou bleutée, couvertes de polypes minuscules. Il vit dans les lagons et les zones abritées du récif, où les colonies dépassent largement 30 cm. Plus tolérant que les Acropora, il convient comme premier SPS dans un bac récifal mature. Sa croissance rapide fournit régulièrement des boutures.",
       conseil:
-        "Choisissez de préférence une bouture issue d'élevage, déjà habituée à un éclairage d'aquarium, et placez-la d'abord en bas de roche avant de la remonter progressivement sur une à deux semaines, sous un éclairage moyen à fort. Maintenez un KH stable, des nitrates bas (1 à 5 mg/L) et un courant modéré à fort. Inspectez la colonie à l'arrivée et traitez-la par un bain antiparasitaire : les nudibranches et vers plats mangeurs de Montipora passent facilement inaperçus. Une base qui blanchit ou un tissu qui se décolle signale un déséquilibre à corriger sans attendre.",
+        "Choisissez de préférence une bouture issue d'élevage, déjà habituée à un éclairage d'aquarium, et placez-la d'abord en bas de roche avant de la remonter progressivement sur une à deux semaines, sous un éclairage moyen à fort. Maintenez un KH stable, des nitrates bas (1 à 5 mg/L) et un courant modéré à fort. Inspectez la colonie à l'arrivée et traitez-la par un bain antiparasitaire : les nudibranches et vers plats mangeurs de Montipora passent facilement inaperçus. Une base qui blanchit ou un tissu qui se décolle signale un déséquilibre à corriger sans attendre.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres SPS, aux zoanthaires et aux LPS paisibles dans un bac récifal mature aux paramètres stables. Il cohabite bien avec les poissons de récif paisibles.",
@@ -11794,7 +11794,7 @@ export const ESPECES: Espece[] = [
         placement: 'Milieu de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: 'Bouturage facile : sectionnez les branches à la pince coupante ou à la scie, puis collez le fragment sur un support avec de la colle cyanoacrylate gel ou de la pâte époxy. La reprise est rapide.',
+        multiplication: 'Bouturage facile : sectionnez les branches à la pince coupante ou à la scie, puis collez le fragment sur un support avec de la colle cyanoacrylate gel ou de la pâte époxy. La reprise est rapide.',
       },
     },
   },
@@ -11806,14 +11806,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Seriatopora hystrix',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail aiguille', 'Birdsnest'],
     fiche: {
       description:
         "Seriatopora hystrix est un corail dur SPS de l'Indo-Pacifique et de la mer Rouge, formant des buissons denses de branches fines aux extrémités pointues. Les colonies, rose, crème, vert ou jaune, atteignent 15 à 30 cm dans un bac. Il vit dans les lagons et les pentes abritées, souvent en peuplements serrés. Il réagit vite aux écarts de paramètres, mais pousse bien dans un bac stable et il est très bouturé en aquaculture.",
       conseil:
-        "Préférez une bouture d'élevage et placez-la sous un éclairage fort, après une acclimatation progressive, avec un courant fort et indirect qui chasse les détritus logés entre les branches fines. Maintenez KH, calcium et magnésium stables : les écarts favorisent la nécrose du tissu, qui progresse depuis la base. Un tissu qui pâlit, des polypes rétractés ou un squelette qui apparaît sont des signes d'alerte à traiter immédiatement par un contrôle des paramètres. Inspectez la colonie à l'arrivée, car vers plats et acariens s'abritent facilement dans le feuillage dense.",
+        "Préférez une bouture d'élevage et placez-la sous un éclairage fort, après une acclimatation progressive, avec un courant fort et indirect qui chasse les détritus logés entre les branches fines. Maintenez KH, calcium et magnésium stables : les écarts favorisent la nécrose du tissu, qui progresse depuis la base. Un tissu qui pâlit, des polypes rétractés ou un squelette qui apparaît sont des signes d'alerte à traiter immédiatement par un contrôle des paramètres. Inspectez la colonie à l'arrivée, car vers plats et acariens s'abritent facilement dans le feuillage dense.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il se place bien avec d'autres SPS paisibles, des zoanthaires et des poissons de récif non brouteurs, dans un bac mature. Laissez de l'espace autour de lui pour que le courant circule entre les branches.",
@@ -11839,7 +11839,7 @@ export const ESPECES: Espece[] = [
         placement: 'Haut de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: "Bouturage simple : coupez l'extrémité d'une branche à la pince, puis fixez le fragment avec de la colle gel ou de la pâte époxy. La reprise est rapide en eau stable.",
+        multiplication: "Bouturage simple : coupez l'extrémité d'une branche à la pince, puis fixez le fragment avec de la colle gel ou de la pâte époxy. La reprise est rapide en eau stable.",
       },
       reproduction: {
         facilite: "Modérée",
@@ -11855,13 +11855,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Stylophora pistillata',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
         "Stylophora pistillata est un corail dur SPS de l'Indo-Pacifique et de la mer Rouge, aux branches courtes et épaisses à l'extrémité arrondie, qui forment des colonies buissonnantes rose, crème, vert ou violet. Très commun sur les récifs peu profonds, il est aussi parmi les SPS les plus cultivés. Sa croissance est rapide et sa tolérance supérieure à celle de la plupart des Acropora. Il convient à un aquariophile qui a déjà un bac récifal stable.",
       conseil:
-        "Installez-le en haut ou en milieu de roche, sous un éclairage moyen à fort et un courant fort, après une acclimatation progressive sur une à deux semaines. Il tolère un peu mieux les petits écarts que les Acropora, mais il pâlit si les nitrates et les phosphates tombent à zéro et brunit s'ils sont trop élevés. Surveillez les zones de tissu blanchies qui reculent et les vers plats parasites, et traitez par un bain dès l'arrivée. Prévoyez de l'espace : sa croissance rapide étouffe les voisins.",
+        "Installez-le en haut ou en milieu de roche, sous un éclairage moyen à fort et un courant fort, après une acclimatation progressive sur une à deux semaines. Il tolère un peu mieux les petits écarts que les Acropora, mais il pâlit si les nitrates et les phosphates tombent à zéro et brunit s'ils sont trop élevés. Surveillez les zones de tissu blanchies qui reculent et les vers plats parasites, et traitez par un bain dès l'arrivée. Prévoyez de l'espace : sa croissance rapide étouffe les voisins.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe bien aux autres SPS, aux Montipora, aux zoanthaires et aux poissons de récif paisibles, dans un bac mature à paramètres stables.",
@@ -11887,7 +11887,7 @@ export const ESPECES: Espece[] = [
         placement: 'Haut de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: "Bouturage facile : sectionnez l'extrémité des branches à la pince, puis collez-les sur un support avec de la colle gel ou de la pâte époxy. Les boutures reprennent vite.",
+        multiplication: "Bouturage facile : sectionnez l'extrémité des branches à la pince, puis collez-les sur un support avec de la colle gel ou de la pâte époxy. Les boutures reprennent vite.",
       },
     },
   },
@@ -11899,14 +11899,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pocillopora damicornis',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail chou-fleur'],
     fiche: {
       description:
         "Pocillopora damicornis est un corail dur SPS répandu de la mer Rouge au Pacifique oriental. Ses branches courtes et serrées, couvertes de petites protubérances appelées verrues, forment des colonies en chou-fleur rose, crème, brunes ou vertes. Il vit sur les platiers et dans les lagons, où il héberge souvent des crabes Trapezia et des crevettes Alpheus qui le défendent. Parfois délicat à acclimater, il devient robuste une fois installé et grandit vite.",
       conseil:
-        "Installez-le en milieu de roche sous un éclairage moyen à fort, avec un courant fort, après une acclimatation progressive de une à deux semaines. Maintenez un KH stable et des nitrates faibles. Sa croissance rapide empiète vite sur les voisins : laissez au moins 10 cm autour de la colonie. Inspectez-le à l'arrivée et traitez-le par un bain antiparasitaire, puis surveillez la nécrose du tissu, les zones blanchies et les polypes rétractés.",
+        "Installez-le en milieu de roche sous un éclairage moyen à fort, avec un courant fort, après une acclimatation progressive de une à deux semaines. Maintenez un KH stable et des nitrates faibles. Sa croissance rapide empiète vite sur les voisins : laissez au moins 10 cm autour de la colonie. Inspectez-le à l'arrivée et traitez-le par un bain antiparasitaire, puis surveillez la nécrose du tissu, les zones blanchies et les polypes rétractés.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres SPS et aux LPS paisibles, à bonne distance, dans un bac récifal mature. Il cohabite avec les poissons de récif non brouteurs.",
@@ -11932,11 +11932,11 @@ export const ESPECES: Espece[] = [
         placement: 'Milieu de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: "Bouturage facile : coupez une branche à la pince, puis collez-la avec de la colle gel ou de la pâte époxy. L'espèce libère aussi des larves en bac, qui peuvent s'installer sur la roche.",
+        multiplication: "Bouturage facile : coupez une branche à la pince, puis collez-la avec de la colle gel ou de la pâte époxy. L'espèce libère aussi des larves en bac, qui peuvent s'installer sur la roche.",
       },
       reproduction: {
         facilite: "Facile",
-        description: "Le Pocillopora est un des coraux branchus les plus faciles à bouturer. Cassez proprement une branche de 3-5cm et fixez-la avec de la colle époxy sur un fragment de roche ou un plugin. La cicatrisation est rapide (2-3 semaines) dans des conditions optimales. Ce SPS tolère bien les opérations de fragmentation. Idéal pour débuter dans le bouturage de coraux. Qualité d'eau SPS standard : KH 8-9, Ca 420ppm, Mg 1300ppm, T° 25-27°C, densité 1.025.",
+        description: "Le Pocillopora est un des coraux branchus les plus faciles à bouturer. Cassez proprement une branche de 3-5cm et fixez-la avec de la colle époxy sur un fragment de roche ou un plugin. La cicatrisation est rapide (2-3 semaines) dans des conditions optimales. Ce SPS tolère bien les opérations de fragmentation. Idéal pour débuter dans le bouturage de coraux. Qualité d'eau SPS standard : KH 8-9, Ca 420ppm, Mg 1300ppm, T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -11948,13 +11948,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Acropora millepora',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
-        "Acropora millepora est un corail dur SPS du Pacifique occidental, très présent sur la Grande Barrière de corail et en Indonésie. Il forme des colonies en table ou en buisson de branches à corallites fins, aux couleurs vives variables : vert, rose, orange, bleu. Les polypes, très petits, donnent à la colonie un aspect velouté. C'est l'un des Acropora les plus cultivés en élevage, apprécié pour sa croissance rapide, mais il reste réservé aux bacs récifaux très stables.",
+        "Acropora millepora est un corail dur SPS du Pacifique occidental, très présent sur la Grande Barrière de corail et en Indonésie. Il forme des colonies en table ou en buisson de branches à corallites fins, aux couleurs vives variables : vert, rose, orange, bleu. Les polypes, très petits, donnent à la colonie un aspect velouté. C'est l'un des Acropora les plus cultivés en élevage, apprécié pour sa croissance rapide, mais il reste réservé aux bacs récifaux très stables.",
       conseil:
-        "N'introduisez cette espèce que dans un bac récifal mature, stable depuis au moins un an, avec des nitrates entre 1 et 5 mg/L, des phosphates très bas et des variations de KH inférieures à 0,5 dKH par jour : un doseur de calcium et de KH est vivement conseillé. Acclimatez la bouture en bas de roche sous une lumière réduite, puis remontez-la sur plusieurs semaines. Traitez-la par un bain antiparasitaire à l'arrivée, car les vers plats mangeurs d'Acropora et les acariens passent facilement inaperçus. Un tissu qui pâlit puis recule du pied vers l'extrémité demande une intervention immédiate ; protégez vos yeux et vos mains lors du bouturage.",
+        "N'introduisez cette espèce que dans un bac récifal mature, stable depuis au moins un an, avec des nitrates entre 1 et 5 mg/L, des phosphates très bas et des variations de KH inférieures à 0,5 dKH par jour : un doseur de calcium et de KH est vivement conseillé. Acclimatez la bouture en bas de roche sous une lumière réduite, puis remontez-la sur plusieurs semaines. Traitez-la par un bain antiparasitaire à l'arrivée, car les vers plats mangeurs d'Acropora et les acariens passent facilement inaperçus. Un tissu qui pâlit puis recule du pied vers l'extrémité demande une intervention immédiate ; protégez vos yeux et vos mains lors du bouturage.",
       volumeMinLitres: 300,
       tailleGroupeMin: null,
       compatibilite: "Il s'intègre à un bac SPS avec d'autres Acropora, des Montipora et des poissons de récif paisibles non brouteurs, dans un bac stable. Un courant fort et bien réparti est indispensable.",
@@ -11992,14 +11992,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Euphyllia glabrescens',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Torch', 'Corail flambeau'],
     fiche: {
       description:
         "Euphyllia glabrescens est un corail dur LPS de l'Indo-Pacifique, aux branches portant chacune une tête à longs tentacules arrondis, souvent verts à pointe violette, rose ou crème. Il forme des colonies de nombreuses têtes qui s'ouvrent largement de jour. Les tentacules se rétractent quand il est dérangé. Populaire mais sensible aux infections, il demande un bac stable, et ses tentacules balayeurs peuvent blesser les corails voisins.",
       conseil:
-        "Placez-le en bas ou milieu de roche, sous un éclairage moyen et un courant modéré et indirect qui fait onduler les tentacules sans les déchirer, après une acclimatation progressive. Laissez au moins 15 cm libres autour de la colonie : la nuit, ses tentacules balayeurs s'allongent et brûlent les voisins. Ses tentacules peuvent piquer la peau sensible et son squelette est cassant : portez des gants et ne le saisissez jamais par les têtes. Des tentacules durablement rétractés ou un tissu qui se décolle signalent un déséquilibre ou une infection à traiter sans attendre par un bain adapté.",
+        "Placez-le en bas ou milieu de roche, sous un éclairage moyen et un courant modéré et indirect qui fait onduler les tentacules sans les déchirer, après une acclimatation progressive. Laissez au moins 15 cm libres autour de la colonie : la nuit, ses tentacules balayeurs s'allongent et brûlent les voisins. Ses tentacules peuvent piquer la peau sensible et son squelette est cassant : portez des gants et ne le saisissez jamais par les têtes. Des tentacules durablement rétractés ou un tissu qui se décolle signalent un déséquilibre ou une infection à traiter sans attendre par un bain adapté.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe à d'autres LPS, des zoanthaires et des coraux mous à bonne distance, ainsi qu'aux poissons de récif non brouteurs, dans un bac mature.",
@@ -12041,14 +12041,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Fimbriaphyllia paradivisa',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Frogspawn'],
     fiche: {
       description:
         "Fimbriaphyllia paradivisa (anciennement Euphyllia paradivisa, nom encore très usité en aquariophilie) est un corail dur LPS du Pacifique occidental dont les tentacules se terminent par de petits renflements, évoquant des œufs de grenouille d'où son nom commercial. Ses branches se ramifient en arbre et portent des têtes vertes, brunes ou métalliques. La colonie s'étale en plusieurs dizaines de têtes dans un bac mature. Il est apprécié pour son mouvement dans le courant, mais ses tentacules balayeurs, longs la nuit, piquent les voisins.",
       conseil:
-        "Placez-le en milieu ou bas de roche, sous un éclairage moyen et un courant modéré et indirect qui agite les tentacules sans les replier. Laissez au moins 15 cm autour de la colonie : ses tentacules balayeurs s'allongent la nuit et brûlent les coraux voisins. Ses tentacules peuvent piquer la peau sensible : portez des gants pour le manipuler et ne le saisissez jamais par les têtes, au squelette cassant. Des têtes rétractées qui ne se rouvrent pas ou un tissu qui se décolle signalent un déséquilibre ou une infection à traiter sans attendre.",
+        "Placez-le en milieu ou bas de roche, sous un éclairage moyen et un courant modéré et indirect qui agite les tentacules sans les replier. Laissez au moins 15 cm autour de la colonie : ses tentacules balayeurs s'allongent la nuit et brûlent les coraux voisins. Ses tentacules peuvent piquer la peau sensible : portez des gants pour le manipuler et ne le saisissez jamais par les têtes, au squelette cassant. Des têtes rétractées qui ne se rouvrent pas ou un tissu qui se décolle signalent un déséquilibre ou une infection à traiter sans attendre.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe à d'autres Euphyllia, des LPS paisibles et des zoanthaires, à distance, dans un bac mature. Il cohabite avec les poissons de récif non brouteurs.",
@@ -12086,14 +12086,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Caulastraea furcata',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Candy cane'],
     fiche: {
       description:
         "Caulastraea furcata est un corail dur LPS du Pacifique occidental, qui forme des colonies de tubes cylindriques ramifiés, dont chaque extrémité s'ouvre en un polype vert vif à centre brun, parfois bordé de tentacules fins. Les colonies s'étendent par bifurcation des tubes. Peu exigeant parmi les LPS, il croît à un rythme modéré en bac mature et se prête bien à l'élevage.",
       conseil:
-        "Placez-le en bas ou milieu de roche, sous un éclairage moyen et un courant faible à modéré, après une acclimatation d'une à deux semaines. Laissez 5 à 10 cm autour de lui : ses tentacules balayeurs, très courts, peuvent gêner un voisin trop proche la nuit. Un nourrissage de petits morceaux de proies, une fois par semaine, accélère la croissance et la coloration. Un polype qui se rétracte durablement ou une chair qui se détache signalent un problème de paramètres à corriger rapidement.",
+        "Placez-le en bas ou milieu de roche, sous un éclairage moyen et un courant faible à modéré, après une acclimatation d'une à deux semaines. Laissez 5 à 10 cm autour de lui : ses tentacules balayeurs, très courts, peuvent gêner un voisin trop proche la nuit. Un nourrissage de petits morceaux de proies, une fois par semaine, accélère la croissance et la coloration. Un polype qui se rétracte durablement ou une chair qui se détache signalent un problème de paramètres à corriger rapidement.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS paisibles, aux zoanthaires, aux coraux mous et aux poissons de récif non brouteurs, dans un bac mature.",
@@ -12123,7 +12123,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Facile",
-        description: "Le corail trompette (Caulastrea furcata) est excellent pour débuter en bouturage de coraux. Découpez proprement un ou plusieurs polypes avec leur squelette et fixez-les sur un support. La cicatrisation est rapide. Ce LPS produit également de nouveaux polypes spontanément en conditions favorables. Eau SPS standard : KH 8-10, Ca 420-440ppm, Mg 1300ppm, T° 25-27°C, densité 1.025. Ce corail est peu exigeant en lumière et adapté aux aquariophiles débutants en eau de mer.",
+        description: "Le corail trompette (Caulastrea furcata) est excellent pour débuter en bouturage de coraux. Découpez proprement un ou plusieurs polypes avec leur squelette et fixez-les sur un support. La cicatrisation est rapide. Ce LPS produit également de nouveaux polypes spontanément en conditions favorables. Eau SPS standard : KH 8-10, Ca 420-440ppm, Mg 1300ppm, T° 25-27°C, densité 1.025. Ce corail est peu exigeant en lumière et adapté aux aquariophiles débutants en eau de mer.",
       },
     },
   },
@@ -12135,14 +12135,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Trachyphyllia geoffroyi',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Open brain'],
     fiche: {
       description:
-        "Trachyphyllia geoffroyi est un corail dur LPS libre, non fixé, de l'Indo-Pacifique, vivant sur le sable ou la vase des lagons. Sa chair épaisse et plissée, qui évoque un cerveau, se gonfle de jour et se couvre de couleurs vives : vert, rouge, orange, bleu. Il est solitaire ou composé de quelques bouches. Il convient à un bac récifal bien établi, mais son tissu fragile exige un placement soigné.",
+        "Trachyphyllia geoffroyi est un corail dur LPS libre, non fixé, de l'Indo-Pacifique, vivant sur le sable ou la vase des lagons. Sa chair épaisse et plissée, qui évoque un cerveau, se gonfle de jour et se couvre de couleurs vives : vert, rouge, orange, bleu. Il est solitaire ou composé de quelques bouches. Il convient à un bac récifal bien établi, mais son tissu fragile exige un placement soigné.",
       conseil:
-        "Posez-le à même le sable, sans le coincer ni le placer sur une roche pointue, sous une lumière moyenne et un courant modéré et indirect, sans jet direct sur la chair. Son tissu se déchire facilement : manipulez-le dans l'eau, en le soutenant par le squelette, et vérifiez que le sable ne l'enterre pas. Nourrissez-le de petites proies une à deux fois par semaine, et laissez au moins 10 cm autour de lui : ses tentacules balayeurs s'allongent la nuit. Un tissu qui se déchire, devient translucide ou dégage une odeur forte signale une dégradation : retirez les parties atteintes.",
+        "Posez-le à même le sable, sans le coincer ni le placer sur une roche pointue, sous une lumière moyenne et un courant modéré et indirect, sans jet direct sur la chair. Son tissu se déchire facilement : manipulez-le dans l'eau, en le soutenant par le squelette, et vérifiez que le sable ne l'enterre pas. Nourrissez-le de petites proies une à deux fois par semaine, et laissez au moins 10 cm autour de lui : ses tentacules balayeurs s'allongent la nuit. Un tissu qui se déchire, devient translucide ou dégage une odeur forte signale une dégradation : retirez les parties atteintes.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS paisibles et aux poissons de récif non brouteurs, dans un bac mature, sur un lit de sable calme.",
@@ -12168,7 +12168,7 @@ export const ESPECES: Espece[] = [
         placement: 'Sol / sable',
         croissance: 'Lente',
         agressivite: 'Semi-agressif',
-        multiplication: "Multiplication amateur très peu pratiquée : seules les colonies à plusieurs bouches se sectionnent, au risque de blessures et d'infections ; les colonies d'élevage sont rares.",
+        multiplication: "Multiplication amateur très peu pratiquée : seules les colonies à plusieurs bouches se sectionnent, au risque de blessures et d'infections ; les colonies d'élevage sont rares.",
       },
     },
   },
@@ -12180,12 +12180,12 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Micromussa lordhowensis',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Acan', 'Acan lord'],
     fiche: {
       description:
-        "Micromussa lordhowensis, longtemps classé sous le nom d'Acanthastrea lordhowensis encore très répandu dans le commerce, est un corail dur LPS du Pacifique occidental. Il forme des colonies de petites têtes charnues et boursouflées, aux couleurs vives : rouge, vert, orange, bleu, souvent bicolores. La chair déborde largement du squelette et se gonfle bien en bac. C'est l'un des LPS les plus prisés des amateurs de couleurs.",
+        "Micromussa lordhowensis, longtemps classé sous le nom d'Acanthastrea lordhowensis encore très répandu dans le commerce, est un corail dur LPS du Pacifique occidental. Il forme des colonies de petites têtes charnues et boursouflées, aux couleurs vives : rouge, vert, orange, bleu, souvent bicolores. La chair déborde largement du squelette et se gonfle bien en bac. C'est l'un des LPS les plus prisés des amateurs de couleurs.",
       conseil:
         "Placez-le en bas ou milieu de roche, sous un éclairage faible à moyen et un courant faible à modéré qui ne déplace pas la chair, et préférez une bouture d'élevage, largement proposée. Il gagne à recevoir un nourrissage direct deux fois par semaine, avec des mysis ou de la chair de poisson, pour entretenir sa chair et sa coloration. Laissez 10 cm autour de lui, car ses tentacules balayeurs sortent la nuit. Une chair qui se rétracte et laisse le squelette à nu, ou une colonie qui ne se rouvre plus, signale un problème de paramètres ou d'infection.",
       volumeMinLitres: 150,
@@ -12229,14 +12229,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Lobophyllia hemprichii',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Lobo', 'Lobophyllie'],
     fiche: {
       description:
         "Lobophyllia hemprichii est un corail dur LPS de l'Indo-Pacifique et de la mer Rouge, formant des têtes charnues et épaisses, aux lobes festonnés, de couleur rouge, vert, orange ou marbrée. Les colonies s'élargissent peu à peu, par bourgeonnement de nouvelles têtes. Sa chair spongieuse se gonfle de jour, parfois en recouvrant le squelette. Robuste, il convient aux bacs récifaux établis.",
       conseil:
-        "Posez-le en bas de roche ou sur le sable, sous un éclairage moyen et un courant modéré, sans jet direct sur la chair. Manipulez-le avec précaution : son squelette est aigu et sa chair se déchire facilement. Nourrissez-le de morceaux de mysis ou de chair de poisson une fois par semaine, et laissez 10 à 12 cm autour de lui, car ses tentacules balayeurs piquent les voisins la nuit. Une chair qui se rétracte et laisse apparaître le squelette est un signe d'alerte.",
+        "Posez-le en bas de roche ou sur le sable, sous un éclairage moyen et un courant modéré, sans jet direct sur la chair. Manipulez-le avec précaution : son squelette est aigu et sa chair se déchire facilement. Nourrissez-le de morceaux de mysis ou de chair de poisson une fois par semaine, et laissez 10 à 12 cm autour de lui, car ses tentacules balayeurs piquent les voisins la nuit. Une chair qui se rétracte et laisse apparaître le squelette est un signe d'alerte.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS paisibles, aux zoanthaires, aux coraux mous et aux poissons de récif non brouteurs, dans un bac mature.",
@@ -12274,14 +12274,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Blastomussa wellsi',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Blasto'],
     fiche: {
       description:
         "Blastomussa wellsi est un corail dur LPS de l'Indo-Pacifique, formé de têtes rondes et charnues aux marges colorées, rose, rouge, vert ou bleu, qui se gonflent de jour. Les colonies, de quelques têtes à plusieurs dizaines, s'étalent lentement. Il vit sous une lumière douce et dans un courant modéré. Il est apprécié des petits bacs récifaux pour sa taille compacte.",
       conseil:
-        "Placez-le en bas de roche, sous un éclairage faible à moyen et un courant modéré, sans jet direct sur la chair. Introduisez-le après une acclimatation progressive : une lumière trop forte fait pâlir la chair, qui se rétracte. Nourrissez-le de petits morceaux de mysis ou de chair de poisson, une à deux fois par semaine. Une chair qui se déchire ou qui ne se rouvre plus signale une attaque ou un déséquilibre.",
+        "Placez-le en bas de roche, sous un éclairage faible à moyen et un courant modéré, sans jet direct sur la chair. Introduisez-le après une acclimatation progressive : une lumière trop forte fait pâlir la chair, qui se rétracte. Nourrissez-le de petits morceaux de mysis ou de chair de poisson, une à deux fois par semaine. Une chair qui se déchire ou qui ne se rouvre plus signale une attaque ou un déséquilibre.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS paisibles, aux zoanthaires, aux coraux mous et aux poissons de récif non brouteurs, dans un bac mature.",
@@ -12323,13 +12323,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Dipsastraea favus',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
         "Dipsastraea favus, longtemps classé sous le nom de Favia favus encore très répandu dans le commerce, est un corail dur LPS de l'Indo-Pacifique et de la mer Rouge. Il forme des colonies massives en dôme, couvertes de vallées polygonales aux contours nets, vertes, brunes, orange ou bicolores. Sa croissance est lente. Il est robuste et se prête bien à l'élevage dans un bac récifal.",
       conseil:
-        "Placez-le en bas ou milieu de roche, sous un éclairage moyen et un courant modéré, après une acclimatation d'une à deux semaines. Laissez au moins 10 cm autour de lui : de fins tentacules balayeurs sortent la nuit et brûlent les voisins. Un nourrissage de mysis ou de petits morceaux de chair de poisson, une fois par semaine, améliore la croissance et la coloration. Un tissu qui recule, des zones de squelette à nu ou un polype qui ne se rouvre plus signalent un déséquilibre à corriger.",
+        "Placez-le en bas ou milieu de roche, sous un éclairage moyen et un courant modéré, après une acclimatation d'une à deux semaines. Laissez au moins 10 cm autour de lui : de fins tentacules balayeurs sortent la nuit et brûlent les voisins. Un nourrissage de mysis ou de petits morceaux de chair de poisson, une fois par semaine, améliore la croissance et la coloration. Un tissu qui recule, des zones de squelette à nu ou un polype qui ne se rouvre plus signalent un déséquilibre à corriger.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS, aux zoanthaires, aux coraux mous et aux poissons de récif non brouteurs, dans un bac mature.",
@@ -12367,12 +12367,12 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Goniopora lobata',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail pot de fleurs', 'Goniopore'],
     fiche: {
       description:
-        "Goniopora lobata est un corail dur LPS de l'Indo-Pacifique, dont les longs polypes, portant chacun une couronne de tentacules, évoquent des fleurs agitées par le courant. Il forme des colonies en dôme ou en plaque, vertes, brunes, rouges ou rose. Il s'ouvre largement de jour. Il compte parmi les coraux les plus difficiles à maintenir : le taux de survie en bac est faible.",
+        "Goniopora lobata est un corail dur LPS de l'Indo-Pacifique, dont les longs polypes, portant chacun une couronne de tentacules, évoquent des fleurs agitées par le courant. Il forme des colonies en dôme ou en plaque, vertes, brunes, rouges ou rose. Il s'ouvre largement de jour. Il compte parmi les coraux les plus difficiles à maintenir : le taux de survie en bac est faible.",
       conseil:
         "Choisissez de préférence une colonie d'élevage, car le prélèvement en milieu naturel pèse sur l'espèce et les colonies sauvages supportent mal le transport. Placez-la en bas de roche, sous un éclairage moyen et un courant modéré, sans jet direct sur les polypes. Il lui faut un bac mature et stable, un nourrissage fréquent avec du phytoplancton et du zooplancton fins, et des nitrates modérés ; un bac trop propre l'affame. Des polypes qui restent fermés, une chair qui se détache ou un tissu qui laisse apparaître le squelette signalent un déclin souvent irréversible.",
       volumeMinLitres: 200,
@@ -12416,7 +12416,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Alveopora spongiosa',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Alvéopore'],
     fiche: {
@@ -12461,7 +12461,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Fungia fungites',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail champignon'],
     fiche: {
@@ -12494,7 +12494,7 @@ export const ESPECES: Espece[] = [
         placement: 'Sol / sable',
         croissance: 'Lente',
         agressivite: 'Semi-agressif',
-        multiplication: "Multiplication amateur rarement pratiquée : les jeunes se forment sur un pied qui se détache, et les fragments se bouturent peu. Les colonies d'élevage restent rares.",
+        multiplication: "Multiplication amateur rarement pratiquée : les jeunes se forment sur un pied qui se détache, et les fragments se bouturent peu. Les colonies d'élevage restent rares.",
       },
       reproduction: {
         facilite: "Modérée",
@@ -12510,13 +12510,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Plerogyra sinuosa',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
         "Plerogyra sinuosa est un corail dur LPS de l'Indo-Pacifique et de la mer Rouge, dont les vésicules sphériques, remplies d'eau, forment de jour une grappe de bulles translucides à reflets verts ou crème. Elles se rétractent la nuit, quand sortent des tentacules balayeurs très longs. Le squelette est dense et coupant. Il se plaît dans les eaux troubles, sous une lumière modérée.",
       conseil:
-        "Placez-le en bas de roche, sous un éclairage faible à moyen et un courant faible, après une acclimatation progressive. Laissez au moins 15 cm autour de lui : ses tentacules balayeurs s'allongent la nuit et brûlent les voisins. Ne touchez pas les vésicules, fragiles, et manipulez le squelette avec des gants, car son bord est coupant. Des bulles qui restent flasques ou une chair qui se rétracte pendant plusieurs jours signalent un déséquilibre, un nourrissage insuffisant ou une infection.",
+        "Placez-le en bas de roche, sous un éclairage faible à moyen et un courant faible, après une acclimatation progressive. Laissez au moins 15 cm autour de lui : ses tentacules balayeurs s'allongent la nuit et brûlent les voisins. Ne touchez pas les vésicules, fragiles, et manipulez le squelette avec des gants, car son bord est coupant. Des bulles qui restent flasques ou une chair qui se rétracte pendant plusieurs jours signalent un déséquilibre, un nourrissage insuffisant ou une infection.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS paisibles et aux poissons de récif non brouteurs, dans un bac mature, à bonne distance des voisins.",
@@ -12554,13 +12554,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Galaxea fascicularis',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     fiche: {
       description:
         "Galaxea fascicularis est un corail dur LPS de l'Indo-Pacifique et de la mer Rouge, qui forme des colonies de petites têtes serrées, chacune surmontée de tentacules fins et verts à pointe claire. La nuit, il déploie des tentacules balayeurs très longs, pouvant atteindre 15 à 30 cm. Il est robuste et croît à un rythme moyen. Il est apprécié des amateurs mais il nécessite beaucoup d'espace.",
       conseil:
-        "Placez-le en milieu de roche, sous un éclairage moyen et un courant modéré, après une acclimatation d'une à deux semaines. Laissez au moins 20 cm autour de lui : ses tentacules balayeurs brûlent les voisins et il ne tolère pas les voisins proches. Un nourrissage de mysis ou de petits morceaux de proies, une fois par semaine, améliore sa croissance. Des polypes qui ne se rouvrent plus ou un tissu qui recule signalent un déséquilibre à corriger.",
+        "Placez-le en milieu de roche, sous un éclairage moyen et un courant modéré, après une acclimatation d'une à deux semaines. Laissez au moins 20 cm autour de lui : ses tentacules balayeurs brûlent les voisins et il ne tolère pas les voisins proches. Un nourrissage de mysis ou de petits morceaux de proies, une fois par semaine, améliore sa croissance. Des polypes qui ne se rouvrent plus ou un tissu qui recule signalent un déséquilibre à corriger.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux poissons de récif non brouteurs et aux coraux placés à bonne distance, notamment d'autres LPS ou des coraux mous, dans un bac mature.",
@@ -12602,14 +12602,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Duncanopsammia peltata',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail coupe', 'Corail Turbinaria'],
     fiche: {
       description:
         "Duncanopsammia peltata (commercialisé sous le nom Turbinaria peltata) est un corail pierreux à grands polypes (LPS) de l'Indo-Pacifique, qui forme des coupes, des plateaux ou des spirales aux bords enroulés. Sa couleur va du vert olive au brun-jaune, avec des polypes qui s'ouvrent surtout la nuit. Il s'installe en colonie assez large et peut devenir un point d'ancrage visuel dans un récif mature. Ses sweepers nocturnes peuvent atteindre les voisins proches.",
       conseil:
-        "Acclimatez-le à l'éclairage par paliers, en le plaçant d'abord à mi-hauteur de la roche : une lumière trop forte d'emblée blanchit les bords. Laissez 15 à 20 cm autour de la colonie, car les sweepers brûlent les coraux voisins pendant la nuit. Maintenez un KH stable, sans variation brusque. Un tissu qui se rétracte, un squelette mis à nu en bordure ou des polypes fermés en journée signalent un stress de lumière, de courant ou de chimie.",
+        "Acclimatez-le à l'éclairage par paliers, en le plaçant d'abord à mi-hauteur de la roche : une lumière trop forte d'emblée blanchit les bords. Laissez 15 à 20 cm autour de la colonie, car les sweepers brûlent les coraux voisins pendant la nuit. Maintenez un KH stable, sans variation brusque. Un tissu qui se rétracte, un squelette mis à nu en bordure ou des polypes fermés en journée signalent un stress de lumière, de courant ou de chimie.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres LPS et aux coraux mous dans un bac récifal mature, avec des poissons de récif paisibles.",
@@ -12647,14 +12647,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Duncanopsammia axifuga',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail Duncan', 'Corail marguerite', 'Duncan'],
     fiche: {
       description:
         "Duncanopsammia axifuga est un corail pierreux (LPS) originaire du nord de l'Australie et de la région Indo-Pacifique. Ses colonies ramifiées portent à chaque extrémité un polype rond, épais, vert pâle à brun-vert, entouré de tentacules ondulants qui évoquent une marguerite. C'est l'un des LPS les plus pardonnants et les plus faciles à bouturer, apprécié des aquariophiles qui découvrent les coraux durs. Sa croissance est régulière et sa forme élégante.",
       conseil:
-        "Placez-le à mi-hauteur ou plus bas, sous une lumière moyenne, avec un brassage doux à modéré qui fait onduler ses tentacules sans les arracher. Nourrissez-le directement avec de la mysis ou du zooplancton hydraté : la croissance est nettement meilleure avec un nourrissage régulier. Laissez un espace de quelques centimètres autour des colonies pour éviter les brûlures avec les voisins. Un polype qui se rétracte durablement, un squelette nu au bout d'une branche ou une perte de couleur signalent une lumière trop forte ou un KH instable.",
+        "Placez-le à mi-hauteur ou plus bas, sous une lumière moyenne, avec un brassage doux à modéré qui fait onduler ses tentacules sans les arracher. Nourrissez-le directement avec de la mysis ou du zooplancton hydraté : la croissance est nettement meilleure avec un nourrissage régulier. Laissez un espace de quelques centimètres autour des colonies pour éviter les brûlures avec les voisins. Un polype qui se rétracte durablement, un squelette nu au bout d'une branche ou une perte de couleur signalent une lumière trop forte ou un KH instable.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'accorde avec la plupart des LPS et des coraux mous paisibles, ainsi qu'avec les poissons de récif non brouteurs, dans un bac mature.",
@@ -12664,7 +12664,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Corail mixotrophe : photosynthèse des zooxanthelles complétée par la capture de proies. Un nourrissage direct, 1 à 3 fois par semaine, avec de la mysis, des copépodes ou des micro-proies, est conseillé.',
+      alimentation: 'Corail mixotrophe : photosynthèse des zooxanthelles complétée par la capture de proies. Un nourrissage direct, 1 à 3 fois par semaine, avec de la mysis, des copépodes ou des micro-proies, est conseillé.',
       tailleAdulte: 'Colonies de 10 à 30 cm ; polypes de 2 à 3 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -12680,7 +12680,7 @@ export const ESPECES: Espece[] = [
         placement: 'Bas de roche',
         croissance: 'Rapide',
         agressivite: 'Paisible',
-        multiplication: 'Bouturage facile : coupez une branche portant un ou plusieurs polypes avec une pince ou une scie, puis fixez-la avec de la colle gel. Chaque tronçon reforme une colonie en quelques mois.',
+        multiplication: 'Bouturage facile : coupez une branche portant un ou plusieurs polypes avec une pince ou une scie, puis fixez-la avec de la colle gel. Chaque tronçon reforme une colonie en quelques mois.',
       },
       reproduction: {
         facilite: "Facile",
@@ -12696,14 +12696,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Catalaphyllia jardinei',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail dur (ordre des Scléractiniaires) : tous les coraux durs sont inscrits à la CITES (annexe II) et à l'annexe B de l'UE, boutures comprises. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail élégance', 'Corail ondulant', 'Corail Catalaphyllia'],
     fiche: {
       description:
         "Catalaphyllia jardinei est un grand corail solitaire (LPS) de l'Indo-Pacifique, qui vit posé sur le sable ou la vase des fonds tranquilles. Son tissu épais et charnu, vert, brun, rose ou fluorescent, est bordé de longs tentacules ondulants, souvent d'une teinte différente à l'extrémité. Il se rétracte rapidement et son tissu est fragile. Il est recherché pour son aspect spectaculaire, mais il demande du soin et une grande vigilance.",
       conseil:
-        "Posez-le sur le sable, loin de la roche, avec un courant faible : un courant fort déchire le tissu et le gonfle de façon anormale. Ne le manipulez jamais par le tissu ni par la bouche, et ne le coupez pas : une plaie s'infecte facilement (syndrome d'effondrement ou « brain expansion »). Laissez au moins 15 cm de vide autour pour ses sweepers nocturnes et vérifiez l'absence d'anémones ou de poissons qui picorent les tentacules. Un tissu mou ou boursouflé, des zones qui se délitent ou un polype qui reste fermé signalent un problème grave. Privilégiez un spécimen d'élevage, plus résistant que les individus prélevés en mer.",
+        "Posez-le sur le sable, loin de la roche, avec un courant faible : un courant fort déchire le tissu et le gonfle de façon anormale. Ne le manipulez jamais par le tissu ni par la bouche, et ne le coupez pas : une plaie s'infecte facilement (syndrome d'effondrement ou « brain expansion »). Laissez au moins 15 cm de vide autour pour ses sweepers nocturnes et vérifiez l'absence d'anémones ou de poissons qui picorent les tentacules. Un tissu mou ou boursouflé, des zones qui se délitent ou un polype qui reste fermé signalent un problème grave. Privilégiez un spécimen d'élevage, plus résistant que les individus prélevés en mer.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe à des poissons de récif paisibles et à des coraux mous ou LPS placés à bonne distance, dans un bac mature à l'eau très stable.",
@@ -12713,7 +12713,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Photosynthèse complétée par une alimentation carnivore : morceaux de crevette, mysis ou poisson, déposés délicatement sur le tissu une fois par semaine.',
+      alimentation: 'Photosynthèse complétée par une alimentation carnivore : morceaux de crevette, mysis ou poisson, déposés délicatement sur le tissu une fois par semaine.',
       tailleAdulte: '15 à 30 cm de diamètre',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -12729,7 +12729,7 @@ export const ESPECES: Espece[] = [
         placement: 'Sol / sable',
         croissance: 'Lente',
         agressivite: 'Semi-agressif',
-        multiplication: "Fragmentation très délicate, réservée aux producteurs : un corail élégance découpé s'infecte facilement. Les aquariophiles privilégient l'acquisition de colonies d'élevage plutôt que le bouturage maison.",
+        multiplication: "Fragmentation très délicate, réservée aux producteurs : un corail élégance découpé s'infecte facilement. Les aquariophiles privilégient l'acquisition de colonies d'élevage plutôt que le bouturage maison.",
       },
     },
   },
@@ -12741,14 +12741,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Heliopora coerulea',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail bleu (famille des Helioporidés) : inscrit à la CITES (annexe II) et à l'annexe B de l'UE. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail bleu (famille des Helioporidés) : inscrit à la CITES (annexe II) et à l'annexe B de l'UE. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Corail bleu', 'Corail bleu Heliopora'],
     fiche: {
       description:
         "Heliopora coerulea est un octocoral à squelette massif d'aragonite bleu, inhabituel dans ce groupe. Il forme des colonies en plaques, en branches ou en colonnes, de l'Indo-Pacifique, avec un tissu brun-gris à gris-vert dont les polypes à huit tentacules sortent de petits trous. Le bleu n'est visible que sur le squelette, à la cassure. Sa croissance est lente et il exige un récif stable, bien éclairé et bien brassé.",
       conseil:
-        "Installez-le haut dans la roche, sous un éclairage soutenu, avec un courant fort et turbulent qui dégage les polypes. Il supporte mal les variations de KH, de calcium et de magnésium : stabilisez le dosage avant son arrivée. Laissez de l'espace autour de lui, car il peut être recouvert par des voisins à croissance rapide et se défend peu. Une rétraction durable des polypes, un tissu qui se décolle ou une colonie qui pâlit signalent un stress de lumière ou de chimie.",
+        "Installez-le haut dans la roche, sous un éclairage soutenu, avec un courant fort et turbulent qui dégage les polypes. Il supporte mal les variations de KH, de calcium et de magnésium : stabilisez le dosage avant son arrivée. Laissez de l'espace autour de lui, car il peut être recouvert par des voisins à croissance rapide et se défend peu. Une rétraction durable des polypes, un tissu qui se décolle ou une colonie qui pâlit signalent un stress de lumière ou de chimie.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'accorde avec les SPS et LPS paisibles, ainsi qu'avec les poissons de récif non brouteurs, dans un bac mature.",
@@ -12790,14 +12790,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Tubipora musica',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Corail tuyaux d'orgue (famille des Tubiporidés) : inscrit à la CITES (annexe II) et à l'annexe B de l'UE. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Corail tuyaux d'orgue (famille des Tubiporidés) : inscrit à la CITES (annexe II) et à l'annexe B de l'UE. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ["Corail tuyaux d'orgue", 'Orgue de mer', 'Corail orgue'],
     fiche: {
       description:
         "Tubipora musica est un octocoral de l'Indo-Pacifique qui construit un squelette rouge de tubes calcaires parallèles, reliés par des planchers horizontaux. De ces tubes sortent de petits polypes à huit tentacules plumeux, vert à gris-brun, qui s'ouvrent au courant. Le squelette rouge est visible quand les polypes se rétractent. La colonie forme un coussin de quelques dizaines de centimètres. C'est un corail réputé délicat en captivité, souvent mal adapté à l'aquarium.",
       conseil:
-        "Évitez de le prélever en mer et préférez une bouture d'élevage lorsqu'elle existe : les colonies sauvages s'adaptent mal et dépérissent souvent. Installez-le à mi-hauteur sous une lumière forte et dans un courant modéré qui dégage les polypes. Stabilisez le KH, le calcium et le magnésium avant son arrivée et nourrissez-le de phytoplancton ou de micro-plancton. Des polypes fermés plusieurs jours de suite ou un tissu qui se retire des tubes annoncent un déclin souvent irréversible.",
+        "Évitez de le prélever en mer et préférez une bouture d'élevage lorsqu'elle existe : les colonies sauvages s'adaptent mal et dépérissent souvent. Installez-le à mi-hauteur sous une lumière forte et dans un courant modéré qui dégage les polypes. Stabilisez le KH, le calcium et le magnésium avant son arrivée et nourrissez-le de phytoplancton ou de micro-plancton. Des polypes fermés plusieurs jours de suite ou un tissu qui se retire des tubes annoncent un déclin souvent irréversible.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux coraux mous et LPS paisibles et aux poissons de récif non brouteurs, dans un bac mature à l'eau très stable.",
@@ -12841,7 +12841,7 @@ export const ESPECES: Espece[] = [
       description:
         "Les Xenia (Xenia sp., nom qui recouvre ici plusieurs espèces du genre) sont des coraux mous de l'Indo-Pacifique et de la mer Rouge, reconnaissables à leurs polypes plumeux qui se contractent et se rouvrent en pulsations rythmées. Les colonies, beige, brunes ou rosées, s'étalent sur des tiges ramifiées en petit « bouquet ». Ils figurent parmi les coraux mous les plus faciles à garder, avec une croissance rapide, mais leur propension à envahir la roche est redoutable.",
       conseil:
-        "Posez-le seul sur un caillou séparé, entouré de sable, pour éviter qu'il ne gagne le reste du décor : une fois étalé, il est très difficile à retirer. Il aime les eaux riches en nutriments mais supporte mal un déficit brutal de nitrates ou de phosphates, ou une chute de KH. La disparition soudaine des pulsations ou une colonie qui fond en quelques jours signalent un stress de qualité d'eau ou de lumière. Ne donnez jamais de bouture à un autre aquariophile sans l'avoir prévenu de son caractère envahissant.",
+        "Posez-le seul sur un caillou séparé, entouré de sable, pour éviter qu'il ne gagne le reste du décor : une fois étalé, il est très difficile à retirer. Il aime les eaux riches en nutriments mais supporte mal un déficit brutal de nitrates ou de phosphates, ou une chute de KH. La disparition soudaine des pulsations ou une colonie qui fond en quelques jours signalent un stress de qualité d'eau ou de lumière. Ne donnez jamais de bouture à un autre aquariophile sans l'avoir prévenu de son caractère envahissant.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'accorde avec les autres coraux mous et les LPS paisibles, ainsi qu'avec les poissons de récif non brouteurs, s'il reste isolé sur un support.",
@@ -12871,7 +12871,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très facile",
-        description: "La Xenia est l'un des coraux les plus faciles à propager en aquarium récifal. Elle se reproduit asexuellement de façon explosive : les polypes se divisent et migrent sur les roches avoisinantes. Pour la bouturer, détachez simplement un pompom de la colonie et fixez-le avec de la colle gel sur un support. La cicatrisation est quasi-immédiate. Sa croissance peut devenir envahissante : surveillez son expansion. T° 25-27°C, KH 8-10, densité 1.025. Une des meilleures espèces pour débuter.",
+        description: "La Xenia est l'un des coraux les plus faciles à propager en aquarium récifal. Elle se reproduit asexuellement de façon explosive : les polypes se divisent et migrent sur les roches avoisinantes. Pour la bouturer, détachez simplement un pompom de la colonie et fixez-le avec de la colle gel sur un support. La cicatrisation est quasi-immédiate. Sa croissance peut devenir envahissante : surveillez son expansion. T° 25-27°C, KH 8-10, densité 1.025. Une des meilleures espèces pour débuter.",
       },
     },
   },
@@ -12887,9 +12887,9 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Clavularia', 'Polypes étoilés', 'Clavularia vert'],
     fiche: {
       description:
-        "Clavularia viridis est un corail mou de l'Indo-Pacifique qui forme un tapis (stolon) rampant d'où se dressent de longs polypes vert à brun, aux huit tentacules plumeux. Ces polypes s'ouvrent en fleur et se rétractent en un clin d'œil à la moindre alerte. Le stolon, souvent violacé ou gris, s'étale sur la roche. Sa croissance est rapide et il demande peu : c'est un corail apprécié des débutants, qui apporte du mouvement à un récif.",
+        "Clavularia viridis est un corail mou de l'Indo-Pacifique qui forme un tapis (stolon) rampant d'où se dressent de longs polypes vert à brun, aux huit tentacules plumeux. Ces polypes s'ouvrent en fleur et se rétractent en un clin d'œil à la moindre alerte. Le stolon, souvent violacé ou gris, s'étale sur la roche. Sa croissance est rapide et il demande peu : c'est un corail apprécié des débutants, qui apporte du mouvement à un récif.",
       conseil:
-        "Installez-le sur un support dégagé, à mi-hauteur de la roche, sous une lumière moyenne et un courant modéré qui ne couche pas les polypes. Après un déplacement, il peut rester fermé plusieurs jours : ne le déplacez pas de nouveau tant que le stolon n'est pas fixé. Laissez-lui de la place, car il recouvre peu à peu le support et peut gêner des voisins plus lents. Une disparition des polypes ou un stolon qui se détache signale une lumière trop forte, un courant excessif ou la présence d'un prédateur (nudibranches, poissons brouteurs).",
+        "Installez-le sur un support dégagé, à mi-hauteur de la roche, sous une lumière moyenne et un courant modéré qui ne couche pas les polypes. Après un déplacement, il peut rester fermé plusieurs jours : ne le déplacez pas de nouveau tant que le stolon n'est pas fixé. Laissez-lui de la place, car il recouvre peu à peu le support et peut gêner des voisins plus lents. Une disparition des polypes ou un stolon qui se détache signale une lumière trop forte, un courant excessif ou la présence d'un prédateur (nudibranches, poissons brouteurs).",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres coraux mous, aux LPS paisibles et aux poissons de récif non brouteurs.",
@@ -12933,7 +12933,7 @@ export const ESPECES: Espece[] = [
       description:
         "Les Discosoma sont des corallimorphes de l'Indo-Pacifique, des disques mous et lisses en forme de champignon, de teintes très variées (vert, rouge, bleu, brun, souvent tachetés ou fluorescents). Ils ne produisent pas de squelette et s'accrochent par un pied à la roche. Cette fiche couvre le genre Discosoma au sens du commerce, qui regroupe aussi d'autres corallimorphes proches. Très résistants, ils s'adaptent à des éclairages faibles et à des eaux riches, ce qui en fait un premier corail apprécié.",
       conseil:
-        "Placez-le à l'ombre ou à mi-hauteur de la roche, dans un courant faible à modéré qui n'abîme pas ses bords. Le disque doit rester étalé et plat : un disque qui se plisse, se vrille ou se rétracte durablement signale un excès de lumière, de courant ou un déséquilibre chimique. Ne placez pas de coraux délicats juste à côté, car il peut piquer légèrement les voisins et les recouvrir en se multipliant. Évitez de le laisser dériver vers une pompe ou une prise d'eau.",
+        "Placez-le à l'ombre ou à mi-hauteur de la roche, dans un courant faible à modéré qui n'abîme pas ses bords. Le disque doit rester étalé et plat : un disque qui se plisse, se vrille ou se rétracte durablement signale un excès de lumière, de courant ou un déséquilibre chimique. Ne placez pas de coraux délicats juste à côté, car il peut piquer légèrement les voisins et les recouvrir en se multipliant. Évitez de le laisser dériver vers une pompe ou une prise d'eau.",
       volumeMinLitres: 60,
       tailleGroupeMin: null,
       compatibilite: "Il s'accorde avec les coraux mous, les LPS paisibles et la plupart des poissons de récif.",
@@ -12963,7 +12963,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très facile",
-        description: "Les corallimorphaires champignons (Rhodactis, Discosoma) se propagent très facilement par fission asexuée. Un disque se divise spontanément en deux individus dans de bonnes conditions. Vous pouvez aussi découper un individu en deux avec des ciseaux propres : chaque moitié se régénère. Ils peuvent aussi développer des bourgeons. Très robustes, ils tolèrent des variations de paramètres. Idéal pour débuter. T° 24-28°C, densité 1.023-1.026, éclairage faible à modéré.",
+        description: "Les corallimorphaires champignons (Rhodactis, Discosoma) se propagent très facilement par fission asexuée. Un disque se divise spontanément en deux individus dans de bonnes conditions. Vous pouvez aussi découper un individu en deux avec des ciseaux propres : chaque moitié se régénère. Ils peuvent aussi développer des bourgeons. Très robustes, ils tolèrent des variations de paramètres. Idéal pour débuter. T° 24-28°C, densité 1.023-1.026, éclairage faible à modéré.",
       },
     },
   },
@@ -12981,7 +12981,7 @@ export const ESPECES: Espece[] = [
       description:
         "Ricordea florida est un corallimorphe des Caraïbes et de Floride, aux disques couverts de petites bulles (vésicules) qui lui donnent un aspect granuleux et coloré, en vert, orange, rouge, bleu ou fluorescent. Il vit en colonies sur la roche, par petits groupes de quelques polypes. Moins résistant que les Discosoma, il est recherché pour ses couleurs et sa texture. Il ne faut pas le confondre avec Ricordea yuma, espèce indo-pacifique aux vésicules plus fines.",
       conseil:
-        "Installez-le en bas de roche ou à l'abri, sous une lumière modérée et avec un courant faible à modéré. Évitez les variations de salinité et de température, qui le font se rétracter. Il se déplace lentement en glissant sur son pied : placez-le sur un support fixe. Un disque qui se plisse, des vésicules qui se rétractent ou une couleur qui pâlit signalent un stress de lumière, de courant ou de nutriments. Préférez des individus d'élevage, courants, plutôt que des prélèvements.",
+        "Installez-le en bas de roche ou à l'abri, sous une lumière modérée et avec un courant faible à modéré. Évitez les variations de salinité et de température, qui le font se rétracter. Il se déplace lentement en glissant sur son pied : placez-le sur un support fixe. Un disque qui se plisse, des vésicules qui se rétractent ou une couleur qui pâlit signalent un stress de lumière, de courant ou de nutriments. Préférez des individus d'élevage, courants, plutôt que des prélèvements.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux coraux mous paisibles, aux autres corallimorphes et aux poissons de récif non brouteurs.",
@@ -13025,7 +13025,7 @@ export const ESPECES: Espece[] = [
       description:
         "Les Palythoa sont des zoanthaires coloniaux qui s'étalent en tapis, de l'Indo-Pacifique et des Caraïbes. Leurs polypes sont reliés à la base par une masse charnue (coenenchyme) incrustée de sable, ce qui les distingue des Zoanthus à polypes libres. Ils sont bruns, verts, gris ou crème, avec de grosses bouches centrales. Ils croissent facilement, mais certaines espèces de Palythoa produisent de la palytoxine, l'une des toxines marines les plus puissantes connues.",
       conseil:
-        "Danger : portez toujours des gants et des lunettes de protection, ne les manipulez pas à mains nues, ne plongez jamais les mains dans le bac en cas de plaie ouverte et ne faites jamais bouillir ou sécher de roche portant des Palythoa, car les vapeurs ou les aérosols peuvent provoquer de graves intoxications. Rincez la roche sous l'eau salée à distance du visage et aérez la pièce. Placez la colonie à mi-hauteur, sous une lumière moyenne et un courant modéré, avec 5 à 10 cm de vide autour pour limiter les conflits. Des polypes fermés ou une colonie qui se détache signalent un stress de lumière ou de chimie. Tenez les enfants et les animaux à l'écart du bac.",
+        "Danger : portez toujours des gants et des lunettes de protection, ne les manipulez pas à mains nues, ne plongez jamais les mains dans le bac en cas de plaie ouverte et ne faites jamais bouillir ou sécher de roche portant des Palythoa, car les vapeurs ou les aérosols peuvent provoquer de graves intoxications. Rincez la roche sous l'eau salée à distance du visage et aérez la pièce. Placez la colonie à mi-hauteur, sous une lumière moyenne et un courant modéré, avec 5 à 10 cm de vide autour pour limiter les conflits. Des polypes fermés ou une colonie qui se détache signalent un stress de lumière ou de chimie. Tenez les enfants et les animaux à l'écart du bac.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe à d'autres zoanthaires, aux coraux mous et aux poissons de récif non brouteurs, dans un bac où la manipulation se fait avec protection.",
@@ -13055,7 +13055,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très facile",
-        description: "Les palythoa et zoanthides se propagent facilement par bourgeonnement asexué. De nouveaux polypes apparaissent régulièrement autour des colonies. Pour bouturer, détachez un fragment de roche support avec quelques polypes. Fixez sur un nouveau support et laissez la colonie s'étendre. La croissance peut être rapide. ATTENTION : les palythoa contiennent de la palyctoxine, une des substances les plus toxiques connues. Portez toujours des gants, lunettes de protection, et ne laissez pas de vapeurs entrer dans vos yeux ou votre bouche.",
+        description: "Les palythoa et zoanthides se propagent facilement par bourgeonnement asexué. De nouveaux polypes apparaissent régulièrement autour des colonies. Pour bouturer, détachez un fragment de roche support avec quelques polypes. Fixez sur un nouveau support et laissez la colonie s'étendre. La croissance peut être rapide. ATTENTION : les palythoa contiennent de la palyctoxine, une des substances les plus toxiques connues. Portez toujours des gants, lunettes de protection, et ne laissez pas de vapeurs entrer dans vos yeux ou votre bouche.",
       },
     },
   },
@@ -13073,7 +13073,7 @@ export const ESPECES: Espece[] = [
       description:
         "Capnella imbricata est un corail mou arborescent de l'Indo-Pacifique, qui forme de petites colonies aux branches ramifiées couvertes de polypes plumeux, en beige, brun ou rosé. Il pousse vite, ressemble à un petit arbre et se multiplie volontiers en lâchant des fragments. Sa résistance en fait un corail adapté aux débutants. Il doit toutefois rester sous surveillance, car il peut envahir le décor.",
       conseil:
-        "Placez-le à mi-hauteur ou en haut de roche, sous une lumière moyenne et un courant modéré qui fait onduler les branches sans les casser. Laissez-lui de la place : en croissant, il s'étale sur la roche. Il émet des substances chimiques (terpènes) qui gênent les voisins : changez l'eau régulièrement et utilisez du charbon actif en cas de coraux sensibles. Un tronc qui se couvre de mucus, des polypes fermés et une colonie qui s'affaisse annoncent un stress de qualité d'eau ou de lumière.",
+        "Placez-le à mi-hauteur ou en haut de roche, sous une lumière moyenne et un courant modéré qui fait onduler les branches sans les casser. Laissez-lui de la place : en croissant, il s'étale sur la roche. Il émet des substances chimiques (terpènes) qui gênent les voisins : changez l'eau régulièrement et utilisez du charbon actif en cas de coraux sensibles. Un tronc qui se couvre de mucus, des polypes fermés et une colonie qui s'affaisse annoncent un stress de qualité d'eau ou de lumière.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'accorde avec les autres coraux mous, les LPS paisibles et la plupart des poissons de récif.",
@@ -13117,7 +13117,7 @@ export const ESPECES: Espece[] = [
       description:
         "Les Lobophytum sont des coraux mous de l'Indo-Pacifique, dits « coraux cuir », qui forment une base épaisse et charnue portant des lobes, des crêtes ou des doigts irréguliers, de teinte brune, verte, jaune ou grise. Les petits polypes à huit tentacules plumeux s'ouvrent sur toute la surface. Le terme Lobophytum sp. désigne ici le genre, qui compte de nombreuses espèces proches. Résistants et à la croissance modérée, ils conviennent aux bacs récifaux débutants.",
       conseil:
-        "Placez-le à mi-hauteur de la roche ou plus haut, sous une lumière moyenne à forte et un courant modéré qui fait onduler les lobes. Il mue périodiquement en couvrant sa surface d'un film de mucus : c'est normal, pas un signe de maladie, mais il reste fermé quelques jours. Il libère des terpènes qui peuvent gêner les coraux voisins : prévoyez de l'espace, des changements d'eau réguliers et du charbon actif. Un tissu qui se décolore, qui reste fermé plus d'une semaine ou qui se couvre de zones nécrosées signale un stress de lumière, de chimie ou une attaque de prédateur.",
+        "Placez-le à mi-hauteur de la roche ou plus haut, sous une lumière moyenne à forte et un courant modéré qui fait onduler les lobes. Il mue périodiquement en couvrant sa surface d'un film de mucus : c'est normal, pas un signe de maladie, mais il reste fermé quelques jours. Il libère des terpènes qui peuvent gêner les coraux voisins : prévoyez de l'espace, des changements d'eau réguliers et du charbon actif. Un tissu qui se décolore, qui reste fermé plus d'une semaine ou qui se couvre de zones nécrosées signale un stress de lumière, de chimie ou une attaque de prédateur.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres coraux mous, aux LPS paisibles et à la plupart des poissons de récif non brouteurs.",
@@ -13165,7 +13165,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'étoile verte est un octocoral encroûtant de l'Indo-Pacifique, vendu sous le nom de Briareum. Il forme un tapis de base violette ou grise, d'où sortent des polypes à huit tentacules plumeux, vert vif à brun, qui s'ouvrent en étoile. Il s'étale vite sur la roche, au point de recouvrir des voisins. Très résistant, il est apprécié des débutants pour sa couleur et sa vigueur.",
       conseil:
-        "Choisissez un support que vous pourrez retirer ou isoler, comme une roche posée à part, car il envahit vite la roche et le verre. Placez-le à mi-hauteur de la roche, sous une lumière moyenne et un courant modéré qui dégage bien les polypes. Les polypes restent fermés plusieurs jours après un déplacement ou lors d'un changement de lumière : c'est normal. Un tapis couvert d'un film de dépôt ou des zones sans polypes signalent un stress de lumière ou de chimie.",
+        "Choisissez un support que vous pourrez retirer ou isoler, comme une roche posée à part, car il envahit vite la roche et le verre. Placez-le à mi-hauteur de la roche, sous une lumière moyenne et un courant modéré qui dégage bien les polypes. Les polypes restent fermés plusieurs jours après un déplacement ou lors d'un changement de lumière : c'est normal. Un tapis couvert d'un film de dépôt ou des zones sans polypes signalent un stress de lumière ou de chimie.",
       volumeMinLitres: 100,
       tailleGroupeMin: null,
       compatibilite: "Il s'associe aux autres coraux mous, aux LPS paisibles et aux poissons de récif non brouteurs, tant qu'il reste isolé sur un support.",
@@ -13209,7 +13209,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le nom de Pseudopterogorgia sp. désigne ici les gorgones « plumes » des Caraïbes, désormais regroupées dans le genre Antillogorgia, à ne pas confondre avec les gorgones non photosynthétiques. Elles forment des colonies ramifiées souples, brunes à violacées, portant de nombreux polypes fins qui leur donnent un aspect de plume. Elles vivent en bord de récif, dans des courants forts. Les espèces photosynthétiques s'adaptent assez bien à l'aquarium, mais exigent une eau stable et un brassage soutenu.",
       conseil:
-        "Fixez-la haut dans la roche, à un endroit où le courant est fort et turbulent, car un brassage insuffisant la laisse se couvrir d'algues et de détritus. Ne la laissez jamais sortir de l'eau lors du transport ou de l'installation : une bulle d'air emprisonnée dans les branches provoque une nécrose. Les polypes rétractés durablement, un squelette nu qui progresse du bas vers le haut ou une colonie sombre et couverte d'un film signalent un stress de courant ou de chimie. Évitez les gorgones non photosynthétiques (sans zooxanthelles), qui meurent de faim en aquarium.",
+        "Fixez-la haut dans la roche, à un endroit où le courant est fort et turbulent, car un brassage insuffisant la laisse se couvrir d'algues et de détritus. Ne la laissez jamais sortir de l'eau lors du transport ou de l'installation : une bulle d'air emprisonnée dans les branches provoque une nécrose. Les polypes rétractés durablement, un squelette nu qui progresse du bas vers le haut ou une colonie sombre et couverte d'un film signalent un stress de courant ou de chimie. Évitez les gorgones non photosynthétiques (sans zooxanthelles), qui meurent de faim en aquarium.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux autres gorgones photosynthétiques, aux coraux mous et aux poissons de récif non brouteurs, dans un bac mature à fort brassage.",
@@ -13257,7 +13257,7 @@ export const ESPECES: Espece[] = [
       description:
         "Stichodactyla haddoni est une grande anémone en forme de tapis de l'Indo-Pacifique, qui vit enfoncée dans le sable des lagons. Son disque, aplati et couvert de courts tentacules collants, mesure souvent 30 cm ou plus, en brun, vert, bleu ou violet. Elle abrite des poissons-clowns dans la nature et possède de puissantes cellules urticantes. Elle est difficile à garder, sensible aux variations et à la qualité de l'éclairage, et impose un grand bac mature.",
       conseil:
-        "Danger : ses cellules urticantes sont puissantes, portez toujours des gants pour la manipuler et ne la déplacez jamais en tirant sur son pied. Fournissez un sable fin de 8 à 10 cm où elle peut s'ancrer, et un éclairage intense et stable ; elle se déplace tant qu'elle n'est pas satisfaite. Placez-la loin des pompes et des prises d'eau où elle risque d'être aspirée. Une anémone qui se dégonfle, se décolore ou rejette une matière filandreuse signale un stress qu'il faut corriger sans tarder. Préférez un individu d'élevage ou déjà acclimaté depuis plusieurs mois.",
+        "Danger : ses cellules urticantes sont puissantes, portez toujours des gants pour la manipuler et ne la déplacez jamais en tirant sur son pied. Fournissez un sable fin de 8 à 10 cm où elle peut s'ancrer, et un éclairage intense et stable ; elle se déplace tant qu'elle n'est pas satisfaite. Placez-la loin des pompes et des prises d'eau où elle risque d'être aspirée. Une anémone qui se dégonfle, se décolore ou rejette une matière filandreuse signale un stress qu'il faut corriger sans tarder. Préférez un individu d'élevage ou déjà acclimaté depuis plusieurs mois.",
       volumeMinLitres: 400,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe à des poissons-clowns de petite taille (Amphiprion), dans un grand bac mature bien éclairé.",
@@ -13301,7 +13301,7 @@ export const ESPECES: Espece[] = [
       description:
         "Condylactis gigantea est une anémone des Caraïbes et de l'Atlantique tropical, reconnaissable à ses longs tentacules clairs, pâles ou verdâtres, terminés par une pointe rose, violette ou fuchsia. Son pied s'ancre dans une anfractuosité de la roche. Plus tolérante que les anémones hôtes d'Indo-Pacifique, elle reste un animal mobile qui se déplace à la recherche d'un site à sa convenance. Elle ne vit pas naturellement avec les poissons-clowns indo-pacifiques, qui l'adoptent rarement.",
       conseil:
-        "Danger : elle pique, ne la touchez pas sans gants et ne la déplacez jamais de force. Fournissez-lui une roche creuse où ancrer son pied, car elle se glisse dans des fissures et peut s'y coincer. Elle est capable de se déplacer partout dans le bac : couvrez les pompes et les prises d'eau de grilles pour éviter qu'elle ne soit aspirée. Surveillez-la : une anémone qui rétracte ses tentacules durablement, se ratatine ou rejette un liquide laiteux signale un stress sévère.",
+        "Danger : elle pique, ne la touchez pas sans gants et ne la déplacez jamais de force. Fournissez-lui une roche creuse où ancrer son pied, car elle se glisse dans des fissures et peut s'y coincer. Elle est capable de se déplacer partout dans le bac : couvrez les pompes et les prises d'eau de grilles pour éviter qu'elle ne soit aspirée. Surveillez-la : une anémone qui rétracte ses tentacules durablement, se ratatine ou rejette un liquide laiteux signale un stress sévère.",
       volumeMinLitres: 200,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe à des poissons de récif robustes et à des coraux mous placés à distance, dans un bac mature.",
@@ -13347,12 +13347,12 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Aiptasia', 'Anémone de verre', 'Aiptasie'],
     fiche: {
       description:
-        "Exaiptasia diaphana, dite Aiptasia ou anémone de verre, est une petite anémone translucide, brun clair à beige, qui s'installe dans les fissures de la roche. Son disque mesure 2 à 5 cm, avec des tentacules fins et effilés, qui piquent légèrement les voisins. Introduite par les roches vivantes et les coraux, elle se multiplie très vite et envahit le bac. Ce n'est pas un animal d'élevage : c'est une nuisance à reconnaître tôt, à prévenir et à contrôler.",
+        "Exaiptasia diaphana, dite Aiptasia ou anémone de verre, est une petite anémone translucide, brun clair à beige, qui s'installe dans les fissures de la roche. Son disque mesure 2 à 5 cm, avec des tentacules fins et effilés, qui piquent légèrement les voisins. Introduite par les roches vivantes et les coraux, elle se multiplie très vite et envahit le bac. Ce n'est pas un animal d'élevage : c'est une nuisance à reconnaître tôt, à prévenir et à contrôler.",
       conseil:
-        "Prévention : inspectez et mettez en quarantaine toute roche et bouture avant introduction, avec un trempage antiparasitaire adapté. Ne l'écrasez, ne la grattez et ne la coupez jamais : chaque fragment régénère une nouvelle anémone. Au premier individu isolé, injectez-lui une solution de chaux (pâte de kalkwasser) ou un produit du commerce, avec une seringue, ou introduisez des prédateurs (nudibranche Berghia, crevette Lysmata wurdemanni, poisson-papillon Chaetodon kleinii, selon le bac). Réduisez les nutriments en excès, qui favorisent sa prolifération, et portez des gants lors de toute intervention.",
+        "Prévention : inspectez et mettez en quarantaine toute roche et bouture avant introduction, avec un trempage antiparasitaire adapté. Ne l'écrasez, ne la grattez et ne la coupez jamais : chaque fragment régénère une nouvelle anémone. Au premier individu isolé, injectez-lui une solution de chaux (pâte de kalkwasser) ou un produit du commerce, avec une seringue, ou introduisez des prédateurs (nudibranche Berghia, crevette Lysmata wurdemanni, poisson-papillon Chaetodon kleinii, selon le bac). Réduisez les nutriments en excès, qui favorisent sa prolifération, et portez des gants lors de toute intervention.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : il s'agit d'une espèce nuisible à contrôler, non d'un animal à associer à d'autres.",
+      compatibilite: "Sans objet : il s'agit d'une espèce nuisible à contrôler, non d'un animal à associer à d'autres.",
       incompatibilite: "Elle gêne les coraux voisins, bloque les pompes et les prises d'eau, et prolifère dans les bacs riches en nutriments ; évitez les roches non contrôlées.",
       phMin: 8.0,
       phMax: 8.4,
@@ -13403,7 +13403,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : mysis, chair de poisson ou de crevette, paillettes, et détritus qu'elle picore dans la roche. Nourrissez-la une à deux fois par semaine.",
+      alimentation: "Omnivore : mysis, chair de poisson ou de crevette, paillettes, et détritus qu'elle picore dans la roche. Nourrissez-la une à deux fois par semaine.",
       tailleAdulte: '5 à 8 cm',
       marin: {
         salinite: '1,024 – 1,026 (34 – 35 g/L)',
@@ -13413,7 +13413,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Difficile",
-        description: "La crevette de feu (Lysmata debelius) est hermaphrodite simultanée. En groupe de 2-3 individus, les accouplements sont fréquents. La femelle porte des œufs verts sous l'abdomen pendant 2 semaines. Les larves planctoniques sont extrêmement difficiles à élever : elles nécessitent une succession précise d'aliments (phytoplancton, rotifères, nauplies d'artémia) dans des conditions très stables. Quelques éleveurs spécialisés ont documenté des élevages. T° 25-27°C, densité 1.025.",
+        description: "La crevette de feu (Lysmata debelius) est hermaphrodite simultanée. En groupe de 2-3 individus, les accouplements sont fréquents. La femelle porte des œufs verts sous l'abdomen pendant 2 semaines. Les larves planctoniques sont extrêmement difficiles à élever : elles nécessitent une succession précise d'aliments (phytoplancton, rotifères, nauplies d'artémia) dans des conditions très stables. Quelques éleveurs spécialisés ont documenté des élevages. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -13431,7 +13431,7 @@ export const ESPECES: Espece[] = [
       description:
         "La crevette menthe (Lysmata wurdemanni) est une petite crevette translucide rayée de rouge, originaire de l'Atlantique occidental, de la Floride au golfe du Mexique. Elle atteint 5 à 6 cm, reste cachée dans les anfractuosités de la roche le jour et sort surtout à la tombée de la nuit. Elle nettoie les restes de nourriture et les détritus, et elle est souvent achetée dans l'espoir de limiter les anémones Aiptasia. Hermaphrodite, elle se tient volontiers en petit groupe.",
       conseil:
-        "Acclimatez-la goutte à goutte pendant au moins une heure : comme tous les crustacés, elle supporte très mal les écarts de salinité et les traitements à base de cuivre. Prévoyez des cachettes dans la roche et ne comptez pas sur elle comme seule solution contre les Aiptasia, car son appétit pour ces anémones varie fortement d'un individu à l'autre. Si elle manque de nourriture, elle peut s'en prendre à certains coraux mous ou aux manteaux de bénitiers : nourrissez-la régulièrement avec des morceaux de poisson ou de mysis. Un animal immobile sur le dos, des antennes cassées ou une mue qui échoue signalent un stress ou une eau instable.",
+        "Acclimatez-la goutte à goutte pendant au moins une heure : comme tous les crustacés, elle supporte très mal les écarts de salinité et les traitements à base de cuivre. Prévoyez des cachettes dans la roche et ne comptez pas sur elle comme seule solution contre les Aiptasia, car son appétit pour ces anémones varie fortement d'un individu à l'autre. Si elle manque de nourriture, elle peut s'en prendre à certains coraux mous ou aux manteaux de bénitiers : nourrissez-la régulièrement avec des morceaux de poisson ou de mysis. Un animal immobile sur le dos, des antennes cassées ou une mue qui échoue signalent un stress ou une eau instable.",
       volumeMinLitres: 60,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles, coraux, autres crevettes nettoyeuses du genre Lysmata, escargots et ophiures.',
@@ -13441,7 +13441,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore charognard : restes de nourriture, mysis, artémias, chair de poisson ou de moule.',
+      alimentation: 'Omnivore charognard : restes de nourriture, mysis, artémias, chair de poisson ou de moule.',
       tailleAdulte: '5 à 6 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13465,7 +13465,7 @@ export const ESPECES: Espece[] = [
       description:
         "La crevette bandée (Stenopus hispidus) est une crevette nettoyeuse des mers tropicales du monde entier, reconnaissable à son corps rayé de rouge et de blanc et à ses longues antennes blanches. Elle mesure 6 à 8 cm sans les antennes et se poste à l'entrée d'une grotte pour proposer ses services aux poissons de passage. Dans la nature, elle vit en couple et se montre très territoriale envers les autres individus de son espèce. Ses pinces bien développées lui servent à saisir ses proies.",
       conseil:
-        "Introduisez-la seule ou en couple déjà formé : deux sujets non appariés se battent et peuvent se mutiler. Elle tolère très mal le cuivre et les variations de salinité, aussi l'acclimatation doit être longue et très progressive. Offrez-lui une grotte stable dans la roche et évitez de la déplacer ensuite, car elle défend son abri. Une mue difficile, un animal prostré ou une perte d'appétit prolongée annoncent le plus souvent une eau instable.",
+        "Introduisez-la seule ou en couple déjà formé : deux sujets non appariés se battent et peuvent se mutiler. Elle tolère très mal le cuivre et les variations de salinité, aussi l'acclimatation doit être longue et très progressive. Offrez-lui une grotte stable dans la roche et évitez de la déplacer ensuite, car elle défend son abri. Une mue difficile, un animal prostré ou une perte d'appétit prolongée annoncent le plus souvent une eau instable.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif de taille moyenne, coraux, escargots et invertébrés non crustacés.',
@@ -13475,7 +13475,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Intermédiaire',
-      alimentation: 'Carnivore opportuniste : mysis, chair de poisson et de crevette, artémias, granulés carnés.',
+      alimentation: 'Carnivore opportuniste : mysis, chair de poisson et de crevette, artémias, granulés carnés.',
       tailleAdulte: '6 à 8 cm (antennes exclues)',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13503,7 +13503,7 @@ export const ESPECES: Espece[] = [
       description:
         "La crevette sexy (Thor amboinensis) est une minuscule crevette de 1,5 à 2 cm, brun-orangé tachetée de blanc, répandue dans tout l'Indo-Pacifique. Elle doit son nom à son abdomen relevé qui oscille en permanence. Dans la nature, elle vit au contact d'anémones et de certains coraux, mais elle s'adapte bien à un bac récifal sans hôte. Discrète, elle se déplace sur la roche, dans les coraux et dans les anfractuosités.",
       conseil:
-        "Elle craint surtout les poissons prédateurs : labres, rascasses, gobies carnivores ou poissons-papillons peuvent la consommer. Évitez les bacs très jeunes où la nourriture manque, car sa petite taille la rend sensible aux variations de paramètres. Déposez de petits morceaux de mysis ou de la nourriture en poudre près de ses cachettes pour qu'elle trouve sa part. En petit groupe, elle cohabite généralement sans heurt dans un bac bien pourvu en abris.",
+        "Elle craint surtout les poissons prédateurs : labres, rascasses, gobies carnivores ou poissons-papillons peuvent la consommer. Évitez les bacs très jeunes où la nourriture manque, car sa petite taille la rend sensible aux variations de paramètres. Déposez de petits morceaux de mysis ou de la nourriture en poudre près de ses cachettes pour qu'elle trouve sa part. En petit groupe, elle cohabite généralement sans heurt dans un bac bien pourvu en abris.",
       volumeMinLitres: 60,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles, coraux, anémones, bénitiers et autres crevettes de petite taille.',
@@ -13513,7 +13513,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Omnivore : détritus, mucus de corail, petites particules, mysis et artémias congelés.',
+      alimentation: 'Omnivore : détritus, mucus de corail, petites particules, mysis et artémias congelés.',
       tailleAdulte: '1,5 à 2 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13547,7 +13547,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : parasites et mucus prélevés sur l'hôte, petites particules, mysis et artémias congelés.",
+      alimentation: "Omnivore : parasites et mucus prélevés sur l'hôte, petites particules, mysis et artémias congelés.",
       tailleAdulte: '3 à 4 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13585,7 +13585,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Brouteur et charognard : algues filamenteuses, détritus, restes de nourriture ; paillettes ou granulés pour herbivores en complément.',
+      alimentation: 'Brouteur et charognard : algues filamenteuses, détritus, restes de nourriture ; paillettes ou granulés pour herbivores en complément.',
       tailleAdulte: '2 à 3 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13609,7 +13609,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le crabe émeraude (Mithraculus sculptus) est un crabe des Caraïbes à la carapace lisse vert sombre et aux pinces à bout noir, qui atteint 4 à 6 cm de carapace. Il vit dans les herbiers, sur les roches couvertes d'algues et sur les récifs peu profonds. Il est surtout apprécié pour brouter les algues filamenteuses et les algues-bulles (Valonia). Principalement actif la nuit, il peut devenir plus brusque avec ses voisins en vieillissant.",
       conseil:
-        "Choisissez un seul individu par petit bac : plusieurs crabes se disputent et se mutilent parfois. Veillez à ce qu'il trouve suffisamment d'algues, sinon il se tourne vers les coraux, les polypes ou les petits poissons endormis ; complétez alors avec des feuilles d'algues séchées. Observez-le attentivement les premières semaines : un crabe qui ronge des coraux ou attrape des poissons doit être retiré sans délai. Juste après la mue, sa carapace molle le rend vulnérable, aussi laissez-lui des cachettes.",
+        "Choisissez un seul individu par petit bac : plusieurs crabes se disputent et se mutilent parfois. Veillez à ce qu'il trouve suffisamment d'algues, sinon il se tourne vers les coraux, les polypes ou les petits poissons endormis ; complétez alors avec des feuilles d'algues séchées. Observez-le attentivement les premières semaines : un crabe qui ronge des coraux ou attrape des poissons doit être retiré sans délai. Juste après la mue, sa carapace molle le rend vulnérable, aussi laissez-lui des cachettes.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif de taille moyenne, escargots, ophiures et coraux, tant que les algues restent abondantes.',
@@ -13619,7 +13619,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Herbivore opportuniste : algues filamenteuses, algues-bulles, détritus ; feuilles d'algues séchées en complément.",
+      alimentation: "Herbivore opportuniste : algues filamenteuses, algues-bulles, détritus ; feuilles d'algues séchées en complément.",
       tailleAdulte: '4 à 6 cm (carapace)',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13643,7 +13643,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'étoile Fromia (Fromia indica) est une étoile de mer rouge à orangée, parfois ornée de points noirs aux extrémités des bras, répandue dans l'océan Indien et le Pacifique occidental. Elle mesure 7 à 10 cm de diamètre et se déplace lentement sur la roche et les vitres. Elle racle le biofilm, les microalgues et les détritus, et laisse les coraux tranquilles. Ses couleurs et sa discrétion en font une étoile appréciée en récifal.",
       conseil:
-        "Achetez uniquement un sujet bien coloré, aux bras fermes et sans plaie ; évitez ceux dont la peau blanchit ou se déchire. Acclimatez-la très lentement, au goutte à goutte pendant plus d'une heure, sans jamais la sortir de l'eau ni l'exposer à des traitements à base de cuivre : l'air piégé dans son corps et le cuivre lui sont tous deux fatals. Réservez-la à un bac mûr depuis plusieurs mois et riche en vie sur la roche, car elle meurt de faim dans un bac trop propre. Une étoile qui reste sur le dos, perd des bras ou se couvre de zones blanches doit être isolée sans attendre.",
+        "Achetez uniquement un sujet bien coloré, aux bras fermes et sans plaie ; évitez ceux dont la peau blanchit ou se déchire. Acclimatez-la très lentement, au goutte à goutte pendant plus d'une heure, sans jamais la sortir de l'eau ni l'exposer à des traitements à base de cuivre : l'air piégé dans son corps et le cuivre lui sont tous deux fatals. Réservez-la à un bac mûr depuis plusieurs mois et riche en vie sur la roche, car elle meurt de faim dans un bac trop propre. Une étoile qui reste sur le dos, perd des bras ou se couvre de zones blanches doit être isolée sans attendre.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Bacs récifaux matures, poissons paisibles, coraux, crevettes et escargots.',
@@ -13653,7 +13653,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Détritivore : biofilm, microalgues, éponges et petits organismes de la roche vivante ; mysis ou nourriture en poudre en complément dans un bac très propre.',
+      alimentation: 'Détritivore : biofilm, microalgues, éponges et petits organismes de la roche vivante ; mysis ou nourriture en poudre en complément dans un bac très propre.',
       tailleAdulte: '7 à 10 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13677,7 +13677,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'étoile sablier (Archaster typicus), aussi appelée étoile de sable, est une étoile fouisseuse de l'Indo-Pacifique aux bras triangulaires, dont le dessus est beige à brun marbré. Elle mesure 8 à 10 cm et passe la journée enfouie dans le sable, ne laissant dépasser que la pointe de ses bras. Elle se déplace la nuit et brasse la couche supérieure du substrat. Dans la nature, elle vit en groupes et forme des couples d'accouplement saisonniers.",
       conseil:
-        "Prévoyez au moins 5 à 7 cm de sable fin, faute de quoi elle ne peut pas s'enfouir et dépérit. N'en introduisez pas dans un bac jeune : le sable doit déjà contenir assez de vie microscopique pour la nourrir sur la durée. Acclimatez-la lentement au goutte à goutte, sans jamais l'exposer à l'air ni à des traitements à base de cuivre, létaux pour tous les échinodermes. Une étoile qui reste en permanence en surface, aux bras mous, signale souvent un manque de nourriture ou un sable inadapté.",
+        "Prévoyez au moins 5 à 7 cm de sable fin, faute de quoi elle ne peut pas s'enfouir et dépérit. N'en introduisez pas dans un bac jeune : le sable doit déjà contenir assez de vie microscopique pour la nourrir sur la durée. Acclimatez-la lentement au goutte à goutte, sans jamais l'exposer à l'air ni à des traitements à base de cuivre, létaux pour tous les échinodermes. Une étoile qui reste en permanence en surface, aux bras mous, signale souvent un manque de nourriture ou un sable inadapté.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles, crevettes, escargots et bacs récifaux à lit de sable profond.',
@@ -13687,7 +13687,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Détritivore : microfaune, diatomées et matière organique du sable ; nourriture finement broyée en complément dans un bac très propre.',
+      alimentation: 'Détritivore : microfaune, diatomées et matière organique du sable ; nourriture finement broyée en complément dans un bac très propre.',
       tailleAdulte: '8 à 10 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13697,7 +13697,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Modérée",
-        description: "Les ophiures (étoiles sablier) peuvent se reproduire asexuellement par fission : l'animal se divise en deux et chaque moitié régénère les bras manquants. Ce processus peut se produire spontanément en aquarium récifal bien établi. La reproduction sexuée (larves planctoniques) est rare en captivité. Pour favoriser les divisions asexuées, maintenez une alimentation régulière (détritus, phytoplancton, petits aliments carnés) et d'excellentes conditions d'eau. T° 25-27°C, densité 1.025.",
+        description: "Les ophiures (étoiles sablier) peuvent se reproduire asexuellement par fission : l'animal se divise en deux et chaque moitié régénère les bras manquants. Ce processus peut se produire spontanément en aquarium récifal bien établi. La reproduction sexuée (larves planctoniques) est rare en captivité. Pour favoriser les divisions asexuées, maintenez une alimentation régulière (détritus, phytoplancton, petits aliments carnés) et d'excellentes conditions d'eau. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -13715,7 +13715,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'étoile à cornes (Protoreaster nodosus), souvent vendue sous le nom d'étoile « chocolate chip », est une grande étoile de mer des eaux chaudes de l'Indo-Pacifique. Son corps épais, beige à brun, est hérissé de tubercules sombres et coniques en forme de cornes. Elle mesure en général 15 à 25 cm, parfois davantage. Robuste en apparence, elle ne convient pas aux bacs récifaux, car elle s'attaque aux invertébrés fixés.",
       conseil:
-        "Ne l'introduisez pas dans un bac récifal : elle s'en prend aux coraux, aux anémones, aux bénitiers, aux éponges et aux autres échinodermes. Réservez-la à un bac d'invertébrés de grand volume, mûr et riche en roche vivante, sans coraux à protéger. Acclimatez-la lentement au goutte à goutte, sans jamais l'exposer à l'air ni aux traitements à base de cuivre, létaux pour les échinodermes. Une peau qui se creuse, se ramollit ou se couvre de zones blanches indique un animal en fin de vie.",
+        "Ne l'introduisez pas dans un bac récifal : elle s'en prend aux coraux, aux anémones, aux bénitiers, aux éponges et aux autres échinodermes. Réservez-la à un bac d'invertébrés de grand volume, mûr et riche en roche vivante, sans coraux à protéger. Acclimatez-la lentement au goutte à goutte, sans jamais l'exposer à l'air ni aux traitements à base de cuivre, létaux pour les échinodermes. Une peau qui se creuse, se ramollit ou se couvre de zones blanches indique un animal en fin de vie.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Bacs d'invertébrés de grand volume, gros poissons paisibles, escargots et crevettes.",
@@ -13725,7 +13725,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Omnivore : éponges, algues, micro-organismes, petits mollusques et invertébrés fixés ; exige un bac riche en nourriture naturelle.',
+      alimentation: 'Omnivore : éponges, algues, micro-organismes, petits mollusques et invertébrés fixés ; exige un bac riche en nourriture naturelle.',
       tailleAdulte: '15 à 25 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13748,7 +13748,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'oursin tuxedo (Mespilia globulus) est un petit oursin globuleux de l'Indo-Pacifique, reconnaissable à son test sombre rayé de bandes claires et à ses piquants courts et fins. Il mesure 5 à 7 cm. Il broute les algues filamenteuses, le biofilm et parfois les algues calcaires sur la roche et les vitres. Ses piquants courts ne sont pas venimeux, et il se couvre volontiers de débris ou de fragments de coquilles.",
       conseil:
-        "Veillez à une alimentation algale suffisante : sans algues, il broute les algues calcaires, peut affaiblir les coraux fragiles ou dépérir. Acclimatez-le lentement au goutte à goutte, évitez de l'exposer à l'air qui provoque des bulles dans son test, et n'utilisez jamais de médicaments à base de cuivre dans un bac abritant des échinodermes. Sa tendance à se couvrir de morceaux de coraux ou de débris peut arracher des boutures mal fixées : collez-les solidement. Un oursin immobile, au test blanchi ou dont les piquants tombent est en détresse : contrôlez la salinité et la stabilité de l'eau.",
+        "Veillez à une alimentation algale suffisante : sans algues, il broute les algues calcaires, peut affaiblir les coraux fragiles ou dépérir. Acclimatez-le lentement au goutte à goutte, évitez de l'exposer à l'air qui provoque des bulles dans son test, et n'utilisez jamais de médicaments à base de cuivre dans un bac abritant des échinodermes. Sa tendance à se couvrir de morceaux de coraux ou de débris peut arracher des boutures mal fixées : collez-les solidement. Un oursin immobile, au test blanchi ou dont les piquants tombent est en détresse : contrôlez la salinité et la stabilité de l'eau.",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif paisibles, crevettes, escargots, coraux bien fixés et bacs riches en algues.',
@@ -13758,7 +13758,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Herbivore brouteur : algues filamenteuses, biofilm ; feuilles d'algues séchées en complément si le bac est propre.",
+      alimentation: "Herbivore brouteur : algues filamenteuses, biofilm ; feuilles d'algues séchées en complément si le bac est propre.",
       tailleAdulte: '5 à 7 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13786,7 +13786,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'oursin crayon (Eucidaris tribuloides) est un oursin des Caraïbes et de l'Atlantique ouest tropical, reconnaissable à ses gros piquants cylindriques et épais, de couleur claire à brune, entourés de piquants plus courts. Il mesure 6 à 8 cm, piquants compris, et vit sur les fonds rocheux. Il broute les algues, les éponges, les coraux encroûtants et les animaux fixés. Nocturne, il se cache le jour sous les roches.",
       conseil:
-        "Réservez-le à un bac d'invertébrés ou à un récif aux coraux robustes : il broute les algues calcaires et les éponges, et peut s'attaquer aux coraux encroûtants et aux petits mollusques. Il renverse les boutures et les décors mal fixés, aussi collez solidement roches et coraux. Ses piquants épais peuvent blesser : manipulez-le avec des gants ou dans un récipient, jamais à mains nues. Acclimatez-le lentement, sans l'exposer à l'air ni aux traitements à base de cuivre, auxquels les échinodermes sont très sensibles ; un test qui perd ses piquants ou se creuse est un signe de déclin.",
+        "Réservez-le à un bac d'invertébrés ou à un récif aux coraux robustes : il broute les algues calcaires et les éponges, et peut s'attaquer aux coraux encroûtants et aux petits mollusques. Il renverse les boutures et les décors mal fixés, aussi collez solidement roches et coraux. Ses piquants épais peuvent blesser : manipulez-le avec des gants ou dans un récipient, jamais à mains nues. Acclimatez-le lentement, sans l'exposer à l'air ni aux traitements à base de cuivre, auxquels les échinodermes sont très sensibles ; un test qui perd ses piquants ou se creuse est un signe de déclin.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: "Bacs d'invertébrés, poissons paisibles de grande taille, crevettes et escargots.",
@@ -13796,7 +13796,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Omnivore : algues, éponges, coraux encroûtants et petits invertébrés fixés ; algues séchées en complément.',
+      alimentation: 'Omnivore : algues, éponges, coraux encroûtants et petits invertébrés fixés ; algues séchées en complément.',
       tailleAdulte: '6 à 8 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13820,7 +13820,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le diadème (Diadema setosum) est un oursin de l'Indo-Pacifique, de la mer Rouge au Japon, dont le test noir de 6 à 10 cm porte de très longs piquants fins et acérés, pouvant dépasser 20 cm. Un anneau orange est visible au sommet du test. Brouteur actif d'algues, il est surtout nocturne et se déplace plus vite qu'on ne le croit sur la roche. Dans la nature, il vit en groupes sur les récifs peu profonds.",
       conseil:
-        "Espèce dangereuse : ses piquants longs et creux cassent dans la peau et libèrent un venin qui provoque une douleur vive, un gonflement et parfois une inflammation durable ; portez toujours des gants épais et ne plongez jamais la main dans le bac sans voir où il se trouve. Il détruit les coraux fragiles et les colonies encroûtantes et renverse les décors mal fixés : collez les boutures et réservez-le à un grand bac. Acclimatez-le lentement, sans l'exposer à l'air ni aux traitements à base de cuivre, auxquels les échinodermes sont très sensibles. En cas de piqûre, retirez les fragments visibles et consultez un médecin si la douleur persiste ou si des morceaux restent dans la peau.",
+        "Espèce dangereuse : ses piquants longs et creux cassent dans la peau et libèrent un venin qui provoque une douleur vive, un gonflement et parfois une inflammation durable ; portez toujours des gants épais et ne plongez jamais la main dans le bac sans voir où il se trouve. Il détruit les coraux fragiles et les colonies encroûtantes et renverse les décors mal fixés : collez les boutures et réservez-le à un grand bac. Acclimatez-le lentement, sans l'exposer à l'air ni aux traitements à base de cuivre, auxquels les échinodermes sont très sensibles. En cas de piqûre, retirez les fragments visibles et consultez un médecin si la douleur persiste ou si des morceaux restent dans la peau.",
       volumeMinLitres: 250,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif de taille moyenne à grande, escargots, crevettes et bacs riches en algues.',
@@ -13830,7 +13830,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: "Herbivore brouteur : algues filamenteuses et calcaires ; feuilles d'algues séchées ou légumes verts en complément si le bac est propre.",
+      alimentation: "Herbivore brouteur : algues filamenteuses et calcaires ; feuilles d'algues séchées ou légumes verts en complément si le bac est propre.",
       tailleAdulte: "6 à 10 cm de test (piquants jusqu'à 20 cm et plus)",
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13840,7 +13840,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "La reproduction de l'oursin diadème (Diadema setosum) en aquarium est très difficile. Ces oursins libèrent leurs gamètes dans l'eau. Les larves planctoniques (pluteus) nécessitent des microalgues précises et des conditions très stables. L'élevage larvaire est réservé à des institutions spécialisées. De plus, le diadème est extrêmement piquant : manipulez-le toujours avec des gants épais. Maintenez-le pour son efficacité de broutage des algues indésirables. T° 25-27°C, densité 1.025.",
+        description: "La reproduction de l'oursin diadème (Diadema setosum) en aquarium est très difficile. Ces oursins libèrent leurs gamètes dans l'eau. Les larves planctoniques (pluteus) nécessitent des microalgues précises et des conditions très stables. L'élevage larvaire est réservé à des institutions spécialisées. De plus, le diadème est extrêmement piquant : manipulez-le toujours avec des gants épais. Maintenez-le pour son efficacité de broutage des algues indésirables. T° 25-27°C, densité 1.025.",
       },
     },
   },
@@ -13858,7 +13858,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'ophiure verte (Ophiarachna incrassata) est une grande ophiure de l'Indo-Pacifique, au disque central vert sombre marbré et aux cinq bras rayés, pouvant atteindre 25 cm d'envergure. Elle vit cachée sous les roches le jour et sort la nuit pour chercher sa nourriture. Elle se nourrit surtout de détritus et de restes, mais devient un prédateur opportuniste en grandissant. Elle est robuste, mais demande de l'attention dans un bac peuplé de petits poissons.",
       conseil:
-        "Ne la placez pas avec de petits poissons endormis, de petites crevettes ou des gobies : l'adulte peut les capturer avec ses bras. Choisissez un bac de bonne taille offrant de nombreuses caches rocheuses, car elle y passe la journée. Déposez de petits morceaux de chair de poisson ou de moule près de sa cachette et surveillez l'effet sur les poissons du bac. Un individu qui perd des bras, devient mou ou dont le disque se creuse est en difficulté, souvent à cause d'une salinité instable ou d'une exposition à des médicaments au cuivre, auxquels tous les échinodermes sont très sensibles.",
+        "Ne la placez pas avec de petits poissons endormis, de petites crevettes ou des gobies : l'adulte peut les capturer avec ses bras. Choisissez un bac de bonne taille offrant de nombreuses caches rocheuses, car elle y passe la journée. Déposez de petits morceaux de chair de poisson ou de moule près de sa cachette et surveillez l'effet sur les poissons du bac. Un individu qui perd des bras, devient mou ou dont le disque se creuse est en difficulté, souvent à cause d'une salinité instable ou d'une exposition à des médicaments au cuivre, auxquels tous les échinodermes sont très sensibles.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de taille moyenne à grande, coraux, escargots et grosses crevettes, dans un bac pourvu de nombreuses cachettes.',
@@ -13868,7 +13868,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Charognard carnivore : restes de poisson, mysis, moules, granulés carnés, détritus.',
+      alimentation: 'Charognard carnivore : restes de poisson, mysis, moules, granulés carnés, détritus.',
       tailleAdulte: "Disque de 5 à 8 cm, bras jusqu'à 25 cm",
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -13886,14 +13886,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Tridacna crocea',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Bénitiers (famille des Tridacnidés) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE, y compris les individus nés en élevage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Bénitiers (famille des Tridacnidés) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE, y compris les individus nés en élevage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Bénitier perceur'],
     fiche: {
       description:
         "Le bénitier crocea (Tridacna crocea) est le plus petit des bénitiers, avec une coquille de 10 à 15 cm. Il vit enfoncé dans le calcaire des récifs, d'où son nom de bénitier perceur, et son manteau très coloré (bleu, vert, violet ou orange) affleure à l'ouverture de sa niche. Il vit en symbiose avec des algues photosynthétiques dont dépend sa survie. Originaire de l'Indo-Pacifique, il est aujourd'hui largement disponible en sujets nés en élevage.",
       conseil:
-        "Choisissez un sujet né en élevage, de préférence déjà fixé sur un morceau de roche, et calez-le solidement dans la partie haute du décor, sous un éclairage récifal fort : il ne se déplace pratiquement plus une fois installé. Maintenez calcium, alcalinité et magnésium stables, car une dérive peut le fragiliser. Évitez les poissons qui picorent les manteaux, comme les poissons-papillons et certains poissons-anges, ainsi que les crevettes agressives. Un manteau qui reste rétracté ou une coquille qui bâille en permanence signalent un animal affaibli : contrôlez la lumière et l'eau.",
+        "Choisissez un sujet né en élevage, de préférence déjà fixé sur un morceau de roche, et calez-le solidement dans la partie haute du décor, sous un éclairage récifal fort : il ne se déplace pratiquement plus une fois installé. Maintenez calcium, alcalinité et magnésium stables, car une dérive peut le fragiliser. Évitez les poissons qui picorent les manteaux, comme les poissons-papillons et certains poissons-anges, ainsi que les crevettes agressives. Un manteau qui reste rétracté ou une coquille qui bâille en permanence signalent un animal affaibli : contrôlez la lumière et l'eau.",
       volumeMinLitres: 150,
       tailleGroupeMin: null,
       compatibilite: 'Coraux, poissons de récif paisibles et invertébrés, dans un bac mûr, stable et bien éclairé.',
@@ -13928,14 +13928,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Tridacna derasa',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Bénitiers (famille des Tridacnidés) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE, y compris les individus nés en élevage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Bénitiers (famille des Tridacnidés) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE, y compris les individus nés en élevage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Bénitier derasa'],
     fiche: {
       description:
         "Le bénitier géant derasa (Tridacna derasa) est le deuxième plus grand bénitier du monde et peut dépasser 50 cm de long. Originaire du Pacifique occidental, il possède un manteau lisse, souvent brun, vert ou bleu, bordé de lignes claires ondulées. Il vit posé librement sur le substrat, sans s'enfoncer dans la roche. Il est généralement considéré comme le plus rustique des bénitiers.",
       conseil:
-        "Posez-le sur une roche plate ou directement sur le sable, jamais en équilibre instable, car il est lourd et ne se déplace pratiquement pas. Fournissez un éclairage fort, en augmentant l'intensité par paliers à l'introduction pour éviter le blanchiment du manteau. Contrôlez régulièrement KH, calcium et magnésium : un bénitier prélève ces éléments pour sa coquille et supporte mal leur dérive. Un manteau qui blanchit ou une coquille qui bâille en permanence signalent un problème de lumière ou d'eau.",
+        "Posez-le sur une roche plate ou directement sur le sable, jamais en équilibre instable, car il est lourd et ne se déplace pratiquement pas. Fournissez un éclairage fort, en augmentant l'intensité par paliers à l'introduction pour éviter le blanchiment du manteau. Contrôlez régulièrement KH, calcium et magnésium : un bénitier prélève ces éléments pour sa coquille et supporte mal leur dérive. Un manteau qui blanchit ou une coquille qui bâille en permanence signalent un problème de lumière ou d'eau.",
       volumeMinLitres: 400,
       tailleGroupeMin: null,
       compatibilite: 'Coraux, poissons paisibles de récif et invertébrés, dans un grand bac mûr et lumineux.',
@@ -13966,14 +13966,14 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Tridacna squamosa',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Bénitiers (famille des Tridacnidés) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE, y compris les individus nés en élevage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+      "Bénitiers (famille des Tridacnidés) : tous inscrits à la CITES (annexe II) et à l'annexe B de l'UE, y compris les individus nés en élevage. Conservez la facture ou l'attestation de cession et la preuve d'origine (permis d'importation CITES ou élevage) : sans preuve d'acquisition légale, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
     citesAnnexe: 'B',
     autresNoms: ['Bénitier écailleux'],
     fiche: {
       description:
         "Le bénitier squamosa (Tridacna squamosa) est un grand bénitier de l'Indo-Pacifique qui peut atteindre 30 à 40 cm. Sa coquille porte de grandes écailles saillantes, d'où son nom, et son manteau est brun, vert, bleu ou violet, souvent marbré. Il vit posé librement sur le récif, fixé par un byssus. Comme les autres bénitiers, il tire l'essentiel de son énergie de la photosynthèse de ses algues symbiotiques.",
       conseil:
-        "Placez-le sur une roche plate, à mi-hauteur du décor, sous un bon éclairage ; il tolère un peu moins de lumière que le crocea, mais il lui en faut assez pour nourrir ses algues. Inspectez sa coquille à l'achat et pendant les premières semaines : de petits escargots parasites blancs (pyramidellidés) peuvent s'y installer et l'affaiblir. Maintenez calcium, alcalinité et magnésium stables, car il en a besoin pour sa coquille. Un manteau qui blanchit ou une coquille qui bâille en permanence signalent un animal en difficulté.",
+        "Placez-le sur une roche plate, à mi-hauteur du décor, sous un bon éclairage ; il tolère un peu moins de lumière que le crocea, mais il lui en faut assez pour nourrir ses algues. Inspectez sa coquille à l'achat et pendant les premières semaines : de petits escargots parasites blancs (pyramidellidés) peuvent s'y installer et l'affaiblir. Maintenez calcium, alcalinité et magnésium stables, car il en a besoin pour sa coquille. Un manteau qui blanchit ou une coquille qui bâille en permanence signalent un animal en difficulté.",
       volumeMinLitres: 250,
       tailleGroupeMin: null,
       compatibilite: 'Coraux, poissons paisibles de récif et invertébrés, dans un bac mûr et lumineux.',
@@ -13996,7 +13996,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "Le bénitier Squamosa (Tridacna squamosa) est protégé (CITES). Sa reproduction suit le même processus que les autres Tridacna : libération synchronisée des gamètes dans l'eau, larves véligères planctoniques qui nécessitent des microalgues et des conditions très contrôlées pour leur métamorphose. Des fermes spécialisées produisent des spécimens d'élevage. Achetez uniquement des individus certifiés d'élevage. Ce bénitier aux bords ondulés est particulièrement beau mais exigeant. T° 25-27°C, éclairage intense.",
+        description: "Le bénitier Squamosa (Tridacna squamosa) est protégé (CITES). Sa reproduction suit le même processus que les autres Tridacna : libération synchronisée des gamètes dans l'eau, larves véligères planctoniques qui nécessitent des microalgues et des conditions très contrôlées pour leur métamorphose. Des fermes spécialisées produisent des spécimens d'élevage. Achetez uniquement des individus certifiés d'élevage. Ce bénitier aux bords ondulés est particulièrement beau mais exigeant. T° 25-27°C, éclairage intense.",
       },
     },
   },
@@ -14014,7 +14014,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le terme escargot Trochus désigne plusieurs espèces du genre Trochus, de petits gastéropodes à coquille conique des récifs indo-pacifiques, vendus en aquariophilie sans identification précise. Leur coquille de 2 à 4 cm est striée de rouge, de gris ou de brun. Ce sont d'excellents brouteurs d'algues filamenteuses et de diatomées sur la roche et les vitres. Ils se retournent plus facilement que les Astraea lorsqu'ils tombent sur le dos.",
       conseil:
-        "Comptez un escargot pour 20 à 30 litres : dans un bac trop propre, il meurt de faim. Acclimatez-le lentement au goutte à goutte, car les gastéropodes supportent mal les variations de salinité et de température. Retournez-le avec précaution s'il est sur le dos : il y parvient en général seul, mais un animal affaibli peut y rester et mourir. Évitez de l'associer à des crabes ou des bernard-l'ermite, qui peuvent s'emparer de sa coquille.",
+        "Comptez un escargot pour 20 à 30 litres : dans un bac trop propre, il meurt de faim. Acclimatez-le lentement au goutte à goutte, car les gastéropodes supportent mal les variations de salinité et de température. Retournez-le avec précaution s'il est sur le dos : il y parvient en général seul, mais un animal affaibli peut y rester et mourir. Évitez de l'associer à des crabes ou des bernard-l'ermite, qui peuvent s'emparer de sa coquille.",
       volumeMinLitres: 40,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif paisibles, coraux, crevettes et bacs récifaux riches en algues.',
@@ -14024,7 +14024,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Brouteur : algues filamenteuses, diatomées et biofilm ; feuilles d'algues séchées en complément si le bac est trop propre.",
+      alimentation: "Brouteur : algues filamenteuses, diatomées et biofilm ; feuilles d'algues séchées en complément si le bac est trop propre.",
       tailleAdulte: '2 à 4 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14048,7 +14048,7 @@ export const ESPECES: Espece[] = [
       description:
         "Les cérithes (Cerithium sp.) sont de petits gastéropodes à coquille allongée en cône étroit, répandus sur les sables et les herbiers des mers tropicales. Cette fiche couvre l'ensemble des espèces du genre vendues sous ce nom, qui mesurent généralement 2 à 3 cm. Ils passent la journée enfouis dans le sable et se déplacent la nuit. Ils broutent le film d'algues et les diatomées du sable et de la roche, tout en remuant la surface du substrat.",
       conseil:
-        "Prévoyez un lit de sable d'au moins 3 à 5 cm où ils peuvent s'enfouir et circuler. Acclimatez-les lentement au goutte à goutte, car ils supportent mal les écarts de salinité. Dans un bac riche en nourriture, leur population peut augmenter : réduisez les apports plutôt que de multiplier les prédateurs. Une coquille vide ou un animal immobile qui ne réagit pas à la manipulation sont des signes de décès : retirez-le vite pour éviter une pollution.",
+        "Prévoyez un lit de sable d'au moins 3 à 5 cm où ils peuvent s'enfouir et circuler. Acclimatez-les lentement au goutte à goutte, car ils supportent mal les écarts de salinité. Dans un bac riche en nourriture, leur population peut augmenter : réduisez les apports plutôt que de multiplier les prédateurs. Une coquille vide ou un animal immobile qui ne réagit pas à la manipulation sont des signes de décès : retirez-le vite pour éviter une pollution.",
       volumeMinLitres: 40,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons et coraux de récif, crevettes, autres escargots et bacs à lit de sable.',
@@ -14058,7 +14058,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: 'Détritivore et brouteur : diatomées, microalgues et détritus du sable ; paillettes finement broyées en complément dans un bac propre.',
+      alimentation: 'Détritivore et brouteur : diatomées, microalgues et détritus du sable ; paillettes finement broyées en complément dans un bac propre.',
       tailleAdulte: '2 à 3 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14068,7 +14068,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Difficile",
-        description: "Les escargots cerites (Cerithium sp.) peuvent pondre en aquarium récifal : leurs rubans d'œufs spiralés se retrouvent parfois sur les roches vivantes. Les larves véligères planctoniques nécessitent des microalgues et des conditions spécifiques pour survivre. L'élevage des larves en captivité est très difficile. La ponte en bac récifal est relativement fréquente mais l'élevage larvaire est le principal obstacle. Maintenez-les pour leur rôle précieux d'herbivores dans le bac. Densité 1.024-1.026.",
+        description: "Les escargots cerites (Cerithium sp.) peuvent pondre en aquarium récifal : leurs rubans d'œufs spiralés se retrouvent parfois sur les roches vivantes. Les larves véligères planctoniques nécessitent des microalgues et des conditions spécifiques pour survivre. L'élevage des larves en captivité est très difficile. La ponte en bac récifal est relativement fréquente mais l'élevage larvaire est le principal obstacle. Maintenez-les pour leur rôle précieux d'herbivores dans le bac. Densité 1.024-1.026.",
       },
     },
   },
@@ -14086,7 +14086,7 @@ export const ESPECES: Espece[] = [
       description:
         "L'escargot Astraea (Astraea tecta, aujourd'hui Lithopoma tectum) est un gastéropode des Caraïbes et du golfe du Mexique, à coquille conique orangée à brune de 4 à 6 cm. Il broute les algues filamenteuses, les diatomées et le biofilm sur la roche et les vitres, d'où son emploi courant comme nettoyeur. Contrairement aux Trochus, il se remet mal à l'endroit une fois retourné. Il passe l'essentiel de son temps sur la roche et le verre.",
       conseil:
-        "Retournez-le si vous le voyez sur le dos : sans aide, il peut mourir en quelques jours, car il se redresse mal. Veillez à ce qu'il trouve assez d'algues, car il dépérit dans un bac trop propre ; comptez environ un escargot pour 30 litres. Acclimatez-le lentement et évitez les chocs de salinité. Ne l'associez pas aux bernard-l'ermite ou aux crabes qui l'attaqueront pour sa coquille.",
+        "Retournez-le si vous le voyez sur le dos : sans aide, il peut mourir en quelques jours, car il se redresse mal. Veillez à ce qu'il trouve assez d'algues, car il dépérit dans un bac trop propre ; comptez environ un escargot pour 30 litres. Acclimatez-le lentement et évitez les chocs de salinité. Ne l'associez pas aux bernard-l'ermite ou aux crabes qui l'attaqueront pour sa coquille.",
       volumeMinLitres: 40,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons de récif paisibles, coraux, crevettes et bacs riches en algues.',
@@ -14096,7 +14096,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Débutant',
-      alimentation: "Brouteur : algues filamenteuses, diatomées et biofilm ; feuilles d'algues séchées en complément si le bac est trop propre.",
+      alimentation: "Brouteur : algues filamenteuses, diatomées et biofilm ; feuilles d'algues séchées en complément si le bac est trop propre.",
       tailleAdulte: '4 à 6 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14120,7 +14120,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le lièvre de mer (Dolabella auricularia) est un gros mollusque sans coquille de l'Indo-Pacifique, vert olive à brun, à la peau couverte de petites papilles, qui peut atteindre 20 à 40 cm. Il broute activement les algues filamenteuses, les cyanobactéries et parfois les algues-bulles. Lent et paisible, il se déplace sur la roche et le sable. Il est vendu pour nettoyer les bacs envahis d'algues, mais il ne convient qu'à certaines situations.",
       conseil:
-        "Ne l'introduisez que dans un bac déjà envahi d'algues filamenteuses : une fois la nourriture épuisée, il dépérit. Stressé ou mourant, il peut libérer de l'encre et des sécrétions toxiques qui empoisonnent un bac fermé : prévoyez un écumeur performant, du charbon actif et la possibilité d'un changement d'eau rapide. Protégez pompes et aspirations, où l'animal peut se coincer. Manipulez-le avec des gants et lavez-vous les mains après tout contact.",
+        "Ne l'introduisez que dans un bac déjà envahi d'algues filamenteuses : une fois la nourriture épuisée, il dépérit. Stressé ou mourant, il peut libérer de l'encre et des sécrétions toxiques qui empoisonnent un bac fermé : prévoyez un écumeur performant, du charbon actif et la possibilité d'un changement d'eau rapide. Protégez pompes et aspirations, où l'animal peut se coincer. Manipulez-le avec des gants et lavez-vous les mains après tout contact.",
       volumeMinLitres: 300,
       tailleGroupeMin: 1,
       compatibilite: "Poissons paisibles, crevettes, escargots et bacs envahis d'algues filamenteuses.",
@@ -14130,7 +14130,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Herbivore brouteur : algues filamenteuses, cyanobactéries, algues-bulles ; il meurt de faim dans un bac propre.',
+      alimentation: 'Herbivore brouteur : algues filamenteuses, cyanobactéries, algues-bulles ; il meurt de faim dans un bac propre.',
       tailleAdulte: '20 à 40 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14140,7 +14140,7 @@ export const ESPECES: Espece[] = [
       },
       reproduction: {
         facilite: "Très difficile",
-        description: "La reproduction du lièvre de mer (Aplysia sp.) en aquarium est très difficile. Ces opisthobranches sont hermaphrodites et forment parfois des chaînes d'accouplement. La ponte est un ruban rose gélatineux contenant des millions d'œufs. Les larves véligères planctoniques nécessitent des microalgues spécifiques. L'élevage est documenté dans quelques laboratoires. Note importante : le lièvre de mer sécrète une encre violette très toxique pour les poissons. Maintenez-le uniquement dans un bac spécifique. T° 18-22°C.",
+        description: "La reproduction du lièvre de mer (Aplysia sp.) en aquarium est très difficile. Ces opisthobranches sont hermaphrodites et forment parfois des chaînes d'accouplement. La ponte est un ruban rose gélatineux contenant des millions d'œufs. Les larves véligères planctoniques nécessitent des microalgues spécifiques. L'élevage est documenté dans quelques laboratoires. Note importante : le lièvre de mer sécrète une encre violette très toxique pour les poissons. Maintenez-le uniquement dans un bac spécifique. T° 18-22°C.",
       },
     },
   },
@@ -14158,7 +14158,7 @@ export const ESPECES: Espece[] = [
       description:
         "Le ver arbre de Noël (Spirobranchus giganteus) est un ver tubicole des mers tropicales dont les deux panaches spiralés évoquent des sapins miniatures de 3 à 4 cm de haut. Il existe en de nombreuses couleurs (rouge, orange, jaune, bleu, blanc). Seules ses branchies, qui servent aussi à filtrer le plancton, dépassent de son tube. Il vit enfoncé dans un corail vivant, souvent un Porites, et il est vendu fixé sur ce corail hôte.",
       conseil:
-        "Le ver est vendu sur son corail hôte : sa survie dépend de celle du corail, à entretenir comme tel avec un éclairage adapté et un courant modéré. Il se nourrit de phytoplancton et de petites particules en suspension : apportez-en plusieurs fois par semaine. Ses panaches se rétractent brusquement au moindre danger, ce qui est normal, mais un ver qui reste rétracté plusieurs jours est en difficulté. Évitez les poissons et crustacés qui picorent les panaches (poissons-papillons, labres, certaines crevettes).",
+        "Le ver est vendu sur son corail hôte : sa survie dépend de celle du corail, à entretenir comme tel avec un éclairage adapté et un courant modéré. Il se nourrit de phytoplancton et de petites particules en suspension : apportez-en plusieurs fois par semaine. Ses panaches se rétractent brusquement au moindre danger, ce qui est normal, mais un ver qui reste rétracté plusieurs jours est en difficulté. Évitez les poissons et crustacés qui picorent les panaches (poissons-papillons, labres, certaines crevettes).",
       volumeMinLitres: 100,
       tailleGroupeMin: 1,
       compatibilite: 'Coraux, poissons de récif paisibles, crevettes et escargots.',
@@ -14168,7 +14168,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Filtreur : phytoplancton et petites particules en suspension capturés par les panaches.',
+      alimentation: 'Filtreur : phytoplancton et petites particules en suspension capturés par les panaches.',
       tailleAdulte: '3 à 4 cm (panaches)',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14202,7 +14202,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Intermédiaire',
-      alimentation: 'Filtreur : phytoplancton, plancton et particules en suspension capturés par les tentacules.',
+      alimentation: 'Filtreur : phytoplancton, plancton et particules en suspension capturés par les tentacules.',
       tailleAdulte: 'Corps de 6 à 8 cm, panache de 5 à 10 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14229,7 +14229,7 @@ export const ESPECES: Espece[] = [
       description:
         "La seiche naine (Sepia bandensis) est un petit céphalopode de l'Indo-Pacifique tropical qui vit sur les fonds sableux et rocheux. Son manteau mesure 5 à 7 cm, et elle change de couleur et de texture en quelques secondes pour se camoufler. Chasseuse surtout nocturne, elle capture crevettes et petits crabes en projetant deux tentacules. Sa durée de vie est courte, de l'ordre d'un à deux ans.",
       conseil:
-        "Privilégiez un sujet né en élevage, plus adapté à la nourriture congelée que les animaux sauvages. Utilisez un bac couvert, car elle peut sauter hors de l'eau, et protégez les pompes et aspirations avec des grilles où elle risque de se coincer. Elle refuse souvent la nourriture morte au début : proposez d'abord des crevettes vivantes (mysis, crevettes grises), puis habituez-la progressivement aux aliments congelés. Stressée, elle peut encrer et polluer le bac ; un animal pâle, qui refuse de manger, est stressé ou en fin de vie, et sa mort naturelle survient après un à deux ans.",
+        "Privilégiez un sujet né en élevage, plus adapté à la nourriture congelée que les animaux sauvages. Utilisez un bac couvert, car elle peut sauter hors de l'eau, et protégez les pompes et aspirations avec des grilles où elle risque de se coincer. Elle refuse souvent la nourriture morte au début : proposez d'abord des crevettes vivantes (mysis, crevettes grises), puis habituez-la progressivement aux aliments congelés. Stressée, elle peut encrer et polluer le bac ; un animal pâle, qui refuse de manger, est stressé ou en fin de vie, et sa mort naturelle survient après un à deux ans.",
       volumeMinLitres: 200,
       tailleGroupeMin: 1,
       compatibilite: 'Poissons paisibles de taille moyenne, coraux, escargots et ophiures.',
@@ -14239,7 +14239,7 @@ export const ESPECES: Espece[] = [
       tempMin: 24,
       tempMax: 26,
       difficulte: 'Expert',
-      alimentation: 'Carnivore strict : crevettes et petits crabes vivants (mysis, crevettes grises), puis aliments congelés une fois habituée.',
+      alimentation: 'Carnivore strict : crevettes et petits crabes vivants (mysis, crevettes grises), puis aliments congelés une fois habituée.',
       tailleAdulte: '5 à 7 cm de manteau',
       marin: {
         salinite: '1,024 – 1,026 (34 – 36 g/L)',
@@ -14257,24 +14257,24 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Hapalochlaena lunulata',
     statutLegal: 'autorisation_requise',
     remarqueLegale:
-      "Pieuvres à anneaux bleus (Hapalochlaena) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; espèce mortellement venimeuse.",
+      "Pieuvres à anneaux bleus (Hapalochlaena) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; espèce mortellement venimeuse.",
     citesAnnexe: null,
     autresNoms: ['Poulpe à anneaux bleus'],
     fiche: {
       description:
-        "La pieuvre à anneaux bleus (Hapalochlaena lunulata) est un minuscule poulpe du Pacifique tropical, présent notamment du nord de l'Australie à l'Asie du Sud-Est, qui mesure environ 10 à 12 cm bras déployés. Sa peau beige à jaunâtre se couvre d'anneaux bleu vif lorsqu'elle se sent menacée. Sa salive contient de la tétrodotoxine, un poison puissant qui paralyse les muscles et peut provoquer un arrêt respiratoire mortel. Cette fiche est une information de prévention : l'espèce ne convient pas à l'aquariophilie amateur.",
+        "La pieuvre à anneaux bleus (Hapalochlaena lunulata) est un minuscule poulpe du Pacifique tropical, présent notamment du nord de l'Australie à l'Asie du Sud-Est, qui mesure environ 10 à 12 cm bras déployés. Sa peau beige à jaunâtre se couvre d'anneaux bleu vif lorsqu'elle se sent menacée. Sa salive contient de la tétrodotoxine, un poison puissant qui paralyse les muscles et peut provoquer un arrêt respiratoire mortel. Cette fiche est une information de prévention : l'espèce ne convient pas à l'aquariophilie amateur.",
       conseil:
-        "Sa morsure est souvent indolore et le poison agit en quelques minutes, sans antidote connu : ne touchez jamais un petit poulpe portant des anneaux bleus, en mer comme dans un bac ou dans un lot de roche vivante ou de coquillages. Si vous en découvrez un chez vous, ne tentez pas de le manipuler : informez votre entourage, tenez les enfants à distance et contactez un professionnel (aquarium public, animalerie spécialisée ou autorités compétentes). En cas de morsure, appelez immédiatement les secours (15 ou 112), maintenez la personne au calme et, si elle ne respire plus, pratiquez la ventilation artificielle jusqu'à leur arrivée. Pour un céphalopode d'aquarium, tournez-vous plutôt vers la seiche naine (Sepia bandensis) née en élevage, qui ne présente pas ce danger.",
+        "Sa morsure est souvent indolore et le poison agit en quelques minutes, sans antidote connu : ne touchez jamais un petit poulpe portant des anneaux bleus, en mer comme dans un bac ou dans un lot de roche vivante ou de coquillages. Si vous en découvrez un chez vous, ne tentez pas de le manipuler : informez votre entourage, tenez les enfants à distance et contactez un professionnel (aquarium public, animalerie spécialisée ou autorités compétentes). En cas de morsure, appelez immédiatement les secours (15 ou 112), maintenez la personne au calme et, si elle ne respire plus, pratiquez la ventilation artificielle jusqu'à leur arrivée. Pour un céphalopode d'aquarium, tournez-vous plutôt vers la seiche naine (Sepia bandensis) née en élevage, qui ne présente pas ce danger.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette espèce ne se détient pas en aquarium d'amateur et aucune association n'est recommandée.",
-      incompatibilite: "Sans objet : cette fiche ne donne aucune indication de maintenance ; l'animal est dangereux pour l'homme et chasse crustacés et petits poissons.",
+      compatibilite: "Sans objet : cette espèce ne se détient pas en aquarium d'amateur et aucune association n'est recommandée.",
+      incompatibilite: "Sans objet : cette fiche ne donne aucune indication de maintenance ; l'animal est dangereux pour l'homme et chasse crustacés et petits poissons.",
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Sans objet : cette fiche ne donne aucun conseil d'alimentation. À l'état naturel, c'est un petit prédateur de crustacés et de poissons.",
+      alimentation: "Sans objet : cette fiche ne donne aucun conseil d'alimentation. À l'état naturel, c'est un petit prédateur de crustacés et de poissons.",
       tailleAdulte: '10 à 12 cm, bras compris',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14302,7 +14302,7 @@ export const ESPECES: Espece[] = [
       description:
         "Caulerpa prolifera est une macroalgue verte de la Méditerranée et de l'Atlantique chaud, formée d'un stolon rampant qui porte des frondes plates en forme de lame, d'un vert vif, longues de 10 à 20 cm. Elle croît sur le sable et la vase dans les eaux calmes et chaudes. Elle pousse vite et absorbe nitrates et phosphates, ce qui explique son emploi pour exporter les nutriments dans un bac technique ou un refuge. Son thalle est formé d'une seule cellule géante à plusieurs noyaux, ce qui la rend sensible aux blessures et aux chocs.",
       conseil:
-        "Cultivez-la de préférence dans un bac technique ou un refuge dédié, séparé de l'aquarium d'affichage, avec un éclairage moyen à fort pendant 8 à 12 heures par jour. Taillez-la régulièrement avant qu'elle ne devienne dense : en cas de manque de nutriments, de coupure d'éclairage ou de stress, elle peut sporuler et troubler l'eau en quelques heures, voire s'effondrer (« crash »), ce qui provoque un pic de pollution. Retirez les fragments en excès et ne les jetez jamais dans la nature ni dans les évacuations qui rejoignent la mer, pour éviter toute dissémination. Si elle blanchit, devient translucide ou perd ses frondes, retirez les parties mortes et vérifiez nutriments et éclairage.",
+        "Cultivez-la de préférence dans un bac technique ou un refuge dédié, séparé de l'aquarium d'affichage, avec un éclairage moyen à fort pendant 8 à 12 heures par jour. Taillez-la régulièrement avant qu'elle ne devienne dense : en cas de manque de nutriments, de coupure d'éclairage ou de stress, elle peut sporuler et troubler l'eau en quelques heures, voire s'effondrer (« crash »), ce qui provoque un pic de pollution. Retirez les fragments en excès et ne les jetez jamais dans la nature ni dans les évacuations qui rejoignent la mer, pour éviter toute dissémination. Si elle blanchit, devient translucide ou perd ses frondes, retirez les parties mortes et vérifiez nutriments et éclairage.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux bacs techniques et aux refuges, avec des invertébrés peu brouteurs (crevettes, bernard-l'ermite) et des poissons qui ne la broutent pas.",
@@ -14324,7 +14324,7 @@ export const ESPECES: Espece[] = [
         croissance: 'Rapide',
         usage: 'Exportation des nitrates et phosphates dans un bac technique ou un refuge ; refuge pour la microfaune.',
         risque: 'Élevé',
-        multiplication: 'Elle se multiplie par fragmentation : il suffit de séparer un morceau de stolon portant des frondes pour obtenir un nouveau plant.',
+        multiplication: 'Elle se multiplie par fragmentation : il suffit de séparer un morceau de stolon portant des frondes pour obtenir un nouveau plant.',
       },
     },
   },
@@ -14339,9 +14339,9 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Caulerpa brachypus est une macroalgue verte d'origine indo-pacifique, formée de stolons rampants qui portent des frondes dressées vert vif, courtes et serrées. Elle est utilisée dans les refuges pour exporter les nitrates et les phosphates et pour son aspect de tapis dense. Sa croissance est rapide et elle se bouture facilement. Cette vigueur a un revers : l'espèce est devenue envahissante sur certaines côtes, notamment en Floride, où elle étouffe les fonds coralliens et rocheux.",
+        "Caulerpa brachypus est une macroalgue verte d'origine indo-pacifique, formée de stolons rampants qui portent des frondes dressées vert vif, courtes et serrées. Elle est utilisée dans les refuges pour exporter les nitrates et les phosphates et pour son aspect de tapis dense. Sa croissance est rapide et elle se bouture facilement. Cette vigueur a un revers : l'espèce est devenue envahissante sur certaines côtes, notamment en Floride, où elle étouffe les fonds coralliens et rocheux.",
       conseil:
-        "Cultivez-la uniquement dans un refuge isolé du bac principal, à l'écart des pompes de brassage qui la fragmentent, et taillez-la souvent. Comme toute Caulerpa, elle peut libérer d'un coup ses gamètes en cas de stress (coupe, panne de lumière, chute brutale des nutriments) : la touffe blanchit, l'eau devient laiteuse et l'oxygène chute. Gardez un écumeur et du charbon actif prêts et retirez la touffe entière dès les premiers signes. Ne rejetez jamais la moindre portion dans l'évier, les toilettes, la vidange d'un bac ou le milieu naturel : faites-la sécher complètement ou congelez-la avant de la mettre dans un sac fermé aux ordures ménagères.",
+        "Cultivez-la uniquement dans un refuge isolé du bac principal, à l'écart des pompes de brassage qui la fragmentent, et taillez-la souvent. Comme toute Caulerpa, elle peut libérer d'un coup ses gamètes en cas de stress (coupe, panne de lumière, chute brutale des nutriments) : la touffe blanchit, l'eau devient laiteuse et l'oxygène chute. Gardez un écumeur et du charbon actif prêts et retirez la touffe entière dès les premiers signes. Ne rejetez jamais la moindre portion dans l'évier, les toilettes, la vidange d'un bac ou le milieu naturel : faites-la sécher complètement ou congelez-la avant de la mettre dans un sac fermé aux ordures ménagères.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'intègre à un refuge ou à un bac technique séparé et peut être broutée par certains herbivores (chirurgiens, poissons-lapins, oursins).",
@@ -14363,11 +14363,11 @@ export const ESPECES: Espece[] = [
         croissance: 'Rapide',
         usage: 'Exportation des nitrates et phosphates en refuge ; tapis décoratif. Usage à encadrer strictement en raison du risque de sporulation et de dispersion.',
         risque: 'Élevé',
-        multiplication: 'Par fragmentation des stolons et des frondes : tout morceau peut former une nouvelle colonie. Elle se reproduit aussi par émission massive de gamètes, déclenchée par le stress.',
+        multiplication: 'Par fragmentation des stolons et des frondes : tout morceau peut former une nouvelle colonie. Elle se reproduit aussi par émission massive de gamètes, déclenchée par le stress.',
       },
       reproduction: {
         facilite: "Très facile",
-        description: "La Caulerpa brachypus se multiplie végétativement de façon très simple : détachez un fragment de stolon avec quelques feuilles et posez-le sur le substrat ou fixez-le sur une roche. Il s'ancre rapidement par ses rhizoïdes. Croissance rapide sous bonne lumière. Excellente pour la filtration naturelle (export de nutriments). ATTENTION : comme toutes les Caulerpe, elle peut devenir envahissante et est potentiellement invasive. Ne la relâchez jamais dans la nature. Vérifiez la réglementation locale sur sa détention.",
+        description: "La Caulerpa brachypus se multiplie végétativement de façon très simple : détachez un fragment de stolon avec quelques feuilles et posez-le sur le substrat ou fixez-le sur une roche. Il s'ancre rapidement par ses rhizoïdes. Croissance rapide sous bonne lumière. Excellente pour la filtration naturelle (export de nutriments). ATTENTION : comme toutes les Caulerpe, elle peut devenir envahissante et est potentiellement invasive. Ne la relâchez jamais dans la nature. Vérifiez la réglementation locale sur sa détention.",
       },
     },
   },
@@ -14379,17 +14379,17 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Caulerpa taxifolia',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Algue très invasive en Méditerranée. L'arrêté de 1993 qui interdisait sa vente est périmé depuis 2001 et elle ne figure ni sur la liste de l'Union ni sur les arrêtés français : aucune interdiction n'a été identifiée, mais sa commercialisation est fortement déconseillée. Ne la jetez jamais dans l'évier, le milieu naturel ou la mer.",
+      "Algue très invasive en Méditerranée. L'arrêté de 1993 qui interdisait sa vente est périmé depuis 2001 et elle ne figure ni sur la liste de l'Union ni sur les arrêtés français : aucune interdiction n'a été identifiée, mais sa commercialisation est fortement déconseillée. Ne la jetez jamais dans l'évier, le milieu naturel ou la mer.",
     citesAnnexe: null,
     autresNoms: ['Algue tueuse'],
     fiche: {
       description:
         "Caulerpa taxifolia est une macroalgue verte tropicale, aux frondes plates en forme de plume portées par un stolon rampant. Une souche tolérante au froid, dont l'origine est attribuée à un rejet de l'aquarium du musée océanographique de Monaco, est apparue en Méditerranée en 1984 et a colonisé des milliers d'hectares, étouffant notamment les herbiers de posidonie. Elle produit de la caulérpényne, une molécule toxique qui décourage la plupart des brouteurs. Un fragment de quelques centimètres suffit à fonder une nouvelle colonie.",
       conseil:
-        "Cette fiche est une mise en garde : il est déconseillé de la cultiver, car aucun aquarium ne garantit la maîtrise de fragments qui survivent à l'évier, au siphonnage et aux eaux de vidange. Si elle arrive avec des roches, des boutures ou un lot d'algues, retirez la colonie entière à la main avec ses stolons, sans la couper, puis faites-la sécher complètement ou congelez-la avant de la jeter dans un sac fermé aux ordures ménagères. Ne la rejetez jamais dans le milieu naturel, l'évier, les toilettes ni la vidange d'un bac, car chaque fragment peut reprendre. Pour exporter les nutriments, préférez Chaetomorpha ou Ulva.",
+        "Cette fiche est une mise en garde : il est déconseillé de la cultiver, car aucun aquarium ne garantit la maîtrise de fragments qui survivent à l'évier, au siphonnage et aux eaux de vidange. Si elle arrive avec des roches, des boutures ou un lot d'algues, retirez la colonie entière à la main avec ses stolons, sans la couper, puis faites-la sécher complètement ou congelez-la avant de la jeter dans un sac fermé aux ordures ménagères. Ne la rejetez jamais dans le milieu naturel, l'évier, les toilettes ni la vidange d'un bac, car chaque fragment peut reprendre. Pour exporter les nutriments, préférez Chaetomorpha ou Ulva.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette algue n'est pas à introduire en aquarium.",
+      compatibilite: "Sans objet : cette algue n'est pas à introduire en aquarium.",
       incompatibilite: 'Elle étouffe les autres algues, les herbiers et les organismes fixés, et sa toxine la fait éviter par la plupart des brouteurs.',
       phMin: 8.0,
       phMax: 8.4,
@@ -14406,9 +14406,9 @@ export const ESPECES: Espece[] = [
         placement: 'Sable',
         lumiere: 'Moyenne',
         croissance: 'Rapide',
-        usage: "Aucun usage recommandé : ancienne algue de décor et d'exportation des nutriments, aujourd'hui à éviter en raison de son caractère invasif et toxique.",
+        usage: "Aucun usage recommandé : ancienne algue de décor et d'exportation des nutriments, aujourd'hui à éviter en raison de son caractère invasif et toxique.",
         risque: 'Élevé',
-        multiplication: 'Elle se propage par fragmentation : tout morceau de stolon ou de fronde peut former une nouvelle colonie, ce qui facilite sa dispersion par les ancres, les filets et les eaux de vidange.',
+        multiplication: 'Elle se propage par fragmentation : tout morceau de stolon ou de fronde peut former une nouvelle colonie, ce qui facilite sa dispersion par les ancres, les filets et les eaux de vidange.',
       },
     },
   },
@@ -14420,16 +14420,16 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Caulerpa racemosa',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Cette algue (ou une forme voisine) est invasive en Méditerranée. Elle ne figure pas sur la liste de l'Union ni sur les arrêtés français : aucune interdiction identifiée, mais ne la jetez jamais dans l'évier, le milieu naturel ou la mer.",
+      "Cette algue (ou une forme voisine) est invasive en Méditerranée. Elle ne figure pas sur la liste de l'Union ni sur les arrêtés français : aucune interdiction identifiée, mais ne la jetez jamais dans l'évier, le milieu naturel ou la mer.",
     citesAnnexe: null,
     fiche: {
       description:
         "Le raisin de mer est une macroalgue verte dont les ramules en petites billes brillantes, groupées en grappes le long d'un stolon, évoquent des grains de raisin. Ce nom recouvre dans le commerce plusieurs formes de Caulerpa racemosa, espèce tropicale très variable, voire l'espèce voisine Caulerpa cylindracea, originaire du sud-ouest de l'Australie et reconnue comme espèce distincte sur WoRMS. Ces deux espèces, ainsi que certaines de leurs formes, ont envahi la Méditerranée depuis les années 1990 et recouvrent fonds rocheux et sableux. Elle est vendue pour exporter les nutriments mais reste difficile à contenir.",
       conseil:
-        "Il est déconseillé de la cultiver : sa lignée exacte est rarement identifiable à l'achat et un seul fragment échappé peut s'installer dans le milieu naturel. Comme toutes les Caulerpa, elle peut libérer en masse ses gamètes en cas de stress (coupe, panne de lumière, manque de nutriments) : l'eau devient laiteuse, l'oxygène chute et le bac peut s'effondrer. Si elle est déjà présente, retirez-la entièrement à la main avec ses stolons, puis faites-la sécher complètement ou congelez-la avant de la mettre dans un sac fermé aux ordures ménagères. Ne la rejetez jamais dans le milieu naturel, l'évier, les toilettes ni la vidange d'un bac.",
+        "Il est déconseillé de la cultiver : sa lignée exacte est rarement identifiable à l'achat et un seul fragment échappé peut s'installer dans le milieu naturel. Comme toutes les Caulerpa, elle peut libérer en masse ses gamètes en cas de stress (coupe, panne de lumière, manque de nutriments) : l'eau devient laiteuse, l'oxygène chute et le bac peut s'effondrer. Si elle est déjà présente, retirez-la entièrement à la main avec ses stolons, puis faites-la sécher complètement ou congelez-la avant de la mettre dans un sac fermé aux ordures ménagères. Ne la rejetez jamais dans le milieu naturel, l'évier, les toilettes ni la vidange d'un bac.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette algue n'est pas à introduire en aquarium.",
+      compatibilite: "Sans objet : cette algue n'est pas à introduire en aquarium.",
       incompatibilite: "Elle recouvre les roches et le sable, supplante les autres algues et se disperse facilement par fragments dans les circuits d'eau.",
       phMin: 8.0,
       phMax: 8.4,
@@ -14446,13 +14446,13 @@ export const ESPECES: Espece[] = [
         placement: 'Sable',
         lumiere: 'Moyenne',
         croissance: 'Rapide',
-        usage: "Aucun usage recommandé : vendue pour l'exportation des nutriments, mais difficile à contenir et à éliminer, avec un risque d'invasion.",
+        usage: "Aucun usage recommandé : vendue pour l'exportation des nutriments, mais difficile à contenir et à éliminer, avec un risque d'invasion.",
         risque: 'Élevé',
         multiplication: 'Elle se propage par fragmentation des stolons et des ramules, et par émission massive de gamètes en cas de stress.',
       },
       reproduction: {
         facilite: "Très facile",
-        description: "Le raisin de mer (Caulerpa racemosa) se multiplie par fragmentation végétative. Détachez un fragment de stolon et posez-le sur le substrat ; il s'ancre seul. Croissance explosive sous bonne lumière. Excellent exportateur de nitrates et phosphates. ATTENTION : espèce classée parmi les 100 pires espèces envahissantes mondiales par l'UICN. Sa détention est INTERDITE en France métropolitaine. Ne la relâchez JAMAIS dans la nature. Si vous la possédez, renseignez-vous sur sa réglementation dans votre pays.",
+        description: "Le raisin de mer (Caulerpa racemosa) se multiplie par fragmentation végétative. Détachez un fragment de stolon et posez-le sur le substrat ; il s'ancre seul. Croissance explosive sous bonne lumière. Excellent exportateur de nitrates et phosphates. ATTENTION : espèce classée parmi les 100 pires espèces envahissantes mondiales par l'UICN. Sa détention est INTERDITE en France métropolitaine. Ne la relâchez JAMAIS dans la nature. Si vous la possédez, renseignez-vous sur sa réglementation dans votre pays.",
       },
     },
   },
@@ -14464,17 +14464,17 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Caulerpa cylindracea',
     statutLegal: 'autorise',
     remarqueLegale:
-      "Cette algue (ou une forme voisine) est invasive en Méditerranée. Elle ne figure pas sur la liste de l'Union ni sur les arrêtés français : aucune interdiction identifiée, mais ne la jetez jamais dans l'évier, le milieu naturel ou la mer.",
+      "Cette algue (ou une forme voisine) est invasive en Méditerranée. Elle ne figure pas sur la liste de l'Union ni sur les arrêtés français : aucune interdiction identifiée, mais ne la jetez jamais dans l'évier, le milieu naturel ou la mer.",
     citesAnnexe: null,
     autresNoms: ['Caulerpe cylindracée'],
     fiche: {
       description:
         "Caulerpa cylindracea, longtemps traitée comme variété de Caulerpa racemosa, est une macroalgue verte originaire du sud-ouest de l'Australie. Ses axes dressés, garnis de petits ramules en massue, partent de stolons rampants fixés par de fins rhizoïdes. Signalée en Libye en 1990, elle occupe aujourd'hui tout le bassin méditerranéen, où elle forme des tapis denses sur roche, sable et herbiers. Son introduction est attribuée à des rejets liés à l'aquariophilie et au transport maritime, et son éradication est considérée comme impossible.",
       conseil:
-        "Cette fiche est une mise en garde : il est déconseillé de la cultiver. Elle peut arriver comme passagère sur des roches, des boutures ou des lots d'algues vendus sous le nom de raisin de mer ; inspectez et mettez en quarantaine tout nouvel apport. Si vous en trouvez, retirez-la entièrement avec ses stolons, puis faites-la sécher complètement ou congelez-la avant de la mettre dans un sac fermé aux ordures ménagères. Ne la rejetez jamais dans le milieu naturel, l'évier, les toilettes ni la vidange d'un bac, car chaque fragment peut former une colonie.",
+        "Cette fiche est une mise en garde : il est déconseillé de la cultiver. Elle peut arriver comme passagère sur des roches, des boutures ou des lots d'algues vendus sous le nom de raisin de mer ; inspectez et mettez en quarantaine tout nouvel apport. Si vous en trouvez, retirez-la entièrement avec ses stolons, puis faites-la sécher complètement ou congelez-la avant de la mettre dans un sac fermé aux ordures ménagères. Ne la rejetez jamais dans le milieu naturel, l'évier, les toilettes ni la vidange d'un bac, car chaque fragment peut former une colonie.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette algue n'est pas à introduire en aquarium.",
+      compatibilite: "Sans objet : cette algue n'est pas à introduire en aquarium.",
       incompatibilite: 'Elle recouvre les fonds, supplante les algues locales et se disperse facilement par fragments, notamment avec les ancres, les filets et les eaux de vidange.',
       phMin: 8.0,
       phMax: 8.4,
@@ -14491,7 +14491,7 @@ export const ESPECES: Espece[] = [
         placement: 'Roche',
         lumiere: 'Moyenne',
         croissance: 'Rapide',
-        usage: 'Aucun usage recommandé : algue invasive à ne pas introduire ni conserver en aquarium.',
+        usage: 'Aucun usage recommandé : algue invasive à ne pas introduire ni conserver en aquarium.',
         risque: 'Élevé',
         multiplication: "Elle se propage par fragmentation des stolons et des axes, tout morceau pouvant s'ancrer et former une nouvelle colonie ; une reproduction sexuée par gamètes est aussi possible.",
       },
@@ -14511,7 +14511,7 @@ export const ESPECES: Espece[] = [
       description:
         "Chaetomorpha linum est une macroalgue verte filamenteuse et cosmopolite, dont les filaments rigides enchevêtrés en boule lui ont valu le surnom d'algue spaghetti. Elle vit libre, sans se fixer, et s'est imposée comme l'algue de référence des refuges de bacs récifaux. Elle absorbe vite nitrates et phosphates, abrite copépodes et amphipodes et attire peu la plupart des brouteurs. Elle supporte une large plage de température et de salinité.",
       conseil:
-        "Placez-la dans le refuge ou le bac technique, avec un éclairage dédié et un flux suffisant pour la brasser doucement : sans cela, le cœur de la boule manque de lumière et brunit. Éclairez-la 12 à 16 heures par jour, idéalement en cycle inversé de celui du bac principal pour limiter les variations de pH. Retirez régulièrement une partie de la masse pour exporter réellement les nutriments, et défaites la boule pour évacuer les débris qui s'y accumulent. Dans un bac très pauvre en nitrates et phosphates, elle blanchit et fond : contrôlez les taux avant d'incriminer l'éclairage.",
+        "Placez-la dans le refuge ou le bac technique, avec un éclairage dédié et un flux suffisant pour la brasser doucement : sans cela, le cœur de la boule manque de lumière et brunit. Éclairez-la 12 à 16 heures par jour, idéalement en cycle inversé de celui du bac principal pour limiter les variations de pH. Retirez régulièrement une partie de la masse pour exporter réellement les nutriments, et défaites la boule pour évacuer les débris qui s'y accumulent. Dans un bac très pauvre en nitrates et phosphates, elle blanchit et fond : contrôlez les taux avant d'incriminer l'éclairage.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe à tous les bacs récifaux, via le refuge ou le décanteur, avec coraux, poissons et invertébrés ; elle abrite une micro-faune utile.",
@@ -14533,7 +14533,7 @@ export const ESPECES: Espece[] = [
         croissance: 'Rapide',
         usage: 'Exportation des nitrates et phosphates dans un refuge, et abri pour copépodes et amphipodes.',
         risque: 'Faible',
-        multiplication: "Par fragmentation : il suffit de séparer un morceau de la boule pour obtenir une nouvelle touffe. Elle peut aussi sporuler en cas de stress brutal (lumière, nutriments), ce qui trouble l'eau.",
+        multiplication: "Par fragmentation : il suffit de séparer un morceau de la boule pour obtenir une nouvelle touffe. Elle peut aussi sporuler en cas de stress brutal (lumière, nutriments), ce qui trouble l'eau.",
       },
       reproduction: {
         facilite: "Très facile",
@@ -14555,7 +14555,7 @@ export const ESPECES: Espece[] = [
       description:
         "Halimeda opuntia est une macroalgue verte calcifiée, formée de petits segments plats articulés en touffes denses de 10 à 15 cm, qui évoquent un buisson de cactus. Présente dans les eaux chaudes des Caraïbes et de l'Indo-Pacifique, elle s'ancre par des rhizoïdes dans le sable, les débris coralliens ou la roche. Dans la nature, ses segments calcaires alimentent la formation de sable corallien. En aquarium, elle sert de décor et d'exportatrice modérée de nutriments.",
       conseil:
-        "Calez-la entre des roches ou enfouissez légèrement ses rhizoïdes dans un sable grossier ou des débris coralliens, sous un éclairage moyen à fort et un flux modéré. Elle exige un calcium élevé (environ 400 à 450 mg/L), une alcalinité stable et un peu d'iode pour garder sa couleur et ses segments. Des segments blanchis traduisent une carence en minéraux ou un stress. Comme toutes les Halimeda, elle peut libérer d'un coup ses gamètes : la touffe blanchit, l'eau se trouble et l'oxygène chute ; retirez alors la touffe, activez écumeur et charbon et faites un changement d'eau.",
+        "Calez-la entre des roches ou enfouissez légèrement ses rhizoïdes dans un sable grossier ou des débris coralliens, sous un éclairage moyen à fort et un flux modéré. Elle exige un calcium élevé (environ 400 à 450 mg/L), une alcalinité stable et un peu d'iode pour garder sa couleur et ses segments. Des segments blanchis traduisent une carence en minéraux ou un stress. Comme toutes les Halimeda, elle peut libérer d'un coup ses gamètes : la touffe blanchit, l'eau se trouble et l'oxygène chute ; retirez alors la touffe, activez écumeur et charbon et faites un changement d'eau.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux bacs récifaux et aux refuges ; la plupart des poissons paisibles et des coraux la laissent tranquille.",
@@ -14577,7 +14577,7 @@ export const ESPECES: Espece[] = [
         croissance: 'Moyenne',
         usage: 'Décor et exportation modérée des nutriments ; ancre le sable et les débris coralliens.',
         risque: 'Modéré',
-        multiplication: "Par fragmentation de touffes (chaque morceau doit porter des rhizoïdes) et par reproduction sexuée : l'émission de gamètes entraîne la disparition de la touffe parente.",
+        multiplication: "Par fragmentation de touffes (chaque morceau doit porter des rhizoïdes) et par reproduction sexuée : l'émission de gamètes entraîne la disparition de la touffe parente.",
       },
     },
   },
@@ -14594,7 +14594,7 @@ export const ESPECES: Espece[] = [
       description:
         "Gracilaria est un genre cosmopolite de macroalgues rouges aux rameaux cylindriques ou aplatis, dont les formes vendues en aquariophilie, souvent rattachées à Gracilaria hayi, varient du rouge à l'orangé selon l'éclairage. Elle pousse libre, sans se fixer, dans un refuge où elle exporte nitrates et phosphates. Elle forme des touffes buissonnantes de 10 à 25 cm qui abritent aussi de la micro-faune. Certains herbivores la broutent volontiers, d'autres la délaissent.",
       conseil:
-        "Gardez-la libre et en mouvement dans le refuge, avec un flux modéré à fort : enfouie dans le sable, elle meurt. Une lumière modérée, un calcium stable et des nutriments présents suffisent ; elle pâlit ou fond dans un bac très pauvre ou une eau trop chaude. Récoltez régulièrement l'excédent pour exporter réellement les nutriments. Comme l'espèce vendue est rarement identifiée avec certitude et que certaines Gracilaria, notamment Gracilaria vermiculophylla, sont envahissantes sur les côtes françaises de l'Atlantique, ne rejetez jamais de fragments dans le milieu naturel ni à l'évier.",
+        "Gardez-la libre et en mouvement dans le refuge, avec un flux modéré à fort : enfouie dans le sable, elle meurt. Une lumière modérée, un calcium stable et des nutriments présents suffisent ; elle pâlit ou fond dans un bac très pauvre ou une eau trop chaude. Récoltez régulièrement l'excédent pour exporter réellement les nutriments. Comme l'espèce vendue est rarement identifiée avec certitude et que certaines Gracilaria, notamment Gracilaria vermiculophylla, sont envahissantes sur les côtes françaises de l'Atlantique, ne rejetez jamais de fragments dans le milieu naturel ni à l'évier.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux refuges et aux bacs récifaux paisibles ; elle peut aussi servir d'aliment frais pour des poissons herbivores.",
@@ -14616,7 +14616,7 @@ export const ESPECES: Espece[] = [
         croissance: 'Moyenne',
         usage: "Exportation des nitrates et phosphates dans un refuge, abri pour micro-faune et aliment frais d'appoint pour herbivores.",
         risque: 'Modéré',
-        multiplication: "Par fragmentation : tout morceau de rameau peut donner une nouvelle touffe. Elle peut aussi sporuler en cas de stress, ce qui trouble l'eau.",
+        multiplication: "Par fragmentation : tout morceau de rameau peut donner une nouvelle touffe. Elle peut aussi sporuler en cas de stress, ce qui trouble l'eau.",
       },
       reproduction: {
         facilite: "Très facile",
@@ -14638,7 +14638,7 @@ export const ESPECES: Espece[] = [
       description:
         "La laitue de mer est une macroalgue verte aux lames minces, froissées et translucides, vert tendre, de 10 à 20 cm, présente dans les eaux peu profondes de presque toutes les mers, dont l'Atlantique et la Méditerranée. Sa croissance très rapide et sa forte consommation de nitrates et de phosphates en font une exportatrice efficace pour les refuges. Elle est aussi appréciée comme aliment frais des poissons herbivores (chirurgiens, poissons-lapins). Le nom Ulva lactuca recouvre souvent d'autres espèces d'Ulva voisines.",
       conseil:
-        "Placez-la libre dans le refuge, ou dans le bac sur un support, sous un éclairage moyen à fort et un brassage modéré qui la fait osciller. Récoltez-en régulièrement une partie, que vous pouvez donner aux poissons herbivores, pour garder des lames jeunes et éviter qu'elle vieillisse et s'épaississe. Elle peut sporuler en bloc en cas de stress ou de variation brusque (lumière, nutriments, coupe) : les lames blanchissent et l'eau se trouble de vert ; retirez-la aussitôt, renouvelez l'eau et activez l'écumeur. Dans un bac très pauvre en nutriments, elle pâlit et se désagrège.",
+        "Placez-la libre dans le refuge, ou dans le bac sur un support, sous un éclairage moyen à fort et un brassage modéré qui la fait osciller. Récoltez-en régulièrement une partie, que vous pouvez donner aux poissons herbivores, pour garder des lames jeunes et éviter qu'elle vieillisse et s'épaississe. Elle peut sporuler en bloc en cas de stress ou de variation brusque (lumière, nutriments, coupe) : les lames blanchissent et l'eau se trouble de vert ; retirez-la aussitôt, renouvelez l'eau et activez l'écumeur. Dans un bac très pauvre en nutriments, elle pâlit et se désagrège.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Elle s'associe aux refuges et aux bacs avec chirurgiens, poissons-lapins ou autres herbivores qui la consomment.",
@@ -14676,12 +14676,12 @@ export const ESPECES: Espece[] = [
     autresNoms: ['Valonie perle', 'Perle de mer'],
     fiche: {
       description:
-        "L'algue bulle, ici Valonia ventricosa, est une algue verte tropicale réduite à une seule cellule géante : une bulle brillante vert sombre de 1 à 5 cm, parfois plus, fixée par des rhizoïdes. Vendue parfois comme curiosité, elle se multiplie par division interne et par fragments de rhizoïdes. En bac récifal, elle devient une nuisance : elle recouvre roches et coraux, obstrue pompes et déversoirs et résiste à la plupart des brouteurs. L'expression « algue bulle » désigne aussi d'autres espèces voisines (Valonia macrophysa, Dictyosphaeria).",
+        "L'algue bulle, ici Valonia ventricosa, est une algue verte tropicale réduite à une seule cellule géante : une bulle brillante vert sombre de 1 à 5 cm, parfois plus, fixée par des rhizoïdes. Vendue parfois comme curiosité, elle se multiplie par division interne et par fragments de rhizoïdes. En bac récifal, elle devient une nuisance : elle recouvre roches et coraux, obstrue pompes et déversoirs et résiste à la plupart des brouteurs. L'expression « algue bulle » désigne aussi d'autres espèces voisines (Valonia macrophysa, Dictyosphaeria).",
       conseil:
-        "Elle arrive le plus souvent sur des roches vivantes ou des boutures de coraux : examinez-les en quarantaine et retirez toute bulle avant l'introduction. En cas d'infestation, détachez les bulles entières à la main ou à la pince en grattant les rhizoïdes, flux coupés, et récupérez-les au siphon ; évitez de les éclater dans le bac, les avis divergent sur la dispersion de cellules filles et de spores. Les crabes émeraude (Mithrax sculptus), certains chirurgiens et le poisson-lapin Siganus vulpinus peuvent aider, avec des résultats variables selon les individus ; maintenez aussi nitrates et phosphates bas et évitez le surnourrissage. Ne la rejetez jamais dans l'évier, les toilettes, la vidange d'un bac ou le milieu naturel : mettez-la dans un sac fermé aux ordures ménagères.",
+        "Elle arrive le plus souvent sur des roches vivantes ou des boutures de coraux : examinez-les en quarantaine et retirez toute bulle avant l'introduction. En cas d'infestation, détachez les bulles entières à la main ou à la pince en grattant les rhizoïdes, flux coupés, et récupérez-les au siphon ; évitez de les éclater dans le bac, les avis divergent sur la dispersion de cellules filles et de spores. Les crabes émeraude (Mithrax sculptus), certains chirurgiens et le poisson-lapin Siganus vulpinus peuvent aider, avec des résultats variables selon les individus ; maintenez aussi nitrates et phosphates bas et évitez le surnourrissage. Ne la rejetez jamais dans l'évier, les toilettes, la vidange d'un bac ou le milieu naturel : mettez-la dans un sac fermé aux ordures ménagères.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette algue n'est pas à introduire volontairement dans un aquarium.",
+      compatibilite: "Sans objet : cette algue n'est pas à introduire volontairement dans un aquarium.",
       incompatibilite: 'Elle envahit roches et coraux et obstrue pompes et déversoirs. Elle est à éviter en bac récifal.',
       phMin: 8.1,
       phMax: 8.4,
@@ -14698,13 +14698,13 @@ export const ESPECES: Espece[] = [
         placement: 'Roche',
         lumiere: 'Moyenne',
         croissance: 'Moyenne',
-        usage: 'Aucun usage recommandé : algue nuisible en bac récifal, parfois vendue comme curiosité.',
+        usage: 'Aucun usage recommandé : algue nuisible en bac récifal, parfois vendue comme curiosité.',
         risque: 'Modéré',
         multiplication: "Par division de la cellule en bulles filles, par fragments de rhizoïdes laissés sur la roche et, selon certaines sources, par spores libérées lorsqu'une bulle éclate.",
       },
       reproduction: {
         facilite: "Très facile",
-        description: "L'algue bulle (Valonia ventricosa) se reproduit de façon asexuée très facilement par fragmentation : chaque bulle peut se diviser ou libérer des spores. Attention : cette facilité de reproduction peut devenir problématique en aquarium récifal où elle peut envahir les roches vivantes et étouffer les coraux. Si elle prolifère, retirez manuellement chaque bulle entière (sans la crever) pour éviter de libérer des spores. Les oursins et certains crustacés peuvent aider à la contrôler.",
+        description: "L'algue bulle (Valonia ventricosa) se reproduit de façon asexuée très facilement par fragmentation : chaque bulle peut se diviser ou libérer des spores. Attention : cette facilité de reproduction peut devenir problématique en aquarium récifal où elle peut envahir les roches vivantes et étouffer les coraux. Si elle prolifère, retirez manuellement chaque bulle entière (sans la crever) pour éviter de libérer des spores. Les oursins et certains crustacés peuvent aider à la contrôler.",
       },
     },
   },
@@ -14721,10 +14721,10 @@ export const ESPECES: Espece[] = [
       description:
         "Bryopsis désigne des algues vertes filamenteuses en plumes ou en petites fougères, vert vif à sombre, de 2 à 10 cm, qui forment des tapis sur roches et supports. Présentes dans presque toutes les mers, elles arrivent en bac récifal comme passagères clandestines sur roches vivantes et boutures. Elles prolifèrent quand les nutriments sont élevés, s'ancrent dans la roche par des rhizoïdes et repartent de n'importe quel fragment. Le nom couvre plusieurs espèces, dont Bryopsis plumosa.",
       conseil:
-        "Prévenez-la en mettant en quarantaine toute roche ou bouture, en inspectant les moindres filaments et en maintenant nitrates et phosphates bas (écumeur, changements d'eau, résine anti-phosphates), sans les annuler. Si elle apparaît, arrachez les touffes à la pince en aspirant aussitôt les fragments au siphon, car les morceaux libérés repartent facilement ; réduisez aussi un peu la durée et l'intensité de l'éclairage. Les traitements chimiques détournés (antifongiques, peroxyde) circulent mais font courir un risque aux coraux et aux invertébrés : ne les tentez pas sans avis expérimenté. Ne la rejetez jamais dans l'évier, les toilettes, la vidange d'un bac ou le milieu naturel : mettez-la dans un sac fermé aux ordures ménagères.",
+        "Prévenez-la en mettant en quarantaine toute roche ou bouture, en inspectant les moindres filaments et en maintenant nitrates et phosphates bas (écumeur, changements d'eau, résine anti-phosphates), sans les annuler. Si elle apparaît, arrachez les touffes à la pince en aspirant aussitôt les fragments au siphon, car les morceaux libérés repartent facilement ; réduisez aussi un peu la durée et l'intensité de l'éclairage. Les traitements chimiques détournés (antifongiques, peroxyde) circulent mais font courir un risque aux coraux et aux invertébrés : ne les tentez pas sans avis expérimenté. Ne la rejetez jamais dans l'évier, les toilettes, la vidange d'un bac ou le milieu naturel : mettez-la dans un sac fermé aux ordures ménagères.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: "Sans objet : cette algue n'est pas à introduire volontairement dans un aquarium.",
+      compatibilite: "Sans objet : cette algue n'est pas à introduire volontairement dans un aquarium.",
       incompatibilite: 'Elle recouvre coraux et roches et est difficile à éradiquer. Elle est à éviter absolument en bac récifal.',
       phMin: 8.0,
       phMax: 8.4,
@@ -14741,7 +14741,7 @@ export const ESPECES: Espece[] = [
         placement: 'Roche',
         lumiere: 'Forte',
         croissance: 'Rapide',
-        usage: 'Aucun usage recommandé : algue nuisible, indésirable en bac récifal.',
+        usage: 'Aucun usage recommandé : algue nuisible, indésirable en bac récifal.',
         risque: 'Élevé',
         multiplication: 'Par fragmentation (le moindre morceau arraché peut repartir, ses cellules pouvant reformer de nouveaux individus) et par spores libérées en masse.',
       },
@@ -14755,24 +14755,24 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Plotosus lineatus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Balibot rayé : espèce exotique envahissante inscrite sur la liste de l'Union (règlement d'exécution (UE) 2016/1141) et sur l'arrêté du 14 février 2018 (annexe II-3) : introduction, détention, transport, vente et achat interdits. Seule tolérance : animaux de compagnie détenus avant le 15 août 2019 et déclarés avant le 1er mai 2020.",
+      "Balibot rayé : espèce exotique envahissante inscrite sur la liste de l'Union (règlement d'exécution (UE) 2016/1141) et sur l'arrêté du 14 février 2018 (annexe II-3) : introduction, détention, transport, vente et achat interdits. Seule tolérance : animaux de compagnie détenus avant le 15 août 2019 et déclarés avant le 1er mai 2020.",
     citesAnnexe: null,
     autresNoms: ['Poisson-chat rayé'],
     fiche: {
       description:
-        "Le balibot rayé est un poisson-chat marin de l'Indo-Pacifique et de la mer Rouge, au corps allongé brun noir marqué de deux bandes pâles et muni de barbillons autour de la bouche. Les juvéniles, qui nagent en banc compact en forme de boule, attirent l'œil en animalerie, mais l'adulte atteint environ 30 cm. Ses épines dorsale et pectorales sont fortement venimeuses : les piqûres sont très douloureuses et des cas graves ont été décrits. Il s'est installé en Méditerranée orientale, où il est considéré comme invasif.",
+        "Le balibot rayé est un poisson-chat marin de l'Indo-Pacifique et de la mer Rouge, au corps allongé brun noir marqué de deux bandes pâles et muni de barbillons autour de la bouche. Les juvéniles, qui nagent en banc compact en forme de boule, attirent l'œil en animalerie, mais l'adulte atteint environ 30 cm. Ses épines dorsale et pectorales sont fortement venimeuses : les piqûres sont très douloureuses et des cas graves ont été décrits. Il s'est installé en Méditerranée orientale, où il est considéré comme invasif.",
       conseil:
-        "Cette fiche est préventive : l'espèce est réglementée, ne se garde pas en aquarium et n'est pas à acheter ni à reprendre d'un particulier. Ne le manipulez jamais à mains nues, même mort ou en filet : les épines restent venimeuses ; en cas de piqûre, plongez la zone dans une eau chaude supportable (environ 45 °C), ne retirez pas seul un éventuel fragment d'épine et consultez en urgence (15 ou 112, centre antipoison), car une infection peut suivre. Si un individu vous est proposé ou se trouve dans un bac, ne le relâchez jamais en mer ni en rivière : contactez l'Office français de la biodiversité ou votre vendeur pour savoir comment procéder. Pour un poisson de fond sans danger, préférez gobies, blennies ou autres espèces de récif paisibles.",
+        "Cette fiche est préventive : l'espèce est réglementée, ne se garde pas en aquarium et n'est pas à acheter ni à reprendre d'un particulier. Ne le manipulez jamais à mains nues, même mort ou en filet : les épines restent venimeuses ; en cas de piqûre, plongez la zone dans une eau chaude supportable (environ 45 °C), ne retirez pas seul un éventuel fragment d'épine et consultez en urgence (15 ou 112, centre antipoison), car une infection peut suivre. Si un individu vous est proposé ou se trouve dans un bac, ne le relâchez jamais en mer ni en rivière : contactez l'Office français de la biodiversité ou votre vendeur pour savoir comment procéder. Pour un poisson de fond sans danger, préférez gobies, blennies ou autres espèces de récif paisibles.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: 'Sans objet : fiche de prévention, espèce à ne pas introduire en aquarium.',
-      incompatibilite: "Sans objet : son venin et son appétit pour les crustacés et autres invertébrés en font un danger pour l'aquariophile comme pour les autres habitants d'un bac.",
+      compatibilite: 'Sans objet : fiche de prévention, espèce à ne pas introduire en aquarium.',
+      incompatibilite: "Sans objet : son venin et son appétit pour les crustacés et autres invertébrés en font un danger pour l'aquariophile comme pour les autres habitants d'un bac.",
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 22,
       tempMax: 28,
       difficulte: 'Expert',
-      alimentation: "Sans objet : fiche de prévention. À l'état sauvage, il fouille le fond à la recherche de crustacés, de mollusques et de vers.",
+      alimentation: "Sans objet : fiche de prévention. À l'état sauvage, il fouille le fond à la recherche de crustacés, de mollusques et de vers.",
       tailleAdulte: '30 à 32 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14794,24 +14794,24 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Rugulopteryx okamurae',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Algue brune invasive inscrite sur la liste de l'Union (règlement d'exécution (UE) 2016/1141) et sur l'arrêté du 14 février 2018 relatif aux espèces végétales (annexe I-4) : introduction, détention, transport, vente et achat interdits.",
+      "Algue brune invasive inscrite sur la liste de l'Union (règlement d'exécution (UE) 2016/1141) et sur l'arrêté du 14 février 2018 relatif aux espèces végétales (annexe I-4) : introduction, détention, transport, vente et achat interdits.",
     citesAnnexe: null,
     autresNoms: ["Dictyote d'Okamura", 'Algue japonaise'],
     fiche: {
       description:
         "Rugulopteryx okamurae est une algue brune originaire du Pacifique nord-ouest (Japon, Corée, Chine), aux frondes en rubans de 4 à 5 mm de large, ramifiées en fourche, brun verdâtre. Arrivée en Méditerranée par le transport maritime et les importations de coquillages, elle a été signalée dans les eaux françaises dès les premières années 2000, puis s'est étendue à l'ensemble du bassin méditerranéen occidental et à l'Atlantique nord-est. Elle forme des peuplements denses qui remplacent les algues locales et s'échouent en masse sur les plages.",
       conseil:
-        "Cette fiche est préventive : l'espèce est réglementée et n'a aucune place en aquarium. Un risque d'introduction involontaire existe avec des lots d'algues, de roches ou de coquillages issus de zones touchées : n'achetez que des macroalgues de refuge auprès d'un fournisseur identifié, et privilégiez Chaetomorpha ou Ulva pour exporter les nutriments. Si vous la suspectez (rubans brun verdâtre ramifiés en Y), photographiez-la, ne la jetez ni à l'évier, ni en mer, ni sur la plage, et signalez-la aux autorités environnementales compétentes ; si elle se trouve dans un aquarium, isolez le support concerné en attendant leurs consignes.",
+        "Cette fiche est préventive : l'espèce est réglementée et n'a aucune place en aquarium. Un risque d'introduction involontaire existe avec des lots d'algues, de roches ou de coquillages issus de zones touchées : n'achetez que des macroalgues de refuge auprès d'un fournisseur identifié, et privilégiez Chaetomorpha ou Ulva pour exporter les nutriments. Si vous la suspectez (rubans brun verdâtre ramifiés en Y), photographiez-la, ne la jetez ni à l'évier, ni en mer, ni sur la plage, et signalez-la aux autorités environnementales compétentes ; si elle se trouve dans un aquarium, isolez le support concerné en attendant leurs consignes.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
-      compatibilite: 'Sans objet : espèce invasive à ne pas introduire en aquarium.',
-      incompatibilite: 'Sans objet : dans le milieu naturel, elle étouffe les algues locales, les herbiers et les organismes fixés.',
+      compatibilite: 'Sans objet : espèce invasive à ne pas introduire en aquarium.',
+      incompatibilite: 'Sans objet : dans le milieu naturel, elle étouffe les algues locales, les herbiers et les organismes fixés.',
       phMin: 8.0,
       phMax: 8.3,
       tempMin: 10,
       tempMax: 30,
       difficulte: 'Expert',
-      alimentation: "Sans objet : fiche de prévention. Dans la nature, elle est photosynthétique et profite d'une eau riche en nutriments et en lumière.",
+      alimentation: "Sans objet : fiche de prévention. Dans la nature, elle est photosynthétique et profite d'une eau riche en nutriments et en lumière.",
       tailleAdulte: "Frondes de quelques dizaines de cm, peuplements jusqu'à plus de 60 cm",
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -14821,7 +14821,7 @@ export const ESPECES: Espece[] = [
         placement: 'Roche',
         lumiere: 'Moyenne',
         croissance: 'Rapide',
-        usage: 'Aucun usage en aquariophilie : espèce invasive, à signaler et à ne jamais introduire.',
+        usage: 'Aucun usage en aquariophilie : espèce invasive, à signaler et à ne jamais introduire.',
         risque: 'Élevé',
         multiplication: 'Elle se propage naturellement par spores, par fragments dérivants portés par les courants et par transport sur coques, filets et coquillages ; ne la déplacez jamais.',
       },
@@ -14840,7 +14840,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété jaune vif de Neocaridina davidi, sélectionnée pour son corps entièrement coloré sans motif. Aussi robuste que la red cherry, elle convient parfaitement aux débutants cherchant une couleur différente dans leur aquarium planté.",
       conseil:
-        "Évitez de la croiser avec d'autres variétés de Neocaridina de couleur différente : les descendants perdent leur coloration et deviennent ternes. Maintenez-la séparément ou uniquement avec d'autres Neocaridina Yellow pour conserver la lignée.",
+        "Évitez de la croiser avec d'autres variétés de Neocaridina de couleur différente : les descendants perdent leur coloration et deviennent ternes. Maintenez-la séparément ou uniquement avec d'autres Neocaridina Yellow pour conserver la lignée.",
       volumeMinLitres: 20,
       tailleGroupeMin: 10,
       compatibilite: "Poissons très paisibles et non prédateurs, autres Neocaridina de même couleur.",
@@ -14850,7 +14850,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Facile",
@@ -14871,7 +14871,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété verte de Neocaridina davidi au corps translucide teinté de jade, l'une des colorations les plus subtiles de la gamme. Elle se fond magnifiquement dans un aquarium planté luxuriant, où sa teinte naturelle offre un contraste élégant avec les plantes à feuilles rouges ou violettes.",
       conseil:
-        "Sa coloration verte est plus discrète que celle de la red cherry : plantez le bac avec des plantes à feuilles contrastées pour la mettre en valeur. Maintenez-la séparément des autres variétés Neocaridina de couleur différente pour préserver la pureté de la lignée.",
+        "Sa coloration verte est plus discrète que celle de la red cherry : plantez le bac avec des plantes à feuilles contrastées pour la mettre en valeur. Maintenez-la séparément des autres variétés Neocaridina de couleur différente pour préserver la pureté de la lignée.",
       volumeMinLitres: 20,
       tailleGroupeMin: 10,
       compatibilite: "Poissons très paisibles et non prédateurs, autres Neocaridina de même couleur.",
@@ -14881,7 +14881,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Facile",
@@ -14912,7 +14912,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Facile",
@@ -14933,7 +14933,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété noire profonde de Neocaridina davidi, parmi les colorations les plus récentes et les plus recherchées de la gamme. Son corps entièrement noir, intensément pigmenté, offre un contraste saisissant dans un aquarium planté. Aussi robuste que ses cousines colorées, elle convient parfaitement aux aquariophiles débutants.",
       conseil:
-        "La coloration noire intense est le signe d'une sélection réussie : pour la maintenir sur plusieurs générations, évitez tout croisement avec d'autres variétés Neocaridina. Un fond clair ou un bac planté avec des plantes vert pâle fera ressortir sa silhouette sombre.",
+        "La coloration noire intense est le signe d'une sélection réussie : pour la maintenir sur plusieurs générations, évitez tout croisement avec d'autres variétés Neocaridina. Un fond clair ou un bac planté avec des plantes vert pâle fera ressortir sa silhouette sombre.",
       volumeMinLitres: 20,
       tailleGroupeMin: 10,
       compatibilite: "Poissons très paisibles et non prédateurs, autres Neocaridina de même couleur.",
@@ -14943,7 +14943,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Facile",
@@ -14962,7 +14962,7 @@ export const ESPECES: Espece[] = [
     citesAnnexe: null,
     fiche: {
       description:
-        "Variété unique de Neocaridina davidi au patron bicolore distinctif : la tête et la queue sont colorées (rouge, orange, bleue ou noire selon la lignée) tandis que le milieu du corps reste transparent ou blanc. Ce motif en « bandes » rappelle la transparence de la crevette fantôme combinée à la couleur d'une red cherry, et fait de la Rili une des variétés les plus originales de la gamme.",
+        "Variété unique de Neocaridina davidi au patron bicolore distinctif : la tête et la queue sont colorées (rouge, orange, bleue ou noire selon la lignée) tandis que le milieu du corps reste transparent ou blanc. Ce motif en « bandes » rappelle la transparence de la crevette fantôme combinée à la couleur d'une red cherry, et fait de la Rili une des variétés les plus originales de la gamme.",
       conseil:
         "Le motif rili peut varier selon les individus et les générations. Pour stabiliser le patron bicolore, sélectionnez les géniteurs présentant les contrastes les plus nets et évitez tout croisement avec d'autres variétés Neocaridina qui dilueraient le motif.",
       volumeMinLitres: 20,
@@ -14974,7 +14974,7 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 26,
       difficulte: 'Débutant',
-      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
+      alimentation: "Omnivore/détritivore : algues, biofilm, granulés spécifiques crevettes, légumes blanchis.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Facile",
@@ -15006,7 +15006,7 @@ export const ESPECES: Espece[] = [
       tempMin: 20,
       tempMax: 24,
       difficulte: 'Expert',
-      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques Caridina à faible minéralisation.",
+      alimentation: "Omnivore/détritivore : biofilm, algues, granulés spécifiques Caridina à faible minéralisation.",
       tailleAdulte: '2 à 3 cm',
       reproduction: {
         facilite: "Difficile",
@@ -15028,7 +15028,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété fantaisie de poisson rouge reconnaissable à ses deux grandes poches de liquide translucides sous les yeux, qui peuvent représenter jusqu'au quart de son volume corporel. Ces sacs fragiles doivent rester intacts pour le bien-être de l'animal, ce qui impose des conditions de maintenance spécifiques. Nage lentement en raison de sa morphologie, ce qui le rend peu compétitif face aux variétés rapides.",
       conseil:
-        "Le Bubble Eye est l'une des variétés de poisson rouge les plus fragiles : les sacs se perforent facilement sur des ornements pointus ou des roches vives. Aménagez le bac avec des décorations douces et arrondies, sans aspérités. Évitez de le cohabiter avec des variétés rapides (Shubunkin, Comète) qui lui prendraient toute la nourriture.",
+        "Le Bubble Eye est l'une des variétés de poisson rouge les plus fragiles : les sacs se perforent facilement sur des ornements pointus ou des roches vives. Aménagez le bac avec des décorations douces et arrondies, sans aspérités. Évitez de le cohabiter avec des variétés rapides (Shubunkin, Comète) qui lui prendraient toute la nourriture.",
       volumeMinLitres: 150,
       tailleGroupeMin: 2,
       compatibilite: "Autres variétés fantaisie lentes (Telescope, Oranda, Ranchu), dans un bac sans ornements pointus.",
@@ -15038,11 +15038,11 @@ export const ESPECES: Espece[] = [
       tempMin: 10,
       tempMax: 23,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés flottants ou coulants spécifiques poissons rouges, légumes blanchis occasionnels. Évitez les aliments lyophilisés qui se dilatent dans l'estomac.",
+      alimentation: "Omnivore : granulés flottants ou coulants spécifiques poissons rouges, légumes blanchis occasionnels. Évitez les aliments lyophilisés qui se dilatent dans l'estomac.",
       tailleAdulte: '8 à 15 cm (corps seul, hors nageoires)',
       reproduction: {
         facilite: "Modérée",
-        description: "Le Bubble Eye se reproduit comme les autres variétés de poissons rouges fantaisie. Il faut un bac d'au moins 300 L, une période froide (hivernage à 10-12°C pendant 4-6 semaines), puis un réchauffement progressif au printemps. Le mâle présente des tubercules nuptiaux blancs sur les ouïes et poursuit la femelle parmi les plantes. La ponte (500-1000 œufs collants) a lieu sur les végétaux aquatiques. Retirez les parents après la ponte pour éviter la prédation. Les alevins éclosent en 4-7 jours selon la température. Première nourriture : nauplies d'artémia. Attention : les sacs des alevins se développent progressivement — veillez à une filtration douce pour ne pas les abîmer.",
+        description: "Le Bubble Eye se reproduit comme les autres variétés de poissons rouges fantaisie. Il faut un bac d'au moins 300 L, une période froide (hivernage à 10-12°C pendant 4-6 semaines), puis un réchauffement progressif au printemps. Le mâle présente des tubercules nuptiaux blancs sur les ouïes et poursuit la femelle parmi les plantes. La ponte (500-1000 œufs collants) a lieu sur les végétaux aquatiques. Retirez les parents après la ponte pour éviter la prédation. Les alevins éclosent en 4-7 jours selon la température. Première nourriture : nauplies d'artémia. Attention : les sacs des alevins se développent progressivement — veillez à une filtration douce pour ne pas les abîmer.",
       },
     },
   },
@@ -15060,7 +15060,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété de poisson rouge à écailles translucides (nacrées), dont la peau est visible en transparence, produisant une coloration en mosaïque de bleu, rouge, noir, orange et blanc unique à chaque individu. Le Shubunkin est l'une des variétés les plus robustes et les plus adaptées à la vie en bassin extérieur, avec une résistance au froid comparable à la comète.",
       conseil:
-        "Le Shubunkin est l'une des variétés de poissons rouges les plus faciles à maintenir en bassin extérieur : rustique, rapide et résistant au froid, il tolère bien les hivers tempérés. Sa coloration en mosaïque s'intensifie avec une bonne alimentation variée et un ensoleillement suffisant. Ne le mélangez pas avec des variétés très fantaisie fragiles (Bubble Eye, Oranda) qu'il distancerait pour la nourriture.",
+        "Le Shubunkin est l'une des variétés de poissons rouges les plus faciles à maintenir en bassin extérieur : rustique, rapide et résistant au froid, il tolère bien les hivers tempérés. Sa coloration en mosaïque s'intensifie avec une bonne alimentation variée et un ensoleillement suffisant. Ne le mélangez pas avec des variétés très fantaisie fragiles (Bubble Eye, Oranda) qu'il distancerait pour la nourriture.",
       volumeMinLitres: 300,
       tailleGroupeMin: 3,
       compatibilite: "Autres poissons rouges robustes, carpes koï de taille similaire, tanche.",
@@ -15070,11 +15070,11 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés flottants pour poissons rouges, complément de végétaux, alimentation réduite en dessous de 10°C.",
+      alimentation: "Omnivore : granulés flottants pour poissons rouges, complément de végétaux, alimentation réduite en dessous de 10°C.",
       tailleAdulte: '20 à 35 cm en bassin',
       reproduction: {
         facilite: "Facile",
-        description: "La reproduction du Shubunkin est similaire à celle des autres poissons rouges. En bassin extérieur, elle se déclenche naturellement au printemps après l'hivernage (T° > 15°C). Le mâle développe des tubercules nuptiaux blancs sur les ouïes et poursuit la femelle parmi les plantes. La ponte (500-5000 œufs collants sur les plantes ou racines flottantes) a lieu tôt le matin. Retirez les parents après la ponte ou utilisez un filet de protection. Les alevins éclosent en 4-7 jours selon la température. Première nourriture : nauplies d'artémia puis granulés broyés.",
+        description: "La reproduction du Shubunkin est similaire à celle des autres poissons rouges. En bassin extérieur, elle se déclenche naturellement au printemps après l'hivernage (T° > 15°C). Le mâle développe des tubercules nuptiaux blancs sur les ouïes et poursuit la femelle parmi les plantes. La ponte (500-5000 œufs collants sur les plantes ou racines flottantes) a lieu tôt le matin. Retirez les parents après la ponte ou utilisez un filet de protection. Les alevins éclosent en 4-7 jours selon la température. Première nourriture : nauplies d'artémia puis granulés broyés.",
       },
     },
   },
@@ -15102,11 +15102,11 @@ export const ESPECES: Espece[] = [
       tempMin: 4,
       tempMax: 24,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : granulés coulants ou à faible flottabilité (évite l'ingestion d'air), légumes blanchis, alimentation réduite en dessous de 10°C.",
+      alimentation: "Omnivore : granulés coulants ou à faible flottabilité (évite l'ingestion d'air), légumes blanchis, alimentation réduite en dessous de 10°C.",
       tailleAdulte: '15 à 22 cm',
       reproduction: {
         facilite: "Modérée",
-        description: "La reproduction du Ryukin est possible en aquarium ou en bassin avec les mêmes conditions que les autres poissons rouges. Hivernage nécessaire (10-12°C pendant 4-6 semaines) suivi d'un réchauffement progressif pour déclencher le comportement de frai. Ponte sur plantes ou pondeuses artificielles (500-2000 œufs). Retirez les géniteurs après la ponte pour éviter la prédation des œufs. Alevins libres en 4-7 jours. Première nourriture : nauplies d'artémia ou granulés ultra-fins.",
+        description: "La reproduction du Ryukin est possible en aquarium ou en bassin avec les mêmes conditions que les autres poissons rouges. Hivernage nécessaire (10-12°C pendant 4-6 semaines) suivi d'un réchauffement progressif pour déclencher le comportement de frai. Ponte sur plantes ou pondeuses artificielles (500-2000 œufs). Retirez les géniteurs après la ponte pour éviter la prédation des œufs. Alevins libres en 4-7 jours. Première nourriture : nauplies d'artémia ou granulés ultra-fins.",
       },
     },
   },
@@ -15134,11 +15134,11 @@ export const ESPECES: Espece[] = [
       tempMin: 26,
       tempMax: 30,
       difficulte: 'Intermédiaire',
-      alimentation: "Omnivore : granulés/paillettes, complétés par des vers de vase, artémias et aliments enrichis en caroténoïdes pour intensifier la coloration rouge.",
+      alimentation: "Omnivore : granulés/paillettes, complétés par des vers de vase, artémias et aliments enrichis en caroténoïdes pour intensifier la coloration rouge.",
       tailleAdulte: "12 à 15 cm de long (jusqu'à 25 cm de hauteur avec les nageoires)",
       reproduction: {
         facilite: "Modérée",
-        description: "Le Scalaire Manacapuru se reproduit comme le scalaire commun. Il forme des couples durables après une sélection naturelle au sein d'un groupe. Les géniteurs nettoient soigneusement une surface plane (large feuille, ardoise inclinée, vitre) avant la ponte. La femelle dépose 200-600 œufs en rangées que le mâle fertilise. Les parents surveillent et ventilent les œufs. Éclosion en 48-60h à 27-28°C, nage libre des larves après 5-6 jours. Première nourriture : nauplies d'artémia. Eau légèrement acide (pH 6.5-7, GH < 10, T° 26-28°C) pour déclencher la reproduction.",
+        description: "Le Scalaire Manacapuru se reproduit comme le scalaire commun. Il forme des couples durables après une sélection naturelle au sein d'un groupe. Les géniteurs nettoient soigneusement une surface plane (large feuille, ardoise inclinée, vitre) avant la ponte. La femelle dépose 200-600 œufs en rangées que le mâle fertilise. Les parents surveillent et ventilent les œufs. Éclosion en 48-60h à 27-28°C, nage libre des larves après 5-6 jours. Première nourriture : nauplies d'artémia. Eau légèrement acide (pH 6.5-7, GH < 10, T° 26-28°C) pour déclencher la reproduction.",
       },
     },
   },
@@ -15156,7 +15156,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété albinos du tétra de Buenos Aires, grand characidé robuste d'Amérique du Sud. Son corps translucide blanc-argenté et ses yeux rouges caractéristiques de l'albinisme lui confèrent un aspect très différent de la forme sauvage argentée et rouge. Plus grand et plus actif que les tétras communs, il convient à un aquarium spacieux avec des poissons de taille similaire.",
       conseil:
-        "Le tétra de Buenos Aires, même albinos, a tendance à grignoter les plantes à feuilles tendres (hygrophile, élodée, cabomba) : favorisez des plantes à feuilles dures (Java fern, Anubias, Vallisneria) ou maintenez-le dans un bac sans plantes. Grégaire, il s'épanouit en banc d'au moins 6 individus.",
+        "Le tétra de Buenos Aires, même albinos, a tendance à grignoter les plantes à feuilles tendres (hygrophile, élodée, cabomba) : favorisez des plantes à feuilles dures (Java fern, Anubias, Vallisneria) ou maintenez-le dans un bac sans plantes. Grégaire, il s'épanouit en banc d'au moins 6 individus.",
       volumeMinLitres: 100,
       tailleGroupeMin: 6,
       compatibilite: "Poissons robustes de taille similaire, corydoras, cichlides paisibles de même gabarit.",
@@ -15166,11 +15166,11 @@ export const ESPECES: Espece[] = [
       tempMin: 18,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore vorace : granulés, paillettes, légumes blanchis, larves congelées. Tendance à brouter les plantes à feuilles tendres.",
+      alimentation: "Omnivore vorace : granulés, paillettes, légumes blanchis, larves congelées. Tendance à brouter les plantes à feuilles tendres.",
       tailleAdulte: '5 à 7 cm',
       reproduction: {
         facilite: "Facile",
-        description: "Le Tétra de Buenos Aires albinos se reproduit facilement en captivité, de la même façon que la forme sauvage. Eau légèrement acide (pH 6.5-7, GH < 10, T° 24-26°C). Le couple pond quelques centaines d'œufs dispersés sur des plantes à feuilles fines ou un filtre de ponte. Les parents ne s'occupent pas des œufs et les mangent s'ils ne sont pas retirés. Les œufs éclosent en 24-48h, les alevins nagent librement après 4-5 jours. Première nourriture : micro-granulés et nauplies d'artémia. L'albinisme étant récessif, toute la descendance sera albinos si les deux géniteurs sont albinos.",
+        description: "Le Tétra de Buenos Aires albinos se reproduit facilement en captivité, de la même façon que la forme sauvage. Eau légèrement acide (pH 6.5-7, GH < 10, T° 24-26°C). Le couple pond quelques centaines d'œufs dispersés sur des plantes à feuilles fines ou un filtre de ponte. Les parents ne s'occupent pas des œufs et les mangent s'ils ne sont pas retirés. Les œufs éclosent en 24-48h, les alevins nagent librement après 4-5 jours. Première nourriture : micro-granulés et nauplies d'artémia. L'albinisme étant récessif, toute la descendance sera albinos si les deux géniteurs sont albinos.",
       },
     },
   },
@@ -15188,7 +15188,7 @@ export const ESPECES: Espece[] = [
       description:
         "Variété bleue du gourami bleu commun (Trichopodus trichopterus), l'un des labyrinthidés les plus faciles et les plus répandus en aquariophilie. Son corps est d'un bleu argenté iridescent avec deux points noirs caractéristiques (d'où son nom anglais three-spot, le troisième point étant l'œil). La variété opaline présente un motif marbré bleu et noir très apprécié. Comme tous les labyrinthidés, il respire l'air atmosphérique grâce à son organe labyrinthique.",
       conseil:
-        "Laissez toujours un espace d'air libre entre la surface de l'eau et le couvercle : l'air doit être chaud et humide pour préserver son organe labyrinthique. Il peut être territorial avec ses congénères mâles dans un petit bac — préférez un seul mâle pour deux ou trois femelles, ou un grand bac pour plusieurs mâles avec des cachettes abondantes.",
+        "Laissez toujours un espace d'air libre entre la surface de l'eau et le couvercle : l'air doit être chaud et humide pour préserver son organe labyrinthique. Il peut être territorial avec ses congénères mâles dans un petit bac — préférez un seul mâle pour deux ou trois femelles, ou un grand bac pour plusieurs mâles avec des cachettes abondantes.",
       volumeMinLitres: 150,
       tailleGroupeMin: 1,
       compatibilite: "Characidés, corydoras, platies, autres poissons paisibles de communauté de taille similaire.",
@@ -15198,11 +15198,11 @@ export const ESPECES: Espece[] = [
       tempMin: 23,
       tempMax: 28,
       difficulte: 'Débutant',
-      alimentation: "Omnivore : paillettes, granulés, larves de moustiques et artémias congelées occasionnelles.",
+      alimentation: "Omnivore : paillettes, granulés, larves de moustiques et artémias congelées occasionnelles.",
       tailleAdulte: '10 à 15 cm',
       reproduction: {
         facilite: "Facile",
-        description: "Le Blue Gourami est un constructeur de nid de bulles. Le mâle construit un nid flottant à la surface, souvent sous des plantes flottantes ou dans un coin du bac. Après la parade nuptiale, la femelle dépose 500-1000 œufs que le mâle récupère et place dans le nid de bulles. Retirez la femelle après la ponte (le mâle peut l'agresser). Le mâle surveille et entretient le nid. Les larves éclosent en 24-48h à 27°C et nagent librement après 3-4 jours. Première nourriture : infusoires puis nauplies d'artémia. pH 6.5-7.5, T° 26-28°C.",
+        description: "Le Blue Gourami est un constructeur de nid de bulles. Le mâle construit un nid flottant à la surface, souvent sous des plantes flottantes ou dans un coin du bac. Après la parade nuptiale, la femelle dépose 500-1000 œufs que le mâle récupère et place dans le nid de bulles. Retirez la femelle après la ponte (le mâle peut l'agresser). Le mâle surveille et entretient le nid. Les larves éclosent en 24-48h à 27°C et nagent librement après 3-4 jours. Première nourriture : infusoires puis nauplies d'artémia. pH 6.5-7.5, T° 26-28°C.",
       },
     },
   },
@@ -15219,10 +15219,10 @@ export function fetchEspeceParSlug(slug: string): (Espece & { fiche: FicheTechni
 }
 
 // Catégorie d'annonce (celle utilisée par /categorie/[slug]) correspondant à
-// une catégorie d'espèce : tout ce qui est vivant (poissons, crevettes,
+// une catégorie d'espèce : tout ce qui est vivant (poissons, crevettes,
 // coraux, mollusques) tombe dans "Vivant", les plantes dans "Plantes".
 export function categorieAnnonceSlug(categorie: CategorieEspece): string {
-  return categorie === 'Plantes' || categorie === 'Macroalgues marines' ? 'plantes' : 'vivant';
+  return categorie === 'Plantes' || categorie === 'Macroalgues marines' ? 'plantes' : 'vivant';
 }
 
 // Catégories d'espèces du vivant marin (biotope « Eau de Mer »).

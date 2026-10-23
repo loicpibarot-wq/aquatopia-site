@@ -1,5 +1,5 @@
 // Pages locales (ville et département), générées à partir des vraies annonces
-// en ligne. Une page n'existe que si le lieu compte assez d'annonces : pas de
+// en ligne. Une page n'existe que si le lieu compte assez d'annonces : pas de
 // page vide ou quasi vide (mauvais pour les visiteurs comme pour Google).
 import { supabase } from './supabase';
 import { slugify } from './annonces';
@@ -37,9 +37,9 @@ export function departementDepuisCodePostal(cp: string | null): string | null {
   if (!/^\d{5}$/.test(c)) return null;
   let dep: string;
   if (c.startsWith('97')) dep = c.slice(0, 3);
-  else if (c.startsWith('20')) dep = Number(c) < 20200 ? '2A' : '2B';
+  else if (c.startsWith('20')) dep = Number(c) < 20200 ? '2A' : '2B';
   else dep = c.slice(0, 2);
-  return DEPARTEMENTS[dep] ? dep : null;
+  return DEPARTEMENTS[dep] ? dep : null;
 }
 
 export const slugDepartement = (dep: string) => `${slugify(DEPARTEMENTS[dep])}-${dep.toLowerCase()}`;
@@ -49,7 +49,7 @@ export function departementDepuisSlug(slug: string): string | null {
   if (!m) return null;
   const dep = m[1].toUpperCase();
   if (!DEPARTEMENTS[dep]) return null;
-  return slugDepartement(dep) === slug ? dep : null;
+  return slugDepartement(dep) === slug ? dep : null;
 }
 
 // « MONTPELLIER » ou « montpellier » → « Montpellier » ; « saint-etienne » → « Saint-Etienne ».

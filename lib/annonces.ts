@@ -68,7 +68,7 @@ export async function compterAnnoncesActives(): Promise<number | null> {
 // Nombre de membres inscrits, pour la preuve sociale de l'accueil. Passe par
 // la fonction SQL `nombre_membres()` qui ne renvoie QUE le total (aucune
 // donnée personnelle, la table des profils reste fermée au public). Renvoie
-// null si la fonction n'existe pas encore ou échoue : aucun chiffre affiché.
+// null si la fonction n'existe pas encore ou échoue : aucun chiffre affiché.
 export async function compterMembres(): Promise<number | null> {
   try {
     const { data, error } = await supabase.rpc('nombre_membres');
@@ -79,7 +79,7 @@ export async function compterMembres(): Promise<number | null> {
   }
 }
 
-// Version allégée réservée au sitemap : seules les colonnes nécessaires à
+// Version allégée réservée au sitemap : seules les colonnes nécessaires à
 // construire l'URL et la date sont demandées (pas les photos/description),
 // pour que la requête reste rapide même avec des centaines d'annonces et
 // évite les échecs intermittents observés avec la requête complète.
@@ -99,7 +99,7 @@ export async function fetchAnnoncesPourSitemap(
 }
 
 // Même principe que fetchAnnoncesPourSitemap, mais avec les photos en plus
-// (pour le sitemap d'images) : requête séparée plutôt que d'alourdir la
+// (pour le sitemap d'images) : requête séparée plutôt que d'alourdir la
 // requête principale du sitemap classique.
 export async function fetchAnnoncesPourSitemapImages(
   limit = 5000
@@ -120,7 +120,7 @@ export async function fetchAnnoncesPourSitemapImages(
 // --- Catégories ----------------------------------------------------------
 // Mêmes 6 catégories que dans l'app (voir CATEGORIES dans ajouter.tsx),
 // avec un slug d'URL propre pour chacune. Le libellé exact stocké en base
-// (accents compris) reste la clé de gauche : c'est la valeur de la colonne
+// (accents compris) reste la clé de gauche : c'est la valeur de la colonne
 // `categorie`, utilisée telle quelle dans les filtres Supabase.
 export const CATEGORIE_VERS_SLUG: Record<string, string> = {
   Vivant: 'vivant',
@@ -156,7 +156,7 @@ export async function fetchAnnoncesParCategorie(
 }
 
 // --- Biotopes --------------------------------------------------------------
-// Les 3 biotopes de l'app (voir ajouter.tsx) : Eau Douce, Eau de Mer, Bassin.
+// Les 3 biotopes de l'app (voir ajouter.tsx) : Eau Douce, Eau de Mer, Bassin.
 // Même logique que CATEGORIE_VERS_SLUG ci-dessus, mais sur la colonne
 // `biotope` plutôt que `categorie`.
 export const BIOTOPE_VERS_SLUG: Record<string, string> = {
@@ -195,7 +195,7 @@ export async function fetchAnnoncesParType(
   type: 'don' | 'echange',
   { limit = 24, offset = 0 }: { limit?: number; offset?: number } = {}
 ): Promise<{ annonces: Annonce[]; total: number }> {
-  const colonne = type === 'don' ? 'is_don' : 'is_echange';
+  const colonne = type === 'don' ? 'is_don' : 'is_echange';
   const { data, error, count } = await supabase
     .from('annonces')
     .select(COLONNES_PUBLIQUES, { count: 'exact' })
@@ -223,7 +223,7 @@ export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
 }
 
 // --- Slugs -------------------------------------------------------------
-// Format : titre-et-ville-lisibles-ID (ex: neocaridina-blue-velvet-thionville-92)
+// Format : titre-et-ville-lisibles-ID (ex: neocaridina-blue-velvet-thionville-92)
 // L'ID en fin de slug est la seule partie qui compte pour la recherche en
 // base — le texte devant sert uniquement au référencement et à la lecture
 // humaine de l'URL. Si le titre change après publication, l'ancien lien
@@ -249,7 +249,7 @@ export function parseIdFromSlug(slug: string): number | null {
   const m = slug.match(/(\d+)$/);
   if (!m) return null;
   const id = Number(m[1]);
-  return Number.isFinite(id) ? id : null;
+  return Number.isFinite(id) ? id : null;
 }
 
 // --- Textes SEO ----------------------------------------------------------

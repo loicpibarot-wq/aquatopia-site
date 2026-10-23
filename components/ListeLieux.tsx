@@ -8,7 +8,7 @@ export type ItemLieu = { href: string; nom: string; code?: string; n: number };
 const norm = (t: string) =>
   t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
-// Grille de cartes avec recherche : on affiche les plus fournies d'abord, le
+// Grille de cartes avec recherche : on affiche les plus fournies d'abord, le
 // reste se déplie ou se trouve en tapant dans le champ.
 export default function ListeLieux({
   items,
@@ -49,7 +49,7 @@ export default function ListeLieux({
           {items.map((i, idx) => (
             <Link key={i.href} href={i.href} className="lieu-card" hidden={!visible(idx)}>
               <span className="lieu-nom">{i.nom}{i.code ? <small> {i.code}</small> : null}</span>
-              <span className="lieu-n">{i.n} annonce{i.n > 1 ? 's' : ''}</span>
+              <span className="lieu-n">{i.n} annonce{i.n > 1 ? 's' : ''}</span>
             </Link>
           ))}
         </div>

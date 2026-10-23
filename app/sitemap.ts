@@ -7,7 +7,7 @@ import { chargerAnnoncesLocales, grouperVilles, grouperDepartements } from '@/li
 
 const SITE_URL = 'https://aquatopia.fr';
 
-// Régénéré automatiquement toutes les 10 minutes (voir `revalidate`) : une
+// Régénéré automatiquement toutes les 10 minutes (voir `revalidate`) : une
 // annonce vendue ou désactivée sort du sitemap sans intervention manuelle,
 // et une nouvelle annonce y apparaît dès la prochaine régénération.
 export const revalidate = 600;
@@ -78,7 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ];
     }
   } catch {
-    // Supabase injoignable : on ignore les pages locales plutôt que de casser le sitemap.
+    // Supabase injoignable : on ignore les pages locales plutôt que de casser le sitemap.
   }
 
   let annonces: MetadataRoute.Sitemap = [];

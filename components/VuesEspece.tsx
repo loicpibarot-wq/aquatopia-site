@@ -34,7 +34,7 @@ export default function VuesEspece({ slug }: { slug: string }) {
         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
         <circle cx="12" cy="12" r="3" />
       </svg>
-      {vues.toLocaleString('fr-FR')} vue{vues !== 1 ? 's' : ''}
+      {vues.toLocaleString('fr-FR')} vue{vues !== 1 ? 's' : ''}
     </span>
   );
 }

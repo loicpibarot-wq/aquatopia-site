@@ -2,7 +2,7 @@
 // la page d'accueil (qui porte sur l'application elle-même). Ici, ce sont
 // des questions génériques sur le loisir, qui captent des recherches Google
 // beaucoup plus larges que le nom de l'application.
-export type FaqItem = { question: string; reponse: string };
+export type FaqItem = { question: string; guide?: string; reponse: string };
 export type FaqCategorie = { titre: string; slug: string; questions: FaqItem[] };
 
 export const FAQ_CATEGORIES: FaqCategorie[] = [
@@ -12,38 +12,44 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Quel volume d’aquarium choisir pour commencer ?',
+        guide: 'quel-volume-aquarium-choisir-espece',
         reponse:
-          "Un volume d'au moins 54 à 60 litres est plus facile à équilibrer qu'un petit bac : les paramètres de l'eau y varient beaucoup moins vite, ce qui laisse plus de marge d'erreur au débutant.",
+          "Un volume d'au moins 54 à 60 litres est plus facile à équilibrer qu'un petit bac : les paramètres de l'eau y varient beaucoup moins vite, ce qui laisse plus de marge d'erreur au débutant.",
       },
       {
         question: 'Combien de temps avant de pouvoir mettre des poissons ?',
+        guide: 'demarrer-aquarium-eau-douce',
         reponse:
           "Il faut compter 4 à 6 semaines de cyclage (installation des bactéries bénéfiques) avant d'introduire le moindre poisson, au risque de les exposer à des pics d'ammoniac toxiques.",
       },
       {
         question: 'Faut-il un chauffage même en été ?',
+        guide: 'chauffage-aquarium-bien-choisir-puissance',
         reponse:
           "Oui pour la plupart des poissons tropicaux, dont la température idéale (24-27°C) dépasse souvent la température ambiante même en été, et surtout la nuit ou en cas de baisse soudaine.",
       },
       {
         question: 'Eau du robinet ou eau osmosée, laquelle utiliser ?',
+        guide: 'difference-eau-osmosee-eau-robinet-aquarium',
         reponse:
           "L'eau du robinet convient à la grande majorité des poissons d'eau douce une fois le chlore neutralisé (avec un conditionneur d'eau). L'eau osmosée n'est généralement nécessaire que pour des espèces exigeant une eau très douce, ou en récifal.",
       },
       {
         question: 'Combien ça coûte de démarrer un aquarium ?',
+        guide: 'budget-demarrer-aquarium',
         reponse:
           "Pour un premier bac de 60 à 100 litres équipé (aquarium, filtre, chauffage, éclairage, substrat), il faut généralement compter plusieurs centaines d'euros en neuf — nettement moins en occasion, ce qui explique le succès du marché de seconde main dans ce loisir.",
       },
       {
         question: 'Peut-on mettre un poisson dans un bocal sans filtre ?',
+        guide: 'role-du-filtre-dans-aquarium',
         reponse:
-          "Ce n'est pas recommandé : sans filtration ni cyclage, les déchets s'accumulent rapidement et la qualité de l'eau se dégrade vite, ce qui met en danger le poisson.",
+          "Ce n'est pas recommandé : sans filtration ni cyclage, les déchets s'accumulent rapidement et la qualité de l'eau se dégrade vite, ce qui met en danger le poisson.",
       },
       {
         question: 'Combien de poissons puis-je mettre dans mon aquarium ?',
         reponse:
-          "Il n'existe pas de règle universelle fiable (la fameuse règle du « 1 cm par litre » est trop simpliste) : la bonne charge dépend du volume, de la filtration, de la taille adulte et du comportement de chaque espèce. Mieux vaut peupler progressivement et observer l'évolution des paramètres.",
+          "Il n'existe pas de règle universelle fiable (la fameuse règle du « 1 cm par litre » est trop simpliste) : la bonne charge dépend du volume, de la filtration, de la taille adulte et du comportement de chaque espèce. Mieux vaut peupler progressivement et observer l'évolution des paramètres.",
       },
     ],
   },
@@ -53,6 +59,7 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Pourquoi mon eau est trouble ou verte après quelques jours ?',
+        guide: 'aquarium-eau-trouble-causes',
         reponse:
           "Une eau trouble blanchâtre signale souvent un pic bactérien lié au cyclage en cours ; une eau verte est généralement due à une prolifération d'algues microscopiques, favorisée par un excès de lumière ou de nutriments (nitrates, phosphates).",
       },
@@ -63,16 +70,19 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       },
       {
         question: 'Faut-il tester l’eau tous les jours ?',
+        guide: 'kit-test-eau-aquarium-lequel-choisir',
         reponse:
           "Pendant le cyclage, oui, un suivi rapproché est utile. Une fois le bac stabilisé, un test hebdomadaire (ou avant/après tout changement notable) suffit généralement.",
       },
       {
         question: 'Combien de temps garder un aquarium sans poisson avant d’en ajouter ?',
+        guide: 'cycle-sans-poisson-vs-avec-poisson',
         reponse:
           "Le temps que le cycle de l'azote soit établi, soit généralement 4 à 6 semaines, confirmé par des tests montrant ammoniac et nitrites à zéro 24h après un ajout.",
       },
       {
         question: 'Comment savoir si mon eau est trop dure ou trop douce pour mes poissons ?',
+        guide: 'parametres-eau-ph-gh-kh',
         reponse:
           "Un test de GH (dureté générale) donne cette information ; il suffit ensuite de comparer la valeur mesurée à la fourchette recommandée pour l'espèce concernée, disponible sur la plupart des fiches d'élevage.",
       },
@@ -84,13 +94,15 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Quels poissons peuvent vivre ensemble ?',
+        guide: 'aquarium-communautaire-ou-espece-unique',
         reponse:
           "Cela dépend du caractère (paisible ou territorial), de la taille adulte et des paramètres d'eau recherchés par chaque espèce. En général, mieux vaut associer des poissons de gabarit et de tempérament similaires plutôt que de mélanger au hasard.",
       },
       {
         question: 'Combien de poissons par litre ?',
+        guide: 'quel-volume-aquarium-choisir-espece',
         reponse:
-          "Il n'y a pas de ratio fiable : la charge dépend surtout de la filtration, du volume réel disponible et de la taille adulte des espèces, pas d'une simple formule.",
+          "Il n'y a pas de ratio fiable : la charge dépend surtout de la filtration, du volume réel disponible et de la taille adulte des espèces, pas d'une simple formule.",
       },
       {
         question: 'Pourquoi mon poisson en attaque un autre ?',
@@ -99,8 +111,9 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       },
       {
         question: 'Peut-on mettre un poisson rouge avec des poissons tropicaux ?',
+        guide: 'aquarium-eau-froide-ou-tropical',
         reponse:
-          "Ce n'est pas recommandé : le poisson rouge préfère une eau plus fraîche que la plupart des poissons tropicaux et grandit bien plus que ce qu'on imagine, ce qui le rend incompatible avec un bac tropical classique.",
+          "Ce n'est pas recommandé : le poisson rouge préfère une eau plus fraîche que la plupart des poissons tropicaux et grandit bien plus que ce qu'on imagine, ce qui le rend incompatible avec un bac tropical classique.",
       },
       {
         question: 'Un Betta peut-il vivre avec d’autres poissons ?',
@@ -109,23 +122,24 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       },
       {
         question: 'Comment reconnaître un poisson malade ?',
+        guide: 'reconnaitre-poisson-malade-stresse',
         reponse:
           "Des signes comme la nage en biais, l'apathie, la perte d'appétit, des taches, des nageoires abîmées ou une respiration anormalement rapide doivent alerter — une observation quotidienne permet de repérer ces changements tôt.",
       },
       {
         question: 'Combien de temps vit un poisson d’aquarium ?',
         reponse:
-          "Cela varie énormément selon l'espèce : quelques années pour un Guppy, une dizaine d'années pour beaucoup de Cichlidés, plusieurs décennies pour un Koï ou un poisson rouge bien entretenu.",
+          "Cela varie énormément selon l'espèce : quelques années pour un Guppy, une dizaine d'années pour beaucoup de Cichlidés, plusieurs décennies pour un Koï ou un poisson rouge bien entretenu.",
       },
       {
         question: 'Comment reconnaître un poisson mâle d’une femelle ?',
         reponse:
-          "Le dimorphisme sexuel varie selon l'espèce : couleurs plus vives ou nageoires plus développées chez le mâle pour beaucoup d'espèces (Guppy, Betta), ventre plus arrondi chez la femelle pour d'autres — mieux vaut se référer à la fiche de l'espèce précise.",
+          "Le dimorphisme sexuel varie selon l'espèce : couleurs plus vives ou nageoires plus développées chez le mâle pour beaucoup d'espèces (Guppy, Betta), ventre plus arrondi chez la femelle pour d'autres — mieux vaut se référer à la fiche de l'espèce précise.",
       },
       {
         question: 'Mes poissons se reproduisent, que faire des bébés ?',
         reponse:
-          "Il faut anticiper le devenir des alevins avant même la reproduction (bac séparé, dons ou reventes) : de nombreuses espèces communes se reproduisent très facilement en aquarium et peuvent vite dépasser la capacité du bac.",
+          "Il faut anticiper le devenir des alevins avant même la reproduction (bac séparé, dons ou reventes) : de nombreuses espèces communes se reproduisent très facilement en aquarium et peuvent vite dépasser la capacité du bac.",
       },
     ],
   },
@@ -135,18 +149,21 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Combien de fois par jour nourrir ses poissons ?',
+        guide: 'bien-nourrir-poissons-aquarium',
         reponse:
           "Une à deux fois par jour suffit pour la plupart des espèces, en ne donnant que ce qu'elles consomment en 2 à 3 minutes.",
       },
       {
         question: 'Que faire pendant les vacances (qui nourrit les poissons) ?',
+        guide: 'vacances-aquarium-que-faire',
         reponse:
           "La plupart des poissons adultes supportent très bien un jeûne d'une à deux semaines sans problème. Pour une absence plus longue, un distributeur automatique ou un voisin de confiance reste préférable aux blocs de nourriture à dissolution lente, souvent source de pollution de l'eau.",
       },
       {
         question: 'Peut-on trop nourrir ses poissons ?',
+        guide: 'bien-nourrir-poissons-aquarium',
         reponse:
-          "Oui, et c'est même la cause la plus fréquente de problèmes d'eau : les surplus non consommés se décomposent et polluent l'aquarium, provoquant pics d'ammoniac et prolifération d'algues.",
+          "Oui, et c'est même la cause la plus fréquente de problèmes d'eau : les surplus non consommés se décomposent et polluent l'aquarium, provoquant pics d'ammoniac et prolifération d'algues.",
       },
     ],
   },
@@ -156,26 +173,31 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'À quelle fréquence changer l’eau ?',
+        guide: 'changement-eau-aquarium-frequence-methode',
         reponse:
           "Un changement partiel de 10 à 20 % par semaine est une bonne base pour la majorité des aquariums d'eau douce, à ajuster selon la charge en poissons et les résultats des tests.",
       },
       {
         question: 'Comment nettoyer la vitre sans stresser les poissons ?',
+        guide: 'nettoyer-aquarium-sans-stresser-poissons',
         reponse:
           "Un aimant ou une raclette dédiée à l'aquarium, utilisée par mouvements lents et réguliers, suffit généralement sans perturber les poissons ni abîmer la vitre.",
       },
       {
         question: 'Faut-il nettoyer le filtre, et comment ?',
+        guide: 'entretien-filtre-aquarium-bonne-frequence',
         reponse:
           "Oui, mais en rinçant les masses filtrantes dans de l'eau prélevée dans l'aquarium (jamais à l'eau du robinet, qui tuerait les bactéries bénéfiques), et sans tout nettoyer en même temps pour ne pas perturber le cycle de l'azote.",
       },
       {
         question: 'Pourquoi j’ai des algues qui envahissent mon bac ?',
+        guide: 'lutter-contre-les-algues-aquarium',
         reponse:
           "Un excès de lumière (durée ou intensité) combiné à un excès de nutriments (nitrates, phosphates, souvent liés à une suralimentation) est la cause la plus fréquente d'invasion d'algues.",
       },
       {
         question: 'Combien de temps laisser la lumière allumée par jour ?',
+        guide: 'comprendre-la-photoperiode-aquarium',
         reponse:
           "8 à 10 heures par jour est une bonne base pour un aquarium planté classique ; réduire la durée est souvent la première solution en cas d'invasion d'algues.",
       },
@@ -187,6 +209,7 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Quelles plantes ne demandent pas de CO2 ?',
+        guide: 'co2-aquarium-plante-utile',
         reponse:
           "Anubias, Java Fern (Microsorum), mousses (Java moss) et Cryptocoryne comptent parmi les plantes les plus tolérantes, capables de bien pousser sans apport de CO2.",
       },
@@ -197,11 +220,13 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       },
       {
         question: 'Faut-il un substrat spécial pour les plantes ?',
+        guide: 'choisir-son-substrat-aquarium',
         reponse:
           "Pour un bac peu planté, un substrat neutre suffit ; pour un bac fortement planté, un substrat technique ou nutritif favorise nettement la croissance des racines et limite les carences.",
       },
       {
         question: "Comment faire des boutures de plantes d'aquarium ?",
+        guide: 'tailler-entretenir-plantes-aquarium',
         reponse:
           "Pour une plante à tiges, coupez le sommet sur 8 à 15 cm, juste sous un nœud, retirez les feuilles du bas puis replantez la bouture de 2 à 3 cm dans le substrat. Pour les plantes à rhizome (anubias, bucephalandra), sectionnez le rhizome en gardant plusieurs feuilles et fixez chaque morceau sur une roche ou un bois sans l'enterrer. Pour les plantes à stolons (vallisnéries, sagittaires, cryptocorynes), séparez les jeunes plants quand ils ont 3 ou 4 feuilles et leurs racines. Chaque fiche plante du site détaille la méthode adaptée.",
       },
@@ -213,11 +238,13 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Quelle différence entre eau douce et eau de mer pour débuter ?',
+        guide: 'eau-douce-ou-eau-de-mer-comment-choisir',
         reponse:
           "Le récifal demande des paramètres plus stables et précis (salinité, calcium, KH), un matériel plus spécifique (écumeur, brassage) et un budget de départ généralement plus élevé que l'eau douce.",
       },
       {
         question: 'Combien de temps avant de pouvoir mettre un poisson dans un récifal ?',
+        guide: 'aquarium-recifal-par-ou-commencer',
         reponse:
           "Comme en eau douce, il faut d'abord laisser le bac cycler (plusieurs semaines), souvent avec l'ajout de roches vivantes qui accélèrent l'installation d'une bonne base bactérienne.",
       },
@@ -229,10 +256,11 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       {
         question: 'Comment bouturer un corail ?',
         reponse:
-          "Portez gants et lunettes, choisissez une colonie en pleine forme installée depuis plusieurs semaines, puis coupez un fragment : à la pince pour les SPS (2 à 4 cm au bout d'une branche), à la scie pour les LPS, au scalpel pour les coraux mous. Fixez ensuite la bouture sur un support avec de la colle gel ou un élastique et replacez-la sous un éclairage et un courant modérés. Les anémones, elles, ne se bouturent pas. Chaque fiche corail du site détaille la méthode adaptée.",
+          "Portez gants et lunettes, choisissez une colonie en pleine forme installée depuis plusieurs semaines, puis coupez un fragment : à la pince pour les SPS (2 à 4 cm au bout d'une branche), à la scie pour les LPS, au scalpel pour les coraux mous. Fixez ensuite la bouture sur un support avec de la colle gel ou un élastique et replacez-la sous un éclairage et un courant modérés. Les anémones, elles, ne se bouturent pas. Chaque fiche corail du site détaille la méthode adaptée.",
       },
       {
         question: 'Faut-il obligatoirement un écumeur ?',
+        guide: 'materiel-recifal-ecumeur-osmolateur-brassage',
         reponse:
           "Ce n'est pas absolument obligatoire sur tous les systèmes, mais c'est fortement recommandé sur la plupart des bacs récifaux classiques pour maintenir une bonne qualité d'eau dans la durée.",
       },
@@ -249,21 +277,24 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
     questions: [
       {
         question: 'Mes poissons de bassin peuvent-ils rester dehors en hiver ?',
+        guide: 'hivernage-poissons-bassin',
         reponse:
           "Oui pour la plupart des Koï et poissons rouges, à condition que le bassin soit assez profond (80 cm à 1 mètre minimum) pour ne pas geler entièrement.",
       },
       {
         question: 'Faut-il une pompe été comme hiver ?',
+        guide: 'pompe-filtration-bassin-bien-choisir',
         reponse:
-          "Les pratiques varient selon le climat local : certains réduisent le débit en hiver pour éviter le gel des canalisations, d'autres arrêtent la filtration biologique le temps que les bactéries redeviennent actives au printemps.",
+          "Les pratiques varient selon le climat local : certains réduisent le débit en hiver pour éviter le gel des canalisations, d'autres arrêtent la filtration biologique le temps que les bactéries redeviennent actives au printemps.",
       },
       {
         question: 'Combien de Koï pour un bassin de X litres ?',
         reponse:
-          "Les Koï grandissent beaucoup (jusqu'à 60-90 cm à l'âge adulte) : mieux vaut raisonner en volume disponible par poisson adulte plutôt qu'en nombre de poissons juvéniles achetés au départ.",
+          "Les Koï grandissent beaucoup (jusqu'à 60-90 cm à l'âge adulte) : mieux vaut raisonner en volume disponible par poisson adulte plutôt qu'en nombre de poissons juvéniles achetés au départ.",
       },
       {
         question: 'Pourquoi l’eau de mon bassin devient verte l’été ?',
+        guide: 'eau-verte-bassin-solutions',
         reponse:
           "Une prolifération d'algues microscopiques favorisée par le soleil direct et l'excès de nutriments (déjections, feuilles en décomposition) en est généralement la cause — une filtration adaptée et un peu d'ombre limitent le phénomène.",
       },
@@ -281,7 +312,7 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       {
         question: 'Peut-on se faire livrer des poissons par la poste ?',
         reponse:
-          "Non, l'envoi postal d'animaux vivants n'est pas autorisé : toutes les remises d'animaux doivent se faire en main propre, entre l'acheteur et le vendeur.",
+          "Non, l'envoi postal d'animaux vivants n'est pas autorisé : toutes les remises d'animaux doivent se faire en main propre, entre l'acheteur et le vendeur.",
       },
       {
         question: 'Comment transporter des poissons sur un trajet de plusieurs heures ?',
@@ -290,6 +321,7 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
       },
       {
         question: 'Que vérifier avant d’acheter un aquarium d’occasion ?',
+        guide: 'acheter-aquarium-occasion-verifications',
         reponse:
           "L'étanchéité (traces de fuite, état du silicone), l'ancienneté du bac et l'état du matériel fourni (filtre, chauffage) sont les points essentiels à vérifier, idéalement lors d'une remise en main propre.",
       },

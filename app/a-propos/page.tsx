@@ -49,7 +49,7 @@ export default function AProposPage() {
 
       <div style={{ maxWidth: 720 }}>
         <p className="annonce-desc">
-          Aquatopia est née d&apos;un constat simple : l&apos;aquariophilie n&apos;avait pas d&apos;espace dédié pour
+          Aquatopia est née d&apos;un constat simple : l&apos;aquariophilie n&apos;avait pas d&apos;espace dédié pour
           acheter, vendre, donner ou échanger entre passionnés. Les petites annonces généralistes mélangent le vivant
           avec tout le reste, sans tenir compte des contraintes propres à ce loisir — remise en main propre
           obligatoire pour les animaux, distinction entre eau douce, récifal et bassin, besoin de repères clairs pour
@@ -64,7 +64,7 @@ export default function AProposPage() {
         <p className="annonce-desc">
           Toutes les remises d&apos;animaux se font en main propre, jamais par voie postale, conformément à la
           réglementation et dans le respect du bien-être animal. Chaque annonce et chaque profil passe par une
-          validation avant publication. L&apos;application reste gratuite pour les particuliers : téléchargement,
+          validation avant publication. L&apos;application reste gratuite pour les particuliers : téléchargement,
           recherche et publication d&apos;annonces sans frais.
         </p>
         <h2 style={{ fontSize: '1.2rem', marginTop: 36, marginBottom: 14 }}>Pourquoi ce site</h2>

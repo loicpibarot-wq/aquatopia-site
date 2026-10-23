@@ -9,7 +9,7 @@ const PAR_PAGE = 24;
 
 const TITRE = "Don de poissons, plantes et matériel d'aquarium gratuits";
 const DESCRIPTION =
-  "Annonces gratuites : des passionnés donnent des poissons, plantes, crevettes, aquariums et matériel d'aquariophilie dont ils n'ont plus besoin. Remise en main propre près de chez vous.";
+  "Annonces gratuites : des passionnés donnent des poissons, plantes, crevettes, aquariums et matériel d'aquariophilie dont ils n'ont plus besoin. Remise en main propre près de chez vous.";
 
 export async function generateMetadata({
   searchParams,
@@ -81,7 +81,7 @@ export default async function DonsPage({ searchParams }: { searchParams: { page?
       >
         <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)' }}>
           <b style={{ color: 'var(--text)' }}>À savoir : </b>
-          Un don reste un engagement : vérifiez que vous pouvez accueillir l&apos;animal ou le matériel dans de bonnes
+          Un don reste un engagement : vérifiez que vous pouvez accueillir l&apos;animal ou le matériel dans de bonnes
           conditions avant de contacter le donateur, et prévenez-le rapidement si vous n&apos;êtes plus disponible pour
           la remise.
         </p>

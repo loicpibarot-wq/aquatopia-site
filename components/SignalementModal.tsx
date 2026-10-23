@@ -142,12 +142,12 @@ export default function SignalementModal() {
                 onClick={handleSend}
                 disabled={!message.trim()}
                 style={{
-                  background: message.trim() ? '#2FD9BE' : 'rgba(47,217,190,0.25)',
+                  background: message.trim() ? '#2FD9BE' : 'rgba(47,217,190,0.25)',
                   border: 'none',
                   borderRadius: 8, padding: '8px 18px',
-                  color: message.trim() ? '#0B2530' : 'rgba(11,37,48,0.5)',
+                  color: message.trim() ? '#0B2530' : 'rgba(11,37,48,0.5)',
                   fontSize: '0.88rem', fontWeight: 600,
-                  cursor: message.trim() ? 'pointer' : 'not-allowed',
+                  cursor: message.trim() ? 'pointer' : 'not-allowed',
                   fontFamily: 'inherit',
                   transition: 'background .15s, color .15s',
                 }}

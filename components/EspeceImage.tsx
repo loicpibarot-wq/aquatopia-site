@@ -6,7 +6,7 @@ import Icone from '@/components/Icone';
 interface Props {
   src: string;
   alt: string;
-  /** Slug de l'espèce : active le bouton « Signaler la photo ». */
+  /** Slug de l'espèce : active le bouton « Signaler la photo ». */
   slug?: string;
 }
 
@@ -44,20 +44,20 @@ export default function EspeceImage({ src, alt, slug }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug, motif, message, site: piege }),
       });
-      setEtat(r.ok ? 'merci' : r.status === 429 ? 'limite' : 'erreur');
+      setEtat(r.ok ? 'merci' : r.status === 429 ? 'limite' : 'erreur');
     } catch {
       setEtat('erreur');
     }
   }
 
   return (
-    <div style={{ position: 'relative', width: '100%', maxWidth: 760, marginBottom: visible ? 24 : 0 }}>
+    <div style={{ position: 'relative', width: '100%', maxWidth: 760, marginBottom: visible ? 24 : 0 }}>
       <img
         src={src}
         alt={alt}
         width={1200}
         height={675}
-        style={{ borderRadius: 12, width: '100%', height: 'auto', display: visible ? 'block' : 'none' }}
+        style={{ borderRadius: 12, width: '100%', height: 'auto', display: visible ? 'block' : 'none' }}
         onError={() => setVisible(false)}
       />
 
@@ -130,9 +130,9 @@ export default function EspeceImage({ src, alt, slug }: Props) {
                         style={{
                           textAlign: 'left', padding: '10px 12px', borderRadius: 8, cursor: 'pointer',
                           fontFamily: 'inherit', fontSize: '0.88rem',
-                          background: actif ? 'rgba(47,217,190,0.12)' : 'rgba(255,255,255,0.04)',
-                          border: `1px solid ${actif ? 'rgba(47,217,190,0.6)' : 'rgba(255,255,255,0.12)'}`,
-                          color: actif ? '#e2e8f0' : '#9FC3C0',
+                          background: actif ? 'rgba(47,217,190,0.12)' : 'rgba(255,255,255,0.04)',
+                          border: `1px solid ${actif ? 'rgba(47,217,190,0.6)' : 'rgba(255,255,255,0.12)'}`,
+                          color: actif ? '#e2e8f0' : '#9FC3C0',
                         }}
                       >
                         {actif && <Icone nom="valide" size={14} strokeWidth={2.6} style={{ marginRight: 8, verticalAlign: '-2px', color: '#2FD9BE' }} />}
@@ -148,7 +148,7 @@ export default function EspeceImage({ src, alt, slug }: Props) {
                 <textarea
                   id="signal-photo-message" value={message} maxLength={500} rows={3}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Ex : c'est un néon cardinal, pas un néon bleu…"
+                  placeholder="Ex : c'est un néon cardinal, pas un néon bleu…"
                   style={{
                     width: '100%', boxSizing: 'border-box', background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, padding: '10px 12px',
@@ -157,7 +157,7 @@ export default function EspeceImage({ src, alt, slug }: Props) {
                   }}
                 />
 
-                {/* Champ piège anti-robot : invisible pour les visiteurs. */}
+                {/* Champ piège anti-robot : invisible pour les visiteurs. */}
                 <input
                   type="text" name="site" value={piege} onChange={(e) => setPiege(e.target.value)}
                   tabIndex={-1} autoComplete="off" aria-hidden="true"
@@ -185,7 +185,7 @@ export default function EspeceImage({ src, alt, slug }: Props) {
                     disabled={!motif || etat === 'envoi'}
                     style={boutonPrincipal(!!motif && etat !== 'envoi')}
                   >
-                    {etat === 'envoi' ? 'Envoi…' : 'Envoyer'}
+                    {etat === 'envoi' ? 'Envoi…' : 'Envoyer'}
                   </button>
                 </div>
               </>
@@ -199,8 +199,8 @@ export default function EspeceImage({ src, alt, slug }: Props) {
 
 function boutonPrincipal(actif: boolean): React.CSSProperties {
   return {
-    background: actif ? '#2FD9BE' : 'rgba(47,217,190,0.25)', border: 'none', borderRadius: 8,
-    padding: '8px 18px', color: actif ? '#0B2530' : 'rgba(11,37,48,0.5)',
-    fontSize: '0.88rem', fontWeight: 600, cursor: actif ? 'pointer' : 'not-allowed', fontFamily: 'inherit',
+    background: actif ? '#2FD9BE' : 'rgba(47,217,190,0.25)', border: 'none', borderRadius: 8,
+    padding: '8px 18px', color: actif ? '#0B2530' : 'rgba(11,37,48,0.5)',
+    fontSize: '0.88rem', fontWeight: 600, cursor: actif ? 'pointer' : 'not-allowed', fontFamily: 'inherit',
   };
 }

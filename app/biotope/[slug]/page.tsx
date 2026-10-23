@@ -25,32 +25,32 @@ const CONTENU: Record<
   'eau-douce': {
     h1: "Aquariophilie d'eau douce",
     intro:
-      "Le plus grand univers de l'aquariophilie : poissons (Guppy, Betta, Scalaire, Cichlidés, Ancistrus...), crevettes (Red Cherry, Caridina, Neocaridina), plantes et aquascaping, cuves et matériel dédié. Toutes les annonces d'eau douce, tous types confondus, publiées par des particuliers et éleveurs partout en France.",
+      "Le plus grand univers de l'aquariophilie : poissons (Guppy, Betta, Scalaire, Cichlidés, Ancistrus...), crevettes (Red Cherry, Caridina, Neocaridina), plantes et aquascaping, cuves et matériel dédié. Toutes les annonces d'eau douce, tous types confondus, publiées par des particuliers et éleveurs partout en France.",
     conseil:
       "Avant l'achat, vérifiez la compatibilité de l'espèce avec les paramètres de votre eau (pH, dureté, température) et la taille de votre aquarium — un vendeur sérieux pourra toujours vous renseigner sur ces points.",
-    metaTitre: "Aquarium d'eau douce : poissons, plantes et matériel à vendre",
+    metaTitre: "Aquarium d'eau douce : poissons, plantes et matériel à vendre",
     metaDescription:
-      "Annonces d'aquariophilie d'eau douce : poissons, crevettes, plantes, aquariums d'occasion et matériel à vendre ou à donner entre particuliers, partout en France.",
+      "Annonces d'aquariophilie d'eau douce : poissons, crevettes, plantes, aquariums d'occasion et matériel à vendre ou à donner entre particuliers, partout en France.",
   },
   'eau-de-mer': {
     h1: "Aquariophilie récifale et marine",
     intro:
-      "Poissons marins, boutures de coraux (LPS, SPS, mous), invertébrés (crevettes, crabes, bénitiers) et matériel spécifique au récifal (écumeurs, osmolateurs, brassage, éclairage full spectrum) : retrouvez ici toutes les annonces liées à l'eau de mer.",
+      "Poissons marins, boutures de coraux (LPS, SPS, mous), invertébrés (crevettes, crabes, bénitiers) et matériel spécifique au récifal (écumeurs, osmolateurs, brassage, éclairage full spectrum) : retrouvez ici toutes les annonces liées à l'eau de mer.",
     conseil:
-      "Le récifal demande des paramètres stables (salinité, calcium, KH) : prenez le temps d'échanger avec le vendeur sur l'acclimatation de l'animal avant de le récupérer.",
-    metaTitre: "Aquarium récifal et eau de mer : coraux, poissons à vendre",
+      "Le récifal demande des paramètres stables (salinité, calcium, KH) : prenez le temps d'échanger avec le vendeur sur l'acclimatation de l'animal avant de le récupérer.",
+    metaTitre: "Aquarium récifal et eau de mer : coraux, poissons à vendre",
     metaDescription:
-      "Annonces d'aquarium récifal et d'eau de mer : poissons marins, boutures de coraux, invertébrés et matériel d'occasion entre particuliers.",
+      "Annonces d'aquarium récifal et d'eau de mer : poissons marins, boutures de coraux, invertébrés et matériel d'occasion entre particuliers.",
   },
   bassin: {
     h1: "Bassins et poissons de bassin",
     intro:
-      "Carpes Koï, poissons rouges, esturgeons, plantes de berge et de bassin, pompes et systèmes de filtration extérieurs : toutes les annonces liées aux bassins de jardin, de la simple mare aux bassins de Koï.",
+      "Carpes Koï, poissons rouges, esturgeons, plantes de berge et de bassin, pompes et systèmes de filtration extérieurs : toutes les annonces liées aux bassins de jardin, de la simple mare aux bassins de Koï.",
     conseil:
-      "La taille adulte de certaines espèces (Koï, esturgeons) est bien supérieure à leur taille en vente : vérifiez que votre bassin pourra les accueillir à long terme, et privilégiez une introduction au printemps ou en été.",
-    metaTitre: "Bassin de jardin : Koï, poissons et plantes à vendre",
+      "La taille adulte de certaines espèces (Koï, esturgeons) est bien supérieure à leur taille en vente : vérifiez que votre bassin pourra les accueillir à long terme, et privilégiez une introduction au printemps ou en été.",
+    metaTitre: "Bassin de jardin : Koï, poissons et plantes à vendre",
     metaDescription:
-      "Annonces de bassin de jardin : Koï, poissons rouges, plantes de bassin et matériel de filtration d'occasion à vendre ou à donner entre particuliers.",
+      "Annonces de bassin de jardin : Koï, poissons rouges, plantes de bassin et matériel de filtration d'occasion à vendre ou à donner entre particuliers.",
   },
 };
 
@@ -149,7 +149,7 @@ export default async function BiotopePage({
                 <div className="body">
                   <h4 style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{a.titre}</h4>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-                    <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                    <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
                     <span style={{ fontSize: '0.72rem', color: 'var(--text-faint)', flexShrink: 0 }}>{formatDate(a.created_at)}</span>
                   </div>
                 </div>

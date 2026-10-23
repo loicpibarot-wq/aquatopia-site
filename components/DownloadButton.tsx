@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from 'react';
 
-// Lien intelligent d'Aquatopia : il envoie vers l'App Store ou Google Play
+// Lien intelligent d'Aquatopia : il envoie vers l'App Store ou Google Play
 // selon l'appareil. Une seule adresse à maintenir, côté domaine.
 const LIEN_APPLI = 'https://app.aquatopia.fr';
 

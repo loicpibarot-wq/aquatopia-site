@@ -1,7 +1,7 @@
 // lib/configurateur-setups.ts
 // Modèles de « setups prêts à l'emploi ». Chaque modèle correspond à un choix de
 // l'utilisateur dans le simulateur (type de bac, volume, ce qu'il veut voir dans son
-// bac) : on ne propose donc que des setups qui répondent à SES réponses. Un modèle
+// bac) : on ne propose donc que des setups qui répondent à SES réponses. Un modèle
 // donne plusieurs variantes en faisant tourner les espèces candidates de chaque
 // emplacement (voir construirePresets).
 import type { TypeBac, VolumeBac } from './configurateur';
@@ -19,7 +19,7 @@ export interface Slot {
 
 export interface ModeleSetup {
   id:       string;
-  /** Début du titre ; les espèces « nom » le complètent (« Communauté colorée : Guppy et Tétra néon »). */
+  /** Début du titre ; les espèces « nom » le complètent (« Communauté colorée : Guppy et Tétra néon »). */
   base:     string;
   desc:     string;
   types:    TypeBac[];
@@ -35,10 +35,10 @@ export interface ModeleSetup {
 const DOUCE: TypeBac[] = ['douce-plante', 'douce-biotope'];
 
 export const MODELES: ModeleSetup[] = [
-  // ─ Eau douce : paysage planté ─
+  // ─ Eau douce : paysage planté ─
   {
     id: 'plante-nano', base: 'Paysage planté',
-    desc: 'Pour un petit bac très végétalisé : un mini-banc discret, un poisson de surface et des crevettes.',
+    desc: 'Pour un petit bac très végétalisé : un mini-banc discret, un poisson de surface et des crevettes.',
     types: ['douce-plante'], styles: ['plantes-dense'], volumes: ['nano', 'moyen'], plantes: true,
     slots: [
       { role: 'Surface', candidats: ['combattant-betta', 'gourami-nain', 'endler'] },
@@ -49,7 +49,7 @@ export const MODELES: ModeleSetup[] = [
   },
   {
     id: 'plante-jungle', base: 'Jungle plantée',
-    desc: 'Un grand bac dense : gourami en surface, banc de tétras au milieu et nettoyeurs au sol.',
+    desc: 'Un grand bac dense : gourami en surface, banc de tétras au milieu et nettoyeurs au sol.',
     types: ['douce-plante'], styles: ['plantes-dense'], volumes: ['moyen', 'grand', 'tres-grand'], plantes: true,
     slots: [
       { role: 'Surface', nom: true, candidats: ['gourami-nain', 'gourami-miel', 'gourami-perle'] },
@@ -58,7 +58,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Invertébré', candidats: ['crevette-amano', 'neritine'] },
     ],
   },
-  // ─ Eau douce : biotope Amazonie ─
+  // ─ Eau douce : biotope Amazonie ─
   {
     id: 'amazonie-banc', base: 'Amazonie',
     desc: "Un banc de tétras sud-américains, des corydoras au sol et un poisson-hachette en surface, dans un décor de racines.",
@@ -72,7 +72,7 @@ export const MODELES: ModeleSetup[] = [
   },
   {
     id: 'amazonie-cichlides', base: 'Amazonie',
-    desc: 'Un couple de petits cichlidés en vedette, entouré de tétras et de corydoras : un bac vivant et coloré.',
+    desc: 'Un couple de petits cichlidés en vedette, entouré de tétras et de corydoras : un bac vivant et coloré.',
     types: ['douce-biotope'], styles: ['amazonie'], volumes: ['moyen', 'grand', 'tres-grand'],
     slots: [
       { role: 'Milieu', nom: true, requis: true, candidats: ['apistogramma-cacatuoides', 'apistogramma-viejita', 'ram-papiliochromis', 'scalaire'] },
@@ -81,10 +81,10 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Surface', candidats: ['poisson-hachette'] },
     ],
   },
-  // ─ Eau douce : poissons colorés ─
+  // ─ Eau douce : poissons colorés ─
   {
     id: 'colore-classique', base: 'Communauté colorée',
-    desc: 'Le grand classique : des vivipares vifs en surface, un banc brillant au milieu et des corydoras au sol.',
+    desc: 'Le grand classique : des vivipares vifs en surface, un banc brillant au milieu et des corydoras au sol.',
     types: DOUCE, styles: ['colorés'], plantes: true,
     slots: [
       { role: 'Surface', nom: true, candidats: ['guppy', 'endler', 'platy', 'xipho-porte-epee'] },
@@ -95,7 +95,7 @@ export const MODELES: ModeleSetup[] = [
   },
   {
     id: 'colore-grand', base: 'Grand banc coloré',
-    desc: 'Pour un bac plus grand : des bancs plus fournis, un gourami ou un vivipare en surface et des nettoyeurs.',
+    desc: 'Pour un bac plus grand : des bancs plus fournis, un gourami ou un vivipare en surface et des nettoyeurs.',
     types: DOUCE, styles: ['colorés'], volumes: ['moyen', 'grand', 'tres-grand'], plantes: true,
     slots: [
       { role: 'Surface', nom: true, candidats: ['platy', 'xipho-porte-epee', 'gourami-perle', 'molly-voile-noir'] },
@@ -104,7 +104,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Fond', candidats: ['corydoras-bronze', 'ancistrus-plecos-commun', 'loche-kuhli'] },
     ],
   },
-  // ─ Eau douce : poissons majestueux ─
+  // ─ Eau douce : poissons majestueux ─
   {
     id: 'majestueux-cichlides', base: 'Vedette',
     desc: 'Un poisson à belle allure, des compagnons paisibles trop grands pour être mangés et des nettoyeurs.',
@@ -140,7 +140,7 @@ export const MODELES: ModeleSetup[] = [
   },
   {
     id: 'majestueux-nano', base: 'Le roi du petit bac',
-    desc: 'Un poisson à belle allure pour un petit volume : un combattant ou un gourami nain, avec des nettoyeurs discrets.',
+    desc: 'Un poisson à belle allure pour un petit volume : un combattant ou un gourami nain, avec des nettoyeurs discrets.',
     types: DOUCE, styles: ['majestueux'], volumes: ['nano'], plantes: true,
     slots: [
       { role: 'Surface', nom: true, requis: true, candidats: ['combattant-betta', 'gourami-nain', 'gourami-miel'] },
@@ -149,7 +149,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Milieu', candidats: ['rasbora-arlequin', 'tetra-rouge-minor'] },
     ],
   },
-  // ─ Eau douce : univers d'invertébrés ─
+  // ─ Eau douce : univers d'invertébrés ─
   {
     id: 'crevettes', base: 'Univers de crevettes',
     desc: 'Des crevettes en vedette, des escargots utiles et quelques poissons très discrets.',
@@ -162,10 +162,10 @@ export const MODELES: ModeleSetup[] = [
     ],
   },
 
-  // ─ Marin : surtout des poissons ─
+  // ─ Marin : surtout des poissons ─
   {
     id: 'marin-poissons-nano', base: 'Nano-récif de poissons',
-    desc: 'Pour un petit bac : un gobie ou une blennie, des crevettes utiles et un ou deux coraux faciles.',
+    desc: 'Pour un petit bac : un gobie ou une blennie, des crevettes utiles et un ou deux coraux faciles.',
     types: ['marin'], styles: ['reef-poissons'], volumes: ['nano'],
     slots: [
       { role: 'Milieu', nom: true, requis: true, candidats: ['gobie-neon', 'gobie-clown', 'blennie-bicolore', 'gobie-a-longs-filaments', 'demoiselle-azur'] },
@@ -186,7 +186,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Corail', candidats: ['zoanthaire', 'corail-cuir-sinularia', 'corail-mou-genre-sarcophyton', 'xenia'] },
     ],
   },
-  // ─ Marin : coraux mous et anémones ─
+  // ─ Marin : coraux mous et anémones ─
   {
     id: 'marin-mous', base: 'Récif de coraux mous',
     desc: 'Des coraux mous colorés et faciles, quelques poissons calmes et des invertébrés pour garder le bac propre.',
@@ -198,7 +198,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Invertébré', candidats: ['crevette-nettoyeuse', 'escargot-turbo', 'bernard-l-ermite-marin', 'crevette-menthe', 'escargot-trochus'] },
     ],
   },
-  // ─ Marin : coraux durs ─
+  // ─ Marin : coraux durs ─
   {
     id: 'marin-lps', base: 'Récif LPS',
     desc: 'Des coraux durs à gros polypes, spectaculaires mais accessibles, avec des poissons calmes.',
@@ -223,7 +223,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Invertébré', candidats: ['crevette-nettoyeuse', 'crabe-emeraude'] },
     ],
   },
-  // ─ Marin : crevettes et invertébrés ─
+  // ─ Marin : crevettes et invertébrés ─
   {
     id: 'marin-inverts', base: "Récif d'invertébrés",
     desc: "Des crevettes, des escargots et des crabes utiles à l'équilibre du bac, avec un poisson calme et un corail facile.",
@@ -235,7 +235,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Corail', candidats: ['zoanthaire', 'corallimorphe-champignon', 'xenia'] },
     ],
   },
-  // ─ Marin : macroalgues ─
+  // ─ Marin : macroalgues ─
   {
     id: 'marin-algues', base: 'Bac à macroalgues',
     desc: 'Des macroalgues qui stabilisent l’eau, quelques poissons calmes et des brouteurs pour entretenir le bac.',
@@ -273,7 +273,7 @@ export const MODELES: ModeleSetup[] = [
   },
   {
     id: 'bassin-vegetal', base: 'Bassin végétal',
-    desc: "Un bassin où les plantes dominent : nénuphars, plantes de berge et quelques poissons rouges pour l'animation.",
+    desc: "Un bassin où les plantes dominent : nénuphars, plantes de berge et quelques poissons rouges pour l'animation.",
     types: ['bassin'], styles: ['plantes-bassin'],
     slots: [
       { role: 'Plante', nom: true, requis: true, plantesBassin: true, candidats: [] },
@@ -284,7 +284,7 @@ export const MODELES: ModeleSetup[] = [
   },
   {
     id: 'bassin-nature', base: 'Bassin nature',
-    desc: 'Une faune locale et discrète : vairons, perche-soleil naine et tanche, avec des plantes de bassin.',
+    desc: 'Une faune locale et discrète : vairons, perche-soleil naine et tanche, avec des plantes de bassin.',
     types: ['bassin'], styles: ['faune-locale'],
     slots: [
       { role: 'Surface', nom: true, requis: true, candidats: ['vairon'] },

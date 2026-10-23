@@ -1,5 +1,5 @@
 // lib/configurateur-especes.ts
-// Résultats du configurateur : espèces classées par zone du bac (surface / milieu /
+// Résultats du configurateur : espèces classées par zone du bac (surface / milieu /
 // fond ; arrière-plan / plan moyen / avant-plan) et setups « prêts à l'emploi »
 // dont les espèces sont compatibles entre elles (températures et pH communs).
 import type { IconeNom } from './icones';
@@ -34,9 +34,9 @@ export interface SetupPret {
   titre:   string;
   desc:    string;
   membres: MembreSetup[];
-  /** Plage de température commune à tous les poissons (ex : « 22–26 °C »). */
+  /** Plage de température commune à tous les poissons (ex : « 22–26 °C »). */
   temp:    string | null;
-  /** pH commun (ex : « 7 » ou « 6–6,5 »). */
+  /** pH commun (ex : « 7 » ou « 6–6,5 »). */
   ph:      string | null;
 }
 
@@ -50,7 +50,7 @@ export interface CtxEspeces {
   quantite: (e: EspeceLight, v: VolumeBac) => string;
 }
 
-// ─── Données éditoriales : zone de nage ───────────────────────────────────────
+// ─── Données éditoriales : zone de nage ───────────────────────────────────────
 
 // Zone principale de nage des poissons d'eau douce (non renseignée dans les fiches).
 const ZONE_DOUCE: Record<string, Zone> = {
@@ -73,7 +73,7 @@ const ZONE_DOUCE: Record<string, Zone> = {
   'poisson-elephant-mormyridae': 'fond', 'apistogramma-cacatuoides': 'fond',
   'apistogramma-viejita': 'fond', 'ram-papiliochromis': 'fond',
   'poisson-perroquet-nain-convict': 'fond', 'kribensis': 'fond',
-  // Tout le reste (tétras, rasboras, barbus, scalaire, discus, cichlidés…) : milieu.
+  // Tout le reste (tétras, rasboras, barbus, scalaire, discus, cichlidés…) : milieu.
 };
 
 const ZONE_BASSIN: Record<string, Zone> = {
@@ -120,7 +120,7 @@ function groupePlante(e: EspeceLight): GroupePlante | null {
   }
 }
 
-// Espèces mises en avant (les plus courantes / faciles) : elles passent en premier.
+// Espèces mises en avant (les plus courantes / faciles) : elles passent en premier.
 const POPULAIRES = [
   'guppy', 'endler', 'platy', 'molly-voile-noir', 'tetra-neon', 'tetra-cardinal', 'rasbora-arlequin',
   'barbus-cerise', 'danio-zebre', 'corydoras-bronze', 'corydoras-de-sterba', 'corydoras-pygmee',
@@ -143,20 +143,20 @@ const ORD = ['Débutant', 'Intermédiaire', 'Expert'];
 type Pred = (e: EspeceLight) => boolean;
 
 function trier(list: EspeceLight[], pred?: Pred): EspeceLight[] {
-  const rangPop = (e: EspeceLight) => { const i = POPULAIRES.indexOf(e.slug); return i < 0 ? 9999 : i; };
+  const rangPop = (e: EspeceLight) => { const i = POPULAIRES.indexOf(e.slug); return i < 0 ? 9999 : i; };
   return [...list].sort((a, b) => {
     if (pred) {
-      const d = (pred(a) ? 0 : 1) - (pred(b) ? 0 : 1);
+      const d = (pred(a) ? 0 : 1) - (pred(b) ? 0 : 1);
       if (d !== 0) return d;
     }
     const p = rangPop(a) - rangPop(b);
     if (p !== 0) return p;
     const d = ORD.indexOf(a.difficulte) - ORD.indexOf(b.difficulte);
-    return d !== 0 ? d : a.nomCommun.localeCompare(b.nomCommun, 'fr');
+    return d !== 0 ? d : a.nomCommun.localeCompare(b.nomCommun, 'fr');
   });
 }
 
-/** Les espèces peuvent cohabiter : 2 °C de température commune et pH qui se recoupent. */
+/** Les espèces peuvent cohabiter : 2 °C de température commune et pH qui se recoupent. */
 function compatibles(deja: EspeceLight[], e: EspeceLight): boolean {
   const tous = [...deja, e];
   const tMin = Math.max(...tous.map((x) => x.tempMin ?? -Infinity));
@@ -177,9 +177,9 @@ export function parametresCommuns(list: EspeceLight[]): { temp: string | null; p
   const pMax = Math.min(...list.map((x) => x.phMax ?? Infinity));
   return {
     temp: Number.isFinite(tMin) && Number.isFinite(tMax) && tMax >= tMin
-      ? (tMin === tMax ? `${fmt(tMin)} °C` : `${fmt(tMin)}–${fmt(tMax)} °C`) : null,
+      ? (tMin === tMax ? `${fmt(tMin)} °C` : `${fmt(tMin)}–${fmt(tMax)} °C`) : null,
     ph: Number.isFinite(pMin) && Number.isFinite(pMax) && pMax >= pMin
-      ? (pMin === pMax ? fmt(pMin) : `${fmt(pMin)}–${fmt(pMax)}`) : null,
+      ? (pMin === pMax ? fmt(pMin) : `${fmt(pMin)}–${fmt(pMax)}`) : null,
   };
 }
 
@@ -231,20 +231,20 @@ export function construireSections(ctx: CtxEspeces): SectionEspeces[] {
 
   // ── Eau douce ───────────────────────────────────────────────────────────────
   if (typeBac === 'douce-plante' || typeBac === 'douce-biotope') {
-    const poissonPred: Pred | undefined = has('majestueux') ? (e) => (e.volumeMin ?? 0) >= 80 : undefined;
+    const poissonPred: Pred | undefined = has('majestueux') ? (e) => (e.volumeMin ?? 0) >= 80 : undefined;
 
     if (typeBac === 'douce-plante') {
       const dense = has('plantes-dense');
-      const co2Pred: Pred | undefined = temps === 'faible' ? (e) => e.co2 === 'Inutile' : undefined;
+      const co2Pred: Pred | undefined = temps === 'faible' ? (e) => e.co2 === 'Inutile' : undefined;
       const plantes = cat('Plantes');
       const parGroupe = (g: GroupePlante) => plantes.filter((e) => groupePlante(e) === g);
-      const nb = dense ? 3 : 2;
+      const nb = dense ? 3 : 2;
       const sel = (g: GroupePlante, n: number) => prendre(parGroupe(g), n, [], co2Pred, false);
       const groupes = garder([
         groupe('arriere',   'Arrière-plan', 'Grandes plantes qui habillent le fond et cachent la vitre arrière.', sel('arriere', nb)),
         groupe('milieu',    'Plan moyen',   'Plantes touffues qui structurent le décor.', sel('milieu', nb)),
         groupe('avant',     'Avant-plan',   'Plantes basses et gazons, à planter près de la vitre.', sel('avant', nb)),
-        groupe('fixee',     'À fixer sur bois ou roche', 'Ne se plantent pas dans le sol : on les attache au décor.', sel('fixee', dense ? 2 : 1)),
+        groupe('fixee',     'À fixer sur bois ou roche', 'Ne se plantent pas dans le sol : on les attache au décor.', sel('fixee', dense ? 2 : 1)),
         groupe('flottante', 'Flottantes',   'Ombragent le bac et absorbent les nitrates.', sel('flottante', 1)),
       ]);
       if (groupes.length) sections.push({ id: 'plantes', titre: 'Plantes', icone: 'plante', groupes });
@@ -256,10 +256,10 @@ export function construireSections(ctx: CtxEspeces): SectionEspeces[] {
       poissonPred,
     );
 
-    const crevettes = prendre(cat('Crustacés / Invertébrés eau douce'), has('crevettes') ? 3 : 2, retenuesPoissons);
-    const escargots = prendre(cat('Mollusques eau douce'), has('crevettes') ? 2 : 1, retenuesPoissons);
+    const crevettes = prendre(cat('Crustacés / Invertébrés eau douce'), has('crevettes') ? 3 : 2, retenuesPoissons);
+    const escargots = prendre(cat('Mollusques eau douce'), has('crevettes') ? 2 : 1, retenuesPoissons);
     const groupes = garder([
-      groupe('crevettes', 'Crevettes', 'Nettoyeuses discrètes : attention aux gros poissons qui les mangent.', crevettes),
+      groupe('crevettes', 'Crevettes', 'Nettoyeuses discrètes : attention aux gros poissons qui les mangent.', crevettes),
       groupe('escargots', 'Escargots', 'Mangent algues et restes de nourriture.', escargots),
     ]);
     if (groupes.length) sections.push({ id: 'inverts', titre: 'Invertébrés', icone: 'coquillage', groupes });
@@ -268,23 +268,23 @@ export function construireSections(ctx: CtxEspeces): SectionEspeces[] {
   // ── Marin ───────────────────────────────────────────────────────────────────
   if (typeBac === 'marin') {
     const poissonsPrio = has('reef-poissons');
-    sectionPoissons('Poissons marins', { surface: 1, milieu: poissonsPrio ? 4 : 3, fond: 2 });
+    sectionPoissons('Poissons marins', { surface: 1, milieu: poissonsPrio ? 4 : 3, fond: 2 });
 
     const corailPred: Pred | undefined = has('reef-coraux-durs')
       ? (e) => e.corailType === 'LPS' || e.corailType === 'SPS'
       : has('reef-coraux-mous')
         ? (e) => ['Corail mou', 'Anémone', 'Zoanthaire', 'Corallimorphe'].includes(e.corailType ?? '')
         : undefined;
-    const nCoraux = (has('reef-coraux-mous') || has('reef-coraux-durs')) ? 4 : 2;
+    const nCoraux = (has('reef-coraux-mous') || has('reef-coraux-durs')) ? 4 : 2;
     const coraux = prendre(cat('Coraux et anémones'), nCoraux, [], corailPred, false);
     const gc = groupe('coraux', 'Coraux et anémones', 'Commencez par les plus faciles (mous, zoanthaires).', coraux);
     if (gc) sections.push({ id: 'coraux', titre: 'Coraux', icone: 'corail', groupes: [gc] });
 
-    const inverts = prendre(cat('Invertébrés marins'), has('reef-invertebres') ? 4 : 3, [], undefined, false);
+    const inverts = prendre(cat('Invertébrés marins'), has('reef-invertebres') ? 4 : 3, [], undefined, false);
     const gi = groupe('inverts', 'Nettoyeurs et invertébrés', 'Gardent le bac propre et équilibré.', inverts);
     if (gi) sections.push({ id: 'inverts', titre: 'Invertébrés', icone: 'coquillage', groupes: [gi] });
 
-    const algues = prendre(cat('Macroalgues marines'), has('reef-algues') ? 2 : 1, [], undefined, false);
+    const algues = prendre(cat('Macroalgues marines'), has('reef-algues') ? 2 : 1, [], undefined, false);
     const ga = groupe('algues', 'Macroalgues', 'Exportent nitrates et phosphates en refuge.', algues);
     if (ga) sections.push({ id: 'algues', titre: 'Macroalgues', icone: 'pousse', groupes: [ga] });
   }
@@ -299,7 +299,7 @@ export function construireSections(ctx: CtxEspeces): SectionEspeces[] {
     sectionPoissons('Bassin', { surface: 2, milieu: 3, fond: 1 }, prio);
 
     const plantes = cat('Plantes');
-    const nb = has('plantes-bassin') ? 4 : 2;
+    const nb = has('plantes-bassin') ? 4 : 2;
     const bassin = prendre(plantes.filter((e) => e.placementPlante === 'Plante de bassin'), nb, [], undefined, false);
     const berge  = prendre(plantes.filter((e) => e.placementPlante === 'Plante de berge'),  nb, [], undefined, false);
     const groupes = garder([
@@ -315,7 +315,7 @@ export function construireSections(ctx: CtxEspeces): SectionEspeces[] {
 }
 
 // ─── Setups prêts à l'emploi ──────────────────────────────────────────────────
-// Les setups proposés découlent des réponses de l'utilisateur : type de bac,
+// Les setups proposés découlent des réponses de l'utilisateur : type de bac,
 // volume et « ce que je veux voir dans mon bac ». Chaque modèle (voir
 // configurateur-setups.ts) répond à un style précis ; on en tire jusqu'à
 // 4 variantes en faisant tourner les espèces candidates de chaque emplacement.
@@ -327,12 +327,12 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
   const parSlug = new Map(filtered.map((e) => [e.slug, e]));
   const plantes = filtered.filter((e) => e.categorie === 'Plantes');
   const plantesGroupe = (g: GroupePlante) =>
-    trier(plantes.filter((e) => groupePlante(e) === g), ctx.temps === 'faible' ? (e) => e.co2 === 'Inutile' : undefined);
+    trier(plantes.filter((e) => groupePlante(e) === g), ctx.temps === 'faible' ? (e) => e.co2 === 'Inutile' : undefined);
   const plantesBassin = trier(plantes.filter((e) => e.placementPlante === 'Plante de bassin'));
 
   const defParId = new Map<string, ModeleSetup>();
 
-  // Variante n°k d'un modèle : chaque emplacement prend, à partir du k-ième
+  // Variante n°k d'un modèle : chaque emplacement prend, à partir du k-ième
   // candidat, la première espèce disponible et compatible avec celles déjà retenues.
   const variante = (def: ModeleSetup, k: number): SetupPret | null => {
     const retenues: EspeceLight[] = [];
@@ -356,7 +356,7 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
     def.slots.forEach((s, i) => { if (!s.requis) resoudre(i); });
 
     const animaux = choisies.filter((e): e is EspeceLight => !!e && e.categorie !== 'Plantes');
-    const minimum = typeBac === 'bassin' ? 1 : 3;
+    const minimum = typeBac === 'bassin' ? 1 : 3;
     if (animaux.length < minimum) return null;
 
     const membres: MembreSetup[] = [];
@@ -376,18 +376,18 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
     defParId.set(`${def.id}-${k}`, def);
     return {
       id: `${def.id}-${k}`, titre, desc: def.desc, membres, temp,
-      ph: typeBac === 'douce-plante' || typeBac === 'douce-biotope' ? ph : null,
+      ph: typeBac === 'douce-plante' || typeBac === 'douce-biotope' ? ph : null,
     };
   };
 
   const convient = (m: ModeleSetup) => m.types.includes(typeBac) && (!m.volumes || m.volumes.includes(volume));
   const modeles = MODELES.filter(convient);
-  // Avec un style choisi : uniquement les modèles de ce style, jamais ceux d'un autre
+  // Avec un style choisi : uniquement les modèles de ce style, jamais ceux d'un autre
   // (pas de « Amazonie » pour qui veut du coloré). Si rien ne convient à ce niveau
   // et à ce volume, on ne propose rien plutôt que du hors-sujet.
-  // Sans style : un setup par modèle du bac.
-  const retenus = style ? modeles.filter((m) => m.styles.includes(style)) : modeles;
-  const nbVariantes = style ? NB_SETUPS : 1;
+  // Sans style : un setup par modèle du bac.
+  const retenus = style ? modeles.filter((m) => m.styles.includes(style)) : modeles;
+  const nbVariantes = style ? NB_SETUPS : 1;
   const paquets = retenus.map((m) => {
     const v: SetupPret[] = [];
     for (let k = 0; k < nbVariantes; k++) {
@@ -415,7 +415,7 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
     if (!ajoute) break;
   }
 
-  // Plantes des setups d'eau douce plantée : choisies APRÈS les animaux, parmi celles qui
+  // Plantes des setups d'eau douce plantée : choisies APRÈS les animaux, parmi celles qui
   // supportent la même eau (température et pH), et décalées d'un setup à l'autre pour que
   // chaque setup ait son propre décor végétal.
   if (typeBac === 'douce-plante') {
@@ -425,7 +425,7 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
       const ajout = (g: GroupePlante, role: string, decalage = rang) => {
         const toutes = plantesGroupe(g);
         const compat = toutes.filter((p) => compatibles(animauxDuSetup, p));
-        const liste = compat.length > 0 ? compat : toutes;
+        const liste = compat.length > 0 ? compat : toutes;
         if (!liste.length) return;
         const e = liste[decalage % liste.length];
         s.membres.push({ role, espece: { ...e, quantite: ctx.quantite(e, volume) } });
@@ -438,7 +438,7 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
     });
   }
 
-  // Deux setups ne portent jamais exactement le même titre : on ajoute ce qui les distingue.
+  // Deux setups ne portent jamais exactement le même titre : on ajoute ce qui les distingue.
   const parTitre = new Map<string, SetupPret[]>();
   res.forEach((s) => parTitre.set(s.titre, [...(parTitre.get(s.titre) ?? []), s]));
   parTitre.forEach((groupe) => {
@@ -455,7 +455,7 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
 
 // ─── Cohérence setups / listes d'espèces compatibles ──────────────────────────
 // Toute espèce d'un setup prêt à l'emploi doit aussi figurer dans les listes
-// « poissons », « plantes », etc. : on ajoute celles qui manquent à leur zone.
+// « poissons », « plantes », etc. : on ajoute celles qui manquent à leur zone.
 
 type Emplacement = { section: string; titre: string; icone: IconeNom; groupe: string; label: string; astuce?: string };
 
@@ -463,7 +463,7 @@ const GROUPES_PLANTES: Record<string, { label: string; astuce: string }> = {
   arriere:   { label: 'Arrière-plan', astuce: 'Grandes plantes qui habillent le fond et cachent la vitre arrière.' },
   milieu:    { label: 'Plan moyen',   astuce: 'Plantes touffues qui structurent le décor.' },
   avant:     { label: 'Avant-plan',   astuce: 'Plantes basses et gazons, à planter près de la vitre.' },
-  fixee:     { label: 'À fixer sur bois ou roche', astuce: 'Ne se plantent pas dans le sol : on les attache au décor.' },
+  fixee:     { label: 'À fixer sur bois ou roche', astuce: 'Ne se plantent pas dans le sol : on les attache au décor.' },
   flottante: { label: 'Flottantes',   astuce: 'Ombragent le bac et absorbent les nitrates.' },
 };
 const GROUPES_POISSONS: Record<Zone, { label: string; astuce: string }> = {
@@ -481,9 +481,9 @@ function emplacementDe(e: EspeceLight, typeBac: TypeBac): Emplacement {
   if (e.categorie === 'Plantes') {
     if (typeBac === 'bassin') {
       const berge = e.placementPlante === 'Plante de berge';
-      return { section: 'plantes', titre: 'Plantes aquatiques', icone: 'plante', groupe: berge ? 'berge' : 'bassin',
-        label: berge ? 'En bordure' : "Dans l'eau",
-        astuce: berge ? "Plantes de berge, pieds dans l'eau." : 'Nénuphars et plantes à feuilles flottantes.' };
+      return { section: 'plantes', titre: 'Plantes aquatiques', icone: 'plante', groupe: berge ? 'berge' : 'bassin',
+        label: berge ? 'En bordure' : "Dans l'eau",
+        astuce: berge ? "Plantes de berge, pieds dans l'eau." : 'Nénuphars et plantes à feuilles flottantes.' };
     }
     const g = groupePlante(e) ?? 'milieu';
     return { section: 'plantes', titre: 'Plantes', icone: 'plante', groupe: g, ...GROUPES_PLANTES[g] };
@@ -491,7 +491,7 @@ function emplacementDe(e: EspeceLight, typeBac: TypeBac): Emplacement {
   switch (e.categorie) {
     case 'Crustacés / Invertébrés eau douce':
       return { section: 'inverts', titre: 'Invertébrés', icone: 'coquillage', groupe: 'crevettes', label: 'Crevettes',
-        astuce: 'Nettoyeuses discrètes : attention aux gros poissons qui les mangent.' };
+        astuce: 'Nettoyeuses discrètes : attention aux gros poissons qui les mangent.' };
     case 'Mollusques eau douce':
       return { section: 'inverts', titre: 'Invertébrés', icone: 'coquillage', groupe: 'escargots', label: 'Escargots',
         astuce: 'Mangent algues et restes de nourriture.' };

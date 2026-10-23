@@ -63,7 +63,7 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
         <span className="eyebrow">Échange</span>
         <h1 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', marginTop: 14 }}>{TITRE}</h1>
         <p style={{ marginTop: 14 }}>
-          Une bonne façon de renouveler son cheptel ou son matériel sans dépenser : de nombreux passionnés proposent
+          Une bonne façon de renouveler son cheptel ou son matériel sans dépenser : de nombreux passionnés proposent
           leurs poissons, plantes ou équipements contre d&apos;autres espèces ou accessoires plutôt que contre de
           l&apos;argent.
         </p>

@@ -15,7 +15,7 @@ const normaliser = (t: string) =>
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
 
-// Beaucoup de plantes et de coraux n'ont pas de nom français : le nom « commun »
+// Beaucoup de plantes et de coraux n'ont pas de nom français : le nom « commun »
 // est alors le nom scientifique. On évite de l'afficher deux fois.
 export function nomsIdentiques(a: string, b: string): boolean {
   return normaliser(a) === normaliser(b);
@@ -38,7 +38,7 @@ function suffixeTitre(e: EspecePubliee): string {
 }
 
 // Seules les espèces librement vendables reçoivent « à vendre » dans leur titre
-// et leur description : jamais pour une espèce interdite, soumise à autorisation
+// et leur description : jamais pour une espèce interdite, soumise à autorisation
 // ou à déclaration CITES.
 export const estVendable = (e: Espece) => e.statutLegal === 'autorise';
 
@@ -51,12 +51,12 @@ export function titreEspece(e: EspecePubliee): string {
     'fiche et entretien en eau de mer': 'fiche et entretien',
   };
   const suffixeLong = suffixeTitre(e);
-  const suffixe = vendable ? (COURT[suffixeLong] ?? suffixeLong) : suffixeLong;
-  const mot = vendable ? ' à vendre' : '';
+  const suffixe = vendable ? (COURT[suffixeLong] ?? suffixeLong) : suffixeLong;
+  const mot = vendable ? ' à vendre' : '';
   const complet = `${nomAvecScientifique(e)}${mot} : ${suffixe}`;
   // Google tronque les titres trop longs (le gabarit ajoute « | Aquatopia ») :
   // au-delà, on garde le seul nom courant.
-  const limite = vendable ? 58 : 70;
+  const limite = vendable ? 58 : 70;
   return complet.length <= limite ? complet : `${e.nomCommun}${mot} : ${suffixe}`;
 }
 
@@ -111,7 +111,7 @@ export function descriptionEspece(e: EspecePubliee): string {
 export interface Tuile {
   label: string;
   valeur: string;
-  // Valeurs textuelles longues : police un peu plus petite.
+  // Valeurs textuelles longues : police un peu plus petite.
   petite?: boolean;
 }
 
@@ -120,7 +120,7 @@ export function tuilesEspece(e: EspecePubliee): Tuile[] {
   const f = e.fiche;
   const t: Tuile[] = [];
   const volume = f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'Non applicable';
-  const groupe = f.tailleGroupeMin ? `${f.tailleGroupeMin} individu${f.tailleGroupeMin > 1 ? 's' : ''}` : 'Non applicable';
+  const groupe = f.tailleGroupeMin ? `${f.tailleGroupeMin} individu${f.tailleGroupeMin > 1 ? 's' : ''}` : 'Non applicable';
   const ph = f.phMin !== null && f.phMax !== null ? `${f.phMin} – ${f.phMax}` : 'Non applicable';
   const temp = f.tempMin !== null && f.tempMax !== null ? `${f.tempMin} – ${f.tempMax}°C` : 'Non applicable';
 
@@ -152,7 +152,7 @@ export function tuilesEspece(e: EspecePubliee): Tuile[] {
     if (f.marin.magnesium) t.push({ label: 'Magnésium', valeur: f.marin.magnesium, petite: true });
     t.push({ label: 'Origine', valeur: f.marin.origine, petite: true });
   }
-  t.push({ label: f.plante || f.corail || f.algue ? 'Taille' : 'Taille adulte', valeur: f.tailleAdulte, petite: true });
+  t.push({ label: f.plante || f.corail || f.algue ? 'Taille' : 'Taille adulte', valeur: f.tailleAdulte, petite: true });
   t.push({ label: 'Difficulté', valeur: f.difficulte });
   return t;
 }
@@ -173,7 +173,7 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
   const f = e.fiche;
   const nom = e.nomCommun;
   const faq: QuestionReponse[] = [];
-  const vigilance = f.plante || f.algue || f.corail ? 'Points de vigilance' : 'À éviter';
+  const vigilance = f.plante || f.algue || f.corail ? 'Points de vigilance' : 'À éviter';
 
   // ── Paramètres eau — questions individuelles (= requêtes Google ciblées) ──
   if (f.tempMin !== null && f.tempMax !== null) {
@@ -313,7 +313,7 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
   } else if (e.statutLegal === 'cites_a_signaler') {
     faq.push({
       question: `Peut-on acheter ou vendre ${nom} en France ?`,
-      reponse: phrase(e.remarqueLegale ?? 'Cette espèce est réglementée (CITES) : conservez la preuve de son origine légale.'),
+      reponse: phrase(e.remarqueLegale ?? 'Cette espèce est réglementée (CITES) : conservez la preuve de son origine légale.'),
     });
   } else {
     faq.push({
@@ -325,7 +325,7 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
   return faq;
 }
 
-// Petit hachage stable : varie les « Voir aussi » d'une fiche à l'autre sans
+// Petit hachage stable : varie les « Voir aussi » d'une fiche à l'autre sans
 // aléa (le rendu doit rester identique à chaque génération du site).
 const hachage = (t: string) => {
   let h = 0;
@@ -335,7 +335,7 @@ const hachage = (t: string) => {
 
 const genre = (e: Espece) => normaliser(e.nomScientifique).split(' ')[0];
 
-// Fiches proches : même genre botanique ou zoologique d'abord (par exemple les
+// Fiches proches : même genre botanique ou zoologique d'abord (par exemple les
 // autres cryptocorynes), puis même placement ou même type de corail, puis même
 // statut ; à score égal, un ordre stable mais différent d'une fiche à l'autre.
 export function especesLiees(e: EspecePubliee, nombre = 4): EspecePubliee[] {

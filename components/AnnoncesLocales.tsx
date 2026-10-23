@@ -22,7 +22,7 @@ export default function AnnoncesLocales({ annonces }: { annonces: AnnonceLocale[
             <div className="body">
               <h4 style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{a.titre}</h4>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-                <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
                 <span style={{ fontSize: '0.72rem', color: 'var(--text-faint)', flexShrink: 0 }}>{a.ville} · {formatDate(a.created_at)}</span>
               </div>
             </div>

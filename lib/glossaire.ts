@@ -1,7 +1,7 @@
 // Glossaire aquariophile — un terme par page pour capter les recherches du
 // type "c'est quoi le KH" ou "définition écumeur", en plus de l'index qui
 // liste tout. Le contenu recoupe volontairement celui des guides (lib/guides.ts)
-// mais reste condensé : le glossaire répond vite, le guide développe.
+// mais reste condensé : le glossaire répond vite, le guide développe.
 export type TermeGlossaire = {
   slug: string;
   terme: string;
@@ -97,15 +97,15 @@ export const GLOSSAIRE: TermeGlossaire[] = [
     categorie: 'Récifal',
     definition:
       "Famille de coraux durs (« Large Polyp Stony ») aux polypes charnus, comme les Euphyllia ou Trachyphyllia. Plus exigeants que les coraux mous, mais plus indulgents que les SPS.",
-    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
+    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
   },
   {
     slug: 'sps',
     terme: 'SPS (coraux durs à petits polypes)',
     categorie: 'Récifal',
     definition:
-      "Famille de coraux durs (« Small Polyp Stony », comme les Acropora) réputée la plus exigeante : éclairage puissant, brassage important et paramètres d'eau très stables sont indispensables.",
-    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
+      "Famille de coraux durs (« Small Polyp Stony », comme les Acropora) réputée la plus exigeante : éclairage puissant, brassage important et paramètres d'eau très stables sont indispensables.",
+    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
   },
   {
     slug: 'coraux-mous',
@@ -113,7 +113,7 @@ export const GLOSSAIRE: TermeGlossaire[] = [
     categorie: 'Récifal',
     definition:
       "Coraux sans squelette calcaire rigide (Zoanthus, Discosoma, Sarcophyton), plus tolérants aux variations de paramètres et d'éclairage. Recommandés pour démarrer un bac récifal.",
-    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
+    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
   },
   {
     slug: 'salinite',
@@ -128,7 +128,7 @@ export const GLOSSAIRE: TermeGlossaire[] = [
     categorie: 'Récifal',
     definition:
       "Élément que les coraux durs puisent dans l'eau pour construire leur squelette, généralement maintenu entre 400 et 450 ppm en récifal, aux côtés du KH et du magnésium.",
-    guideLie: { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH, magnésium : bien doser' },
+    guideLie: { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH, magnésium : bien doser' },
   },
   {
     slug: 'magnesium',
@@ -136,7 +136,7 @@ export const GLOSSAIRE: TermeGlossaire[] = [
     categorie: 'Récifal',
     definition:
       "Élément qui empêche le calcium et les carbonates (KH) de précipiter ensemble. Un magnésium trop bas rend ces deux paramètres très instables, quel que soit le dosage effectué.",
-    guideLie: { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH, magnésium : bien doser' },
+    guideLie: { href: '/guides/calcium-kh-magnesium-recifal', label: 'Calcium, KH, magnésium : bien doser' },
   },
   {
     slug: 'phosphates',
@@ -144,7 +144,7 @@ export const GLOSSAIRE: TermeGlossaire[] = [
     categorie: 'Récifal',
     definition:
       "Nutriments issus notamment des restes de nourriture, dont l'excès favorise la prolifération d'algues et de cyanobactéries. Ils se contrôlent par l'écumage, des masses filtrantes dédiées ou une alimentation plus mesurée.",
-    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Récifal : les bases' },
+    guideLie: { href: '/guides/coraux-mous-lps-sps-differences', label: 'Récifal : les bases' },
   },
   {
     slug: 'cyanobacteries',

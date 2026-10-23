@@ -1,5 +1,5 @@
 // Contenu du blog/guides — articles de fond écrits une bonne fois pour
-// toutes ici (pas de CMS externe pour l'instant : le volume reste gérable
+// toutes ici (pas de CMS externe pour l'instant : le volume reste gérable
 // à la main, et ça évite une dépendance supplémentaire pour un site qui n'a
 // pas besoin d'être mis à jour par un non-développeur).
 export type Guide = {
@@ -15,16 +15,16 @@ export type Guide = {
 export const GUIDES: Guide[] = [
   {
     slug: 'demarrer-aquarium-eau-douce',
-    titre: "Comment démarrer un aquarium d'eau douce : le guide complet pour débutants",
+    titre: "Comment démarrer un aquarium d'eau douce : le guide complet pour débutants",
     eyebrow: 'Débuter',
     description:
-      "Taille du bac, matériel indispensable, cyclage et premiers poissons : tout ce qu'il faut savoir avant de se lancer dans l'aquariophilie d'eau douce.",
+      "Taille du bac, matériel indispensable, cyclage et premiers poissons : tout ce qu'il faut savoir avant de se lancer dans l'aquariophilie d'eau douce.",
     datePublication: '2026-09-26',
     sections: [
       {
         titre: 'Choisir la taille de son aquarium',
         paragraphes: [
-          "Contrairement à une idée reçue, un petit aquarium est plus difficile à équilibrer qu'un grand : les paramètres de l'eau (température, pH, taux de déchets) y varient beaucoup plus vite. Pour un premier bac, mieux vaut viser au minimum 54 à 60 litres plutôt qu'un petit bac ou un bocal, qui laissent très peu de marge d'erreur.",
+          "Contrairement à une idée reçue, un petit aquarium est plus difficile à équilibrer qu'un grand : les paramètres de l'eau (température, pH, taux de déchets) y varient beaucoup plus vite. Pour un premier bac, mieux vaut viser au minimum 54 à 60 litres plutôt qu'un petit bac ou un bocal, qui laissent très peu de marge d'erreur.",
         ],
       },
       {
@@ -34,9 +34,9 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: "Le cyclage : l'étape qu'on ne doit jamais sauter",
+        titre: "Le cyclage : l'étape qu'on ne doit jamais sauter",
         paragraphes: [
-          "Avant d'introduire le moindre poisson, l'aquarium doit être « cyclé » : c'est-à-dire qu'une population de bactéries bénéfiques doit s'être installée dans le filtre pour transformer les déchets toxiques en substances moins nocives. C'est l'étape la plus souvent négligée par les débutants, et la première cause de mortalité en aquarium neuf.",
+          "Avant d'introduire le moindre poisson, l'aquarium doit être « cyclé » : c'est-à-dire qu'une population de bactéries bénéfiques doit s'être installée dans le filtre pour transformer les déchets toxiques en substances moins nocives. C'est l'étape la plus souvent négligée par les débutants, et la première cause de mortalité en aquarium neuf.",
         ],
       },
       {
@@ -61,10 +61,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'cycle-de-lazote-aquarium',
-    titre: "Le cycle de l'azote en aquariophilie : pourquoi c'est essentiel",
+    titre: "Le cycle de l'azote en aquariophilie : pourquoi c'est essentiel",
     eyebrow: 'Comprendre',
     description:
-      "Ammoniac, nitrites, nitrates : comprendre le cycle de l'azote pour éviter la première cause de mortalité des poissons en aquarium neuf.",
+      "Ammoniac, nitrites, nitrates : comprendre le cycle de l'azote pour éviter la première cause de mortalité des poissons en aquarium neuf.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -82,7 +82,7 @@ export const GUIDES: Guide[] = [
       {
         titre: "Comment cycler son bac avant d'introduire des poissons",
         paragraphes: [
-          "La méthode la plus recommandée aujourd'hui est le « cyclage sans poisson » : on ajoute une source d'ammoniac pur dans l'eau et on suit sa transformation progressive en nitrites puis en nitrates à l'aide d'un kit de test, jusqu'à ce que l'ammoniac et les nitrites retombent à zéro en moins de 24h après un ajout.",
+          "La méthode la plus recommandée aujourd'hui est le « cyclage sans poisson » : on ajoute une source d'ammoniac pur dans l'eau et on suit sa transformation progressive en nitrites puis en nitrates à l'aide d'un kit de test, jusqu'à ce que l'ammoniac et les nitrites retombent à zéro en moins de 24h après un ajout.",
         ],
       },
       {
@@ -94,7 +94,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Entretenir le cycle une fois établi',
         paragraphes: [
-          "Une fois le bac cyclé, des changements d'eau partiels réguliers (10 à 20 % par semaine en général) suffisent à maintenir l'équilibre. Il faut en revanche éviter de nettoyer excessivement les masses filtrantes à l'eau du robinet, ce qui détruirait une partie des bactéries bénéfiques : un rinçage dans l'eau de l'aquarium prélevée lors d'un changement d'eau est suffisant.",
+          "Une fois le bac cyclé, des changements d'eau partiels réguliers (10 à 20 % par semaine en général) suffisent à maintenir l'équilibre. Il faut en revanche éviter de nettoyer excessivement les masses filtrantes à l'eau du robinet, ce qui détruirait une partie des bactéries bénéfiques : un rinçage dans l'eau de l'aquarium prélevée lors d'un changement d'eau est suffisant.",
         ],
       },
     ],
@@ -126,13 +126,13 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Des poissons à éviter en tant que débutant',
         paragraphes: [
-          "Le Combattant (Betta) est intéressant mais territorial : deux mâles ne peuvent jamais cohabiter, et certains poissons à nageoires longues peuvent le stresser. Le Discus demande une eau très stable et des paramètres précis, peu adaptés à un premier bac. Les gros cichlidés nécessitent des volumes bien supérieurs à ce qu'on imagine au départ, et le poisson rouge, souvent recommandé à tort pour débuter, a besoin d'un très grand volume et d'une eau plus fraîche que la plupart des poissons tropicaux.",
+          "Le Combattant (Betta) est intéressant mais territorial : deux mâles ne peuvent jamais cohabiter, et certains poissons à nageoires longues peuvent le stresser. Le Discus demande une eau très stable et des paramètres précis, peu adaptés à un premier bac. Les gros cichlidés nécessitent des volumes bien supérieurs à ce qu'on imagine au départ, et le poisson rouge, souvent recommandé à tort pour débuter, a besoin d'un très grand volume et d'une eau plus fraîche que la plupart des poissons tropicaux.",
         ],
       },
       {
         titre: 'Les crevettes, une bonne alternative',
         paragraphes: [
-          "La crevette Red Cherry est une excellente option pour découvrir l'aquariophilie : robuste, discrète, et utile pour limiter les algues, à condition d'éviter tout traitement à base de cuivre, toxique pour les invertébrés.",
+          "La crevette Red Cherry est une excellente option pour découvrir l'aquariophilie : robuste, discrète, et utile pour limiter les algues, à condition d'éviter tout traitement à base de cuivre, toxique pour les invertébrés.",
         ],
       },
     ],
@@ -144,10 +144,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquarium-recifal-par-ou-commencer',
-    titre: 'Aquarium récifal : par où commencer ?',
+    titre: 'Aquarium récifal : par où commencer ?',
     eyebrow: 'Récifal',
     description:
-      "Les bases du récifal marin : matériel spécifique, paramètres d'eau stables et progressivité de l'installation.",
+      "Les bases du récifal marin : matériel spécifique, paramètres d'eau stables et progressivité de l'installation.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -165,7 +165,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Une évolution progressive',
         paragraphes: [
-          "Un bac récifal se peuple par étapes : roches vivantes d'abord, pour installer une bonne base bactérienne et microfaunique, puis coraux mous et LPS, plus tolérants aux variations, avant d'envisager des SPS beaucoup plus exigeants une fois le bac mature (plusieurs mois de stabilité).",
+          "Un bac récifal se peuple par étapes : roches vivantes d'abord, pour installer une bonne base bactérienne et microfaunique, puis coraux mous et LPS, plus tolérants aux variations, avant d'envisager des SPS beaucoup plus exigeants une fois le bac mature (plusieurs mois de stabilité).",
         ],
       },
       {
@@ -182,7 +182,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'hivernage-poissons-bassin',
-    titre: 'Bassin de jardin : bien préparer l’hivernage de vos poissons',
+    titre: 'Bassin de jardin : bien préparer l’hivernage de vos poissons',
     eyebrow: 'Bassin',
     description:
       "Comment adapter l'alimentation, protéger l'eau du gel et entretenir la filtration de votre bassin avant l'hiver.",
@@ -197,7 +197,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Adapter l’alimentation progressivement',
         paragraphes: [
-          "Dès que l'eau descend sous 14°C environ, il est conseillé de passer à une nourriture pauvre en protéines et facile à digérer (à base de germe de blé). En dessous de 8 à 10°C, la digestion des poissons est trop ralentie pour traiter la nourriture correctement : mieux vaut arrêter complètement de nourrir plutôt que de risquer des problèmes digestifs.",
+          "Dès que l'eau descend sous 14°C environ, il est conseillé de passer à une nourriture pauvre en protéines et facile à digérer (à base de germe de blé). En dessous de 8 à 10°C, la digestion des poissons est trop ralentie pour traiter la nourriture correctement : mieux vaut arrêter complètement de nourrir plutôt que de risquer des problèmes digestifs.",
         ],
       },
       {
@@ -220,26 +220,26 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'parametres-eau-ph-gh-kh',
-    titre: "pH, GH, KH : comprendre les paramètres de l'eau en aquariophilie",
+    titre: "pH, GH, KH : comprendre les paramètres de l'eau en aquariophilie",
     eyebrow: 'Comprendre',
     description:
       "Ce que mesurent réellement le pH, le GH et le KH, et pourquoi la stabilité de ces paramètres compte plus que leur valeur exacte.",
     datePublication: '2026-09-26',
     sections: [
       {
-        titre: 'Le pH : acidité ou basicité de l’eau',
+        titre: 'Le pH : acidité ou basicité de l’eau',
         paragraphes: [
           "Le pH mesure l'acidité de l'eau sur une échelle de 0 à 14 (7 étant neutre). La plupart des poissons d'eau douce tropicaux tolèrent un pH entre 6,5 et 7,5, mais certaines espèces (Discus, Scalaires) préfèrent une eau plus acide, tandis que d'autres (Cichlidés du Lac Malawi) préfèrent une eau plus basique.",
         ],
       },
       {
-        titre: 'Le GH : la dureté générale',
+        titre: 'Le GH : la dureté générale',
         paragraphes: [
           "Le GH mesure la concentration en calcium et magnésium dissous dans l'eau — on parle d'eau « douce » (GH bas) ou « dure » (GH élevé). C'est un paramètre important pour la reproduction de nombreuses espèces et pour la croissance des plantes, qui puisent ces minéraux dans l'eau.",
         ],
       },
       {
-        titre: 'Le KH : le pouvoir tampon',
+        titre: 'Le KH : le pouvoir tampon',
         paragraphes: [
           "Le KH mesure la capacité de l'eau à résister aux variations de pH (le « pouvoir tampon »). Un KH trop bas expose à des chutes brutales de pH (le fameux « pH crash »), souvent dangereuses pour les poissons. C'est pourquoi un KH stable est souvent plus important que la valeur exacte du pH.",
         ],
@@ -247,7 +247,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Pourquoi la stabilité prime sur la valeur exacte',
         paragraphes: [
-          "La plupart des poissons s'adaptent à une large gamme de paramètres du moment qu'ils sont stables : une variation brutale est bien plus dangereuse qu'un paramètre légèrement éloigné de l'idéal théorique. Mieux vaut donc éviter de chercher à forcer un paramètre avec des produits chimiques et privilégier des changements d'eau réguliers et progressifs.",
+          "La plupart des poissons s'adaptent à une large gamme de paramètres du moment qu'ils sont stables : une variation brutale est bien plus dangereuse qu'un paramètre légèrement éloigné de l'idéal théorique. Mieux vaut donc éviter de chercher à forcer un paramètre avec des produits chimiques et privilégier des changements d'eau réguliers et progressifs.",
         ],
       },
     ],
@@ -258,14 +258,14 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'bien-nourrir-poissons-aquarium',
-    titre: 'Bien nourrir ses poissons d’aquarium : quantité, fréquence et erreurs à éviter',
+    titre: 'Bien nourrir ses poissons d’aquarium : quantité, fréquence et erreurs à éviter',
     eyebrow: 'Entretien',
     description:
-      "La suralimentation est la cause la plus fréquente de problèmes en aquarium : comment nourrir ses poissons correctement, sans excès.",
+      "La suralimentation est la cause la plus fréquente de problèmes en aquarium : comment nourrir ses poissons correctement, sans excès.",
     datePublication: '2026-09-26',
     sections: [
       {
-        titre: 'La règle de base : moins que ce qu’on pense',
+        titre: 'La règle de base : moins que ce qu’on pense',
         paragraphes: [
           "La grande majorité des problèmes d'eau (pics d'ammoniac, algues, eau trouble) viennent d'une suralimentation plutôt que d'un manque de nourriture. Une bonne règle est de ne donner que ce que les poissons peuvent consommer en 2 à 3 minutes, une à deux fois par jour.",
         ],
@@ -285,7 +285,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Le jeûne, un outil utile',
         paragraphes: [
-          "Sauter un jour de nourrissage par semaine n'est pas néfaste, bien au contraire : cela laisse le temps au système digestif de se reposer et limite l'accumulation de déchets organiques dans le bac — une pratique courante chez les aquariophiles expérimentés.",
+          "Sauter un jour de nourrissage par semaine n'est pas néfaste, bien au contraire : cela laisse le temps au système digestif de se reposer et limite l'accumulation de déchets organiques dans le bac — une pratique courante chez les aquariophiles expérimentés.",
         ],
       },
     ],
@@ -296,10 +296,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquascaping-decor-naturel',
-    titre: 'Aquascaping : composer un décor naturel pour son aquarium',
+    titre: 'Aquascaping : composer un décor naturel pour son aquarium',
     eyebrow: 'Décoration',
     description:
-      "Les grands principes de l'aquascaping pour composer un décor d'aquarium harmonieux : plantes, racines, roches et mise en scène.",
+      "Les grands principes de l'aquascaping pour composer un décor d'aquarium harmonieux : plantes, racines, roches et mise en scène.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -315,9 +315,9 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: 'Racines et roches : bien les préparer',
+        titre: 'Racines et roches : bien les préparer',
         paragraphes: [
-          "Une racine de bois flotté doit généralement être immergée plusieurs jours (voire semaines) avant d'être installée définitivement, le temps qu'elle se sature en eau et cesse de flotter ; elle relâchera aussi des tanins qui colorent l'eau, sans danger pour les poissons. Certaines roches (calcaires notamment) peuvent modifier la dureté de l'eau : à réserver aux bacs où ce n'est pas gênant, voire recherché (Cichlidés africains).",
+          "Une racine de bois flotté doit généralement être immergée plusieurs jours (voire semaines) avant d'être installée définitivement, le temps qu'elle se sature en eau et cesse de flotter ; elle relâchera aussi des tanins qui colorent l'eau, sans danger pour les poissons. Certaines roches (calcaires notamment) peuvent modifier la dureté de l'eau : à réserver aux bacs où ce n'est pas gênant, voire recherché (Cichlidés africains).",
         ],
       },
       {
@@ -334,7 +334,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'materiel-recifal-ecumeur-osmolateur-brassage',
-    titre: 'Écumeur, osmolateur, brassage : le matériel récifal expliqué',
+    titre: 'Écumeur, osmolateur, brassage : le matériel récifal expliqué',
     eyebrow: 'Récifal',
     description:
       "Le rôle exact de l'écumeur, de l'osmolateur et des pompes de brassage dans un aquarium récifal, et comment bien les dimensionner.",
@@ -347,13 +347,13 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: 'L’osmolateur : compenser l’évaporation',
+        titre: 'L’osmolateur : compenser l’évaporation',
         paragraphes: [
-          "L'eau s'évapore en continu dans un bac récifal, mais les sels qu'elle contient restent : sans compensation, la salinité augmente progressivement. Un osmolateur ajoute automatiquement de l'eau osmosée pure (sans sel) pour maintenir un niveau et une salinité stables, en particulier utile en cas d'absence prolongée.",
+          "L'eau s'évapore en continu dans un bac récifal, mais les sels qu'elle contient restent : sans compensation, la salinité augmente progressivement. Un osmolateur ajoute automatiquement de l'eau osmosée pure (sans sel) pour maintenir un niveau et une salinité stables, en particulier utile en cas d'absence prolongée.",
         ],
       },
       {
-        titre: 'Le brassage : reproduire le mouvement des courants',
+        titre: 'Le brassage : reproduire le mouvement des courants',
         paragraphes: [
           "Les pompes de brassage reproduisent le mouvement de l'eau que les coraux connaissent en milieu naturel — un brassage insuffisant favorise l'accumulation de déchets et le développement d'algues, tandis qu'un brassage adapté à chaque zone du bac améliore la santé et la coloration des coraux. Un brassage aléatoire ou alterné (plutôt qu'un flux constant dans une seule direction) est généralement recommandé.",
         ],
@@ -372,26 +372,26 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'coraux-mous-lps-sps-differences',
-    titre: 'Coraux mous, LPS, SPS : quelles différences et quelle progression ?',
+    titre: 'Coraux mous, LPS, SPS : quelles différences et quelle progression ?',
     eyebrow: 'Récifal',
     description:
       "Les trois grandes familles de coraux d'aquarium récifal, leurs besoins respectifs, et dans quel ordre les introduire.",
     datePublication: '2026-09-26',
     sections: [
       {
-        titre: 'Les coraux mous : les plus tolérants',
+        titre: 'Les coraux mous : les plus tolérants',
         paragraphes: [
           "Zoanthus, Discosoma (coraux champignons), Sarcophyton ou Xenia tolèrent des paramètres d'eau moins stricts et une intensité lumineuse plus modeste. Ce sont les coraux recommandés pour démarrer un bac récifal, le temps que celui-ci gagne en maturité et en stabilité.",
         ],
       },
       {
-        titre: 'Les LPS : un premier pas vers l’exigence',
+        titre: 'Les LPS : un premier pas vers l’exigence',
         paragraphes: [
           "Les LPS (« Large Polyp Stony », coraux durs à gros polypes — Euphyllia, Trachyphyllia, Acanthophyllia) demandent des paramètres plus précis (calcium, KH, magnésium) mais restent globalement plus indulgents que les SPS en cas de petite variation. Ils constituent une bonne étape intermédiaire.",
         ],
       },
       {
-        titre: 'Les SPS : le niveau exigeant',
+        titre: 'Les SPS : le niveau exigeant',
         paragraphes: [
           "Les SPS (« Small Polyp Stony » — Acropora, Montipora) sont les plus sensibles aux variations de paramètres et demandent un éclairage puissant, un brassage important et une chimie de l'eau très stable. Ils ne sont généralement recommandés qu'une fois le bac mature de plusieurs mois, avec des paramètres maîtrisés dans la durée.",
         ],
@@ -399,7 +399,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Une progression plutôt qu’un choix figé',
         paragraphes: [
-          "Beaucoup de récifalistes mélangent les trois familles dans un même bac en les répartissant selon leurs besoins en lumière et en flux, mais la règle reste la même à l'introduction : ne jamais ajouter de coraux exigeants avant que le bac ait démontré sa stabilité sur la durée.",
+          "Beaucoup de récifalistes mélangent les trois familles dans un même bac en les répartissant selon leurs besoins en lumière et en flux, mais la règle reste la même à l'introduction : ne jamais ajouter de coraux exigeants avant que le bac ait démontré sa stabilité sur la durée.",
         ],
       },
     ],
@@ -410,7 +410,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'calcium-kh-magnesium-recifal',
-    titre: 'Calcium, KH, magnésium : bien doser les 3 éléments en récifal',
+    titre: 'Calcium, KH, magnésium : bien doser les 3 éléments en récifal',
     eyebrow: 'Récifal',
     description:
       "Comment ces trois paramètres interagissent pour la croissance des coraux durs, et les méthodes courantes pour les maintenir stables.",
@@ -419,7 +419,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Pourquoi ces trois paramètres sont liés',
         paragraphes: [
-          "Les coraux durs (LPS, SPS) puisent calcium et carbonates (mesurés via le KH) dans l'eau pour construire leur squelette, ce qui fait naturellement baisser ces deux paramètres avec le temps. Le magnésium, lui, empêche le calcium et les carbonates de précipiter ensemble : un magnésium trop bas rend le calcium et le KH très instables et difficiles à maintenir, quel que soit le dosage effectué.",
+          "Les coraux durs (LPS, SPS) puisent calcium et carbonates (mesurés via le KH) dans l'eau pour construire leur squelette, ce qui fait naturellement baisser ces deux paramètres avec le temps. Le magnésium, lui, empêche le calcium et les carbonates de précipiter ensemble : un magnésium trop bas rend le calcium et le KH très instables et difficiles à maintenir, quel que soit le dosage effectué.",
         ],
       },
       {
@@ -437,18 +437,18 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Tester avant de doser',
         paragraphes: [
-          "Dans tous les cas, mieux vaut tester régulièrement ces trois paramètres avant d'ajuster le dosage plutôt que de doser à l'aveugle : une correction trop rapide d'un paramètre déséquilibré peut être aussi dommageable pour les coraux que le déséquilibre initial.",
+          "Dans tous les cas, mieux vaut tester régulièrement ces trois paramètres avant d'ajuster le dosage plutôt que de doser à l'aveugle : une correction trop rapide d'un paramètre déséquilibré peut être aussi dommageable pour les coraux que le déséquilibre initial.",
         ],
       },
     ],
     liensUtiles: [
-      { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
+      { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
       { href: '/categorie/materiel', label: 'Voir le matériel de dosage et de test' },
     ],
   },
   {
     slug: 'acclimatation-goutte-a-goutte-poissons-coraux',
-    titre: 'Acclimatation des poissons et coraux marins : la méthode du goutte-à-goutte',
+    titre: 'Acclimatation des poissons et coraux marins : la méthode du goutte-à-goutte',
     eyebrow: 'Récifal',
     description:
       "Pourquoi une acclimatation progressive est indispensable en eau de mer, et comment la réaliser sans stresser l'animal.",
@@ -457,7 +457,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Pourquoi l’acclimatation est plus critique en eau de mer',
         paragraphes: [
-          "Les écarts de salinité, de température et de pH entre l'eau de transport et celle de l'aquarium de destination sont beaucoup plus dangereux pour les organismes marins que pour l'eau douce : un changement brutal de salinité peut provoquer un choc osmotique sévère, parfois fatal en quelques heures.",
+          "Les écarts de salinité, de température et de pH entre l'eau de transport et celle de l'aquarium de destination sont beaucoup plus dangereux pour les organismes marins que pour l'eau douce : un changement brutal de salinité peut provoquer un choc osmotique sévère, parfois fatal en quelques heures.",
         ],
       },
       {
@@ -469,13 +469,13 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Ne jamais reverser l’eau de transport dans le bac',
         paragraphes: [
-          "L'eau du sachet ou du sac de transport peut contenir des parasites, des déchets ou des traitements incompatibles avec le bac de destination : elle doit toujours être jetée, jamais versée dans l'aquarium, y compris lors de l'acclimatation.",
+          "L'eau du sachet ou du sac de transport peut contenir des parasites, des déchets ou des traitements incompatibles avec le bac de destination : elle doit toujours être jetée, jamais versée dans l'aquarium, y compris lors de l'acclimatation.",
         ],
       },
       {
         titre: 'Cas particulier des coraux',
         paragraphes: [
-          "Les coraux supportent en général une acclimatation plus courte que les poissons (30 à 60 minutes suffisent souvent), mais restent sensibles à la lumière : il est préférable de les introduire dans une zone modérément éclairée du bac au départ, puis de les rapprocher progressivement de leur emplacement définitif sur plusieurs jours.",
+          "Les coraux supportent en général une acclimatation plus courte que les poissons (30 à 60 minutes suffisent souvent), mais restent sensibles à la lumière : il est préférable de les introduire dans une zone modérément éclairée du bac au départ, puis de les rapprocher progressivement de leur emplacement définitif sur plusieurs jours.",
         ],
       },
     ],
@@ -489,7 +489,7 @@ export const GUIDES: Guide[] = [
     titre: 'Bien démarrer un bassin de jardin',
     eyebrow: 'Bassin',
     description:
-      "Emplacement, profondeur, filtration et mise en eau : les bases pour créer un bassin de jardin durable.",
+      "Emplacement, profondeur, filtration et mise en eau : les bases pour créer un bassin de jardin durable.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -524,7 +524,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'choisir-filtration-aquarium',
-    titre: 'Filtre interne, externe, sur-verre : lequel choisir pour son aquarium ?',
+    titre: 'Filtre interne, externe, sur-verre : lequel choisir pour son aquarium ?',
     eyebrow: 'Matériel',
     description:
       "Les avantages et limites des principaux types de filtration d'aquarium, pour choisir celui adapté à votre bac.",
@@ -549,7 +549,7 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: 'Ce qui compte le plus : le débit adapté au volume',
+        titre: 'Ce qui compte le plus : le débit adapté au volume',
         paragraphes: [
           "Quel que soit le type choisi, le critère principal reste un débit de filtration adapté au volume du bac (on vise généralement 4 à 6 fois le volume du bac par heure en eau douce) — un filtre surdimensionné reste presque toujours préférable à un filtre trop juste.",
         ],
@@ -565,7 +565,7 @@ export const GUIDES: Guide[] = [
     titre: 'Quel aquarium choisir pour débuter ? Notre comparatif',
     eyebrow: 'Comparatif',
     description:
-      "Bocal, nano-aquarium, kit tout-équipé ou bac + matériel séparé : comment choisir son premier aquarium selon son budget et son espace.",
+      "Bocal, nano-aquarium, kit tout-équipé ou bac + matériel séparé : comment choisir son premier aquarium selon son budget et son espace.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -575,13 +575,13 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: 'Le kit tout-équipé : simple mais parfois limité',
+        titre: 'Le kit tout-équipé : simple mais parfois limité',
         paragraphes: [
           "Les kits vendus avec aquarium, filtre, éclairage et parfois chauffage intégrés simplifient l'achat et conviennent bien à un premier bac. Leur principale limite est un filtre souvent un peu juste pour le volume, qu'il est possible de compléter par la suite si besoin.",
         ],
       },
       {
-        titre: 'Aquarium et matériel séparés : plus de flexibilité',
+        titre: 'Aquarium et matériel séparés : plus de flexibilité',
         paragraphes: [
           "Choisir chaque élément séparément (bac, filtre, éclairage) permet de mieux dimensionner chaque composant à son projet, en particulier pour un bac planté ou déjà orienté vers une espèce précise. Cette option demande un peu plus de recherche mais évite d'avoir à tout changer plus tard.",
         ],
@@ -603,7 +603,7 @@ export const GUIDES: Guide[] = [
     titre: 'Quel filtre choisir selon le volume de son aquarium ?',
     eyebrow: 'Comparatif',
     description:
-      "Filtre interne, externe ou sur-verre : quel type de filtration convient le mieux selon la taille de votre aquarium.",
+      "Filtre interne, externe ou sur-verre : quel type de filtration convient le mieux selon la taille de votre aquarium.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -615,13 +615,13 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Volumes moyens à grands (60 à 300 litres environ)',
         paragraphes: [
-          "Un filtre externe devient généralement plus adapté : il offre un volume de masses filtrantes bien supérieur, ne prend aucune place visible dans le bac, et convient bien aux bacs plantés ou fortement peuplés.",
+          "Un filtre externe devient généralement plus adapté : il offre un volume de masses filtrantes bien supérieur, ne prend aucune place visible dans le bac, et convient bien aux bacs plantés ou fortement peuplés.",
         ],
       },
       {
         titre: 'Grands volumes et récifal',
         paragraphes: [
-          "Au-delà, ou pour un bac récifal, un filtre sur-verre (sump) devient intéressant : il permet de déporter filtration, chauffage et écumeur dans un compartiment séparé, au prix d'une installation plus complexe.",
+          "Au-delà, ou pour un bac récifal, un filtre sur-verre (sump) devient intéressant : il permet de déporter filtration, chauffage et écumeur dans un compartiment séparé, au prix d'une installation plus complexe.",
         ],
       },
       {
@@ -632,16 +632,16 @@ export const GUIDES: Guide[] = [
       },
     ],
     liensUtiles: [
-      { href: '/guides/choisir-filtration-aquarium', label: 'Filtre interne, externe, sur-verre : le détail' },
+      { href: '/guides/choisir-filtration-aquarium', label: 'Filtre interne, externe, sur-verre : le détail' },
       { href: '/categorie/materiel', label: 'Voir les filtres en vente' },
     ],
   },
   {
     slug: 'eau-douce-ou-eau-de-mer-comment-choisir',
-    titre: 'Eau douce ou eau de mer : comment choisir son premier aquarium ?',
+    titre: 'Eau douce ou eau de mer : comment choisir son premier aquarium ?',
     eyebrow: 'Comparatif',
     description:
-      "Budget, technicité, temps d'entretien : les vrais critères pour choisir entre un aquarium d'eau douce et un aquarium récifal.",
+      "Budget, technicité, temps d'entretien : les vrais critères pour choisir entre un aquarium d'eau douce et un aquarium récifal.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -679,7 +679,7 @@ export const GUIDES: Guide[] = [
     titre: "Combien coûte un aquarium ? Le budget réel pour démarrer",
     eyebrow: 'Débuter',
     description:
-      "Aquarium, filtre, chauffage, éclairage, entretien mensuel : le budget réaliste pour démarrer l'aquariophilie, en neuf comme en occasion.",
+      "Aquarium, filtre, chauffage, éclairage, entretien mensuel : le budget réaliste pour démarrer l'aquariophilie, en neuf comme en occasion.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -717,13 +717,13 @@ export const GUIDES: Guide[] = [
     titre: "Les erreurs de débutant les plus fréquentes en aquariophilie (et comment les éviter)",
     eyebrow: 'Débuter',
     description:
-      "Cyclage sauté, suralimentation, bac trop peuplé trop vite : les erreurs classiques des nouveaux aquariophiles, et les bons réflexes pour les éviter.",
+      "Cyclage sauté, suralimentation, bac trop peuplé trop vite : les erreurs classiques des nouveaux aquariophiles, et les bons réflexes pour les éviter.",
     datePublication: '2026-09-26',
     sections: [
       {
         titre: 'Précipiter le démarrage',
         paragraphes: [
-          "Introduire des poissons avant la fin du cyclage, peupler l'aquarium d'un coup au lieu d'y aller progressivement, ou choisir un bac trop petit pour gagner en marge d'erreur : la plupart des premiers échecs viennent d'un démarrage trop rapide, avant que l'équilibre biologique du bac ait eu le temps de s'installer.",
+          "Introduire des poissons avant la fin du cyclage, peupler l'aquarium d'un coup au lieu d'y aller progressivement, ou choisir un bac trop petit pour gagner en marge d'erreur : la plupart des premiers échecs viennent d'un démarrage trop rapide, avant que l'équilibre biologique du bac ait eu le temps de s'installer.",
         ],
       },
       {
@@ -755,7 +755,7 @@ export const GUIDES: Guide[] = [
     titre: 'Comment reconnaître un poisson malade ou stressé ?',
     eyebrow: 'Comprendre',
     description:
-      "Les signes qui doivent alerter chez un poisson d'aquarium : comportement, apparence, et les bons réflexes à avoir dès le premier doute.",
+      "Les signes qui doivent alerter chez un poisson d'aquarium : comportement, apparence, et les bons réflexes à avoir dès le premier doute.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -779,7 +779,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Les bons réflexes',
         paragraphes: [
-          "Tester l'eau immédiatement reste le premier réflexe, avant toute autre action : une bonne partie des soucis de santé viennent d'un paramètre déséquilibré plutôt que d'une maladie à proprement parler. Isoler le poisson suspect quand c'est possible limite aussi le risque de contamination du reste du bac.",
+          "Tester l'eau immédiatement reste le premier réflexe, avant toute autre action : une bonne partie des soucis de santé viennent d'un paramètre déséquilibré plutôt que d'une maladie à proprement parler. Isoler le poisson suspect quand c'est possible limite aussi le risque de contamination du reste du bac.",
         ],
       },
     ],
@@ -793,25 +793,25 @@ export const GUIDES: Guide[] = [
     titre: "Comprendre le rôle du filtre dans un aquarium",
     eyebrow: 'Comprendre',
     description:
-      "Filtration mécanique, biologique, chimique : à quoi sert vraiment un filtre d'aquarium, au-delà de simplement « nettoyer l'eau ».",
+      "Filtration mécanique, biologique, chimique : à quoi sert vraiment un filtre d'aquarium, au-delà de simplement « nettoyer l'eau ».",
     datePublication: '2026-09-26',
     sections: [
       {
         titre: 'La filtration mécanique',
         paragraphes: [
-          "Elle retient les particules en suspension (mousse, ouate, perlon) : c'est la fonction la plus visible du filtre, mais aussi la moins importante pour l'équilibre du bac sur le long terme.",
+          "Elle retient les particules en suspension (mousse, ouate, perlon) : c'est la fonction la plus visible du filtre, mais aussi la moins importante pour l'équilibre du bac sur le long terme.",
         ],
       },
       {
         titre: 'La filtration biologique',
         paragraphes: [
-          "C'est le rôle le plus important, et souvent le plus sous-estimé : les masses filtrantes biologiques hébergent les bactéries nitrifiantes qui transforment l'ammoniac et les nitrites en substances beaucoup moins toxiques. C'est cette population bactérienne qui « fait » le cyclage d'un aquarium.",
+          "C'est le rôle le plus important, et souvent le plus sous-estimé : les masses filtrantes biologiques hébergent les bactéries nitrifiantes qui transforment l'ammoniac et les nitrites en substances beaucoup moins toxiques. C'est cette population bactérienne qui « fait » le cyclage d'un aquarium.",
         ],
       },
       {
         titre: 'La filtration chimique',
         paragraphes: [
-          "Charbon actif ou résines anti-nitrates : utile ponctuellement, par exemple pour retirer un médicament après un traitement ou une odeur persistante, mais pas indispensable au quotidien dans un bac bien entretenu.",
+          "Charbon actif ou résines anti-nitrates : utile ponctuellement, par exemple pour retirer un médicament après un traitement ou une odeur persistante, mais pas indispensable au quotidien dans un bac bien entretenu.",
         ],
       },
       {
@@ -828,10 +828,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'printemps-bassin-redemarrage',
-    titre: 'Bassin de jardin : bien relancer la saison au printemps',
+    titre: 'Bassin de jardin : bien relancer la saison au printemps',
     eyebrow: 'Bassin',
     description:
-      "Reprise de l'alimentation, nettoyage, relance de la filtration : comment redémarrer son bassin de jardin après l'hiver sans le déstabiliser.",
+      "Reprise de l'alimentation, nettoyage, relance de la filtration : comment redémarrer son bassin de jardin après l'hiver sans le déstabiliser.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -866,14 +866,14 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'eau-verte-bassin-solutions',
-    titre: 'Eau verte dans un bassin : causes et solutions',
+    titre: 'Eau verte dans un bassin : causes et solutions',
     eyebrow: 'Bassin',
     description:
       "Pourquoi l'eau d'un bassin de jardin devient verte en été, et les solutions qui fonctionnent réellement pour retrouver une eau claire.",
     datePublication: '2026-09-26',
     sections: [
       {
-        titre: 'La cause : des algues microscopiques',
+        titre: 'La cause : des algues microscopiques',
         paragraphes: [
           "L'eau verte est due à une prolifération d'algues unicellulaires en suspension, favorisée par la lumière et l'excès de nutriments (déjections des poissons, décomposition de matière végétale). Ce n'est pas un signe de mauvaise santé du bassin en soi, mais un déséquilibre à corriger.",
         ],
@@ -904,7 +904,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'changement-eau-aquarium-frequence-methode',
-    titre: "Changement d'eau en aquarium : fréquence et bonne méthode",
+    titre: "Changement d'eau en aquarium : fréquence et bonne méthode",
     eyebrow: 'Entretien',
     description:
       "Pourquoi, à quelle fréquence et comment faire un changement d'eau efficace en aquarium, sans stresser inutilement ses poissons.",
@@ -945,7 +945,7 @@ export const GUIDES: Guide[] = [
     titre: 'Nettoyer son aquarium sans stresser ses poissons',
     eyebrow: 'Entretien',
     description:
-      "Vitres, décor, substrat : comment nettoyer un aquarium efficacement, sans perturber inutilement les poissons et l'équilibre biologique du bac.",
+      "Vitres, décor, substrat : comment nettoyer un aquarium efficacement, sans perturber inutilement les poissons et l'équilibre biologique du bac.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -979,16 +979,16 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'lutter-contre-les-algues-aquarium',
-    titre: 'Lutter contre les algues en aquarium : identifier et agir',
+    titre: 'Lutter contre les algues en aquarium : identifier et agir',
     eyebrow: 'Entretien',
     description:
-      "Algues brunes, vertes, filamenteuses, cyanobactéries : comment identifier le type d'algue et adapter la bonne solution à chaque cas.",
+      "Algues brunes, vertes, filamenteuses, cyanobactéries : comment identifier le type d'algue et adapter la bonne solution à chaque cas.",
     datePublication: '2026-09-26',
     sections: [
       {
         titre: 'Identifier le type d’algue',
         paragraphes: [
-          "Les diatomées forment un voile brunâtre, fréquent dans un bac encore jeune. Les algues vertes en points ou en filaments traduisent le plus souvent un excès de lumière ou de nutriments. Les cyanobactéries, malgré leur nom, ne sont pas vraiment des algues : elles forment un voile glissant, souvent rougeâtre ou verdâtre, et une odeur caractéristique.",
+          "Les diatomées forment un voile brunâtre, fréquent dans un bac encore jeune. Les algues vertes en points ou en filaments traduisent le plus souvent un excès de lumière ou de nutriments. Les cyanobactéries, malgré leur nom, ne sont pas vraiment des algues : elles forment un voile glissant, souvent rougeâtre ou verdâtre, et une odeur caractéristique.",
         ],
       },
       {
@@ -1012,7 +1012,7 @@ export const GUIDES: Guide[] = [
     ],
     liensUtiles: [
       { href: '/guides/bien-nourrir-poissons-aquarium', label: 'Bien nourrir ses poissons' },
-      { href: '/glossaire/cyanobacteries', label: 'Cyanobactéries : définition' },
+      { href: '/glossaire/cyanobacteries', label: 'Cyanobactéries : définition' },
     ],
   },
   {
@@ -1020,11 +1020,11 @@ export const GUIDES: Guide[] = [
     titre: "Bien choisir son substrat d'aquarium",
     eyebrow: 'Décoration',
     description:
-      "Sable, gravier, substrat nutritif : comment choisir le bon substrat d'aquarium selon le type de bac et les espèces hébergées.",
+      "Sable, gravier, substrat nutritif : comment choisir le bon substrat d'aquarium selon le type de bac et les espèces hébergées.",
     datePublication: '2026-09-26',
     sections: [
       {
-        titre: 'Substrat neutre : sable ou gravier',
+        titre: 'Substrat neutre : sable ou gravier',
         paragraphes: [
           "Un substrat neutre suffit pour un bac peu planté, ou pour héberger des poissons de fond fouisseurs comme les Corydoras, qui préfèrent un substrat fin et non coupant pour ne pas abîmer leurs barbillons.",
         ],
@@ -1036,9 +1036,9 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: 'Cas particulier : bacs à crevettes ou Cichlidés africains',
+        titre: 'Cas particulier : bacs à crevettes ou Cichlidés africains',
         paragraphes: [
-          "Certains substrats dits « actifs » influencent le pH et le GH de l'eau : à réserver aux projets qui recherchent précisément cet effet, au risque sinon de déstabiliser un bac qui n'en a pas besoin.",
+          "Certains substrats dits « actifs » influencent le pH et le GH de l'eau : à réserver aux projets qui recherchent précisément cet effet, au risque sinon de déstabiliser un bac qui n'en a pas besoin.",
         ],
       },
       {
@@ -1096,7 +1096,7 @@ export const GUIDES: Guide[] = [
     titre: "Choisir l'éclairage de son aquarium planté",
     eyebrow: 'Décoration',
     description:
-      "Puissance, spectre, durée : comment choisir un éclairage adapté à un bac planté, sans provoquer une invasion d'algues.",
+      "Puissance, spectre, durée : comment choisir un éclairage adapté à un bac planté, sans provoquer une invasion d'algues.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1131,7 +1131,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'chauffage-aquarium-bien-choisir-puissance',
-    titre: "Chauffage d'aquarium : comment bien choisir sa puissance",
+    titre: "Chauffage d'aquarium : comment bien choisir sa puissance",
     eyebrow: 'Matériel',
     description:
       "Comment dimensionner un chauffage d'aquarium selon le volume du bac et la température de la pièce, et pourquoi la sécurité ne doit pas être négligée.",
@@ -1172,13 +1172,13 @@ export const GUIDES: Guide[] = [
     titre: 'À quoi sert une pompe à air (bulleur) en aquarium ?',
     eyebrow: 'Matériel',
     description:
-      "Oxygénation, brassage de surface, alimentation d'accessoires : le rôle réel d'une pompe à air en aquarium d'eau douce.",
+      "Oxygénation, brassage de surface, alimentation d'accessoires : le rôle réel d'une pompe à air en aquarium d'eau douce.",
     datePublication: '2026-09-26',
     sections: [
       {
         titre: 'Favoriser les échanges gazeux',
         paragraphes: [
-          "Les bulles elles-mêmes n'oxygènent pas directement l'eau : c'est le brassage de surface qu'elles créent qui favorise les échanges gazeux, en particulier l'apport d'oxygène et l'évacuation du CO2 excédentaire.",
+          "Les bulles elles-mêmes n'oxygènent pas directement l'eau : c'est le brassage de surface qu'elles créent qui favorise les échanges gazeux, en particulier l'apport d'oxygène et l'évacuation du CO2 excédentaire.",
         ],
       },
       {
@@ -1210,7 +1210,7 @@ export const GUIDES: Guide[] = [
     titre: "Quel kit de test d'eau choisir pour son aquarium ?",
     eyebrow: 'Matériel',
     description:
-      "Bandelettes, tests en gouttes, testeurs électroniques : avantages et limites de chaque méthode pour suivre les paramètres de son eau.",
+      "Bandelettes, tests en gouttes, testeurs électroniques : avantages et limites de chaque méthode pour suivre les paramètres de son eau.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1245,10 +1245,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquarium-neuf-ou-occasion-comparatif',
-    titre: "Aquarium neuf ou d'occasion : que choisir ?",
+    titre: "Aquarium neuf ou d'occasion : que choisir ?",
     eyebrow: 'Comparatif',
     description:
-      "Avantages et précautions de l'achat d'occasion face au neuf, pour un aquarium comme pour son matériel : ce qu'il faut vérifier avant de se décider.",
+      "Avantages et précautions de l'achat d'occasion face au neuf, pour un aquarium comme pour son matériel : ce qu'il faut vérifier avant de se décider.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1270,7 +1270,7 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: 'Le bon réflexe : tester avant de valider',
+        titre: 'Le bon réflexe : tester avant de valider',
         paragraphes: [
           "Lors d'une remise en main propre, demander à voir le matériel en fonctionnement quand c'est possible reste la meilleure garantie avant de finaliser un achat d'occasion.",
         ],
@@ -1359,10 +1359,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquarium-pour-enfant-bonne-idee',
-    titre: 'Un aquarium pour un enfant : bonne ou mauvaise idée ?',
+    titre: 'Un aquarium pour un enfant : bonne ou mauvaise idée ?',
     eyebrow: 'Débuter',
     description:
-      "Ce qu'il faut anticiper avant d'offrir un aquarium à un enfant : l'entretien réel, les espèces adaptées, et le rôle des parents.",
+      "Ce qu'il faut anticiper avant d'offrir un aquarium à un enfant : l'entretien réel, les espèces adaptées, et le rôle des parents.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1404,25 +1404,25 @@ export const GUIDES: Guide[] = [
     datePublication: '2026-09-26',
     sections: [
       {
-        titre: 'Semaine 1 à 2 : lancer le cyclage',
+        titre: 'Semaine 1 à 2 : lancer le cyclage',
         paragraphes: [
           "Installer le matériel, démarrer le filtre et suivre les tests d'ammoniac et de nitrites, sans introduire le moindre poisson à ce stade.",
         ],
       },
       {
-        titre: 'Semaine 3 à 4 : suivre la montée des nitrites',
+        titre: 'Semaine 3 à 4 : suivre la montée des nitrites',
         paragraphes: [
           "C'est généralement la période où les nitrites atteignent leur pic avant de redescendre, signe que la population bactérienne du filtre progresse correctement.",
         ],
       },
       {
-        titre: 'Fin de cyclage : les premiers poissons',
+        titre: 'Fin de cyclage : les premiers poissons',
         paragraphes: [
           "Une fois l'ammoniac et les nitrites retombés à zéro, les premiers poissons robustes peuvent être introduits, en petit nombre plutôt que tous à la fois.",
         ],
       },
       {
-        titre: 'Les semaines suivantes : peupler progressivement',
+        titre: 'Les semaines suivantes : peupler progressivement',
         paragraphes: [
           "Attendre 2 à 3 semaines entre chaque nouvel ajout de poissons laisse le temps au filtre de s'adapter à la charge biologique supplémentaire, sans à-coup pour l'équilibre du bac.",
         ],
@@ -1435,10 +1435,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'cycle-sans-poisson-vs-avec-poisson',
-    titre: 'Cyclage sans poisson ou avec poisson : quelle méthode choisir ?',
+    titre: 'Cyclage sans poisson ou avec poisson : quelle méthode choisir ?',
     eyebrow: 'Comprendre',
     description:
-      "Deux méthodes existent pour cycler un aquarium neuf : avec ou sans poisson présent. Leurs différences, avantages et inconvénients.",
+      "Deux méthodes existent pour cycler un aquarium neuf : avec ou sans poisson présent. Leurs différences, avantages et inconvénients.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1511,7 +1511,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'difference-eau-osmosee-eau-robinet-aquarium',
-    titre: "Eau du robinet ou eau osmosée : ce qu'il faut savoir",
+    titre: "Eau du robinet ou eau osmosée : ce qu'il faut savoir",
     eyebrow: 'Comprendre',
     description:
       "Différences entre l'eau du robinet et l'eau osmosée pour l'aquariophilie, et dans quels cas l'une ou l'autre est préférable.",
@@ -1544,7 +1544,7 @@ export const GUIDES: Guide[] = [
     ],
     liensUtiles: [
       { href: '/guides/parametres-eau-ph-gh-kh', label: 'Comprendre les paramètres de l’eau' },
-      { href: '/guides/osmoseur-aquarium-a-quoi-ca-sert', label: 'L’osmoseur : à quoi ça sert' },
+      { href: '/guides/osmoseur-aquarium-a-quoi-ca-sert', label: 'L’osmoseur : à quoi ça sert' },
     ],
   },
   {
@@ -1628,7 +1628,7 @@ export const GUIDES: Guide[] = [
     titre: 'Choisir son éclairage LED pour un aquarium récifal',
     eyebrow: 'Récifal',
     description:
-      "Puissance, spectre, intensité : comment choisir un éclairage LED adapté à un aquarium récifal selon les coraux hébergés.",
+      "Puissance, spectre, intensité : comment choisir un éclairage LED adapté à un aquarium récifal selon les coraux hébergés.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1657,7 +1657,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     liensUtiles: [
-      { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
+      { href: '/guides/coraux-mous-lps-sps-differences', label: 'Coraux mous, LPS, SPS : les différences' },
       { href: '/guides/materiel-recifal-ecumeur-osmolateur-brassage', label: 'Le matériel indispensable en récifal' },
     ],
   },
@@ -1666,7 +1666,7 @@ export const GUIDES: Guide[] = [
     titre: 'Bien nourrir un aquarium récifal',
     eyebrow: 'Récifal',
     description:
-      "Nourrir les poissons mais aussi les coraux d'un aquarium récifal : quelles différences, quelle fréquence et quels pièges éviter.",
+      "Nourrir les poissons mais aussi les coraux d'un aquarium récifal : quelles différences, quelle fréquence et quels pièges éviter.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1704,7 +1704,7 @@ export const GUIDES: Guide[] = [
     titre: 'Quels poissons choisir pour un bassin de jardin ?',
     eyebrow: 'Bassin',
     description:
-      "Carpes koï, poissons rouges, autres espèces rustiques : comment choisir les poissons adaptés à un bassin de jardin selon sa taille et son climat.",
+      "Carpes koï, poissons rouges, autres espèces rustiques : comment choisir les poissons adaptés à un bassin de jardin selon sa taille et son climat.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1739,7 +1739,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'plantes-bassin-oxygenantes-epuratrices',
-    titre: 'Les plantes de bassin : oxygénantes, épuratrices, décoratives',
+    titre: 'Les plantes de bassin : oxygénantes, épuratrices, décoratives',
     eyebrow: 'Bassin',
     description:
       "Le rôle des différentes catégories de plantes de bassin, et comment les combiner pour un bassin équilibré et une eau plus claire.",
@@ -1780,7 +1780,7 @@ export const GUIDES: Guide[] = [
     titre: 'Bien choisir sa pompe et sa filtration de bassin',
     eyebrow: 'Bassin',
     description:
-      "Débit, filtration mécanique et biologique : comment dimensionner la pompe et le filtre d'un bassin de jardin.",
+      "Débit, filtration mécanique et biologique : comment dimensionner la pompe et le filtre d'un bassin de jardin.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1818,7 +1818,7 @@ export const GUIDES: Guide[] = [
     titre: 'Protéger les poissons de bassin des prédateurs',
     eyebrow: 'Bassin',
     description:
-      "Hérons, chats, prédateurs terrestres : comment protéger les poissons d'un bassin de jardin des menaces les plus courantes.",
+      "Hérons, chats, prédateurs terrestres : comment protéger les poissons d'un bassin de jardin des menaces les plus courantes.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1853,10 +1853,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'vacances-aquarium-que-faire',
-    titre: 'Partir en vacances : comment préparer son aquarium',
+    titre: 'Partir en vacances : comment préparer son aquarium',
     eyebrow: 'Entretien',
     description:
-      "Nourrissage automatique, entretien avant le départ, personne de confiance : comment préparer son aquarium pour une absence de plusieurs jours.",
+      "Nourrissage automatique, entretien avant le départ, personne de confiance : comment préparer son aquarium pour une absence de plusieurs jours.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -1929,7 +1929,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'entretien-filtre-aquarium-bonne-frequence',
-    titre: "Entretien du filtre d'aquarium : quelle fréquence et comment procéder",
+    titre: "Entretien du filtre d'aquarium : quelle fréquence et comment procéder",
     eyebrow: 'Entretien',
     description:
       "À quelle fréquence nettoyer le filtre d'un aquarium, et comment le faire sans détruire les bactéries utiles qu'il héberge.",
@@ -1967,10 +1967,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquarium-eau-trouble-causes',
-    titre: "Aquarium à l'eau trouble : causes et solutions",
+    titre: "Aquarium à l'eau trouble : causes et solutions",
     eyebrow: 'Entretien',
     description:
-      "Eau blanchâtre, laiteuse ou trouble en aquarium : les causes les plus fréquentes et comment retrouver une eau claire.",
+      "Eau blanchâtre, laiteuse ou trouble en aquarium : les causes les plus fréquentes et comment retrouver une eau claire.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -2005,7 +2005,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'bois-flotte-aquarium-preparation',
-    titre: 'Bois flotté en aquarium : comment le préparer et l’utiliser',
+    titre: 'Bois flotté en aquarium : comment le préparer et l’utiliser',
     eyebrow: 'Décoration',
     description:
       "Pourquoi et comment préparer un bois flotté avant de l'installer en aquarium, pour éviter qu'il ne flotte ou ne colore l'eau trop longtemps.",
@@ -2046,7 +2046,7 @@ export const GUIDES: Guide[] = [
     titre: 'Quelles roches et pierres choisir pour son décor d’aquarium ?',
     eyebrow: 'Décoration',
     description:
-      "Roches inertes ou influençant les paramètres de l'eau : comment choisir les bonnes pierres selon le type de bac et les espèces hébergées.",
+      "Roches inertes ou influençant les paramètres de l'eau : comment choisir les bonnes pierres selon le type de bac et les espèces hébergées.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -2090,7 +2090,7 @@ export const GUIDES: Guide[] = [
       {
         titre: 'Le principe du biotope',
         paragraphes: [
-          "Contrairement à un bac communautaire classique, un biotope cherche à reproduire fidèlement les conditions d'un milieu naturel précis : décor, paramètres et espèces originaires de la même zone géographique.",
+          "Contrairement à un bac communautaire classique, un biotope cherche à reproduire fidèlement les conditions d'un milieu naturel précis : décor, paramètres et espèces originaires de la même zone géographique.",
         ],
       },
       {
@@ -2119,7 +2119,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'co2-aquarium-plante-utile',
-    titre: 'Le CO2 en aquarium planté : utile ou indispensable ?',
+    titre: 'Le CO2 en aquarium planté : utile ou indispensable ?',
     eyebrow: 'Décoration',
     description:
       "Dans quels cas un apport de CO2 devient utile en aquarium planté, et quand il est possible de s'en passer.",
@@ -2157,10 +2157,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'epuisette-materiel-manipulation-poissons',
-    titre: 'Épuisette et matériel de manipulation : les indispensables',
+    titre: 'Épuisette et matériel de manipulation : les indispensables',
     eyebrow: 'Matériel',
     description:
-      "Épuisette, seau dédié, tuyau de siphon : le petit matériel de manipulation qui simplifie vraiment l'entretien d'un aquarium.",
+      "Épuisette, seau dédié, tuyau de siphon : le petit matériel de manipulation qui simplifie vraiment l'entretien d'un aquarium.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -2195,7 +2195,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'minuterie-programmateur-aquarium-utilite',
-    titre: 'Minuterie et programmateur : automatiser son aquarium',
+    titre: 'Minuterie et programmateur : automatiser son aquarium',
     eyebrow: 'Matériel',
     description:
       "Comment une simple minuterie programmable simplifie l'entretien quotidien d'un aquarium, notamment pour l'éclairage.",
@@ -2236,7 +2236,7 @@ export const GUIDES: Guide[] = [
     titre: 'Bien choisir le meuble de son aquarium',
     eyebrow: 'Matériel',
     description:
-      "Solidité, niveau, rangement : ce qu'il faut vérifier avant de choisir le meuble qui supportera un aquarium rempli d'eau.",
+      "Solidité, niveau, rangement : ce qu'il faut vérifier avant de choisir le meuble qui supportera un aquarium rempli d'eau.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -2271,7 +2271,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'osmoseur-aquarium-a-quoi-ca-sert',
-    titre: 'L’osmoseur : à quoi sert une eau osmosée en aquarium ?',
+    titre: 'L’osmoseur : à quoi sert une eau osmosée en aquarium ?',
     eyebrow: 'Matériel',
     description:
       "Comment fonctionne un osmoseur, et dans quels cas il devient un investissement utile pour un aquarium d'eau douce ou récifal.",
@@ -2309,10 +2309,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquarium-communautaire-ou-espece-unique',
-    titre: 'Bac communautaire ou bac d’espèce : que choisir ?',
+    titre: 'Bac communautaire ou bac d’espèce : que choisir ?',
     eyebrow: 'Comparatif',
     description:
-      "Aquarium communautaire avec plusieurs espèces compatibles, ou bac dédié à une seule espèce : avantages et inconvénients de chaque approche.",
+      "Aquarium communautaire avec plusieurs espèces compatibles, ou bac dédié à une seule espèce : avantages et inconvénients de chaque approche.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -2347,10 +2347,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'led-vs-neon-eclairage-aquarium-comparatif',
-    titre: 'Éclairage LED ou néon : quel choix pour son aquarium ?',
+    titre: 'Éclairage LED ou néon : quel choix pour son aquarium ?',
     eyebrow: 'Comparatif',
     description:
-      "Comparatif entre l'éclairage LED et le néon (tube fluorescent) pour un aquarium : consommation, durée de vie et qualité de lumière.",
+      "Comparatif entre l'éclairage LED et le néon (tube fluorescent) pour un aquarium : consommation, durée de vie et qualité de lumière.",
     datePublication: '2026-09-26',
     sections: [
       {
@@ -2385,7 +2385,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'filtre-interne-ou-externe-comparatif',
-    titre: 'Filtre interne ou externe : lequel choisir ?',
+    titre: 'Filtre interne ou externe : lequel choisir ?',
     eyebrow: 'Comparatif',
     description:
       "Différences entre un filtre interne et un filtre externe pour aquarium, et dans quels cas privilégier l'un ou l'autre.",
@@ -2423,7 +2423,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'aquarium-eau-froide-ou-tropical',
-    titre: 'Aquarium d’eau froide ou tropical : quelle différence ?',
+    titre: 'Aquarium d’eau froide ou tropical : quelle différence ?',
     eyebrow: 'Comparatif',
     description:
       "Différences entre un aquarium d'eau froide (sans chauffage) et un aquarium tropical, et comment choisir selon les espèces envisagées.",
@@ -2461,27 +2461,27 @@ export const GUIDES: Guide[] = [
   },
   {
       "slug": "vendre-son-aquarium-occasion",
-      "titre": "Vendre son aquarium d'occasion : le guide pour bien le vendre",
+      "titre": "Vendre son aquarium d'occasion : le guide pour bien le vendre",
       "eyebrow": "Acheter & vendre",
-      "description": "Préparer, photographier, fixer le prix et organiser la remise : tout pour vendre rapidement son aquarium d'occasion et son matériel entre particuliers.",
+      "description": "Préparer, photographier, fixer le prix et organiser la remise : tout pour vendre rapidement son aquarium d'occasion et son matériel entre particuliers.",
       "datePublication": "2026-10-22",
       "sections": [
         {
           "titre": "Préparer l'aquarium avant de le mettre en vente",
           "paragraphes": [
-            "Videz et nettoyez le bac, rincez les accessoires et retirez le calcaire des vitres. Un aquarium propre se vend plus facilement et rassure l'acheteur. Si vous le pouvez, vérifiez l'étanchéité en le remplissant quelques heures : pouvoir annoncer « ne fuit pas » est un argument de poids."
+            "Videz et nettoyez le bac, rincez les accessoires et retirez le calcaire des vitres. Un aquarium propre se vend plus facilement et rassure l'acheteur. Si vous le pouvez, vérifiez l'étanchéité en le remplissant quelques heures : pouvoir annoncer « ne fuit pas » est un argument de poids."
           ]
         },
         {
           "titre": "Bien le photographier",
           "paragraphes": [
-            "Prenez plusieurs photos nettes, à la lumière du jour, du bac vide et de chaque équipement (filtre, chauffage, éclairage, meuble). Montrez aussi les éventuels défauts : rayures légères, silicone ancien. Un acheteur qui voit tout à l'avance pose moins de questions et se déplace plus sûrement."
+            "Prenez plusieurs photos nettes, à la lumière du jour, du bac vide et de chaque équipement (filtre, chauffage, éclairage, meuble). Montrez aussi les éventuels défauts : rayures légères, silicone ancien. Un acheteur qui voit tout à l'avance pose moins de questions et se déplace plus sûrement."
           ]
         },
         {
           "titre": "Rédiger une annonce complète",
           "paragraphes": [
-            "Indiquez la contenance en litres, les dimensions, l'âge du bac, la marque, ce qui est inclus (meuble, filtre, éclairage, décor) et la raison de la vente. Précisez votre ville : sur Aquatopia, les annonces sont classées par distance, et la plupart des acheteurs cherchent près de chez eux."
+            "Indiquez la contenance en litres, les dimensions, l'âge du bac, la marque, ce qui est inclus (meuble, filtre, éclairage, décor) et la raison de la vente. Précisez votre ville : sur Aquatopia, les annonces sont classées par distance, et la plupart des acheteurs cherchent près de chez eux."
           ]
         },
         {
@@ -2504,7 +2504,7 @@ export const GUIDES: Guide[] = [
         },
         {
           "href": "/guides/acheter-aquarium-occasion-verifications",
-          "label": "Acheter un aquarium d'occasion : points à vérifier"
+          "label": "Acheter un aquarium d'occasion : points à vérifier"
         },
         {
           "href": "/guides/deposer-annonce-aquariophilie-gratuite",
@@ -2512,15 +2512,15 @@ export const GUIDES: Guide[] = [
         },
         {
           "href": "/guides/aquarium-neuf-ou-occasion-comparatif",
-          "label": "Aquarium neuf ou d’occasion : comparatif"
+          "label": "Aquarium neuf ou d’occasion : comparatif"
         }
       ]
     },
     {
       "slug": "acheter-aquarium-occasion-verifications",
-      "titre": "Acheter un aquarium d'occasion : les points à vérifier avant de payer",
+      "titre": "Acheter un aquarium d'occasion : les points à vérifier avant de payer",
       "eyebrow": "Acheter & vendre",
-      "description": "Étanchéité, silicone, vitres, équipements : la checklist pour acheter un aquarium d'occasion sans mauvaise surprise.",
+      "description": "Étanchéité, silicone, vitres, équipements : la checklist pour acheter un aquarium d'occasion sans mauvaise surprise.",
       "datePublication": "2026-10-22",
       "sections": [
         {
@@ -2550,7 +2550,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Prévoir le transport",
           "paragraphes": [
-            "Un aquarium est lourd et fragile : prévoyez de l'aide, des sangles ou des couvertures et un véhicule adapté. Mesurez le bac et l'endroit où vous le placerez avant de vous déplacer."
+            "Un aquarium est lourd et fragile : prévoyez de l'aide, des sangles ou des couvertures et un véhicule adapté. Mesurez le bac et l'endroit où vous le placerez avant de vous déplacer."
           ]
         },
         {
@@ -2571,7 +2571,7 @@ export const GUIDES: Guide[] = [
         },
         {
           "href": "/guides/aquarium-neuf-ou-occasion-comparatif",
-          "label": "Aquarium neuf ou d’occasion : comparatif"
+          "label": "Aquarium neuf ou d’occasion : comparatif"
         },
         {
           "href": "/guides/demarrer-aquarium-eau-douce",
@@ -2581,21 +2581,21 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "vendre-ses-poissons-aquarium",
-      "titre": "Vendre ses poissons d'aquarium : bien préparer son annonce et la remise",
+      "titre": "Vendre ses poissons d'aquarium : bien préparer son annonce et la remise",
       "eyebrow": "Acheter & vendre",
-      "description": "Espèce, quantité, photos, transport : comment vendre ses poissons d'aquarium en respectant les animaux et les règles de la plateforme.",
+      "description": "Espèce, quantité, photos, transport : comment vendre ses poissons d'aquarium en respectant les animaux et les règles de la plateforme.",
       "datePublication": "2026-10-22",
       "sections": [
         {
           "titre": "Identifier correctement l'espèce",
           "paragraphes": [
-            "Indiquez le nom commun et, si possible, le nom scientifique. Une identification précise évite les malentendus et permet à l'acheteur de vérifier la compatibilité avec son bac. Certaines espèces sont protégées ou interdites à la vente : sur Aquatopia, les annonces d'espèces réglementées sont contrôlées avant publication, et certaines demandent une déclaration d'élevage en captivité."
+            "Indiquez le nom commun et, si possible, le nom scientifique. Une identification précise évite les malentendus et permet à l'acheteur de vérifier la compatibilité avec son bac. Certaines espèces sont protégées ou interdites à la vente : sur Aquatopia, les annonces d'espèces réglementées sont contrôlées avant publication, et certaines demandent une déclaration d'élevage en captivité."
           ]
         },
         {
           "titre": "Des photos qui montrent vraiment vos poissons",
           "paragraphes": [
-            "Photographiez vos propres poissons plutôt que des images trouvées sur internet : l'acheteur veut voir la taille, les couleurs et l'état réel. Des photos nettes, sans reflets sur la vitre, rassurent et accélèrent la vente."
+            "Photographiez vos propres poissons plutôt que des images trouvées sur internet : l'acheteur veut voir la taille, les couleurs et l'état réel. Des photos nettes, sans reflets sur la vitre, rassurent et accélèrent la vente."
           ]
         },
         {
@@ -2613,7 +2613,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Penser au bien-être des poissons",
           "paragraphes": [
-            "Ne vendez que des animaux en bonne santé et signalez honnêtement un éventuel problème. Conseillez aussi la quarantaine à l'acheteur : un vendeur transparent est un vendeur que l'on recommande."
+            "Ne vendez que des animaux en bonne santé et signalez honnêtement un éventuel problème. Conseillez aussi la quarantaine à l'acheteur : un vendeur transparent est un vendeur que l'on recommande."
           ]
         }
       ],
@@ -2638,9 +2638,9 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "acheter-poissons-aquarium-particulier",
-      "titre": "Acheter des poissons d'aquarium à un particulier : bien s'y prendre",
+      "titre": "Acheter des poissons d'aquarium à un particulier : bien s'y prendre",
       "eyebrow": "Acheter & vendre",
-      "description": "Où en trouver, quelles questions poser au vendeur et comment accueillir ses nouveaux poissons : le guide pour acheter entre particuliers.",
+      "description": "Où en trouver, quelles questions poser au vendeur et comment accueillir ses nouveaux poissons : le guide pour acheter entre particuliers.",
       "datePublication": "2026-10-22",
       "sections": [
         {
@@ -2658,7 +2658,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Vérifier avant d'acheter",
           "paragraphes": [
-            "Si le rendez-vous le permet, observez les poissons : nage normale, nageoires intactes, couleurs vives, pas de points blancs ni de taches suspectes. Voir le bac du vendeur renseigne aussi sur les conditions d'élevage."
+            "Si le rendez-vous le permet, observez les poissons : nage normale, nageoires intactes, couleurs vives, pas de points blancs ni de taches suspectes. Voir le bac du vendeur renseigne aussi sur les conditions d'élevage."
           ]
         },
         {
@@ -2695,7 +2695,7 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "donner-aquarium-poissons-materiel",
-      "titre": "Donner un aquarium, des poissons ou du matériel : comment faire",
+      "titre": "Donner un aquarium, des poissons ou du matériel : comment faire",
       "eyebrow": "Acheter & vendre",
       "description": "Un aquarium dont vous ne voulez plus ? Découvrez comment donner votre matériel et vos poissons à un aquariophile plutôt que de les jeter.",
       "datePublication": "2026-10-22",
@@ -2715,7 +2715,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Choisir le bon repreneur",
           "paragraphes": [
-            "Posez quelques questions : le bac est-il prêt ? L'espèce est-elle déjà connue du repreneur ? Pour des poissons, évitez de les confier à quelqu'un dont l'aquarium n'est pas cyclé ou adapté. Ne relâchez jamais poissons, plantes ou crevettes d'aquarium dans la nature : cela peut abîmer les milieux naturels."
+            "Posez quelques questions : le bac est-il prêt ? L'espèce est-elle déjà connue du repreneur ? Pour des poissons, évitez de les confier à quelqu'un dont l'aquarium n'est pas cyclé ou adapté. Ne relâchez jamais poissons, plantes ou crevettes d'aquarium dans la nature : cela peut abîmer les milieux naturels."
           ]
         },
         {
@@ -2746,7 +2746,7 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "deposer-annonce-aquariophilie-gratuite",
-      "titre": "Déposer une annonce d'aquariophilie gratuite : mode d'emploi",
+      "titre": "Déposer une annonce d'aquariophilie gratuite : mode d'emploi",
       "eyebrow": "Acheter & vendre",
       "description": "Comment publier gratuitement une annonce pour vendre, donner ou échanger un aquarium, des poissons, des plantes ou du matériel sur Aquatopia.",
       "datePublication": "2026-10-22",
@@ -2760,7 +2760,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Créer son annonce",
           "paragraphes": [
-            "Choisissez la catégorie (vivant, plantes, cuves, matériel, éclairage ou décor) et le type d'annonce : vente, don ou échange. Ajoutez un titre clair, une description, des photos de ce que vous proposez, votre ville et, pour une vente, votre prix."
+            "Choisissez la catégorie (vivant, plantes, cuves, matériel, éclairage ou décor) et le type d'annonce : vente, don ou échange. Ajoutez un titre clair, une description, des photos de ce que vous proposez, votre ville et, pour une vente, votre prix."
           ]
         },
         {
@@ -2803,22 +2803,22 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "aquarium-occasion-60-100-200-litres",
-      "titre": "Aquarium d'occasion 60 L, 100 L ou 200 L : quel volume choisir ?",
+      "titre": "Aquarium d'occasion 60 L, 100 L ou 200 L : quel volume choisir ?",
       "eyebrow": "Acheter & vendre",
-      "description": "Aquarium 60 L, 100 L ou 200 L d'occasion : avantages de chaque volume, poissons adaptés, poids à prévoir et points à vérifier avant d'acheter chez un particulier.",
+      "description": "Aquarium 60 L, 100 L ou 200 L d'occasion : avantages de chaque volume, poissons adaptés, poids à prévoir et points à vérifier avant d'acheter chez un particulier.",
       "datePublication": "2026-10-23",
       "sections": [
         {
           "titre": "Le volume avant le prix",
           "paragraphes": [
-            "Quand on cherche un aquarium d'occasion, on regarde souvent le prix en premier. C'est le volume qu'il faut décider d'abord : il détermine les espèces que vous pourrez accueillir, la stabilité de l'eau et la place que le bac prendra chez vous. Un aquarium de 60 L, de 100 L ou de 200 L ne se gère pas de la même façon.",
-            "Les annonces indiquent le plus souvent le volume en litres. Vérifiez qu'il s'agit du volume brut (dimensions du bac) et non du volume réellement utilisable : une fois le sol, les décors et le niveau d'eau en dessous du bord pris en compte, il reste environ 10 à 15 % de moins."
+            "Quand on cherche un aquarium d'occasion, on regarde souvent le prix en premier. C'est le volume qu'il faut décider d'abord : il détermine les espèces que vous pourrez accueillir, la stabilité de l'eau et la place que le bac prendra chez vous. Un aquarium de 60 L, de 100 L ou de 200 L ne se gère pas de la même façon.",
+            "Les annonces indiquent le plus souvent le volume en litres. Vérifiez qu'il s'agit du volume brut (dimensions du bac) et non du volume réellement utilisable : une fois le sol, les décors et le niveau d'eau en dessous du bord pris en compte, il reste environ 10 à 15 % de moins."
           ]
         },
         {
           "titre": "Aquarium d'occasion de 60 litres",
           "paragraphes": [
-            "C'est un bon bac de départ pour de petits poissons, des crevettes ou un betta seul. Il tient sur un meuble courant et reste léger à déplacer. En contrepartie, le petit volume laisse peu de marge d'erreur : un excès de nourriture ou un filtre en panne se répercute vite sur la qualité de l'eau."
+            "C'est un bon bac de départ pour de petits poissons, des crevettes ou un betta seul. Il tient sur un meuble courant et reste léger à déplacer. En contrepartie, le petit volume laisse peu de marge d'erreur : un excès de nourriture ou un filtre en panne se répercute vite sur la qualité de l'eau."
           ]
         },
         {
@@ -2830,15 +2830,15 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Aquarium d'occasion de 200 litres",
           "paragraphes": [
-            "Un grand volume est plus stable : les paramètres varient moins vite, ce qui pardonne davantage les erreurs d'entretien. Il ouvre aussi la porte à des espèces plus grandes ou à des groupes plus nombreux, à condition de vérifier les besoins de chaque espèce dans nos fiches.",
-            "Attention au poids : un litre d'eau pèse un kilo, donc un 200 L pèse déjà plus de 200 kg une fois rempli, sans compter le bac, le sol et le meuble. Vérifiez que le meuble et le sol peuvent le supporter, et prévoyez de l'aide pour le transport."
+            "Un grand volume est plus stable : les paramètres varient moins vite, ce qui pardonne davantage les erreurs d'entretien. Il ouvre aussi la porte à des espèces plus grandes ou à des groupes plus nombreux, à condition de vérifier les besoins de chaque espèce dans nos fiches.",
+            "Attention au poids : un litre d'eau pèse un kilo, donc un 200 L pèse déjà plus de 200 kg une fois rempli, sans compter le bac, le sol et le meuble. Vérifiez que le meuble et le sol peuvent le supporter, et prévoyez de l'aide pour le transport."
           ]
         },
         {
           "titre": "Les points à vérifier sur un bac d'occasion",
           "paragraphes": [
             "Contrôlez l'état des joints en silicone (pas de zones décollées ou noircies), l'absence de rayures profondes ou d'éclats sur les vitres, et demandez les dimensions exactes. Si possible, remplissez le bac d'eau pendant 24 heures chez vous avant de l'installer pour vérifier qu'il ne fuit pas.",
-            "Demandez aussi ce qui est inclus : meuble, filtre, chauffage, éclairage, couvercle. Un lot complet est souvent plus avantageux que les éléments achetés séparément."
+            "Demandez aussi ce qui est inclus : meuble, filtre, chauffage, éclairage, couvercle. Un lot complet est souvent plus avantageux que les éléments achetés séparément."
           ]
         }
       ],
@@ -2849,7 +2849,7 @@ export const GUIDES: Guide[] = [
         },
         {
           "href": "/guides/acheter-aquarium-occasion-verifications",
-          "label": "Acheter un aquarium d'occasion : points à vérifier"
+          "label": "Acheter un aquarium d'occasion : points à vérifier"
         },
         {
           "href": "/guides/quel-volume-aquarium-choisir-espece",
@@ -2863,34 +2863,34 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "materiel-aquarium-occasion-filtre-chauffage",
-      "titre": "Matériel d'aquarium d'occasion : filtre, chauffage, éclairage, que peut-on acheter ?",
+      "titre": "Matériel d'aquarium d'occasion : filtre, chauffage, éclairage, que peut-on acheter ?",
       "eyebrow": "Acheter & vendre",
-      "description": "Filtre, chauffage, éclairage, pompe : ce qu'on peut acheter d'occasion sans risque, ce qu'il faut tester avant, et ce qu'il vaut mieux prendre neuf.",
+      "description": "Filtre, chauffage, éclairage, pompe : ce qu'on peut acheter d'occasion sans risque, ce qu'il faut tester avant, et ce qu'il vaut mieux prendre neuf.",
       "datePublication": "2026-10-23",
       "sections": [
         {
           "titre": "Ce qui s'achète bien d'occasion",
           "paragraphes": [
-            "Le matériel d'aquariophilie d'occasion permet de faire de vraies économies, surtout pour les éléments qui s'usent peu : meuble, décor, éclairage LED, filtre externe ou écumeur en bon état. Ces équipements changent souvent de main parce que leur propriétaire change de bac, pas parce qu'ils sont défectueux."
+            "Le matériel d'aquariophilie d'occasion permet de faire de vraies économies, surtout pour les éléments qui s'usent peu : meuble, décor, éclairage LED, filtre externe ou écumeur en bon état. Ces équipements changent souvent de main parce que leur propriétaire change de bac, pas parce qu'ils sont défectueux."
           ]
         },
         {
           "titre": "Acheter un filtre d'occasion",
           "paragraphes": [
-            "Avant d'acheter un filtre d'aquarium d'occasion, vérifiez les joints, l'hélice de la pompe, les raccords et les tuyaux. Un moteur qui fait un bruit anormal ou qui chauffe est un mauvais signe. Demandez si le filtre a déjà servi dans un bac malade : la masse filtrante d'un bac inconnu peut transporter des parasites, il vaut mieux la remplacer.",
-            "Un filtre se teste facilement chez le vendeur : branché dans un seau d'eau quelques minutes, il doit démarrer sans à-coups et ne pas fuir."
+            "Avant d'acheter un filtre d'aquarium d'occasion, vérifiez les joints, l'hélice de la pompe, les raccords et les tuyaux. Un moteur qui fait un bruit anormal ou qui chauffe est un mauvais signe. Demandez si le filtre a déjà servi dans un bac malade : la masse filtrante d'un bac inconnu peut transporter des parasites, il vaut mieux la remplacer.",
+            "Un filtre se teste facilement chez le vendeur : branché dans un seau d'eau quelques minutes, il doit démarrer sans à-coups et ne pas fuir."
           ]
         },
         {
           "titre": "Chauffage et thermostat",
           "paragraphes": [
-            "Le chauffage est un équipement de sécurité : un thermostat qui dérive peut chauffer ou refroidir un bac trop fort. D'occasion, testez-le dans un seau avec un thermomètre pendant 24 heures avant de le mettre dans l'aquarium, ou préférez-le neuf si vous avez un doute."
+            "Le chauffage est un équipement de sécurité : un thermostat qui dérive peut chauffer ou refroidir un bac trop fort. D'occasion, testez-le dans un seau avec un thermomètre pendant 24 heures avant de le mettre dans l'aquarium, ou préférez-le neuf si vous avez un doute."
           ]
         },
         {
           "titre": "Éclairage",
           "paragraphes": [
-            "Les rampes LED vieillissent bien et se revendent facilement. Les tubes fluorescents perdent en intensité et en spectre avec le temps : s'ils sont anciens, comptez leur remplacement. Vérifiez aussi l'état des câbles et de la prise."
+            "Les rampes LED vieillissent bien et se revendent facilement. Les tubes fluorescents perdent en intensité et en spectre avec le temps : s'ils sont anciens, comptez leur remplacement. Vérifiez aussi l'état des câbles et de la prise."
           ]
         },
         {
@@ -2921,7 +2921,7 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "aquarium-occasion-pas-cher-ou-trouver",
-      "titre": "Aquarium d'occasion pas cher : où le trouver et comment bien négocier",
+      "titre": "Aquarium d'occasion pas cher : où le trouver et comment bien négocier",
       "eyebrow": "Acheter & vendre",
       "description": "Où trouver un aquarium d'occasion pas cher, comment estimer un bon prix, négocier poliment et éviter les pièges des annonces trop belles pour être vraies.",
       "datePublication": "2026-10-23",
@@ -2930,13 +2930,13 @@ export const GUIDES: Guide[] = [
           "titre": "Où chercher un aquarium d'occasion",
           "paragraphes": [
             "Les meilleures affaires se trouvent généralement chez des particuliers qui arrêtent l'aquariophilie, déménagent ou changent de bac. Vous pouvez consulter les annonces d'aquariums d'occasion sur Aquatopia, regarder les annonces à donner, passer par les clubs et associations aquariophiles de votre région ou fréquenter les bourses aux poissons.",
-            "Les annonces sont classées par distance : cherchez d'abord près de chez vous, vous économiserez le transport, souvent le vrai point délicat avec un grand bac."
+            "Les annonces sont classées par distance : cherchez d'abord près de chez vous, vous économiserez le transport, souvent le vrai point délicat avec un grand bac."
           ]
         },
         {
           "titre": "Comment estimer un bon prix",
           "paragraphes": [
-            "Il n'existe pas de barème : le prix dépend du volume, de l'âge, de l'état des joints et de ce qui est fourni avec le bac. En règle générale, un aquarium d'occasion se vend nettement moins cher que le neuf, et un lot complet (bac, meuble, filtre, éclairage) coûte moins que les éléments achetés un par un. Comparez plusieurs annonces de même volume avant de décider."
+            "Il n'existe pas de barème : le prix dépend du volume, de l'âge, de l'état des joints et de ce qui est fourni avec le bac. En règle générale, un aquarium d'occasion se vend nettement moins cher que le neuf, et un lot complet (bac, meuble, filtre, éclairage) coûte moins que les éléments achetés un par un. Comparez plusieurs annonces de même volume avant de décider."
           ]
         },
         {
@@ -2954,7 +2954,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Et si c'est gratuit ?",
           "paragraphes": [
-            "Certains aquariums sont simplement donnés. Consultez la page des annonces à donner : c'est parfois la solution la moins chère pour débuter, à condition de vérifier l'étanchéité du bac comme pour n'importe quel achat."
+            "Certains aquariums sont simplement donnés. Consultez la page des annonces à donner : c'est parfois la solution la moins chère pour débuter, à condition de vérifier l'étanchéité du bac comme pour n'importe quel achat."
           ]
         }
       ],
@@ -2969,7 +2969,7 @@ export const GUIDES: Guide[] = [
         },
         {
           "href": "/guides/acheter-aquarium-occasion-verifications",
-          "label": "Acheter un aquarium d'occasion : points à vérifier"
+          "label": "Acheter un aquarium d'occasion : points à vérifier"
         },
         {
           "href": "/guides/budget-demarrer-aquarium",
@@ -2979,7 +2979,7 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "bourse-aux-poissons-aquariophilie",
-      "titre": "Bourse aux poissons : comment ça marche et comment en trouver une près de chez soi",
+      "titre": "Bourse aux poissons : comment ça marche et comment en trouver une près de chez soi",
       "eyebrow": "Acheter & vendre",
       "description": "Une bourse aquariophile, c'est quoi ? Comment la trouver, bien s'y préparer, transporter ses poissons et la compléter avec des annonces en ligne.",
       "datePublication": "2026-10-23",
@@ -2993,7 +2993,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Comment trouver une bourse près de chez vous",
           "paragraphes": [
-            "Le plus fiable est de contacter les clubs et associations aquariophiles de votre région : ce sont eux qui organisent les bourses et connaissent le calendrier. Les groupes de passionnés sur les réseaux sociaux relaient aussi beaucoup d'événements. Notez que les dates sont peu fréquentes : selon l'endroit où vous habitez, il peut y avoir plusieurs mois entre deux bourses."
+            "Le plus fiable est de contacter les clubs et associations aquariophiles de votre région : ce sont eux qui organisent les bourses et connaissent le calendrier. Les groupes de passionnés sur les réseaux sociaux relaient aussi beaucoup d'événements. Notez que les dates sont peu fréquentes : selon l'endroit où vous habitez, il peut y avoir plusieurs mois entre deux bourses."
           ]
         },
         {
@@ -3006,7 +3006,7 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Compléter avec des annonces en ligne",
           "paragraphes": [
-            "Une bourse n'a lieu que quelques fois par an. Pour acheter, vendre ou échanger le reste de l'année, les annonces entre particuliers restent disponibles en permanence : vous y trouvez des poissons, des plantes, du matériel et des aquariums classés par distance. Les règles sur les espèces protégées s'appliquent aussi bien en bourse que sur une annonce : vérifiez toujours qu'une espèce peut légalement être vendue."
+            "Une bourse n'a lieu que quelques fois par an. Pour acheter, vendre ou échanger le reste de l'année, les annonces entre particuliers restent disponibles en permanence : vous y trouvez des poissons, des plantes, du matériel et des aquariums classés par distance. Les règles sur les espèces protégées s'appliquent aussi bien en bourse que sur une annonce : vérifiez toujours qu'une espèce peut légalement être vendue."
           ]
         }
       ],
@@ -3031,15 +3031,15 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "leboncoin-ou-site-specialise-aquariophilie",
-      "titre": "Leboncoin ou site spécialisé : où vendre et acheter en aquariophilie ?",
+      "titre": "Leboncoin ou site spécialisé : où vendre et acheter en aquariophilie ?",
       "eyebrow": "Acheter & vendre",
-      "description": "Site d'annonces généraliste ou application spécialisée dans l'aquarium : audience, tri des annonces, modération et gratuité. Comment choisir pour acheter ou vendre.",
+      "description": "Site d'annonces généraliste ou application spécialisée dans l'aquarium : audience, tri des annonces, modération et gratuité. Comment choisir pour acheter ou vendre.",
       "datePublication": "2026-10-23",
       "sections": [
         {
-          "titre": "Les sites généralistes : une grande audience",
+          "titre": "Les sites généralistes : une grande audience",
           "paragraphes": [
-            "Les plateformes d'annonces généralistes, comme Leboncoin, ont un énorme avantage : tout le monde les connaît, donc votre annonce peut être vue par beaucoup de personnes. C'est utile pour un objet qui intéresse un large public, comme un meuble ou un aquarium courant."
+            "Les plateformes d'annonces généralistes, comme Leboncoin, ont un énorme avantage : tout le monde les connaît, donc votre annonce peut être vue par beaucoup de personnes. C'est utile pour un objet qui intéresse un large public, comme un meuble ou un aquarium courant."
           ]
         },
         {
@@ -3051,14 +3051,14 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Un site d'annonces d'aquariophilie entre particuliers",
           "paragraphes": [
-            "Une marketplace dédiée à l'aquarium, comme Aquatopia, réunit des gens qui parlent la même langue : acheteurs, vendeurs et éleveurs savent ce qu'est une crevette Neocaridina ou un bac cyclé. Les annonces sont classées par catégorie (vivant, plantes, aquariums, matériel, éclairage, décor), par biotope, et par distance, ce qui facilite la remise en main propre.",
+            "Une marketplace dédiée à l'aquarium, comme Aquatopia, réunit des gens qui parlent la même langue : acheteurs, vendeurs et éleveurs savent ce qu'est une crevette Neocaridina ou un bac cyclé. Les annonces sont classées par catégorie (vivant, plantes, aquariums, matériel, éclairage, décor), par biotope, et par distance, ce qui facilite la remise en main propre.",
             "Chaque annonce est vérifiée par l'équipe avant sa mise en ligne, et l'application est gratuite, pour vendre comme pour donner ou échanger."
           ]
         },
         {
           "titre": "Quelle plateforme choisir ?",
           "paragraphes": [
-            "Il n'y a pas à choisir : rien ne vous empêche de publier au même endroit sur plusieurs sites. Pour un aquarium, un filtre ou du matériel, publiez sur les deux. Pour des poissons, des crevettes, des plantes ou des coraux, privilégiez une application spécialisée, où les acheteurs sont plus qualifiés et où les règles sur les espèces sont rappelées."
+            "Il n'y a pas à choisir : rien ne vous empêche de publier au même endroit sur plusieurs sites. Pour un aquarium, un filtre ou du matériel, publiez sur les deux. Pour des poissons, des crevettes, des plantes ou des coraux, privilégiez une application spécialisée, où les acheteurs sont plus qualifiés et où les règles sur les espèces sont rappelées."
           ]
         }
       ],
@@ -3083,9 +3083,9 @@ export const GUIDES: Guide[] = [
     },
     {
       "slug": "reprise-aquarium-vendre-donner-echanger",
-      "titre": "Reprise d'aquarium : vendre, donner ou échanger son ancien aquarium ?",
+      "titre": "Reprise d'aquarium : vendre, donner ou échanger son ancien aquarium ?",
       "eyebrow": "Acheter & vendre",
-      "description": "Que faire de son ancien aquarium : reprise en magasin, vente, don ou échange. Préparer le démontage, nettoyer le bac, replacer les poissons et recycler le matériel.",
+      "description": "Que faire de son ancien aquarium : reprise en magasin, vente, don ou échange. Préparer le démontage, nettoyer le bac, replacer les poissons et recycler le matériel.",
       "datePublication": "2026-10-23",
       "sections": [
         {
@@ -3097,21 +3097,21 @@ export const GUIDES: Guide[] = [
         {
           "titre": "Vendre, donner ou échanger",
           "paragraphes": [
-            "Si votre aquarium est en bon état, vendez-le : c'est la voie la plus rentable, surtout avec son meuble et son équipement. Si le bac est ancien ou si vous voulez simplement le faire partir, donnez-le : vous le trouverez vite preneur. Enfin, vous pouvez l'échanger contre un autre matériel, des plantes ou des poissons.",
+            "Si votre aquarium est en bon état, vendez-le : c'est la voie la plus rentable, surtout avec son meuble et son équipement. Si le bac est ancien ou si vous voulez simplement le faire partir, donnez-le : vous le trouverez vite preneur. Enfin, vous pouvez l'échanger contre un autre matériel, des plantes ou des poissons.",
             "Dans les trois cas, publiez des photos nettes, indiquez le volume exact, l'âge et ce qui est inclus."
           ]
         },
         {
           "titre": "Préparer le démontage",
           "paragraphes": [
-            "Débranchez d'abord tout le matériel électrique. Replacez les poissons avant de vider le bac : ne les relâchez jamais dans la nature, c'est dangereux pour les écosystèmes et interdit pour de nombreuses espèces. Donnez-les, vendez-les ou échangez-les via une annonce.",
+            "Débranchez d'abord tout le matériel électrique. Replacez les poissons avant de vider le bac : ne les relâchez jamais dans la nature, c'est dangereux pour les écosystèmes et interdit pour de nombreuses espèces. Donnez-les, vendez-les ou échangez-les via une annonce.",
             "Videz et rincez le bac à l'eau claire sans savon ni produit chimique, qui laissent des résidus nocifs pour les futurs poissons. Un peu de vinaigre blanc dilué enlève le calcaire, rincez ensuite abondamment. Laissez sécher avant de remettre le bac à l'acheteur."
           ]
         },
         {
           "titre": "Et le matériel hors d'usage ?",
           "paragraphes": [
-            "Un chauffage, une pompe ou un éclairage qui ne fonctionnent plus ne se vendent pas : ils sont à déposer en déchetterie ou dans un point de collecte des appareils électriques, pas à la poubelle ordinaire."
+            "Un chauffage, une pompe ou un éclairage qui ne fonctionnent plus ne se vendent pas : ils sont à déposer en déchetterie ou dans un point de collecte des appareils électriques, pas à la poubelle ordinaire."
           ]
         }
       ],

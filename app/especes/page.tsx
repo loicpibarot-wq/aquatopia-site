@@ -5,7 +5,7 @@ import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import EspeceRecherche from '@/components/EspeceRecherche';
 
 const SITE_URL = 'https://aquatopia.fr';
-const TITRE = "Fiches espèces : poissons, plantes, coraux et invertébrés d'aquarium";
+const TITRE = "Fiches espèces : poissons, plantes, coraux et invertébrés d'aquarium";
 const DESCRIPTION =
   "Volume minimum, compatibilité, paramètres d'eau (pH, température, salinité), conseils d'entretien et statut légal en France pour chaque espèce d'aquarium d'eau douce, d'eau de mer récifal ou de bassin.";
 

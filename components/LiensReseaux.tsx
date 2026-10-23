@@ -7,7 +7,7 @@ export const RESEAUX = [
   { nom: 'TikTok', url: 'https://www.tiktok.com/@aquatopia.app' },
 ] as const;
 
-// Lucide n'a pas de logo TikTok : note de musique tracée dans le même style.
+// Lucide n'a pas de logo TikTok : note de musique tracée dans le même style.
 function IconeTikTok({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -32,14 +32,14 @@ export default function LiensReseaux({
 }: {
   taille?: 'sm' | 'md' | 'lg';
   justify?: 'flex-start' | 'center';
-  // Fond turquoise léger et contour turquoise : les boutons ressortent
+  // Fond turquoise léger et contour turquoise : les boutons ressortent
   // davantage sur le fond sombre.
   accent?: boolean;
 }) {
-  const diametre = taille === 'sm' ? 44 : taille === 'md' ? 52 : 56;
-  const tailleIcone = taille === 'sm' ? 20 : taille === 'md' ? 24 : 26;
+  const diametre = taille === 'sm' ? 44 : taille === 'md' ? 52 : 56;
+  const tailleIcone = taille === 'sm' ? 20 : taille === 'md' ? 24 : 26;
   return (
-    <div style={{ display: 'flex', gap: taille === 'sm' ? 10 : 14, justifyContent: justify }}>
+    <div style={{ display: 'flex', gap: taille === 'sm' ? 10 : 14, justifyContent: justify }}>
       {RESEAUX.map((r) => (
         <a
           key={r.nom}

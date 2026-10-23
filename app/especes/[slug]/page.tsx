@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-// Niveaux de difficulté de reproduction : couleur de la pastille, nombre de
+// Niveaux de difficulté de reproduction : couleur de la pastille, nombre de
 // points (1 = très simple, 5 = très difficile) et phrase d'explication.
 const REPRO_NIVEAUX: Record<string, { points: number; fond: string; texte: string; phrase: string }> = {
   'Très facile':   { points: 1, fond: 'var(--vert-pale, #d4edda)',   texte: '#155724', phrase: 'Se reproduit spontanément' },
@@ -76,7 +76,7 @@ function PastilleNiveau({ titre, facilite }: { titre: string; facilite: string }
                   style={{
                     width: 8, height: 8, borderRadius: '50%',
                     background: 'currentColor',
-                    opacity: n <= niveau.points ? 1 : 0.2,
+                    opacity: n <= niveau.points ? 1 : 0.2,
                   }}
                 />
               ))}
@@ -106,7 +106,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
   const tuiles = tuilesEspece(espece);
   const cultive = Boolean(fiche.plante || fiche.corail || fiche.algue);
   const multiplication = fiche.plante?.multiplication ?? fiche.corail?.multiplication ?? fiche.algue?.multiplication ?? null;
-  const titreAlimentation = fiche.plante || fiche.algue ? 'Culture et nutrition' : fiche.corail ? 'Alimentation et nutrition' : 'Alimentation';
+  const titreAlimentation = fiche.plante || fiche.algue ? 'Culture et nutrition' : fiche.corail ? 'Alimentation et nutrition' : 'Alimentation';
   const urlFiche = `${SITE_URL}/especes/${espece.slug}`;
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -151,8 +151,8 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
             {fiche.reproduction.description}
           </p>
     </>
-  ) : null;
-  // Coraux : une seule section « Reproduction » avec le pas à pas. Plantes : « Comment bouturer »
+  ) : null;
+  // Coraux : une seule section « Reproduction » avec le pas à pas. Plantes : « Comment bouturer »
   // seulement si elles se bouturent (sinon le texte court de multiplication, et la FAQ répond).
   const afficherGuide = Boolean(bouturage && (bouturage.faisable || fiche.corail));
   const reproFondueDansBouturage = Boolean(afficherGuide && fiche.corail && fiche.reproduction);
@@ -193,7 +193,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         )}
         {espece.autresNoms && espece.autresNoms.length > 0 && (
           <p style={{ marginTop: 6, color: 'var(--text-muted)', fontSize: '0.92rem' }}>
-            Aussi appelé{espece.autresNoms.length > 1 ? 's' : ''} : {espece.autresNoms.join(', ')}
+            Aussi appelé{espece.autresNoms.length > 1 ? 's' : ''} : {espece.autresNoms.join(', ')}
           </p>
         )}
         <VuesEspece slug={espece.slug} />
@@ -204,22 +204,22 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
       {espece.remarqueLegale && (
         <div
           className={`espece-alerte ${
-            espece.statutLegal === 'cites_a_signaler' ? 'cites' : espece.statutLegal === 'autorise' ? 'info' : ''
+            espece.statutLegal === 'cites_a_signaler' ? 'cites' : espece.statutLegal === 'autorise' ? 'info' : ''
           }`}
         >
           <p>
             <strong>
               <Icone
-                nom={espece.statutLegal === 'autorise' ? 'info' : 'alerte'}
+                nom={espece.statutLegal === 'autorise' ? 'info' : 'alerte'}
                 size={16}
                 style={{ marginRight: 6, verticalAlign: '-3px' }}
               />
               {espece.statutLegal === 'interdite'
                 ? 'Vente et détention interdites en France. '
                 : espece.statutLegal === 'autorisation_requise'
-                  ? 'Détention soumise à autorisation (certificat de capacité) : fermée aux particuliers. '
+                  ? 'Détention soumise à autorisation (certificat de capacité) : fermée aux particuliers. '
                   : espece.statutLegal === 'cites_a_signaler'
-                    ? 'Espèce réglementée (CITES) : conservez la preuve de son origine légale. '
+                    ? 'Espèce réglementée (CITES) : conservez la preuve de son origine légale. '
                     : 'Point de vigilance. '}
             </strong>
             {espece.remarqueLegale}
@@ -228,7 +228,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      <p className="annonce-desc" style={{ maxWidth: 760, marginTop: espece.remarqueLegale ? 0 : 28 }}>
+      <p className="annonce-desc" style={{ maxWidth: 760, marginTop: espece.remarqueLegale ? 0 : 28 }}>
         {fiche.description}
       </p>
 
@@ -247,7 +247,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{fiche.compatibilite}</p>
         </div>
         <div>
-          <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{cultive ? 'Points de vigilance' : 'À éviter'}</h3>
+          <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{cultive ? 'Points de vigilance' : 'À éviter'}</h3>
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{fiche.incompatibilite}</p>
         </div>
         <div>
@@ -256,7 +256,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </div>
         {cultive && multiplication && !afficherGuide && (
           <div>
-            <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{fiche.corail ? 'Bouturage et multiplication' : 'Multiplication'}</h3>
+            <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{fiche.corail ? 'Bouturage et multiplication' : 'Multiplication'}</h3>
             <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{multiplication}</p>
           </div>
         )}
@@ -290,7 +290,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
             </p>
           )}
           {bouturage.faisable && (
-            <div style={{ marginTop: fiche.corail && fiche.reproduction ? 22 : 0 }}>
+            <div style={{ marginTop: fiche.corail && fiche.reproduction ? 22 : 0 }}>
               {fiche.corail && (
                 <h3 style={{ fontSize: '1.02rem', marginBottom: 10 }}>Bouturer {espece.nomCommun}, étape par étape</h3>
               )}
@@ -374,7 +374,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
                 slug={e.slug}
                 nomCommun={e.nomCommun}
                 categorie={e.categorie}
-                nomScientifique={nomsIdentiques(e.nomCommun, e.nomScientifique) ? undefined : e.nomScientifique}
+                nomScientifique={nomsIdentiques(e.nomCommun, e.nomScientifique) ? undefined : e.nomScientifique}
               />
             ))}
           </div>

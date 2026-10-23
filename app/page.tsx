@@ -11,30 +11,37 @@ export const revalidate = 600;
 const FAQ = [
   {
     q: "L'application Aquatopia est-elle gratuite ?",
+    cta: { href: '#telecharger', label: "Télécharger l'application" },
     a: "Oui, le téléchargement, la recherche et la publication d'annonces pour les particuliers sont 100 % gratuits.",
   },
   {
     q: 'Retrouve-t-on des professionnels et des éleveurs sur l’application ?',
+    cta: { href: '/categorie/vivant', label: "Voir les annonces" },
     a: "Absolument. Aquatopia réunit des particuliers, des éleveurs passionnés et des boutiques spécialisées proposant du vivant issu d'élevages locaux ainsi que du matériel neuf ou reconditionné.",
   },
   {
     q: 'Peut-on vendre du matériel de bassin ou du récifal ?',
-    a: "Oui, l'application couvre l'ensemble de l'aquariophilie : eau douce, eau de mer (récifal), bassin extérieur, ainsi que tous les éclairages, décors et accessoires.",
+    cta: { href: '/categorie/materiel', label: "Voir le matériel" },
+    a: "Oui, l'application couvre l'ensemble de l'aquariophilie : eau douce, eau de mer (récifal), bassin extérieur, ainsi que tous les éclairages, décors et accessoires.",
   },
   {
     q: 'Comment vendre son aquarium ou ses poissons sur Aquatopia ?',
-    a: "Téléchargez l'application gratuite, créez votre annonce avec des photos, le prix et votre ville, puis publiez-la : notre équipe la vérifie avant sa mise en ligne. Les acheteurs vous écrivent par la messagerie et la remise se fait en main propre. Nos guides expliquent comment bien préparer une annonce d'aquarium d'occasion.",
+    cta: { href: '/guides/vendre-son-aquarium-occasion', label: "Lire le guide pour vendre" },
+    a: "Téléchargez l'application gratuite, créez votre annonce avec des photos, le prix et votre ville, puis publiez-la : notre équipe la vérifie avant sa mise en ligne. Les acheteurs vous écrivent par la messagerie et la remise se fait en main propre. Nos guides expliquent comment bien préparer une annonce d'aquarium d'occasion.",
   },
   {
     q: "Où trouver un aquarium ou des poissons d'occasion près de chez moi ?",
-    a: "Indiquez votre ville dans l'application : les annonces d'aquariums, de poissons, de plantes et de matériel proposés par des particuliers sont classées par distance, pour trouver ce qui se vend autour de vous.",
+    cta: { href: '/aquarium-occasion', label: "Chercher par ville" },
+    a: "Indiquez votre ville dans l'application : les annonces d'aquariums, de poissons, de plantes et de matériel proposés par des particuliers sont classées par distance, pour trouver ce qui se vend autour de vous.",
   },
   {
     q: 'Peut-on aussi donner ou échanger un aquarium, des poissons ou du matériel ?',
+    cta: { href: '/dons', label: "Voir les dons" },
     a: "Oui. Chaque annonce peut être une vente, un don ou un échange, pour donner une seconde vie à du matériel d'aquariophilie ou aux poissons dont vous n'avez plus l'usage.",
   },
   {
     q: 'Comment se déroulent les transactions ?',
+    cta: { href: '/guides/acheter-aquarium-occasion-verifications', label: "Acheter en confiance" },
     a: "Pour préserver le bien-être animal et éviter les risques liés aux envois, toutes les remises s'effectuent en main propre directement entre l'acheteur et le vendeur.",
   },
 ];
@@ -108,7 +115,7 @@ export default async function HomePage() {
             <div className="phone-frame">
               <Image
                 src="/phone-shot-4.webp"
-                alt="Application Aquatopia : annonces d'aquariophilie à donner et à échanger près de chez soi, poissons, plantes et matériel d'aquarium"
+                alt="Application Aquatopia : annonces d'aquariophilie à donner et à échanger près de chez soi, poissons, plantes et matériel d'aquarium"
                 width={225}
                 height={488}
                 priority
@@ -124,7 +131,7 @@ export default async function HomePage() {
             <div className="section-head" style={{ marginBottom: 32 }}>
               <span className="eyebrow">Comment ça marche</span>
               <h2>Comment vendre ou adopter en remise en main propre ?</h2>
-              <p>L&apos;envoi d&apos;êtres vivants est interdit par la loi : chez Aquatopia, chaque échange se fait en main propre, sans intermédiaire, entre passionnés près de chez vous.</p>
+              <p>L&apos;envoi d&apos;êtres vivants est interdit par la loi : chez Aquatopia, chaque échange se fait en main propre, sans intermédiaire, entre passionnés près de chez vous.</p>
             </div>
             <div className="steps">
               <div className="step">
@@ -158,7 +165,7 @@ export default async function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Catégories</span>
-            <h2>Tout pour votre passion : vivant, plantes, éclairage, décor &amp; accessoires — en eau douce, récifal ou bassin</h2>
+            <h2>Tout pour votre passion : vivant, plantes, éclairage, décor &amp; accessoires — en eau douce, récifal ou bassin</h2>
           </div>
           <div className="biotope-grid">
             <Link href="/biotope/eau-douce" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
@@ -166,14 +173,14 @@ export default async function HomePage() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c3.5 4.2 6 7.7 6 10.5a6 6 0 0 1-12 0C6 10.7 8.5 7.2 12 3z" /></svg>
               </div>
               <h3>Eau Douce</h3>
-              <p>Le plus grand rayon : poissons, plantes et invertébrés d&apos;eau douce.</p>
+              <p>Le plus grand rayon : poissons, plantes et invertébrés d&apos;eau douce.</p>
             </Link>
             <Link href="/biotope/eau-de-mer" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="biotope-icon" style={{ background: '#00284F' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" /><path d="M3 10c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" /></svg>
               </div>
               <h3>Eau de Mer</h3>
-              <p>Récifal et marin : poissons, coraux et invertébrés.</p>
+              <p>Récifal et marin : poissons, coraux et invertébrés.</p>
             </Link>
             <Link href="/biotope/bassin" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="biotope-icon" style={{ background: '#0F6B4F' }}>
@@ -196,7 +203,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="acheter-vendre">
+      <section id="acheter-vendre" style={{ paddingBottom: 24 }}>
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Acheter ou vendre</span>
@@ -214,7 +221,7 @@ export default async function HomePage() {
             <div className="seo-card">
               <h3>Vous voulez vendre</h3>
               <p>
-                Publiez gratuitement votre annonce en quelques minutes : voici comment <Link href="/guides/vendre-son-aquarium-occasion">vendre son aquarium d&apos;occasion</Link> et <Link href="/guides/vendre-ses-poissons-aquarium">vendre ses poissons d&apos;aquarium</Link>.
+                Publiez gratuitement votre annonce en quelques minutes : voici comment <Link href="/guides/vendre-son-aquarium-occasion">vendre son aquarium d&apos;occasion</Link> et <Link href="/guides/vendre-ses-poissons-aquarium">vendre ses poissons d&apos;aquarium</Link>.
                 Vous préférez donner ? Consultez les <Link href="/dons">annonces à donner</Link> ou les <Link href="/echanges">échanges</Link>. Vous changez de bac ? Voir <Link href="/guides/reprise-aquarium-vendre-donner-echanger">que faire de son ancien aquarium</Link>.
               </p>
             </div>
@@ -228,7 +235,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="confiance">
+      <section id="confiance" style={{ paddingTop: 32 }}>
         <div className="wrap trust">
           <div>
             <span className="eyebrow">Confiance</span>
@@ -245,7 +252,7 @@ export default async function HomePage() {
               </div>
               <div className="trust-item">
                 <div className="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" /><path d="M14 4v5h5" /></svg></div>
-                <div><h3>Signalement en un geste</h3><p>Contenu ou comportement litigieux : un bouton, une réponse rapide.</p></div>
+                <div><h3>Signalement en un geste</h3><p>Contenu ou comportement litigieux : un bouton, une réponse rapide.</p></div>
               </div>
             </div>
           </div>
@@ -302,24 +309,31 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="faq">
+      <section id="faq" style={{ paddingBottom: 24 }}>
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">FAQ</span>
             <h2>Foire aux questions sur l&apos;application Aquatopia</h2>
           </div>
           <div className="faq-list">
-            {FAQ.map(({ q, a }) => (
+            {FAQ.map(({ q, a, cta }) => (
               <details className="faq-item" key={q}>
                 <summary>{q}</summary>
                 <p>{a}</p>
+                <p style={{ marginTop: 12 }}>
+                  {cta.href.startsWith('#') ? (
+                    <a href={cta.href} className="btn btn-primary" style={{ padding: '10px 18px', fontSize: '0.88rem' }}>{cta.label}</a>
+                  ) : (
+                    <Link href={cta.href} className="btn btn-primary" style={{ padding: '10px 18px', fontSize: '0.88rem' }}>{cta.label}</Link>
+                  )}
+                </p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="telecharger">
+      <section id="telecharger" style={{ paddingTop: 32 }}>
         <div className="wrap">
           <div className="cta-band">
             <span className="eyebrow">Envie d&apos;aller plus loin</span>

@@ -8,7 +8,7 @@ import {
 import { forwardRef } from 'react';
 import type { IconeNom } from '@/lib/icones';
 
-// Icône « crevette » : absente de la version de lucide-react installée, reprise
+// Icône « crevette » : absente de la version de lucide-react installée, reprise
 // du jeu d'icônes Lucide (licence ISC) au même format que les autres.
 const Crevette = forwardRef<SVGSVGElement, LucideProps>(function Crevette(
   { size = 24, strokeWidth = 2, ...reste },
@@ -108,7 +108,7 @@ export function IconePastille({ nom, repete = 1, taille = 40 }: { nom: IconeNom;
       aria-hidden="true"
       style={{
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 1,
-        minWidth: taille, height: taille, padding: repete > 1 ? '0 8px' : 0,
+        minWidth: taille, height: taille, padding: repete > 1 ? '0 8px' : 0,
         borderRadius: 12, flexShrink: 0,
         background: 'rgba(47,217,190,0.1)', border: '1px solid rgba(47,217,190,0.22)',
         color: 'var(--teal)',

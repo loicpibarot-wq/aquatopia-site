@@ -4,7 +4,7 @@
 // `fiche.corail.multiplication` (déjà rédigé espèce par espèce). Ce module y
 // ajoute la méthode pas à pas, choisie d'après le type de plante ou de corail,
 // pour que la fiche réponde vraiment à « comment bouturer … ». Le même objet
-// alimente la section affichée ET la FAQ déclarée à Google : jamais deux
+// alimente la section affichée ET la FAQ déclarée à Google : jamais deux
 // contenus différents.
 import type { Espece, FicheTechnique } from '@/lib/especes';
 
@@ -17,7 +17,7 @@ export interface GuideBouturage {
   titre: string;
   /** Texte propre à l'espèce, tiré de sa fiche. */
   resume: string;
-  /** false : l'espèce ne se bouture pas (ou on ne le conseille pas). */
+  /** false : l'espèce ne se bouture pas (ou on ne le conseille pas). */
   faisable: boolean;
   niveau?: NiveauBouture;
   /** Nom court de la méthode, ex. « bouture de tige ». */
@@ -45,21 +45,21 @@ function methodePlante(e: EspeceAvecFiche): MethodePlante {
   if (/mousse|fissidens|riccardia|pellia/.test(slug)) return 'mousse';
   if (/bouturage (des |de )?(tiges?|sommets)|fragments? de tige|^bouturage de tiges/.test(t)) return 'tige';
   if (p.placement === 'Plante de berge' || p.placement === 'Plante de bassin') {
-    return /^bouturage/.test(t) ? 'tige' : 'souche';
+    return /^bouturage/.test(t) ? 'tige' : 'souche';
   }
   if (!/bouturage|division|rhizome|stolon|rejet|plantule|fragment|bulbe|bourgeon|touffe/.test(t)) return 'graines';
   if (/hampes? florales?|plantules (sur|au bout|nées|sous)/.test(t)) return 'plantules';
   if (/bulbe/.test(t)) return 'bulbe';
-  if (/rhizome/.test(t)) return p.placement === 'Fixée sur bois ou roche' ? 'rhizome-fixe' : 'rhizome-sol';
+  if (/rhizome/.test(t)) return p.placement === 'Fixée sur bois ou roche' ? 'rhizome-fixe' : 'rhizome-sol';
   if (p.placement === 'Tapis') return 'tapis';
-  if (p.placement === 'Flottante') return /souche/.test(t) ? 'souche' : 'flottante';
+  if (p.placement === 'Flottante') return /souche/.test(t) ? 'souche' : 'flottante';
   if (/stolon|rejet/.test(t)) return 'stolon';
   return 'souche';
 }
 
 const MATERIEL_PLANTE: Record<MethodePlante, string[]> = {
   tige: ["Ciseaux d'aquascaping bien affûtés (ou ciseaux fins et propres)", 'Pincette longue pour replanter', 'Engrais racinaire (facultatif) pour aider les nouvelles boutures'],
-  mousse: ['Ciseaux fins', 'Fil de pêche ou fil de coton, ou colle cyanoacrylate gel', 'Un support : bois, roche ou grille d’aquascaping'],
+  mousse: ['Ciseaux fins', 'Fil de pêche ou fil de coton, ou colle cyanoacrylate gel', 'Un support : bois, roche ou grille d’aquascaping'],
   'rhizome-fixe': ['Ciseaux tranchants ou lame propre', 'Fil de pêche ou colle cyanoacrylate gel', 'Un bois ou une roche pour fixer chaque morceau'],
   'rhizome-sol': ['Ciseaux tranchants ou lame propre', 'Pincette longue pour replanter'],
   stolon: ['Ciseaux fins', 'Pincette longue pour replanter', 'Engrais racinaire (facultatif)'],
@@ -74,23 +74,23 @@ const MATERIEL_PLANTE: Record<MethodePlante, string[]> = {
 const ETAPES_PLANTE: Record<MethodePlante, string[]> = {
   tige: [
     'Choisissez une tige saine, bien feuillée, sans algues ni feuilles abîmées, et laissez-la pousser jusqu’à au moins 15 à 20 cm.',
-    'Coupez le sommet de la tige sur 8 à 15 cm, juste sous un nœud (le point d’où partent les feuilles) : c’est là que les racines se formeront.',
+    'Coupez le sommet de la tige sur 8 à 15 cm, juste sous un nœud (le point d’où partent les feuilles) : c’est là que les racines se formeront.',
     'Retirez les feuilles du bas sur 2 à 3 cm pour dégager la partie qui sera enterrée.',
     'Plantez la bouture de 2 à 3 cm dans le substrat avec la pincette, en espaçant les tiges d’environ 1 à 2 cm pour qu’elles ne se fassent pas d’ombre.',
-    'Laissez la base de la plante mère en place : la tige recoupée émet des rejets latéraux et se densifie.',
+    'Laissez la base de la plante mère en place : la tige recoupée émet des rejets latéraux et se densifie.',
   ],
   mousse: [
     'Prélevez une touffe saine et rincez-la dans l’eau du bac pour retirer les débris.',
     'Coupez-la en morceaux de 2 à 5 cm avec les ciseaux, ou séparez-la à la main.',
-    'Étalez une couche fine sur le support : trop épaisse, la mousse noircit en dessous faute de lumière et de courant.',
+    'Étalez une couche fine sur le support : trop épaisse, la mousse noircit en dessous faute de lumière et de courant.',
     'Fixez-la avec du fil de pêche ou de coton, ou une pointe de colle gel. Le fil se retire quand la mousse s’est accrochée.',
     'Taillez régulièrement pour garder une mousse dense et claire.',
   ],
   'rhizome-fixe': [
     'Repérez le rhizome, la tige épaisse et horizontale d’où partent les feuilles et les racines.',
-    'Sortez la plante du bac et coupez le rhizome net entre deux groupes de feuilles : chaque tronçon doit garder plusieurs feuilles (au moins 3 ou 4) et, idéalement, quelques racines.',
+    'Sortez la plante du bac et coupez le rhizome net entre deux groupes de feuilles : chaque tronçon doit garder plusieurs feuilles (au moins 3 ou 4) et, idéalement, quelques racines.',
     'Fixez chaque tronçon sur une roche ou un bois avec du fil de pêche ou de la colle gel.',
-    'N’enterrez jamais le rhizome : il pourrit. Seules les racines peuvent aller dans le substrat.',
+    'N’enterrez jamais le rhizome : il pourrit. Seules les racines peuvent aller dans le substrat.',
     'Remettez dans le bac et retirez le fil au bout de quelques semaines, une fois les racines accrochées.',
   ],
   'rhizome-sol': [
@@ -102,7 +102,7 @@ const ETAPES_PLANTE: Record<MethodePlante, string[]> = {
   stolon: [
     'Laissez la plantule se développer jusqu’à avoir 3 ou 4 feuilles et ses propres racines.',
     'Coupez le stolon (la tige fine qui la relie à la plante mère) avec les ciseaux.',
-    'Plantez la jeune plante avec la pincette, le collet (la base d’où partent les feuilles) au niveau du substrat : ni enterré, ni dégagé.',
+    'Plantez la jeune plante avec la pincette, le collet (la base d’où partent les feuilles) au niveau du substrat : ni enterré, ni dégagé.',
     'Pour éclaircir un massif, vous pouvez aussi séparer une touffe avec ses racines et la replanter ailleurs.',
   ],
   tapis: [
@@ -116,26 +116,26 @@ const ETAPES_PLANTE: Record<MethodePlante, string[]> = {
     'Attendez que la plantule ait 3 ou 4 feuilles et que de petites racines apparaissent.',
     'Détachez-la en coupant le support (hampe, feuille ou fronde) à 1 ou 2 cm de la plantule.',
     'Plantez-la ou fixez-la sur son support, la base dans le substrat mais le cœur de la plante dégagé.',
-    'Gardez la plantule bien éclairée : elle devient autonome en quelques semaines.',
+    'Gardez la plantule bien éclairée : elle devient autonome en quelques semaines.',
   ],
   bulbe: [
     'Repérez les bulbes fils, petites boules qui se forment au pied du bulbe principal.',
     'Attendez qu’ils aient leurs propres racines et quelques feuilles avant de les séparer.',
     'Dégagez doucement le substrat autour de la touffe, puis séparez le bulbe fils du bulbe principal en gardant ses racines.',
-    'Replantez sans enterrer entièrement le bulbe : sa partie haute doit dépasser du substrat.',
+    'Replantez sans enterrer entièrement le bulbe : sa partie haute doit dépasser du substrat.',
   ],
   souche: [
-    'Choisissez la bonne saison : en général le printemps, hors période de gel.',
+    'Choisissez la bonne saison : en général le printemps, hors période de gel.',
     'Sortez la plante de son panier ou de la berge et rincez les racines pour voir la souche.',
-    'Divisez la souche en deux ou trois parts avec le couteau ou la bêche : chaque part doit garder des racines saines et plusieurs pousses.',
+    'Divisez la souche en deux ou trois parts avec le couteau ou la bêche : chaque part doit garder des racines saines et plusieurs pousses.',
     'Replantez chaque part dans un panier avec un terreau pour bassin, recouvert d’une couche de gravier.',
     'Remettez à la profondeur d’origine et laissez la plante s’installer sans la déplacer.',
   ],
   flottante: [
     'Prélevez quelques plants ou rosettes à l’épuisette ou à la main.',
     'Séparez les jeunes plants des plus grands si des liens (stolons) les relient encore.',
-    'Remettez-en quelques-uns à la surface : la multiplication est rapide.',
-    'Éclaircissez régulièrement et ne laissez pas la surface entièrement couverte : la lumière et les échanges gazeux doivent passer.',
+    'Remettez-en quelques-uns à la surface : la multiplication est rapide.',
+    'Éclaircissez régulièrement et ne laissez pas la surface entièrement couverte : la lumière et les échanges gazeux doivent passer.',
   ],
   graines: [],
 };
@@ -143,7 +143,7 @@ const ETAPES_PLANTE: Record<MethodePlante, string[]> = {
 const REPRISE_PLANTE: Record<MethodePlante, string> = {
   tige: 'Les premières racines apparaissent en général en une à deux semaines. La bouture a repris quand de nouvelles feuilles se forment au sommet. Une bonne lumière et, si la plante l’exige, du CO₂ et de l’engrais accélèrent la reprise.',
   mousse: 'Il faut souvent un mois ou plus pour que la mousse s’accroche solidement au support. La croissance reste lente, surtout sans lumière ni nutriments suffisants.',
-  'rhizome-fixe': 'Les nouvelles racines s’accrochent en quelques semaines. La croissance est lente : ne vous inquiétez pas si la plante semble immobile au début.',
+  'rhizome-fixe': 'Les nouvelles racines s’accrochent en quelques semaines. La croissance est lente : ne vous inquiétez pas si la plante semble immobile au début.',
   'rhizome-sol': 'La plante met quelques semaines à reprendre. Quelques anciennes feuilles peuvent jaunir avant que de nouvelles ne poussent.',
   stolon: 'La jeune plante s’enracine en une à trois semaines. Un éclairage correct et un engrais racinaire l’aident à s’installer.',
   tapis: 'Le tapis se referme en quelques semaines si la lumière est suffisante au niveau du sol.',
@@ -186,7 +186,7 @@ function guidePlante(e: EspeceAvecFiche): GuideBouturage {
       faisable: false,
       materiel: [],
       etapes: [],
-      precaution: 'Cette plante est réglementée ou potentiellement envahissante : ne la multipliez pas pour la céder, et ne jetez jamais de fragments dans la nature.',
+      precaution: 'Cette plante est réglementée ou potentiellement envahissante : ne la multipliez pas pour la céder, et ne jetez jamais de fragments dans la nature.',
     };
   }
 
@@ -198,16 +198,16 @@ function guidePlante(e: EspeceAvecFiche): GuideBouturage {
       faisable: false,
       materiel: [],
       etapes: [],
-      precaution: 'Cette plante ne se multiplie pas de façon fiable par bouture ou par division : elle se renouvelle surtout par graines, après floraison.',
+      precaution: 'Cette plante ne se multiplie pas de façon fiable par bouture ou par division : elle se renouvelle surtout par graines, après floraison.',
     };
   }
 
-  const verbe = m === 'tige' || m === 'mousse' || m === 'rhizome-fixe' || m === 'rhizome-sol' || m === 'tapis' ? 'bouturer' : 'multiplier';
+  const verbe = m === 'tige' || m === 'mousse' || m === 'rhizome-fixe' || m === 'rhizome-sol' || m === 'tapis' ? 'bouturer' : 'multiplier';
   let precaution: string | undefined;
   if (/cryptocoryne/.test(e.slug)) {
-    precaution = 'Les cryptocorynes peuvent perdre leurs feuilles après un déplacement (on parle de « fonte »). C’est normal : elles repartent de la base quand elles se sont réadaptées.';
+    precaution = 'Les cryptocorynes peuvent perdre leurs feuilles après un déplacement (on parle de « fonte »). C’est normal : elles repartent de la base quand elles se sont réadaptées.';
   } else if (/délicat/.test(p.multiplication.toLowerCase())) {
-    precaution = 'Cette opération est délicate : laissez la plaie cicatriser avant de replanter et ne divisez que des plantes bien développées.';
+    precaution = 'Cette opération est délicate : laissez la plaie cicatriser avant de replanter et ne divisez que des plantes bien développées.';
   }
 
   return {
@@ -235,8 +235,8 @@ function methodeCorail(e: EspeceAvecFiche): MethodeCorail | null {
   const slug = e.slug;
   if (c.type === 'Anémone') return null;
   if (c.type === 'SPS' || c.type === 'Autre') return 'sps';
-  if (c.type === 'LPS') return LPS_RAMIFIES.test(slug) ? 'lps-ramifie' : 'lps-massif';
-  if (c.type === 'Corail mou') return MOU_LOBES.test(slug) ? 'mou-lobe' : 'mou-tige';
+  if (c.type === 'LPS') return LPS_RAMIFIES.test(slug) ? 'lps-ramifie' : 'lps-massif';
+  if (c.type === 'Corail mou') return MOU_LOBES.test(slug) ? 'mou-lobe' : 'mou-tige';
   if (c.type === 'Zoanthaire') return 'zoanthaire';
   if (c.type === 'Corallimorphe') return 'corallimorphe';
   if (c.type === 'Gorgone') return 'gorgone';
@@ -262,8 +262,8 @@ const MATERIEL_CORAIL: Record<MethodeCorail, string[]> = {
 };
 
 const AVANT_COUPE = [
-  'Choisissez une colonie en pleine forme, installée depuis plusieurs semaines : couleurs franches, polypes sortis, aucun tissu qui se décolle.',
-  'Préparez le poste : gants et lunettes (certains coraux libèrent des substances irritantes), supports secs, colle à portée de main et un récipient avec de l’eau du bac pour travailler.',
+  'Choisissez une colonie en pleine forme, installée depuis plusieurs semaines : couleurs franches, polypes sortis, aucun tissu qui se décolle.',
+  'Préparez le poste : gants et lunettes (certains coraux libèrent des substances irritantes), supports secs, colle à portée de main et un récipient avec de l’eau du bac pour travailler.',
 ];
 
 const ETAPES_CORAIL: Record<MethodeCorail, string[]> = {
@@ -271,7 +271,7 @@ const ETAPES_CORAIL: Record<MethodeCorail, string[]> = {
     ...AVANT_COUPE,
     'Coupez le bout d’une branche sur 2 à 4 cm avec la pince, net, en travaillant autant que possible dans l’eau du bac.',
     'Séchez rapidement la base du fragment sans toucher aux polypes, déposez une goutte de colle gel sur le support et maintenez le fragment quelques secondes.',
-    'Replacez la bouture dans une zone de lumière moyenne et de courant modéré, à distance des voisins : les SPS supportent mal le contact.',
+    'Replacez la bouture dans une zone de lumière moyenne et de courant modéré, à distance des voisins : les SPS supportent mal le contact.',
     'Remontez-la progressivement vers l’éclairage et le courant qui lui conviennent une fois que les polypes sont bien sortis.',
   ],
   'lps-ramifie': [
@@ -282,7 +282,7 @@ const ETAPES_CORAIL: Record<MethodeCorail, string[]> = {
   ],
   'lps-massif': [
     ...AVANT_COUPE,
-    'Coupez avec la scie entre deux têtes ou deux vallées, jamais à travers une tête : un tissu écrasé s’infecte facilement.',
+    'Coupez avec la scie entre deux têtes ou deux vallées, jamais à travers une tête : un tissu écrasé s’infecte facilement.',
     'Rincez la bouture dans l’eau du bac. Beaucoup d’éleveurs la passent dans un bain de désinfection pour coraux, selon les consignes du produit.',
     'Laissez la plaie cicatriser dans une eau calme, puis fixez la bouture sur un support avec de la colle gel.',
     'Replacez-la sous un éclairage modéré, sans courant direct, et ne la manipulez plus pendant la reprise.',
@@ -299,10 +299,10 @@ const ETAPES_CORAIL: Record<MethodeCorail, string[]> = {
     'Détachez une tige ou une portion de stolon avec ses polypes, aux ciseaux ou au scalpel, en laissant la colonie principale intacte.',
     'Fixez-la sur une roche avec de la colle gel, ou maintenez-la avec un élastique ou un fil fin jusqu’à ce qu’elle s’accroche.',
     'Replacez-la dans une zone d’éclairage et de courant modérés.',
-    'Surveillez la colonie : certains coraux de ce type s’étalent vite et peuvent envahir la roche.',
+    'Surveillez la colonie : certains coraux de ce type s’étalent vite et peuvent envahir la roche.',
   ],
   zoanthaire: [
-    'Mettez gants et lunettes avant toute manipulation. Certains zoanthaires et palythoas peuvent contenir de la palytoxine, une substance très toxique : évitez tout contact avec les yeux, la bouche et les plaies, travaillez dans un endroit aéré, loin des enfants et des animaux.',
+    'Mettez gants et lunettes avant toute manipulation. Certains zoanthaires et palythoas peuvent contenir de la palytoxine, une substance très toxique : évitez tout contact avec les yeux, la bouche et les plaies, travaillez dans un endroit aéré, loin des enfants et des animaux.',
     'Choisissez une colonie en pleine forme, installée depuis plusieurs semaines, avec des polypes bien ouverts.',
     'Détachez un petit groupe de polypes (une dizaine, par exemple) ou un morceau du tapis avec un scalpel, sous l’eau si possible, ou séparez un morceau de roche qui les porte.',
     'Fixez le fragment sur une petite roche avec de la colle gel, sans le laisser longtemps hors de l’eau.',
@@ -317,7 +317,7 @@ const ETAPES_CORAIL: Record<MethodeCorail, string[]> = {
   ],
   gorgone: [
     ...AVANT_COUPE,
-    'Coupez une branche avec une pince ou des ciseaux, sans la sortir de l’eau : l’air blesse le tissu.',
+    'Coupez une branche avec une pince ou des ciseaux, sans la sortir de l’eau : l’air blesse le tissu.',
     'Fixez l’extrémité dans un petit trou de roche ou de support avec de la colle gel.',
     'Replacez la bouture dans une zone de courant modéré, sans la déplacer pendant la reprise.',
   ],
@@ -326,12 +326,12 @@ const ETAPES_CORAIL: Record<MethodeCorail, string[]> = {
 const REPRISE_CORAIL: Record<MethodeCorail, string> = {
   sps: 'Les polypes ressortent en général en quelques jours, puis la bouture s’encroûte sur son support et reprend sa croissance en quelques semaines. La colonie mère cicatrise et repousse.',
   'lps-ramifie': 'Comptez plusieurs semaines pour que le tissu recouvre la coupe et que les polypes se redéploient complètement.',
-  'lps-massif': 'La cicatrisation est lente : comptez plusieurs semaines à quelques mois avant que le tissu recouvre la coupe. Surveillez l’apparition de tissu blanc ou de mucus anormal.',
+  'lps-massif': 'La cicatrisation est lente : comptez plusieurs semaines à quelques mois avant que le tissu recouvre la coupe. Surveillez l’apparition de tissu blanc ou de mucus anormal.',
   'mou-lobe': 'La plaie se referme en quelques jours, puis la bouture s’accroche en une à deux semaines. Elle déploie ses polypes et reprend sa croissance ensuite.',
   'mou-tige': 'La bouture s’accroche en quelques jours à deux semaines selon l’espèce, puis elle s’étale.',
   zoanthaire: 'Les polypes se rouvrent en quelques jours et le fragment s’étale sur son support en quelques semaines.',
   corallimorphe: 'Le fragment se referme en quelques jours à quelques semaines. La reprise est souvent lente.',
-  gorgone: 'La reprise est lente et irrégulière : comptez plusieurs semaines avant de voir les polypes bien déployés.',
+  gorgone: 'La reprise est lente et irrégulière : comptez plusieurs semaines avant de voir les polypes bien déployés.',
 };
 
 const METHODE_NOM_CORAIL: Record<MethodeCorail, string> = {
@@ -352,7 +352,7 @@ const NIVEAU_CORAIL: Record<MethodeCorail, NiveauBouture> = {
 
 const NON_CONSEILLE_CORAIL = /très délicate|réservée aux producteurs|très peu pratiquée|rarement pratiquée|ne se bouture pas|aucune technique|non conseillée|ne jamais/i;
 const PRECAUTION_GENERALE_CORAIL =
-  'Ne bouturez qu’un corail en bonne santé et bien installé. Une coupe stresse l’animal : gardez des paramètres stables et ne bouturez pas juste après un changement dans le bac.';
+  'Ne bouturez qu’un corail en bonne santé et bien installé. Une coupe stresse l’animal : gardez des paramètres stables et ne bouturez pas juste après un changement dans le bac.';
 
 function guideCorail(e: EspeceAvecFiche): GuideBouturage {
   const nom = e.nomCommun;
@@ -369,8 +369,8 @@ function guideCorail(e: EspeceAvecFiche): GuideBouturage {
       etapes: [],
       precaution:
         c.type === 'Anémone'
-          ? 'Les anémones ne se bouturent pas : se couper les expose à des infections. Elles se divisent spontanément quand elles sont bien installées.'
-          : 'Le bouturage maison est rarement pratiqué pour ce corail et reste risqué : la coupe l’expose à des infections. Mieux vaut, si possible, acheter une colonie issue d’élevage.',
+          ? 'Les anémones ne se bouturent pas : se couper les expose à des infections. Elles se divisent spontanément quand elles sont bien installées.'
+          : 'Le bouturage maison est rarement pratiqué pour ce corail et reste risqué : la coupe l’expose à des infections. Mieux vaut, si possible, acheter une colonie issue d’élevage.',
     };
   }
 
@@ -378,7 +378,7 @@ function guideCorail(e: EspeceAvecFiche): GuideBouturage {
   let precaution = PRECAUTION_GENERALE_CORAIL;
   if (/délicat|incertaine|peu pratiqué|pertes de tissu|cicatrisation est lente/i.test(c.multiplication)) {
     niveau = 'Délicate';
-    precaution = `${PRECAUTION_GENERALE_CORAIL} Pour ce corail, la coupe reste risquée : le bouturage s’adresse aux aquariophiles expérimentés.`;
+    precaution = `${PRECAUTION_GENERALE_CORAIL} Pour ce corail, la coupe reste risquée : le bouturage s’adresse aux aquariophiles expérimentés.`;
   }
 
   return {
@@ -418,7 +418,7 @@ export function faqBouturage(e: EspeceAvecFiche): { question: string; reponse: s
       reponse: `${g.resume} ${g.etapes.map((s, i) => `${i + 1}. ${phrase(s)}`).join(' ')}`,
     },
     {
-      question: `Quel matériel pour ${g.titre.startsWith('Comment bouturer') ? 'bouturer' : 'multiplier'} ${nom} ?`,
+      question: `Quel matériel pour ${g.titre.startsWith('Comment bouturer') ? 'bouturer' : 'multiplier'} ${nom} ?`,
       reponse: `${g.materiel.join(' ; ')}.`,
     },
   ];

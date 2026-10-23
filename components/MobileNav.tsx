@@ -40,7 +40,7 @@ export default function MobileNav() {
       <button
         type="button"
         className="hamburger-btn"
-        aria-label={ouvert ? 'Fermer le menu' : 'Ouvrir le menu'}
+        aria-label={ouvert ? 'Fermer le menu' : 'Ouvrir le menu'}
         aria-expanded={ouvert}
         onClick={() => setOuvert((v) => !v)}
       >

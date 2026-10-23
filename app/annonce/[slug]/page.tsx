@@ -20,7 +20,7 @@ import {
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { annonceJsonLd } from '@/lib/annonce-seo';
 
-// Rendu à la demande avec cache court : une annonce vendue il y a 2 minutes
+// Rendu à la demande avec cache court : une annonce vendue il y a 2 minutes
 // ne doit jamais rester indexée/affichée comme disponible plus de quelques
 // minutes — voir la discussion sur l'export statique classique qui, lui,
 // ne se met à jour qu'au redéploiement.
@@ -30,7 +30,7 @@ async function getAnnonceOrNotFound(slug: string): Promise<Annonce> {
   const id = parseIdFromSlug(slug);
   if (id === null) notFound();
   const annonce = await fetchAnnonceParId(id);
-  if (!annonce) notFound(); // vendue / désactivée / inexistante : jamais affichée ni indexée
+  if (!annonce) notFound(); // vendue / désactivée / inexistante : jamais affichée ni indexée
   return annonce;
 }
 
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     alternates: { canonical: url },
     openGraph: {
       // Les balises Open Graph n'héritent pas du title.template de
-      // app/layout.tsx (contrairement à <title>) : le suffixe est donc
+      // app/layout.tsx (contrairement à <title>) : le suffixe est donc
       // rajouté explicitement ici pour rester cohérent sur les partages.
       title: `${title} | Aquatopia`,
       description,
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function AnnoncePage({ params }: { params: { slug: string } }) {
   const annonce = await getAnnonceOrNotFound(params.slug);
 
-  // Canonicalise l'URL : si le texte du slug (titre/ville au moment du clic)
+  // Canonicalise l'URL : si le texte du slug (titre/ville au moment du clic)
   // ne correspond plus à l'annonce actuelle, on redirige vers le slug à
   // jour plutôt que d'afficher une URL désynchronisée — l'ID en fin de slug
   // reste la seule chose qui compte pour retrouver l'annonce.
@@ -99,7 +99,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
 
       {/* Le fil visible doit rester identique au JSON-LD ci-dessus (mêmes
-          niveaux, mêmes liens) : Google peut ignorer les données structurées
+          niveaux, mêmes liens) : Google peut ignorer les données structurées
           si elles ne correspondent pas au fil d'Ariane affiché à l'écran. */}
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> ·{' '}
@@ -123,7 +123,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
           </div>
 
           <div className="annonce-badges">
-            <span className="annonce-badge prix">{annonce.is_don ? 'Don' : annonce.is_echange ? 'Échange' : `${annonce.prix} €`}</span>
+            <span className="annonce-badge prix">{annonce.is_don ? 'Don' : annonce.is_echange ? 'Échange' : `${annonce.prix} €`}</span>
             <span className="annonce-badge">{annonce.biotope}</span>
             <span className="annonce-badge">{annonce.categorie}</span>
             {annonce.envoi_possible && <span className="annonce-badge">Envoi possible</span>}
@@ -134,7 +134,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
 
           <div className="annonce-meta">
             {annonce.ville && <span><Icone nom="lieu" size={15} style={{ marginRight: 4, verticalAlign: '-2px' }} />{annonce.ville}{annonce.code_postal ? ` (${annonce.code_postal})` : ''}</span>}
-            {annonce.quantite ? <span>{annonce.quantite} spécimen{annonce.quantite > 1 ? 's' : ''}</span> : null}
+            {annonce.quantite ? <span>{annonce.quantite} spécimen{annonce.quantite > 1 ? 's' : ''}</span> : null}
             {annonce.volume && <span>{annonce.volume}</span>}
             {annonce.etat && <span>{annonce.etat}</span>}
           </div>
@@ -164,7 +164,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
                 {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
                 <div className="body">
                   <h4>{a.titre}</h4>
-                  <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                  <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
                 </div>
               </Link>
             ))}

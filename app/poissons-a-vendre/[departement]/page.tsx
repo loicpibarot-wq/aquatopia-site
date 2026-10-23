@@ -107,7 +107,7 @@ export default async function DepartementPage({ params }: { params: { departemen
         </h1>
         <p style={{ marginTop: 14 }}>
           {n} annonces d&apos;aquariophilie sont actuellement en ligne en {dept.nom} : {resumeCategories(dept.annonces)}.
-          {dons > 0 ? ` ${dons} ${dons > 1 ? 'sont proposées' : 'est proposée'} gratuitement.` : ''}
+          {dons > 0 ? ` ${dons} ${dons > 1 ? 'sont proposées' : 'est proposée'} gratuitement.` : ''}
           {' '}Particuliers et éleveurs vendent, donnent ou échangent près de chez vous.
         </p>
       </div>

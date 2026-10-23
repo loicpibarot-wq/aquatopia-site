@@ -4,7 +4,7 @@ import { GLOSSAIRE } from '@/lib/glossaire';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
-const TITRE = 'Glossaire aquariophile : tous les termes expliqués simplement';
+const TITRE = 'Glossaire aquariophile : tous les termes expliqués simplement';
 const DESCRIPTION =
   "KH, GH, cyclage, écumeur, SPS, osmolateur... Le lexique complet de l'aquariophilie d'eau douce, récifale et de bassin, expliqué en langage clair.";
 

@@ -15,7 +15,7 @@ type Choix = 'accepte' | 'refuse' | null;
 function lireChoix(): Choix {
   try {
     const v = localStorage.getItem(CLE);
-    return v === 'accepte' || v === 'refuse' ? v : null;
+    return v === 'accepte' || v === 'refuse' ? v : null;
   } catch {
     return null;
   }
@@ -43,7 +43,7 @@ export default function ConsentementAnalytics() {
 
   function decider(c: 'accepte' | 'refuse') {
     try { localStorage.setItem(CLE, c); } catch { /* stockage indisponible */ }
-    // Refus après acceptation : on recharge pour couper proprement le suivi.
+    // Refus après acceptation : on recharge pour couper proprement le suivi.
     if (c === 'refuse' && choix === 'accepte') {
       window.location.reload();
       return;

@@ -19,10 +19,10 @@ interface Props {
 }
 
 const CLE_SESSION = 'aquatopia_configurateur_v1';
-// Position de défilement au moment où l'on ouvre une fiche espèce : au retour,
+// Position de défilement au moment où l'on ouvre une fiche espèce : au retour,
 // on revient exactement là où l'on avait cliqué.
 const CLE_SCROLL = 'aquatopia_configurateur_scroll_v1';
-// Slug de la fiche ouverte depuis le simulateur : la fiche affiche alors « Simulateur » en retour.
+// Slug de la fiche ouverte depuis le simulateur : la fiche affiche alors « Simulateur » en retour.
 const CLE_ORIGINE = 'aquatopia_simulateur_origine_v1';
 
 type Etape = 1 | 2 | 3 | 4 | 5 | 6 | 'resultats';
@@ -91,28 +91,28 @@ function BadgeCategorie({ cat }: { cat: string }) {
 function BarreProgression({ etape }: { etape: Etape }) {
   const courante = etape === 'resultats' ? ETAPES_LABEL.length : (etape as number);
   return (
-    <div style={{ marginBottom: 32 }}>
+    <div style={{ marginBottom: 20 }}>
       <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 10 }}>
         {ETAPES_LABEL.map((label, i) => {
           const num = i + 1;
           const active = num === courante;
           const done   = num < courante || etape === 'resultats';
           return (
-            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, flex: i < ETAPES_LABEL.length - 1 ? '1' : undefined }}>
+            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, flex: i < ETAPES_LABEL.length - 1 ? '1' : undefined }}>
               <div style={{
                 width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: '0.78rem', fontWeight: 700,
-                background: done ? 'var(--teal)' : active ? 'linear-gradient(135deg, var(--teal), var(--blue))' : 'var(--bg-3)',
-                color: (done || active) ? '#052027' : 'var(--text-muted)',
+                background: done ? 'var(--teal)' : active ? 'linear-gradient(135deg, var(--teal), var(--blue))' : 'var(--bg-3)',
+                color: (done || active) ? '#052027' : 'var(--text-muted)',
                 transition: 'all .2s',
               }}>
                 {done ? <Icone nom="valide" size={15} strokeWidth={2.6} /> : num}
               </div>
               <span style={{
                 fontSize: '0.8rem',
-                fontWeight: active ? 700 : 400,
-                color: active ? 'var(--text)' : done ? 'var(--teal)' : 'var(--text-faint)',
+                fontWeight: active ? 700 : 400,
+                color: active ? 'var(--text)' : done ? 'var(--teal)' : 'var(--text-faint)',
                 display: 'none',
               }}
                 className="step-label"
@@ -122,7 +122,7 @@ function BarreProgression({ etape }: { etape: Etape }) {
               {i < ETAPES_LABEL.length - 1 && (
                 <div style={{
                   flex: 1, height: 2,
-                  background: done ? 'var(--teal)' : 'var(--border)',
+                  background: done ? 'var(--teal)' : 'var(--border)',
                   borderRadius: 2,
                   transition: 'background .3s',
                 }} />
@@ -131,7 +131,7 @@ function BarreProgression({ etape }: { etape: Etape }) {
           );
         })}
       </div>
-      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.06em' }}>
+      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.06em', textAlign: 'center' }}>
         {etape === 'resultats'
           ? 'Votre projet Aquatopia sur mesure'
           : `Étape ${courante} sur ${ETAPES_LABEL.length} — ${ETAPES_LABEL[(courante as number) - 1]}`}
@@ -152,17 +152,17 @@ function ChoixCard({
         display: 'flex', flexDirection: 'column', gap: 8,
         padding: '18px 20px',
         borderRadius: 'var(--radius-m)',
-        border: `1px solid ${selected ? 'var(--teal)' : 'var(--border)'}`,
-        background: selected ? 'rgba(47,217,190,0.08)' : 'var(--bg-2)',
+        border: `1px solid ${selected ? 'var(--teal)' : 'var(--border)'}`,
+        background: selected ? 'rgba(47,217,190,0.08)' : 'var(--bg-2)',
         cursor: 'pointer', textAlign: 'left', transition: 'all .15s',
-        boxShadow: selected ? '0 0 0 1px var(--teal)' : 'none',
+        boxShadow: selected ? '0 0 0 1px var(--teal)' : 'none',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
         <IconePastille nom={icone} repete={repete} />
         <span style={{
           fontFamily: "'Fredoka', sans-serif", fontWeight: 600,
-          fontSize: '1.08rem', color: selected ? 'var(--teal)' : 'var(--text)',
+          fontSize: '1.08rem', color: selected ? 'var(--teal)' : 'var(--text)',
         }}>
           {label}
         </span>
@@ -195,10 +195,10 @@ function Chip({
       style={{
         padding: '8px 16px',
         borderRadius: 'var(--radius-l)',
-        border: `1px solid ${selected ? 'var(--teal)' : 'var(--border-strong)'}`,
-        background: selected ? 'rgba(47,217,190,0.1)' : 'transparent',
-        color: selected ? 'var(--teal)' : 'var(--text-muted)',
-        cursor: 'pointer', fontSize: '0.88rem', fontWeight: selected ? 700 : 400,
+        border: `1px solid ${selected ? 'var(--teal)' : 'var(--border-strong)'}`,
+        background: selected ? 'rgba(47,217,190,0.1)' : 'transparent',
+        color: selected ? 'var(--teal)' : 'var(--text-muted)',
+        cursor: 'pointer', fontSize: '0.88rem', fontWeight: selected ? 700 : 400,
         transition: 'all .15s',
       }}
     >
@@ -297,11 +297,11 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
   const debutEtape = useRef<HTMLDivElement>(null);
   const remonterApresReset = useRef(false);
 
-  // Les réponses survivent à un aller-retour vers une fiche espèce : on les
+  // Les réponses survivent à un aller-retour vers une fiche espèce : on les
   // garde dans sessionStorage et on recalcule les résultats au retour.
   useEffect(() => {
     try {
-      // On est de retour sur le simulateur : la fiche n'a plus à s'en réclamer.
+      // On est de retour sur le simulateur : la fiche n'a plus à s'en réclamer.
       sessionStorage.removeItem(CLE_ORIGINE);
       const brut = sessionStorage.getItem(CLE_SESSION);
       if (brut) {
@@ -314,7 +314,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
             budget: d.budget ?? null, style: d.style ?? null, temps: d.temps ?? null, resultats: null });
         }
       }
-    } catch { /* stockage indisponible : on repart de zéro */ }
+    } catch { /* stockage indisponible : on repart de zéro */ }
     setRestaure(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -365,7 +365,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
 
   const { etape, niveau, typeBac, volume, budget, style, temps, resultats } = state;
 
-  // Après « Recommencer » : on remonte au début du questionnaire (titre de la
+  // Après « Recommencer » : on remonte au début du questionnaire (titre de la
   // 1re question juste sous le fil d'Ariane collant), pas tout en haut.
   useEffect(() => {
     if (!remonterApresReset.current || state.etape !== 1) return;
@@ -374,17 +374,17 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
     if (!cible) return;
     const fil = document.querySelector('.breadcrumb');
     const collant = !!fil && getComputedStyle(fil).position === 'sticky';
-    const bas = collant ? fil!.getBoundingClientRect().bottom : 80;
+    const bas = collant ? fil!.getBoundingClientRect().bottom : 80;
     window.scrollTo({ top: Math.max(0, cible.getBoundingClientRect().top + window.scrollY - bas - 20), behavior: 'instant' as ScrollBehavior });
   }, [state.etape]);
 
-  // Retour depuis une fiche espèce : une fois les résultats réaffichés, on
+  // Retour depuis une fiche espèce : une fois les résultats réaffichés, on
   // remet la page à la position où l'on avait cliqué (une seule fois).
   const scrollRestaure = useRef(false);
   useEffect(() => {
     if (scrollRestaure.current || !restaure) return;
     scrollRestaure.current = true;
-    // Pas de résultats à réafficher : une ancienne position ne doit pas servir.
+    // Pas de résultats à réafficher : une ancienne position ne doit pas servir.
     if (etape !== 'resultats' || !resultats) {
       try { sessionStorage.removeItem(CLE_SCROLL); } catch { /* ignoré */ }
       return;
@@ -393,27 +393,37 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       const y = Number(sessionStorage.getItem(CLE_SCROLL));
       sessionStorage.removeItem(CLE_SCROLL);
       if (y > 0) {
-        // Deux images d'attente : le temps que les cartes soient dessinées.
+        // Deux images d'attente : le temps que les cartes soient dessinées.
         requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, y)));
       }
     } catch { /* ignoré */ }
   }, [restaure, etape, resultats]);
 
   // Annonces réellement en ligne pour les espèces conseillées (nombre + quelques
-  // annonces récentes). Échec silencieux : la page reste utile sans.
+  // annonces récentes). Échec silencieux : la page reste utile sans.
   useEffect(() => {
     if (!resultats || resultats.especes.length === 0) { setAnnoncesInfo(null); return; }
     let annule = false;
     const noms = resultats.especes.map((e) => e.nomScientifique).join(',');
     fetch(`/api/configurateur/annonces?noms=${encodeURIComponent(noms)}`)
-      .then((r) => (r.ok ? r.json() : null))
+      .then((r) => (r.ok ? r.json() : null))
       .then((d) => { if (!annule && d) setAnnoncesInfo(d as AnnoncesInfo); })
       .catch(() => {});
     return () => { annule = true; };
   }, [resultats]);
 
   return (
-    <div style={{ maxWidth: 720, margin: '0 auto' }}>
+    <div
+      style={
+        etape === 'resultats'
+          ? { maxWidth: 720, margin: '0 auto' }
+          : {
+              maxWidth: 720, margin: '0 auto', padding: '20px 18px 22px',
+              background: 'var(--bg-2)', border: '1px solid var(--border-strong)',
+              borderRadius: 22, boxShadow: 'var(--shadow)',
+            }
+      }
+    >
       <style>{`
         @media (min-width: 540px) { .step-label { display: inline !important; } }
         .setup-ligne:hover { background: var(--bg-3) !important; }
@@ -422,13 +432,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       <BarreProgression etape={etape} />
       <div ref={debutEtape} />
 
-      {/* ── Étape 1 : Niveau ────────────────────────────────────────────── */}
+      {/* ── Étape 1 : Niveau ────────────────────────────────────────────── */}
       {etape === 1 && (
-        <section>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+        <section style={{ padding: 0 }}>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel est votre niveau en aquariophilie ?
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
             Cela nous permet de vous proposer des espèces adaptées et des équipements proportionnés.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -440,13 +450,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
         </section>
       )}
 
-      {/* ── Étape 2 : Type de bac ────────────────────────────────────────── */}
+      {/* ── Étape 2 : Type de bac ────────────────────────────────────────── */}
       {etape === 2 && (
-        <section>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+        <section style={{ padding: 0 }}>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel type d'aquarium vous attire ?
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
             Chaque univers a ses contraintes et ses récompenses. Choisissez ce qui vous fait rêver.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
@@ -462,13 +472,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
         </section>
       )}
 
-      {/* ── Étape 3 : Volume ────────────────────────────────────────────── */}
+      {/* ── Étape 3 : Volume ────────────────────────────────────────────── */}
       {etape === 3 && typeBac && (
-        <section>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+        <section style={{ padding: 0 }}>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel volume avez-vous prévu ?
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
             Le volume détermine les espèces compatibles et le dimensionnement de votre filtration.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -487,13 +497,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
         </section>
       )}
 
-      {/* ── Étape 4 : Budget ─────────────────────────────────────────────── */}
+      {/* ── Étape 4 : Budget ─────────────────────────────────────────────── */}
       {etape === 4 && (
-        <section>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+        <section style={{ padding: 0 }}>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel est votre budget global ?
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
             Aquarium et animaux compris. Il adapte le niveau de gamme du matériel conseillé — étape facultative.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -515,13 +525,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
         </section>
       )}
 
-      {/* ── Étape 5 : Style ──────────────────────────────────────────────── */}
+      {/* ── Étape 5 : Style ──────────────────────────────────────────────── */}
       {etape === 5 && typeBac && (
-        <section>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+        <section style={{ padding: 0 }}>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Qu'aimeriez-vous voir principalement dans votre bac ?
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
             Cela oriente les espèces phares et le décor conseillés.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
@@ -543,13 +553,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
         </section>
       )}
 
-      {/* ── Étape 6 : Temps d'entretien ──────────────────────────────────── */}
+      {/* ── Étape 6 : Temps d'entretien ──────────────────────────────────── */}
       {etape === 6 && (
-        <section>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.5rem', marginBottom: 8 }}>
+        <section style={{ padding: 0 }}>
+          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Combien de temps pouvez-vous accorder à l'entretien ?
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: 24, marginTop: 8 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
             Indispensable pour ne pas vous orienter vers des espèces trop exigeantes.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -567,7 +577,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
 
       {/* ── Résultats ────────────────────────────────────────────────────── */}
       {etape === 'resultats' && resultats && (
-        <section>
+        <section style={{ padding: 0 }}>
           {/* Header résultats */}
           <div style={{
             padding: '18px 22px', borderRadius: 'var(--radius-m)',
@@ -700,8 +710,8 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
               <div key={i} className="setup-ligne" style={{
                 display: 'grid', gridTemplateColumns: '36px 1fr',
                 gap: '0 12px', padding: '14px 18px',
-                borderBottom: i < resultats.setup.lignes.length - 1 ? '1px solid var(--border)' : 'none',
-                background: i % 2 === 0 ? 'var(--bg-2)' : 'var(--bg)',
+                borderBottom: i < resultats.setup.lignes.length - 1 ? '1px solid var(--border)' : 'none',
+                background: i % 2 === 0 ? 'var(--bg-2)' : 'var(--bg)',
                 transition: 'background .12s',
               }}>
                 <span style={{ color: 'var(--teal)', paddingTop: 2 }}><Icone nom={ligne.icone} size={22} /></span>
@@ -739,7 +749,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
             {resultats.setup.conseils.map((c, i) => (
               <li key={i} style={{
                 fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6,
-                paddingBottom: i < resultats.setup.conseils.length - 1 ? 10 : 0,
+                paddingBottom: i < resultats.setup.conseils.length - 1 ? 10 : 0,
                 paddingLeft: 0,
                 display: 'flex', gap: 10,
               }}>
@@ -815,13 +825,13 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                 <Icone nom="cuve" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Setups prêts à l'emploi
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 16, marginTop: 0 }}>
-                {resultats.presets.length > 1 ? 'Des associations construites' : 'Une association construite'} à partir de vos choix
+                {resultats.presets.length > 1 ? 'Des associations construites' : 'Une association construite'} à partir de vos choix
                 {typeBac && volume ? ` (${[
                   TYPES_BAC.find((t) => t.id === typeBac)?.label,
                   VOLUMES_BAC[typeBac].find((v) => v.id === resultats.volume)?.label,
                   STYLES[typeBac].find((x) => x.id === style)?.label.replace(/^./, (c) => c.toLowerCase()),
                 ].filter(Boolean).join(', ').replace(/\s+/g, ' ')})` : ''}.
-                {' '}Les espèces d&apos;un même setup partagent la même température et un pH commun : vous pouvez les prendre telles quelles.
+                {' '}Les espèces d&apos;un même setup partagent la même température et un pH commun : vous pouvez les prendre telles quelles.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
                 {resultats.presets.map((p) => (
