@@ -17,7 +17,7 @@ export default function StatsConfigurateur() {
 
   return (
     <p style={{ marginTop: 6, color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-      <Icone nom="outil" size={14} style={{ marginRight: 6, verticalAlign: '-2px' }} />Configurateur utilisé {count.toLocaleString('fr-FR')} fois
+      <Icone nom="outil" size={14} style={{ marginRight: 6, verticalAlign: '-2px' }} />Simulateur utilisé {count.toLocaleString('fr-FR')} fois
     </p>
   );
 }

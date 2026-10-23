@@ -21,13 +21,20 @@ const echapper = (s: string) =>
 
 async function envoyerMail(sujet: string, texte: string, html: string) {
   const cle = process.env.RESEND_API_KEY;
-  if (!cle) return; // Pas de clé : le signalement reste consultable dans Supabase.
+  if (!cle) {
+    console.error('RESEND_API_KEY absente : mail de signalement non envoyé.');
+    return; // Le signalement reste consultable dans Supabase.
+  }
   try {
-    await fetch('https://api.resend.com/emails', {
+    const r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${cle}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from: EXPEDITEUR, to: [DESTINATAIRE], subject: sujet, text: texte, html }),
     });
+    if (!r.ok) {
+      // Visible dans Netlify > Logs > Functions (ex : destinataire non autorisé, clé invalide).
+      console.error('Resend a refusé le mail de signalement', r.status, await r.text());
+    }
   } catch (e) {
     console.error('Envoi du mail de signalement impossible', e);
   }

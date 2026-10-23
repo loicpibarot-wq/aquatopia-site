@@ -6,4 +6,4 @@ export type IconeNom =
   | 'osmose' | 'ecumeur' | 'brassage' | 'chimie' | 'uv' | 'plante' | 'pousse'
   | 'outil' | 'corail' | 'poisson' | 'poisson-symbole' | 'coquillage' | 'couronne'
   | 'arbre' | 'regle' | 'aide' | 'cuve' | 'mobile' | 'panier' | 'lieu' | 'patte'
-  | 'minuteur' | 'euro' | 'valide' | 'alerte' | 'info' | 'tortue' | 'vagues' | 'gouttes' | 'drapeau';
+  | 'crevette' | 'escargot' | 'minuteur' | 'euro' | 'valide' | 'alerte' | 'info' | 'tortue' | 'vagues' | 'gouttes' | 'drapeau';

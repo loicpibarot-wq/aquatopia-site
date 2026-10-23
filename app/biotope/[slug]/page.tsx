@@ -28,9 +28,9 @@ const CONTENU: Record<
       "Le plus grand univers de l'aquariophilie : poissons (Guppy, Betta, Scalaire, Cichlidés, Ancistrus...), crevettes (Red Cherry, Caridina, Neocaridina), plantes et aquascaping, cuves et matériel dédié. Toutes les annonces d'eau douce, tous types confondus, publiées par des particuliers et éleveurs partout en France.",
     conseil:
       "Avant l'achat, vérifiez la compatibilité de l'espèce avec les paramètres de votre eau (pH, dureté, température) et la taille de votre aquarium — un vendeur sérieux pourra toujours vous renseigner sur ces points.",
-    metaTitre: "Annonces aquariophilie eau douce — poissons, plantes, matériel",
+    metaTitre: "Aquarium d'eau douce : poissons, plantes et matériel à vendre",
     metaDescription:
-      "Toutes les annonces d'eau douce sur Aquatopia : poissons, crevettes, plantes, cuves et matériel entre particuliers et éleveurs, partout en France.",
+      "Annonces d'aquariophilie d'eau douce : poissons, crevettes, plantes, aquariums d'occasion et matériel à vendre ou à donner entre particuliers, partout en France.",
   },
   'eau-de-mer': {
     h1: "Aquariophilie récifale et marine",
@@ -38,9 +38,9 @@ const CONTENU: Record<
       "Poissons marins, boutures de coraux (LPS, SPS, mous), invertébrés (crevettes, crabes, bénitiers) et matériel spécifique au récifal (écumeurs, osmolateurs, brassage, éclairage full spectrum) : retrouvez ici toutes les annonces liées à l'eau de mer.",
     conseil:
       "Le récifal demande des paramètres stables (salinité, calcium, KH) : prenez le temps d'échanger avec le vendeur sur l'acclimatation de l'animal avant de le récupérer.",
-    metaTitre: "Annonces récifal et eau de mer — poissons, coraux, matériel",
+    metaTitre: "Aquarium récifal et eau de mer : coraux, poissons à vendre",
     metaDescription:
-      "Annonces d'eau de mer et de récifal sur Aquatopia : poissons marins, coraux, invertébrés et matériel spécifique entre particuliers.",
+      "Annonces d'aquarium récifal et d'eau de mer : poissons marins, boutures de coraux, invertébrés et matériel d'occasion entre particuliers.",
   },
   bassin: {
     h1: "Bassins et poissons de bassin",
@@ -48,9 +48,9 @@ const CONTENU: Record<
       "Carpes Koï, poissons rouges, esturgeons, plantes de berge et de bassin, pompes et systèmes de filtration extérieurs : toutes les annonces liées aux bassins de jardin, de la simple mare aux bassins de Koï.",
     conseil:
       "La taille adulte de certaines espèces (Koï, esturgeons) est bien supérieure à leur taille en vente : vérifiez que votre bassin pourra les accueillir à long terme, et privilégiez une introduction au printemps ou en été.",
-    metaTitre: "Annonces bassin — Koï, poissons rouges, plantes de bassin",
+    metaTitre: "Bassin de jardin : Koï, poissons et plantes à vendre",
     metaDescription:
-      "Annonces de poissons et plantes de bassin, matériel de filtration extérieur, entre particuliers sur Aquatopia.",
+      "Annonces de bassin de jardin : Koï, poissons rouges, plantes de bassin et matériel de filtration d'occasion à vendre ou à donner entre particuliers.",
   },
 };
 

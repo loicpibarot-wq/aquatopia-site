@@ -7,7 +7,7 @@ import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 const SITE_URL = 'https://aquatopia.fr';
 const PAR_PAGE = 24;
 
-const TITRE = 'Annonces à échanger : poissons, plantes et matériel';
+const TITRE = "Échange de poissons, plantes et matériel d'aquarium";
 const DESCRIPTION =
   "Échangez poissons, plantes, crevettes ou matériel d'aquariophilie contre d'autres espèces ou équipements, sans transaction d'argent. Toutes catégories confondues.";
 

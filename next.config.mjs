@@ -6,6 +6,8 @@ const nextConfig = {
   // les liens et le référencement existants.
   async redirects() {
     return [
+      // Le « configurateur » a été renommé « simulateur » (nom plus parlant).
+      { source: '/configurateur', destination: '/simulateur', permanent: true },
       { source: '/especes/colisa-lalia-gourami-nain-multicolore', destination: '/especes/gourami-nain', permanent: true },
       { source: '/especes/poisson-clown-d-eau-douce-chromobotia', destination: '/especes/loche-clown', permanent: true },
       { source: '/especes/poisson-pierre', destination: '/especes/poisson-roseau', permanent: true },

@@ -1,9 +1,10 @@
 'use client';
 
-import { CSSProperties, useEffect, useState } from 'react';
+import type { CSSProperties } from 'react';
 
-const IOS_STORE = 'https://apps.apple.com/app/id6774605218';
-const ANDROID_STORE = 'https://play.google.com/store/apps/details?id=com.noula34.aquatopia';
+// Lien intelligent d'Aquatopia : il envoie vers l'App Store ou Google Play
+// selon l'appareil. Une seule adresse à maintenir, côté domaine.
+const LIEN_APPLI = 'https://app.aquatopia.fr';
 
 export default function DownloadButton({
   className,
@@ -14,15 +15,8 @@ export default function DownloadButton({
   style?: CSSProperties;
   children: React.ReactNode;
 }) {
-  const [href, setHref] = useState(IOS_STORE);
-
-  useEffect(() => {
-    const ua = navigator.userAgent || navigator.vendor || '';
-    setHref(/android/i.test(ua) ? ANDROID_STORE : IOS_STORE);
-  }, []);
-
   return (
-    <a href={href} target="_blank" rel="noopener" className={className} style={style}>
+    <a href={LIEN_APPLI} target="_blank" rel="noopener" className={className} style={style}>
       {children}
     </a>
   );

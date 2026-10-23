@@ -69,15 +69,18 @@ export default function EspeceImage({ src, alt, slug }: Props) {
           title="Signaler cette photo"
           style={{
             position: 'absolute', top: 10, right: 10,
-            display: 'inline-flex', alignItems: 'center', gap: 6,
-            padding: '6px 11px', borderRadius: 999, cursor: 'pointer',
-            background: 'rgba(11,37,48,0.72)', color: '#e2e8f0',
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: 28, height: 28, padding: 0, borderRadius: '50%', cursor: 'pointer',
+            background: 'rgba(11,37,48,0.55)', color: '#e2e8f0',
             border: '1px solid rgba(255,255,255,0.18)',
-            backdropFilter: 'blur(4px)', fontSize: '0.78rem', fontFamily: 'inherit',
+            backdropFilter: 'blur(4px)', fontFamily: 'inherit',
           }}
         >
-          <Icone nom="drapeau" size={13} />
-          Signaler la photo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <circle cx="8" cy="3" r="1.4" />
+            <circle cx="8" cy="8" r="1.4" />
+            <circle cx="8" cy="13" r="1.4" />
+          </svg>
         </button>
       )}
 

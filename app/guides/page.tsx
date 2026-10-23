@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 // (débuter, comprendre) vers le plus spécialisé (récifal, bassin), puis le
 // pratico-pratique (entretien, décoration, matériel) et enfin les
 // comparatifs, plus orientés décision d'achat.
-const ORDRE_CATEGORIES = ['Débuter', 'Comprendre', 'Récifal', 'Bassin', 'Entretien', 'Décoration', 'Matériel', 'Comparatif'];
+const ORDRE_CATEGORIES = ['Débuter', 'Acheter & vendre', 'Comprendre', 'Récifal', 'Bassin', 'Entretien', 'Décoration', 'Matériel', 'Comparatif'];
 
 export default function GuidesPage() {
   const categories = ORDRE_CATEGORIES.map((eyebrow) => ({

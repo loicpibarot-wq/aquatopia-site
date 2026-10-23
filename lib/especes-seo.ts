@@ -3,6 +3,7 @@
 // Google en JSON-LD, à partir des mêmes champs, jamais un contenu différent),
 // tuiles d'information et choix des fiches « Voir aussi ».
 import { ESPECES_PUBLIEES, CATEGORIES_MARINES, type Espece, type FicheTechnique } from '@/lib/especes';
+import { faqBouturage } from '@/lib/bouturage';
 
 export type EspecePubliee = Espece & { fiche: FicheTechnique };
 
@@ -36,11 +37,27 @@ function suffixeTitre(e: EspecePubliee): string {
   return 'fiche technique';
 }
 
+// Seules les espèces librement vendables reçoivent « à vendre » dans leur titre
+// et leur description : jamais pour une espèce interdite, soumise à autorisation
+// ou à déclaration CITES.
+export const estVendable = (e: Espece) => e.statutLegal === 'autorise';
+
 export function titreEspece(e: EspecePubliee): string {
-  const suffixe = suffixeTitre(e);
-  const complet = `${nomAvecScientifique(e)} : ${suffixe}`;
-  // Google tronque les titres trop longs : au-delà, on garde le seul nom courant.
-  return complet.length <= 70 ? complet : `${e.nomCommun} : ${suffixe}`;
+  const vendable = estVendable(e);
+  // Avec « à vendre », on raccourcit le suffixe pour rester lisible dans Google.
+  const COURT: Record<string, string> = {
+    'entretien en bac récifal': 'entretien récifal',
+    'entretien en aquarium marin': 'entretien marin',
+    'fiche et entretien en eau de mer': 'fiche et entretien',
+  };
+  const suffixeLong = suffixeTitre(e);
+  const suffixe = vendable ? (COURT[suffixeLong] ?? suffixeLong) : suffixeLong;
+  const mot = vendable ? ' à vendre' : '';
+  const complet = `${nomAvecScientifique(e)}${mot} : ${suffixe}`;
+  // Google tronque les titres trop longs (le gabarit ajoute « | Aquatopia ») :
+  // au-delà, on garde le seul nom courant.
+  const limite = vendable ? 58 : 70;
+  return complet.length <= limite ? complet : `${e.nomCommun}${mot} : ${suffixe}`;
 }
 
 const coupe = (texte: string, max: number) => {
@@ -50,6 +67,7 @@ const coupe = (texte: string, max: number) => {
 };
 
 export function descriptionEspece(e: EspecePubliee): string {
+  const nomDesc = estVendable(e) ? `${e.nomCommun} à vendre` : e.nomCommun;
   const f = e.fiche;
   const ph = `pH ${f.phMin ?? '?'}-${f.phMax ?? '?'}`;
   const temp = `${f.tempMin ?? '?'}-${f.tempMax ?? '?'}°C`;
@@ -62,32 +80,32 @@ export function descriptionEspece(e: EspecePubliee): string {
   if (f.corail) {
     const c = f.corail;
     return coupe(
-      `${e.nomCommun} : ${c.type}, lumière ${c.lumiere.toLowerCase()}, courant ${c.courant.toLowerCase()}, ${temp}. Entretien en bac récifal, compatibilité et statut légal en France.`,
+      `${nomDesc} : ${c.type}, lumière ${c.lumiere.toLowerCase()}, courant ${c.courant.toLowerCase()}, ${temp}. Entretien en bac récifal, compatibilité et statut légal en France.`,
       158,
     );
   }
   if (f.algue) {
     const a = f.algue;
     return coupe(
-      `${e.nomCommun} : lumière ${a.lumiere.toLowerCase()}, croissance ${a.croissance.toLowerCase()}, risque de prolifération ${a.risque.toLowerCase()}. Usage, entretien et statut légal en France.`,
+      `${nomDesc} : lumière ${a.lumiere.toLowerCase()}, croissance ${a.croissance.toLowerCase()}, risque de prolifération ${a.risque.toLowerCase()}. Usage, entretien et statut légal en France.`,
       158,
     );
   }
   if (f.plante) {
     const p = f.plante;
     return coupe(
-      `${e.nomCommun} : ${p.placement.toLowerCase()}, lumière ${p.lumiere.toLowerCase()}, CO₂ ${p.co2.toLowerCase()}, ${ph}, ${temp}. Entretien, compatibilité et statut légal en France.`,
+      `${nomDesc} : ${p.placement.toLowerCase()}, lumière ${p.lumiere.toLowerCase()}, CO₂ ${p.co2.toLowerCase()}, ${ph}, ${temp}. Entretien, compatibilité et statut légal en France.`,
       158,
     );
   }
   if (f.marin) {
     const reef = f.marin.reefSafe ? `, récif : ${f.marin.reefSafe.toLowerCase()}` : '';
     return coupe(
-      `${e.nomCommun} : volume minimum ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}${reef}, ${temp}. Compatibilité, alimentation et statut légal en France.`,
+      `${nomDesc} : volume minimum ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}${reef}, ${temp}. Compatibilité, alimentation et statut légal en France.`,
       158,
     );
   }
-  return `${e.nomCommun} : volume minimum ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}, ${ph}, température ${temp}. Compatibilité, alimentation et conseils d'entretien.`;
+  return coupe(`${nomDesc} : volume minimum ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}, ${ph}, température ${temp}. Compatibilité, alimentation et conseils d'entretien.`, 160);
 }
 
 export interface Tuile {
@@ -206,7 +224,7 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
       question: `Où placer ${nom} dans l'aquarium ?`,
       reponse: `Placement conseillé : ${c.placement.toLowerCase()}. Agressivité : ${c.agressivite.toLowerCase()}. Taille adulte : ${f.tailleAdulte}.`,
     });
-    faq.push({ question: `Comment bouturer ou multiplier ${nom} ?`, reponse: phrase(majuscule(c.multiplication)) });
+    faq.push(...faqBouturage(e));
   } else if (f.algue) {
     const a = f.algue;
     faq.push({
@@ -228,7 +246,7 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
       question: `Où placer ${nom} ?`,
       reponse: `Placement conseillé : ${p.placement.toLowerCase()}. Taille adulte : ${f.tailleAdulte}.`,
     });
-    faq.push({ question: `Comment multiplier ${nom} ?`, reponse: phrase(majuscule(p.multiplication)) });
+    faq.push(...faqBouturage(e));
   } else {
     // Poissons, crustacés, invertébrés eau douce et marins
     if (f.volumeMinLitres) {

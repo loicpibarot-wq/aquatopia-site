@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import DownloadButton from '@/components/DownloadButton';
+import LiensReseaux from '@/components/LiensReseaux';
+import { IconeApple, IconeGooglePlay } from '@/components/IconesStores';
+import { compterAnnoncesActives, compterMembres } from '@/lib/annonces';
+
+// Le compteur d'annonces de l'accueil est rafraîchi toutes les 10 minutes.
+export const revalidate = 600;
 
 const FAQ = [
   {
@@ -16,12 +22,25 @@ const FAQ = [
     a: "Oui, l'application couvre l'ensemble de l'aquariophilie : eau douce, eau de mer (récifal), bassin extérieur, ainsi que tous les éclairages, décors et accessoires.",
   },
   {
+    q: 'Comment vendre son aquarium ou ses poissons sur Aquatopia ?',
+    a: "Téléchargez l'application gratuite, créez votre annonce avec des photos, le prix et votre ville, puis publiez-la : notre équipe la vérifie avant sa mise en ligne. Les acheteurs vous écrivent par la messagerie et la remise se fait en main propre. Nos guides expliquent comment bien préparer une annonce d'aquarium d'occasion.",
+  },
+  {
+    q: "Où trouver un aquarium ou des poissons d'occasion près de chez moi ?",
+    a: "Indiquez votre ville dans l'application : les annonces d'aquariums, de poissons, de plantes et de matériel proposés par des particuliers sont classées par distance, pour trouver ce qui se vend autour de vous.",
+  },
+  {
+    q: 'Peut-on aussi donner ou échanger un aquarium, des poissons ou du matériel ?',
+    a: "Oui. Chaque annonce peut être une vente, un don ou un échange, pour donner une seconde vie à du matériel d'aquariophilie ou aux poissons dont vous n'avez plus l'usage.",
+  },
+  {
     q: 'Comment se déroulent les transactions ?',
     a: "Pour préserver le bien-être animal et éviter les risques liés aux envois, toutes les remises s'effectuent en main propre directement entre l'acheteur et le vendeur.",
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [nbAnnonces, nbMembres] = await Promise.all([compterAnnoncesActives(), compterMembres()]);
   return (
     <>
       {/* Données structurées FAQ — reprend mot pour mot le contenu affiché
@@ -45,57 +64,53 @@ export default function HomePage() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div>
-            <span className="eyebrow">Marketplace aquariophile</span>
+            <span className="eyebrow">Application gratuite</span>
             <h1 style={{ marginTop: 16 }}>
-              Aquatopia — la marketplace locale pour <span className="accent">l&apos;aquariophilie et le bassin</span>
+              Petites annonces <span className="accent">aquariophilie</span> : poissons, aquariums et matériel
             </h1>
-            <h2
-              className="lede"
-              style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 600, fontSize: '1.14rem', color: 'var(--text)', marginTop: 22 }}
-            >
-              Achetez, vendez et donnez vivant, équipements et accessoires entre particuliers et professionnels.
-            </h2>
-            <p className="lede" style={{ marginTop: 10 }}>
-              Poissons, coraux, plantes, bassins, éclairages, décors — annonces vérifiées, messagerie en temps réel, remise en main propre.
+            <p className="lede" style={{ marginTop: 22 }}>
+              Avec Aquatopia, achetez, vendez, échangez ou donnez poissons, crevettes, plantes aquatiques, aquariums et matériel d&apos;occasion près de chez vous.
             </p>
+            <div className="hero-stats" style={{ marginTop: 28 }}>
+              <div className="stat"><b>100%</b><span>annonces modérées</span></div>
+              {nbMembres !== null && nbMembres > 0 && (
+                <div className="stat"><b>{nbMembres >= 100 ? `${(Math.floor(nbMembres / 100) * 100).toLocaleString('fr-FR').replace(/\s/g, ' ')}+` : nbMembres}</b><span>membres inscrits</span></div>
+              )}
+              {nbAnnonces !== null && nbAnnonces > 0 ? (
+                <div className="stat"><b>{nbAnnonces >= 100 ? `${(Math.floor(nbAnnonces / 100) * 100).toLocaleString('fr-FR').replace(/\s/g, ' ')}+` : nbAnnonces}</b><span>annonces en ligne</span></div>
+              ) : (
+                <div className="stat"><b>iOS + Android</b><span>disponible dès maintenant</span></div>
+              )}
+            </div>
             <div className="hero-ctas">
               <DownloadButton className="btn btn-primary" >
                 <span style={{ padding: '2px 12px' }}>Télécharger maintenant</span>
               </DownloadButton>
-              <a
-                href="https://www.facebook.com/share/1DmYnkCM4g/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener"
-                className="btn btn-ghost"
-                style={{ padding: '10px 18px', fontSize: '0.82rem', alignSelf: 'center' }}
-              >
-                Rejoindre la communauté
-              </a>
             </div>
             <div className="store-badges">
               <a href="https://apps.apple.com/app/id6774605218" target="_blank" rel="noopener" className="store-badge">
-                <span>▸</span>
+                <IconeApple size={24} />
                 <span><small>Disponible sur</small><strong>App Store</strong></span>
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" target="_blank" rel="noopener" className="store-badge">
-                <span>▸</span>
+                <IconeGooglePlay size={22} />
                 <span><small>Disponible sur</small><strong>Google Play</strong></span>
               </a>
             </div>
             <p style={{ marginTop: 16, fontSize: '0.85rem', color: 'var(--text-faint)' }}>Disponible dans toute la France.</p>
-            <div className="hero-stats">
-              <div className="stat"><b>100%</b><span>annonces modérées</span></div>
-              <div className="stat"><b>iOS + Android</b><span>disponible dès maintenant</span></div>
+            <div className="hero-reseaux" style={{ marginTop: 36 }}>
+              <p style={{ margin: '0 0 12px', fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>Rejoignez la communauté</p>
+              <LiensReseaux taille="md" accent />
             </div>
           </div>
 
           <div className="phone-stage">
             <div className="phone-frame">
               <Image
-                src="/phone-shot-1.webp"
-                alt="Application Aquatopia - recherche d'annonces par catégorie : vivant, plantes, éclairage, cuves"
+                src="/phone-shot-4.webp"
+                alt="Application Aquatopia : annonces d'aquariophilie à donner et à échanger près de chez soi, poissons, plantes et matériel d'aquarium"
                 width={225}
-                height={487}
+                height={488}
                 priority
               />
             </div>
@@ -181,6 +196,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="acheter-vendre">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Acheter ou vendre</span>
+            <h2>Acheter ou vendre un aquarium d&apos;occasion, des poissons et du matériel d&apos;aquariophilie</h2>
+            <p>Que vous cherchiez une bonne affaire ou que vous souhaitiez vous séparer d&apos;un équipement, Aquatopia met en relation les aquariophiles près de chez eux.</p>
+          </div>
+          <div className="seo-grid">
+            <div className="seo-card">
+              <h3>Vous voulez acheter</h3>
+              <p>
+                Parcourez les <Link href="/categorie/cuves">aquariums d&apos;occasion</Link>, les <Link href="/categorie/vivant">poissons, crevettes et coraux à vendre</Link>, les <Link href="/categorie/plantes">plantes d&apos;aquarium</Link> et le <Link href="/categorie/materiel">matériel d&apos;aquariophilie</Link>.
+                Avant de payer, lisez nos guides : <Link href="/guides/acheter-aquarium-occasion-verifications">acheter un aquarium d&apos;occasion, les points à vérifier</Link>, <Link href="/guides/aquarium-occasion-60-100-200-litres">aquarium de 60, 100 ou 200 L</Link> et <Link href="/guides/aquarium-occasion-pas-cher-ou-trouver">où trouver un aquarium pas cher</Link>. Cherchez aussi <Link href="/aquarium-occasion">par ville ou par département</Link>.
+              </p>
+            </div>
+            <div className="seo-card">
+              <h3>Vous voulez vendre</h3>
+              <p>
+                Publiez gratuitement votre annonce en quelques minutes : voici comment <Link href="/guides/vendre-son-aquarium-occasion">vendre son aquarium d&apos;occasion</Link> et <Link href="/guides/vendre-ses-poissons-aquarium">vendre ses poissons d&apos;aquarium</Link>.
+                Vous préférez donner ? Consultez les <Link href="/dons">annonces à donner</Link> ou les <Link href="/echanges">échanges</Link>. Vous changez de bac ? Voir <Link href="/guides/reprise-aquarium-vendre-donner-echanger">que faire de son ancien aquarium</Link>.
+              </p>
+            </div>
+            <div className="seo-card">
+              <h3>Près de chez vous</h3>
+              <p>
+                Les annonces sont classées par distance, pour une remise en main propre rapide, partout en France. Découvrez aussi nos <Link href="/biotope/eau-douce">annonces d&apos;eau douce</Link>, de <Link href="/biotope/eau-de-mer">récifal</Link> et de <Link href="/biotope/bassin">bassin</Link>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="confiance">
         <div className="wrap trust">
           <div>
@@ -224,7 +271,7 @@ export default function HomePage() {
           <div className="section-head">
             <span className="eyebrow">Recherches populaires</span>
             <h2>Tout l&apos;univers de l&apos;aquariophilie et du bassin, en un seul endroit</h2>
-            <p>Que vous cherchiez un poisson tropical, une bouture de corail ou une pompe de bassin, Aquatopia couvre l&apos;ensemble du vivant et du matériel, neuf comme d&apos;occasion.</p>
+            <p>Que vous cherchiez un poisson tropical, une bouture de corail ou une pompe de bassin, Aquatopia couvre l&apos;ensemble du vivant et du matériel, neuf comme d&apos;occasion. Annonces vérifiées, messagerie en temps réel et remise en main propre.</p>
           </div>
           <div className="seo-grid">
             <div className="seo-card">
@@ -277,25 +324,17 @@ export default function HomePage() {
           <div className="cta-band">
             <span className="eyebrow">Envie d&apos;aller plus loin</span>
             <h2>Rejoignez la communauté Aquatopia</h2>
-            <p>Conseils, coups de cœur et nouveautés — retrouvez-nous sur Facebook.</p>
-            <a
-              href="https://www.facebook.com/share/1DmYnkCM4g/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener"
-              className="btn btn-primary"
-              style={{ padding: '16px 34px', fontSize: '1.05rem' }}
-            >
-              Rejoindre la communauté sur Facebook
-            </a>
+            <p>Conseils, coups de cœur et nouveautés — retrouvez-nous sur Facebook, Instagram et TikTok.</p>
+            <LiensReseaux taille="lg" justify="center" accent />
             <div style={{ marginTop: 22, paddingTop: 22, borderTop: '1px solid var(--border)', width: '100%', maxWidth: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
               <span style={{ fontSize: '0.8rem', color: 'var(--text-faint)' }}>Aquatopia est aussi disponible gratuitement sur :</span>
               <div className="store-badges" style={{ marginTop: 0 }}>
                 <a href="https://apps.apple.com/app/id6774605218" target="_blank" rel="noopener" className="store-badge">
-                  <span>▸</span>
+                  <IconeApple size={24} />
                   <span><small>Disponible sur</small><strong>App Store</strong></span>
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" target="_blank" rel="noopener" className="store-badge">
-                  <span>▸</span>
+                  <IconeGooglePlay size={22} />
                   <span><small>Disponible sur</small><strong>Google Play</strong></span>
                 </a>
               </div>

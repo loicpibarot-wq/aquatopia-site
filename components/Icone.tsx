@@ -2,10 +2,40 @@ import {
   Filter, Lightbulb, Thermometer, Mountain, Wind, Droplet, Microscope, Zap, Waves,
   FlaskConical, Sun, Leaf, Sprout, Wrench, Flower2, Fish, FishSymbol, Shell, Crown,
   TreeDeciduous, Ruler, CircleHelp, Container, Smartphone, ShoppingCart, MapPin,
-  PawPrint, Timer, Euro, Check, TriangleAlert, Info, Turtle, Droplets, Flag,
-  type LucideIcon,
+  PawPrint, Snail, Timer, Euro, Check, TriangleAlert, Info, Turtle, Droplets, Flag,
+  type LucideIcon, type LucideProps,
 } from 'lucide-react';
+import { forwardRef } from 'react';
 import type { IconeNom } from '@/lib/icones';
+
+// Icône « crevette » : absente de la version de lucide-react installée, reprise
+// du jeu d'icônes Lucide (licence ISC) au même format que les autres.
+const Crevette = forwardRef<SVGSVGElement, LucideProps>(function Crevette(
+  { size = 24, strokeWidth = 2, ...reste },
+  ref,
+) {
+  return (
+    <svg
+      ref={ref}
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...reste}
+    >
+      <path d="M11 12h.01" />
+      <path d="M13 22c.5-.5 1.12-1 2.5-1-1.38 0-2-.5-2.5-1" />
+      <path d="M14 2a3.28 3.28 0 0 1-3.227 1.798l-6.17-.561A2.387 2.387 0 1 0 4.387 8H15.5a1 1 0 0 1 0 13 1 1 0 0 0 0-5H12a7 7 0 0 1-7-7V8" />
+      <path d="M14 8a8.5 8.5 0 0 1 0 8" />
+      <path d="M16 16c2 0 4.5-4 4-6" />
+    </svg>
+  );
+});
 
 const ICONES: Record<IconeNom, LucideIcon> = {
   filtration: Filter,
@@ -44,6 +74,8 @@ const ICONES: Record<IconeNom, LucideIcon> = {
   vagues: Waves,
   gouttes: Droplets,
   drapeau: Flag,
+  crevette: Crevette,
+  escargot: Snail,
 };
 
 interface Props {

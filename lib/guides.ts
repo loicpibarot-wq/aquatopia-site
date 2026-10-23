@@ -2459,6 +2459,681 @@ export const GUIDES: Guide[] = [
       { href: '/guides/choisir-poissons-bassin-jardin', label: 'Quels poissons choisir pour son bassin' },
     ],
   },
+  {
+      "slug": "vendre-son-aquarium-occasion",
+      "titre": "Vendre son aquarium d'occasion : le guide pour bien le vendre",
+      "eyebrow": "Acheter & vendre",
+      "description": "Préparer, photographier, fixer le prix et organiser la remise : tout pour vendre rapidement son aquarium d'occasion et son matériel entre particuliers.",
+      "datePublication": "2026-10-22",
+      "sections": [
+        {
+          "titre": "Préparer l'aquarium avant de le mettre en vente",
+          "paragraphes": [
+            "Videz et nettoyez le bac, rincez les accessoires et retirez le calcaire des vitres. Un aquarium propre se vend plus facilement et rassure l'acheteur. Si vous le pouvez, vérifiez l'étanchéité en le remplissant quelques heures : pouvoir annoncer « ne fuit pas » est un argument de poids."
+          ]
+        },
+        {
+          "titre": "Bien le photographier",
+          "paragraphes": [
+            "Prenez plusieurs photos nettes, à la lumière du jour, du bac vide et de chaque équipement (filtre, chauffage, éclairage, meuble). Montrez aussi les éventuels défauts : rayures légères, silicone ancien. Un acheteur qui voit tout à l'avance pose moins de questions et se déplace plus sûrement."
+          ]
+        },
+        {
+          "titre": "Rédiger une annonce complète",
+          "paragraphes": [
+            "Indiquez la contenance en litres, les dimensions, l'âge du bac, la marque, ce qui est inclus (meuble, filtre, éclairage, décor) et la raison de la vente. Précisez votre ville : sur Aquatopia, les annonces sont classées par distance, et la plupart des acheteurs cherchent près de chez eux."
+          ]
+        },
+        {
+          "titre": "Fixer le prix",
+          "paragraphes": [
+            "Regardez les annonces d'aquariums comparables (même volume, même état, mêmes équipements) et situez-vous par rapport à elles. Un prix légèrement négociable attire davantage de messages. Si vous vendez le bac avec son matériel, un lot complet à prix attractif peut aussi se vendre plus vite."
+          ]
+        },
+        {
+          "titre": "Organiser la remise",
+          "paragraphes": [
+            "Un aquarium se récupère sur place, ce qui permet à l'acheteur de le contrôler. Fixez un rendez-vous, videz l'eau à l'avance et aidez au démontage si nécessaire. Convenez du mode de paiement avant la venue de l'acheteur."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/cuves",
+          "label": "Voir les aquariums d'occasion"
+        },
+        {
+          "href": "/guides/acheter-aquarium-occasion-verifications",
+          "label": "Acheter un aquarium d'occasion : points à vérifier"
+        },
+        {
+          "href": "/guides/deposer-annonce-aquariophilie-gratuite",
+          "label": "Déposer une annonce gratuite"
+        },
+        {
+          "href": "/guides/aquarium-neuf-ou-occasion-comparatif",
+          "label": "Aquarium neuf ou d’occasion : comparatif"
+        }
+      ]
+    },
+    {
+      "slug": "acheter-aquarium-occasion-verifications",
+      "titre": "Acheter un aquarium d'occasion : les points à vérifier avant de payer",
+      "eyebrow": "Acheter & vendre",
+      "description": "Étanchéité, silicone, vitres, équipements : la checklist pour acheter un aquarium d'occasion sans mauvaise surprise.",
+      "datePublication": "2026-10-22",
+      "sections": [
+        {
+          "titre": "Pourquoi acheter d'occasion",
+          "paragraphes": [
+            "Un aquarium d'occasion permet souvent de démarrer avec un volume plus grand et du matériel inclus pour un budget réduit. Il demande simplement un peu plus de vérifications qu'un bac neuf."
+          ]
+        },
+        {
+          "titre": "Contrôler le bac",
+          "paragraphes": [
+            "Inspectez les vitres (rayures profondes, éclats, traces d'humidité), les joints de silicone (décollements, moisissures noires, silicone jauni ou craquelé) et les angles. Un test en eau de quelques heures chez vous, avant de le garnir, reste la meilleure garantie d'étanchéité."
+          ]
+        },
+        {
+          "titre": "Tester les équipements",
+          "paragraphes": [
+            "Faites fonctionner le filtre, le chauffage et l'éclairage devant le vendeur. Le chauffage doit chauffer, le filtre ne doit pas faire de bruit anormal, la rampe LED doit s'allumer entièrement. Notez la marque et le modèle pour vérifier plus tard la disponibilité des pièces."
+          ]
+        },
+        {
+          "titre": "Nettoyer avant la mise en eau",
+          "paragraphes": [
+            "À la maison, nettoyez le bac et le matériel à l'eau claire, sans savon ni produit ménager dont les résidus pourraient nuire aux poissons. Remplacez les consommables usés (médias filtrants, ampoules) si nécessaire."
+          ]
+        },
+        {
+          "titre": "Prévoir le transport",
+          "paragraphes": [
+            "Un aquarium est lourd et fragile : prévoyez de l'aide, des sangles ou des couvertures et un véhicule adapté. Mesurez le bac et l'endroit où vous le placerez avant de vous déplacer."
+          ]
+        },
+        {
+          "titre": "Avant de payer",
+          "paragraphes": [
+            "Vérifiez que le bac correspond bien à l'annonce et convenez du prix à l'avance. Sur Aquatopia, vous pouvez poser toutes vos questions au vendeur par la messagerie avant de vous déplacer."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/cuves",
+          "label": "Voir les aquariums d'occasion"
+        },
+        {
+          "href": "/guides/vendre-son-aquarium-occasion",
+          "label": "Vendre son aquarium d'occasion"
+        },
+        {
+          "href": "/guides/aquarium-neuf-ou-occasion-comparatif",
+          "label": "Aquarium neuf ou d’occasion : comparatif"
+        },
+        {
+          "href": "/guides/demarrer-aquarium-eau-douce",
+          "label": "Démarrer un aquarium d’eau douce"
+        }
+      ]
+    },
+    {
+      "slug": "vendre-ses-poissons-aquarium",
+      "titre": "Vendre ses poissons d'aquarium : bien préparer son annonce et la remise",
+      "eyebrow": "Acheter & vendre",
+      "description": "Espèce, quantité, photos, transport : comment vendre ses poissons d'aquarium en respectant les animaux et les règles de la plateforme.",
+      "datePublication": "2026-10-22",
+      "sections": [
+        {
+          "titre": "Identifier correctement l'espèce",
+          "paragraphes": [
+            "Indiquez le nom commun et, si possible, le nom scientifique. Une identification précise évite les malentendus et permet à l'acheteur de vérifier la compatibilité avec son bac. Certaines espèces sont protégées ou interdites à la vente : sur Aquatopia, les annonces d'espèces réglementées sont contrôlées avant publication, et certaines demandent une déclaration d'élevage en captivité."
+          ]
+        },
+        {
+          "titre": "Des photos qui montrent vraiment vos poissons",
+          "paragraphes": [
+            "Photographiez vos propres poissons plutôt que des images trouvées sur internet : l'acheteur veut voir la taille, les couleurs et l'état réel. Des photos nettes, sans reflets sur la vitre, rassurent et accélèrent la vente."
+          ]
+        },
+        {
+          "titre": "Préciser quantité, âge et conditions d'élevage",
+          "paragraphes": [
+            "Âge ou taille approximative, nombre de mâles et de femelles, nourriture habituelle et paramètres de l'eau d'origine aident l'acheteur à préparer l'accueil. Si vous proposez un lot, précisez-le dans l'annonce."
+          ]
+        },
+        {
+          "titre": "Remise en main propre et transport",
+          "paragraphes": [
+            "Sur Aquatopia, les animaux vivants se remettent en main propre. Mettez les poissons dans un sac ou un récipient adapté avec l'eau du bac, à l'abri du froid et de la chaleur, et donnez rendez-vous à l'acheteur à proximité. Évitez de les nourrir juste avant le transport."
+          ]
+        },
+        {
+          "titre": "Penser au bien-être des poissons",
+          "paragraphes": [
+            "Ne vendez que des animaux en bonne santé et signalez honnêtement un éventuel problème. Conseillez aussi la quarantaine à l'acheteur : un vendeur transparent est un vendeur que l'on recommande."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/vivant",
+          "label": "Voir les annonces de poissons et de vivant"
+        },
+        {
+          "href": "/guides/acheter-poissons-aquarium-particulier",
+          "label": "Acheter des poissons à un particulier"
+        },
+        {
+          "href": "/guides/acclimater-nouveau-poisson-aquarium",
+          "label": "Acclimater un nouveau poisson"
+        },
+        {
+          "href": "/dons",
+          "label": "Annonces à donner"
+        }
+      ]
+    },
+    {
+      "slug": "acheter-poissons-aquarium-particulier",
+      "titre": "Acheter des poissons d'aquarium à un particulier : bien s'y prendre",
+      "eyebrow": "Acheter & vendre",
+      "description": "Où en trouver, quelles questions poser au vendeur et comment accueillir ses nouveaux poissons : le guide pour acheter entre particuliers.",
+      "datePublication": "2026-10-22",
+      "sections": [
+        {
+          "titre": "Pourquoi acheter à un particulier",
+          "paragraphes": [
+            "Les particuliers et les éleveurs amateurs proposent souvent des poissons nés en aquarium, déjà habitués à une eau domestique, parfois difficiles à trouver en animalerie. Vous pouvez aussi voir les parents et poser vos questions directement au vendeur."
+          ]
+        },
+        {
+          "titre": "Les questions à poser",
+          "paragraphes": [
+            "Demandez l'âge, la taille adulte, l'alimentation, les paramètres de l'eau du vendeur (pH, dureté, température) et les éventuels problèmes de santé passés. Renseignez-vous aussi sur le comportement des poissons avec d'autres espèces."
+          ]
+        },
+        {
+          "titre": "Vérifier avant d'acheter",
+          "paragraphes": [
+            "Si le rendez-vous le permet, observez les poissons : nage normale, nageoires intactes, couleurs vives, pas de points blancs ni de taches suspectes. Voir le bac du vendeur renseigne aussi sur les conditions d'élevage."
+          ]
+        },
+        {
+          "titre": "Préparer son aquarium",
+          "paragraphes": [
+            "Votre bac doit être cyclé et adapté à l'espèce (volume, paramètres, compagnons). Consultez la fiche de l'espèce avant l'achat pour vérifier que ses besoins correspondent à votre installation."
+          ]
+        },
+        {
+          "titre": "Transporter et acclimater",
+          "paragraphes": [
+            "Le sac doit rester à l'abri du froid pendant le trajet. À la maison, laissez-le flotter dans le bac puis acclimatez les poissons progressivement. Si vous avez un bac dédié, une quarantaine limite les risques pour vos autres poissons."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/vivant",
+          "label": "Voir les poissons à vendre"
+        },
+        {
+          "href": "/especes",
+          "label": "Consulter les fiches espèces"
+        },
+        {
+          "href": "/guides/acclimater-nouveau-poisson-aquarium",
+          "label": "Acclimater un nouveau poisson"
+        },
+        {
+          "href": "/simulateur",
+          "label": "Composer son aquarium avec le simulateur"
+        }
+      ]
+    },
+    {
+      "slug": "donner-aquarium-poissons-materiel",
+      "titre": "Donner un aquarium, des poissons ou du matériel : comment faire",
+      "eyebrow": "Acheter & vendre",
+      "description": "Un aquarium dont vous ne voulez plus ? Découvrez comment donner votre matériel et vos poissons à un aquariophile plutôt que de les jeter.",
+      "datePublication": "2026-10-22",
+      "sections": [
+        {
+          "titre": "Pourquoi donner plutôt que jeter",
+          "paragraphes": [
+            "Un aquarium, un filtre ou une rampe LED encore utilisables intéressent beaucoup de débutants. Les donner évite le gaspillage et rend service. Pour les poissons, c'est surtout la meilleure façon de leur garantir un bon accueil."
+          ]
+        },
+        {
+          "titre": "Publier une annonce de don",
+          "paragraphes": [
+            "Choisissez le type « don », décrivez ce que vous donnez, ajoutez des photos et indiquez votre ville. Les dons apparaissent ensuite sur la page des annonces à donner."
+          ]
+        },
+        {
+          "titre": "Choisir le bon repreneur",
+          "paragraphes": [
+            "Posez quelques questions : le bac est-il prêt ? L'espèce est-elle déjà connue du repreneur ? Pour des poissons, évitez de les confier à quelqu'un dont l'aquarium n'est pas cyclé ou adapté. Ne relâchez jamais poissons, plantes ou crevettes d'aquarium dans la nature : cela peut abîmer les milieux naturels."
+          ]
+        },
+        {
+          "titre": "Organiser la remise",
+          "paragraphes": [
+            "Donnez rendez-vous en main propre, avec l'eau du bac et un emballage adapté pour les poissons, un carton solide et du calage pour le matériel fragile."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/dons",
+          "label": "Voir les annonces à donner"
+        },
+        {
+          "href": "/guides/vendre-ses-poissons-aquarium",
+          "label": "Vendre ses poissons d'aquarium"
+        },
+        {
+          "href": "/guides/deposer-annonce-aquariophilie-gratuite",
+          "label": "Déposer une annonce gratuite"
+        },
+        {
+          "href": "/echanges",
+          "label": "Voir les annonces à échanger"
+        }
+      ]
+    },
+    {
+      "slug": "deposer-annonce-aquariophilie-gratuite",
+      "titre": "Déposer une annonce d'aquariophilie gratuite : mode d'emploi",
+      "eyebrow": "Acheter & vendre",
+      "description": "Comment publier gratuitement une annonce pour vendre, donner ou échanger un aquarium, des poissons, des plantes ou du matériel sur Aquatopia.",
+      "datePublication": "2026-10-22",
+      "sections": [
+        {
+          "titre": "Télécharger l'application",
+          "paragraphes": [
+            "Aquatopia est gratuite pour les particuliers. Installez l'application sur iPhone ou Android, créez votre compte et complétez votre profil aquariophile."
+          ]
+        },
+        {
+          "titre": "Créer son annonce",
+          "paragraphes": [
+            "Choisissez la catégorie (vivant, plantes, cuves, matériel, éclairage ou décor) et le type d'annonce : vente, don ou échange. Ajoutez un titre clair, une description, des photos de ce que vous proposez, votre ville et, pour une vente, votre prix."
+          ]
+        },
+        {
+          "titre": "Faire valider son annonce",
+          "paragraphes": [
+            "Chaque annonce est vérifiée par l'équipe avant sa mise en ligne. Vous êtes prévenu dès qu'elle est validée, ou si une modification est nécessaire."
+          ]
+        },
+        {
+          "titre": "Répondre aux acheteurs",
+          "paragraphes": [
+            "Les acheteurs vous contactent par la messagerie. Répondez rapidement, convenez d'un lieu et d'un horaire, puis remettez l'article en main propre."
+          ]
+        },
+        {
+          "titre": "Les erreurs à éviter",
+          "paragraphes": [
+            "Des photos floues ou trouvées sur internet, un titre trop vague, un prix absent ou une ville manquante font fuir les acheteurs. Vérifiez aussi que l'espèce proposée est autorisée à la vente."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/guides/vendre-son-aquarium-occasion",
+          "label": "Vendre son aquarium d'occasion"
+        },
+        {
+          "href": "/guides/vendre-ses-poissons-aquarium",
+          "label": "Vendre ses poissons d'aquarium"
+        },
+        {
+          "href": "/dons",
+          "label": "Annonces à donner"
+        },
+        {
+          "href": "/faq",
+          "label": "FAQ pour les débutants"
+        }
+      ]
+    },
+    {
+      "slug": "aquarium-occasion-60-100-200-litres",
+      "titre": "Aquarium d'occasion 60 L, 100 L ou 200 L : quel volume choisir ?",
+      "eyebrow": "Acheter & vendre",
+      "description": "Aquarium 60 L, 100 L ou 200 L d'occasion : avantages de chaque volume, poissons adaptés, poids à prévoir et points à vérifier avant d'acheter chez un particulier.",
+      "datePublication": "2026-10-23",
+      "sections": [
+        {
+          "titre": "Le volume avant le prix",
+          "paragraphes": [
+            "Quand on cherche un aquarium d'occasion, on regarde souvent le prix en premier. C'est le volume qu'il faut décider d'abord : il détermine les espèces que vous pourrez accueillir, la stabilité de l'eau et la place que le bac prendra chez vous. Un aquarium de 60 L, de 100 L ou de 200 L ne se gère pas de la même façon.",
+            "Les annonces indiquent le plus souvent le volume en litres. Vérifiez qu'il s'agit du volume brut (dimensions du bac) et non du volume réellement utilisable : une fois le sol, les décors et le niveau d'eau en dessous du bord pris en compte, il reste environ 10 à 15 % de moins."
+          ]
+        },
+        {
+          "titre": "Aquarium d'occasion de 60 litres",
+          "paragraphes": [
+            "C'est un bon bac de départ pour de petits poissons, des crevettes ou un betta seul. Il tient sur un meuble courant et reste léger à déplacer. En contrepartie, le petit volume laisse peu de marge d'erreur : un excès de nourriture ou un filtre en panne se répercute vite sur la qualité de l'eau."
+          ]
+        },
+        {
+          "titre": "Aquarium d'occasion de 100 litres",
+          "paragraphes": [
+            "Le 100 L est souvent le meilleur compromis pour débuter. Il permet un petit aquarium communautaire (poissons de petite taille et paisibles) avec des plantes, tout en restant abordable et facile à installer. C'est aussi l'un des volumes les plus fréquents en occasion, donc celui où l'on a le plus de choix."
+          ]
+        },
+        {
+          "titre": "Aquarium d'occasion de 200 litres",
+          "paragraphes": [
+            "Un grand volume est plus stable : les paramètres varient moins vite, ce qui pardonne davantage les erreurs d'entretien. Il ouvre aussi la porte à des espèces plus grandes ou à des groupes plus nombreux, à condition de vérifier les besoins de chaque espèce dans nos fiches.",
+            "Attention au poids : un litre d'eau pèse un kilo, donc un 200 L pèse déjà plus de 200 kg une fois rempli, sans compter le bac, le sol et le meuble. Vérifiez que le meuble et le sol peuvent le supporter, et prévoyez de l'aide pour le transport."
+          ]
+        },
+        {
+          "titre": "Les points à vérifier sur un bac d'occasion",
+          "paragraphes": [
+            "Contrôlez l'état des joints en silicone (pas de zones décollées ou noircies), l'absence de rayures profondes ou d'éclats sur les vitres, et demandez les dimensions exactes. Si possible, remplissez le bac d'eau pendant 24 heures chez vous avant de l'installer pour vérifier qu'il ne fuit pas.",
+            "Demandez aussi ce qui est inclus : meuble, filtre, chauffage, éclairage, couvercle. Un lot complet est souvent plus avantageux que les éléments achetés séparément."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/cuves",
+          "label": "Aquariums d'occasion à vendre"
+        },
+        {
+          "href": "/guides/acheter-aquarium-occasion-verifications",
+          "label": "Acheter un aquarium d'occasion : points à vérifier"
+        },
+        {
+          "href": "/guides/quel-volume-aquarium-choisir-espece",
+          "label": "Quel volume pour quelle espèce"
+        },
+        {
+          "href": "/simulateur",
+          "label": "Simulateur d'aquarium"
+        }
+      ]
+    },
+    {
+      "slug": "materiel-aquarium-occasion-filtre-chauffage",
+      "titre": "Matériel d'aquarium d'occasion : filtre, chauffage, éclairage, que peut-on acheter ?",
+      "eyebrow": "Acheter & vendre",
+      "description": "Filtre, chauffage, éclairage, pompe : ce qu'on peut acheter d'occasion sans risque, ce qu'il faut tester avant, et ce qu'il vaut mieux prendre neuf.",
+      "datePublication": "2026-10-23",
+      "sections": [
+        {
+          "titre": "Ce qui s'achète bien d'occasion",
+          "paragraphes": [
+            "Le matériel d'aquariophilie d'occasion permet de faire de vraies économies, surtout pour les éléments qui s'usent peu : meuble, décor, éclairage LED, filtre externe ou écumeur en bon état. Ces équipements changent souvent de main parce que leur propriétaire change de bac, pas parce qu'ils sont défectueux."
+          ]
+        },
+        {
+          "titre": "Acheter un filtre d'occasion",
+          "paragraphes": [
+            "Avant d'acheter un filtre d'aquarium d'occasion, vérifiez les joints, l'hélice de la pompe, les raccords et les tuyaux. Un moteur qui fait un bruit anormal ou qui chauffe est un mauvais signe. Demandez si le filtre a déjà servi dans un bac malade : la masse filtrante d'un bac inconnu peut transporter des parasites, il vaut mieux la remplacer.",
+            "Un filtre se teste facilement chez le vendeur : branché dans un seau d'eau quelques minutes, il doit démarrer sans à-coups et ne pas fuir."
+          ]
+        },
+        {
+          "titre": "Chauffage et thermostat",
+          "paragraphes": [
+            "Le chauffage est un équipement de sécurité : un thermostat qui dérive peut chauffer ou refroidir un bac trop fort. D'occasion, testez-le dans un seau avec un thermomètre pendant 24 heures avant de le mettre dans l'aquarium, ou préférez-le neuf si vous avez un doute."
+          ]
+        },
+        {
+          "titre": "Éclairage",
+          "paragraphes": [
+            "Les rampes LED vieillissent bien et se revendent facilement. Les tubes fluorescents perdent en intensité et en spectre avec le temps : s'ils sont anciens, comptez leur remplacement. Vérifiez aussi l'état des câbles et de la prise."
+          ]
+        },
+        {
+          "titre": "Ce qu'il vaut mieux acheter neuf",
+          "paragraphes": [
+            "Les kits de test dont les réactifs ont une date limite, les conditionneurs d'eau, la nourriture et tout équipement électrique dont le câble est abîmé ne s'achètent pas d'occasion. La sécurité et la fiabilité des mesures passent avant l'économie."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/materiel",
+          "label": "Matériel d'aquarium d'occasion"
+        },
+        {
+          "href": "/guides/quel-filtre-choisir-selon-volume",
+          "label": "Quel filtre choisir selon le volume"
+        },
+        {
+          "href": "/guides/aquarium-neuf-ou-occasion-comparatif",
+          "label": "Aquarium neuf ou d'occasion"
+        },
+        {
+          "href": "/guides/vendre-son-aquarium-occasion",
+          "label": "Vendre son matériel d'occasion"
+        }
+      ]
+    },
+    {
+      "slug": "aquarium-occasion-pas-cher-ou-trouver",
+      "titre": "Aquarium d'occasion pas cher : où le trouver et comment bien négocier",
+      "eyebrow": "Acheter & vendre",
+      "description": "Où trouver un aquarium d'occasion pas cher, comment estimer un bon prix, négocier poliment et éviter les pièges des annonces trop belles pour être vraies.",
+      "datePublication": "2026-10-23",
+      "sections": [
+        {
+          "titre": "Où chercher un aquarium d'occasion",
+          "paragraphes": [
+            "Les meilleures affaires se trouvent généralement chez des particuliers qui arrêtent l'aquariophilie, déménagent ou changent de bac. Vous pouvez consulter les annonces d'aquariums d'occasion sur Aquatopia, regarder les annonces à donner, passer par les clubs et associations aquariophiles de votre région ou fréquenter les bourses aux poissons.",
+            "Les annonces sont classées par distance : cherchez d'abord près de chez vous, vous économiserez le transport, souvent le vrai point délicat avec un grand bac."
+          ]
+        },
+        {
+          "titre": "Comment estimer un bon prix",
+          "paragraphes": [
+            "Il n'existe pas de barème : le prix dépend du volume, de l'âge, de l'état des joints et de ce qui est fourni avec le bac. En règle générale, un aquarium d'occasion se vend nettement moins cher que le neuf, et un lot complet (bac, meuble, filtre, éclairage) coûte moins que les éléments achetés un par un. Comparez plusieurs annonces de même volume avant de décider."
+          ]
+        },
+        {
+          "titre": "Négocier sans froisser",
+          "paragraphes": [
+            "Un vendeur accepte plus volontiers de baisser son prix quand l'acheteur est sérieux et disponible. Venez voir le bac, signalez calmement les défauts constatés (rayures, silicone vieilli), proposez de l'enlever rapidement et de vous charger du démontage. Une offre raisonnable, argumentée, passe mieux qu'un prix cassé donné sans voir le bac."
+          ]
+        },
+        {
+          "titre": "Les pièges à éviter",
+          "paragraphes": [
+            "Méfiez-vous d'un prix très en dessous du marché sans explication, d'une annonce sans photo ou avec des photos qui semblent copiées, et d'un vendeur qui refuse de vous laisser voir le bac. Contrôlez toujours l'étanchéité, l'état des vitres et du silicone avant de payer. Remettez le bac en main propre plutôt que d'accepter un envoi."
+          ]
+        },
+        {
+          "titre": "Et si c'est gratuit ?",
+          "paragraphes": [
+            "Certains aquariums sont simplement donnés. Consultez la page des annonces à donner : c'est parfois la solution la moins chère pour débuter, à condition de vérifier l'étanchéité du bac comme pour n'importe quel achat."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/cuves",
+          "label": "Aquariums d'occasion à vendre"
+        },
+        {
+          "href": "/dons",
+          "label": "Annonces à donner"
+        },
+        {
+          "href": "/guides/acheter-aquarium-occasion-verifications",
+          "label": "Acheter un aquarium d'occasion : points à vérifier"
+        },
+        {
+          "href": "/guides/budget-demarrer-aquarium",
+          "label": "Budget pour démarrer un aquarium"
+        }
+      ]
+    },
+    {
+      "slug": "bourse-aux-poissons-aquariophilie",
+      "titre": "Bourse aux poissons : comment ça marche et comment en trouver une près de chez soi",
+      "eyebrow": "Acheter & vendre",
+      "description": "Une bourse aquariophile, c'est quoi ? Comment la trouver, bien s'y préparer, transporter ses poissons et la compléter avec des annonces en ligne.",
+      "datePublication": "2026-10-23",
+      "sections": [
+        {
+          "titre": "Qu'est-ce qu'une bourse aux poissons ?",
+          "paragraphes": [
+            "Une bourse aquariophile est une rencontre où des éleveurs et des passionnés vendent ou échangent des poissons, des crevettes, des plantes et des boutures. Elle est en général organisée par un club ou une association aquariophile, à une date et dans un lieu annoncés à l'avance. On y trouve souvent des espèces et des variétés difficiles à voir en animalerie."
+          ]
+        },
+        {
+          "titre": "Comment trouver une bourse près de chez vous",
+          "paragraphes": [
+            "Le plus fiable est de contacter les clubs et associations aquariophiles de votre région : ce sont eux qui organisent les bourses et connaissent le calendrier. Les groupes de passionnés sur les réseaux sociaux relaient aussi beaucoup d'événements. Notez que les dates sont peu fréquentes : selon l'endroit où vous habitez, il peut y avoir plusieurs mois entre deux bourses."
+          ]
+        },
+        {
+          "titre": "Bien se préparer",
+          "paragraphes": [
+            "Apportez des sacs ou des boîtes adaptés, de quoi garder l'eau à bonne température (une glacière convient très bien) et prévoyez un trajet court. Arrivez tôt, c'est là que le choix est le plus large. Posez des questions au vendeur sur l'origine des animaux, l'alimentation et les paramètres d'eau qu'il utilise.",
+            "À la maison, mettez les nouveaux arrivants en quarantaine si vous le pouvez et acclimatez-les doucement avant de les introduire dans le bac."
+          ]
+        },
+        {
+          "titre": "Compléter avec des annonces en ligne",
+          "paragraphes": [
+            "Une bourse n'a lieu que quelques fois par an. Pour acheter, vendre ou échanger le reste de l'année, les annonces entre particuliers restent disponibles en permanence : vous y trouvez des poissons, des plantes, du matériel et des aquariums classés par distance. Les règles sur les espèces protégées s'appliquent aussi bien en bourse que sur une annonce : vérifiez toujours qu'une espèce peut légalement être vendue."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/categorie/vivant",
+          "label": "Poissons et crevettes à vendre"
+        },
+        {
+          "href": "/echanges",
+          "label": "Annonces d'échange"
+        },
+        {
+          "href": "/guides/acclimater-nouveau-poisson-aquarium",
+          "label": "Acclimater un nouveau poisson"
+        },
+        {
+          "href": "/guides/acheter-poissons-aquarium-particulier",
+          "label": "Acheter des poissons à un particulier"
+        }
+      ]
+    },
+    {
+      "slug": "leboncoin-ou-site-specialise-aquariophilie",
+      "titre": "Leboncoin ou site spécialisé : où vendre et acheter en aquariophilie ?",
+      "eyebrow": "Acheter & vendre",
+      "description": "Site d'annonces généraliste ou application spécialisée dans l'aquarium : audience, tri des annonces, modération et gratuité. Comment choisir pour acheter ou vendre.",
+      "datePublication": "2026-10-23",
+      "sections": [
+        {
+          "titre": "Les sites généralistes : une grande audience",
+          "paragraphes": [
+            "Les plateformes d'annonces généralistes, comme Leboncoin, ont un énorme avantage : tout le monde les connaît, donc votre annonce peut être vue par beaucoup de personnes. C'est utile pour un objet qui intéresse un large public, comme un meuble ou un aquarium courant."
+          ]
+        },
+        {
+          "titre": "Leurs limites en aquariophilie",
+          "paragraphes": [
+            "Dans un site qui vend de tout, les annonces d'aquariophilie sont mélangées aux autres catégories. Il est souvent difficile de filtrer par type d'animal, par volume de bac ou par biotope, et le vocabulaire spécialisé (cyclage, nano, récifal) n'y est pas toujours compris des acheteurs. La vente d'animaux vivants y demande aussi une vigilance particulière sur les espèces autorisées."
+          ]
+        },
+        {
+          "titre": "Un site d'annonces d'aquariophilie entre particuliers",
+          "paragraphes": [
+            "Une marketplace dédiée à l'aquarium, comme Aquatopia, réunit des gens qui parlent la même langue : acheteurs, vendeurs et éleveurs savent ce qu'est une crevette Neocaridina ou un bac cyclé. Les annonces sont classées par catégorie (vivant, plantes, aquariums, matériel, éclairage, décor), par biotope, et par distance, ce qui facilite la remise en main propre.",
+            "Chaque annonce est vérifiée par l'équipe avant sa mise en ligne, et l'application est gratuite, pour vendre comme pour donner ou échanger."
+          ]
+        },
+        {
+          "titre": "Quelle plateforme choisir ?",
+          "paragraphes": [
+            "Il n'y a pas à choisir : rien ne vous empêche de publier au même endroit sur plusieurs sites. Pour un aquarium, un filtre ou du matériel, publiez sur les deux. Pour des poissons, des crevettes, des plantes ou des coraux, privilégiez une application spécialisée, où les acheteurs sont plus qualifiés et où les règles sur les espèces sont rappelées."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/guides/deposer-annonce-aquariophilie-gratuite",
+          "label": "Déposer une annonce gratuite"
+        },
+        {
+          "href": "/guides/vendre-son-aquarium-occasion",
+          "label": "Vendre son aquarium d'occasion"
+        },
+        {
+          "href": "/guides/acheter-poissons-aquarium-particulier",
+          "label": "Acheter des poissons à un particulier"
+        },
+        {
+          "href": "/faq",
+          "label": "FAQ pour les débutants"
+        }
+      ]
+    },
+    {
+      "slug": "reprise-aquarium-vendre-donner-echanger",
+      "titre": "Reprise d'aquarium : vendre, donner ou échanger son ancien aquarium ?",
+      "eyebrow": "Acheter & vendre",
+      "description": "Que faire de son ancien aquarium : reprise en magasin, vente, don ou échange. Préparer le démontage, nettoyer le bac, replacer les poissons et recycler le matériel.",
+      "datePublication": "2026-10-23",
+      "sections": [
+        {
+          "titre": "La reprise en magasin",
+          "paragraphes": [
+            "Certains magasins peuvent proposer une reprise, mais ce n'est pas systématique et la valeur proposée est généralement faible. Renseignez-vous avant de vous déplacer. Vendre ou donner à un particulier est souvent plus intéressant et plus rapide."
+          ]
+        },
+        {
+          "titre": "Vendre, donner ou échanger",
+          "paragraphes": [
+            "Si votre aquarium est en bon état, vendez-le : c'est la voie la plus rentable, surtout avec son meuble et son équipement. Si le bac est ancien ou si vous voulez simplement le faire partir, donnez-le : vous le trouverez vite preneur. Enfin, vous pouvez l'échanger contre un autre matériel, des plantes ou des poissons.",
+            "Dans les trois cas, publiez des photos nettes, indiquez le volume exact, l'âge et ce qui est inclus."
+          ]
+        },
+        {
+          "titre": "Préparer le démontage",
+          "paragraphes": [
+            "Débranchez d'abord tout le matériel électrique. Replacez les poissons avant de vider le bac : ne les relâchez jamais dans la nature, c'est dangereux pour les écosystèmes et interdit pour de nombreuses espèces. Donnez-les, vendez-les ou échangez-les via une annonce.",
+            "Videz et rincez le bac à l'eau claire sans savon ni produit chimique, qui laissent des résidus nocifs pour les futurs poissons. Un peu de vinaigre blanc dilué enlève le calcaire, rincez ensuite abondamment. Laissez sécher avant de remettre le bac à l'acheteur."
+          ]
+        },
+        {
+          "titre": "Et le matériel hors d'usage ?",
+          "paragraphes": [
+            "Un chauffage, une pompe ou un éclairage qui ne fonctionnent plus ne se vendent pas : ils sont à déposer en déchetterie ou dans un point de collecte des appareils électriques, pas à la poubelle ordinaire."
+          ]
+        }
+      ],
+      "liensUtiles": [
+        {
+          "href": "/guides/vendre-son-aquarium-occasion",
+          "label": "Vendre son aquarium d'occasion"
+        },
+        {
+          "href": "/guides/donner-aquarium-poissons-materiel",
+          "label": "Donner son aquarium et son matériel"
+        },
+        {
+          "href": "/echanges",
+          "label": "Annonces d'échange"
+        },
+        {
+          "href": "/dons",
+          "label": "Annonces à donner"
+        }
+      ]
+    },
 ];
 
 export function fetchGuideParSlug(slug: string): Guide | null {

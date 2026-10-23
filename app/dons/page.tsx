@@ -7,9 +7,9 @@ import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 const SITE_URL = 'https://aquatopia.fr';
 const PAR_PAGE = 24;
 
-const TITRE = 'Annonces à donner : poissons, plantes et matériel gratuits';
+const TITRE = "Don de poissons, plantes et matériel d'aquarium gratuits";
 const DESCRIPTION =
-  "Des passionnés donnent des poissons, plantes, crevettes ou du matériel d'aquariophilie dont ils n'ont plus besoin. Toutes catégories confondues, remise en main propre.";
+  "Annonces gratuites : des passionnés donnent des poissons, plantes, crevettes, aquariums et matériel d'aquariophilie dont ils n'ont plus besoin. Remise en main propre près de chez vous.";
 
 export async function generateMetadata({
   searchParams,

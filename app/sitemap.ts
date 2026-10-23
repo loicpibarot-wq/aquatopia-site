@@ -3,6 +3,7 @@ import { fetchAnnoncesPourSitemap, buildSlug, CATEGORIE_VERS_SLUG, BIOTOPE_VERS_
 import { GUIDES } from '@/lib/guides';
 import { GLOSSAIRE } from '@/lib/glossaire';
 import { ESPECES_PUBLIEES } from '@/lib/especes';
+import { chargerAnnoncesLocales, grouperVilles, grouperDepartements } from '@/lib/lieux';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -14,6 +15,7 @@ export const revalidate = 600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const racine: MetadataRoute.Sitemap = [
     { url: SITE_URL, changeFrequency: 'daily', priority: 1 },
+    { url: `${SITE_URL}/simulateur`, changeFrequency: 'monthly', priority: 0.7 },
   ];
 
   const categories: MetadataRoute.Sitemap = Object.values(CATEGORIE_VERS_SLUG).map((slug) => ({
@@ -63,6 +65,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
+  let lieux: MetadataRoute.Sitemap = [];
+  try {
+    const liste = await chargerAnnoncesLocales();
+    const villes = grouperVilles(liste);
+    const depts = grouperDepartements(liste);
+    if (villes.length > 0 || depts.length > 0) {
+      lieux = [
+        { url: `${SITE_URL}/aquarium-occasion`, changeFrequency: 'daily', priority: 0.7 },
+        ...villes.map((v) => ({ url: `${SITE_URL}/aquarium-occasion/${v.slug}`, changeFrequency: 'daily' as const, priority: 0.7 })),
+        ...depts.map((d) => ({ url: `${SITE_URL}/poissons-a-vendre/${d.slug}`, changeFrequency: 'daily' as const, priority: 0.7 })),
+      ];
+    }
+  } catch {
+    // Supabase injoignable : on ignore les pages locales plutôt que de casser le sitemap.
+  }
+
   let annonces: MetadataRoute.Sitemap = [];
   try {
     const liste = await fetchAnnoncesPourSitemap();
@@ -77,5 +95,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // page d'accueil plutôt que de faire échouer tout le sitemap.
   }
 
-  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...especes, ...annonces];
+  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...especes, ...lieux, ...annonces];
 }

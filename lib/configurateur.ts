@@ -1,6 +1,6 @@
 // lib/configurateur.ts
 import type { IconeNom } from './icones';
-import { construireSections, construirePresets, type SectionEspeces, type SetupPret } from './configurateur-especes';
+import { construireSections, construirePresets, integrerPresets, type SectionEspeces, type SetupPret } from './configurateur-especes';
 // Logique du configurateur « clé en main » – pure TypeScript, zéro dépendance externe.
 
 export type Niveau      = 'Debutant' | 'Intermediaire' | 'Expert';
@@ -219,8 +219,9 @@ export function recommander(
   });
 
   const ctx = { filtered, typeBac, volume, niveau, style, temps, quantite: quantiteConseillee };
-  const sections = construireSections(ctx);
   const presets  = construirePresets(ctx);
+  // Toute espèce d'un setup figure aussi dans les listes d'espèces compatibles.
+  const sections = integrerPresets(construireSections(ctx), presets, typeBac);
 
   // Liste à plat (sans doublon) : sert au comptage des annonces en ligne.
   const vus = new Set<string>();
@@ -330,7 +331,7 @@ export function genererSetup(
   }
 
   if (budget === 'eco') {
-    conseils.push("Budget serré : achète filtre, éclairage et chauffage d'occasion — jusqu'à 50 % d'économie sur Aquatopia.");
+    conseils.push("Budget serré : achète filtre, éclairage et chauffage d'occasion — jusqu'à 50 % d'économie possible sur Aquatopia, selon les annonces disponibles.");
   } else if (budget === 'haut') {
     conseils.push('Budget confortable : investis d\'abord dans la filtration et l\'éclairage, ils conditionnent tout le reste du projet.');
   }

@@ -9,7 +9,7 @@ const LIENS: { href: string; label: string; ancre: boolean }[] = [
   { href: '/#categories', label: 'Annonces', ancre: true },
   { href: '/guides', label: 'Guides', ancre: false },
   { href: '/especes', label: 'Espèces', ancre: false },
-  { href: '/configurateur', label: 'Configurateur', ancre: false },
+  { href: '/simulateur', label: 'Simulateur', ancre: false },
   { href: '/#confiance', label: 'Confiance', ancre: true },
   { href: '/faq', label: 'FAQ débutant', ancre: false },
 ];

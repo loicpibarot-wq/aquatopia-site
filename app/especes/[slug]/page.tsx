@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ESPECES_PUBLIEES, fetchEspeceParSlug, categorieAnnonceSlug, biotopeSlug } from '@/lib/especes';
+import { ESPECES_PUBLIEES, fetchEspeceParSlug } from '@/lib/especes';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
+import { guideBouturage } from '@/lib/bouturage';
 import { descriptionEspece, especesLiees, faqEspece, nomsIdentiques, titreEspece, tuilesEspece } from '@/lib/especes-seo';
 import EspeceImage from '@/components/EspeceImage';
 import Icone from '@/components/Icone';
 import SignalementModal from '@/components/SignalementModal';
 import VuesEspece from '@/components/VuesEspece';
 import LienRetour from '@/components/LienRetour';
+import DownloadButton from '@/components/DownloadButton';
+import CarteEspeceLiee from '@/components/CarteEspeceLiee';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -31,6 +34,67 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
+// Niveaux de difficulté de reproduction : couleur de la pastille, nombre de
+// points (1 = très simple, 5 = très difficile) et phrase d'explication.
+const REPRO_NIVEAUX: Record<string, { points: number; fond: string; texte: string; phrase: string }> = {
+  'Très facile':   { points: 1, fond: 'var(--vert-pale, #d4edda)',   texte: '#155724', phrase: 'Se reproduit spontanément' },
+  'Facile':        { points: 2, fond: 'var(--vert-pale, #d4edda)',   texte: '#155724', phrase: 'Quelques conditions suffisent' },
+  'Modérée':       { points: 3, fond: 'var(--jaune-pale, #fff3cd)',  texte: '#856404', phrase: "Demande un peu d'expérience" },
+  'Difficile':     { points: 4, fond: 'var(--orange-pale, #ffe0b2)', texte: '#e65100', phrase: 'Réservé aux aquariophiles expérimentés' },
+  'Très difficile':{ points: 5, fond: 'var(--rouge-pale, #f8d7da)',  texte: '#721c24', phrase: 'Matériel et savoir-faire spécialisés' },
+  'Impossible en captivité': { points: 5, fond: 'var(--rouge-pale, #f8d7da)', texte: '#721c24', phrase: 'Reproduction non maîtrisée en aquarium' },
+};
+
+// Pastille de difficulté (points + libellé + phrase), commune à la reproduction
+// et au bouturage.
+function PastilleNiveau({ titre, facilite }: { titre: string; facilite: string }) {
+  const niveau = REPRO_NIVEAUX[facilite];
+  return (
+    <div style={{ marginBottom: 14 }}>
+      <div style={{ fontSize: '0.72rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, color: 'var(--text-muted)', marginBottom: 8 }}>
+        {titre}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px 12px' }}>
+        <span
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 10,
+            padding: '4px 14px',
+            borderRadius: 20,
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            background: niveau?.fond ?? 'var(--bg-2)',
+            color: niveau?.texte ?? 'var(--text-muted)',
+          }}
+        >
+          {niveau && (
+            <span aria-hidden="true" style={{ display: 'inline-flex', gap: 3 }}>
+              {[1, 2, 3, 4, 5].map((n) => (
+                <span
+                  key={n}
+                  style={{
+                    width: 8, height: 8, borderRadius: '50%',
+                    background: 'currentColor',
+                    opacity: n <= niveau.points ? 1 : 0.2,
+                  }}
+                />
+              ))}
+            </span>
+          )}
+          {facilite}
+        </span>
+        {niveau && (
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{niveau.phrase}</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Difficulté du bouturage (Facile / Moyenne / Délicate) → échelle de la pastille.
+const NIVEAU_BOUTURAGE_VERS_PASTILLE: Record<string, string> = { Facile: 'Facile', Moyenne: 'Modérée', Délicate: 'Difficile' };
+
 export default function EspecePage({ params }: { params: { slug: string } }) {
   const espece = fetchEspeceParSlug(params.slug);
   if (!espece) notFound();
@@ -38,6 +102,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
 
   const autresEspeces = especesLiees(espece);
   const faq = faqEspece(espece);
+  const bouturage = guideBouturage(espece);
   const tuiles = tuilesEspece(espece);
   const cultive = Boolean(fiche.plante || fiche.corail || fiche.algue);
   const multiplication = fiche.plante?.multiplication ?? fiche.corail?.multiplication ?? fiche.algue?.multiplication ?? null;
@@ -79,6 +144,19 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
     { name: espece.nomCommun },
   ];
 
+  const reproduction = fiche.reproduction ? (
+    <>
+          <PastilleNiveau titre="Difficulté de reproduction" facilite={fiche.reproduction.facilite} />
+          <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+            {fiche.reproduction.description}
+          </p>
+    </>
+  ) : null;
+  // Coraux : une seule section « Reproduction » avec le pas à pas. Plantes : « Comment bouturer »
+  // seulement si elles se bouturent (sinon le texte court de multiplication, et la FAQ répond).
+  const afficherGuide = Boolean(bouturage && (bouturage.faisable || fiche.corail));
+  const reproFondueDansBouturage = Boolean(afficherGuide && fiche.corail && fiche.reproduction);
+
   return (
     <div className="wrap annonce-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
@@ -93,7 +171,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Configurateur
+          Simulateur
         </>}
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -176,7 +254,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
           <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{titreAlimentation}</h3>
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{fiche.alimentation}</p>
         </div>
-        {cultive && multiplication && (
+        {cultive && multiplication && !afficherGuide && (
           <div>
             <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>{fiche.corail ? 'Bouturage et multiplication' : 'Multiplication'}</h3>
             <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{multiplication}</p>
@@ -200,57 +278,79 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </p>
       </div>
 
-      {fiche.reproduction && (
-        <section style={{ maxWidth: 760, marginBottom: 48 }} aria-labelledby="repro-espece">
+      {afficherGuide && bouturage && (
+        <section id="bouturage" style={{ maxWidth: 760, marginBottom: 40, padding: 0 }} aria-labelledby="bouturage-titre">
+          <h2 id="bouturage-titre" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
+            {fiche.corail ? `Reproduction de ${espece.nomCommun} en aquarium` : bouturage.titre}
+          </h2>
+          {fiche.corail && reproduction}
+          {!(fiche.corail && fiche.reproduction) && (
+            <p style={{ margin: '0 0 14px', color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+              {bouturage.resume}
+            </p>
+          )}
+          {bouturage.faisable && (
+            <div style={{ marginTop: fiche.corail && fiche.reproduction ? 22 : 0 }}>
+              {fiche.corail && (
+                <h3 style={{ fontSize: '1.02rem', marginBottom: 10 }}>Bouturer {espece.nomCommun}, étape par étape</h3>
+              )}
+              {bouturage.niveau && !(fiche.corail && fiche.reproduction) && (
+                <PastilleNiveau titre="Difficulté du bouturage" facilite={NIVEAU_BOUTURAGE_VERS_PASTILLE[bouturage.niveau] ?? 'Modérée'} />
+              )}
+              {bouturage.methode && (
+                <p style={{ margin: '0 0 16px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                  <b style={{ color: 'var(--text)' }}>Méthode :</b> {bouturage.methode}
+                  {bouturage.niveau && fiche.corail && fiche.reproduction && <> · <b style={{ color: 'var(--text)' }}>Difficulté du bouturage :</b> {bouturage.niveau}</>}
+                </p>
+              )}
+              <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Matériel</h3>
+              <ul style={{ margin: '0 0 18px', paddingLeft: 20, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.65 }}>
+                {bouturage.materiel.map((m) => <li key={m}>{m}</li>)}
+              </ul>
+              <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Étape par étape</h3>
+              <ol style={{ margin: '0 0 18px', paddingLeft: 22, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.65, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {bouturage.etapes.map((et) => <li key={et}>{et}</li>)}
+              </ol>
+              {bouturage.reprise && (
+                <>
+                  <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Reprise de la bouture</h3>
+                  <p style={{ margin: '0 0 14px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.65 }}>{bouturage.reprise}</p>
+                </>
+              )}
+            </div>
+          )}
+          {bouturage.precaution && (
+            <p style={{ margin: '4px 0 0', padding: '12px 16px', borderRadius: 12, background: 'var(--bg-2)', border: '1px solid var(--border)', color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6 }}>
+              <b style={{ color: 'var(--text)' }}>À savoir : </b>{bouturage.precaution}
+            </p>
+          )}
+        </section>
+      )}
+
+      {fiche.reproduction && !reproFondueDansBouturage && (
+        <section style={{ maxWidth: 760, marginBottom: 40, padding: 0 }} aria-labelledby="repro-espece">
           <h2 id="repro-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
             Reproduction de {espece.nomCommun} en aquarium
           </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-            <span
-              style={{
-                display: 'inline-block',
-                padding: '3px 12px',
-                borderRadius: 20,
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                background:
-                  fiche.reproduction.facilite === 'Très facile' ? 'var(--vert-pale, #d4edda)' :
-                  fiche.reproduction.facilite === 'Facile' ? 'var(--vert-pale, #d4edda)' :
-                  fiche.reproduction.facilite === 'Modérée' ? 'var(--jaune-pale, #fff3cd)' :
-                  fiche.reproduction.facilite === 'Difficile' ? 'var(--orange-pale, #ffe0b2)' :
-                  fiche.reproduction.facilite === 'Très difficile' ? 'var(--rouge-pale, #f8d7da)' :
-                  'var(--bg-2)',
-                color:
-                  fiche.reproduction.facilite === 'Très facile' ? '#155724' :
-                  fiche.reproduction.facilite === 'Facile' ? '#155724' :
-                  fiche.reproduction.facilite === 'Modérée' ? '#856404' :
-                  fiche.reproduction.facilite === 'Difficile' ? '#e65100' :
-                  fiche.reproduction.facilite === 'Très difficile' ? '#721c24' :
-                  'var(--text-muted)',
-              }}
-            >
-              {fiche.reproduction.facilite}
-            </span>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Difficulté de reproduction</span>
-          </div>
-          <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
-            {fiche.reproduction.description}
-          </p>
+          {reproduction}
         </section>
       )}
 
       {espece.statutLegal === 'autorise' && (
-        <div style={{ marginBottom: 48 }}>
-          <Link href={`/categorie/${categorieAnnonceSlug(espece.categorie)}`} className="btn btn-ghost" style={{ marginRight: 12 }}>
-            Voir les annonces {categorieAnnonceSlug(espece.categorie) === 'plantes' ? 'plantes' : 'vivant'}
-          </Link>
-          <Link href={`/biotope/${biotopeSlug(espece.categorie)}`} className="btn btn-ghost">
-            Voir les annonces {biotopeSlug(espece.categorie) === 'eau-de-mer' ? "d'eau de mer" : biotopeSlug(espece.categorie) === 'bassin' ? 'de bassin' : "d'eau douce"}
-          </Link>
+        <div style={{
+          maxWidth: 760, marginBottom: 48, padding: '24px 24px',
+          borderRadius: 'var(--radius-m)', background: 'var(--bg-2)', border: '1px solid var(--border)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 12,
+        }}>
+          <h2 style={{ fontSize: '1.2rem', margin: 0 }}>{espece.nomCommun} à vendre, à donner ou à échanger</h2>
+          <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+            Des particuliers et des éleveurs proposent régulièrement des annonces sur Aquatopia, classées par distance pour une remise en main propre. Chaque annonce est vérifiée avant sa mise en ligne.
+          </p>
+          <DownloadButton className="btn btn-primary" style={{ marginTop: 4 }}>Télécharger l&apos;application</DownloadButton>
         </div>
       )}
 
-      <section style={{ maxWidth: 760, marginBottom: 48 }} aria-labelledby="faq-espece">
+      <section style={{ maxWidth: 760, marginBottom: 40, padding: 0 }} aria-labelledby="faq-espece">
         <h2 id="faq-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
           Questions fréquentes sur {espece.nomCommun}
         </h2>
@@ -269,11 +369,13 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
           </div>
           <div className="guide-grid">
             {autresEspeces.map((e) => (
-              <Link key={e.slug} href={`/especes/${e.slug}`} className="guide-card">
-                <span className="eyebrow">{e.categorie}</span>
-                <h3>{e.nomCommun}</h3>
-                {!nomsIdentiques(e.nomCommun, e.nomScientifique) && <p style={{ fontStyle: 'italic' }}>{e.nomScientifique}</p>}
-              </Link>
+              <CarteEspeceLiee
+                key={e.slug}
+                slug={e.slug}
+                nomCommun={e.nomCommun}
+                categorie={e.categorie}
+                nomScientifique={nomsIdentiques(e.nomCommun, e.nomScientifique) ? undefined : e.nomScientifique}
+              />
             ))}
           </div>
         </section>
@@ -281,7 +383,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
 
       {/* Retour bas de page */}
       <div style={{ marginTop: 48, paddingTop: 24, borderTop: '1px solid var(--border)' }}>
-        <LienRetour href="/especes" texteDepuisConfigurateur="← Retour au configurateur" style={{
+        <LienRetour href="/especes" texteDepuisConfigurateur="← Retour au simulateur" style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
           color: 'var(--text-muted)', fontSize: '0.9rem', textDecoration: 'none',
         }}>

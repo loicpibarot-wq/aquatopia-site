@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import DownloadButton from '@/components/DownloadButton';
 import Link from 'next/link';
 import Icone, { IconePastille } from '@/components/Icone';
 import type { IconeNom } from '@/lib/icones';
@@ -13,9 +15,15 @@ import {
 
 interface Props {
   pool: EspeceLight[];
+  annoncesArrondi?: string | null;
 }
 
 const CLE_SESSION = 'aquatopia_configurateur_v1';
+// Position de défilement au moment où l'on ouvre une fiche espèce : au retour,
+// on revient exactement là où l'on avait cliqué.
+const CLE_SCROLL = 'aquatopia_configurateur_scroll_v1';
+// Slug de la fiche ouverte depuis le simulateur : la fiche affiche alors « Simulateur » en retour.
+const CLE_ORIGINE = 'aquatopia_simulateur_origine_v1';
 
 type Etape = 1 | 2 | 3 | 4 | 5 | 6 | 'resultats';
 
@@ -200,9 +208,20 @@ function Chip({
 }
 
 // ─── Carte espèce résultat ─────────────────────────────────────────────────────
-function CarteEspece({ e, nbAnnonces }: { e: EspeceReco; nbAnnonces?: number }) {
+function CarteEspece({ e }: { e: EspeceReco }) {
+  // Photo de la fiche à droite ; si le fichier manque, la carte garde son ancienne forme.
+  const [photoOk, setPhotoOk] = useState(true);
   return (
-    <Link href={`/especes/${e.slug}`} style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
+    <Link
+      href={`/especes/${e.slug}`}
+      onClick={() => {
+        try {
+          sessionStorage.setItem(CLE_SCROLL, String(Math.round(window.scrollY)));
+          sessionStorage.setItem(CLE_ORIGINE, e.slug);
+        } catch { /* ignoré */ }
+      }}
+      style={{ textDecoration: 'none', display: 'flex', height: '100%' }}
+    >
       <div style={{
         padding: '14px 16px',
         flex: 1,
@@ -211,7 +230,7 @@ function CarteEspece({ e, nbAnnonces }: { e: EspeceReco; nbAnnonces?: number }) 
         background: 'var(--bg-2)',
         transition: 'border-color .15s, transform .15s',
         cursor: 'pointer',
-        display: 'flex', flexDirection: 'column', gap: 6,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14,
       }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(47,217,190,0.5)';
@@ -222,7 +241,7 @@ function CarteEspece({ e, nbAnnonces }: { e: EspeceReco; nbAnnonces?: number }) 
           (e.currentTarget as HTMLDivElement).style.transform = 'none';
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 }}>
+        <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
           <div>
             <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text)' }}>
               {e.nomCommun}
@@ -231,26 +250,35 @@ function CarteEspece({ e, nbAnnonces }: { e: EspeceReco; nbAnnonces?: number }) 
               {e.nomScientifique}
             </div>
           </div>
-          <span style={{
-            flexShrink: 0, padding: '2px 9px', borderRadius: 20,
-            background: 'rgba(47,217,190,0.12)', border: '1px solid rgba(47,217,190,0.35)',
-            color: 'var(--teal)', fontSize: '0.74rem', fontWeight: 700, whiteSpace: 'nowrap',
-          }}>
-            × {e.quantite}
-          </span>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
+            <BadgeCategorie cat={e.categorie} />
+            <span style={{
+              padding: '2px 9px', borderRadius: 20,
+              background: 'rgba(47,217,190,0.12)', border: '1px solid rgba(47,217,190,0.35)',
+              color: 'var(--teal)', fontSize: '0.74rem', fontWeight: 700, whiteSpace: 'nowrap',
+            }}>
+              × {e.quantite}
+            </span>
+            <span style={{
+              fontSize: '0.72rem', color: 'var(--text-faint)',
+              fontFamily: "'IBM Plex Mono',monospace",
+            }}>
+              {e.difficulte} · {e.volumeMin ? `${e.volumeMin} L min` : e.tailleAdulte}
+            </span>
+          </div>
         </div>
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
-          <BadgeCategorie cat={e.categorie} />
-          <span style={{
-            fontSize: '0.72rem', color: 'var(--text-faint)',
-            fontFamily: "'IBM Plex Mono',monospace",
-          }}>
-            {e.difficulte} · {e.volumeMin ? `${e.volumeMin} L min` : e.tailleAdulte}
-          </span>
-        </div>
-        {nbAnnonces !== undefined && nbAnnonces > 0 && (
-          <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--teal)' }}>
-            <Icone nom="panier" size={14} style={{ marginRight: 6, verticalAlign: '-2px' }} />{nbAnnonces} annonce{nbAnnonces > 1 ? 's' : ''} en ligne
+        {photoOk && (
+          <div style={{ flexShrink: 0 }}>
+            <Image
+              src={`/especes/${e.slug}.webp`}
+              alt={e.nomCommun}
+              width={256}
+              height={168}
+              sizes="128px"
+              loading="lazy"
+              className="espece-vignette"
+              onError={() => setPhotoOk(false)}
+            />
           </div>
         )}
       </div>
@@ -259,18 +287,22 @@ function CarteEspece({ e, nbAnnonces }: { e: EspeceReco; nbAnnonces?: number }) 
 }
 
 // ─── Composant principal ────────────────────────────────────────────────────────
-export default function ConfigurateurWizard({ pool }: Props) {
+export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
   const [state, setState] = useState<WizardState>({
     etape: 1, niveau: null, typeBac: null, volume: null,
     budget: null, style: null, temps: null, resultats: null,
   });
   const [annoncesInfo, setAnnoncesInfo] = useState<AnnoncesInfo | null>(null);
   const [restaure, setRestaure] = useState(false);
+  const debutEtape = useRef<HTMLDivElement>(null);
+  const remonterApresReset = useRef(false);
 
   // Les réponses survivent à un aller-retour vers une fiche espèce : on les
   // garde dans sessionStorage et on recalcule les résultats au retour.
   useEffect(() => {
     try {
+      // On est de retour sur le simulateur : la fiche n'a plus à s'en réclamer.
+      sessionStorage.removeItem(CLE_ORIGINE);
       const brut = sessionStorage.getItem(CLE_SESSION);
       if (brut) {
         const d = JSON.parse(brut) as Partial<WizardState>;
@@ -320,6 +352,8 @@ export default function ConfigurateurWizard({ pool }: Props) {
   function recommencer() {
     setState({ etape: 1, niveau: null, typeBac: null, volume: null, budget: null, style: null, temps: null, resultats: null });
     setAnnoncesInfo(null);
+    // Le défilement se fait dans l'effet ci-dessous, une fois la page redessinée.
+    remonterApresReset.current = true;
   }
   function retour() {
     setState((s) => {
@@ -330,6 +364,40 @@ export default function ConfigurateurWizard({ pool }: Props) {
   }
 
   const { etape, niveau, typeBac, volume, budget, style, temps, resultats } = state;
+
+  // Après « Recommencer » : on remonte au début du questionnaire (titre de la
+  // 1re question juste sous le fil d'Ariane collant), pas tout en haut.
+  useEffect(() => {
+    if (!remonterApresReset.current || state.etape !== 1) return;
+    remonterApresReset.current = false;
+    const cible = debutEtape.current;
+    if (!cible) return;
+    const fil = document.querySelector('.breadcrumb');
+    const collant = !!fil && getComputedStyle(fil).position === 'sticky';
+    const bas = collant ? fil!.getBoundingClientRect().bottom : 80;
+    window.scrollTo({ top: Math.max(0, cible.getBoundingClientRect().top + window.scrollY - bas - 20), behavior: 'instant' as ScrollBehavior });
+  }, [state.etape]);
+
+  // Retour depuis une fiche espèce : une fois les résultats réaffichés, on
+  // remet la page à la position où l'on avait cliqué (une seule fois).
+  const scrollRestaure = useRef(false);
+  useEffect(() => {
+    if (scrollRestaure.current || !restaure) return;
+    scrollRestaure.current = true;
+    // Pas de résultats à réafficher : une ancienne position ne doit pas servir.
+    if (etape !== 'resultats' || !resultats) {
+      try { sessionStorage.removeItem(CLE_SCROLL); } catch { /* ignoré */ }
+      return;
+    }
+    try {
+      const y = Number(sessionStorage.getItem(CLE_SCROLL));
+      sessionStorage.removeItem(CLE_SCROLL);
+      if (y > 0) {
+        // Deux images d'attente : le temps que les cartes soient dessinées.
+        requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, y)));
+      }
+    } catch { /* ignoré */ }
+  }, [restaure, etape, resultats]);
 
   // Annonces réellement en ligne pour les espèces conseillées (nombre + quelques
   // annonces récentes). Échec silencieux : la page reste utile sans.
@@ -352,6 +420,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
       `}</style>
 
       <BarreProgression etape={etape} />
+      <div ref={debutEtape} />
 
       {/* ── Étape 1 : Niveau ────────────────────────────────────────────── */}
       {etape === 1 && (
@@ -408,7 +477,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
                 selected={volume === v.id} onClick={() => choisirVolume(v.id)} />
             ))}
             <ChoixCard icone="aide" label="Je ne sais pas encore"
-              desc="Laissez le configurateur recommander la taille idéale selon votre niveau et votre budget."
+              desc="Laissez le simulateur recommander la taille idéale selon votre niveau et votre budget."
               selected={volume === 'auto'} onClick={() => choisirVolume('auto')} />
           </div>
           <button type="button" onClick={retour} style={{
@@ -558,7 +627,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
                   Prix en neuf
                 </div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-muted)', textDecoration: 'line-through', opacity: 0.7 }}>
-                  {resultats.setup.budgetMin.toLocaleString('fr-FR')} – {resultats.setup.budgetMax.toLocaleString('fr-FR')} €
+                  {resultats.setup.budgetMin.toLocaleString('fr-FR')} – {resultats.setup.budgetMax.toLocaleString('fr-FR')}&nbsp;€
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-faint)', marginTop: 2 }}>hors animaux et plantes</div>
               </div>
@@ -572,29 +641,27 @@ export default function ConfigurateurWizard({ pool }: Props) {
                 position: 'relative',
                 overflow: 'hidden',
               }}>
-                <div style={{
-                  position: 'absolute', top: 6, right: 8,
-                  background: 'var(--teal)', color: '#052027',
-                  fontSize: '0.65rem', fontWeight: 800, padding: '2px 7px',
-                  borderRadius: 20, letterSpacing: '0.06em',
-                }}>
-                  – 50 %
-                </div>
-                <div style={{ fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.08em', color: 'var(--teal)', marginBottom: 4, textTransform: 'uppercase' }}>
-                  Via Aquatopia
+                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px 8px', marginBottom: 6 }}>
+                  <div style={{ fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.08em', color: 'var(--teal)', textTransform: 'uppercase' }}>
+                    Via Aquatopia
+                  </div>
+                  <span style={{
+                    background: 'var(--teal)', color: '#052027',
+                    fontSize: '0.65rem', fontWeight: 800, padding: '2px 7px',
+                    borderRadius: 20, letterSpacing: '0.06em', whiteSpace: 'nowrap',
+                  }}>
+                    jusqu&apos;à – 50 %
+                  </span>
                 </div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--teal)' }}>
-                  {Math.round(resultats.setup.budgetMin * 0.45 / 10) * 10} – {Math.round(resultats.setup.budgetMax * 0.55 / 10) * 10} €
+                  {(Math.round(resultats.setup.budgetMin * 0.45 / 10) * 10).toLocaleString('fr-FR')} – {(Math.round(resultats.setup.budgetMax * 0.55 / 10) * 10).toLocaleString('fr-FR')}&nbsp;€
                 </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 2 }}>estimation occasion</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 2 }}>estimation indicative, selon les annonces</div>
               </div>
             </div>
 
             {/* CTA téléchargement */}
-            <a
-              href="https://apps.apple.com/app/aquatopia/id6741454953"
-              target="_blank"
-              rel="noopener noreferrer"
+            <DownloadButton
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -606,20 +673,17 @@ export default function ConfigurateurWizard({ pool }: Props) {
                 textDecoration: 'none',
                 fontWeight: 700,
                 fontSize: '0.95rem',
-                transition: 'opacity .15s',
               }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
             >
               <Icone nom="mobile" size={26} />
               <div>
                 <div>Trouver ce setup en occasion sur Aquatopia</div>
                 <div style={{ fontSize: '0.78rem', fontWeight: 400, opacity: 0.75, marginTop: 1 }}>
-                  Des milliers d'annonces entre aquariophiles — téléchargement gratuit
+                  Application gratuite — achetez, échangez ou adoptez près de chez vous
                 </div>
               </div>
               <span style={{ marginLeft: 'auto', fontSize: '1.1rem', flexShrink: 0 }}>→</span>
-            </a>
+            </DownloadButton>
           </div>
 
           {/* Setup équipement */}
@@ -713,7 +777,7 @@ export default function ConfigurateurWizard({ pool }: Props) {
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 10 }}>
                           {g.especes.map((e) => (
-                            <CarteEspece key={e.slug} e={e} nbAnnonces={annoncesInfo?.counts[e.nomScientifique]} />
+                            <CarteEspece key={e.slug} e={e} />
                           ))}
                         </div>
                       </div>
@@ -734,13 +798,30 @@ export default function ConfigurateurWizard({ pool }: Props) {
           )}
 
           {/* Setups prêts à l'emploi */}
+          {resultats.presets.length === 0 && style && (
+            <div style={{
+              padding: '16px 18px', borderRadius: 'var(--radius-m)', background: 'var(--bg-2)',
+              border: '1px solid var(--border)', color: 'var(--text-muted)', marginBottom: 32, fontSize: '0.88rem', lineHeight: 1.55,
+            }}>
+              Aucun setup prêt à l&apos;emploi ne correspond à ce choix pour votre niveau et ce volume
+              (espèces trop exigeantes ou trop grandes pour ce bac). Les espèces compatibles ci-dessus restent
+              utilisables, ou recommencez avec un autre volume.
+            </div>
+          )}
+
           {resultats.presets.length > 0 && (
             <div style={{ marginBottom: 32 }}>
               <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
                 <Icone nom="cuve" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Setups prêts à l'emploi
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 16, marginTop: 0 }}>
-                Des associations toutes faites, une espèce par zone du bac. Elles partagent la même température et un pH commun : vous pouvez les prendre telles quelles.
+                {resultats.presets.length > 1 ? 'Des associations construites' : 'Une association construite'} à partir de vos choix
+                {typeBac && volume ? ` (${[
+                  TYPES_BAC.find((t) => t.id === typeBac)?.label,
+                  VOLUMES_BAC[typeBac].find((v) => v.id === resultats.volume)?.label,
+                  STYLES[typeBac].find((x) => x.id === style)?.label.replace(/^./, (c) => c.toLowerCase()),
+                ].filter(Boolean).join(', ').replace(/\s+/g, ' ')})` : ''}.
+                {' '}Les espèces d&apos;un même setup partagent la même température et un pH commun : vous pouvez les prendre telles quelles.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
                 {resultats.presets.map((p) => (
@@ -799,20 +880,18 @@ export default function ConfigurateurWizard({ pool }: Props) {
             padding: '20px 24px', borderRadius: 'var(--radius-m)',
             background: 'var(--bg-2)', border: '1px solid var(--border)',
             marginBottom: 32, display: 'flex', flexDirection: 'column', gap: 10,
+            alignItems: 'center', textAlign: 'center',
           }}>
             <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text)' }}>
               Trouver des espèces sur Aquatopia
             </div>
             <div style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
-              Des milliers d'annonces entre aquariophiles passionnés — achetez, échangez, adoptez localement.
+              {annoncesArrondi ? `${annoncesArrondi} annonces` : 'Des annonces'} entre aquariophiles passionnés — achetez, échangez, adoptez près de chez vous.
             </div>
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 4 }}>
-              <Link href="/especes" className="btn btn-ghost" style={{ fontSize: '0.88rem', padding: '8px 18px' }}>
-                Parcourir les fiches espèces
-              </Link>
-              <Link href="/#categories" className="btn btn-primary" style={{ fontSize: '0.88rem', padding: '8px 18px' }}>
-                Voir les annonces
-              </Link>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
+              <DownloadButton className="btn btn-primary" style={{ fontSize: '0.88rem', padding: '8px 18px' }}>
+                Télécharger l&apos;application
+              </DownloadButton>
             </div>
           </div>
 

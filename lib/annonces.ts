@@ -48,6 +48,37 @@ export async function fetchAnnoncesActives(limit = 5000): Promise<Annonce[]> {
   return (data ?? []) as unknown as Annonce[];
 }
 
+// Nombre d'annonces actuellement en ligne (actives et validées), pour la
+// preuve sociale de la page d'accueil. Renvoie null si la requête échoue :
+// l'appelant n'affiche alors aucun chiffre plutôt qu'un chiffre faux.
+export async function compterAnnoncesActives(): Promise<number | null> {
+  try {
+    const { count, error } = await supabase
+      .from('annonces')
+      .select('id', { count: 'exact', head: true })
+      .eq('statut', 'active')
+      .eq('validee', true);
+    if (error || typeof count !== 'number') return null;
+    return count;
+  } catch {
+    return null;
+  }
+}
+
+// Nombre de membres inscrits, pour la preuve sociale de l'accueil. Passe par
+// la fonction SQL `nombre_membres()` qui ne renvoie QUE le total (aucune
+// donnée personnelle, la table des profils reste fermée au public). Renvoie
+// null si la fonction n'existe pas encore ou échoue : aucun chiffre affiché.
+export async function compterMembres(): Promise<number | null> {
+  try {
+    const { data, error } = await supabase.rpc('nombre_membres');
+    if (error || typeof data !== 'number') return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
 // Version allégée réservée au sitemap : seules les colonnes nécessaires à
 // construire l'URL et la date sont demandées (pas les photos/description),
 // pour que la requête reste rapide même avec des centaines d'annonces et

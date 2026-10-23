@@ -200,6 +200,11 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
         reponse:
           "Pour un bac peu planté, un substrat neutre suffit ; pour un bac fortement planté, un substrat technique ou nutritif favorise nettement la croissance des racines et limite les carences.",
       },
+      {
+        question: "Comment faire des boutures de plantes d'aquarium ?",
+        reponse:
+          "Pour une plante à tiges, coupez le sommet sur 8 à 15 cm, juste sous un nœud, retirez les feuilles du bas puis replantez la bouture de 2 à 3 cm dans le substrat. Pour les plantes à rhizome (anubias, bucephalandra), sectionnez le rhizome en gardant plusieurs feuilles et fixez chaque morceau sur une roche ou un bois sans l'enterrer. Pour les plantes à stolons (vallisnéries, sagittaires, cryptocorynes), séparez les jeunes plants quand ils ont 3 ou 4 feuilles et leurs racines. Chaque fiche plante du site détaille la méthode adaptée.",
+      },
     ],
   },
   {
@@ -220,6 +225,11 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
         question: 'Pourquoi mes coraux ferment ou blanchissent ?',
         reponse:
           "Un stress lié à une variation de paramètres (température, salinité, éclairage), un brassage inadapté ou une acclimatation trop rapide en sont les causes les plus courantes — un blanchissement prolongé signale souvent l'expulsion des algues symbiotiques du corail.",
+      },
+      {
+        question: 'Comment bouturer un corail ?',
+        reponse:
+          "Portez gants et lunettes, choisissez une colonie en pleine forme installée depuis plusieurs semaines, puis coupez un fragment : à la pince pour les SPS (2 à 4 cm au bout d'une branche), à la scie pour les LPS, au scalpel pour les coraux mous. Fixez ensuite la bouture sur un support avec de la colle gel ou un élastique et replacez-la sous un éclairage et un courant modérés. Les anémones, elles, ne se bouturent pas. Chaque fiche corail du site détaille la méthode adaptée.",
       },
       {
         question: 'Faut-il obligatoirement un écumeur ?',
