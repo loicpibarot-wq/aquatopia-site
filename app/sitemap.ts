@@ -58,6 +58,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const especes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/especes`, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${SITE_URL}/poissons-spectaculaires`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/reproduction-poissons-aquarium`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/bouturage-plantes-aquarium`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/bouturage-coraux-aquarium`, changeFrequency: 'monthly', priority: 0.7 },
     ...ESPECES_PUBLIEES.map((e) => ({
       url: `${SITE_URL}/especes/${e.slug}`,
       changeFrequency: 'monthly' as const,

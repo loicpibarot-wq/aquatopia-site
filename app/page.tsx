@@ -8,6 +8,11 @@ import { compterAnnoncesActives, compterMembres } from '@/lib/annonces';
 // Le compteur d'annonces de l'accueil est rafraîchi toutes les 10 minutes.
 export const revalidate = 600;
 
+// Affichage des compteurs : arrondi à la dizaine inférieure avec un « + » (le chiffre est
+// toujours un minimum garanti). Sous 100, le nombre exact.
+const arrondiDizaine = (n: number) =>
+  n >= 100 ? `${(Math.floor(n / 10) * 10).toLocaleString('fr-FR').replace(/\s/g, ' ')}+` : String(n);
+
 const FAQ = [
   {
     q: "L'application Aquatopia est-elle gratuite ?",
@@ -81,10 +86,10 @@ export default async function HomePage() {
             <div className="hero-stats" style={{ marginTop: 28 }}>
               <div className="stat"><b>100%</b><span>annonces modérées</span></div>
               {nbMembres !== null && nbMembres > 0 && (
-                <div className="stat"><b>{nbMembres >= 100 ? `${(Math.floor(nbMembres / 100) * 100).toLocaleString('fr-FR').replace(/\s/g, ' ')}+` : nbMembres}</b><span>membres inscrits</span></div>
+                <div className="stat"><b>{arrondiDizaine(nbMembres)}</b><span>membres inscrits</span></div>
               )}
               {nbAnnonces !== null && nbAnnonces > 0 ? (
-                <div className="stat"><b>{nbAnnonces >= 100 ? `${(Math.floor(nbAnnonces / 100) * 100).toLocaleString('fr-FR').replace(/\s/g, ' ')}+` : nbAnnonces}</b><span>annonces en ligne</span></div>
+                <div className="stat"><b>{arrondiDizaine(nbAnnonces)}</b><span>annonces en ligne</span></div>
               ) : (
                 <div className="stat"><b>iOS + Android</b><span>disponible dès maintenant</span></div>
               )}
@@ -95,14 +100,14 @@ export default async function HomePage() {
               </DownloadButton>
             </div>
             <div className="store-badges">
-              <a href="https://apps.apple.com/app/id6774605218" target="_blank" rel="noopener" className="store-badge">
+              <DownloadButton href="https://apps.apple.com/app/id6774605218" className="store-badge">
                 <IconeApple size={24} />
                 <span><small>Disponible sur</small><strong>App Store</strong></span>
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" target="_blank" rel="noopener" className="store-badge">
+              </DownloadButton>
+              <DownloadButton href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" className="store-badge">
                 <IconeGooglePlay size={22} />
                 <span><small>Disponible sur</small><strong>Google Play</strong></span>
-              </a>
+              </DownloadButton>
             </div>
             <p style={{ marginTop: 16, fontSize: '0.85rem', color: 'var(--text-faint)' }}>Disponible dans toute la France.</p>
             <div className="hero-reseaux" style={{ marginTop: 36 }}>
@@ -343,14 +348,14 @@ export default async function HomePage() {
             <div style={{ marginTop: 22, paddingTop: 22, borderTop: '1px solid var(--border)', width: '100%', maxWidth: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
               <span style={{ fontSize: '0.8rem', color: 'var(--text-faint)' }}>Aquatopia est aussi disponible gratuitement sur :</span>
               <div className="store-badges" style={{ marginTop: 0 }}>
-                <a href="https://apps.apple.com/app/id6774605218" target="_blank" rel="noopener" className="store-badge">
+                <DownloadButton href="https://apps.apple.com/app/id6774605218" className="store-badge">
                   <IconeApple size={24} />
                   <span><small>Disponible sur</small><strong>App Store</strong></span>
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" target="_blank" rel="noopener" className="store-badge">
+                </DownloadButton>
+                <DownloadButton href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" className="store-badge">
                   <IconeGooglePlay size={22} />
                   <span><small>Disponible sur</small><strong>Google Play</strong></span>
-                </a>
+                </DownloadButton>
               </div>
             </div>
             <span className="cta-domain">aquatopia.fr</span>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LienGererCookies } from '@/components/ConsentementAnalytics';
+import CompteurTelechargements from '@/components/CompteurTelechargements';
 
 export default function Footer() {
   return (
@@ -9,6 +10,7 @@ export default function Footer() {
         <div className="foot-brand">
           <Image src="/logo.webp" alt="" width={20} height={21} />
           © 2026 Aquatopia — aquatopia.fr
+          <CompteurTelechargements />
         </div>
         <div className="foot-links">
           <a href="/#fonctionnement">Comment ça marche</a>

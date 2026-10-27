@@ -36,6 +36,16 @@ const ICONES_CATEGORIE: Record<string, IconeNom> = {
 };
 const iconeCategorie = (cat: string): IconeNom => ICONES_CATEGORIE[cat] ?? 'patte';
 
+// Trois grands univers ; chacun regroupe des catégories du catalogue.
+const UNIVERS: { id: string; label: string; icone: IconeNom; categories: string[] }[] = [
+  { id: 'eau-douce', label: 'Eau douce', icone: 'poisson', categories: ['Eau Douce', 'Plantes', 'Crustacés / Invertébrés eau douce', 'Mollusques eau douce'] },
+  { id: 'recifal',   label: 'Récifal',   icone: 'corail',  categories: ['Poissons marins', 'Coraux et anémones', 'Invertébrés marins', 'Macroalgues marines'] },
+  { id: 'bassin',    label: 'Bassin',    icone: 'arbre',   categories: ['Bassin'] },
+];
+const universDe = (cat: string) => UNIVERS.find((u) => u.categories.includes(cat))?.id ?? '';
+// Libellés plus parlants dans la ligne de sous-catégories.
+const LIBELLE_SOUS: Record<string, string> = { 'Eau Douce': "Poissons d'eau douce" };
+
 function BadgeLegal({ statut }: { statut: EspeceCarte['statutLegal'] }) {
   if (statut === 'autorise') return null;
   const cls = statut === 'interdite' || statut === 'autorisation_requise' ? 'interdite' : 'cites';
@@ -84,6 +94,7 @@ export const CLE_RETOUR_ESPECES = 'aquatopia_especes_retour_v1';
 export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] }) {
   const [recherche, setRecherche] = useState('');
   const [categorie, setCategorie] = useState('');
+  const [univers, setUnivers] = useState('');
   const [restauree, setRestauree] = useState(false);
   const scrollARestaurer = useRef(0);
 
@@ -92,9 +103,11 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
       if (sessionStorage.getItem(CLE_RETOUR_ESPECES)) {
         const brut = sessionStorage.getItem(CLE_LISTE_ESPECES);
         if (brut) {
-          const d = JSON.parse(brut) as { recherche?: string; categorie?: string; scroll?: number };
+          const d = JSON.parse(brut) as { recherche?: string; categorie?: string; univers?: string; scroll?: number };
           if (typeof d.recherche === 'string') setRecherche(d.recherche);
           if (typeof d.categorie === 'string') setCategorie(d.categorie);
+          if (typeof d.univers === 'string') setUnivers(d.univers);
+          else if (typeof d.categorie === 'string') setUnivers(universDe(d.categorie));
           scrollARestaurer.current = Number(d.scroll) || 0;
         }
       }
@@ -119,23 +132,29 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
     const slug = (lien.getAttribute('href') ?? '').split('/').filter(Boolean).pop();
     if (!slug) return;
     try {
-      sessionStorage.setItem(CLE_LISTE_ESPECES, JSON.stringify({ recherche, categorie, scroll: window.scrollY, slug }));
+      sessionStorage.setItem(CLE_LISTE_ESPECES, JSON.stringify({ recherche, categorie, univers, scroll: window.scrollY, slug }));
     } catch { /* ignoré */ }
   }
 
-  const categories = useMemo(
-    () => Array.from(new Set(especes.map((e) => e.categorie))).sort((a, b) => a.localeCompare(b, 'fr')),
-    [especes],
+  const universActif = UNIVERS.find((u) => u.id === univers);
+  const especesUnivers = useMemo(
+    () => (universActif ? especes.filter((e) => universActif.categories.includes(e.categorie)) : especes),
+    [especes, universActif],
+  );
+  // Sous-catégories de l'univers choisi, dans l'ordre défini ci-dessus, si elles existent dans la liste.
+  const sousCategories = useMemo(
+    () => (universActif ? universActif.categories.filter((c) => especes.some((e) => e.categorie === c)) : []),
+    [especes, universActif],
   );
 
   const filtrees = useMemo(() => {
     const q = normaliser(recherche.trim());
-    return especes.filter((e) => {
+    return especesUnivers.filter((e) => {
       if (categorie && e.categorie !== categorie) return false;
       if (!q) return true;
       return [e.nomCommun, e.nomScientifique, ...(e.autresNoms ?? [])].some((n) => normaliser(n).includes(q));
     });
-  }, [especes, recherche, categorie]);
+  }, [especesUnivers, recherche, categorie]);
 
   // Pendant la saisie : liste compacte de suggestions affichée juste sous la
   // barre de recherche, sur toutes les catégories (le filtre de catégorie est
@@ -198,24 +217,47 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
       {/* Pills de catégories (masquées pendant la saisie : la liste de
           suggestions prend la place, juste sous la barre de recherche) */}
       {!enRecherche && (
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(175px, 1fr))', gap: 8, marginTop: 14 }}>
-        <button type="button" onClick={() => setCategorie('')} style={pillStyle(!categorie)}>
-          Toutes ({especes.length})
-        </button>
-        {categories.map((c) => {
-          const count = especes.filter((e) => e.categorie === c).length;
-          return (
-            <button
-              key={c}
-              type="button"
-              onClick={() => setCategorie(categorie === c ? '' : c)}
-              style={pillStyle(categorie === c)}
-            >
-              <Icone nom={iconeCategorie(c)} size={15} style={{ marginRight: 6, verticalAlign: '-2px' }} />{c} ({count})
-            </button>
-          );
-        })}
-      </div>
+        <div style={{ marginTop: 18, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
+          <style>{`
+            .esp-seg{ display:flex; width:100%; max-width:520px; padding:4px; gap:4px; background:var(--bg-2); border:1px solid var(--border); border-radius:999px; }
+            .esp-seg button{ flex:1; min-width:0; padding:10px 6px; border:0; border-radius:999px; background:transparent; color:var(--text-muted); font:inherit; font-size:0.9rem; font-weight:600; cursor:pointer; transition:background .15s, color .15s; white-space:nowrap; }
+            .esp-seg button:hover{ color:var(--text); }
+            .esp-seg button[aria-pressed="true"]{ background:linear-gradient(120deg, var(--teal), var(--blue)); color:#052027; }
+            .esp-tabs{ display:flex; gap:22px; max-width:100%; overflow-x:auto; padding:0 4px; border-bottom:1px solid var(--border); scrollbar-width:none; }
+            .esp-tabs::-webkit-scrollbar{ display:none; }
+            .esp-tabs button{ flex:none; padding:8px 2px 10px; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; background:transparent; color:var(--text-muted); font:inherit; font-size:0.9rem; cursor:pointer; white-space:nowrap; transition:color .15s, border-color .15s; }
+            .esp-tabs button:hover{ color:var(--text); }
+            .esp-tabs button[aria-pressed="true"]{ color:var(--teal); border-bottom-color:var(--teal); font-weight:700; }
+            .esp-tabs small{ margin-left:5px; font-size:0.75rem; opacity:0.7; font-variant-numeric:tabular-nums; }
+          `}</style>
+
+          <div className="esp-seg" role="group" aria-label="Univers">
+            <button type="button" aria-pressed={!univers} onClick={() => { setUnivers(''); setCategorie(''); }}>Toutes</button>
+            {UNIVERS.map((u) => (
+              <button
+                key={u.id}
+                type="button"
+                aria-pressed={univers === u.id}
+                onClick={() => { setUnivers(univers === u.id ? '' : u.id); setCategorie(''); }}
+              >
+                {u.label}
+              </button>
+            ))}
+          </div>
+
+          {universActif && sousCategories.length > 1 && (
+            <div className="esp-tabs" role="group" aria-label="Catégories">
+              <button type="button" aria-pressed={!categorie} onClick={() => setCategorie('')}>
+                Tout<small>{especesUnivers.length}</small>
+              </button>
+              {sousCategories.map((c) => (
+                <button key={c} type="button" aria-pressed={categorie === c} onClick={() => setCategorie(categorie === c ? '' : c)}>
+                  {LIBELLE_SOUS[c] ?? c}<small>{especes.filter((e) => e.categorie === c).length}</small>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       )}
 
       {/* Résultats */}

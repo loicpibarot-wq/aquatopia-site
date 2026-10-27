@@ -3,7 +3,9 @@
 // Google en JSON-LD, à partir des mêmes champs, jamais un contenu différent),
 // tuiles d'information et choix des fiches « Voir aussi ».
 import { ESPECES_PUBLIEES, CATEGORIES_MARINES, type Espece, type FicheTechnique } from '@/lib/especes';
-import { faqBouturage } from '@/lib/bouturage';
+import { faqBouturage, guideBouturage } from '@/lib/bouturage';
+import { faqReproduction, reproductionEspece } from '@/lib/especes-reproduction';
+import { comportementEspece, COMPORTEMENT_NIVEAUX } from '@/lib/especes-comportement';
 
 export type EspecePubliee = Espece & { fiche: FicheTechnique };
 
@@ -66,6 +68,21 @@ const coupe = (texte: string, max: number) => {
   return `${morceau.slice(0, morceau.lastIndexOf(' '))}…`;
 };
 
+// « bouturage, » dans la meta description quand la fiche affiche un guide de bouturage.
+function bouturageDesc(e: EspecePubliee): string {
+  const g = guideBouturage(e);
+  return g && (g.faisable || e.fiche.corail) ? 'bouturage, ' : '';
+}
+
+// Thèmes propres aux fiches de poissons, ajoutés à la meta description :
+// « Comportement, reproduction, » selon ce que la fiche contient vraiment.
+function themesFiche(slug: string): string {
+  const themes = [comportementEspece(slug) ? 'Comportement' : null, reproductionEspece(slug) ? 'reproduction' : null].filter(Boolean) as string[];
+  if (themes.length === 0) return '';
+  const t = themes.join(', ');
+  return `${t.charAt(0).toUpperCase()}${t.slice(1)}, `;
+}
+
 export function descriptionEspece(e: EspecePubliee): string {
   const nomDesc = estVendable(e) ? `${e.nomCommun} à vendre` : e.nomCommun;
   const f = e.fiche;
@@ -80,7 +97,7 @@ export function descriptionEspece(e: EspecePubliee): string {
   if (f.corail) {
     const c = f.corail;
     return coupe(
-      `${nomDesc} : ${c.type}, lumière ${c.lumiere.toLowerCase()}, courant ${c.courant.toLowerCase()}, ${temp}. Entretien en bac récifal, compatibilité et statut légal en France.`,
+      `${nomDesc} : ${c.type}, lumière ${c.lumiere.toLowerCase()}, courant ${c.courant.toLowerCase()}, ${temp}. Entretien, ${bouturageDesc(e)}compatibilité et statut légal.`,
       158,
     );
   }
@@ -94,18 +111,20 @@ export function descriptionEspece(e: EspecePubliee): string {
   if (f.plante) {
     const p = f.plante;
     return coupe(
-      `${nomDesc} : ${p.placement.toLowerCase()}, lumière ${p.lumiere.toLowerCase()}, CO₂ ${p.co2.toLowerCase()}, ${ph}, ${temp}. Entretien, compatibilité et statut légal en France.`,
+      `${nomDesc} : ${p.placement.toLowerCase()}, lumière ${p.lumiere.toLowerCase()}, CO₂ ${p.co2.toLowerCase()}, ${ph}, ${temp}. Entretien, ${bouturageDesc(e)}compatibilité et statut.`,
       158,
     );
   }
   if (f.marin) {
     const reef = f.marin.reefSafe ? `, récif : ${f.marin.reefSafe.toLowerCase()}` : '';
+    const compo = themesFiche(e.slug);
     return coupe(
-      `${nomDesc} : volume minimum ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}${reef}, ${temp}. Compatibilité, alimentation et statut légal en France.`,
+      `${nomDesc} : volume min. ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}${reef}, ${temp}. ${compo}${compo ? 'compatibilité' : 'Compatibilité'}, alimentation et statut légal.`,
       158,
     );
   }
-  return coupe(`${nomDesc} : volume minimum ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}, ${ph}, température ${temp}. Compatibilité, alimentation et conseils d'entretien.`, 160);
+  const compo = themesFiche(e.slug);
+  return coupe(`${nomDesc} : volume min. ${f.volumeMinLitres ? `${f.volumeMinLitres} L` : 'non applicable'}, ${ph}, ${temp}. ${compo}${compo ? 'compatibilité' : 'Compatibilité'}, alimentation et entretien.`, 160);
 }
 
 export interface Tuile {
@@ -286,7 +305,16 @@ export function faqEspece(e: EspecePubliee): QuestionReponse[] {
       question: `Quelle taille adulte pour ${nom} ?`,
       reponse: `${nom} atteint ${f.tailleAdulte} à l'âge adulte.`,
     });
-    if (f.reproduction) {
+    const comportement = comportementEspece(e.slug);
+    if (comportement) {
+      faq.push({
+        question: `Quel est le comportement de ${nom} en aquarium ?`,
+        reponse: `${comportement.description} Intérêt à l'observer : ${comportement.niveau} sur 5 (${COMPORTEMENT_NIVEAUX[comportement.niveau].libelle.toLowerCase()}).`,
+      });
+    }
+    if (reproductionEspece(e.slug)) {
+      faq.push(...faqReproduction(e.slug, nom));
+    } else if (f.reproduction) {
       faq.push({
         question: `La reproduction de ${nom} est-elle facile ?`,
         reponse: `Reproduction ${f.reproduction.facilite.toLowerCase()}. ${phrase(f.reproduction.description)}`,

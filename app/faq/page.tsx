@@ -100,7 +100,23 @@ export default function FaqPage() {
           <Link href="/guides" style={{ color: 'var(--teal)' }}>
             guides détaillés
           </Link>{' '}
-          sur le démarrage d&apos;un aquarium, le récifal et les bassins de jardin.
+          sur le démarrage d&apos;un aquarium, le récifal et les bassins de jardin, ou découvrez les{' '}
+          <Link href="/poissons-spectaculaires" style={{ color: 'var(--teal)' }}>
+            poissons les plus spectaculaires à observer
+          </Link>
+          {' '}ou nos{' '}
+          <Link href="/reproduction-poissons-aquarium" style={{ color: 'var(--teal)' }}>
+            guides de reproduction des poissons
+          </Link>
+          , ainsi que le{' '}
+          <Link href="/bouturage-plantes-aquarium" style={{ color: 'var(--teal)' }}>
+            bouturage des plantes
+          </Link>{' '}
+          et le{' '}
+          <Link href="/bouturage-coraux-aquarium" style={{ color: 'var(--teal)' }}>
+            bouturage des coraux
+          </Link>
+          .
         </p>
       </div>
     </div>

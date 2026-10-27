@@ -1,9 +1,11 @@
+import { comportementEspece, COMPORTEMENT_NIVEAUX, NIVEAU_VEDETTE } from '@/lib/especes-comportement';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ESPECES_PUBLIEES, fetchEspeceParSlug } from '@/lib/especes';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { guideBouturage } from '@/lib/bouturage';
+import { reproductionEspece } from '@/lib/especes-reproduction';
 import { descriptionEspece, especesLiees, faqEspece, nomsIdentiques, titreEspece, tuilesEspece } from '@/lib/especes-seo';
 import EspeceImage from '@/components/EspeceImage';
 import Icone from '@/components/Icone';
@@ -92,6 +94,30 @@ function PastilleNiveau({ titre, facilite }: { titre: string; facilite: string }
   );
 }
 
+// Pastille d'intérêt du comportement (même présentation que la difficulté de reproduction :
+// 5 points, plus il y en a de pleins, plus le comportement est agréable à observer).
+function PastilleComportement({ niveau }: { niveau: number }) {
+  const n = COMPORTEMENT_NIVEAUX[niveau];
+  return (
+    <div style={{ marginBottom: 14 }}>
+      <div style={{ fontSize: '0.72rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, color: 'var(--text-muted)', marginBottom: 8 }}>
+        Intérêt du comportement
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px 12px' }}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '4px 14px', borderRadius: 20, fontSize: '0.85rem', fontWeight: 600, background: 'rgba(47,217,190,0.14)', color: 'var(--teal)' }}>
+          <span aria-hidden="true" style={{ display: 'inline-flex', gap: 3 }}>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <span key={i} style={{ width: 8, height: 8, borderRadius: '50%', background: 'currentColor', opacity: i <= niveau ? 1 : 0.2 }} />
+            ))}
+          </span>
+          {n?.libelle}
+        </span>
+        {n && <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{n.phrase}</span>}
+      </div>
+    </div>
+  );
+}
+
 // Difficulté du bouturage (Facile / Moyenne / Délicate) → échelle de la pastille.
 const NIVEAU_BOUTURAGE_VERS_PASTILLE: Record<string, string> = { Facile: 'Facile', Moyenne: 'Modérée', Délicate: 'Difficile' };
 
@@ -108,6 +134,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
   const multiplication = fiche.plante?.multiplication ?? fiche.corail?.multiplication ?? fiche.algue?.multiplication ?? null;
   const titreAlimentation = fiche.plante || fiche.algue ? 'Culture et nutrition' : fiche.corail ? 'Alimentation et nutrition' : 'Alimentation';
   const urlFiche = `${SITE_URL}/especes/${espece.slug}`;
+  const comportement = comportementEspece(espece.slug);
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -144,6 +171,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
     { name: espece.nomCommun },
   ];
 
+  const reproTuto = reproductionEspece(espece.slug);
   const reproduction = fiche.reproduction ? (
     <>
           <PastilleNiveau titre="Difficulté de reproduction" facilite={fiche.reproduction.facilite} />
@@ -319,6 +347,11 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
               )}
             </div>
           )}
+          <p style={{ margin: '0 0 14px', fontSize: '0.92rem' }}>
+            <Link href={fiche.corail ? '/bouturage-coraux-aquarium' : '/bouturage-plantes-aquarium'} style={{ color: 'var(--teal)', fontWeight: 600 }}>
+              {fiche.corail ? 'Voir tous les guides de bouturage des coraux →' : 'Voir tous les guides de bouturage des plantes →'}
+            </Link>
+          </p>
           {bouturage.precaution && (
             <p style={{ margin: '4px 0 0', padding: '12px 16px', borderRadius: 12, background: 'var(--bg-2)', border: '1px solid var(--border)', color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6 }}>
               <b style={{ color: 'var(--text)' }}>À savoir : </b>{bouturage.precaution}
@@ -327,7 +360,79 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      {fiche.reproduction && !reproFondueDansBouturage && (
+      {comportement && (
+        <section style={{ maxWidth: 760, marginBottom: 40, padding: 0 }} aria-labelledby="comportement-espece">
+          <h2 id="comportement-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
+            Comportement de {espece.nomCommun}
+          </h2>
+          <PastilleComportement niveau={comportement.niveau} />
+          <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+            {comportement.description}
+          </p>
+          {comportement.niveau >= NIVEAU_VEDETTE && (
+            <p style={{ margin: '14px 0 0', fontSize: '0.92rem' }}>
+              <Link href="/poissons-spectaculaires" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+                Voir tous les poissons au comportement spectaculaire →
+              </Link>
+            </p>
+          )}
+        </section>
+      )}
+
+      {reproTuto && (
+        <section id="reproduction" style={{ maxWidth: 760, marginBottom: 40, padding: 0 }} aria-labelledby="repro-espece">
+          <h2 id="repro-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
+            {reproTuto.faisable ? `Comment faire se reproduire ${espece.nomCommun} ?` : `Reproduction de ${espece.nomCommun} en aquarium`}
+          </h2>
+          <PastilleNiveau titre="Difficulté de reproduction" facilite={reproTuto.niveau} />
+          <p style={{ margin: '0 0 14px', color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+            {reproTuto.resume}
+          </p>
+          {reproTuto.faisable && (
+            <div>
+              {reproTuto.methode && (
+                <p style={{ margin: '0 0 16px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                  <b style={{ color: 'var(--text)' }}>Mode de reproduction :</b> {reproTuto.methode}
+                </p>
+              )}
+              {reproTuto.materiel && reproTuto.materiel.length > 0 && (
+                <>
+                  <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Matériel</h3>
+                  <ul style={{ margin: '0 0 18px', paddingLeft: 20, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.65 }}>
+                    {reproTuto.materiel.map((m) => <li key={m}>{m}</li>)}
+                  </ul>
+                </>
+              )}
+              {reproTuto.etapes && reproTuto.etapes.length > 0 && (
+                <>
+                  <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Étape par étape</h3>
+                  <ol style={{ margin: '0 0 18px', paddingLeft: 22, color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.65, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    {reproTuto.etapes.map((et) => <li key={et}>{et}</li>)}
+                  </ol>
+                </>
+              )}
+              {reproTuto.alevins && (
+                <>
+                  <h3 style={{ fontSize: '0.95rem', marginBottom: 8 }}>Élever les jeunes</h3>
+                  <p style={{ margin: '0 0 14px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.65 }}>{reproTuto.alevins}</p>
+                </>
+              )}
+            </div>
+          )}
+          <p style={{ margin: '0 0 14px', fontSize: '0.92rem' }}>
+            <Link href="/reproduction-poissons-aquarium" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+              Voir tous les guides de reproduction des poissons →
+            </Link>
+          </p>
+          {reproTuto.precaution && (
+            <p style={{ margin: '4px 0 0', padding: '12px 16px', borderRadius: 12, background: 'var(--bg-2)', border: '1px solid var(--border)', color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6 }}>
+              <b style={{ color: 'var(--text)' }}>À savoir : </b>{reproTuto.precaution}
+            </p>
+          )}
+        </section>
+      )}
+
+      {!reproTuto && fiche.reproduction && !reproFondueDansBouturage && (
         <section style={{ maxWidth: 760, marginBottom: 40, padding: 0 }} aria-labelledby="repro-espece">
           <h2 id="repro-espece" style={{ fontSize: '1.2rem', marginBottom: 16 }}>
             Reproduction de {espece.nomCommun} en aquarium

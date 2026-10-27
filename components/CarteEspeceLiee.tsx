@@ -10,11 +10,13 @@ interface Props {
   categorie: string;
   /** Nom scientifique à afficher en italique (absent s'il est identique au nom courant). */
   nomScientifique?: string;
+  /** Court texte sous le nom (optionnel). */
+  extrait?: string;
 }
 
 // Carte « Voir aussi » avec la photo de l'espèce ; si le fichier manque, la
 // carte reste telle quelle, sans image.
-export default function CarteEspeceLiee({ slug, nomCommun, categorie, nomScientifique }: Props) {
+export default function CarteEspeceLiee({ slug, nomCommun, categorie, nomScientifique, extrait }: Props) {
   const [photoOk, setPhotoOk] = useState(true);
   return (
     <Link href={`/especes/${slug}`} className={`guide-card${photoOk ? ' avec-photo' : ''}`}>
@@ -22,6 +24,7 @@ export default function CarteEspeceLiee({ slug, nomCommun, categorie, nomScienti
         <span className="eyebrow">{categorie}</span>
         <h3>{nomCommun}</h3>
         {nomScientifique && <p style={{ fontStyle: 'italic' }}>{nomScientifique}</p>}
+        {extrait && <p style={{ marginTop: 8 }}>{extrait}</p>}
       </div>
       {photoOk && (
         <Image

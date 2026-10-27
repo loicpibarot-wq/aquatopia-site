@@ -54,6 +54,27 @@ export default function EspecesPage() {
         <span className="eyebrow">Espèces</span>
         <h1 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', marginTop: 14 }}>{TITRE}</h1>
         <p style={{ marginTop: 14 }}>{DESCRIPTION}</p>
+        <p style={{ marginTop: 10, fontSize: '0.92rem' }}>
+          Envie de voir de l&apos;action ?{' '}
+          <Link href="/poissons-spectaculaires" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+            Les poissons au comportement le plus spectaculaire →
+          </Link>
+        </p>
+        <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+          Envie de voir naître des alevins ?{' '}
+          <Link href="/reproduction-poissons-aquarium" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+            Les guides de reproduction, poisson par poisson →
+          </Link>
+        </p>
+        <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+          Envie de multiplier vos plantes ou vos coraux ?{' '}
+          <Link href="/bouturage-plantes-aquarium" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+            Bouturer ses plantes →
+          </Link>{' '}
+          <Link href="/bouturage-coraux-aquarium" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+            Bouturer ses coraux →
+          </Link>
+        </p>
       </div>
 
       <EspeceRecherche especes={especes} />
