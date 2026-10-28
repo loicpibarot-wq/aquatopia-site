@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Icone from '@/components/Icone';
+import { suivre } from '@/lib/analytics';
 import type { IconeNom } from '@/lib/icones';
 
 interface EspeceCarte {
@@ -46,41 +47,53 @@ const universDe = (cat: string) => UNIVERS.find((u) => u.categories.includes(cat
 // Libellés plus parlants dans la ligne de sous-catégories.
 const LIBELLE_SOUS: Record<string, string> = { 'Eau Douce': "Poissons d'eau douce" };
 
-function BadgeLegal({ statut }: { statut: EspeceCarte['statutLegal'] }) {
-  if (statut === 'autorise') return null;
-  const cls = statut === 'interdite' || statut === 'autorisation_requise' ? 'interdite' : 'cites';
+function BadgeLegal({ statut, surPhoto = false }: { statut: EspeceCarte['statutLegal']; surPhoto?: boolean }) {
+  // Sans photo, seule une contrainte légale est signalée ; sur la photo, on affiche aussi « Autorisé ».
+  if (statut === 'autorise' && !surPhoto) return null;
+  const cls = statut === 'autorise' ? 'autorise'
+    : statut === 'interdite' || statut === 'autorisation_requise' ? 'interdite' : 'cites';
   const label =
-    statut === 'interdite'            ? 'Vente interdite en France' :
+    statut === 'autorise'             ? 'Autorisé' :
+    statut === 'interdite'            ? (surPhoto ? 'Vente interdite FR' : 'Vente interdite en France') :
     statut === 'autorisation_requise' ? 'Autorisation requise' :
                                         'CITES à justifier';
-  return <span className={`badge-legal ${cls}`} style={{ marginTop: 12 }}>{label}</span>;
+  const icone: IconeNom = statut === 'autorise' ? 'valide' : 'alerte';
+  return (
+    <span className={`badge-legal ${cls}${surPhoto ? ' sur-photo' : ''}`} style={surPhoto ? undefined : { marginTop: 12 }}>
+      {surPhoto && <Icone nom={icone} size={14} />}
+      {label}
+    </span>
+  );
 }
 
 function CarteEspece({ e }: { e: EspeceCarte }) {
   // Photo de la fiche en miniature ; si le fichier manque, la carte reste telle quelle.
   const [photoOk, setPhotoOk] = useState(true);
   return (
-    <Link key={e.slug} href={`/especes/${e.slug}`} className={`guide-card${photoOk ? ' avec-photo' : ''}`}>
+    <Link key={e.slug} href={`/especes/${e.slug}`} className={`guide-card${photoOk ? ' photo-grande' : ''}`}>
+      {photoOk && (
+        <div className="carte-photo">
+          <Image
+            src={`/especes/${e.slug}.webp`}
+            alt={e.nomCommun}
+            width={640}
+            height={400}
+            sizes="(max-width: 600px) 100vw, 360px"
+            loading="lazy"
+            className="espece-vignette"
+            onError={() => setPhotoOk(false)}
+          />
+          <BadgeLegal statut={e.statutLegal} surPhoto />
+        </div>
+      )}
       <div className="carte-texte">
         <span className="eyebrow">{e.categorie}</span>
         <h3>{e.nomCommun}</h3>
         {normaliser(e.nomCommun) !== normaliser(e.nomScientifique) && (
           <p style={{ fontStyle: 'italic' }}>{e.nomScientifique}</p>
         )}
-        <BadgeLegal statut={e.statutLegal} />
+        {!photoOk && <BadgeLegal statut={e.statutLegal} />}
       </div>
-      {photoOk && (
-        <Image
-          src={`/especes/${e.slug}.webp`}
-          alt={e.nomCommun}
-          width={256}
-          height={168}
-          sizes="128px"
-          loading="lazy"
-          className="espece-vignette"
-          onError={() => setPhotoOk(false)}
-        />
-      )}
     </Link>
   );
 }
@@ -125,6 +138,14 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
     scrollARestaurer.current = 0;
     requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior })));
   }, [restauree]);
+
+  // Un événement « search » par recherche, une fois la frappe terminée (pas à chaque lettre).
+  useEffect(() => {
+    const t = recherche.trim();
+    if (t.length < 3) return;
+    const id = setTimeout(() => suivre('search', { search_term: t.toLowerCase().slice(0, 60) }), 1500);
+    return () => clearTimeout(id);
+  }, [recherche]);
 
   function memoriserListe(e: React.MouseEvent) {
     const lien = (e.target as HTMLElement).closest('a[href^="/especes/"]');

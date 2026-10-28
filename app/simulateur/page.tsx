@@ -49,6 +49,7 @@ export default async function ConfigurateurPage() {
       difficulte:       e.fiche!.difficulte,
       volumeMin:        e.fiche!.volumeMinLitres,
       tailleAdulte:     e.fiche!.tailleAdulte,
+      groupeMin:        e.fiche!.tailleGroupeMin,
       statutLegal:      e.statutLegal,
       // Champs de filtrage par préférence
       co2:             e.fiche!.plante?.co2,

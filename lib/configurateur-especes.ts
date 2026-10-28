@@ -5,6 +5,7 @@
 import type { IconeNom } from './icones';
 import type { EspeceLight, EspeceReco, TypeBac, VolumeBac, Niveau, TempsEntretien } from './configurateur';
 import { MODELES, type ModeleSetup } from './configurateur-setups';
+import { estPoisson, repartir } from './configurateur-peuplement';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -355,6 +356,19 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
     if (def.slots.some((s, i) => s.requis && !choisies[i])) return null;
     def.slots.forEach((s, i) => { if (!s.requis) resoudre(i); });
 
+    // Peuplement : les poissons se partagent le budget du bac. Si même les effectifs
+    // minimaux ne tiennent pas, on retire le dernier poisson facultatif, sinon le setup tombe.
+    let idxPoissons = choisies.map((e, i) => (e && estPoisson(e) ? i : -1)).filter((i) => i >= 0);
+    let effectifs = repartir(idxPoissons.map((i) => ({ e: choisies[i]! })), typeBac, volume);
+    while (!effectifs) {
+      const retirable = [...idxPoissons].reverse().find((i) => !def.slots[i].requis);
+      if (retirable === undefined) return null;
+      choisies[retirable] = null;
+      idxPoissons = idxPoissons.filter((i) => i !== retirable);
+      effectifs = repartir(idxPoissons.map((i) => ({ e: choisies[i]! })), typeBac, volume);
+    }
+    const quantiteSlot = new Map(idxPoissons.map((i, k) => [i, String(effectifs![k])]));
+
     const animaux = choisies.filter((e): e is EspeceLight => !!e && e.categorie !== 'Plantes');
     const minimum = typeBac === 'bassin' ? 1 : 3;
     if (animaux.length < minimum) return null;
@@ -362,7 +376,7 @@ export function construirePresets(ctx: CtxEspeces): SetupPret[] {
     const membres: MembreSetup[] = [];
     def.slots.forEach((s, i) => {
       const e = choisies[i];
-      if (e) membres.push({ role: s.role, espece: { ...e, quantite: ctx.quantite(e, volume) } });
+      if (e) membres.push({ role: s.role, espece: { ...e, quantite: quantiteSlot.get(i) ?? ctx.quantite(e, volume) } });
     });
 
     const noms = def.slots

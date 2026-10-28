@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { memoriserSource } from '@/lib/analytics';
 
 // Identifiant de mesure Google Analytics 4. Vide, rien n'est chargé et aucun
 // bandeau n'est affiché.
@@ -32,6 +33,7 @@ export default function ConsentementAnalytics() {
   const [ouvert, setOuvert] = useState(false);
 
   useEffect(() => {
+    memoriserSource();
     const c = lireChoix();
     setChoix(c);
     setOuvert(c === null);

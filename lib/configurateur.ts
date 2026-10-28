@@ -1,5 +1,6 @@
 // lib/configurateur.ts
 import type { IconeNom } from './icones';
+import { estPoisson, quantiteListe, VOL_REF } from './configurateur-peuplement';
 import { construireSections, construirePresets, integrerPresets, type SectionEspeces, type SetupPret } from './configurateur-especes';
 // Logique du configurateur « clé en main » – pure TypeScript, zéro dépendance externe.
 
@@ -20,6 +21,8 @@ export interface EspeceLight {
   difficulte:       NiveauDiff;
   volumeMin:        number | null;
   tailleAdulte:     string;
+  /** Taille minimale du groupe conseillée (fiche espèce). */
+  groupeMin?:       number | null;
   statutLegal:      string;
   co2?:             'Inutile' | 'Recommandé' | 'Indispensable';
   placementPlante?: string;
@@ -177,13 +180,6 @@ const CATS_BAC: Record<TypeBac, string[]> = {
   'bassin':        ['Bassin', 'Plantes'],
 };
 
-const VOL_MAX: Record<TypeBac, Record<VolumeBac, number>> = {
-  'douce-plante':  { nano: 60,   moyen: 200,  grand: 500,   'tres-grand': 999999 },
-  'douce-biotope': { nano: 60,   moyen: 200,  grand: 500,   'tres-grand': 999999 },
-  'marin':         { nano: 80,   moyen: 300,  grand: 600,   'tres-grand': 999999 },
-  'bassin':        { nano: 1000, moyen: 5000, grand: 20000, 'tres-grand': 999999 },
-};
-
 const DIFF_OK: Record<Niveau, NiveauDiff[]> = {
   Debutant:      ['Débutant'],
   Intermediaire: ['Débutant', 'Intermédiaire'],
@@ -207,7 +203,8 @@ export function recommander(
   // Peu de temps d'entretien : on ne propose que des espèces faciles, quel que
   // soit le niveau déclaré (un expert pressé ne veut pas d'un bac capricieux).
   const diffs  = temps === 'faible' ? (['Débutant'] as NiveauDiff[]) : DIFF_OK[niveau];
-  const volMax = VOL_MAX[typeBac][volume];
+  // Une espèce n'est proposée que si la cuve annoncée (« Ta cuve idéale ») atteint son volume minimum.
+  const volMax = VOL_REF[typeBac][volume];
   const filtered = pool.filter((e) => {
     if (!cats.includes(e.categorie)) return false;
     if (e.statutLegal === 'interdite' || e.statutLegal === 'autorisation_requise') return false;
@@ -218,7 +215,7 @@ export function recommander(
     return true;
   });
 
-  const ctx = { filtered, typeBac, volume, niveau, style, temps, quantite: quantiteConseillee };
+  const ctx = { filtered, typeBac, volume, niveau, style, temps, quantite: (e: EspeceLight, v: VolumeBac) => quantiteConseillee(e, v, typeBac) };
   const presets  = construirePresets(ctx);
   // Toute espèce d'un setup figure aussi dans les listes d'espèces compatibles.
   const sections = integrerPresets(construireSections(ctx), presets, typeBac);
@@ -285,26 +282,19 @@ export function cuveIdeale(typeBac: TypeBac, volume: VolumeBac): CuveIdeale {
 
 // ─── Quantités indicatives ────────────────────────────────────────────────────
 
-export function quantiteConseillee(e: EspeceLight, volume: VolumeBac): string {
+export function quantiteConseillee(e: EspeceLight, volume: VolumeBac, typeBac: TypeBac = 'douce-plante'): string {
   const idx = ['nano', 'moyen', 'grand', 'tres-grand'].indexOf(volume);
   const pick = (vals: string[]) => vals[Math.max(0, idx)];
   switch (e.categorie) {
     case 'Plantes':                           return '3 à 5 pieds';
     case 'Crustacés / Invertébrés eau douce': return pick(['10', '10 à 15', '15 à 20', '20 et plus']);
     case 'Mollusques eau douce':              return '3 à 5';
-    case 'Poissons marins':                   return pick(['1', '2', '3 à 4', '4 à 6']);
     case 'Coraux et anémones':                return '1 colonie';
     case 'Invertébrés marins':                return '2 à 3';
     case 'Macroalgues marines':               return '1 touffe';
-    case 'Bassin': {
-      const koi = /koï|koi|cyprinus carpio/i.test(`${e.nomCommun} ${e.nomScientifique}`);
-      return koi ? pick(['2', '4 à 6', '8 à 10', '12 et plus']) : pick(['3', '5 à 8', '10 à 15', '15 et plus']);
-    }
-    default: // Eau Douce (poissons)
-      // Espèces territoriales : un seul individu (ex : betta).
-      if (/betta|combattant/i.test(`${e.nomCommun} ${e.nomScientifique}`)) return '1';
-      if ((e.volumeMin ?? 0) >= 100) return '2 à 4';
-      return pick(['6', '8 à 10', '10 à 15', '15 à 20']);
+    case 'Bassin':
+    default: // poissons : effectifs calculés d'après la taille adulte et le volume du bac
+      return estPoisson(e) ? quantiteListe(e, typeBac, volume) : '1';
   }
 }
 

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import DownloadButton from '@/components/DownloadButton';
 import Link from 'next/link';
+import { suivre, sourceVisite } from '@/lib/analytics';
 import Icone, { IconePastille } from '@/components/Icone';
 import type { IconeNom } from '@/lib/icones';
 import {
@@ -209,8 +210,12 @@ function Chip({
 
 // ─── Carte espèce résultat ─────────────────────────────────────────────────────
 function CarteEspece({ e }: { e: EspeceReco }) {
-  // Photo de la fiche à droite ; si le fichier manque, la carte garde son ancienne forme.
+  // Grande photo en haut qui se fond dans la carte ; si le fichier manque, la carte
+  // garde sa forme simple sans photo.
   const [photoOk, setPhotoOk] = useState(true);
+  const pastille = (
+    <span className={photoOk ? 'pastille-quantite sur-photo' : 'pastille-quantite'}>× {e.quantite}</span>
+  );
   return (
     <Link
       href={`/especes/${e.slug}`}
@@ -222,26 +227,46 @@ function CarteEspece({ e }: { e: EspeceReco }) {
       }}
       style={{ textDecoration: 'none', display: 'flex', height: '100%' }}
     >
-      <div style={{
-        padding: '14px 16px',
-        flex: 1,
-        borderRadius: 'var(--radius-s)',
-        border: '1px solid var(--border)',
-        background: 'var(--bg-2)',
-        transition: 'border-color .15s, transform .15s',
-        cursor: 'pointer',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14,
-      }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(47,217,190,0.5)';
-          (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-1px)';
+      <div
+        className={photoOk ? 'photo-grande' : undefined}
+        style={{
+          padding: photoOk ? 0 : '14px 16px',
+          overflow: 'hidden',
+          flex: 1,
+          borderRadius: 'var(--radius-s)',
+          border: '1px solid var(--border)',
+          background: 'var(--bg-2)',
+          transition: 'border-color .15s, transform .15s',
+          cursor: 'pointer',
         }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)';
-          (e.currentTarget as HTMLDivElement).style.transform = 'none';
+        onMouseEnter={(ev) => {
+          (ev.currentTarget as HTMLDivElement).style.borderColor = 'rgba(47,217,190,0.5)';
+          (ev.currentTarget as HTMLDivElement).style.transform = 'translateY(-1px)';
+        }}
+        onMouseLeave={(ev) => {
+          (ev.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)';
+          (ev.currentTarget as HTMLDivElement).style.transform = 'none';
         }}
       >
-        <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+        {photoOk && (
+          <div className="carte-photo">
+            <Image
+              src={`/especes/${e.slug}.webp`}
+              alt={e.nomCommun}
+              width={640}
+              height={400}
+              sizes="(max-width: 600px) 100vw, 320px"
+              loading="lazy"
+              className="espece-vignette"
+              onError={() => setPhotoOk(false)}
+            />
+            {pastille}
+          </div>
+        )}
+        <div
+          className={photoOk ? 'carte-texte' : undefined}
+          style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6 }}
+        >
           <div>
             <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text)' }}>
               {e.nomCommun}
@@ -252,13 +277,7 @@ function CarteEspece({ e }: { e: EspeceReco }) {
           </div>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
             <BadgeCategorie cat={e.categorie} />
-            <span style={{
-              padding: '2px 9px', borderRadius: 20,
-              background: 'rgba(47,217,190,0.12)', border: '1px solid rgba(47,217,190,0.35)',
-              color: 'var(--teal)', fontSize: '0.74rem', fontWeight: 700, whiteSpace: 'nowrap',
-            }}>
-              × {e.quantite}
-            </span>
+            {!photoOk && pastille}
             <span style={{
               fontSize: '0.72rem', color: 'var(--text-faint)',
               fontFamily: "'IBM Plex Mono',monospace",
@@ -267,20 +286,6 @@ function CarteEspece({ e }: { e: EspeceReco }) {
             </span>
           </div>
         </div>
-        {photoOk && (
-          <div style={{ flexShrink: 0 }}>
-            <Image
-              src={`/especes/${e.slug}.webp`}
-              alt={e.nomCommun}
-              width={256}
-              height={168}
-              sizes="128px"
-              loading="lazy"
-              className="espece-vignette"
-              onError={() => setPhotoOk(false)}
-            />
-          </div>
-        )}
       </div>
     </Link>
   );
@@ -348,6 +353,9 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
     const resultats = recommander(pool, niveau, typeBac, volume, style, budget ?? 'moyen', t);
     setState((s) => ({ ...s, temps: t, etape: 'resultats', resultats }));
     fetch('/api/stats/configurateur_utilisations', { method: 'POST' }).catch(() => {});
+    suivre('simulateur_termine', {
+      niveau, type_bac: typeBac, volume, style: style ?? 'aucun', budget: budget ?? 'moyen', temps: t, source: sourceVisite(),
+    });
   }
   function recommencer() {
     setState({ etape: 1, niveau: null, typeBac: null, volume: null, budget: null, style: null, temps: null, resultats: null });
