@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { GUIDES } from '@/lib/guides';
+import { GUIDES, couvertureGuide } from '@/lib/guides';
+import CarteGuide from '@/components/CarteGuide';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
@@ -73,11 +74,14 @@ export default function GuidesPage() {
           <h2 style={{ fontSize: '1.2rem', marginBottom: 10, textAlign: 'center' }}>{cat.eyebrow}</h2>
           <div className="guide-grid" style={{ marginTop: 0, gap: 14 }}>
             {cat.guides.map((guide) => (
-              <Link key={guide.slug} href={`/guides/${guide.slug}`} className="guide-card">
-                <span className="eyebrow">{guide.eyebrow}</span>
-                <h3>{guide.titre}</h3>
-                <p>{guide.description}</p>
-              </Link>
+              <CarteGuide
+                key={guide.slug}
+                slug={guide.slug}
+                eyebrow={guide.eyebrow}
+                titre={guide.titre}
+                description={guide.description}
+                couverture={couvertureGuide(guide.slug)}
+              />
             ))}
           </div>
         </section>

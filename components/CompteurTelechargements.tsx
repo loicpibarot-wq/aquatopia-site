@@ -8,7 +8,7 @@ export default function CompteurTelechargements() {
   const [total, setTotal] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('/api/telechargements', { cache: 'no-store' })
+    fetch('/api/telechargements')
       .then((r) => r.json())
       .then((d: { valeur: number }) => setTotal(d.valeur))
       .catch(() => {});

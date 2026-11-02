@@ -142,45 +142,84 @@ function BarreProgression({ etape }: { etape: Etape }) {
 }
 
 // ─── Card de sélection ─────────────────────────────────────────────────────────
+// Image d'une carte de choix : public/simulateur/cartes/<nom>.webp (accents retirés).
+const carteImg = (nom: string) =>
+  `/simulateur/cartes/${nom.normalize('NFD').replace(/[\u0300-\u036f]/g, '')}.webp`;
+
 function ChoixCard({
-  icone, repete, label, desc, selected, onClick,
-}: { icone: IconeNom; repete?: number; label: string; desc?: string; selected: boolean; onClick: () => void }) {
+  icone, repete, label, desc, selected, onClick, image, disposition = 'gauche',
+}: {
+  icone: IconeNom; repete?: number; label: string; desc?: string; selected: boolean; onClick: () => void;
+  image?: string; disposition?: 'haut' | 'gauche';
+}) {
+  const haut = disposition === 'haut';
   return (
     <button
       type="button"
       onClick={onClick}
       style={{
-        display: 'flex', flexDirection: 'column', gap: 8,
-        padding: '18px 20px',
+        display: 'flex', flexDirection: image && !haut ? 'row' : 'column', gap: image ? 0 : 8,
+        padding: image ? 0 : '18px 20px',
+        overflow: 'hidden',
         borderRadius: 'var(--radius-m)',
-        border: `1px solid ${selected ? 'var(--teal)' : 'var(--border)'}`,
-        background: selected ? 'rgba(47,217,190,0.08)' : 'var(--bg-2)',
+        border: `1px solid ${selected ? 'var(--teal)' : 'var(--border)'}`,
+        background: selected ? 'rgba(47,217,190,0.08)' : 'var(--bg-2)',
         cursor: 'pointer', textAlign: 'left', transition: 'all .15s',
-        boxShadow: selected ? '0 0 0 1px var(--teal)' : 'none',
+        boxShadow: selected ? '0 0 0 1px var(--teal)' : 'none',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <IconePastille nom={icone} repete={repete} />
-        <span style={{
-          fontFamily: "'Fredoka', sans-serif", fontWeight: 600,
-          fontSize: '1.08rem', color: selected ? 'var(--teal)' : 'var(--text)',
-        }}>
-          {label}
-        </span>
-        {selected && (
+      {image && (
+        // Illustration décorative : le libellé de la carte porte le sens.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={image}
+          alt=""
+          width={480}
+          height={300}
+          loading="lazy"
+          draggable={false}
+          style={haut
+            ? {
+                width: '100%', height: 'auto', display: 'block',
+                WebkitMaskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
+              }
+            : {
+                width: 132, height: 'auto', flexShrink: 0, alignSelf: 'stretch', objectFit: 'cover',
+                WebkitMaskImage: 'linear-gradient(to right, #000 55%, transparent 100%)',
+                maskImage: 'linear-gradient(to right, #000 55%, transparent 100%)',
+              }}
+        />
+      )}
+      <div style={{
+        display: 'flex', flexDirection: 'column', gap: 8, flex: 1, minWidth: 0,
+        padding: image ? (haut ? '0 20px 18px' : '16px 20px 16px 4px') : 0,
+        marginTop: image && haut ? -26 : 0, position: 'relative',
+        justifyContent: image && !haut ? 'center' : undefined,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <IconePastille nom={icone} repete={repete} />
           <span style={{
-            marginLeft: 'auto', width: 18, height: 18, borderRadius: '50%',
-            background: 'var(--teal)', color: '#052027', display: 'flex',
-            alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem',
-            fontWeight: 800, flexShrink: 0,
-          }}><Icone nom="valide" size={12} strokeWidth={3} /></span>
+            fontFamily: "'Fredoka', sans-serif", fontWeight: 600,
+            fontSize: '1.08rem', color: selected ? 'var(--teal)' : 'var(--text)',
+          }}>
+            {label}
+          </span>
+          {selected && (
+            <span style={{
+              marginLeft: 'auto', width: 18, height: 18, borderRadius: '50%',
+              background: 'var(--teal)', color: '#052027', display: 'flex',
+              alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem',
+              fontWeight: 800, flexShrink: 0,
+            }}><Icone nom="valide" size={12} strokeWidth={3} /></span>
+          )}
+        </div>
+        {desc && (
+          <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+            {desc}
+          </p>
         )}
       </div>
-      {desc && (
-        <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-          {desc}
-        </p>
-      )}
     </button>
   );
 }
@@ -451,7 +490,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {NIVEAUX.map((n) => (
-              <ChoixCard key={n.id} icone={n.icone} repete={n.repete} label={n.label} desc={n.desc}
+              <ChoixCard key={n.id} image={carteImg(`niveau-${n.id.toLowerCase()}`)} icone={n.icone} repete={n.repete} label={n.label} desc={n.desc}
                 selected={niveau === n.id} onClick={() => choisirNiveau(n.id)} />
             ))}
           </div>
@@ -469,7 +508,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
             {TYPES_BAC.map((t) => (
-              <ChoixCard key={t.id} icone={t.icone} repete={t.repete} label={t.label} desc={t.desc}
+              <ChoixCard key={t.id} image={carteImg(`type-${t.id}`)} disposition="haut" icone={t.icone} repete={t.repete} label={t.label} desc={t.desc}
                 selected={typeBac === t.id} onClick={() => choisirTypeBac(t.id)} />
             ))}
           </div>
@@ -491,10 +530,10 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {VOLUMES_BAC[typeBac].map((v) => (
-              <ChoixCard key={v.id} icone="regle" label={v.label} desc={v.detail}
+              <ChoixCard key={v.id} image={carteImg(`volume-${v.id}`)} icone="regle" label={v.label} desc={v.detail}
                 selected={volume === v.id} onClick={() => choisirVolume(v.id)} />
             ))}
-            <ChoixCard icone="aide" label="Je ne sais pas encore"
+            <ChoixCard image={carteImg('volume-auto')} icone="aide" label="Je ne sais pas encore"
               desc="Laissez le simulateur recommander la taille idéale selon votre niveau et votre budget."
               selected={volume === 'auto'} onClick={() => choisirVolume('auto')} />
           </div>
@@ -516,7 +555,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {BUDGETS.map((b) => (
-              <ChoixCard key={b.id} icone={b.icone} repete={b.repete} label={b.label} desc={b.desc}
+              <ChoixCard key={b.id} image={carteImg(`budget-${b.id}`)} icone={b.icone} repete={b.repete} label={b.label} desc={b.desc}
                 selected={budget === b.id} onClick={() => choisirBudget(b.id)} />
             ))}
           </div>
@@ -544,7 +583,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
             {STYLES[typeBac].map((st) => (
-              <ChoixCard key={st.id} icone={st.icone} repete={st.repete} label={st.label} desc={st.desc}
+              <ChoixCard key={st.id} image={carteImg(`style-${st.id}`)} disposition="haut" icone={st.icone} repete={st.repete} label={st.label} desc={st.desc}
                 selected={style === st.id} onClick={() => choisirStyle(st.id)} />
             ))}
           </div>
@@ -572,7 +611,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {TEMPS_ENTRETIEN.map((t) => (
-              <ChoixCard key={t.id} icone={t.icone} repete={t.repete} label={t.label} desc={t.desc}
+              <ChoixCard key={t.id} image={carteImg(`temps-${t.id}`)} icone={t.icone} repete={t.repete} label={t.label} desc={t.desc}
                 selected={temps === t.id} onClick={() => choisirTemps(t.id)} />
             ))}
           </div>

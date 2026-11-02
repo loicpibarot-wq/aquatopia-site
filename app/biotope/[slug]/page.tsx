@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
   fetchAnnoncesParBiotope,
+  ouVideAuBuild,
   buildSlug,
   SLUG_VERS_BIOTOPE,
   BIOTOPE_VERS_SLUG,
@@ -92,7 +93,7 @@ export default async function BiotopePage({
   if (!biotope) notFound();
   const contenu = CONTENU[params.slug];
 
-  const { annonces, total } = await fetchAnnoncesParBiotope(biotope, { limit: PAR_PAGE });
+  const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParBiotope(biotope, { limit: PAR_PAGE }), { annonces: [], total: 0 });
 
   const autresBiotopes = Object.entries(BIOTOPE_VERS_SLUG).filter(([label]) => label !== biotope);
 

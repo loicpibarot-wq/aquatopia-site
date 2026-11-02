@@ -428,6 +428,39 @@
   .espece-recherche:focus{ outline:none; border-color:var(--teal); }
   .espece-vide{ color:var(--text-muted); margin-top:24px; }
 
+  /* Recherche du site (accueil) : champ + résultats instantanés groupés. */
+  .recherche{ position:relative; margin-top:26px; max-width:560px; z-index:5; }
+  .recherche-champ{ position:relative; }
+  .recherche-champ svg{ position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--text-faint); pointer-events:none; }
+  .recherche-champ input{
+    width:100%; padding:15px 18px 15px 46px; border-radius:var(--radius-m);
+    border:1px solid var(--border-strong); background:var(--bg-2); color:var(--text);
+    font-family:'Manrope', sans-serif; font-size:1rem;
+  }
+  .recherche-champ input::placeholder{ color:var(--text-faint); }
+  .recherche-champ input:focus{ outline:none; border-color:var(--teal); }
+  .recherche-liste{
+    position:absolute; left:0; right:0; top:calc(100% + 6px); padding:8px; max-height:min(70vh, 460px); overflow-y:auto;
+    background:var(--bg-2); border:1px solid var(--border-strong); border-radius:var(--radius-m); box-shadow:var(--shadow);
+  }
+  .recherche-groupe{ margin:10px 10px 4px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); }
+  .recherche-item{
+    display:flex; flex-direction:column; gap:2px; padding:9px 10px; border-radius:12px;
+    text-decoration:none; color:var(--text);
+  }
+  .recherche-item.actif, .recherche-item:hover{ background:var(--bg-3); }
+  .recherche-titre{ font-size:0.92rem; font-weight:600; line-height:1.35; overflow-wrap:anywhere; }
+  .recherche-sous{ font-size:0.78rem; color:var(--text-faint); }
+  .recherche-vide{ margin:0; padding:14px 12px; color:var(--text-muted); font-size:0.9rem; }
+  .recherche-vide a{ color:var(--teal); }
+  .recherche-rebond{ display:flex; flex-wrap:wrap; gap:14px; margin:10px 0 0; }
+  .recherche-suggestions{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0 0; font-size:0.82rem; color:var(--text-faint); }
+  .recherche-suggestions button{
+    padding:5px 12px; border-radius:20px; border:1px solid var(--border); background:transparent;
+    color:var(--text-muted); font:inherit; font-size:0.82rem; cursor:pointer;
+  }
+  .recherche-suggestions button:hover{ border-color:var(--teal); color:var(--teal); }
+
   /* Badge de statut légal sur les cartes/fiches espèce : vert = autorisée
      (pas de badge affiché, c'est le cas par défaut), or = à signaler/CITES,
      rouge = interdite à la vente en France. */
@@ -487,6 +520,10 @@
      écrase aussi le padding gauche/droite hérité de .wrap, qui a la même
      spécificité et perd le conflit selon l'ordre de sortie du CSS compilé. */
   .annonce-wrap{ padding-top:40px; padding-bottom:80px; }
+  /* Fiche espèce : colonne de lecture (760px) centrée dans la page sur grand écran. */
+  .espece-wrap{ max-width:824px; }
+  /* Guide : colonne de lecture (720px) centrée dans la page sur grand écran. */
+  .guide-wrap{ max-width:784px; }
   .breadcrumb{
     font-size:0.82rem; color:var(--text-faint);
     margin-bottom:24px;
@@ -540,6 +577,12 @@
   }
   .annonce-card-mini:hover{ border-color:var(--teal); transform:translateY(-2px); }
   .annonce-card-mini img{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+  /* Même dégradé que les fiches espèces : la photo se fond dans la carte et le titre vient se poser dessus. */
+  .annonce-card-mini img{
+    -webkit-mask-image:linear-gradient(to bottom, #000 40%, rgba(0,0,0,0.25) 78%, transparent 100%);
+            mask-image:linear-gradient(to bottom, #000 40%, rgba(0,0,0,0.25) 78%, transparent 100%);
+  }
+  .annonce-card-mini img + .body{ position:relative; z-index:1; margin-top:-34px; padding:0 16px 16px; }
   .annonce-card-mini .body{ padding:14px 16px; }
   .annonce-card-mini h4{ font-size:0.92rem; margin:0 0 4px; font-family:'Manrope',sans-serif; font-weight:700; }
   .annonce-card-mini .prix{ font-family:'IBM Plex Mono', monospace; color:var(--mint); font-size:0.86rem; }

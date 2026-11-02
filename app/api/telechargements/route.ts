@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { ENTETES_CACHE_LECTURE } from '@/lib/cache-api';
 
 // Compteur global des clics sur les boutons « Télécharger » du site (lien intelligent
 // et badges App Store / Google Play confondus). Même mécanique que /api/stats/[cle],
@@ -19,5 +20,8 @@ export async function POST() {
 // GET /api/telechargements — lecture seule
 export async function GET() {
   const { data } = await supabase.from('stats_globales').select('valeur').eq('cle', CLE).single();
-  return NextResponse.json({ valeur: (data as { valeur: number } | null)?.valeur ?? 0 });
+  return NextResponse.json(
+    { valeur: (data as { valeur: number } | null)?.valeur ?? 0 },
+    { headers: ENTETES_CACHE_LECTURE },
+  );
 }

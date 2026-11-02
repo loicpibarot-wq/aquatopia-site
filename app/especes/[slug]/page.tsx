@@ -186,7 +186,7 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
   const reproFondueDansBouturage = Boolean(afficherGuide && fiche.corail && fiche.reproduction);
 
   return (
-    <div className="wrap annonce-wrap">
+    <div className="wrap annonce-wrap espece-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />

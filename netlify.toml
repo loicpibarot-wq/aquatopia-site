@@ -4,3 +4,13 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# En-têtes de sécurité de base : pas de détection de type, pas d'affichage du site dans un cadre
+# d'un autre site, adresse d'origine limitée aux sites tiers.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

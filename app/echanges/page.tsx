@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchAnnoncesParType, buildSlug } from '@/lib/annonces';
+import { fetchAnnoncesParType, buildSlug, ouVideAuBuild } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
@@ -34,7 +34,7 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
   const page = Math.max(1, Number(searchParams?.page) || 1);
   const offset = (page - 1) * PAR_PAGE;
 
-  const { annonces, total } = await fetchAnnoncesParType('echange', { limit: PAR_PAGE, offset });
+  const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParType('echange', { limit: PAR_PAGE, offset }), { annonces: [], total: 0 });
   const totalPages = Math.max(1, Math.ceil(total / PAR_PAGE));
 
   const jsonLd = {

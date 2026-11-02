@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
   fetchAnnoncesParCategorie,
+  ouVideAuBuild,
   buildSlug,
   SLUG_VERS_CATEGORIE,
   CATEGORIE_VERS_SLUG,
@@ -217,7 +218,7 @@ export default async function CategoriePage({
   if (!categorie) notFound();
   const contenu = CONTENU[params.slug];
 
-  const { annonces, total } = await fetchAnnoncesParCategorie(categorie, { limit: PAR_PAGE });
+  const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParCategorie(categorie, { limit: PAR_PAGE }), { annonces: [], total: 0 });
 
   const autresCategories = Object.entries(CATEGORIE_VERS_SLUG).filter(([label]) => label !== categorie);
 

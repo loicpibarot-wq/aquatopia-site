@@ -57,7 +57,12 @@ export default function EspeceImage({ src, alt, slug }: Props) {
         alt={alt}
         width={1200}
         height={675}
-        style={{ borderRadius: 12, width: '100%', height: 'auto', display: visible ? 'block' : 'none' }}
+        style={{
+          borderRadius: 12, width: '100%', height: 'auto', display: visible ? 'block' : 'none',
+          // Fondu : le bas de la photo disparaît progressivement dans le fond de la page.
+          WebkitMaskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, #000 55%, transparent 100%)',
+        }}
         onError={() => setVisible(false)}
       />
 

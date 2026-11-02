@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import DownloadButton from '@/components/DownloadButton';
 import LiensReseaux from '@/components/LiensReseaux';
+import RechercheSite from '@/components/RechercheSite';
 import { IconeApple, IconeGooglePlay } from '@/components/IconesStores';
 import { compterAnnoncesActives, compterMembres } from '@/lib/annonces';
 
@@ -83,6 +84,7 @@ export default async function HomePage() {
             <p className="lede" style={{ marginTop: 22 }}>
               Avec Aquatopia, achetez, vendez, échangez ou donnez poissons, crevettes, plantes aquatiques, aquariums et matériel d&apos;occasion près de chez vous.
             </p>
+            <RechercheSite />
             <div className="hero-stats" style={{ marginTop: 28 }}>
               <div className="stat"><b>100%</b><span>annonces modérées</span></div>
               {nbMembres !== null && nbMembres > 0 && (

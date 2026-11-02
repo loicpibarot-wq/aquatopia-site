@@ -35,6 +35,21 @@ const COLONNES_PUBLIQUES =
 // Toute annonce affichée sur le site public doit être active et validée —
 // exactement le même filtre que la RLS anonyme autorise déjà côté Supabase
 // (annonce vendue, en attente, refusée ou désactivée => jamais indexée).
+// Pendant `next build` uniquement : si Supabase est injoignable, la page est générée vide (puis
+// rafraîchie par la régénération automatique) au lieu de faire échouer tout le déploiement.
+// À l'exécution, l'erreur est relancée : Next garde alors la dernière version valide de la page.
+export async function ouVideAuBuild<T>(requete: Promise<T>, vide: T): Promise<T> {
+  try {
+    return await requete;
+  } catch (e) {
+    if (process.env.NEXT_PHASE === 'phase-production-build') {
+      console.error('Supabase injoignable pendant le build, page générée vide :', e);
+      return vide;
+    }
+    throw e;
+  }
+}
+
 export async function fetchAnnoncesActives(limit = 5000): Promise<Annonce[]> {
   const { data, error } = await supabase
     .from('annonces')

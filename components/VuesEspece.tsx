@@ -6,7 +6,15 @@ export default function VuesEspece({ slug }: { slug: string }) {
   const [vues, setVues] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch(`/api/vues/${slug}`, { method: 'POST' })
+    // Une vue est comptée une seule fois par visite et par fiche (écriture, non mise en
+    // cache) ; les rechargements suivants se contentent de lire le total (lecture en cache).
+    const cle = `aquatopia_vue_${slug}`;
+    let dejaVue = false;
+    try { dejaVue = !!sessionStorage.getItem(cle); } catch { /* stockage indisponible */ }
+    if (!dejaVue) {
+      try { sessionStorage.setItem(cle, '1'); } catch { /* stockage indisponible */ }
+    }
+    fetch(`/api/vues/${slug}`, { method: dejaVue ? 'GET' : 'POST' })
       .then((r) => r.json())
       .then((d: { vues: number }) => setVues(d.vues))
       .catch(() => {});
