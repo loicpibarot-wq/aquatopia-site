@@ -1697,6 +1697,26 @@ export const REPRODUCTIONS: Record<string, ReproductionEspece> = {
     'Un brevet chinois décrit l’élevage artificiel d’alevins de Siganus vulpinus en intérieur, ce qui relève d’un élevage professionnel. Aucune méthode accessible à un amateur n’est publiée pour cette espèce.',
   ),
   // @@FIN@@
+  'medaka': r(
+    'Facile',
+    'Ovipare (œufs portés puis déposés sur les plantes)',
+    "Le medaka pond presque tous les jours à la belle saison. Après la fécondation, tôt le matin, la femelle porte sa grappe d'œufs sous le ventre pendant quelques heures, puis la dépose sur des plantes fines. Une ponte compte en général 15 à 40 œufs, qui éclosent en 7 à 14 jours selon la température.",
+    [
+      "Un groupe d'adultes bien nourris, sans trop de mâles (plusieurs mâles se gênent pendant l'accouplement)",
+      "Des plantes fines où déposer les œufs : mousse de Java, cératophylle, racines de plantes flottantes, ou une frayère en fibres",
+      "Un petit bac ou une boîte d'élevage séparée pour les œufs",
+      "Infusoires ou nourriture en poudre très fine, puis nauplies d'artémia pour les alevins",
+    ],
+    [
+      "Offrez de longues journées : environ 13 à 14 heures de lumière par jour, et une eau tiède (la ponte est optimale vers 22 à 28 °C ; rien sous 10 °C). En bassin, elle démarre seule à la fin du printemps.",
+      "Nourrissez copieusement les adultes, avec des proies vivantes ou congelées en complément.",
+      "Repérez les sexes : le mâle a une nageoire anale plus grande et plus carrée ; celles de la femelle sont plus petites, à bord régulier. Le matin, la femelle porte souvent sa grappe d'œufs sous le ventre.",
+      "Chaque jour, récupérez les œufs accrochés aux plantes (ou déplacez la touffe de mousse) dans le bac séparé : les adultes mangent les alevins.",
+      "Laissez incuber 7 à 14 jours dans une eau propre, et retirez les œufs devenus blancs.",
+    ],
+    "Les alevins sont minuscules : donnez des infusoires ou une poudre très fine plusieurs fois par jour, puis des nauplies d'artémia. Triez-les par taille, car les plus grands mangent les plus petits. Ils deviennent adultes vers 2 à 3 mois.",
+    "Ne laissez jamais œufs et alevins avec les adultes : les parents ne s'en occupent pas et mangent les petits.",
+  ),
 };
 
 export function reproductionEspece(slug: string): ReproductionEspece | undefined {

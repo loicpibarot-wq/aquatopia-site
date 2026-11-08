@@ -7,6 +7,7 @@ export type Guide = {
   titre: string;
   eyebrow: string;
   description: string; // meta description + accroche affichée sur la liste
+  enBref?: string; // réponse directe en 2-3 phrases, affichée sous le titre (lue par les IA)
   datePublication: string; // ISO, sert au schema.org et à l'affichage
   // `liste` (facultatif) : étapes ou points affichés en liste à puces sous les paragraphes.
   sections: { titre?: string; image?: { src: string; alt: string }; paragraphes: string[]; liste?: string[] }[];
@@ -21,6 +22,8 @@ export const GUIDES: Guide[] = [
     description:
       "Tutoriel pas à pas pour démarrer un aquarium d'eau douce quand on débute : taille du bac, matériel, installation, eau, cyclage, premiers poissons et entretien, dans le bon ordre.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour démarrer un aquarium d'eau douce, suivez 8 étapes dans l'ordre : choisir un bac d'au moins 54 à 60 litres, réunir le matériel, l'installer, remplir et traiter l'eau, lancer le cycle (4 à 6 semaines), vérifier l'eau, ajouter les premiers poissons, puis mettre en place l'entretien. Aucun poisson avant la fin du cyclage : c'est la première cause de mortalité en bac neuf.",
     sections: [
       {
         paragraphes: [
@@ -173,6 +176,8 @@ export const GUIDES: Guide[] = [
     description:
       "Ammoniac, nitrites, nitrates : comprendre le cycle de l'azote pour éviter la première cause de mortalité des poissons en aquarium neuf.",
     datePublication: '2026-09-26',
+    enBref:
+      "Le cycle de l'azote est la transformation de l'ammoniac, toxique, issu des déjections des poissons, en nitrites puis en nitrates par les bactéries du filtre. Il faut compter 4 à 6 semaines pour qu'un bac neuf soit cyclé : il l'est quand l'ammoniac et les nitrites restent à 0 mg/L, avec des nitrates idéalement sous 25 mg/L. On n'introduit les poissons qu'ensuite, progressivement.",
     sections: [
       {
         paragraphes: [
@@ -243,8 +248,10 @@ export const GUIDES: Guide[] = [
     titre: 'Quels poissons choisir pour un premier aquarium ?',
     eyebrow: 'Débuter',
     description:
-      "Les espèces les plus adaptées aux débutants en eau douce, et celles qu'il vaut mieux éviter au départ.",
+      "Guppy, platy, corydoras, danio, crevette Red Cherry : les espèces les plus adaptées à un premier aquarium d'eau douce, et celles à éviter au départ.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un premier aquarium, choisissez des espèces robustes et paisibles comme le guppy, le platy, les corydoras, l'ancistrus ou le danio zébré, ou la crevette Red Cherry. Évitez au départ le combattant, le discus et les gros cichlidés. Introduisez un tiers du peuplement prévu, puis attendez deux à trois semaines avant d'ajouter la suite.",
     sections: [
       {
         paragraphes: [
@@ -314,8 +321,10 @@ export const GUIDES: Guide[] = [
     titre: 'Aquarium récifal pour débutant : le tutoriel complet pour démarrer un bac corallien',
     eyebrow: 'Récifal',
     description:
-      "Tutoriel pas à pas pour démarrer un aquarium récifal quand on débute : volume, matériel, installation, eau de mer, cycle, premiers poissons et premiers coraux, dans le bon ordre.",
+      "Tutoriel pas à pas pour démarrer un aquarium récifal quand on débute : volume, matériel, installation, eau de mer, cycle, premiers poissons et coraux, budget et matériel d'occasion.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour démarrer un aquarium récifal, visez 100 à 250 litres et suivez 9 étapes : matériel (écumeur, brassage, chauffage), installation à sec, eau de mer préparée avec de l'eau osmosée, cycle de 4 à 8 semaines, vérification des paramètres, nettoyeurs puis un premier poisson, et enfin des coraux faciles comme les zoanthaires ou les xenias. N'ajoutez aucun animal avant que l'ammoniaque et les nitrites soient retombés à zéro. Côté budget, comptez environ 1 500 à 2 000 € en neuf pour un bac de 150 à 200 litres équipé, nettement moins en achetant le matériel d'occasion.",
     sections: [
       {
         paragraphes: [
@@ -442,6 +451,64 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        titre: 'Bac nu ou aquarium « tout-en-un » ?',
+        paragraphes: [
+          "Pour un premier récifal, deux approches existent. L'aquarium « tout-en-un » cache sa filtration dans un compartiment à l'arrière du bac : écumeur, chauffage et pompe de remontée y sont rangés, sans meuble technique à aménager. C'est la solution la plus simple pour débuter, notamment sur les volumes de 100 à 200 litres.",
+          "Le bac nu, associé à une cuve technique (sump) dans le meuble, demande plus d'installation mais offre davantage de volume d'eau et de place pour le matériel. Il convient bien aux bacs plus grands et aux projets qui évolueront vers des coraux exigeants. Notre guide sur le sump détaille son fonctionnement et les sécurités à prévoir.",
+        ],
+      },
+      {
+        titre: 'Quel budget prévoir pour un aquarium récifal ?',
+        paragraphes: [
+          "Le récifal coûte nettement plus cher que l'eau douce, surtout à l'achat. En matériel neuf, les estimations courantes situent un bac de 150 à 200 litres correctement équipé autour de 1 500 à 2 000 €, et un bac de 250 à 350 litres autour de 4 000 €. Les principaux postes, en ordre de grandeur :",
+        ],
+        liste: [
+          "Aquarium et meuble : de quelques centaines à plus de 2 000 € selon le volume et la marque.",
+          "Éclairage LED récifal : environ 300 à 800 €.",
+          "Écumeur : environ 200 à 500 €.",
+          "Pompes de brassage : environ 100 à 350 €.",
+          "Osmoseur : environ 80 à 200 €.",
+          "Roches, sel, tests et chauffage : quelques centaines d'euros au total.",
+          "Fonctionnement : comptez environ 25 à 50 € par mois pour un bac de 250 litres (sel, suppléments, nourriture, électricité).",
+        ],
+      },
+      {
+        titre: 'Économiser avec le matériel d’occasion',
+        paragraphes: [
+          "Le matériel récifal s'use peu et se revend bien : beaucoup d'aquariophiles changent de bac ou arrêtent, et cèdent un équipement complet à une fraction du prix du neuf. Acheter d'occasion est la meilleure façon de réduire le budget de départ, à condition de vérifier quelques points :",
+        ],
+        liste: [
+          "Faites fonctionner l'écumeur, les pompes et le chauffage devant vous, ou demandez une vidéo récente.",
+          "Pour une rampe LED, demandez son âge et vérifiez que tous les canaux s'allument.",
+          "Pour un bac, contrôlez les joints de silicone et l'absence de rayures profondes.",
+          "Préférez le matériel de marques courantes, dont on trouve encore les pièces détachées.",
+          "Les roches d'un ancien bac récifal peuvent faire gagner du temps sur le cycle, mais elles peuvent aussi apporter des nuisibles (aiptasias, vers) : inspectez-les avant de les installer.",
+        ],
+      },
+      {
+        titre: 'Quels poissons choisir pour un premier bac récifal ?',
+        paragraphes: [
+          "Privilégiez des poissons robustes, de petite taille, compatibles avec les coraux et si possible issus d'élevage : ils supportent mieux le transport et acceptent plus facilement la nourriture. Quelques valeurs sûres :",
+        ],
+        liste: [
+          "Le poisson-clown ocellaris, le grand classique, élevé en captivité.",
+          "Le gobie néon, petit poisson nettoyeur, lui aussi souvent issu d'élevage.",
+          "Le gramma royal, très coloré et paisible avec les autres espèces.",
+          "Le cardinal pyjama, calme et à l'aise en petit groupe.",
+          "La blennie bicolore, qui broute les algues sur les roches.",
+        ],
+      },
+      {
+        titre: 'Questions fréquentes',
+        paragraphes: [
+          "Peut-on démarrer un récifal sans expérience de l'aquariophilie ? Oui, à condition de respecter les étapes, de tester l'eau régulièrement et de ne pas se précipiter. Une expérience en eau douce aide, mais elle n'est pas indispensable.",
+          "Combien de temps avant d'ajouter des poissons ? Comptez en général 4 à 8 semaines de cycle, puis les nettoyeurs, et seulement ensuite un premier poisson. Les premiers coraux arrivent souvent 2 à 3 mois après la mise en eau.",
+          "Combien de temps d'entretien faut-il prévoir ? Quelques minutes par jour pour contrôler et nourrir, et environ une heure par semaine pour les tests, le nettoyage des vitres et le changement d'eau.",
+          "Faut-il obligatoirement un sump ? Non : un aquarium tout-en-un fonctionne très bien pour débuter. Le sump devient intéressant sur les grands volumes ou quand le matériel ne tient plus dans le bac.",
+          "Faut-il une autorisation pour avoir des coraux ? Non pour la détention, mais les coraux durs sont inscrits à la CITES : conservez toujours la facture ou l'attestation de cession qui prouve leur origine légale.",
+        ],
+      },
+      {
         titre: 'Les erreurs classiques à éviter',
         paragraphes: [],
         liste: [
@@ -481,6 +548,9 @@ export const GUIDES: Guide[] = [
       { href: '/guides/acclimatation-goutte-a-goutte-poissons-coraux', label: 'Acclimatation à la goutte-à-goutte' },
       { href: '/guides/budget-demarrer-aquarium', label: "Le budget d'un premier aquarium" },
       { href: '/especes/poisson-clown-ocellaris', label: 'Fiche : poisson-clown ocellaris' },
+      { href: '/especes/gobie-neon', label: 'Fiche : gobie néon' },
+      { href: '/especes/gramma-royal', label: 'Fiche : gramma royal' },
+      { href: '/guides/sump-aquarium-recifal-installation', label: 'Le sump (cuve technique) expliqué' },
       { href: '/especes/zoanthaire', label: 'Fiche : zoanthaire' },
       { href: '/especes/corallimorphe-champignon', label: 'Fiche : corallimorphe (corail champignon)' },
       { href: '/biotope/eau-de-mer', label: "Voir les annonces d'eau de mer et récifal" },
@@ -492,8 +562,10 @@ export const GUIDES: Guide[] = [
     titre: 'Bassin de jardin : bien préparer l’hivernage de vos poissons',
     eyebrow: 'Bassin',
     description:
-      "Comment adapter l'alimentation, protéger l'eau du gel et entretenir la filtration de votre bassin avant l'hiver.",
+      "Comment adapter l'alimentation, garder une ouverture dans la glace et entretenir la filtration pour que les koï et poissons rouges passent l'hiver au bassin.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les poissons de bassin rustiques (koï, poissons rouges) passent l'hiver dehors si le bassin est bien préparé : une zone d'au moins 80 cm à 1 m de profondeur pour ne pas geler entièrement, un bulleur ou un dégeleur pour garder une ouverture dans la glace, et une nourriture pauvre en protéines sous 14 °C, à arrêter sous 8 à 10 °C. Pendant l'hiver, on surveille sans déranger les poissons.",
     sections: [
       {
         paragraphes: [
@@ -566,6 +638,8 @@ export const GUIDES: Guide[] = [
     description:
       "Ce que mesurent réellement le pH, le GH et le KH, et pourquoi la stabilité de ces paramètres compte plus que leur valeur exacte.",
     datePublication: '2026-09-26',
+    enBref:
+      "Le pH mesure l'acidité de l'eau, le GH sa dureté (calcium et magnésium) et le KH son pouvoir tampon, qui stabilise le pH. Un bac tropical de communauté vise un pH de 6,5 à 7,5, un GH de 6 à 12 °dGH et un KH de 3 à 8 °dKH. La stabilité compte plus que la valeur exacte : une variation brutale est plus dangereuse qu'un paramètre un peu éloigné de l'idéal.",
     sections: [
       {
         paragraphes: [
@@ -644,6 +718,8 @@ export const GUIDES: Guide[] = [
     description:
       "La suralimentation est la cause la plus fréquente de problèmes en aquarium : comment nourrir ses poissons correctement, sans excès.",
     datePublication: '2026-09-26',
+    enBref:
+      "Donnez uniquement ce que vos poissons consomment en 2 à 3 minutes, une à deux fois par jour, et retirez les restes. La suralimentation est la cause la plus fréquente des pics d'ammoniac, des algues et de l'eau trouble. Variez granulés, paillettes et proies congelées, et sautez un jour de nourrissage par semaine.",
     sections: [
       {
         paragraphes: [
@@ -713,6 +789,8 @@ export const GUIDES: Guide[] = [
     description:
       "Les grands principes de l'aquascaping pour composer un décor d'aquarium harmonieux : plantes, racines, roches et mise en scène.",
     datePublication: '2026-09-26',
+    enBref:
+      "L'aquascaping compose un décor d'aquarium inspiré de la nature, sur l'équilibre de la composition plutôt que sur le nombre d'éléments. Les bases : placer le point focal selon la règle des tiers, étager les plantes (premier plan, centre, arrière-plan), préparer racines et roches avant de les installer, et monter le décor à sec avant de remplir. Un aquascape met plusieurs mois à atteindre son plein rendu.",
     sections: [
       {
         paragraphes: [
@@ -786,6 +864,8 @@ export const GUIDES: Guide[] = [
     description:
       "Le rôle exact de l'écumeur, de l'osmolateur et des pompes de brassage dans un aquarium récifal, et comment bien les dimensionner.",
     datePublication: '2026-09-26',
+    enBref:
+      "L'écumeur retire les déchets organiques dissous avant qu'ils ne polluent l'eau, l'osmolateur compense l'évaporation avec de l'eau osmosée pour garder une salinité stable, et les pompes de brassage reproduisent les courants naturels. Il vaut mieux surdimensionner légèrement écumeur et brassage dès le départ que les remplacer après quelques mois.",
     sections: [
       {
         paragraphes: [
@@ -856,8 +936,10 @@ export const GUIDES: Guide[] = [
     titre: 'Coraux mous, LPS, SPS : quelles différences et quelle progression ?',
     eyebrow: 'Récifal',
     description:
-      "Les trois grandes familles de coraux d'aquarium récifal, leurs besoins respectifs, et dans quel ordre les introduire.",
+      "Coraux mous, LPS et SPS : les besoins de chaque famille de coraux d'aquarium récifal, leur niveau de difficulté et l'ordre dans lequel les introduire.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les coraux mous (zoanthaires, coraux champignons, xenias) sont les plus tolérants, les LPS (Euphyllia, Trachyphyllia) demandent un suivi du calcium et du KH, et les SPS (Acropora, Montipora) exigent une lumière forte, un brassage puissant et une chimie très stable. On progresse dans cet ordre, les SPS étant réservés aux bacs mûrs depuis plusieurs mois. Les coraux durs sont inscrits à l'annexe II de la CITES.",
     sections: [
       {
         paragraphes: [
@@ -926,6 +1008,8 @@ export const GUIDES: Guide[] = [
     description:
       "Comment ces trois paramètres interagissent pour la croissance des coraux durs, et les méthodes courantes pour les maintenir stables.",
     datePublication: '2026-09-26',
+    enBref:
+      "En récifal, les coraux durs consomment calcium et KH pour construire leur squelette, et le magnésium empêche ces éléments de précipiter. On vise en général un calcium de 400 à 450 ppm, un KH de 7 à 10 dKH et un magnésium de 1250 à 1350 ppm, avec la stabilité comme priorité. Testez chaque semaine avant de doser et corrigez lentement.",
     sections: [
       {
         paragraphes: [
@@ -996,8 +1080,10 @@ export const GUIDES: Guide[] = [
     titre: 'Acclimatation des poissons et coraux marins : la méthode du goutte-à-goutte',
     eyebrow: 'Récifal',
     description:
-      "Pourquoi une acclimatation progressive est indispensable en eau de mer, et comment la réaliser sans stresser l'animal.",
+      "Pourquoi une acclimatation progressive est indispensable en eau de mer, et comment la réaliser au goutte-à-goutte pour un poisson ou un corail sans le stresser.",
     datePublication: '2026-09-26',
+    enBref:
+      "En eau de mer, l'acclimatation se fait au goutte-à-goutte : on égalise la température avec le sachet, puis on ajoute très progressivement l'eau du bac pendant une à plusieurs heures pour éviter un choc osmotique. Les coraux supportent une acclimatation plus courte (30 à 60 minutes) mais restent sensibles à la lumière. L'eau de transport ne doit jamais être versée dans le bac.",
     sections: [
       {
         paragraphes: [
@@ -1066,8 +1152,10 @@ export const GUIDES: Guide[] = [
     titre: 'Bien démarrer un bassin de jardin',
     eyebrow: 'Bassin',
     description:
-      "Emplacement, profondeur, filtration et mise en eau : les bases pour créer un bassin de jardin durable.",
+      "Emplacement, profondeur d'au moins 80 cm, filtration et mise en eau : les bases pour créer un bassin de jardin durable et accueillir des poissons.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un bassin de jardin durable, choisissez un emplacement avec quelques heures de soleil mais pas en plein soleil, loin des grands arbres, et prévoyez une zone d'au moins 80 cm à 1 m de profondeur pour garder des poissons à l'année. Une filtration mécanique et biologique dimensionnée au peuplement est indispensable, et il faut laisser le bassin se stabiliser quelques semaines après la mise en eau avant d'introduire les poissons.",
     sections: [
       {
         paragraphes: [
@@ -1138,8 +1226,10 @@ export const GUIDES: Guide[] = [
     titre: 'Filtre interne, externe, sur-verre : lequel choisir pour son aquarium ?',
     eyebrow: 'Matériel',
     description:
-      "Les avantages et limites des principaux types de filtration d'aquarium, pour choisir celui adapté à votre bac.",
+      "Filtre interne, externe ou sur-verre (sump) : avantages, limites et débit à viser pour choisir la filtration adaptée au volume et au peuplement de votre aquarium.",
     datePublication: '2026-09-26',
+    enBref:
+      "Le filtre interne convient aux petits bacs (moins de 54 litres) et aux premiers aquariums, le filtre externe est la solution courante à partir d'une soixantaine de litres, et le filtre sur-verre (sump) s'adresse au récifal et aux très grands volumes. Le critère décisif est le débit : on vise généralement 4 à 6 fois le volume du bac par heure en eau douce, et un filtre légèrement surdimensionné vaut mieux qu'un filtre trop juste.",
     sections: [
       {
         paragraphes: [
@@ -1211,6 +1301,8 @@ export const GUIDES: Guide[] = [
     description:
       "Bocal, nano-aquarium, kit tout-équipé ou bac + matériel séparé : comment choisir son premier aquarium selon son budget et son espace.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un premier aquarium, visez au minimum 54 à 60 litres : un bocal ou un très petit bac est plus difficile à équilibrer. Un kit tout équipé simplifie l'achat, un bac et du matériel séparés permettent de mieux dimensionner chaque élément, et l'occasion offre un plus grand volume pour le même budget si l'étanchéité est vérifiée. Préférez un bac long plutôt que haut.",
     sections: [
       {
         paragraphes: [
@@ -1280,8 +1372,10 @@ export const GUIDES: Guide[] = [
     titre: 'Quel filtre choisir selon le volume de son aquarium ?',
     eyebrow: 'Comparatif',
     description:
-      "Filtre interne, externe ou sur-verre : quel type de filtration convient le mieux selon la taille de votre aquarium.",
+      "Filtre interne, externe ou sur-verre : quel type de filtration et quel débit choisir selon le volume de votre aquarium, de 54 à plus de 200 litres.",
     datePublication: '2026-09-26',
+    enBref:
+      "Jusqu'à 60 litres, un filtre interne suffit ; de 60 à 300 litres, un filtre externe est plus adapté ; au-delà ou en récifal, un filtre sur-verre devient intéressant. Visez un débit de 4 à 6 fois le volume du bac par heure (220 à 330 l/h pour 54 litres, 400 à 600 l/h pour 100 litres), et davantage pour les poissons rouges ou les bacs très peuplés.",
     sections: [
       {
         paragraphes: [
@@ -1354,6 +1448,8 @@ export const GUIDES: Guide[] = [
     description:
       "Budget, technicité, temps d'entretien : les vrais critères pour choisir entre un aquarium d'eau douce et un aquarium récifal.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un premier aquarium, l'eau douce est le point d'entrée le plus accessible : budget de départ plus bas, paramètres plus tolérants, entretien hebdomadaire simple et choix d'espèces très vaste. Le récifal demande plus de matériel (écumeur, brassage, éclairage puissant), des paramètres précis (salinité, calcium, KH, magnésium) et un suivi plus intensif. Les coraux durs sont protégés par la CITES : privilégiez les animaux d'élevage.",
     sections: [
       {
         paragraphes: [
@@ -1424,6 +1520,8 @@ export const GUIDES: Guide[] = [
     description:
       "Aquarium, filtre, chauffage, éclairage, entretien mensuel : le budget réaliste pour démarrer l'aquariophilie, en neuf comme en occasion.",
     datePublication: '2026-09-26',
+    enBref:
+      "Le budget d'un premier aquarium dépend surtout du volume : la cuve et le meuble représentent souvent un tiers à la moitié du total, la filtration 10 à 20 %, et le substrat, le décor et les plantes 15 à 25 %. Le matériel durable (bac, meuble, filtre externe, éclairage) s'achète bien d'occasion, mais pas les consommables. Prévoyez aussi un budget d'entretien mensuel : nourriture, électricité, réactifs et masses filtrantes.",
     sections: [
       {
         paragraphes: [
@@ -1497,6 +1595,8 @@ export const GUIDES: Guide[] = [
     description:
       "Cyclage sauté, suralimentation, bac trop peuplé trop vite : les erreurs classiques des nouveaux aquariophiles, et les bons réflexes pour les éviter.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les erreurs de débutant les plus fréquentes sont de précipiter le démarrage (poissons avant la fin du cyclage, bac peuplé d'un coup, bac trop petit), de mal doser l'entretien (la suralimentation est la première cause de pics d'ammoniac), de sous-estimer les besoins des poissons (taille adulte, vie en groupe) et de négliger les tests d'eau. Avancez lentement et ne changez qu'un paramètre à la fois.",
     sections: [
       {
         paragraphes: [
@@ -1570,6 +1670,8 @@ export const GUIDES: Guide[] = [
     description:
       "Les signes qui doivent alerter chez un poisson d'aquarium : comportement, apparence, et les bons réflexes à avoir dès le premier doute.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un poisson malade ou stressé montre d'abord des signes de comportement : léthargie, isolement, nage anormale, perte d'appétit, frottements contre le décor. Les signes physiques comprennent les taches blanches (ich), les nageoires abîmées, les couleurs ternies, un ventre gonflé ou des yeux troubles. Premier réflexe : tester l'eau, car la plupart des cas viennent d'un paramètre déséquilibré, puis isoler le poisson suspect avant tout traitement.",
     sections: [
       {
         paragraphes: [
@@ -1643,6 +1745,8 @@ export const GUIDES: Guide[] = [
     description:
       "Filtration mécanique, biologique, chimique : à quoi sert vraiment un filtre d'aquarium, au-delà de simplement « nettoyer l'eau ».",
     datePublication: '2026-09-26',
+    enBref:
+      "Un filtre d'aquarium a trois fonctions : mécanique (retenir les particules), biologique (héberger les bactéries qui transforment l'ammoniac et les nitrites, la plus importante) et chimique (charbon actif, utile ponctuellement). Ne nettoyez jamais toutes les masses d'un coup ni à l'eau du robinet : rincez-les dans l'eau du bac, par roulement. Le débit horaire vise environ 4 à 6 fois le volume du bac.",
     sections: [
       {
         paragraphes: [
@@ -1714,6 +1818,8 @@ export const GUIDES: Guide[] = [
     description:
       "Reprise de l'alimentation, nettoyage, relance de la filtration : comment redémarrer son bassin de jardin après l'hiver sans le déstabiliser.",
     datePublication: '2026-09-26',
+    enBref:
+      "Au printemps, relancez le bassin par étapes : remettez la pompe en route quand l'eau est entre 8 et 10 °C, reprenez des repas légers au-dessus de 10 °C, puis l'alimentation normale et les plantations au-dessus de 14 à 15 °C. Nettoyez sans tout remuer, relancez la filtration progressivement et surveillez les premières algues en réduisant la nourriture.",
     sections: [
       {
         paragraphes: [
@@ -1785,6 +1891,8 @@ export const GUIDES: Guide[] = [
     description:
       "Pourquoi l'eau d'un bassin de jardin devient verte en été, et les solutions qui fonctionnent réellement pour retrouver une eau claire.",
     datePublication: '2026-09-26',
+    enBref:
+      "L'eau verte d'un bassin vient d'une prolifération d'algues microscopiques, favorisée par la lumière et l'excès de nutriments. Les solutions durables : un clarificateur UV, des plantes oxygénantes et épuratrices, un ombrage partiel, moins de nourriture et le retrait de la vase. Évitez les traitements chimiques seuls et la vidange totale. Un bassin neuf passe souvent par une phase d'eau verte avant de se stabiliser.",
     sections: [
       {
         paragraphes: [
@@ -1857,6 +1965,8 @@ export const GUIDES: Guide[] = [
     description:
       "Pourquoi, à quelle fréquence et comment faire un changement d'eau efficace en aquarium, sans stresser inutilement ses poissons.",
     datePublication: '2026-09-26',
+    enBref:
+      "Changez 10 à 20 % du volume de l'eau par semaine pour la plupart des aquariums d'eau douce, en siphonnant le substrat, avec une eau traitée au conditionneur anti-chlore et à une température proche de celle du bac. Un petit changement hebdomadaire vaut mieux qu'un grand changement mensuel. Ne vidangez jamais tout le bac.",
     sections: [
       {
         paragraphes: [
@@ -1929,6 +2039,8 @@ export const GUIDES: Guide[] = [
     description:
       "Vitres, décor, substrat : comment nettoyer un aquarium efficacement, sans perturber inutilement les poissons et l'équilibre biologique du bac.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour nettoyer un aquarium sans stresser les poissons : raclette ou aimant sur les vitres avec des gestes lents, algues du décor retirées à la main ou à la brosse douce, substrat siphonné par zones plutôt qu'en une fois. Un entretien léger chaque semaine vaut mieux qu'un grand nettoyage espacé de plusieurs mois. Bannissez savon, produit vaisselle et vinaigre pur dans et autour du bac.",
     sections: [
       {
         paragraphes: [
@@ -2000,6 +2112,8 @@ export const GUIDES: Guide[] = [
     description:
       "Algues brunes, vertes, filamenteuses, cyanobactéries : comment identifier le type d'algue et adapter la bonne solution à chaque cas.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour lutter contre les algues, identifiez d'abord leur type (diatomées brunâtres dans un bac jeune, algues vertes, cyanobactéries), puis corrigez la cause : éclairage trop long ou trop intense, excès de nutriments. Réduisez la photopériode (6 à 8 heures par jour), renforcez les changements d'eau, ajoutez des plantes à croissance rapide et nourrissez avec parcimonie. Un produit anti-algues utilisé seul ramène le problème après quelques semaines.",
     sections: [
       {
         paragraphes: [
@@ -2072,6 +2186,8 @@ export const GUIDES: Guide[] = [
     description:
       "Sable, gravier, substrat nutritif : comment choisir le bon substrat d'aquarium selon le type de bac et les espèces hébergées.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un substrat neutre (sable ou gravier fin non coupant) suffit pour un bac peu planté ou des poissons de fond comme les corydoras ; un substrat nutritif convient aux bacs fortement plantés et à l'aquascaping. Les substrats dits actifs modifient le pH et le GH : à réserver aux projets qui cherchent cet effet. Rincez toujours le substrat avant utilisation et évitez le sable de construction non testé.",
     sections: [
       {
         paragraphes: [
@@ -2141,8 +2257,10 @@ export const GUIDES: Guide[] = [
     titre: "Les plantes d'aquarium les plus faciles pour débuter",
     eyebrow: 'Décoration',
     description:
-      "Des plantes d'aquarium robustes, qui ne demandent ni CO2 ni éclairage puissant, parfaites pour un premier bac planté.",
+      "Anubias, fougère de Java, mousses, cryptocorynes, vallisneria : des plantes robustes, sans CO₂ ni éclairage puissant, pour un premier bac planté.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les plantes les plus faciles pour débuter, sans CO₂ ni éclairage puissant, sont l'anubias et la fougère de Java (fixées sur une racine ou une roche), les mousses, les cryptocorynes et la vallisneria, plus quelques plantes de tige à croissance rapide (Egeria densa, Ceratophyllum, Hygrophila, Limnophila) qui limitent les algues dans un bac neuf. Réservez les plantes exigeantes en lumière et en CO₂ à un projet plus avancé.",
     sections: [
       {
         paragraphes: [
@@ -2214,8 +2332,10 @@ export const GUIDES: Guide[] = [
     titre: "Choisir l'éclairage de son aquarium planté",
     eyebrow: 'Décoration',
     description:
-      "Puissance, spectre, durée : comment choisir un éclairage adapté à un bac planté, sans provoquer une invasion d'algues.",
+      "Spectre, puissance, durée et profondeur du bac : comment choisir l'éclairage d'un aquarium planté, sans provoquer une invasion d'algues.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les plantes utilisent surtout le rouge et le bleu, que couvrent bien les rampes LED horticoles. Pour la plupart des bacs plantés, 7 à 8 heures d'éclairage par jour sont une bonne base : une durée excessive est l'une des premières causes d'invasion d'algues. Montez progressivement la puissance dans un bac jeune, et tenez compte de la hauteur du bac, car la lumière diminue avec la profondeur.",
     sections: [
       {
         paragraphes: [
@@ -2288,6 +2408,8 @@ export const GUIDES: Guide[] = [
     description:
       "Comment dimensionner un chauffage d'aquarium selon le volume du bac et la température de la pièce, et pourquoi la sécurité ne doit pas être négligée.",
     datePublication: '2026-09-26',
+    enBref:
+      "Comptez environ 1 watt par litre dans une pièce tempérée, un peu plus si la pièce est fraîche ou si le bac est ouvert. Au-delà de 150 à 200 litres, deux chauffages répartis aux extrémités donnent une température plus homogène et sécurisent en cas de panne. Débranchez toujours le chauffage avant de baisser fortement le niveau d'eau, et vérifiez son thermostat avec un thermomètre séparé. Les poissons rouges n'en ont pas besoin.",
     sections: [
       {
         paragraphes: [
@@ -2356,8 +2478,10 @@ export const GUIDES: Guide[] = [
     titre: 'À quoi sert une pompe à air (bulleur) en aquarium ?',
     eyebrow: 'Matériel',
     description:
-      "Oxygénation, brassage de surface, alimentation d'accessoires : le rôle réel d'une pompe à air en aquarium d'eau douce.",
+      "Oxygénation, brassage de surface, alimentation d'un filtre à mousse : à quoi sert vraiment une pompe à air en aquarium d'eau douce, et quand elle est utile.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les bulles d'une pompe à air n'oxygènent pas directement l'eau : c'est le brassage de surface qu'elles créent qui favorise les échanges gazeux. Elle est utile dans un bac très peuplé ou par forte chaleur, et alimente aussi un filtre à mousse ou un décor animé, mais n'est pas toujours indispensable si le retour du filtre agite bien la surface. Placez la pompe au-dessus du niveau d'eau ou installez un clapet anti-retour.",
     sections: [
       {
         paragraphes: [
@@ -2428,6 +2552,8 @@ export const GUIDES: Guide[] = [
     description:
       "Bandelettes, tests en gouttes, testeurs électroniques : avantages et limites de chaque méthode pour suivre les paramètres de son eau.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les tests en gouttes (type API) sont la référence pour suivre l'eau d'un aquarium : plus précis que les bandelettes, qui se conservent mal. Testez en priorité ammoniac, nitrites et nitrates pendant le cyclage, puis pH et GH/KH ponctuellement ; en récifal, ajoutez calcium, KH et magnésium. Un bon coffret en gouttes coûte en général entre 25 et 40 euros. Vérifiez la date de péremption des réactifs.",
     sections: [
       {
         paragraphes: [
@@ -2499,6 +2625,8 @@ export const GUIDES: Guide[] = [
     description:
       "Avantages et précautions de l'achat d'occasion face au neuf, pour un aquarium comme pour son matériel : ce qu'il faut vérifier avant de se décider.",
     datePublication: '2026-09-26',
+    enBref:
+      "Cuve, meuble, filtre externe et éclairage s'achètent très bien d'occasion et permettent un volume plus généreux pour le même budget. Chauffage, tuyaux, joints et pompes à air sont possibles mais à tester ; masses filtrantes, tests et produits s'achètent neufs. Avant d'acheter, vérifiez l'étanchéité et l'état du silicone, et demandez à voir le matériel fonctionner. Nettoyez soigneusement le matériel avant de le remettre en route.",
     sections: [
       {
         paragraphes: [
@@ -2568,8 +2696,10 @@ export const GUIDES: Guide[] = [
     titre: 'Bien acclimater un nouveau poisson à son arrivée',
     eyebrow: 'Débuter',
     description:
-      "La méthode simple pour acclimater un poisson à l'eau de son aquarium après l'achat, et limiter le stress du transport.",
+      "La méthode simple en trois étapes pour acclimater un nouveau poisson à l'eau de votre aquarium après l'achat, et limiter le stress du transport.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour acclimater un nouveau poisson, laissez flotter le sac fermé 15 à 20 minutes pour égaliser la température, puis ajoutez un petit volume d'eau du bac toutes les 5 à 10 minutes pendant environ une demi-heure. Transférez ensuite le poisson à l'épuisette sans verser l'eau du sac, laissez la lumière éteinte quelques heures et ne le nourrissez pas le jour de son arrivée. Crevettes, escargots et espèces fragiles s'acclimatent plutôt au goutte-à-goutte.",
     sections: [
       {
         paragraphes: [
@@ -2628,6 +2758,8 @@ export const GUIDES: Guide[] = [
     description:
       "Comment déterminer le bon volume d'aquarium en fonction des espèces envisagées, de leur taille adulte et de leurs besoins de groupe.",
     datePublication: '2026-09-26',
+    enBref:
+      "Choisissez d'abord les espèces, puis déduisez le volume, en tenant compte de leur taille adulte et du nombre minimum d'individus pour les espèces de groupe. Repères indicatifs : à partir de 20 litres pour un betta mâle seul, environ 54 litres pour des guppys ou néons en petit groupe, 80 litres pour 6 corydoras. Visez un peu plus grand que le minimum : un grand bac est souvent plus simple à stabiliser. Le volume brut se calcule en multipliant longueur, largeur et hauteur en cm, puis en divisant par 1 000.",
     sections: [
       {
         paragraphes: [
@@ -2708,6 +2840,8 @@ export const GUIDES: Guide[] = [
     description:
       "Ce qu'il faut anticiper avant d'offrir un aquarium à un enfant : l'entretien réel, les espèces adaptées, et le rôle des parents.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un aquarium peut être un beau projet avec un enfant, à condition de savoir que le suivi des paramètres, les tests et les changements d'eau restent une responsabilité d'adulte. Choisissez des espèces robustes comme les guppys, décidez en famille plutôt que sur un coup de cœur, et prévoyez qui reprendra l'entretien si l'enfant se lasse. Côté sécurité : meuble solide, couvercle, prises électriques en hauteur et une ration de nourriture préparée par jour.",
     sections: [
       {
         paragraphes: [
@@ -2779,6 +2913,8 @@ export const GUIDES: Guide[] = [
     description:
       "Le déroulé étape par étape des premières semaines d'un aquarium neuf, du cyclage jusqu'à l'introduction progressive des poissons.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les premières semaines d'un aquarium neuf se déroulent en 4 étapes : lancer le cyclage (semaines 1 à 2), suivre la montée des nitrites (semaines 3 à 4), introduire les premiers poissons robustes quand l'ammoniac et les nitrites sont retombés à zéro, puis peupler progressivement avec 2 à 3 semaines entre chaque ajout. Le bac est prêt quand ammoniac et nitrites restent à zéro 24 heures après l'ajout d'une source d'ammoniac, avec des nitrates mesurables et une eau claire.",
     sections: [
       {
         paragraphes: [
@@ -2852,6 +2988,8 @@ export const GUIDES: Guide[] = [
     description:
       "Deux méthodes existent pour cycler un aquarium neuf : avec ou sans poisson présent. Leurs différences, avantages et inconvénients.",
     datePublication: '2026-09-26',
+    enBref:
+      "Le cyclage sans poisson est la méthode la plus recommandée : une source d'ammoniac nourrit les bactéries sans exposer d'animal aux pics d'ammoniac et de nitrites. Le cyclage avec poisson démarre plus vite mais expose les premiers poissons à un stress important et à des risques de mortalité. Dans tous les cas, comptez 4 à 6 semaines. Un bac très planté avec peu de poissons peut aussi se stabiliser presque sans pic visible.",
     sections: [
       {
         paragraphes: [
@@ -2920,8 +3058,10 @@ export const GUIDES: Guide[] = [
     titre: "Le rôle des plantes dans l'équilibre d'un aquarium",
     eyebrow: 'Comprendre',
     description:
-      "Au-delà du décor, les plantes jouent un rôle actif dans l'équilibre biologique d'un aquarium. Comment et pourquoi.",
+      "Au-delà du décor, les plantes absorbent les nitrates, concurrencent les algues et abritent les poissons : leur rôle dans l'équilibre biologique d'un aquarium.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les plantes participent à l'équilibre d'un aquarium : elles absorbent nitrates et ammonium, concurrencent les algues pour la lumière et les nutriments, et offrent des cachettes qui réduisent le stress des poissons. Un bac fraîchement planté met plusieurs semaines à en profiter, et les plantes ne remplacent ni la filtration ni les changements d'eau. Pour débuter : plantes faciles, plantation dense et photopériode de 6 à 8 heures.",
     sections: [
       {
         paragraphes: [
@@ -2995,6 +3135,8 @@ export const GUIDES: Guide[] = [
     description:
       "Différences entre l'eau du robinet et l'eau osmosée pour l'aquariophilie, et dans quels cas l'une ou l'autre est préférable.",
     datePublication: '2026-09-26',
+    enBref:
+      "L'eau du robinet traitée avec un conditionneur anti-chlore convient à la grande majorité des aquariums d'eau douce communautaires. L'eau osmosée, presque dépourvue de minéraux, est utile en récifal, pour des poissons exigeant une eau très douce ou pour couper une eau du robinet trop dure ; elle doit être reminéralisée avant usage. Pour compenser l'évaporation, ajoutez de l'eau osmosée ou déminéralisée, pas de l'eau du robinet.",
     sections: [
       {
         paragraphes: [
@@ -3060,6 +3202,8 @@ export const GUIDES: Guide[] = [
     description:
       "Ce qu'est la photopériode d'un aquarium, pourquoi elle influence poissons, plantes et algues, et comment bien la régler.",
     datePublication: '2026-09-26',
+    enBref:
+      "La photopériode est la durée d'éclairage quotidienne de l'aquarium. Pour la plupart des bacs, 6 à 8 heures par jour suffisent (7 à 8 heures en bac planté, 5 à 6 heures les premières semaines d'un bac neuf). Au-delà de 10 à 12 heures, ce sont surtout les algues qui en profitent : réduire la durée est le premier réflexe si elles apparaissent.",
     sections: [
       {
         paragraphes: [
@@ -3132,6 +3276,8 @@ export const GUIDES: Guide[] = [
     description:
       "L'intérêt d'un bac de quarantaine avant d'introduire un nouveau poisson ou corail dans un aquarium récifal, et comment le mettre en place simplement.",
     datePublication: '2026-09-26',
+    enBref:
+      "Mettez en quarantaine chaque nouveau poisson ou corail avant de l'introduire dans un récif, pour éviter qu'un parasite ou une maladie ne contamine tout le bac. Prévoyez 4 à 6 semaines pour les poissons et 2 à 4 semaines pour les coraux, dans un petit bac simple (filtre et chauffage, 40 à 100 litres pour la plupart des poissons), avec du matériel dédié ou désinfecté.",
     sections: [
       {
         paragraphes: [
@@ -3204,6 +3350,8 @@ export const GUIDES: Guide[] = [
     description:
       "Puissance, spectre, intensité : comment choisir un éclairage LED adapté à un aquarium récifal selon les coraux hébergés.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les coraux ont besoin d'une lumière bien plus intense qu'un bac planté d'eau douce, car leurs algues symbiotiques (zooxanthelles) produisent une grande partie de leur énergie. Une dominante bleue complétée de blanc est courante, et les SPS exigent plus de puissance que les coraux mous et les LPS. Montez l'intensité progressivement en démarrant à 30 ou 40 % de la puissance, avec une photopériode de 8 à 10 heures et un lever et un coucher progressifs.",
     sections: [
       {
         paragraphes: [
@@ -3275,6 +3423,8 @@ export const GUIDES: Guide[] = [
     description:
       "Nourrir les poissons mais aussi les coraux d'un aquarium récifal : quelles différences, quelle fréquence et quels pièges éviter.",
     datePublication: '2026-09-26',
+    enBref:
+      "En récifal, variez granulés, paillettes et nourriture congelée pour les poissons, et complétez au besoin avec une nourriture fine pour les coraux. L'excès de nourriture fait monter les nitrates et les phosphates, qui favorisent les algues : testez-les chaque semaine et ajustez la fréquence des repas. Éteignez brièvement l'écumeur et les pompes pendant le nourrissage, et retirez les restes après quelques minutes.",
     sections: [
       {
         paragraphes: [
@@ -3346,6 +3496,8 @@ export const GUIDES: Guide[] = [
     description:
       "Carpes koï, poissons rouges, autres espèces rustiques : comment choisir les poissons adaptés à un bassin de jardin selon sa taille et son climat.",
     datePublication: '2026-09-26',
+    enBref:
+      "Les koï conviennent aux bassins de grand volume ; le poisson rouge (commun, comète, shubunkin) est la valeur sûre des bassins plus modestes et passe l'hiver dehors. Choisissez selon la taille du bassin et le climat, évitez la surpopulation, et introduisez les poissons quand le bassin est stabilisé, au printemps ou au début de l'été, avec une eau entre 12 et 20 °C. L'orfe et la tanche dorée sont d'autres options rustiques.",
     sections: [
       {
         paragraphes: [
@@ -3416,6 +3568,8 @@ export const GUIDES: Guide[] = [
     description:
       "Le rôle des différentes catégories de plantes de bassin, et comment les combiner pour un bassin équilibré et une eau plus claire.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un bassin équilibré associe trois catégories de plantes : oxygénantes immergées (cératophylle, élodées, myriophylle), épuratrices en berge ou en zone peu profonde (iris des marais, menthe aquatique, jonc) et décoratives comme les nénuphars, qui ombragent l'eau. N'utilisez pas de terreau ordinaire, qui libère trop de nutriments et favorise les algues.",
     sections: [
       {
         paragraphes: [
@@ -3485,8 +3639,10 @@ export const GUIDES: Guide[] = [
     titre: 'Bien choisir sa pompe et sa filtration de bassin',
     eyebrow: 'Bassin',
     description:
-      "Débit, filtration mécanique et biologique : comment dimensionner la pompe et le filtre d'un bassin de jardin.",
+      "Débit de la pompe, filtration mécanique et biologique, UV, skimmer, bassin à koï : comment dimensionner la pompe et le filtre d'un bassin de jardin.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour dimensionner la pompe d'un bassin, faites circuler l'intégralité du volume en une à deux heures, à ajuster selon le nombre de poissons et de plantes. La filtration doit être mécanique (retenir les débris) et biologique (héberger les bactéries qui traitent les déchets). Un bassin à koï demande un filtre surdimensionné. Un clarificateur UV supprime l'eau verte et un skimmer retire les débris flottants.",
     sections: [
       {
         paragraphes: [
@@ -3559,6 +3715,8 @@ export const GUIDES: Guide[] = [
     description:
       "Hérons, chats, prédateurs terrestres : comment protéger les poissons d'un bassin de jardin des menaces les plus courantes.",
     datePublication: '2026-09-26',
+    enBref:
+      "La protection la plus fiable pour un bassin est un filet à mailles de 3 à 5 cm, tendu à environ 50 cm au-dessus de l'eau. On la complète avec des cachettes (tuyaux, pierres en voûte, plantes denses), des berges abruptes qui découragent le héron, et une bordure surélevée contre les chats. Le héron cendré est protégé : on peut l'éloigner, jamais le blesser.",
     sections: [
       {
         paragraphes: [
@@ -3630,6 +3788,8 @@ export const GUIDES: Guide[] = [
     description:
       "Nourrissage automatique, entretien avant le départ, personne de confiance : comment préparer son aquarium pour une absence de plusieurs jours.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour partir quelques jours, faites un changement d'eau et un nettoyage léger un à deux jours avant le départ, programmez l'éclairage avec une minuterie et testez un distributeur automatique au moins une semaine avant. Ne donnez pas de double ration : les poissons adultes supportent bien plusieurs jours sans nourriture. Au-delà de deux semaines, prévoyez une vraie visite d'une personne de confiance.",
     sections: [
       {
         paragraphes: [
@@ -3707,8 +3867,10 @@ export const GUIDES: Guide[] = [
     titre: 'Bien tailler et entretenir les plantes d’aquarium',
     eyebrow: 'Entretien',
     description:
-      "Quand et comment tailler les plantes d'un aquarium planté pour garder un bac équilibré et un décor soigné.",
+      "Quand et comment tailler les plantes à tiges, à rosette et de premier plan d'un aquarium planté, avec un calendrier d'entretien simple pour un bac équilibré.",
     datePublication: '2026-09-26',
+    enBref:
+      "Taillez les plantes à tiges en coupant à la hauteur voulue (la partie coupée peut être replantée) avec des ciseaux affûtés, et retirez à leur base les feuilles abîmées des plantes à rosette. Ne dépassez pas un tiers de la masse végétale par taille, pour ne pas déstabiliser le bac. Un rythme simple : feuilles mortes chaque semaine, tiges toutes les deux semaines, plantes flottantes et mousses chaque mois.",
     sections: [
       {
         paragraphes: [
@@ -3779,6 +3941,8 @@ export const GUIDES: Guide[] = [
     description:
       "À quelle fréquence nettoyer le filtre d'un aquarium, et comment le faire sans détruire les bactéries utiles qu'il héberge.",
     datePublication: '2026-09-26',
+    enBref:
+      "Nettoyez le filtre toutes les 4 à 6 semaines en général, mais le vrai signal est la baisse de débit. Ne nettoyez jamais toutes les masses filtrantes le même jour : alternez, et rincez-les dans de l'eau du bac, jamais à l'eau du robinet chlorée, qui tue une partie des bactéries utiles. Les mousses durent plusieurs années et ne se remplacent que lorsqu'elles s'effritent.",
     sections: [
       {
         paragraphes: [
@@ -3850,8 +4014,10 @@ export const GUIDES: Guide[] = [
     titre: "Aquarium à l'eau trouble : causes et solutions",
     eyebrow: 'Entretien',
     description:
-      "Eau blanchâtre, laiteuse ou trouble en aquarium : les causes les plus fréquentes et comment retrouver une eau claire.",
+      "Eau blanchâtre, laiteuse, verte ou brune : les causes les plus fréquentes d'une eau trouble en aquarium, les bons réflexes et comment retrouver une eau claire.",
     datePublication: '2026-09-26',
+    enBref:
+      "Une eau blanchâtre ou laiteuse dans un bac neuf vient souvent d'une prolifération bactérienne et se résorbe en quelques jours : réduisez la nourriture, changez une partie de l'eau, ne videz pas le bac. Si le trouble persiste, testez l'ammoniac et les nitrites. Une eau verte vient d'algues microscopiques (trop de lumière), une eau jaune ou brune de tanins sans danger, et un filtre colmaté ou sous-dimensionné laisse passer les particules fines.",
     sections: [
       {
         paragraphes: [
@@ -3938,6 +4104,8 @@ export const GUIDES: Guide[] = [
     description:
       "Pourquoi et comment préparer un bois flotté avant de l'installer en aquarium, pour éviter qu'il ne flotte ou ne colore l'eau trop longtemps.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un bois flotté neuf flotte car ses fibres contiennent de l'air : faites-le tremper de plusieurs jours à plusieurs semaines dans un seau d'eau renouvelée régulièrement. Les tanins qu'il libère teintent l'eau en jaune-brun, sans danger pour les poissons. Choisissez un bois vendu pour l'aquariophilie (mopani, racine de mangrove, spiderwood) plutôt qu'un bois récolté en forêt, et fixez-y anubias, fougères de Java ou mousses.",
     sections: [
       {
         paragraphes: [
@@ -4008,6 +4176,8 @@ export const GUIDES: Guide[] = [
     description:
       "Roches inertes ou influençant les paramètres de l'eau : comment choisir les bonnes pierres selon le type de bac et les espèces hébergées.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un bac communautaire d'eau douce, choisissez des roches inertes : quartz, granite, schiste, pierre de lave ou pierre dragon. Les roches calcaires (calcaire, tuf, marbre, Seiryu) font monter le pH et la dureté : elles conviennent aux cichlidés africains, pas aux bacs amazoniens ni aux crevettes sensibles. En cas de doute, du vinaigre blanc qui mousse sur la roche révèle du calcaire.",
     sections: [
       {
         paragraphes: [
@@ -4078,6 +4248,8 @@ export const GUIDES: Guide[] = [
     description:
       "Le principe d'un aquarium biotope, qui reproduit fidèlement un milieu naturel précis, et comment s'y prendre pour un premier projet.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un aquarium biotope reproduit un milieu naturel précis, avec des espèces, des plantes, un décor et des paramètres de la même zone géographique. Le biotope amazonien (bois flotté, feuilles, eau douce et acide, tétras, corydoras) est l'un des plus accessibles pour débuter, alors qu'un biotope africain (lac Malawi ou Tanganyika) demande une eau dure et alcaline. Les feuilles de chêne, de hêtre ou de Catappa recréent le tapis de feuilles des rivières tropicales.",
     sections: [
       {
         paragraphes: [
@@ -4147,8 +4319,10 @@ export const GUIDES: Guide[] = [
     titre: 'Le CO2 en aquarium planté : utile ou indispensable ?',
     eyebrow: 'Décoration',
     description:
-      "Dans quels cas un apport de CO2 devient utile en aquarium planté, et quand il est possible de s'en passer.",
+      "Le CO₂ est-il indispensable en aquarium planté ? Dans quels cas il devient utile, comment éviter la chute de pH et quand il est possible de s'en passer.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un aquarium avec des plantes peu exigeantes (anubias, mousses, cryptocorynes) et un éclairage modéré se passe très bien de CO₂ (méthode low-tech). Il devient utile dans un bac fortement planté, à éclairage puissant, avec des espèces exigeantes comme les tapis de sol. Un mauvais dosage peut faire chuter le pH de façon dangereuse : utilisez un diffuseur avec compte-bulles et démarrez l'injection environ une heure avant l'allumage de l'éclairage.",
     sections: [
       {
         paragraphes: [
@@ -4218,6 +4392,8 @@ export const GUIDES: Guide[] = [
     description:
       "Épuisette, seau dédié, tuyau de siphon : le petit matériel de manipulation qui simplifie vraiment l'entretien d'un aquarium.",
     datePublication: '2026-09-26',
+    enBref:
+      "Quatre outils simples facilitent l'entretien d'un aquarium : une épuisette à filet souple et à mailles fines, un seau réservé exclusivement à l'aquarium, un tuyau de siphon (un siphon manuel à cloche suffit pour un bac moyen) et un thermomètre fiable placé à l'opposé du chauffage. Rincez l'épuisette après chaque usage et désinfectez-la en cas de maladie.",
     sections: [
       {
         paragraphes: [
@@ -4287,8 +4463,10 @@ export const GUIDES: Guide[] = [
     titre: 'Minuterie et programmateur : automatiser son aquarium',
     eyebrow: 'Matériel',
     description:
-      "Comment une simple minuterie programmable simplifie l'entretien quotidien d'un aquarium, notamment pour l'éclairage.",
+      "Comment une minuterie ou une prise programmable régularise la photopériode, simplifie l'entretien quotidien et sécurise l'aquarium pendant une courte absence.",
     datePublication: '2026-09-26',
+    enBref:
+      "Une minuterie ou une prise programmable rend la photopériode régulière jour après jour, ce qui réduit le stress des poissons et favorise une croissance homogène des plantes. Il en existe trois types : mécanique (peu coûteuse), numérique (programmation à la minute) et prise connectée Wi-Fi. Couplée à un nourrisseur automatique, elle permet de partir quelques jours : testez l'installation avant le départ, et placez-la en hauteur, hors des éclaboussures.",
     sections: [
       {
         paragraphes: [
@@ -4359,6 +4537,8 @@ export const GUIDES: Guide[] = [
     description:
       "Solidité, niveau, rangement : ce qu'il faut vérifier avant de choisir le meuble qui supportera un aquarium rempli d'eau.",
     datePublication: '2026-09-26',
+    enBref:
+      "Choisissez un meuble conçu spécifiquement pour l'aquariophilie plutôt qu'un meuble de salon : un aquarium rempli pèse plusieurs centaines de kilos. Vérifiez que la charge maximale du fabricant dépasse le poids du bac plein, que le plateau est plan et au moins aussi grand que la base de la cuve, et contrôlez le niveau à la bulle dans les deux sens avant de remplir. Validez l'emplacement définitif avant la mise en eau, à l'écart du soleil direct.",
     sections: [
       {
         paragraphes: [
@@ -4430,6 +4610,8 @@ export const GUIDES: Guide[] = [
     description:
       "Comment fonctionne un osmoseur, et dans quels cas il devient un investissement utile pour un aquarium d'eau douce ou récifal.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un osmoseur filtre l'eau du robinet à travers une membrane qui retient minéraux, nitrates, phosphates et chlore. Il est indispensable en récifal, où l'on prépare l'eau de mer à partir d'une eau pure, et utile en eau douce si votre eau est très dure ou chargée en nitrates. L'eau osmosée pure doit être reminéralisée avant d'être utilisée.",
     sections: [
       {
         titre: "Le principe de l’osmose inverse",
@@ -4510,6 +4692,8 @@ export const GUIDES: Guide[] = [
     description:
       "Aquarium communautaire avec plusieurs espèces compatibles, ou bac dédié à une seule espèce : avantages et inconvénients de chaque approche.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un premier aquarium, un bac communautaire d'espèces reconnues comme compatibles (température, caractère, taille) est un bon point de départ. Un bac d'espèce, dédié à une seule espèce souvent en groupe, simplifie les paramètres et évite les conflits, et convient mieux aux espèces territoriales comme les cichlidés du lac Malawi ou les bettas mâles. Évitez par exemple d'associer un combattant à des poissons à nageoires longues et colorées.",
     sections: [
       {
         paragraphes: [
@@ -4580,6 +4764,8 @@ export const GUIDES: Guide[] = [
     description:
       "Comparatif entre l'éclairage LED et le néon (tube fluorescent) pour un aquarium : consommation, durée de vie et qualité de lumière.",
     datePublication: '2026-09-26',
+    enBref:
+      "Pour un aquarium neuf, la LED est presque toujours le meilleur choix : elle consomme moins (de l'ordre de 80 kWh par an d'écart entre une rampe de 20 W et deux tubes de 24 W), dure plusieurs années là où un tube T5 se change tous les 9 à 12 mois, et se programme. Un néon qui fonctionne encore peut être gardé jusqu'à la panne.",
     sections: [
       {
         paragraphes: [
@@ -4649,8 +4835,10 @@ export const GUIDES: Guide[] = [
     titre: 'Filtre interne ou externe : lequel choisir ?',
     eyebrow: 'Comparatif',
     description:
-      "Différences entre un filtre interne et un filtre externe pour aquarium, et dans quels cas privilégier l'un ou l'autre.",
+      "Prix, capacité de filtration, entretien, esthétique : les différences entre un filtre interne et un filtre externe, et dans quels cas privilégier l'un ou l'autre.",
     datePublication: '2026-09-26',
+    enBref:
+      "Le filtre interne est plus abordable, plus rapide à nettoyer et convient aux volumes modestes, mais il prend de la place dans le bac. Le filtre externe, installé sous le meuble, offre un plus grand volume de masses filtrantes et laisse le bac dégagé, pour un prix plus élevé et un entretien un peu plus long mais moins fréquent. Pour les crevettes, un filtre à mousse ou une grille fine protège les petits ; pour un betta, choisissez un débit réglable.",
     sections: [
       {
         paragraphes: [
@@ -4724,6 +4912,8 @@ export const GUIDES: Guide[] = [
     description:
       "Différences entre un aquarium d'eau froide (sans chauffage) et un aquarium tropical, et comment choisir selon les espèces envisagées.",
     datePublication: '2026-09-26',
+    enBref:
+      "Un aquarium tropical maintient une température stable de 24 à 28 °C grâce à un chauffage et convient à la grande majorité des poissons d'ornement. Un aquarium d'eau froide, sans chauffage, convient aux espèces qui tolèrent la fraîcheur, comme certains poissons rouges. Choisissez le type de bac avant les espèces, car un poisson placé à la mauvaise température subit un stress durable. Le poisson rouge n'est pas le poisson idéal pour débuter : il grandit beaucoup et produit énormément de déchets.",
     sections: [
       {
         paragraphes: [
@@ -4794,6 +4984,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Préparer, photographier, fixer le prix et organiser la remise : tout pour vendre rapidement son aquarium d'occasion et son matériel entre particuliers.",
       "datePublication": "2026-10-22",
+      "enBref": "Pour vendre un aquarium d'occasion, videz et nettoyez le bac, retirez le calcaire des vitres, vérifiez l'étanchéité et photographiez le bac vide et chaque équipement à la lumière du jour, défauts compris. Indiquez dans l'annonce la contenance en litres, les dimensions, l'âge, la marque, ce qui est inclus et votre ville. Comparez avec les annonces similaires pour fixer le prix, et organisez une remise en main propre où l'acheteur peut contrôler le bac. Un lot cohérent (bac, meuble, filtre, chauffage) attire plus d'acheteurs.",
       "sections": [
         {
           "titre": "Préparer l'aquarium avant de le mettre en vente",
@@ -4895,8 +5086,9 @@ export const GUIDES: Guide[] = [
       "slug": "acheter-aquarium-occasion-verifications",
       "titre": "Acheter un aquarium d'occasion : les points à vérifier avant de payer",
       "eyebrow": "Acheter & vendre",
-      "description": "Étanchéité, silicone, vitres, équipements : la checklist pour acheter un aquarium d'occasion sans mauvaise surprise.",
+      "description": "Étanchéité, joints de silicone, vitres, équipements : la checklist et les questions à poser au vendeur pour acheter un aquarium d'occasion sans mauvaise surprise.",
       "datePublication": "2026-10-22",
+      "enBref": "Avant d'acheter un aquarium d'occasion, inspectez les vitres (rayures profondes, éclats), les joints de silicone (décollements, moisissures noires, silicone jauni ou craquelé) et les angles, puis faites fonctionner filtre, chauffage et éclairage devant le vendeur. Un vendeur qui refuse de remplir le bac ou de brancher le matériel est un signe d'alerte. Une fois à la maison, nettoyez à l'eau claire sans produit ménager et cyclez le bac comme un bac neuf.",
       "sections": [
         {
           "titre": "Pourquoi acheter d'occasion",
@@ -5014,6 +5206,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Espèce, quantité, photos, transport : comment vendre ses poissons d'aquarium en respectant les animaux et les règles de la plateforme.",
       "datePublication": "2026-10-22",
+      "enBref": "Pour vendre ses poissons, indiquez le nom commun et si possible scientifique, photographiez vos propres poissons, et précisez quantité, âge, nombre de mâles et de femelles, nourriture habituelle et paramètres de l'eau d'origine. Sur Aquatopia, les animaux vivants se remettent en main propre, dans un sac avec l'eau du bac, à l'abri du froid et de la chaleur. Certaines espèces (protégées, envahissantes, CITES) ne peuvent pas être vendues librement : renseignez-vous avant de publier.",
       "sections": [
         {
           "titre": "Identifier correctement l'espèce",
@@ -5115,6 +5308,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Où en trouver, quelles questions poser au vendeur et comment accueillir ses nouveaux poissons : le guide pour acheter entre particuliers.",
       "datePublication": "2026-10-22",
+      "enBref": "Avant d'acheter des poissons à un particulier, demandez l'âge, la taille adulte, l'alimentation, les paramètres de l'eau du vendeur (pH, dureté, température) et d'éventuels problèmes de santé. Observez les poissons à la remise : nage fluide, nageoires entières, couleurs franches, pas de points blancs. Votre bac doit être cyclé et adapté à l'espèce. Après l'achat, une quarantaine de deux à quatre semaines protège vos autres poissons ; ne les nourrissez pas le jour de leur arrivée.",
       "sections": [
         {
           "titre": "Pourquoi acheter à un particulier",
@@ -5234,6 +5428,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Un aquarium dont vous ne voulez plus ? Découvrez comment donner votre matériel et vos poissons à un aquariophile plutôt que de les jeter.",
       "datePublication": "2026-10-22",
+      "enBref": "Pour donner un aquarium, des poissons ou du matériel, publiez une annonce de type don dans l'application Aquatopia, avec photos et ville ; chaque annonce est vérifiée par l'équipe avant sa mise en ligne. Posez quelques questions au repreneur par la messagerie (bac prêt, espèce déjà connue) et organisez une remise en main propre, avec l'eau du bac pour les poissons. Nettoyez le matériel à l'eau claire, sans produit ménager, avant la remise.",
       "sections": [
         {
           "titre": "Pourquoi donner plutôt que jeter",
@@ -5351,6 +5546,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Comment publier gratuitement une annonce pour vendre, donner ou échanger un aquarium, des poissons, des plantes ou du matériel sur Aquatopia.",
       "datePublication": "2026-10-22",
+      "enBref": "Pour déposer une annonce d'aquariophilie gratuite, installez l'application Aquatopia (iPhone ou Android, gratuite pour les particuliers), choisissez la catégorie (vivant, plantes, cuves, matériel, éclairage ou décor) et le type d'annonce (vente, don ou échange), puis ajoutez un titre clair, une description, des photos et votre ville. Chaque annonce est vérifiée par l'équipe avant sa mise en ligne. Les acheteurs vous contactent par la messagerie et la remise se fait en main propre.",
       "sections": [
         {
           "titre": "Télécharger l'application",
@@ -5476,6 +5672,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Aquarium 60 L, 100 L ou 200 L d'occasion : avantages de chaque volume, poissons adaptés, poids à prévoir et points à vérifier avant d'acheter chez un particulier.",
       "datePublication": "2026-10-23",
+      "enBref": "Décidez du volume avant le prix : 60 litres convient à un betta seul, des crevettes ou quelques petits poissons mais laisse peu de marge d'erreur ; 100 litres est souvent le meilleur compromis pour débuter, avec un petit bac communautaire planté ; 200 litres est plus stable et accueille des groupes plus nombreux ou des poissons de taille moyenne. Dans le doute, prenez le plus grand volume que vous pouvez accueillir, entretenir et transporter, après avoir contrôlé joints et vitres.",
       "sections": [
         {
           "titre": "Le volume avant le prix",
@@ -5577,6 +5774,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Filtre, chauffage, éclairage, pompe : ce qu'on peut acheter d'occasion sans risque, ce qu'il faut tester avant, et ce qu'il vaut mieux prendre neuf.",
       "datePublication": "2026-10-23",
+      "enBref": "S'achètent bien d'occasion : meuble, décor, éclairage LED, filtre externe ou écumeur en bon état. Testez un chauffage dans un seau avec un thermomètre pendant 24 heures avant de l'utiliser, et vérifiez joints, hélice, raccords et câble électrique d'un filtre (un moteur bruyant ou qui chauffe est un mauvais signe). Les kits de test, conditionneurs, la nourriture et tout équipement électrique au câble abîmé s'achètent neufs.",
       "sections": [
         {
           "titre": "Ce qui s'achète bien d'occasion",
@@ -5680,6 +5878,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Où trouver un aquarium d'occasion pas cher, comment estimer un bon prix, négocier poliment et éviter les pièges des annonces trop belles pour être vraies.",
       "datePublication": "2026-10-23",
+      "enBref": "Les meilleures affaires viennent de particuliers qui arrêtent l'aquariophilie ou déménagent, par exemple dans les annonces d'Aquatopia, avec davantage d'annonces en fin d'été et au début de l'année. Un aquarium d'occasion se vend nettement moins cher que le neuf selon le volume, l'âge, l'état des joints et ce qui est fourni. Méfiez-vous d'un prix très en dessous du marché sans explication, d'une annonce sans photo et d'un vendeur qui refuse de vous laisser voir le bac. Comptez aussi le transport et les remplacements éventuels.",
       "sections": [
         {
           "titre": "Où chercher un aquarium d'occasion",
@@ -5786,6 +5985,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Une bourse aquariophile, c'est quoi ? Comment la trouver, bien s'y préparer, transporter ses poissons et la compléter avec des annonces en ligne.",
       "datePublication": "2026-10-23",
+      "enBref": "Une bourse aux poissons est une rencontre où des éleveurs et des passionnés vendent ou échangent poissons, crevettes, plantes et boutures, en général organisée par un club ou une association. Pour en trouver une, contactez les clubs et associations aquariophiles de votre région. Arrivez tôt, apportez des sacs adaptés et une glacière pour garder l'eau à bonne température. Les bourses n'ont lieu que quelques fois par an : les annonces entre particuliers prennent le relais le reste de l'année.",
       "sections": [
         {
           "titre": "Qu'est-ce qu'une bourse aux poissons ?",
@@ -5885,6 +6085,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Site d'annonces généraliste ou application spécialisée dans l'aquarium : audience, tri des annonces, modération et gratuité. Comment choisir pour acheter ou vendre.",
       "datePublication": "2026-10-23",
+      "enBref": "Les sites généralistes comme Leboncoin offrent une grande audience mais mélangent les annonces d'aquariophilie avec toutes les autres catégories, ce qui complique le filtrage par espèce, volume ou biotope. Une marketplace dédiée comme Aquatopia réunit des acheteurs et vendeurs qui parlent la même langue. Il n'y a pas à choisir : publiez un aquarium et son meuble sur les deux, et privilégiez la plateforme spécialisée pour les poissons, crevettes et plantes. Partout : remise en main propre, matériel vérifié avant paiement, aucune donnée bancaire communiquée.",
       "sections": [
         {
           "titre": "Les sites généralistes : une grande audience",
@@ -5984,6 +6185,7 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Que faire de son ancien aquarium : reprise en magasin, vente, don ou échange. Préparer le démontage, nettoyer le bac, replacer les poissons et recycler le matériel.",
       "datePublication": "2026-10-23",
+      "enBref": "Pour se séparer d'un ancien aquarium, la reprise en magasin n'est pas systématique et la valeur proposée est généralement faible : vendre est la voie la plus rentable, donner la plus rapide, échanger idéal pour obtenir du matériel, des plantes ou des poissons. Ne commencez pas le démontage avant d'avoir trouvé un repreneur, replacez les poissons avant de vider le bac sans jamais les relâcher dans la nature, et déposez le matériel hors d'usage en déchetterie ou en point de collecte des appareils électriques.",
       "sections": [
         {
           "titre": "La reprise en magasin",
@@ -6081,6 +6283,174 @@ export const GUIDES: Guide[] = [
         }
       ]
     },
+  {
+    slug: 'bassin-koi-volume-filtration-entretien',
+    titre: 'Bassin à koï : volume, profondeur, filtration et entretien',
+    eyebrow: 'Bassin',
+    description:
+      "Quel volume et quelle profondeur pour un bassin à koï, comment dimensionner la filtration, oxygéner l'eau, introduire les poissons et entretenir le bassin au fil des saisons.",
+    datePublication: '2026-11-08',
+    enBref:
+      "Un bassin à koï demande beaucoup plus d'eau qu'un bassin à poissons rouges : comptez au moins 5 m³ (5 000 litres), puis environ 1 m³ de plus par koï adulte, avec une profondeur d'au moins 1,30 m. La filtration doit faire passer tout le volume du bassin au moins une fois par heure, avec une préfiltration, un filtre biologique et idéalement un stérilisateur UV. Laissez le bassin se stabiliser plusieurs semaines avant d'introduire les koï, et mettez toujours les nouveaux poissons en quarantaine.",
+    sections: [
+      {
+        paragraphes: [
+          "La carpe koï est le poisson de bassin le plus recherché, mais aussi le plus exigeant. Un koï adulte mesure couramment 60 à 90 cm et peut vivre plusieurs décennies : le bassin se conçoit donc pour sa taille adulte, pas pour la taille du petit poisson acheté. Voici les repères pour construire et entretenir un bassin où les koï se portent bien.",
+        ],
+      },
+      {
+        titre: 'Quel volume pour un bassin à koï ?',
+        paragraphes: [
+          "Un repère souvent donné par les professionnels du bassin : un minimum de 5 m³ d'eau (5 000 litres), puis environ 1 m³ supplémentaire par koï adulte. Concrètement, cela donne environ 6 m³ pour un koï, 10 m³ pour cinq koï et 15 m³ pour dix koï.",
+          "Plus le volume est grand, plus l'eau reste stable : la température varie moins vite, et les déchets sont mieux dilués. Un bassin trop petit est la première cause de problèmes avec les koï, qui grandissent vite et produisent beaucoup de déchets.",
+        ],
+      },
+      {
+        titre: 'Quelle profondeur prévoir ?',
+        paragraphes: [
+          "Visez une profondeur d'au moins 1,30 m ; 1,40 à 1,60 m est un bon compromis si le terrain le permet. La profondeur protège les koï du gel en hiver et de la surchauffe en été, et elle les met hors de portée de nombreux prédateurs comme le héron.",
+          "Choisissez si possible un emplacement qui reçoit 4 à 6 heures de soleil par jour : assez pour les plantes, sans transformer le bassin en cuvette surchauffée l'été.",
+        ],
+      },
+      {
+        titre: 'Dimensionner la filtration',
+        paragraphes: [
+          "La filtration est le cœur d'un bassin à koï. Le repère de base : tout le volume du bassin doit passer dans le filtre au moins une fois par heure. Comptez le débit réel de la pompe, toujours inférieur au débit annoncé (environ 75 % une fois les tuyaux et la hauteur pris en compte), et gardez une marge.",
+          "Une filtration complète s'organise en trois étages :",
+        ],
+        liste: [
+          "La préfiltration retient les grosses particules (brosses, tamis, ou filtre à tambour automatique pour les grands bassins).",
+          "Le filtre biologique abrite les bactéries qui transforment l'ammoniaque et les nitrites, toxiques, en nitrates. Il lui faut 4 à 8 semaines pour être bien colonisé.",
+          "Le stérilisateur UV n'est pas obligatoire, mais il est recommandé contre l'eau verte. Il ne remplace ni la préfiltration ni le filtre biologique.",
+        ],
+      },
+      {
+        titre: 'Bonde de fond et skimmer',
+        paragraphes: [
+          "Dans les grands bassins, la filtration est souvent alimentée par gravité, à partir d'une ou plusieurs bondes de fond qui aspirent les déchets là où ils se déposent. C'est la solution recommandée au-delà d'une vingtaine de mètres cubes. Un skimmer de surface complète le dispositif en retirant feuilles, pollen et film gras.",
+          "Ces équipements se prévoient à la construction : il est très difficile d'ajouter une bonde de fond dans un bassin déjà terminé.",
+        ],
+      },
+      {
+        titre: "Oxygéner l'eau",
+        paragraphes: [
+          "Les koï, comme les bactéries du filtre, ont besoin d'une eau bien oxygénée. Une bonne circulation, une cascade ou un système d'aération (bulleur) assurent cet apport. L'été est la période critique : une eau chaude contient moins d'oxygène, alors que les poissons en consomment davantage.",
+        ],
+      },
+      {
+        titre: 'Mettre en eau et introduire les koï',
+        paragraphes: [
+          "Après la mise en eau, laissez le bassin se stabiliser plusieurs semaines, filtration en marche, avant d'introduire les poissons. Contrôlez l'eau avec un kit de test : l'ammoniaque et les nitrites doivent être à zéro.",
+          "Mettez toujours les nouveaux koï en quarantaine dans un bac séparé pendant quelques semaines avant de les mêler aux autres : certaines maladies, comme le virus de l'herpès de la carpe koï (KHV), peuvent décimer un bassin entier. Achetez de préférence auprès d'éleveurs ou de particuliers qui connaissent l'historique de leurs poissons.",
+        ],
+      },
+      {
+        titre: 'Nourrir selon la saison',
+        paragraphes: [
+          "L'appétit des koï suit la température de l'eau. En été, ils mangent volontiers plusieurs petits repas par jour. Sous 14 °C environ, passez à une nourriture pauvre en protéines (à base de germe de blé), puis arrêtez de nourrir sous 8 à 10 °C : leur digestion est alors trop lente. Ne donnez jamais plus que ce qu'ils mangent en quelques minutes.",
+        ],
+      },
+      {
+        titre: "L'entretien au fil de l'année",
+        paragraphes: ["Un bassin à koï bien conçu demande un entretien régulier mais simple :"],
+        liste: [
+          'Nettoyer la préfiltration souvent en saison chaude, sans rincer les médias biologiques à l’eau du robinet.',
+          "Renouveler une partie de l'eau régulièrement, avec une eau à température proche.",
+          "Contrôler l'eau (ammoniaque, nitrites, pH) au moindre comportement anormal des poissons.",
+          'Retirer les feuilles mortes en automne, ou tendre un filet au-dessus du bassin.',
+          "Préparer l'hivernage : garder une ouverture dans la glace et réduire la filtration par grand froid.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/especes/carpe-koi', label: 'Fiche espèce : la carpe koï' },
+      { href: '/guides/pompe-filtration-bassin-bien-choisir', label: 'Pompe et filtration de bassin' },
+      { href: '/guides/hivernage-poissons-bassin', label: 'Préparer l’hivernage de son bassin' },
+      { href: '/guides/choisir-poissons-bassin-jardin', label: 'Choisir les poissons de son bassin' },
+      { href: '/biotope/bassin', label: 'Annonces pour le bassin' },
+    ],
+  },
+  {
+    slug: 'sump-aquarium-recifal-installation',
+    titre: "Le sump (cuve technique) en aquarium récifal : à quoi ça sert et comment l'installer",
+    eyebrow: 'Récifal',
+    description:
+      "Rôle d'une cuve technique (sump) en aquarium récifal, ses compartiments, le matériel qu'elle accueille, comment la dimensionner pour éviter le débordement en cas de coupure, et les sécurités à prévoir.",
+    datePublication: '2026-11-08',
+    enBref:
+      "Le sump, ou cuve technique, est un second bac placé sous l'aquarium, qui reçoit l'eau par un trop-plein et la renvoie avec une pompe de remontée. Il accueille l'écumeur, le chauffage, les sondes et l'osmolateur, cache le matériel et augmente le volume d'eau, ce qui stabilise les paramètres. Il se divise en général en trois compartiments : réception, niveau constant pour l'écumeur, niveau variable pour la pompe. La règle d'or : il doit pouvoir absorber toute l'eau qui redescend du bac en cas de coupure de courant, sans déborder.",
+    sections: [
+      {
+        paragraphes: [
+          "Dans la plupart des aquariums récifaux, une bonne partie du matériel ne se voit pas : il est installé dans une cuve technique, le « sump » (ou décantation), rangée dans le meuble. Voici à quoi elle sert, comment elle est organisée et les précautions à prendre pour l'installer sans risque de dégât des eaux.",
+        ],
+      },
+      {
+        titre: 'Le principe',
+        paragraphes: [
+          "L'eau de l'aquarium s'écoule par gravité dans le sump grâce à un trop-plein (une colonne ou une gorge de débordement), qui prélève l'eau en surface. Elle traverse ensuite les différents compartiments, où elle est filtrée, écumée et chauffée, avant d'être renvoyée dans le bac par une pompe de remontée.",
+          "Ce prélèvement en surface est un atout en eau de mer : il évacue en continu le film gras et les protéines qui s'accumulent à la surface.",
+        ],
+      },
+      {
+        titre: 'Les trois compartiments',
+        paragraphes: ["Un sump récifal classique se découpe en trois zones séparées par des cloisons :"],
+        liste: [
+          "La réception : l'eau du trop-plein y arrive. Les particules s'y déposent (chicanes, chaussette ou poche filtrante). C'est aussi un bon emplacement pour les sondes.",
+          "Le niveau constant : il accueille l'écumeur, qui a besoin d'un niveau d'eau stable pour bien fonctionner. La cloison qui le sépare de la zone suivante fait souvent 20 à 25 cm de haut.",
+          "Le niveau variable : la pompe de remontée y aspire l'eau. C'est là que l'évaporation fait baisser le niveau, et donc là que l'on place les capteurs de l'osmolateur.",
+        ],
+      },
+      {
+        titre: 'Le matériel installé dans le sump',
+        paragraphes: [
+          "Le sump regroupe l'essentiel de la technique : écumeur, chauffage (de préférence en titane ou en polymère, piloté par un thermostat électronique), pompe de remontée, osmolateur, sondes, et selon les bacs un réacteur à calcium, un filtre fluidisé, des chaussettes de charbon ou de résine.",
+          "Certains aquariophiles y aménagent aussi un « refuge » éclairé où poussent des macroalgues, comme la chaetomorpha, qui consomment les nitrates et les phosphates.",
+        ],
+      },
+      {
+        titre: 'Les avantages',
+        paragraphes: [],
+        liste: [
+          "Un volume d'eau plus important, donc des paramètres plus stables.",
+          "Un bac d'exposition dégagé : plus de matériel visible.",
+          "Une maintenance plus facile, tout étant regroupé et accessible.",
+          "Une évacuation permanente du film de surface grâce au trop-plein.",
+        ],
+      },
+      {
+        titre: 'Dimensionner pour éviter le débordement',
+        paragraphes: [
+          "C'est le point le plus important. Quand la pompe de remontée s'arrête (coupure de courant, maintenance), l'eau qui se trouve au-dessus du déversoir et dans les tuyaux redescend dans le sump. Celui-ci doit pouvoir l'accueillir sans déborder.",
+          "Pour estimer ce volume, calculez la lame d'eau au-dessus du déversoir (environ 1 cm) : longueur × largeur du bac en centimètres, divisé par 1 000, donne des litres. Pour un bac de 160 × 80 cm, cela fait environ 12,8 litres, auxquels s'ajoute l'eau des tuyaux. Prévoyez une marge de sécurité de deux à trois fois ce volume.",
+          "Une fois installé, faites un test de coupure : débranchez la pompe de remontée et vérifiez le niveau du sump. Répétez le test après chaque modification. Si la sortie de remontée plonge dans le bac, percez un petit trou juste sous la surface pour casser le siphon, sinon l'eau du bac continuera de redescendre par la pompe.",
+        ],
+      },
+      {
+        titre: 'Les sécurités à prévoir',
+        paragraphes: [],
+        liste: [
+          'Une descente de secours, en plus de la descente principale, au cas où celle-ci se boucherait.',
+          "Un capteur de niveau haut qui coupe la pompe de remontée, l'osmolateur et l'écumeur en cas de montée anormale.",
+          'Un capteur de niveau bas qui protège la pompe et le chauffage contre la marche à sec.',
+          "Une réserve d'eau osmosée bien dimensionnée : l'évaporation représente environ 1 à 2 % du volume par jour.",
+        ],
+      },
+      {
+        titre: 'Les inconvénients',
+        paragraphes: [
+          "Un sump demande de la place dans le meuble, un bac percé ou équipé d'une colonne de débordement, et une installation plus soignée qu'un simple filtre. Il peut aussi apporter du bruit (chute d'eau) et de l'humidité dans le meuble. Pour un premier bac récifal de petite taille, un aquarium « tout-en-un », dont la filtration est cachée dans un compartiment arrière, est une alternative plus simple.",
+        ],
+      },
+    ],
+    liensUtiles: [
+      { href: '/guides/materiel-recifal-ecumeur-osmolateur-brassage', label: 'Matériel récifal : écumeur, osmolateur, brassage' },
+      { href: '/guides/aquarium-recifal-par-ou-commencer', label: 'Aquarium récifal : par où commencer ?' },
+      { href: '/guides/choisir-filtration-aquarium', label: 'Choisir la filtration de son aquarium' },
+      { href: '/guides/osmoseur-aquarium-a-quoi-ca-sert', label: "L'osmoseur : à quoi ça sert ?" },
+      { href: '/biotope/eau-de-mer', label: 'Annonces eau de mer' },
+    ],
+  },
 ];
 
 export function fetchGuideParSlug(slug: string): Guide | null {
@@ -6168,6 +6538,8 @@ const SLUGS_AVEC_COUVERTURE = new Set<string>([
   'led-vs-neon-eclairage-aquarium-comparatif',
   'filtre-interne-ou-externe-comparatif',
   'aquarium-eau-froide-ou-tropical',
+  'bassin-koi-volume-filtration-entretien',
+  'sump-aquarium-recifal-installation',
 ]);
 
 export function couvertureGuide(slug: string): string | null {

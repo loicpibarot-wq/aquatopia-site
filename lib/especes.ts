@@ -15206,6 +15206,79 @@ export const ESPECES: Espece[] = [
       },
     },
   },
+  {
+    id: 2139,
+    slug: 'medaka',
+    categorie: 'Bassin',
+    nomCommun: 'Medaka',
+    nomScientifique: 'Oryzias latipes',
+    statutLegal: 'autorise',
+    remarqueLegale:
+      "Les medakas génétiquement modifiés (variétés fluorescentes transgéniques) sont interdits dans l'Union européenne. Comme tout poisson d'ornement, le medaka ne doit jamais être relâché dans la nature.",
+    citesAnnexe: null,
+    autresNoms: ['Médaka', 'Poisson du riz', 'Medaka japonais', 'Ricefish', 'Himedaka'],
+    fiche: {
+      description:
+        "Petit poisson d'eau douce originaire d'Asie de l'Est (Japon, Corée, Chine), où il vit dans les rizières, les mares et les fossés. Le medaka est un poisson de groupe paisible qui se tient surtout près de la surface. Sélectionné au Japon depuis très longtemps, il existe en de nombreuses variétés de couleur (orange « himedaka », blanc, jaune, bleuté, à reflets métallisés). Très tolérant à la température, il vit aussi bien dans un aquarium sans chauffage que dans un bassin extérieur toute l'année.",
+      conseil:
+        "C'est l'un des rares petits poissons qui passent l'hiver dehors : au Japon, on l'élève traditionnellement toute l'année dans des bacs ou des jarres en extérieur. Prévoyez assez de profondeur pour que l'eau ne gèle pas entièrement, et beaucoup de plantes. En aquarium, le chauffage est inutile dans une pièce chauffée, mais méfiez-vous des surchauffes d'été : une eau chaude en permanence raccourcit sa vie. Ne le mélangez pas avec d'autres espèces d'Oryzias, avec lesquelles il s'hybride.",
+      volumeMinLitres: 40,
+      tailleGroupeMin: 6,
+      compatibilite:
+        "Petits poissons paisibles d'eau tempérée, crevettes d'eau douce (red cherry, amano), escargots. En bassin : beaucoup de plantes et pas de gros poissons.",
+      incompatibilite:
+        "Poissons tropicaux qui exigent une eau chaude en permanence, gros poissons qui le mangeraient (koï adultes, grands poissons rouges), autres espèces d'Oryzias (hybridation).",
+      phMin: 6.5,
+      phMax: 8,
+      tempMin: 4,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation:
+        "Omnivore : paillettes et granulés fins, complétés par des proies vivantes ou congelées (daphnies, artémias, larves de moustique). Donnez de petites quantités, mangées en 2 à 3 minutes. En bassin, réduisez puis arrêtez le nourrissage quand l'eau devient froide.",
+      tailleAdulte: '3 à 4 cm (5 cm au maximum)',
+      reproduction: {
+        facilite: 'Facile',
+        description:
+          "Le medaka pond presque tous les jours à la belle saison, avec de longues journées (environ 13 à 14 heures de lumière) et une eau tiède ; il ne se reproduit pas sous 10 °C. Après la fécondation, tôt le matin, la femelle porte sa grappe d'œufs sous le ventre pendant quelques heures, puis la dépose sur des plantes fines. Les œufs éclosent en 7 à 14 jours selon la température. Les parents ne s'occupent pas des petits et les mangent : récupérez chaque jour les œufs dans un bac séparé.",
+      },
+    },
+  },
+  {
+    id: 2140,
+    slug: 'triops',
+    categorie: 'Crustacés / Invertébrés eau douce',
+    nomCommun: 'Triops',
+    nomScientifique: 'Triops longicaudatus',
+    statutLegal: 'autorise',
+    remarqueLegale:
+      "Le triops vendu en kit d'élevage est le plus souvent Triops longicaudatus. L'espèce sauvage française, le grand triops (Triops cancriformis), vit dans quelques mares temporaires du sud de la France et figure sur la liste rouge des crustacés d'eau douce de France (quasi menacée) : ne prélevez jamais d'œufs ni d'animaux dans la nature, et ne relâchez jamais de triops d'élevage.",
+    citesAnnexe: null,
+    autresNoms: ['Crevette têtard', 'Crabe préhistorique'],
+    fiche: {
+      description:
+        "Petit crustacé d'eau douce à la carapace en forme de bouclier, souvent présenté comme un « fossile vivant » : sa silhouette a très peu changé depuis plus de 200 millions d'années. Dans la nature, il vit dans des mares temporaires qui s'assèchent : ses œufs résistent à la sécheresse pendant des années et éclosent après la remise en eau. Vendu en kits d'élevage, il est très apprécié des enfants, car on le voit éclore, grandir à vue d'œil et pondre en quelques semaines.",
+      conseil:
+        "N'utilisez jamais l'eau du robinet pour l'éclosion : faites éclore les œufs dans une eau très peu minéralisée (eau déminéralisée coupée d'un peu d'eau de source), puis ajoutez progressivement de l'eau de source à la même température. Le triops vit vite : comptez 1 à 3 mois de vie. Pour recommencer, laissez sécher à cœur le sable où il a pondu et conservez-le au sec : remis en eau, il redonnera une génération.",
+      volumeMinLitres: 10,
+      tailleGroupeMin: null,
+      compatibilite: "Aucun autre animal : le triops s'élève seul dans son bac, avec des congénères de même taille.",
+      incompatibilite:
+        "Poissons (qui mangent les jeunes triops), crevettes et escargots (qui deviennent des proies). Des triops de tailles très différentes peuvent se manger entre eux.",
+      phMin: 6,
+      phMax: 7.5,
+      tempMin: 22,
+      tempMax: 28,
+      difficulte: 'Débutant',
+      alimentation:
+        "Omnivore. Rien les 2 à 3 premiers jours, puis une pointe de spiruline une à deux fois par jour. Ensuite : granulés pour crevettes ou poissons (écrasés au début), vers de vase, artémias et légumes blanchis épluchés (petit pois, courgette, carotte). Petites quantités, et retirez les restes au bout de quelques heures.",
+      tailleAdulte: "Environ 3 à 5 cm (jusqu'à 11 cm pour le grand triops, Triops cancriformis)",
+      reproduction: {
+        facilite: 'Très facile',
+        description:
+          "Selon les souches, le triops se reproduit avec ou sans mâle : beaucoup d'élevages ne comptent que des femelles, qui pondent sans fécondation. Les adultes pondent chaque jour dans le sable, plusieurs centaines d'œufs au cours de leur vie. Ces œufs n'éclosent qu'après avoir séché : baissez le niveau d'eau, laissez le sable sécher à cœur pendant plusieurs semaines, puis conservez-le dans un contenant hermétique, à l'abri de la lumière. Remis en eau, ce sable donne une nouvelle génération, souvent dès 24 heures.",
+      },
+    },
+  },
 ];
 // Seules les espèces avec une fiche rédigée ont une page publiée — le
 // catalogue ci-dessus peut lister une espèce avant que sa fiche existe,

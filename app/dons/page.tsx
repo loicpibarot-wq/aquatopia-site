@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { fetchAnnoncesParType, buildSlug, ouVideAuBuild } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
+import { chargerAnnoncesMarche, grouperDonsParEspece } from '@/lib/marketplace-seo';
 
 const SITE_URL = 'https://aquatopia.fr';
 const PAR_PAGE = 24;
@@ -36,6 +37,7 @@ export default async function DonsPage({ searchParams }: { searchParams: { page?
 
   const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParType('don', { limit: PAR_PAGE, offset }), { annonces: [], total: 0 });
   const totalPages = Math.max(1, Math.ceil(total / PAR_PAGE));
+  const donsParEspece = await chargerAnnoncesMarche().then(grouperDonsParEspece).catch(() => []);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -128,6 +130,19 @@ export default async function DonsPage({ searchParams }: { searchParams: { page?
         </>
       ) : (
         <p style={{ color: 'var(--text-muted)' }}>Aucun don en cours pour le moment.</p>
+      )}
+
+      {donsParEspece.length > 0 && (
+        <section style={{ marginTop: 48 }}>
+          <p className="subcat-label eyebrow">Dons par espèce</p>
+          <div className="subcat-row">
+            {donsParEspece.map((p) => (
+              <Link key={p.slug} href={`/dons/${p.slug}`} className="subcat-chip">
+                {p.nom} ({p.annonces.length})
+              </Link>
+            ))}
+          </div>
+        </section>
       )}
 
       <section style={{ marginTop: 64 }}>

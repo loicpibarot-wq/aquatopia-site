@@ -2,7 +2,14 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ConsentementAnalytics from '@/components/ConsentementAnalytics';
+import { Fredoka, Manrope, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+
+// Polices chargées par next/font : hébergées sur le site (plus de requête vers
+// Google Fonts, pas de CSS bloquant) et exposées via des variables CSS.
+const fredoka = Fredoka({ subsets: ['latin', 'latin-ext'], display: 'swap', variable: '--font-fredoka' });
+const manrope = Manrope({ subsets: ['latin', 'latin-ext'], display: 'swap', variable: '--font-manrope' });
+const plexMono = IBM_Plex_Mono({ subsets: ['latin', 'latin-ext'], weight: ['400', '500'], display: 'swap', variable: '--font-plex-mono' });
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -73,7 +80,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${fredoka.variable} ${manrope.variable} ${plexMono.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_SITE) }} />
         <Header />

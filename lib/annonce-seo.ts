@@ -28,25 +28,11 @@ const RETURN_POLICY = {
   returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
 };
 
-// Détails d'expédition selon que le vendeur propose l'envoi ou non.
-function shippingDetails(envoi: boolean) {
-  if (envoi) {
-    return {
-      '@type': 'OfferShippingDetails',
-      shippingDestination: {
-        '@type': 'DefinedRegion',
-        addressCountry: 'FR',
-      },
-      // Frais à définir entre acheteur et vendeur — on déclare le minimum
-      // pour satisfaire le champ obligatoire sans induire en erreur.
-      shippingRate: {
-        '@type': 'MonetaryAmount',
-        currency: 'EUR',
-        minValue: 0,
-      },
-    };
-  }
-  // Remise en main propre uniquement.
+// Détails d'expédition. Seule la remise en main propre est déclarable avec
+// certitude : quand le vendeur propose l'envoi, les frais se règlent entre
+// acheteur et vendeur, donc on ne déclare rien (ni frais à 0 €, qui serait
+// affiché comme une livraison gratuite).
+function shippingDetails() {
   return {
     '@type': 'OfferShippingDetails',
     doesNotShip: true,
@@ -96,13 +82,6 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
     description,
     image: images,
     category: annonce.categorie,
-    // Identifiant de marque : les animaux et plantes n'ont pas de GTIN ;
-    // déclarer Aquatopia comme marque-distributeur satisfait l'exigence
-    // Google « identifiant global manquant ».
-    brand: {
-      '@type': 'Brand',
-      name: 'Aquatopia',
-    },
     ...(annonce.nom_scientifique ? { alternateName: annonce.nom_scientifique } : {}),
     offers: {
       '@type': 'Offer',
@@ -116,7 +95,7 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
       ...(annonce.quantite ? { inventoryLevel: { '@type': 'QuantitativeValue', value: annonce.quantite } } : {}),
       areaServed: annonce.ville ?? 'France',
       hasMerchantReturnPolicy: RETURN_POLICY,
-      shippingDetails: shippingDetails(Boolean(annonce.envoi_possible)),
+      ...(annonce.envoi_possible ? {} : { shippingDetails: shippingDetails() }),
     },
   };
 }

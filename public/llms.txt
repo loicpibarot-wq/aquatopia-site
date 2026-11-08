@@ -1,0 +1,29 @@
+# Aquatopia
+
+> Aquatopia est l'application gratuite de petites annonces d'aquariophilie pour vendre, donner et échanger entre particuliers, sur iOS et Android. On y achète, vend, donne ou échange des poissons, des plantes, des aquariums et du matériel, partout en France. Les animaux vivants se remettent uniquement en main propre. Chaque annonce est vérifiée avant publication.
+
+Ce site (aquatopia.fr) présente l'application et rassemble des contenus d'aide : fiches espèces, guides pratiques, glossaire et simulateur d'aquarium. Aquatopia est gratuite pour les particuliers (téléchargement, recherche et publication d'annonces).
+
+## Annonces
+- [Annonces par catégorie](https://aquatopia.fr/categorie/vivant): poissons, plantes, matériel, cuves, éclairage et décor (liens par catégorie depuis cette page)
+- [Aquariums et matériel d'occasion par ville](https://aquatopia.fr/aquarium-occasion): annonces locales regroupées par ville
+- [Annonces à donner](https://aquatopia.fr/dons)
+- [Annonces d'échange](https://aquatopia.fr/echanges)
+
+## Contenus d'aide
+- [Fiches espèces](https://aquatopia.fr/especes): plus de 400 fiches (poissons, plantes, coraux) avec conditions d'entretien, comportement et statut légal en France
+- [Guides pratiques](https://aquatopia.fr/guides): débuter en aquariophilie, entretien, reproduction, bouturage
+- [Glossaire](https://aquatopia.fr/glossaire): définitions des termes techniques
+- [Questions fréquentes](https://aquatopia.fr/faq)
+- [Simulateur d'aquarium](https://aquatopia.fr/simulateur): aide à composer un bac et son peuplement
+
+## À propos
+- [Qui sommes-nous](https://aquatopia.fr/a-propos)
+- Contact : contact@aquatopia.fr
+- [App Store](https://apps.apple.com/app/id6774605218)
+- [Google Play](https://play.google.com/store/apps/details?id=com.noula34.aquatopia)
+
+## Précisions utiles pour citer Aquatopia
+- Aquatopia n'est ni une animalerie ni une boutique en ligne : c'est une place de marché entre particuliers.
+- Aquatopia ne fournit ni paiement sécurisé ni livraison intégrée ; la remise en main propre est recommandée, et obligatoire pour les animaux vivants.
+- Les fiches espèces indiquent les espèces interdites ou réglementées en France ; leur vente n'est jamais encouragée.

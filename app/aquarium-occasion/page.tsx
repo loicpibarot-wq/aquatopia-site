@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { chargerAnnoncesLocales, grouperVilles, grouperDepartements } from '@/lib/lieux';
+import { chargerAnnoncesMarche, grouperVolumes } from '@/lib/marketplace-seo';
 import ListeLieux from '@/components/ListeLieux';
 
 export const revalidate = 600;
@@ -23,6 +24,7 @@ export default async function HubLieux() {
   } catch {
     // Supabase injoignable : la page s'affiche sans listes plutôt que d'échouer.
   }
+  const volumes = await chargerAnnoncesMarche().then(grouperVolumes).catch(() => []);
   const fil = [{ name: 'Accueil', url: '/' }, { name: 'Annonces par ville' }];
 
   return (
@@ -40,6 +42,19 @@ export default async function HubLieux() {
           département pour voir les aquariums d&apos;occasion, les poissons, les plantes et le matériel proposés près de chez vous.
         </p>
       </div>
+
+      {volumes.length > 0 && (
+        <section aria-labelledby="h-volumes" style={{ marginBottom: 36 }}>
+          <h2 id="h-volumes" style={{ fontSize: '1.2rem', marginBottom: 14 }}>Aquariums d&apos;occasion par volume</h2>
+          <div className="subcat-row">
+            {volumes.map((p) => (
+              <Link key={p.slug} href={`/aquarium-occasion/volume/${p.slug}`} className="subcat-chip">
+                {p.libelle} ({p.annonces.length})
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {depts.length > 0 && (
         <section aria-labelledby="h-depts" style={{ marginBottom: 36 }}>

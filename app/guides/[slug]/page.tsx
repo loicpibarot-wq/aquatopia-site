@@ -20,6 +20,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const guide = fetchGuideParSlug(params.slug);
   if (!guide) return {};
   const url = `/guides/${guide.slug}`;
+  // Aperçu de partage : la couverture du guide si elle existe, sinon l'image générique.
+  const couverture = couvertureGuide(guide.slug);
+  const imageApercu = couverture
+    ? [{ url: `${SITE_URL}${couverture}`, width: 960, height: 600, alt: guide.titre }]
+    : [`${SITE_URL}/og-image.jpg`];
 
   return {
     title: guide.titre,
@@ -29,7 +34,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: `${guide.titre} | Aquatopia`,
       description: guide.description,
       url,
-      type: 'article', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR',
+      type: 'article', images: imageApercu, siteName: 'Aquatopia', locale: 'fr_FR',
       publishedTime: guide.datePublication,
     },
   };
@@ -48,6 +53,9 @@ export default function GuideArticlePage({ params }: { params: { slug: string } 
     headline: guide.titre,
     description: guide.description,
     datePublished: guide.datePublication,
+    inLanguage: 'fr-FR',
+    ...(guide.enBref ? { abstract: guide.enBref } : {}),
+    ...(couvertureGuide(guide.slug) ? { image: `${SITE_URL}${couvertureGuide(guide.slug)}` } : {}),
     author: { '@type': 'Organization', name: 'Aquatopia' },
     publisher: { '@type': 'Organization', name: 'Aquatopia' },
     mainEntityOfPage: `${SITE_URL}/guides/${guide.slug}`,
@@ -73,6 +81,24 @@ export default function GuideArticlePage({ params }: { params: { slug: string } 
         <h1 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', marginTop: 14 }}>{guide.titre}</h1>
         <VuesGuide slug={guide.slug} />
       </div>
+
+      {guide.enBref && (
+        <div
+          style={{
+            maxWidth: 720,
+            marginBottom: 28,
+            padding: '16px 20px',
+            background: 'var(--bg-2)',
+            border: '1px solid var(--border)',
+            borderLeft: '4px solid var(--teal)',
+            borderRadius: 12,
+          }}
+        >
+          <p style={{ margin: 0, lineHeight: 1.65, color: 'var(--text)' }}>
+            <strong>En bref :</strong> {guide.enBref}
+          </p>
+        </div>
+      )}
 
       {couvertureGuide(guide.slug) && (
         <CouvertureGuide src={couvertureGuide(guide.slug)!} alt={guide.titre} />

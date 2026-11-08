@@ -21,7 +21,7 @@ function formatDate(dateStr: string): string {
 
 const CONTENU: Record<
   string,
-  { h1: string; intro: string; conseil: string; metaTitre: string; metaDescription: string }
+  { h1: string; intro: string; conseil: string; metaTitre: string; metaDescription: string; guides: { href: string; label: string }[] }
 > = {
   'eau-douce': {
     h1: "Aquariophilie d'eau douce",
@@ -32,6 +32,10 @@ const CONTENU: Record<
     metaTitre: "Aquarium d'eau douce : poissons, plantes et matériel à vendre",
     metaDescription:
       "Annonces d'aquariophilie d'eau douce : poissons, crevettes, plantes, aquariums d'occasion et matériel à vendre ou à donner entre particuliers, partout en France.",
+    guides: [
+      { href: '/guides/demarrer-aquarium-eau-douce', label: "Démarrer un aquarium d'eau douce" },
+      { href: '/guides/choisir-son-premier-poisson', label: 'Choisir son premier poisson' },
+    ],
   },
   'eau-de-mer': {
     h1: "Aquariophilie récifale et marine",
@@ -42,6 +46,10 @@ const CONTENU: Record<
     metaTitre: "Aquarium récifal et eau de mer : coraux, poissons à vendre",
     metaDescription:
       "Annonces d'aquarium récifal et d'eau de mer : poissons marins, boutures de coraux, invertébrés et matériel d'occasion entre particuliers.",
+    guides: [
+      { href: '/guides/aquarium-recifal-par-ou-commencer', label: 'Aquarium récifal pour débutant : le tutoriel complet' },
+      { href: '/guides/sump-aquarium-recifal-installation', label: 'Le sump (cuve technique) expliqué' },
+    ],
   },
   bassin: {
     h1: "Bassins et poissons de bassin",
@@ -52,6 +60,10 @@ const CONTENU: Record<
     metaTitre: "Bassin de jardin : Koï, poissons et plantes à vendre",
     metaDescription:
       "Annonces de bassin de jardin : Koï, poissons rouges, plantes de bassin et matériel de filtration d'occasion à vendre ou à donner entre particuliers.",
+    guides: [
+      { href: '/guides/bassin-koi-volume-filtration-entretien', label: 'Bassin à koï : volume, filtration et entretien' },
+      { href: '/guides/hivernage-poissons-bassin', label: "Préparer l'hivernage de son bassin" },
+    ],
   },
 };
 
@@ -138,6 +150,15 @@ export default async function BiotopePage({
         <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)' }}>
           <b style={{ color: 'var(--text)' }}>À savoir : </b>
           {contenu.conseil}
+        </p>
+        <p style={{ margin: '10px 0 0', fontSize: '0.92rem', color: 'var(--text-muted)' }}>
+          <b style={{ color: 'var(--text)' }}>Nos guides : </b>
+          {contenu.guides.map((g, i) => (
+            <span key={g.href}>
+              {i > 0 && ' · '}
+              <Link href={g.href}>{g.label}</Link>
+            </span>
+          ))}
         </p>
       </div>
 

@@ -23,8 +23,11 @@ export default function AProposPage() {
     url: `${SITE_URL}/a-propos`,
     about: {
       '@type': 'Organization',
+      '@id': `${SITE_URL}/#organisation`,
       name: 'Aquatopia',
       url: SITE_URL,
+      description:
+        "Application gratuite de petites annonces d'aquariophilie pour vendre, donner et échanger entre particuliers (iOS et Android) : poissons, plantes, aquariums et matériel, partout en France.",
     },
   };
 
@@ -48,7 +51,13 @@ export default function AProposPage() {
       </div>
 
       <div style={{ maxWidth: 720 }}>
-        <p className="annonce-desc">
+        <p className="annonce-desc" style={{ fontWeight: 600 }}>
+          Aquatopia est l&apos;application gratuite de petites annonces d&apos;aquariophilie pour vendre, donner et
+          échanger entre particuliers, sur iOS et Android. Elle permet d&apos;acheter, vendre, donner ou échanger des
+          poissons, des plantes, des aquariums et du matériel partout en France, avec une remise en main propre pour
+          les animaux vivants.
+        </p>
+        <p className="annonce-desc" style={{ marginTop: 16 }}>
           Aquatopia est née d&apos;un constat simple : l&apos;aquariophilie n&apos;avait pas d&apos;espace dédié pour
           acheter, vendre, donner ou échanger entre passionnés. Les petites annonces généralistes mélangent le vivant
           avec tout le reste, sans tenir compte des contraintes propres à ce loisir — remise en main propre

@@ -4,6 +4,7 @@ import { GUIDES } from '@/lib/guides';
 import { GLOSSAIRE } from '@/lib/glossaire';
 import { ESPECES_PUBLIEES } from '@/lib/especes';
 import { chargerAnnoncesLocales, grouperVilles, grouperDepartements } from '@/lib/lieux';
+import { chargerAnnoncesMarche, grouperVolumes, grouperDonsParEspece } from '@/lib/marketplace-seo';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -62,6 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const especes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/especes`, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${SITE_URL}/poissons-spectaculaires`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/especes-interdites`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/reproduction-poissons-aquarium`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/bouturage-plantes-aquarium`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/bouturage-coraux-aquarium`, changeFrequency: 'monthly', priority: 0.7 },
@@ -88,6 +90,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Supabase injoignable : on ignore les pages locales plutôt que de casser le sitemap.
   }
 
+  // Pages marketplace (volumes d'aquarium, espèces à donner) : seulement à partir de 3 annonces.
+  let marche: MetadataRoute.Sitemap = [];
+  try {
+    const liste = await chargerAnnoncesMarche();
+    marche = [
+      ...grouperVolumes(liste).map((p) => ({ url: `${SITE_URL}/aquarium-occasion/volume/${p.slug}`, lastModified: p.annonces[0]?.created_at, changeFrequency: 'daily' as const, priority: 0.7 })),
+      ...grouperDonsParEspece(liste).map((p) => ({ url: `${SITE_URL}/dons/${p.slug}`, lastModified: p.annonces[0]?.created_at, changeFrequency: 'daily' as const, priority: 0.6 })),
+    ];
+  } catch {
+    // Supabase injoignable : on ignore ces pages plutôt que de casser le sitemap.
+  }
+
   let annonces: MetadataRoute.Sitemap = [];
   try {
     const liste = await fetchAnnoncesPourSitemap();
@@ -102,5 +116,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // page d'accueil plutôt que de faire échouer tout le sitemap.
   }
 
-  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...especes, ...lieux, ...annonces];
+  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...especes, ...lieux, ...marche, ...annonces];
 }

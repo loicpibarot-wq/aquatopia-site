@@ -337,7 +337,7 @@ export default function EspeceRecherche({ especes }: { especes: EspeceCarte[] })
           {Array.from(grouped.entries()).map(([cat, items]) => (
             <section key={cat} style={{ padding: 0 }}>
               <h2 style={{
-                fontFamily: "'Fredoka',sans-serif",
+                fontFamily: "var(--font-fredoka),sans-serif",
                 fontSize: '1.25rem',
                 color: 'var(--text)',
                 marginBottom: 20,

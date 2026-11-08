@@ -202,6 +202,7 @@ export const COMPORTEMENTS: Record<string, Comportement> = {
   'scalaire-manacapuru': c(4, "Généralement paisible, mais il peut se disputer avec ses congénères : petit groupe en partant de six juvéniles pour qu'un couple se forme. Les mâles sont plus agressifs et territoriaux à la reproduction. Le couple pond sur une surface verticale (feuille, ardoise) et garde œufs et alevins, qu'il peut manger s'il est mal nourri."),
   'tetra-buenos-aires-albinos': c(3, "Grégaire, il se sent en sécurité à partir de six individus et occupe surtout la surface et la zone médiane. Classé pacifique, il peut toutefois mordiller les nageoires des congénères lents ou à longues nageoires, risque qui diminue en banc de huit ou plus. Il saute facilement : couvercle ajusté."),
   'blue-gourami': c(3, "Certains individus deviennent très agressifs en vieillissant, d'autres restent paisibles. Les mâles sont territoriaux, se disputent entre eux et deviennent très agressifs à la reproduction ; le mâle bâtit un nid de bulles parmi les plantes flottantes et veille dessus."),
+  'medaka': c(3, "Paisible et grégaire, il vit en groupe d'au moins six individus et se tient surtout dans la moitié haute de l'eau. Les individus se disputent parfois la dominance et la nourriture, sans gravité. À la saison de reproduction, on voit les femelles porter le matin leur grappe d'œufs sous le ventre."),
 };
 
 export function comportementEspece(slug: string): Comportement | null {

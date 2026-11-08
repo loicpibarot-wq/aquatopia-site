@@ -61,6 +61,12 @@ export default function EspecesPage() {
           </Link>
         </p>
         <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+          Avant d&apos;acheter ou de vendre :{' '}
+          <Link href="/especes-interdites" style={{ color: 'var(--teal)', fontWeight: 600 }}>
+            la liste des espèces interdites en France →
+          </Link>
+        </p>
+        <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
           Envie de voir naître des alevins ?{' '}
           <Link href="/reproduction-poissons-aquarium" style={{ color: 'var(--teal)', fontWeight: 600 }}>
             Les guides de reproduction, poisson par poisson →

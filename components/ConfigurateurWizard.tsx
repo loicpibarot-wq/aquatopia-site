@@ -78,7 +78,7 @@ function BadgeCategorie({ cat }: { cat: string }) {
       padding: '2px 9px',
       borderRadius: 20,
       fontSize: '0.72rem',
-      fontFamily: "'IBM Plex Mono', monospace",
+      fontFamily: "var(--font-plex-mono), monospace",
       letterSpacing: '0.06em',
       background: bg,
       color: 'var(--text-muted)',
@@ -132,7 +132,7 @@ function BarreProgression({ etape }: { etape: Etape }) {
           );
         })}
       </div>
-      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.06em', textAlign: 'center' }}>
+      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "var(--font-plex-mono),monospace", letterSpacing: '0.06em', textAlign: 'center' }}>
         {etape === 'resultats'
           ? 'Votre projet Aquatopia sur mesure'
           : `Étape ${courante} sur ${ETAPES_LABEL.length} — ${ETAPES_LABEL[(courante as number) - 1]}`}
@@ -200,7 +200,7 @@ function ChoixCard({
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <IconePastille nom={icone} repete={repete} />
           <span style={{
-            fontFamily: "'Fredoka', sans-serif", fontWeight: 600,
+            fontFamily: "var(--font-fredoka), sans-serif", fontWeight: 600,
             fontSize: '1.08rem', color: selected ? 'var(--teal)' : 'var(--text)',
           }}>
             {label}
@@ -319,7 +319,7 @@ function CarteEspece({ e }: { e: EspeceReco }) {
             {!photoOk && pastille}
             <span style={{
               fontSize: '0.72rem', color: 'var(--text-faint)',
-              fontFamily: "'IBM Plex Mono',monospace",
+              fontFamily: "var(--font-plex-mono),monospace",
             }}>
               {e.difficulte} · {e.volumeMin ? `${e.volumeMin} L min` : e.tailleAdulte}
             </span>
@@ -482,7 +482,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       {/* ── Étape 1 : Niveau ────────────────────────────────────────────── */}
       {etape === 1 && (
         <section style={{ padding: 0 }}>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel est votre niveau en aquariophilie ?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
@@ -500,7 +500,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       {/* ── Étape 2 : Type de bac ────────────────────────────────────────── */}
       {etape === 2 && (
         <section style={{ padding: 0 }}>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel type d'aquarium vous attire ?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
@@ -522,7 +522,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       {/* ── Étape 3 : Volume ────────────────────────────────────────────── */}
       {etape === 3 && typeBac && (
         <section style={{ padding: 0 }}>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel volume avez-vous prévu ?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
@@ -547,7 +547,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       {/* ── Étape 4 : Budget ─────────────────────────────────────────────── */}
       {etape === 4 && (
         <section style={{ padding: 0 }}>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Quel est votre budget global ?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
@@ -575,7 +575,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       {/* ── Étape 5 : Style ──────────────────────────────────────────────── */}
       {etape === 5 && typeBac && (
         <section style={{ padding: 0 }}>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Qu'aimeriez-vous voir principalement dans votre bac ?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
@@ -603,7 +603,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
       {/* ── Étape 6 : Temps d'entretien ──────────────────────────────────── */}
       {etape === 6 && (
         <section style={{ padding: 0 }}>
-          <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.3rem', marginBottom: 4, textAlign: 'center' }}>
             Combien de temps pouvez-vous accorder à l'entretien ?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 16, marginTop: 4, textAlign: 'center' }}>
@@ -633,7 +633,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
             marginBottom: 32,
           }}>
             <div className="eyebrow" style={{ marginBottom: 8 }}>Ton projet Aquatopia sur mesure</div>
-            <h2 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.4rem', marginBottom: 14 }}>
+            <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.4rem', marginBottom: 14 }}>
               {resultats.setup.titre}
             </h2>
 
@@ -647,7 +647,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
             }}>
               <IconePastille nom="cuve" taille={44} />
               <div>
-                <div style={{ fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.08em', color: 'var(--teal)', marginBottom: 4, textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.72rem', fontFamily: "var(--font-plex-mono),monospace", letterSpacing: '0.08em', color: 'var(--teal)', marginBottom: 4, textTransform: 'uppercase' }}>
                   La cuve idéale
                 </div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>
@@ -680,7 +680,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                 background: 'rgba(255,255,255,0.04)',
                 border: '1px solid var(--border)',
               }}>
-                <div style={{ fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: 4, textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.72rem', fontFamily: "var(--font-plex-mono),monospace", letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: 4, textTransform: 'uppercase' }}>
                   Prix en neuf
                 </div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-muted)', textDecoration: 'line-through', opacity: 0.7 }}>
@@ -699,7 +699,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                 overflow: 'hidden',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px 8px', marginBottom: 6 }}>
-                  <div style={{ fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace", letterSpacing: '0.08em', color: 'var(--teal)', textTransform: 'uppercase' }}>
+                  <div style={{ fontSize: '0.72rem', fontFamily: "var(--font-plex-mono),monospace", letterSpacing: '0.08em', color: 'var(--teal)', textTransform: 'uppercase' }}>
                     Via Aquatopia
                   </div>
                   <span style={{
@@ -744,7 +744,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </div>
 
           {/* Setup équipement */}
-          <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 16 }}>
+          <h3 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.15rem', marginBottom: 16 }}>
             <Icone nom="outil" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Équipement nécessaire
           </h3>
           <div style={{
@@ -765,7 +765,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                 <div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', alignItems: 'baseline' }}>
                     <span style={{
-                      fontSize: '0.72rem', fontFamily: "'IBM Plex Mono',monospace",
+                      fontSize: '0.72rem', fontFamily: "var(--font-plex-mono),monospace",
                       letterSpacing: '0.1em', textTransform: 'uppercase',
                       color: 'var(--teal)',
                     }}>
@@ -784,7 +784,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </div>
 
           {/* Conseils */}
-          <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 16 }}>
+          <h3 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.15rem', marginBottom: 16 }}>
             <Icone nom="eclairage" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Conseils essentiels
           </h3>
           <ul style={{
@@ -807,7 +807,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
           </ul>
 
           {/* Espèces recommandées, classées par type puis par zone du bac */}
-          <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
+          <h3 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
             <Icone nom="poisson" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Espèces compatibles avec votre setup
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 20, marginTop: 0 }}>
@@ -818,7 +818,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
               {resultats.sections.map((sec) => (
                 <div key={sec.id}>
                   <h4 style={{
-                    fontFamily: "'Fredoka',sans-serif", fontSize: '1.05rem', margin: '0 0 12px',
+                    fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.05rem', margin: '0 0 12px',
                     paddingBottom: 8, borderBottom: '1px solid var(--border)',
                   }}>
                     <Icone nom={sec.icone} size={18} style={{ marginRight: 8, verticalAlign: '-3px', color: 'var(--teal)' }} />{sec.titre}
@@ -868,7 +868,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
 
           {resultats.presets.length > 0 && (
             <div style={{ marginBottom: 32 }}>
-              <h3 style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
+              <h3 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.15rem', marginBottom: 8 }}>
                 <Icone nom="cuve" size={20} style={{ marginRight: 10, verticalAlign: '-3px', color: 'var(--teal)' }} />Setups prêts à l'emploi
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: 16, marginTop: 0 }}>
@@ -888,7 +888,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                     display: 'flex', flexDirection: 'column', gap: 10,
                   }}>
                     <div>
-                      <div style={{ fontFamily: "'Fredoka',sans-serif", fontSize: '1.05rem', fontWeight: 600, color: 'var(--text)' }}>
+                      <div style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.05rem', fontWeight: 600, color: 'var(--text)' }}>
                         {p.titre}
                       </div>
                       <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: 1.5, marginTop: 4 }}>
@@ -902,7 +902,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                         }}>
                           <span style={{
                             flex: '0 0 92px', fontSize: '0.7rem', letterSpacing: '0.04em', textTransform: 'uppercase',
-                            color: 'var(--text-faint)', fontFamily: "'IBM Plex Mono',monospace",
+                            color: 'var(--text-faint)', fontFamily: "var(--font-plex-mono),monospace",
                           }}>{m.role}</span>
                           <Link href={`/especes/${m.espece.slug}`} style={{ color: 'var(--text)', fontWeight: 600, textDecoration: 'none', flex: 1, minWidth: 0 }}>
                             {m.espece.nomCommun}

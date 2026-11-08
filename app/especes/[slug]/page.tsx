@@ -1,5 +1,7 @@
 import { comportementEspece, COMPORTEMENT_NIVEAUX, NIVEAU_VEDETTE } from '@/lib/especes-comportement';
 import type { Metadata } from 'next';
+import { existsSync } from 'fs';
+import { join } from 'path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ESPECES_PUBLIEES, fetchEspeceParSlug } from '@/lib/especes';
@@ -27,12 +29,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const titre = titreEspece(espece);
   const description = descriptionEspece(espece);
   const url = `/especes/${espece.slug}`;
+  // Aperçu de partage : la photo de l'espèce si le fichier existe, sinon l'image générique.
+  const photoExiste = existsSync(join(process.cwd(), 'public', 'especes', `${espece.slug}.webp`));
+  const imageApercu = photoExiste
+    ? [{ url: `${SITE_URL}/especes/${espece.slug}.webp`, alt: espece.nomCommun }]
+    : [`${SITE_URL}/og-image.jpg`];
 
   return {
     title: titre,
     description,
     alternates: { canonical: url },
-    openGraph: { title: `${titre} | Aquatopia`, description, url, type: 'article', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
+    openGraph: { title: `${titre} | Aquatopia`, description, url, type: 'article', images: imageApercu, siteName: 'Aquatopia', locale: 'fr_FR' },
   };
 }
 
@@ -143,7 +150,9 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
     inLanguage: 'fr-FR',
     url: urlFiche,
     mainEntityOfPage: urlFiche,
-    image: `${SITE_URL}/og-image.jpg`,
+    image: existsSync(join(process.cwd(), 'public', 'especes', `${espece.slug}.webp`))
+      ? `${SITE_URL}/especes/${espece.slug}.webp`
+      : `${SITE_URL}/og-image.jpg`,
     author: { '@type': 'Organization', name: 'Aquatopia' },
     publisher: { '@type': 'Organization', name: 'Aquatopia' },
     about: {

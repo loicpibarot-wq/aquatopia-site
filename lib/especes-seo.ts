@@ -83,7 +83,22 @@ function themesFiche(slug: string): string {
   return `${t.charAt(0).toUpperCase()}${t.slice(1)}, `;
 }
 
+// Meta description finale : si la description générée est trop courte (moteurs
+// et Bing la jugent insuffisante sous ~120 caractères), on la complète par la
+// plus longue des courtes phrases ci-dessous qui reste sous 160 caractères.
+const COMPLEMENTS_DESCRIPTION = [
+  ' Fiche complète, conseils et annonces sur Aquatopia.',
+  ' Fiche complète et conseils sur Aquatopia.',
+  ' Fiche complète sur Aquatopia.',
+];
 export function descriptionEspece(e: EspecePubliee): string {
+  const base = descriptionEspeceBrute(e);
+  if (base.length >= 135) return base;
+  const ajout = COMPLEMENTS_DESCRIPTION.find((c) => base.length + c.length <= 160);
+  return ajout ? base + ajout : base;
+}
+
+function descriptionEspeceBrute(e: EspecePubliee): string {
   const nomDesc = estVendable(e) ? `${e.nomCommun} à vendre` : e.nomCommun;
   const f = e.fiche;
   const ph = `pH ${f.phMin ?? '?'}-${f.phMax ?? '?'}`;

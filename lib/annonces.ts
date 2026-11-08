@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { supabase } from './supabase';
 
 export type Annonce = {
@@ -224,7 +225,9 @@ export async function fetchAnnoncesParType(
   return { annonces: (data ?? []) as unknown as Annonce[], total: count ?? 0 };
 }
 
-export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
+// `cache` : generateMetadata et la page demandent la même annonce pendant un
+// même rendu ; on ne l'interroge qu'une seule fois en base.
+export const fetchAnnonceParId = cache(async (id: number): Promise<Annonce | null> => {
   const { data, error } = await supabase
     .from('annonces')
     .select(COLONNES_PUBLIQUES)
@@ -235,7 +238,7 @@ export async function fetchAnnonceParId(id: number): Promise<Annonce | null> {
 
   if (error) throw error;
   return (data as unknown as Annonce) ?? null;
-}
+});
 
 // --- Slugs -------------------------------------------------------------
 // Format : titre-et-ville-lisibles-ID (ex: neocaridina-blue-velvet-thionville-92)
