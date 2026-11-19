@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
   fetchAnnoncesParCategorie,
+  fetchAnnoncesVenduesRecentes,
   ouVideAuBuild,
   buildSlug,
   SLUG_VERS_CATEGORIE,
@@ -11,6 +12,7 @@ import {
 } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import DownloadButton from '@/components/DownloadButton';
+import RecemmentVendus from '@/components/RecemmentVendus';
 
 const SITE_URL = 'https://aquatopia.fr';
 const PAR_PAGE = 8;
@@ -218,7 +220,11 @@ export default async function CategoriePage({
   if (!categorie) notFound();
   const contenu = CONTENU[params.slug];
 
-  const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParCategorie(categorie, { limit: PAR_PAGE }), { annonces: [], total: 0 });
+  const [{ annonces, total }, vendues] = await Promise.all([
+    ouVideAuBuild(fetchAnnoncesParCategorie(categorie, { limit: PAR_PAGE }), { annonces: [], total: 0 }),
+    // Section secondaire : une erreur ne doit jamais faire échouer la page.
+    fetchAnnoncesVenduesRecentes({ categorie, limit: 4 }).catch(() => []),
+  ]);
 
   const autresCategories = Object.entries(CATEGORIE_VERS_SLUG).filter(([label]) => label !== categorie);
 
@@ -316,6 +322,8 @@ export default async function CategoriePage({
           qu&apos;une nouvelle annonce est publiée.
         </p>
       )}
+
+      <RecemmentVendus annonces={vendues} titre={`Récemment vendus : ${categorie.toLowerCase()}`} />
 
       <section style={{ marginTop: 56, maxWidth: 760 }} aria-labelledby="faq-categorie">
         <h2 id="faq-categorie" style={{ fontSize: '1.2rem', marginBottom: 16 }}>Questions fréquentes</h2>

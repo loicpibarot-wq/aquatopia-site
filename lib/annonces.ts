@@ -25,17 +25,19 @@ export type Annonce = {
   vues: number | null;
   nb_favoris: number | null;
   vendu_at: string | null;
+  statut?: string;
 };
 
 // Colonnes utiles pour l'affichage public — on évite `select=*` pour ne pas
 // exposer par erreur une colonne interne ajoutée plus tard côté app sans
 // review ici (déclarations CITES, journal de modération, etc.).
 const COLONNES_PUBLIQUES =
-  'id, created_at, titre, description, prix, ville, code_postal, categorie, biotope, photos, is_don, is_echange, echange_souhaite, volume, etat, nom_scientifique, nom_commun, quantite, prix_par_unite, envoi_possible, vues, nb_favoris, vendu_at';
+  'id, created_at, titre, description, prix, ville, code_postal, categorie, biotope, photos, is_don, is_echange, echange_souhaite, volume, etat, nom_scientifique, nom_commun, quantite, prix_par_unite, envoi_possible, vues, nb_favoris, vendu_at, statut';
 
-// Toute annonce affichée sur le site public doit être active et validée —
-// exactement le même filtre que la RLS anonyme autorise déjà côté Supabase
-// (annonce vendue, en attente, refusée ou désactivée => jamais indexée).
+// Toute annonce affichée sur le site public doit être validée et active —
+// seule exception : une annonce vendue depuis 90 jours au plus reste visible
+// avec un bandeau « Vendu », sans vendeur ni contact (voir fetchAnnonceParId).
+// En attente, refusée, retirée ou brouillon => jamais affichée ni indexée.
 // Pendant `next build` uniquement : si Supabase est injoignable, la page est générée vide (puis
 // rafraîchie par la régénération automatique) au lieu de faire échouer tout le déploiement.
 // À l'exécution, l'erreur est relancée : Next garde alors la dernière version valide de la page.
@@ -227,18 +229,132 @@ export async function fetchAnnoncesParType(
 
 // `cache` : generateMetadata et la page demandent la même annonce pendant un
 // même rendu ; on ne l'interroge qu'une seule fois en base.
+// Renvoie une annonce active et validée, OU une annonce vendue (validée) depuis
+// JOURS_VENDUE_VISIBLE jours au plus : elle reste alors affichée (bandeau
+// « Vendu », sans vendeur ni contact) pour ne pas perdre son référencement.
+// Retirée, brouillon, non validée, vendue depuis trop longtemps : null (404).
 export const fetchAnnonceParId = cache(async (id: number): Promise<Annonce | null> => {
   const { data, error } = await supabase
     .from('annonces')
     .select(COLONNES_PUBLIQUES)
     .eq('id', id)
-    .eq('statut', 'active')
+    .in('statut', ['active', 'vendue'])
     .eq('validee', true)
     .maybeSingle();
 
   if (error) throw error;
-  return (data as unknown as Annonce) ?? null;
+  const annonce = (data as unknown as Annonce) ?? null;
+  if (annonce && annonce.statut === 'vendue' && !venduePubliable(annonce)) return null;
+  return annonce;
 });
+
+// --- Annonces vendues ----------------------------------------------------
+// Une annonce vendue reste visible JOURS_VENDUE_VISIBLE jours après la vente.
+// Date de référence : `vendu_at` (renseignée par l'appli au passage en
+// « vendue », présente sur 100 % des annonces vendues en base). Sans cette
+// date, on ne peut pas garantir la limite : l'annonce n'est pas affichée.
+export const JOURS_VENDUE_VISIBLE = 90;
+
+export function dateLimiteVendue(): string {
+  return new Date(Date.now() - JOURS_VENDUE_VISIBLE * 86_400_000).toISOString();
+}
+
+export function estVendue(annonce: Pick<Annonce, 'statut'>): boolean {
+  return annonce.statut === 'vendue';
+}
+
+function venduePubliable(annonce: Pick<Annonce, 'vendu_at'>): boolean {
+  if (!annonce.vendu_at) return false;
+  return new Date(annonce.vendu_at).getTime() >= Date.now() - JOURS_VENDUE_VISIBLE * 86_400_000;
+}
+
+// « Vendu », « Donné » ou « Échangé » selon le type de transaction de l'annonce.
+export function libelleVendu(annonce: Pick<Annonce, 'is_don' | 'is_echange'>): string {
+  if (annonce.is_don) return 'Donné';
+  if (annonce.is_echange) return 'Échangé';
+  return 'Vendu';
+}
+
+// JJ/MM/AAAA
+export function dateCourte(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Paris' });
+}
+
+export type AnnonceVendue = Pick<
+  Annonce,
+  'id' | 'titre' | 'ville' | 'code_postal' | 'photos' | 'categorie' | 'biotope' | 'is_don' | 'is_echange' | 'created_at' | 'vendu_at'
+  | 'nom_commun' | 'nom_scientifique'
+>;
+
+const COLONNES_VENDUES =
+  'id, titre, ville, code_postal, photos, categorie, biotope, is_don, is_echange, created_at, vendu_at, nom_commun, nom_scientifique';
+
+// Annonces vendues récemment (mêmes filtres que les actives, seul le statut
+// change). Ni prix ni vendeur : uniquement de quoi afficher une carte.
+// `type` : 'don' => annonces données ; 'echange' => échangées (échange sans
+// don, même règle que libelleVendu).
+export async function fetchAnnoncesVenduesRecentes(
+  { categorie, type, limit = 4 }: { categorie?: string; type?: 'don' | 'echange'; limit?: number } = {}
+): Promise<AnnonceVendue[]> {
+  let requete = supabase
+    .from('annonces')
+    .select(COLONNES_VENDUES)
+    .eq('statut', 'vendue')
+    .eq('validee', true)
+    .gte('vendu_at', dateLimiteVendue());
+  if (categorie) requete = requete.eq('categorie', categorie);
+  if (type === 'don') requete = requete.eq('is_don', true);
+  if (type === 'echange') requete = requete.eq('is_echange', true).eq('is_don', false);
+  const { data, error } = await requete.order('vendu_at', { ascending: false }).limit(limit);
+
+  if (error) throw error;
+  return (data ?? []) as unknown as AnnonceVendue[];
+}
+
+// Annonces actives et validées de la même catégorie, classées par proximité
+// avec l'annonce vendue (même département, puis même biotope, puis récence).
+export async function fetchAnnoncesSimilairesDisponibles(
+  annonce: Pick<Annonce, 'id' | 'categorie' | 'biotope' | 'code_postal'>,
+  limit = 8
+): Promise<Annonce[]> {
+  const { data, error } = await supabase
+    .from('annonces')
+    .select(COLONNES_PUBLIQUES)
+    .eq('statut', 'active')
+    .eq('validee', true)
+    .eq('categorie', annonce.categorie)
+    .order('created_at', { ascending: false })
+    .limit(120);
+
+  if (error) throw error;
+  const dep = (cp: string | null) => (cp && /^\d{5}$/.test(cp.trim()) ? cp.trim().slice(0, cp.trim().startsWith('97') ? 3 : 2) : null);
+  const depRef = dep(annonce.code_postal);
+  const score = (a: Annonce) =>
+    (depRef && dep(a.code_postal) === depRef ? 2 : 0) + (a.biotope === annonce.biotope ? 1 : 0);
+  return ((data ?? []) as unknown as Annonce[])
+    .filter((a) => a.id !== annonce.id)
+    .map((a, i) => ({ a, i, s: score(a) }))
+    .sort((x, y) => y.s - x.s || x.i - y.i)
+    .slice(0, limit)
+    .map(({ a }) => a);
+}
+
+// Sitemap : annonces vendues depuis JOURS_VENDUE_VISIBLE jours au plus.
+export async function fetchVenduesPourSitemap(
+  limit = 5000
+): Promise<Pick<Annonce, 'id' | 'titre' | 'ville' | 'vendu_at'>[]> {
+  const { data, error } = await supabase
+    .from('annonces')
+    .select('id, titre, ville, vendu_at')
+    .eq('statut', 'vendue')
+    .eq('validee', true)
+    .gte('vendu_at', dateLimiteVendue())
+    .order('vendu_at', { ascending: false })
+    .limit(limit);
+
+  if (error) throw error;
+  return (data ?? []) as unknown as Pick<Annonce, 'id' | 'titre' | 'ville' | 'vendu_at'>[];
+}
 
 // --- Slugs -------------------------------------------------------------
 // Format : titre-et-ville-lisibles-ID (ex: neocaridina-blue-velvet-thionville-92)

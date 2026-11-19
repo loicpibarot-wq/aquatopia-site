@@ -2,7 +2,7 @@
 // en ligne. Une page n'existe que si le lieu compte assez d'annonces : pas de
 // page vide ou quasi vide (mauvais pour les visiteurs comme pour Google).
 import { supabase } from './supabase';
-import { slugify } from './annonces';
+import { dateLimiteVendue, slugify } from './annonces';
 
 export const MIN_ANNONCES_LIEU = 3;
 
@@ -102,6 +102,39 @@ export async function chargerAnnoncesLocales(): Promise<AnnonceLocale[]> {
       id: a.id, titre: a.titre, ville, photos: a.photos ?? [], prix: a.prix,
       is_don: !!a.is_don, is_echange: !!a.is_echange, created_at: a.created_at,
       categorie: a.categorie, biotope: a.biotope, dep, villeSlug: `${base}-${dep.toLowerCase()}`,
+    });
+  }
+  return res;
+}
+
+// Annonces vendues depuis 90 jours au plus (mêmes filtres que les actives,
+// seul le statut change), pour la section « Récemment vendus » des pages
+// ville et département. Ni prix ni vendeur.
+export type VendueLocale = {
+  id: number; titre: string; ville: string; photos: string[];
+  is_don: boolean; is_echange: boolean; vendu_at: string | null;
+  dep: string; villeSlug: string;
+};
+
+export async function chargerVenduesLocales(): Promise<VendueLocale[]> {
+  const { data, error } = await supabase
+    .from('annonces')
+    .select('id, titre, ville, code_postal, photos, is_don, is_echange, vendu_at')
+    .eq('statut', 'vendue')
+    .eq('validee', true)
+    .gte('vendu_at', dateLimiteVendue())
+    .order('vendu_at', { ascending: false })
+    .limit(1000);
+  if (error) throw error;
+  const res: VendueLocale[] = [];
+  for (const a of (data ?? []) as any[]) {
+    const dep = departementDepuisCodePostal(a.code_postal);
+    const ville = (a.ville ?? '').trim();
+    const base = slugify(ville);
+    if (!dep || !base) continue;
+    res.push({
+      id: a.id, titre: a.titre, ville, photos: a.photos ?? [], is_don: !!a.is_don, is_echange: !!a.is_echange,
+      vendu_at: a.vendu_at, dep, villeSlug: `${base}-${dep.toLowerCase()}`,
     });
   }
   return res;

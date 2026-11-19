@@ -3,7 +3,7 @@
 // page. Aucune note ni aucun avis n'est fabriqué : l'appli n'a pas de système
 // d'avis, donc `aggregateRating` / `review` restent volontairement absents
 // (ce sont des champs facultatifs, seulement signalés comme « non critiques »).
-import { buildSlug, metaDescription, nomAffiche, type Annonce } from '@/lib/annonces';
+import { buildSlug, estVendue, metaDescription, nomAffiche, type Annonce } from '@/lib/annonces';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -71,6 +71,9 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
   }
 
   const condition = annonce.etat ? ETAT_VERS_SCHEMA[annonce.etat] : undefined;
+  // Annonce vendue (encore visible 90 jours) : même offre, mais déclarée
+  // épuisée (SoldOut), sans date de validité de prix ni quantité en stock.
+  const vendue = estVendue(annonce);
 
   return {
     '@context': 'https://schema.org',
@@ -88,11 +91,11 @@ export function annonceJsonLd(annonce: Annonce, photos: string[]) {
       url,
       price: annonce.is_don ? 0 : annonce.prix,
       priceCurrency: 'EUR',
-      priceValidUntil: dansJours(30),
+      ...(vendue ? {} : { priceValidUntil: dansJours(30) }),
       validFrom: annonce.created_at,
-      availability: 'https://schema.org/InStock',
+      availability: vendue ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
       ...(condition ? { itemCondition: condition } : {}),
-      ...(annonce.quantite ? { inventoryLevel: { '@type': 'QuantitativeValue', value: annonce.quantite } } : {}),
+      ...(annonce.quantite && !vendue ? { inventoryLevel: { '@type': 'QuantitativeValue', value: annonce.quantite } } : {}),
       areaServed: annonce.ville ?? 'France',
       hasMerchantReturnPolicy: RETURN_POLICY,
       ...(annonce.envoi_possible ? {} : { shippingDetails: shippingDetails() }),

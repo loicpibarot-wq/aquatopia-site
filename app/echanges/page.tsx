@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchAnnoncesParType, buildSlug, ouVideAuBuild } from '@/lib/annonces';
+import { fetchAnnoncesParType, fetchAnnoncesVenduesRecentes, buildSlug, ouVideAuBuild } from '@/lib/annonces';
+import RecemmentVendus from '@/components/RecemmentVendus';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
 const SITE_URL = 'https://aquatopia.fr';
@@ -36,6 +37,8 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
 
   const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParType('echange', { limit: PAR_PAGE, offset }), { annonces: [], total: 0 });
   const totalPages = Math.max(1, Math.ceil(total / PAR_PAGE));
+  // Section secondaire : une erreur ne doit jamais faire échouer la page.
+  const echangees = await fetchAnnoncesVenduesRecentes({ type: 'echange', limit: 8 }).catch(() => []);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -128,6 +131,8 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
       ) : (
         <p style={{ color: 'var(--text-muted)' }}>Aucun échange en cours pour le moment.</p>
       )}
+
+      <RecemmentVendus annonces={echangees} surtitre="Récemment échangés" titre="Ces échanges ont abouti" />
 
       <section style={{ marginTop: 64 }}>
         <p className="subcat-label eyebrow">Voir aussi</p>

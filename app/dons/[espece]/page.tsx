@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
-import { buildSlug } from '@/lib/annonces';
-import { chargerAnnoncesMarche, grouperDonsParEspece, type PageDonEspece } from '@/lib/marketplace-seo';
+import { buildSlug, fetchAnnoncesVenduesRecentes } from '@/lib/annonces';
+import RecemmentVendus from '@/components/RecemmentVendus';
+import { chargerAnnoncesMarche, especeAnnonce, grouperDonsParEspece, type PageDonEspece } from '@/lib/marketplace-seo';
 import AnnoncesLocales from '@/components/AnnoncesLocales';
 
 const SITE_URL = 'https://aquatopia.fr';
@@ -48,6 +49,11 @@ export default async function DonEspecePage({ params }: { params: { espece: stri
   const n = page.annonces.length;
   const nom = page.nom;
   const url = `${SITE_URL}/dons/${page.slug}`;
+  // Récemment donnés de la même espèce : même correspondance que pour les dons
+  // actifs (especeAnnonce), appliquée aux dons conclus depuis 90 jours au plus.
+  const donnes = (await fetchAnnoncesVenduesRecentes({ type: 'don', limit: 300 }).catch(() => []))
+    .filter((a) => especeAnnonce(a) === page.slug)
+    .slice(0, 4);
 
   const faq = [
     {
@@ -113,6 +119,8 @@ export default async function DonEspecePage({ params }: { params: { espece: stri
       </div>
 
       <AnnoncesLocales annonces={page.annonces} />
+
+      <RecemmentVendus annonces={donnes} surtitre="Récemment donnés" titre={`Récemment donnés : ${nom.toLowerCase()}`} />
 
       <section style={{ marginTop: 56, maxWidth: 760 }} aria-labelledby="faq-don">
         <h2 id="faq-don" style={{ fontSize: '1.2rem', marginBottom: 16 }}>Questions fréquentes</h2>

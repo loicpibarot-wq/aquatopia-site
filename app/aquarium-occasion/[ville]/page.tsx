@@ -4,10 +4,11 @@ import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { buildSlug } from '@/lib/annonces';
 import {
-  chargerAnnoncesLocales, grouperVilles, grouperDepartements, resumeCategories,
+  chargerAnnoncesLocales, chargerVenduesLocales, grouperVilles, grouperDepartements, resumeCategories,
   DEPARTEMENTS, slugDepartement, type Lieu,
 } from '@/lib/lieux';
 import AnnoncesLocales from '@/components/AnnoncesLocales';
+import RecemmentVendus from '@/components/RecemmentVendus';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -57,6 +58,12 @@ export default async function VillePage({ params }: { params: { ville: string } 
   const dons = ville.annonces.filter((a) => a.is_don).length;
   const resume = resumeCategories(ville.annonces);
   const url = `${SITE_URL}/aquarium-occasion/${ville.slug}`;
+
+  // Récemment vendus : d'abord dans la ville, sinon dans le département.
+  const toutesVendues = await chargerVenduesLocales().catch(() => []);
+  const venduesVille = toutesVendues.filter((a) => a.villeSlug === ville.slug);
+  const vendues = (venduesVille.length > 0 ? venduesVille : toutesVendues.filter((a) => a.dep === ville.dep)).slice(0, 4);
+  const titreVendus = venduesVille.length > 0 ? `Récemment vendus à ${ville.nom}` : `Récemment vendus en ${depNom}`;
 
   const faq = [
     {
@@ -125,6 +132,8 @@ export default async function VillePage({ params }: { params: { ville: string } 
       </div>
 
       <AnnoncesLocales annonces={ville.annonces} />
+
+      <RecemmentVendus annonces={vendues} titre={titreVendus} />
 
       <section style={{ marginTop: 56, maxWidth: 760 }} aria-labelledby="faq-ville">
         <h2 id="faq-ville" style={{ fontSize: '1.2rem', marginBottom: 16 }}>Questions fréquentes à {ville.nom}</h2>

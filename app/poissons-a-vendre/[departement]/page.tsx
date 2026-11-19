@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { buildSlug } from '@/lib/annonces';
-import { chargerAnnoncesLocales, grouperVilles, grouperDepartements, resumeCategories } from '@/lib/lieux';
+import { chargerAnnoncesLocales, chargerVenduesLocales, grouperVilles, grouperDepartements, resumeCategories } from '@/lib/lieux';
 import AnnoncesLocales from '@/components/AnnoncesLocales';
+import RecemmentVendus from '@/components/RecemmentVendus';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -49,6 +50,7 @@ export default async function DepartementPage({ params }: { params: { departemen
   const n = dept.annonces.length;
   const dons = dept.annonces.filter((a) => a.is_don).length;
   const url = `${SITE_URL}/poissons-a-vendre/${dept.slug}`;
+  const vendues = (await chargerVenduesLocales().catch(() => [])).filter((a) => a.dep === dept.dep).slice(0, 4);
 
   const faq = [
     {
@@ -123,6 +125,8 @@ export default async function DepartementPage({ params }: { params: { departemen
       )}
 
       <AnnoncesLocales annonces={dept.annonces} />
+
+      <RecemmentVendus annonces={vendues} titre={`Récemment vendus en ${dept.nom}`} />
 
       <section style={{ marginTop: 56, maxWidth: 760 }} aria-labelledby="faq-dept">
         <h2 id="faq-dept" style={{ fontSize: '1.2rem', marginBottom: 16 }}>Questions fréquentes en {dept.nom}</h2>

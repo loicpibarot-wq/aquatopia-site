@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import DownloadButton from '@/components/DownloadButton';
 import Icone from '@/components/Icone';
+import LienRetraitAnnonce from '@/components/LienRetraitAnnonce';
 import {
   fetchAnnonceParId,
   fetchAnnoncesActives,
@@ -15,6 +16,10 @@ import {
   typeTransactionLabel,
   CATEGORIE_VERS_SLUG,
   BIOTOPE_VERS_SLUG,
+  estVendue,
+  libelleVendu,
+  dateCourte,
+  fetchAnnoncesSimilairesDisponibles,
   type Annonce,
 } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
@@ -30,14 +35,31 @@ async function getAnnonceOrNotFound(slug: string): Promise<Annonce> {
   const id = parseIdFromSlug(slug);
   if (id === null) notFound();
   const annonce = await fetchAnnonceParId(id);
-  if (!annonce) notFound(); // vendue / désactivée / inexistante : jamais affichée ni indexée
+  // Retirée, brouillon, non validée, vendue depuis plus de 90 jours ou
+  // inexistante : jamais affichée ni indexée. Une annonce vendue récemment
+  // reste affichée (bandeau « Vendu », voir AnnonceVendue plus bas).
+  if (!annonce) notFound();
   return annonce;
+}
+
+// Titre et description d'une annonce vendue : on n'annonce plus l'objet
+// comme disponible (ni prix dans le titre), on l'indique comme terminé.
+function metaVendue(annonce: Annonce): { title: string; description: string } {
+  const nom = nomAffiche(annonce);
+  const libelle = libelleVendu(annonce).toLowerCase();
+  const lieu = annonce.ville?.trim() ? ` à ${annonce.ville.trim()}` : '';
+  const quand = annonce.vendu_at ? ` le ${dateCourte(annonce.vendu_at)}` : '';
+  return {
+    title: `${nom} ${libelle}${lieu}`,
+    description: `Cette annonce de ${nom}${lieu} est terminée (${libelle}${quand}). Découvrez les annonces similaires encore disponibles sur Aquatopia.`,
+  };
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const annonce = await getAnnonceOrNotFound(params.slug);
-  const title = metaTitle(annonce);
-  const description = metaDescription(annonce);
+  const { title, description } = estVendue(annonce)
+    ? metaVendue(annonce)
+    : { title: metaTitle(annonce), description: metaDescription(annonce) };
   const url = `/annonce/${buildSlug(annonce)}`;
   const image = annonce.photos?.[0];
 
@@ -72,6 +94,10 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
   const slugAJour = buildSlug(annonce);
   if (slugAJour !== params.slug) {
     redirect(`/annonce/${slugAJour}`);
+  }
+
+  if (estVendue(annonce)) {
+    return <AnnonceVendue annonce={annonce} />;
   }
 
   const [autresAnnonces] = await Promise.all([
@@ -171,6 +197,138 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
           </div>
         </section>
       )}
+
+      <LienRetraitAnnonce chemin={`/annonce/${slugAJour}`} vendue={false} />
+    </div>
+  );
+}
+
+// Fiche d'une annonce vendue (90 jours au plus) : reste en ligne pour le
+// référencement, avec un bandeau bien visible. Volontairement absents : le
+// vendeur (pseudo, avatar, profil), tout contact, et le prix mis en avant
+// (il n'est rappelé que discrètement, comme repère de prix du marché, et
+// reste cohérent avec l'offre « SoldOut » des données structurées).
+async function AnnonceVendue({ annonce }: { annonce: Annonce }) {
+  const similaires = await fetchAnnoncesSimilairesDisponibles(annonce, 8).catch(() => [] as Annonce[]);
+  const photos = annonce.photos?.length ? annonce.photos : [];
+  const libelle = libelleVendu(annonce);
+  const jsonLd = annonceJsonLd(annonce, photos);
+  const prixDemande = !annonce.is_don && typeof annonce.prix === 'number' && annonce.prix > 0
+    ? `${annonce.prix.toLocaleString('fr-FR')} €${annonce.prix_par_unite ? ' l’unité' : ''}`
+    : null;
+  const categorieSlug = CATEGORIE_VERS_SLUG[annonce.categorie] ?? '';
+
+  const fil = [
+    { name: 'Accueil', url: '/' },
+    { name: annonce.categorie, url: `/categorie/${categorieSlug}` },
+    { name: annonce.biotope, url: `/biotope/${BIOTOPE_VERS_SLUG[annonce.biotope] ?? ''}` },
+    { name: annonce.titre },
+  ];
+
+  return (
+    <div className="wrap annonce-wrap">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+
+      <div className="breadcrumb">
+        <Link href="/">Accueil</Link> ·{' '}
+        <Link href={`/categorie/${categorieSlug}`}>{annonce.categorie}</Link> ·{' '}
+        <Link href={`/biotope/${BIOTOPE_VERS_SLUG[annonce.biotope] ?? ''}`}>{annonce.biotope}</Link> · {annonce.titre}
+      </div>
+
+      <div className="bandeau-vendu" role="status">
+        <span className="etiquette">{libelle}</span>
+        <p>
+          Cette annonce a trouvé preneur{annonce.vendu_at ? ` le ${dateCourte(annonce.vendu_at)}` : ''} et n&apos;est
+          plus disponible. Découvrez ci-dessous des annonces similaires encore en ligne.
+        </p>
+      </div>
+
+      <div className="annonce-grid">
+        <div>
+          <div className="annonce-gallery vendue">
+            {photos[0] && (
+              <Image src={photos[0]} alt={`${annonce.titre} (${libelle.toLowerCase()})`} width={800} height={600} priority />
+            )}
+            {photos.length > 1 && (
+              <div className="annonce-gallery-grid">
+                {photos.slice(1, 5).map((url) => (
+                  <Image key={url} src={url} alt={annonce.titre} width={200} height={200} />
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="annonce-badges">
+            <span className="annonce-badge">{annonce.biotope}</span>
+            <span className="annonce-badge">{annonce.categorie}</span>
+          </div>
+
+          <h1 className="annonce-title">{annonce.titre}</h1>
+          {annonce.nom_scientifique && <p className="annonce-sous-titre">{annonce.nom_scientifique}</p>}
+
+          <div className="annonce-meta">
+            {annonce.ville && <span><Icone nom="lieu" size={15} style={{ marginRight: 4, verticalAlign: '-2px' }} />{annonce.ville}</span>}
+            <span>Publiée le {dateCourte(annonce.created_at)}</span>
+            {annonce.vendu_at && <span>{libelle} le {dateCourte(annonce.vendu_at)}</span>}
+            {annonce.volume && <span>{annonce.volume}</span>}
+            {annonce.etat && <span>{annonce.etat}</span>}
+            {prixDemande && <span className="annonce-prix-discret">Prix demandé : {prixDemande}</span>}
+          </div>
+
+          {annonce.description && <p className="annonce-desc">{annonce.description}</p>}
+        </div>
+
+        <aside className="annonce-cta-card">
+          <h3>Vous cherchez la même chose ?</h3>
+          <p>
+            Dans l&apos;application gratuite Aquatopia, créez une alerte pour être prévenu dès qu&apos;une annonce
+            similaire est publiée près de chez vous.
+          </p>
+          <DownloadButton className="btn btn-primary">Télécharger l&apos;application</DownloadButton>
+          <p>
+            <Link href={`/categorie/${categorieSlug}`}>Voir toutes les annonces {annonce.categorie.toLowerCase()}</Link>
+          </p>
+        </aside>
+      </div>
+
+      {similaires.length > 0 && (
+        <section style={{ marginTop: 64 }}>
+          <div className="section-head" style={{ marginBottom: 24 }}>
+            <span className="eyebrow">Encore disponibles</span>
+            <h2 style={{ fontSize: '1.3rem', marginTop: 10 }}>Annonces similaires disponibles</h2>
+          </div>
+          <div className="annonce-grille-liens">
+            {similaires.map((a) => (
+              <Link key={a.id} href={`/annonce/${buildSlug(a)}`} className="annonce-card-mini">
+                {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
+                <div className="body">
+                  <h4>{a.titre}</h4>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                    <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                    {a.ville && <span style={{ fontSize: '0.72rem', color: 'var(--text-faint)', flexShrink: 0 }}>{a.ville}</span>}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <div style={{ marginTop: 32, textAlign: 'center', padding: '28px 20px', background: 'var(--bg-2)', border: '1px solid var(--border)', borderRadius: 16 }}>
+        <p style={{ margin: '0 0 6px', fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>
+          Toutes les annonces sur l&apos;app
+        </p>
+        <p style={{ margin: '0 0 22px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+          Téléchargez l&apos;application Aquatopia pour voir toutes les annonces,<br />
+          être alerté des nouveautés et contacter les vendeurs.
+        </p>
+        <DownloadButton className="btn btn-primary" style={{ fontSize: '1rem', padding: '13px 36px' }}>
+          Télécharger l&apos;application
+        </DownloadButton>
+      </div>
+
+      <LienRetraitAnnonce chemin={`/annonce/${buildSlug(annonce)}`} vendue />
     </div>
   );
 }

@@ -586,3 +586,25 @@
   .annonce-card-mini .body{ padding:14px 16px; }
   .annonce-card-mini h4{ font-size:0.92rem; margin:0 0 4px; font-family:var(--font-manrope),sans-serif; font-weight:700; }
   .annonce-card-mini .prix{ font-family:var(--font-plex-mono), monospace; color:var(--mint); font-size:0.86rem; }
+
+  /* Annonces vendues (visibles 90 jours) : bandeau sur la fiche, badge sur les cartes. */
+  .bandeau-vendu{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    margin-bottom:24px; padding:16px 20px; border-radius:var(--radius-m);
+    background:rgba(224,177,94,0.12); border:1px solid rgba(224,177,94,0.45); color:var(--text);
+  }
+  .bandeau-vendu .etiquette{
+    font-weight:800; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase;
+    padding:6px 14px; border-radius:999px; background:var(--gold); color:#2A1D05;
+  }
+  .bandeau-vendu p{ margin:0; font-size:0.92rem; color:var(--text-muted); }
+  .annonce-gallery.vendue img{ filter:grayscale(0.55) brightness(0.85); }
+  .annonce-card-mini.vendue{ position:relative; }
+  .annonce-card-mini.vendue img{ filter:grayscale(0.55) brightness(0.85); }
+  .annonce-card-mini .badge-vendu{
+    position:absolute; top:10px; left:10px; z-index:2;
+    font-weight:800; font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px; background:var(--gold); color:#2A1D05;
+  }
+  .annonce-card-mini.vendue .body .date{ font-size:0.72rem; color:var(--text-faint); }
+  .annonce-prix-discret{ color:var(--text-faint); font-size:0.85rem; }

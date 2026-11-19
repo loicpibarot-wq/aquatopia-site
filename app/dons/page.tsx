@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchAnnoncesParType, buildSlug, ouVideAuBuild } from '@/lib/annonces';
+import { fetchAnnoncesParType, fetchAnnoncesVenduesRecentes, buildSlug, ouVideAuBuild } from '@/lib/annonces';
+import RecemmentVendus from '@/components/RecemmentVendus';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { chargerAnnoncesMarche, grouperDonsParEspece } from '@/lib/marketplace-seo';
 
@@ -38,6 +39,8 @@ export default async function DonsPage({ searchParams }: { searchParams: { page?
   const { annonces, total } = await ouVideAuBuild(fetchAnnoncesParType('don', { limit: PAR_PAGE, offset }), { annonces: [], total: 0 });
   const totalPages = Math.max(1, Math.ceil(total / PAR_PAGE));
   const donsParEspece = await chargerAnnoncesMarche().then(grouperDonsParEspece).catch(() => []);
+  // Section secondaire : une erreur ne doit jamais faire échouer la page.
+  const donnes = await fetchAnnoncesVenduesRecentes({ type: 'don', limit: 8 }).catch(() => []);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -131,6 +134,8 @@ export default async function DonsPage({ searchParams }: { searchParams: { page?
       ) : (
         <p style={{ color: 'var(--text-muted)' }}>Aucun don en cours pour le moment.</p>
       )}
+
+      <RecemmentVendus annonces={donnes} surtitre="Récemment donnés" titre="Ils ont trouvé un nouveau foyer" />
 
       {donsParEspece.length > 0 && (
         <section style={{ marginTop: 48 }}>

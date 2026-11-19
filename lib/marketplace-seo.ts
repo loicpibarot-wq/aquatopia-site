@@ -102,7 +102,7 @@ const TERMES: { slug: string; terme: string }[] = ESPECES_PUBLIEES.filter((e) =>
 
 // Espèce d'une annonce : le terme le plus long trouvé dans le nom commun, le nom
 // scientifique ou le titre (« guppy endler » l'emporte sur « guppy »).
-export function especeAnnonce(a: AnnonceMarche): string | null {
+export function especeAnnonce(a: Pick<AnnonceMarche, 'nom_commun' | 'nom_scientifique' | 'titre'>): string | null {
   const texte = normaliser(`${a.nom_commun ?? ''} ${a.nom_scientifique ?? ''} ${a.titre}`);
   let meilleur: { slug: string; terme: string } | null = null;
   for (const t of TERMES) {

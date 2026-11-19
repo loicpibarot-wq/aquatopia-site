@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { fetchAnnoncesPourSitemap, buildSlug, CATEGORIE_VERS_SLUG, BIOTOPE_VERS_SLUG } from '@/lib/annonces';
+import { fetchAnnoncesPourSitemap, fetchVenduesPourSitemap, buildSlug, CATEGORIE_VERS_SLUG, BIOTOPE_VERS_SLUG } from '@/lib/annonces';
 import { GUIDES } from '@/lib/guides';
 import { GLOSSAIRE } from '@/lib/glossaire';
 import { ESPECES_PUBLIEES } from '@/lib/especes';
@@ -11,6 +11,7 @@ const SITE_URL = 'https://aquatopia.fr';
 // Régénéré automatiquement toutes les 10 minutes (voir `revalidate`) : une
 // annonce vendue ou désactivée sort du sitemap sans intervention manuelle,
 // et une nouvelle annonce y apparaît dès la prochaine régénération.
+// Exception : une annonce vendue y reste 90 jours (priorité basse), voir plus bas.
 export const revalidate = 600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -116,5 +117,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // page d'accueil plutôt que de faire échouer tout le sitemap.
   }
 
-  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...especes, ...lieux, ...marche, ...annonces];
+  // Annonces vendues depuis 90 jours au plus : encore en ligne (bandeau
+  // « Vendu »), mais moins prioritaires que les annonces disponibles.
+  let vendues: MetadataRoute.Sitemap = [];
+  try {
+    const liste = await fetchVenduesPourSitemap();
+    vendues = liste.map((a) => ({
+      url: `${SITE_URL}/annonce/${buildSlug(a)}`,
+      ...(a.vendu_at ? { lastModified: a.vendu_at } : {}),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    }));
+  } catch {
+    // Supabase injoignable : on ignore les annonces vendues plutôt que de casser le sitemap.
+  }
+
+  return [...racine, ...categories, ...biotopes, ...transactions, ...guides, ...glossaire, ...especes, ...lieux, ...marche, ...annonces, ...vendues];
 }
