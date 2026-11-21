@@ -126,7 +126,7 @@ const POPULAIRES = [
   'guppy', 'endler', 'platy', 'molly-voile-noir', 'tetra-neon', 'tetra-cardinal', 'rasbora-arlequin',
   'barbus-cerise', 'danio-zebre', 'corydoras-bronze', 'corydoras-de-sterba', 'corydoras-pygmee',
   'gourami-nain', 'combattant-betta', 'scalaire', 'ancistrus-plecos-commun', 'loche-kuhli', 'otocinclus',
-  'tetra-citron', 'crevette-red-cherry', 'crevette-amano', 'neritine', 'escargot-mystere',
+  'tetra-citron', 'crevette-red-cherry', 'crevette-amano', 'neritine',
   'poisson-clown-ocellaris', 'poisson-clown-tomate', 'gramma-royal', 'gobie-neon', 'blennie-bicolore',
   'cardinalis-de-banggai', 'crevette-nettoyeuse', 'escargot-turbo', 'zoanthaire',
   'corail-mou-genre-sarcophyton', 'corail-champignon-dur', 'chaetomorpha',

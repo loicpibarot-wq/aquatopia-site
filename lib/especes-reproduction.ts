@@ -1177,7 +1177,7 @@ export const REPRODUCTIONS: Record<string, ReproductionEspece> = {
   ),
   'esturgeon-nain': nr(
     'Impossible en captivité',
-    'Les esturgeons de type sterlet frayent au printemps en remontant les rivières, sur du gravier en courant fort, et ne deviennent matures qu’après une longue croissance (taille de première maturité d’environ 43 cm, temps de génération de plus de 13 ans). Leur reproduction n’est pas envisageable en aquarium ou en petit bassin.',
+    'Le sterlet fraye au printemps en remontant les rivières, sur du gravier en courant fort, et ne devient mature qu’après une longue croissance (taille de première maturité d’environ 43 cm, temps de génération de plus de 13 ans). Leur reproduction n’est pas envisageable en aquarium ou en petit bassin.',
   ),
   'poisson-chat-requin-pangasius': nr(
     'Impossible en captivité',

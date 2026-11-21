@@ -1493,19 +1493,19 @@ export const ESPECES: Espece[] = [
     categorie: 'Eau Douce',
     nomCommun: 'Raie d\'eau douce (Potamotrygon motoro)',
     nomScientifique: 'Potamotrygon motoro',
-    statutLegal: 'cites_a_signaler',
+    statutLegal: 'autorisation_requise',
     remarqueLegale:
-      "La famille des Potamotrygonidae est en partie listée CITES Annexe III depuis 2019 et soumise à une traçabilité renforcée : demandez systématiquement une validation de l'origine avant tout achat ou vente.",
+      "Requins et raies (Chondrichtyens, poissons cartilagineux), raies d'eau douce comprises : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; aiguillon venimeux. L'espèce est aussi inscrite à l'annexe III de la CITES (annexe C du règlement (CE) n° 338/97).",
     citesAnnexe: 'C',
     fiche: {
       description:
         "Raie d'eau douce sud-américaine au disque rond tacheté d'ocelles, impressionnante mais fragile et exigeante. Possède un aiguillon venimeux caudal qui impose des précautions particulières lors de toute manipulation.",
       conseil:
-        "Ne manipulez jamais cette espèce sans expérience préalable : son aiguillon caudal peut infliger une blessure douloureuse. Réservez cet achat à un bassin ou grand bac dédié avec un sol fin et sans aspérités.",
-      volumeMinLitres: 1500,
-      tailleGroupeMin: 1,
-      compatibilite: "Grands poissons calmes non agressifs qui ne la piétineront pas.",
-      incompatibilite: "Poissons vifs ou agressifs, et tout poisson de fond qui la dérangerait sur son substrat.",
+        "Son aiguillon caudal peut infliger une blessure très douloureuse : en cas de piqûre, plongez la zone dans une eau aussi chaude que supportable et appelez le 15. En France, comme tous les requins et raies, elle ne se détient qu'avec un certificat de capacité et une autorisation d'ouverture d'établissement : un particulier ne peut ni l'acheter, ni la garder, ni la céder librement. Si vous en détenez une, ne la relâchez jamais et ne la revendez pas : contactez la direction départementale de la protection des populations (DDPP ou DDETSPP) de votre département, ou confiez-la à un aquarium public ou à une structure habilitée.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Sans objet : espèce que l'on ne doit pas détenir à titre privé.",
+      incompatibilite: "Sans objet : son aiguillon venimeux met en danger toute personne qui intervient dans le bac.",
       phMin: 6.5,
       phMax: 7.5,
       tempMin: 25,
@@ -1551,17 +1551,18 @@ export const ESPECES: Espece[] = [
     id: 52,
     slug: 'esturgeon-nain',
     categorie: 'Eau Douce',
-    nomCommun: 'Esturgeon nain',
-    nomScientifique: 'Acipenser ruthenus (formes naines)',
+    nomCommun: 'Sterlet',
+    nomScientifique: 'Acipenser ruthenus',
     statutLegal: 'cites_a_signaler',
     remarqueLegale:
       "Toute la famille des esturgeons est listée CITES Annexe II en raison de la surexploitation historique liée au caviar : un certificat ou une preuve d'origine légale (élevage en captivité) est exigé, à vérifier au cas par cas avant tout achat ou vente.",
     citesAnnexe: 'B',
+    autresNoms: ['Esturgeon sterlet', 'Esturgeon nain'],
     fiche: {
       description:
-        "Poisson au corps allongé et cuirassé de plaques osseuses, vestige d'un groupe très ancien de poissons. Les formes naines restent plus adaptées à un bassin qu'un esturgeon classique, mais grandissent tout de même bien au-delà d'un poisson d'ornement courant.",
+        "Poisson au corps allongé et cuirassé de plaques osseuses, vestige d'un groupe très ancien de poissons. Le sterlet est le plus petit des esturgeons d'Europe (bassin du Danube et de la Volga), mais il n'existe pas de forme naine : le nom « esturgeon nain » parfois utilisé en jardinerie est trompeur. Il atteint couramment 40 à 60 cm en bassin et peut dépasser 1 m.",
       conseil:
-        "Exigez systématiquement une preuve d'origine d'élevage (et non de prélèvement sauvage) avant l'achat : c'est une condition légale liée à son statut CITES, pas une simple recommandation.",
+        "Exigez systématiquement une preuve d'origine d'élevage (et non de prélèvement sauvage) avant l'achat : c'est une condition légale liée à son statut CITES, pas une simple recommandation. Le sterlet n'est pas une espèce de nos rivières : ne le relâchez jamais dans le milieu naturel.",
       volumeMinLitres: 2000,
       tailleGroupeMin: 1,
       compatibilite: "Poissons de bassin ou de grand bac froid, non agressifs.",
@@ -1572,7 +1573,7 @@ export const ESPECES: Espece[] = [
       tempMax: 20,
       difficulte: 'Expert',
       alimentation: "Carnivore de fond : granulés coulants spécifiques esturgeons, vers.",
-      tailleAdulte: '40 à 60 cm (formes naines)',
+      tailleAdulte: "40 à 60 cm en bassin, parfois plus d'1 m",
     },
   },
   {
@@ -1588,11 +1589,11 @@ export const ESPECES: Espece[] = [
       description:
         "Variété ornementale de carpe sélectionnée pour ses couleurs, la koï grandit énormément (jusqu'à 90 cm) et peut vivre plusieurs décennies. Sociable, elle reconnaît son propriétaire et vient souvent chercher la nourriture à la main avec le temps.",
       conseil:
-        "La koï est un poisson de bassin extérieur, pas d'aquarium, sur le long terme — sa taille adulte l'impose. Prévoyez une zone d'au moins 80 cm de profondeur pour qu'elle puisse hiverner sans risque de gel complet du bassin.",
-      volumeMinLitres: 3000,
-      tailleGroupeMin: 5,
+        "La koï est un poisson de bassin extérieur, pas d'aquarium, sur le long terme — sa taille adulte l'impose. Comptez au moins 5 000 litres, puis environ 1 000 litres de plus par koï adulte (soit 8 000 litres pour un groupe de 3), et une profondeur d'au moins 1,30 m pour qu'elle hiverne sans risque de gel et reste hors de portée du héron.",
+      volumeMinLitres: 8000,
+      tailleGroupeMin: 3,
       compatibilite: "Autres carpes koï, poissons rouges, tanches (nettoyeuses de fond).",
-      incompatibilite: "Petit bassin sans filtration puissante, bassin qui gèle entièrement en hiver faute de zone profonde.",
+      incompatibilite: "Bassin de moins de 5 000 litres ou de moins de 1,30 m de profondeur, filtration insuffisante, bassin qui gèle entièrement en hiver.",
       phMin: 7,
       phMax: 8,
       tempMin: 4,
@@ -1699,7 +1700,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Misgurnus anguillicaudatus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante avec des populations déjà établies en France : sa vente et son introduction en bassin ou milieu naturel sont interdites.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, son élevage, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Un particulier qui en détenait déjà comme animal de compagnie peut le garder jusqu'à sa mort, sans reproduction ni risque de fuite (art. 31 du règlement n° 1143/2014). Des populations sont déjà établies en France.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -2184,26 +2185,26 @@ export const ESPECES: Espece[] = [
     categorie: 'Poissons marins',
     nomCommun: 'Poisson-lion volant',
     nomScientifique: 'Pterois volitans',
-    statutLegal: 'autorise',
+    statutLegal: 'autorisation_requise',
     remarqueLegale:
-      "Poisson venimeux : sa vente est autorisée, mais ses épines dorsales injectent un venin douloureux au contact. Manipulez-le toujours avec précaution et jamais à mains nues lors de l'entretien du bac.",
+      "Poissons-scorpions et rascasses (Scorpaenidés, dont les poissons-lions) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; espèce venimeuse.",
     citesAnnexe: null,
     autresNoms: ['Rascasse volante', 'Poisson-lion rouge'],
     fiche: {
       description:
         "Prédateur de récif de l'Indo-Pacifique, reconnaissable à ses longues nageoires pectorales et dorsales rayées de rouge et de blanc qui évoquent une crinière. Chasseur à l'affût, surtout actif au crépuscule, il avale d'un coup poissons et crevettes presque aussi grands que sa bouche. Ses épines dorsales, anales et pelviennes portent un venin douloureux ; introduit accidentellement dans l'Atlantique ouest et les Caraïbes, il y est devenu très envahissant.",
       conseil:
-        "Le venin des épines provoque une douleur intense, un gonflement, parfois des nausées ou un malaise : en cas de piqûre, plongez la zone dans une eau aussi chaude que supportable (environ 45 °C) pendant 30 à 90 minutes et appelez le 15 ou le centre antipoison sans attendre. Ne manipulez jamais ce poisson à mains nues, même hors de l'eau, et ne le relâchez jamais dans la nature ni dans les canalisations. Carnivore strict, il avale tous les poissons et crevettes à portée de sa bouche : réservez-le à un bac spécialisé sans colocataires pouvant servir de proies, avec des cachettes et un éclairage tamisable.",
-      volumeMinLitres: 300,
-      tailleGroupeMin: 1,
-      compatibilite: 'Grands poissons de récif (de taille nettement supérieure à sa bouche) dans un bac spécialisé ; incompatible avec les poissons plus petits et tout invertébré.',
-      incompatibilite: "Petits poissons, crevettes et invertébrés, qu'il chasse et avale ; manipulation directe sans protection par toute personne intervenant dans le bac.",
+        "Le venin des épines provoque une douleur intense, un gonflement, parfois des nausées ou un malaise : en cas de piqûre, plongez la zone dans une eau aussi chaude que supportable (environ 45 °C) pendant 30 à 90 minutes et appelez le 15 ou le centre antipoison sans attendre. Ne manipulez jamais ce poisson à mains nues, même hors de l'eau. En France, ce n'est pas un poisson d'aquarium de particulier : sa détention est réservée aux établissements autorisés. Si vous en détenez un, ne le relâchez jamais et ne le revendez pas : contactez la direction départementale de la protection des populations (DDPP ou DDETSPP) de votre département, ou confiez-le à un aquarium public ou à une structure habilitée.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Sans objet : espèce que l'on ne doit pas détenir à titre privé.",
+      incompatibilite: "Sans objet : carnivore strict, il avale poissons et crevettes à portée de sa bouche, et ses épines venimeuses mettent en danger toute personne qui intervient dans le bac.",
       phMin: 8.1,
       phMax: 8.4,
       tempMin: 24,
       tempMax: 27,
       difficulte: 'Expert',
-      alimentation: 'Carnivore strict : petits poissons vivants ou décongelés, crevettes ; peut être entraîné à accepter des proies mortes sur baguette.',
+      alimentation: "Carnivore strict : dans la nature, il chasse petits poissons et crevettes à l'affût. Sans objet pour l'aquariophile.",
       tailleAdulte: '30 à 38 cm',
       marin: {
         salinite: '1,023 – 1,025 (33 – 35 g/L)',
@@ -2747,19 +2748,19 @@ export const ESPECES: Espece[] = [
     categorie: 'Invertébrés marins',
     nomCommun: 'Cône (Conus textile)',
     nomScientifique: 'Conus textile',
-    statutLegal: 'autorise',
+    statutLegal: 'autorisation_requise',
     remarqueLegale:
-      "Ce coquillage possède un venin qui peut être mortel pour l'humain : il tire un harpon venimeux pour capturer ses proies et peut piquer une main qui le manipule. Cette espèce ne doit jamais être proposée en libre-service ; toute demande doit être orientée vers une validation systématique par précaution.",
+      "Cônes (Conidés) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier ; espèce mortellement venimeuse.",
     citesAnnexe: null,
     autresNoms: ['Cône textile'],
     fiche: {
       description:
         "Escargot marin prédateur de l'Indo-Pacifique, à la coquille conique ornée de motifs triangulaires évoquant un tissu brodé, d'où son nom. Il chasse surtout la nuit en projetant une dent creuse en forme de harpon, reliée à une glande à venin, qui paralyse sa proie en quelques secondes. Son venin neurotoxique est potentiellement mortel pour l'humain : des accidents graves et des décès sont documentés dans la littérature médicale.",
       conseil:
-        "Ne touchez jamais un cône, vivant ou non, et ne le ramassez ni à mains nues ni avec des gants fins : le harpon traverse les matières souples. En cas de piqûre, appelez immédiatement le 15, gardez la personne au calme, immobilisez le membre sans comprimer fortement, et ne pratiquez ni incision ni succion. Si un cône arrive dans le bac par hasard (sable, roche vivante), ne le manipulez pas et demandez conseil à un professionnel. Son alimentation très spécialisée (gastéropodes vivants) et le danger constant qu'il représente lors de toute intervention rendent son entretien réservé à des aquariophiles très expérimentés disposant d'équipements de protection adaptés.",
-      volumeMinLitres: 200,
-      tailleGroupeMin: 1,
-      compatibilite: 'Aucun colocataire recommandé en aquarium général ; uniquement dans un bac spécialisé sous surveillance et sans accès sans protection.',
+        "Ne touchez jamais un cône, vivant ou non, et ne le ramassez ni à mains nues ni avec des gants fins : le harpon traverse les matières souples. En cas de piqûre, appelez immédiatement le 15, gardez la personne au calme, immobilisez le membre sans comprimer fortement, et ne pratiquez ni incision ni succion. Si un cône arrive dans le bac par hasard (sable, roche vivante), ne le manipulez pas et demandez conseil à un professionnel. En France, sa détention est réservée aux établissements autorisés : un particulier ne peut ni le garder ni le céder. Si vous en découvrez un, ne le revendez pas : contactez la direction départementale de la protection des populations (DDPP ou DDETSPP) de votre département, ou confiez-le à un aquarium public ou à une structure habilitée.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Sans objet : espèce que l'on ne doit pas détenir à titre privé.",
       incompatibilite: "Manipulation humaine directe sans protection lourde ; escargots, petits poissons et invertébrés qu'il chasse ou attaque.",
       phMin: 8.1,
       phMax: 8.4,
@@ -2902,24 +2903,25 @@ export const ESPECES: Espece[] = [
     categorie: 'Mollusques eau douce',
     nomCommun: 'Escargot mystère',
     nomScientifique: 'Pomacea bridgesii',
-    statutLegal: 'autorise',
-    remarqueLegale: 'le genre Pomacea contient des espèces invasives interdites (P. canaliculata, P. maculata) très proches visuellement - à valider au cas par cas plutôt qu\'en libre-service',
+    statutLegal: 'interdite',
+    remarqueLegale:
+      "Tout le genre Pomacea (escargots-pommes, escargot mystère compris) est un organisme de quarantaine de l'Union (règlement (UE) 2016/2031 relatif à la santé des végétaux, règlement d'exécution (UE) 2019/2072, annexe II, et mesures du règlement d'exécution (UE) 2024/2013) : son introduction, sa détention, sa multiplication, son transport et sa vente sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement.",
     citesAnnexe: null,
     fiche: {
       description:
-        "Gros escargot d'eau douce disponible dans de nombreuses couleurs (doré, bleu, ivoire), apprécié pour sa taille imposante et son caractère paisible. Il respire à la fois par des branchies et un siphon respiratoire, remontant régulièrement chercher de l'air en surface.",
+        "Gros escargot d'eau douce sud-américain, longtemps vendu en animalerie sous de nombreuses couleurs (doré, bleu, ivoire). Comme tous les escargots-pommes du genre Pomacea, il est classé organisme de quarantaine dans l'Union européenne : ces escargots ravagent les rizières et les zones humides où ils s'installent, et les autorités ne font pas de différence entre les espèces du genre, très difficiles à distinguer.",
       conseil:
-        "Vérifiez toujours l'espèce exacte avant l'achat : le genre Pomacea contient aussi des espèces invasives interdites en France (P. canaliculata, P. maculata), visuellement très proches de l'escargot mystère autorisé. En cas de doute sur l'origine ou l'identification, ne prenez pas le risque.",
-      volumeMinLitres: 40,
-      tailleGroupeMin: 1,
-      compatibilite: "Poissons paisibles, crevettes, autres escargots non prédateurs.",
-      incompatibilite: "Poissons mangeurs d'escargots, traitements à base de cuivre.",
-      phMin: 7,
-      phMax: 8,
-      tempMin: 20,
-      tempMax: 28,
-      difficulte: 'Débutant',
-      alimentation: "Omnivore : algues, biofilm, légumes blanchis, restes de nourriture.",
+        "Ne relâchez jamais un escargot mystère dans la nature, une mare ou un bassin, et ne le donnez pas : si vous en avez encore, renseignez-vous auprès du service régional de l'alimentation (DRAAF) de votre région pour savoir comment vous en défaire. Pour un escargot mangeur d'algues, choisissez plutôt la néritine, qui ne se reproduit pas en eau douce.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Non applicable : espèce interdite à la vente et à la détention dans l'UE.",
+      incompatibilite: "Non applicable.",
+      phMin: null,
+      phMax: null,
+      tempMin: null,
+      tempMax: null,
+      difficulte: 'Expert',
+      alimentation: "Non applicable.",
       tailleAdulte: '4 à 6 cm',
     },
   },
@@ -4339,19 +4341,19 @@ export const ESPECES: Espece[] = [
     categorie: 'Poissons marins',
     nomCommun: 'Requin taupe / requin de récif (aquarium géant)',
     nomScientifique: 'Chiloscyllium punctatum',
-    statutLegal: 'autorise',
+    statutLegal: 'autorisation_requise',
     remarqueLegale:
-      "Plusieurs espèces de requins de récif sont listées CITES Annexe II, et leur taille adulte est de toute façon incompatible avec un aquarium domestique standard : cette espèce ne doit jamais être vendue en libre-service, uniquement à des structures disposant d'un bassin adapté et d'une validation au cas par cas.",
+      "Requins et raies (Chondrichtyens, poissons cartilagineux) : la détention exige un certificat de capacité et une autorisation d'ouverture d'établissement dès le premier spécimen (arrêté du 8 octobre 2018, art. 14 et annexe 2, colonne c). Cette espèce ne peut pas être détenue ni cédée librement par un particulier. Sa taille adulte (1 à 1,3 m) le rend de toute façon incompatible avec un aquarium domestique.",
     citesAnnexe: null,
     autresNoms: ['Requin bambou', 'Requin-chabot bambou'],
     fiche: {
       description:
         "Petit requin de fond de l'Indo-Pacifique, au corps allongé marqué de larges bandes brunes sur fond clair qui s'estompent avec l'âge. Il est nocturne et se nourrit au fond de petits poissons, de crustacés et de mollusques. Vendu tout jeune, il atteint 1 à 1,3 m et vit de nombreuses années : il devient trop grand pour tout aquarium domestique. Son nom courant « requin taupe » est trompeur : ce nom désigne en réalité des requins pélagiques (famille Lamnidae) sans rapport avec cette espèce.",
       conseil:
-        "Un juvénile de quelques dizaines de centimètres peut sembler gérable, mais l'adulte a besoin d'un bassin de plusieurs milliers de litres : il ne peut pas être maintenu chez un particulier. Ne l'achetez pas sur un coup de cœur, même si le vendeur affirme qu'il restera petit, ce qui est faux. Il peut mordre lorsqu'on le manipule. Pour un poisson de fond original, orientez-vous vers un gobie crevette, un poisson-mandarin né en élevage ou une blennie brouteuse dans un bac adapté.",
-      volumeMinLitres: 10000,
-      tailleGroupeMin: 1,
-      compatibilite: 'Dans un bassin professionnel de plusieurs milliers de litres uniquement, avec de grands poissons robustes non agressifs.',
+        "Un juvénile de quelques dizaines de centimètres peut sembler gérable, mais l'adulte a besoin d'un bassin de plusieurs milliers de litres : il ne peut pas être maintenu chez un particulier. Ne l'achetez pas sur un coup de cœur, même si le vendeur affirme qu'il restera petit, ce qui est faux. Il peut mordre lorsqu'on le manipule. En France, sa détention est d'ailleurs réservée aux établissements autorisés. Si vous en détenez un, ne le relâchez jamais et ne le revendez pas : contactez la direction départementale de la protection des populations (DDPP ou DDETSPP) de votre département, ou confiez-le à un aquarium public ou à une structure habilitée. Pour un poisson de fond original, orientez-vous vers un gobie crevette, un poisson-mandarin né en élevage ou une blennie brouteuse dans un bac adapté.",
+      volumeMinLitres: null,
+      tailleGroupeMin: null,
+      compatibilite: "Sans objet : espèce que l'on ne doit pas détenir à titre privé (bassins d'établissements autorisés uniquement).",
       incompatibilite: 'Tout aquarium domestique, quelle que soit sa taille ; il avale poissons, crevettes et invertébrés à portée de sa bouche.',
       phMin: 8.1,
       phMax: 8.4,
@@ -4754,15 +4756,15 @@ export const ESPECES: Espece[] = [
     categorie: 'Eau Douce',
     nomCommun: 'Hypancistrus zebra (L046)',
     nomScientifique: 'Hypancistrus zebra',
-    statutLegal: 'autorise',
+    statutLegal: 'cites_a_signaler',
     remarqueLegale:
-      "Listé à l'Annexe C du règlement CE 338/97 (CITES) : ce classement encadre l'import et l'export international, mais pas la revente en France une fois l'animal légalement présent dans l'UE. Une déclaration d'élevage captif est demandée au vendeur par précaution.",
-    citesAnnexe: 'C',
+      "Inscrit à l'annexe II de la CITES depuis le 23 février 2023 et à l'annexe B du règlement (CE) n° 338/97 (règlement (UE) 2023/966), avec un quota nul d'exportation pour les individus sauvages. Le vendeur doit pouvoir prouver l'origine légale de l'animal (facture ou attestation de cession, permis d'importation CITES ou preuve d'élevage en captivité) : sans cette preuve, la vente est interdite (règlement (CE) n° 338/97, art. 8).",
+    citesAnnexe: 'B',
     fiche: {
       description:
         "Petit pléco brésilien au motif noir et blanc très contrasté et recherché, parmi les plus prisés des collectionneurs de poissons-chats L-number. Sa capture sauvage est interdite dans son pays d'origine depuis des années, ce qui a poussé son élevage en captivité.",
       conseil:
-        "Demandez systématiquement au vendeur une preuve d'élevage en captivité plutôt qu'un prélèvement sauvage : la pression sur les populations naturelles de cette espèce reste très forte à cause de sa popularité.",
+        "Exigez du vendeur une preuve d'origine légale (attestation d'élevage en captivité, facture, document CITES) et conservez-la : elle vous sera demandée si vous revendez un jour vos poissons ou leurs petits. La pression sur les populations sauvages reste très forte à cause de sa popularité.",
       volumeMinLitres: 100,
       tailleGroupeMin: 2,
       compatibilite: "Autres poissons-chats paisibles, characidés calmes, dans un bac à courant modéré.",
@@ -4816,7 +4818,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Faxonius immunis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, son élevage, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Un particulier qui en détenait déjà comme animal de compagnie peut le garder jusqu'à sa mort, sans reproduction ni risque de fuite (art. 31 du règlement n° 1143/2014).",
     citesAnnexe: null,
     fiche: {
       description:
@@ -4844,7 +4846,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Cherax destructor',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France, dont le nom scientifique (destructor) résume bien l'impact constaté sur les milieux où elle a été introduite : sa vente et son introduction dans le milieu naturel sont interdites.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, son élevage, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Un particulier qui en détenait déjà comme animal de compagnie peut le garder jusqu'à sa mort, sans reproduction ni risque de fuite (art. 31 du règlement n° 1143/2014).",
     citesAnnexe: null,
     fiche: {
       description:
@@ -4996,7 +4998,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pomacea maculata',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec l'escargot mystère (Pomacea bridgesii) qui reste autorisé à la vente.",
+      "Tout le genre Pomacea est un organisme de quarantaine de l'Union (règlement (UE) 2016/2031 relatif à la santé des végétaux, règlement d'exécution (UE) 2019/2072, annexe II, et mesures du règlement d'exécution (UE) 2024/2013) : introduction, détention, multiplication, transport et vente interdits dans toute l'UE. L'escargot mystère (Pomacea bridgesii) est concerné de la même façon.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5056,13 +5058,13 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Pomacea canaliculata',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée dans l'UE - à ne pas confondre avec l'escargot mystère (Pomacea bridgesii) qui reste autorisé à la vente.",
+      "Tout le genre Pomacea est un organisme de quarantaine de l'Union (règlement (UE) 2016/2031 relatif à la santé des végétaux, règlement d'exécution (UE) 2019/2072, annexe II, et mesures du règlement d'exécution (UE) 2024/2013) : introduction, détention, multiplication, transport et vente interdits dans toute l'UE. L'escargot mystère (Pomacea bridgesii) est concerné de la même façon.",
     citesAnnexe: null,
     fiche: {
       description:
         "Grand escargot d'eau douce sud-américain à la coquille brun-vert, pondant ses œufs roses caractéristiques hors de l'eau sur les végétaux des berges. Son appétit vorace pour les plantes aquatiques en fait un ravageur redouté des zones humides et des rizières.",
       conseil:
-        "Si vous recherchez un escargot mangeur d'algues pour votre aquarium, tournez-vous vers l'escargot mystère (Pomacea bridgesii), une espèce proche mais légalement autorisée en France.",
+        "Si vous recherchez un escargot mangeur d'algues pour votre aquarium, tournez-vous vers la néritine : l'escargot mystère (Pomacea bridgesii) est interdit lui aussi, comme tout le genre Pomacea.",
       volumeMinLitres: null,
       tailleGroupeMin: null,
       compatibilite: "Non applicable : espèce interdite à la vente et à la détention en France.",
@@ -5144,7 +5146,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Cipangopaludina chinensis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, son élevage, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Un particulier qui en détenait déjà comme animal de compagnie peut le garder jusqu'à sa mort, sans reproduction ni risque de fuite (art. 31 du règlement n° 1143/2014).",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5355,7 +5357,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Misgurnus bipartitus',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente et son introduction dans le milieu naturel sont interdites, cousine proche de la loche de bassin également interdite.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, son élevage, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Un particulier qui en détenait déjà comme animal de compagnie peut le garder jusqu'à sa mort, sans reproduction ni risque de fuite (art. 31 du règlement n° 1143/2014). Cousine proche de la loche de bassin, interdite au même titre.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5415,7 +5417,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Crassula helmsii',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée dans l'UE, capable de se ressemer à partir du moindre fragment de tige.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, sa culture, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Elle repart à partir du moindre fragment de tige.",
     citesAnnexe: null,
     fiche: {
       description:
@@ -5443,7 +5445,7 @@ export const ESPECES: Espece[] = [
     nomScientifique: 'Marisa cornuarietis',
     statutLegal: 'interdite',
     remarqueLegale:
-      "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits, comme pour les autres escargots du genre Pomacea/apparentés jugés invasifs.",
+      "Espèce exotique envahissante préoccupante pour l'Union depuis le 7 août 2025 (règlement d'exécution (UE) 2025/1422, qui complète la liste du règlement d'exécution (UE) 2016/1141, en application du règlement (UE) n° 1143/2014) : son introduction, sa détention, son élevage, son transport, sa vente et son échange sont interdits dans toute l'UE, y compris entre particuliers et même gratuitement. Un particulier qui en détenait déjà comme animal de compagnie peut le garder jusqu'à sa mort, sans reproduction ni risque de fuite (art. 31 du règlement n° 1143/2014). À ne pas confondre avec les escargots-pommes du genre Pomacea, interdits eux aussi mais au titre de la santé des végétaux.",
     citesAnnexe: null,
     fiche: {
       description:

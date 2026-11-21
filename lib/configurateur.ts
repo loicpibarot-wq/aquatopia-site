@@ -164,7 +164,7 @@ export const STYLES: Record<TypeBac, { id: string; label: string; desc: string; 
     { id: 'reef-algues',      label: 'Macroalgues (refugium)',  icone: 'pousse', desc: "Pour stabiliser l'eau naturellement." },
   ],
   'bassin': [
-    { id: 'koi',            label: 'Des carpes koï',         icone: 'poisson-symbole', desc: "Les stars du bassin, besoin d'espace et de filtration." },
+    { id: 'koi',            label: 'Des carpes koï',         icone: 'poisson-symbole', desc: "Les stars du bassin : il leur faut un grand bassin (8 000 L et plus, 1,30 m de fond)." },
     { id: 'poissons-rouge', label: 'Poissons rouges / comètes', icone: 'poisson', desc: 'Robustes et faciles.' },
     { id: 'plantes-bassin', label: 'Des plantes aquatiques', icone: 'corail', desc: 'Nénuphars, plantes de berge.' },
     { id: 'faune-locale',   label: 'Faune locale et naturel', icone: 'tortue', desc: 'Un bassin vivant, au plus près de la nature.' },
@@ -198,7 +198,7 @@ export function recommander(
   temps:        TempsEntretien = 'moyen',
 ): ResultatRecommandation {
   const volumeAuto = volumeChoix === 'auto';
-  const volume: VolumeBac = volumeAuto ? volumeConseille(typeBac, niveau, budget) : volumeChoix;
+  const volume: VolumeBac = volumeAuto ? volumeConseille(typeBac, niveau, budget, style) : volumeChoix;
   const cats   = CATS_BAC[typeBac];
   // Peu de temps d'entretien : on ne propose que des espèces faciles, quel que
   // soit le niveau déclaré (un expert pressé ne veut pas d'un bac capricieux).
@@ -239,7 +239,9 @@ export function recommander(
 
 // ─── Volume conseillé (« Je ne sais pas encore ») ─────────────────────────────
 
-export function volumeConseille(typeBac: TypeBac, niveau: Niveau, budget: Budget): VolumeBac {
+export function volumeConseille(typeBac: TypeBac, niveau: Niveau, budget: Budget, style: string | null = null): VolumeBac {
+  // Koï : jamais moins d'un grand bassin (5 000 L + ~1 000 L par koï adulte).
+  if (typeBac === 'bassin' && style === 'koi') return budget === 'haut' ? 'tres-grand' : 'grand';
   // Marin : un nano est trop instable pour être conseillé d'office.
   if (typeBac === 'marin') return budget === 'haut' && niveau === 'Expert' ? 'grand' : 'moyen';
   if (budget === 'eco') return 'nano';
@@ -505,7 +507,7 @@ function genererSetupBrut(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac, b
       item: isNano ? 'Filtre de bassin pression (Oase BioPress 6000 / Pontec PondoPress)'
           : isMoyen ? 'Filtre à tambour ou boîte de filtration (Oase Biotec ScreenMatic / BioTec Koi 6)'
           : 'Filtre boîte + filtre à tambour automatique (Oase BioTec Screenmatic2)',
-      detail: 'Capacité filtrante = 2× le volume du bassin pour les koïs' },
+      detail: 'Avec des koïs : tout le volume du bassin filtré au moins une fois par heure' },
     { icone: 'eau', categorie: 'Pompe de circulation',
       item: isNano ? 'Pompe de bassin 3 000-5 000 L/h (Oase AquaMax Eco 4000)'
           : isMoyen ? 'Pompe 8 000-15 000 L/h (Oase AquaMax Eco Premium)'
@@ -520,7 +522,7 @@ function genererSetupBrut(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac, b
     { icone: 'substrat', categorie: 'Fond & structure',
       item: isNano ? 'Bâche EPDM 0,5 mm + feutre de protection + substrat pour plantes'
           : "Bâche EPDM 1 mm ou béton projeté + fond sans substrat (facilite l'entretien pour les koïs)",
-      detail: 'Profondeur min. 80 cm pour que les koïs hivernent sans gel' },
+      detail: 'Profondeur min. 80 cm pour les poissons rouges, 1,30 m pour les koïs' },
     { icone: 'co2', categorie: 'Oxygénation',
       item: isNano ? 'Aérateur 40 L/min' : isMoyen ? 'Aérateur 80-150 L/min (Oase OxyTex 1500)' : 'Aérateur 300+ L/min ou cascade décorative',
       detail: "Essentiel en été (eau chaude = moins d'O₂) et pour les bacs à koïs" },
@@ -530,9 +532,9 @@ function genererSetupBrut(niveau: Niveau, typeBac: TypeBac, volume: VolumeBac, b
     titre: `Bassin de jardin ${isNano?'petit':isMoyen?'moyen':isGrand?'grand':'XL'}`,
     lignes, budgetMin: b[0], budgetMax: b[1],
     conseils: [
-      'Ne jamais surcharger : 1 cm de poisson pour 50-80 L (koïs), 10-20 L (poissons rouges).',
+      'Ne jamais surcharger : koïs, 5 000 L minimum puis environ 1 000 L de plus par koï adulte ; poissons rouges, 10-20 L par cm de poisson.',
       'Les nénuphars couvrant 40-60 % de la surface limitent les algues naturellement.',
-      'Prévoir une profondeur ≥ 80 cm pour que les koïs hivernent sans gel.',
+      'Prévoir une profondeur ≥ 80 cm (≥ 1,30 m avec des koïs) pour que les poissons hivernent sans gel.',
       'La filtration biologique doit maturer 3-4 semaines avant introduction de poissons.',
       "En été, surveiller l'oxygène dissous tôt le matin (moment le plus bas de la journée).",
     ],

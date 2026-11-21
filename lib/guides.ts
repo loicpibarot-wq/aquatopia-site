@@ -565,7 +565,7 @@ export const GUIDES: Guide[] = [
       "Comment adapter l'alimentation, garder une ouverture dans la glace et entretenir la filtration pour que les koï et poissons rouges passent l'hiver au bassin.",
     datePublication: '2026-09-26',
     enBref:
-      "Les poissons de bassin rustiques (koï, poissons rouges) passent l'hiver dehors si le bassin est bien préparé : une zone d'au moins 80 cm à 1 m de profondeur pour ne pas geler entièrement, un bulleur ou un dégeleur pour garder une ouverture dans la glace, et une nourriture pauvre en protéines sous 14 °C, à arrêter sous 8 à 10 °C. Pendant l'hiver, on surveille sans déranger les poissons.",
+      "Les poissons de bassin rustiques (koï, poissons rouges) passent l'hiver dehors si le bassin est bien préparé : une zone d'au moins 80 cm à 1 m de profondeur pour ne pas geler entièrement (1,30 m avec des koï), un bulleur ou un dégeleur pour garder une ouverture dans la glace, et une nourriture pauvre en protéines sous 14 °C, à arrêter sous 8 à 10 °C. Pendant l'hiver, on surveille sans déranger les poissons.",
     sections: [
       {
         paragraphes: [
@@ -1174,7 +1174,7 @@ export const GUIDES: Guide[] = [
         titre: "La profondeur, un critère souvent sous-estimé",
         image: { src: '/guides/sections/demarrer-bassin-jardin/2.webp', alt: "Coupe d’un bassin de 80 centimètres à un mètre de profondeur avec paliers pour accueillir des poissons toute l’année" },
         paragraphes: [
-          "Pour accueillir des poissons à l'année (Koï, poissons rouges), une zone d'au moins 80 cm à 1 mètre de profondeur est nécessaire pour éviter que le bassin ne gèle entièrement en hiver ou ne surchauffe en été. Des paliers de profondeurs variées permettent aussi d'accueillir davantage de plantes aquatiques.",
+          "Pour accueillir des poissons rouges à l'année, une zone d'au moins 80 cm à 1 mètre de profondeur est nécessaire (au moins 1,30 m pour des koï) pour éviter que le bassin ne gèle entièrement en hiver ou ne surchauffe en été. Des paliers de profondeurs variées permettent aussi d'accueillir davantage de plantes aquatiques.",
           "Prévoyez des paliers : une zone de berge de 10 à 20 centimètres pour les plantes de rives, une zone de 40 à 60 centimètres pour les nénuphars et une zone profonde au centre. Les bords doivent être suffisamment abrupts pour décourager les prédateurs.",
         ],
       },
@@ -1183,7 +1183,7 @@ export const GUIDES: Guide[] = [
         image: { src: '/guides/sections/demarrer-bassin-jardin/3.webp', alt: "Bassin avec pompe et filtration mécanique puis biologique" },
         paragraphes: [
           "Contrairement à une mare purement végétale, un bassin avec poissons a besoin d'une filtration mécanique (retenir les particules) et biologique (transformer les déchets azotés) dimensionnée au volume total et à la population de poissons prévue à terme.",
-          "Pour un bassin de poissons rouges, comptez un volume minimum de 1 000 à 2 000 litres. Les koï nécessitent beaucoup plus. Un bassin trop petit chauffe et refroidit trop vite, ce qui fatigue les poissons.",
+          "Pour un bassin de poissons rouges, comptez un volume minimum de 1 000 à 2 000 litres. Les koï nécessitent beaucoup plus : au moins 5 000 litres, puis environ 1 000 litres de plus par koï adulte. Un bassin trop petit chauffe et refroidit trop vite, ce qui fatigue les poissons.",
         ],
       },
       {
@@ -3509,7 +3509,7 @@ export const GUIDES: Guide[] = [
         image: { src: '/guides/sections/choisir-poissons-bassin-jardin/1.webp', alt: "Carpe koï adulte, nettement plus grande qu’un poisson rouge, qui demande un grand bassin" },
         paragraphes: [
           "Populaires pour leur robustesse et leurs couleurs, elles demandent néanmoins un bassin de volume conséquent, leur taille adulte étant nettement supérieure à celle d'un poisson rouge.",
-          "Un koï adulte mesure fréquemment 60 à 90 centimètres et vit plusieurs décennies. Comptez environ 1 000 litres par adulte et une profondeur d'au moins 1,2 mètre, avec une filtration puissante. Les koï déracinent les plantes et remuent le fond, ce qui complique la végétalisation du bassin.",
+          "Un koï adulte mesure fréquemment 60 à 90 centimètres et vit plusieurs décennies. Comptez au moins 5 000 litres, puis environ 1 000 litres de plus par koï adulte, et une profondeur d'au moins 1,30 mètre, avec une filtration puissante. Les koï déracinent les plantes et remuent le fond, ce qui complique la végétalisation du bassin.",
         ],
       },
       {
@@ -3678,7 +3678,7 @@ export const GUIDES: Guide[] = [
         image: { src: '/guides/sections/pompe-filtration-bassin-bien-choisir/4.webp', alt: "Filtre surdimensionné pour un bassin à koï face à un filtre de bassin classique" },
         paragraphes: [
           "Avec des poissons de grande taille et une production de déchets plus importante, un filtre surdimensionné par rapport à un bassin classique est généralement recommandé.",
-          "Comptez environ 1 000 litres par koï adulte et une profondeur d'au moins 1,2 mètre. Un bassin à koï demande un système plus ambitieux : un drain de fond pour évacuer les déchets, un filtre à fort volume, une aération soutenue et un ultraviolet. La facture électrique est aussi à prendre en compte.",
+          "Comptez au moins 5 000 litres, puis environ 1 000 litres de plus par koï adulte, et une profondeur d'au moins 1,30 mètre. Un bassin à koï demande un système plus ambitieux : un drain de fond pour évacuer les déchets, un filtre à fort volume, une aération soutenue et un ultraviolet. La facture électrique est aussi à prendre en compte.",
         ],
       },
       {

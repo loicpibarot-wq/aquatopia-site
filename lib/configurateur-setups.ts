@@ -90,7 +90,7 @@ export const MODELES: ModeleSetup[] = [
       { role: 'Surface', nom: true, candidats: ['guppy', 'endler', 'platy', 'xipho-porte-epee'] },
       { role: 'Milieu', nom: true, requis: true, candidats: ['tetra-neon', 'tetra-glowlight', 'rasbora-tete-de-cuivre', 'barbus-cerise', 'tetra-rouge-minor', 'rasbora-arlequin', 'danio-leopard', 'tetra-a-queue-rouge'] },
       { role: 'Fond', candidats: ['corydoras-bronze', 'corydoras-de-sterba', 'corydoras-pygmee', 'otocinclus'] },
-      { role: 'Invertébré', candidats: ['crevette-red-cherry', 'neritine', 'escargot-mystere'] },
+      { role: 'Invertébré', candidats: ['crevette-red-cherry', 'neritine', 'planorbe-rouge'] },
     ],
   },
   {
@@ -145,7 +145,7 @@ export const MODELES: ModeleSetup[] = [
     slots: [
       { role: 'Surface', nom: true, requis: true, candidats: ['combattant-betta', 'gourami-nain', 'gourami-miel'] },
       { role: 'Fond', nom: true, candidats: ['corydoras-pygmee', 'otocinclus', 'loche-kuhli'] },
-      { role: 'Invertébré', candidats: ['neritine', 'escargot-mystere'] },
+      { role: 'Invertébré', candidats: ['neritine'] },
       { role: 'Milieu', candidats: ['rasbora-arlequin', 'tetra-rouge-minor'] },
     ],
   },
@@ -156,7 +156,7 @@ export const MODELES: ModeleSetup[] = [
     types: DOUCE, styles: ['crevettes'], plantes: true,
     slots: [
       { role: 'Invertébré', nom: true, requis: true, candidats: ['crevette-red-cherry', 'crevette-blue-dream', 'crevette-fantome', 'crevette-amano', 'crevette-crystal-red', 'crevette-tigre'] },
-      { role: 'Invertébré', nom: true, candidats: ['neritine', 'escargot-tylomelania', 'planorbe-rouge', 'escargot-trompette-de-malaisie', 'escargot-mystere'] },
+      { role: 'Invertébré', nom: true, candidats: ['neritine', 'escargot-tylomelania', 'planorbe-rouge', 'escargot-trompette-de-malaisie'] },
       { role: 'Fond', candidats: ['otocinclus', 'corydoras-pygmee'] },
       { role: 'Milieu', candidats: ['rasbora-arlequin', 'tetra-rouge-minor', 'tetra-glowlight'] },
     ],
@@ -253,6 +253,8 @@ export const MODELES: ModeleSetup[] = [
     id: 'bassin-koi', base: 'Bassin koï',
     desc: "Des koïs en vedette, accompagnés de poissons rouges ou d'ides et d'une tanche au fond.",
     types: ['bassin'], styles: ['koi'],
+    // Koï : 5 000 L minimum puis ~1 000 L par adulte (fiche carpe-koi) : jamais dans un petit ou moyen bassin.
+    volumes: ['grand', 'tres-grand'],
     slots: [
       { role: 'Milieu', nom: true, requis: true, candidats: ['carpe-koi'] },
       { role: 'Surface', nom: true, candidats: ['poisson-rouge-carassin-dore', 'ide-melanote'] },

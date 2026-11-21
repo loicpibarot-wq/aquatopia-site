@@ -216,7 +216,7 @@ export const FAQ_SIMULATEUR: FaqCategorie[] = [
       {
         question: 'Quels poissons pour un bassin de jardin ?',
         reponse:
-          "Les poissons rouges (Comète, Shubunkin) et les Koï sont les plus répandus, les Orfes et les Tanches complètent bien un bassin plus grand. Prévoyez un volume suffisant : un Koï adulte demande plusieurs milliers de litres, et le bassin doit pouvoir être maintenu hors gel en hiver.",
+          "Les poissons rouges (Comète, Shubunkin) et les Koï sont les plus répandus, les Orfes et les Tanches complètent bien un bassin plus grand. Prévoyez un volume suffisant : un bassin à Koï demande au moins 5 000 litres, puis environ 1 000 litres de plus par Koï adulte, et le bassin doit pouvoir être maintenu hors gel en hiver.",
       },
     ],
   },

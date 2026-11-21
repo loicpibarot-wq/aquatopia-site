@@ -279,7 +279,7 @@ export const FAQ_CATEGORIES: FaqCategorie[] = [
         question: 'Mes poissons de bassin peuvent-ils rester dehors en hiver ?',
         guide: 'hivernage-poissons-bassin',
         reponse:
-          "Oui pour la plupart des Koï et poissons rouges, à condition que le bassin soit assez profond (80 cm à 1 mètre minimum) pour ne pas geler entièrement.",
+          "Oui pour la plupart des Koï et poissons rouges, à condition que le bassin soit assez profond pour ne pas geler entièrement : 80 cm à 1 mètre minimum pour des poissons rouges, 1,30 mètre pour des Koï.",
       },
       {
         question: 'Faut-il une pompe été comme hiver ?',

@@ -39,9 +39,9 @@ const GROUPES: { cle: string; titre: string; categories: CategorieEspece[] }[] =
 // Paires « interdite / autorisée » souvent confondues, d'après les remarques légales des fiches.
 const CONFUSIONS: { interdite: string; autorisee: string; texte: string }[] = [
   {
-    interdite: 'escargot-pomme',
-    autorisee: 'escargot-mystere',
-    texte: "Les escargots-pommes (Pomacea maculata et P. canaliculata) sont interdits, alors que l'escargot mystère (Pomacea bridgesii), très proche d'aspect, reste autorisé.",
+    interdite: 'escargot-mystere',
+    autorisee: 'neritine',
+    texte: "Tous les escargots-pommes du genre Pomacea sont interdits dans l'UE (organisme de quarantaine), y compris l'escargot mystère (Pomacea bridgesii) longtemps vendu en animalerie : pour un escargot mangeur d'algues, choisissez plutôt la néritine.",
   },
   {
     interdite: 'jussie-a-grandes-fleurs',
