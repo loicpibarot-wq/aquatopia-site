@@ -1,6 +1,6 @@
 // Règles de peuplement du simulateur : combien de poissons un bac peut raisonnablement
 // accueillir. Tout est ramené à une « cuve de référence » (celle que le simulateur
-// annonce dans « Ta cuve idéale ») et à un budget de centimètres de poisson adulte.
+// annonce dans « La cuve idéale ») et à un budget de centimètres de poisson adulte.
 import type { EspeceLight, TypeBac, VolumeBac } from './configurateur';
 
 /** Volume (L) de la cuve annoncée pour chaque gabarit : sert de référence unique. */

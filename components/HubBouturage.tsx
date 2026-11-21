@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import Link from 'next/link';
 import { ESPECES_PUBLIEES } from '@/lib/especes';
 import { guideBouturage, type NiveauBouture } from '@/lib/bouturage';
@@ -158,9 +159,9 @@ export default function HubBouturage({ type }: { type: TypeHub }) {
 
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdListe) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLdListe) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLdFaq) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · <Link href="/especes">Espèces</Link> · {type === 'plantes' ? 'Bouturage des plantes' : 'Bouturage des coraux'}

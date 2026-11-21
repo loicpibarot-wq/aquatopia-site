@@ -1,7 +1,9 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ConsentementAnalytics from '@/components/ConsentementAnalytics';
+import BandeauAndroid from '@/components/BandeauAndroid';
 import { Fredoka, Manrope, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -76,13 +78,16 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
   },
   robots: { index: true, follow: true },
+  // Bandeau natif de Safari sur iPhone : « Ouvrir » ou « Afficher » l'appli sur l'App Store.
+  itunes: { appId: '6774605218' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${fredoka.variable} ${manrope.variable} ${plexMono.variable}`}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_SITE) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(JSON_LD_SITE) }} />
+        <BandeauAndroid />
         <Header />
         <main>{children}</main>
         <Footer />

@@ -91,6 +91,15 @@ export const CGU_APPLI: SectionLegale[] = [
       "10.2 Exactitude des informations déclarées : L'Utilisateur se déclarant vendeur professionnel s'engage sur l'honneur à fournir des informations réelles, exactes et tenues à jour (raison sociale, numéro SIREN, coordonnées). Il lui appartient de mettre à jour ces informations sans délai en cas de changement.",
       "10.3 Sanctions en cas de fausse déclaration : Toute usurpation de numéro SIREN, fausse déclaration, ou tentative de dissimulation d'une activité professionnelle sous couvert d'un profil particulier, entraînera la fermeture immédiate du compte concerné et le retrait de l'ensemble de ses annonces, sans préavis ni indemnité. Aquatopia se réserve en outre le droit de signaler ces agissements aux autorités administratives et judiciaires compétentes (notamment la DGCCRF, la DDPP, ou le Procureur de la République), indépendamment des sanctions prévues à l'article 6.3."
     ]
+  },
+  {
+    "titre": "Article 11 – Remerciements entre membres",
+    "paragraphes": [
+      "11.1 Principe : Après avoir échangé avec un autre membre, l'Utilisateur peut le remercier, une seule fois par membre, et peut retirer son remerciement à tout moment. Un remerciement est une simple marque de reconnaissance : il n'a aucune valeur monétaire, ne constitue ni un avis ni une évaluation, et ne garantit en rien le sérieux du membre remercié ni l'état ou la conformité des biens ou animaux qu'il propose.",
+      "11.2 Visibilité : Le nombre total de remerciements reçus par un membre est affiché sur son profil. La liste des membres qui l'ont remercié n'est visible ni des autres utilisateurs ni du public ; elle n'est consultable que par l'équipe Aquatopia, à des fins de modération. Le membre remercié est informé par une notification mentionnant le pseudo de la personne qui l'a remercié.",
+      "11.3 Usage loyal : Sont interdits les remerciements obtenus par échange de bons procédés, contrepartie, pression ou fausse déclaration, ainsi que l'usage de plusieurs comptes ou de moyens automatisés pour en donner ou en recevoir. Aquatopia se réserve le droit de retirer tout remerciement qu'elle estime abusif, d'interdire à un membre de remercier, et d'appliquer les sanctions prévues à l'article 6.3. Un remerciement retiré par l'équipe est conservé dans un historique interne, avec son motif.",
+      "11.4 Suppression du compte : En cas de suppression de son compte, les remerciements donnés et reçus par l'Utilisateur sont supprimés et le compteur des membres concernés est mis à jour."
+    ]
   }
 ];
 

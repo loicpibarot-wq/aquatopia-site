@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
@@ -29,7 +30,7 @@ export default async function HubLieux() {
 
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
       <div className="breadcrumb"><Link href="/">Accueil</Link> · Annonces par ville</div>
 
       <div className="section-head" style={{ marginBottom: 28 }}>

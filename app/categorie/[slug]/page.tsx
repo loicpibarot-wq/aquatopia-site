@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,9 +33,9 @@ const CONTENU: Record<
   vivant: {
     h1: 'Vivant : poissons, crevettes, coraux et invertébrés',
     intro:
-      "Poissons d'eau douce (Guppy, Betta, Scalaire, Cichlidés, Ancistrus...), crevettes (Red Cherry, Caridina, Neocaridina), poissons marins et boutures de coraux (LPS/SPS), poissons de bassin (Koï, poissons rouges, esturgeons) et invertébrés divers : retrouvez ici les annonces d'animaux aquatiques à vendre, à donner ou à échanger, publiées par des particuliers, des éleveurs passionnés et des boutiques spécialisées.",
+      "Poissons d'eau douce (Guppy, Betta, Scalaire, Cichlidés, Ancistrus...), crevettes (Red Cherry, Caridina, Neocaridina), poissons marins et boutures de coraux (LPS/SPS), poissons de bassin (Koï, poissons rouges, esturgeons) et invertébrés divers : retrouvez ici les annonces d'animaux aquatiques à vendre, à donner ou à échanger, publiées par des particuliers passionnés.",
     conseil:
-      "Avant de contacter un vendeur, assurez-vous que votre aquarium ou bassin est déjà cyclé et adapté aux besoins de l'espèce. L'envoi postal d'animaux vivants étant interdit par la loi, toutes les remises se font exclusivement en main propre, entre passionnés situés en France.",
+      "Avant de contacter un vendeur, assurez-vous que votre aquarium ou bassin est déjà cyclé et adapté aux besoins de l'espèce. L'envoi d'animaux vivants étant interdit sur Aquatopia, toutes les remises d'animaux se font exclusivement en main propre, entre passionnés situés en France.",
     metaTitre: "Poissons d'aquarium à vendre — annonces entre particuliers",
     metaDescription:
       "Poissons d'aquarium, crevettes, coraux et invertébrés à vendre ou à donner entre particuliers et éleveurs. Annonces vérifiées, remise en main propre.",
@@ -62,7 +63,7 @@ const CONTENU: Record<
   materiel: {
     h1: "Matériel d'aquariophilie neuf et d'occasion",
     intro:
-      "Filtres externes, pompes de brassage, systèmes CO2, chauffages, régulateurs, osmolateurs, testeurs d'eau... Retrouvez le matériel nécessaire à l'entretien d'un aquarium ou d'un bassin, vendu en neuf ou en occasion par des particuliers et des boutiques spécialisées.",
+      "Filtres externes, pompes de brassage, systèmes CO2, chauffages, régulateurs, osmolateurs, testeurs d'eau... Retrouvez le matériel nécessaire à l'entretien d'un aquarium ou d'un bassin, proposé par des particuliers, neuf ou d'occasion.",
     conseil:
       "Avant d'acheter du matériel d'occasion, vérifiez son état et son fonctionnement avec le vendeur — idéalement lors d'une remise en main propre. Certains vendeurs proposent aussi l'envoi partout en France.",
     metaTitre: "Matériel d'aquarium d'occasion — filtre, chauffage, éclairage",
@@ -253,9 +254,9 @@ export default async function CategoriePage({
 
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(faqJsonLd) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · {categorie}

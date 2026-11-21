@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -100,9 +101,9 @@ export default async function DonEspecePage({ params }: { params: { espece: stri
 
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(faqJsonLd) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · <Link href="/dons">Dons</Link> · {nom}

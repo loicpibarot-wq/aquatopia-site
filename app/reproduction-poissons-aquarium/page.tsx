@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ESPECES_PUBLIEES, type CategorieEspece } from '@/lib/especes';
@@ -144,9 +145,9 @@ export default function ReproductionPoissonsPage() {
 
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdListe) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLdListe) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLdFaq) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · <Link href="/especes">Espèces</Link> · Reproduction des poissons

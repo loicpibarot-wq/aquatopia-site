@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import Link from 'next/link';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 
@@ -10,7 +11,7 @@ export default function PageLegale({
   const fil = [{ name: 'Accueil', url: '/' }, { name: titre }];
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · {titre}
       </div>

@@ -632,7 +632,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
             border: '1px solid rgba(47,217,190,0.25)',
             marginBottom: 32,
           }}>
-            <div className="eyebrow" style={{ marginBottom: 8 }}>Ton projet Aquatopia sur mesure</div>
+            <div className="eyebrow" style={{ marginBottom: 8 }}>Votre projet Aquatopia sur mesure</div>
             <h2 style={{ fontFamily: "var(--font-fredoka),sans-serif", fontSize: '1.4rem', marginBottom: 14 }}>
               {resultats.setup.titre}
             </h2>

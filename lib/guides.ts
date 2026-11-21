@@ -1223,13 +1223,13 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'choisir-filtration-aquarium',
-    titre: 'Filtre interne, externe, sur-verre : lequel choisir pour son aquarium ?',
+    titre: 'Filtre interne, externe ou à décantation : lequel choisir pour son aquarium ?',
     eyebrow: 'Matériel',
     description:
-      "Filtre interne, externe ou sur-verre (sump) : avantages, limites et débit à viser pour choisir la filtration adaptée au volume et au peuplement de votre aquarium.",
+      "Filtre interne, externe ou à décantation (sump) : avantages, limites et débit à viser pour choisir la filtration adaptée au volume et au peuplement de votre aquarium.",
     datePublication: '2026-09-26',
     enBref:
-      "Le filtre interne convient aux petits bacs (moins de 54 litres) et aux premiers aquariums, le filtre externe est la solution courante à partir d'une soixantaine de litres, et le filtre sur-verre (sump) s'adresse au récifal et aux très grands volumes. Le critère décisif est le débit : on vise généralement 4 à 6 fois le volume du bac par heure en eau douce, et un filtre légèrement surdimensionné vaut mieux qu'un filtre trop juste.",
+      "Le filtre interne convient aux petits bacs (moins de 54 litres) et aux premiers aquariums, le filtre externe est la solution courante à partir d'une soixantaine de litres, et le filtre à décantation (sump) s'adresse au récifal et aux très grands volumes. Le critère décisif est le débit : on vise généralement 4 à 6 fois le volume du bac par heure en eau douce, et un filtre légèrement surdimensionné vaut mieux qu'un filtre trop juste.",
     sections: [
       {
         paragraphes: [
@@ -1253,10 +1253,10 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        titre: "Le filtre sur-verre (à décantation)",
+        titre: "Le filtre à décantation (sump)",
         image: { src: '/guides/sections/choisir-filtration-aquarium/3.webp', alt: "Aquarium au-dessus d’un meuble contenant une sump avec compartiments, écumeur et pompe de retour" },
         paragraphes: [
-          "Utilisé en récifal et dans certains bacs d'eau douce haut de gamme, le filtre sur-verre (« sump ») déporte la filtration, le chauffage et parfois l'écumeur dans un compartiment ou un bac séparé sous le meuble, relié par une gorge en verre. Il offre le plus grand volume de filtration et de flexibilité, au prix d'une installation plus complexe et plus coûteuse.",
+          "Utilisé en récifal et dans certains bacs d'eau douce haut de gamme, le filtre à décantation (« sump ») déporte la filtration, le chauffage et parfois l'écumeur dans un compartiment ou un bac séparé sous le meuble, relié par une gorge en verre. Il offre le plus grand volume de filtration et de flexibilité, au prix d'une installation plus complexe et plus coûteuse.",
           "Il augmente aussi le volume d'eau total du système, ce qui améliore la stabilité. Il exige en revanche un aquarium percé ou équipé d'une cheminée, et une bonne maîtrise du niveau d'eau pour éviter les débordements en cas de coupure.",
         ],
       },
@@ -1372,10 +1372,10 @@ export const GUIDES: Guide[] = [
     titre: 'Quel filtre choisir selon le volume de son aquarium ?',
     eyebrow: 'Comparatif',
     description:
-      "Filtre interne, externe ou sur-verre : quel type de filtration et quel débit choisir selon le volume de votre aquarium, de 54 à plus de 200 litres.",
+      "Filtre interne, externe ou à décantation (sump) : quel type de filtration et quel débit choisir selon le volume de votre aquarium, de 54 à plus de 200 litres.",
     datePublication: '2026-09-26',
     enBref:
-      "Jusqu'à 60 litres, un filtre interne suffit ; de 60 à 300 litres, un filtre externe est plus adapté ; au-delà ou en récifal, un filtre sur-verre devient intéressant. Visez un débit de 4 à 6 fois le volume du bac par heure (220 à 330 l/h pour 54 litres, 400 à 600 l/h pour 100 litres), et davantage pour les poissons rouges ou les bacs très peuplés.",
+      "Jusqu'à 60 litres, un filtre interne suffit ; de 60 à 300 litres, un filtre externe est plus adapté ; au-delà ou en récifal, un filtre à décantation (sump) devient intéressant. Visez un débit de 4 à 6 fois le volume du bac par heure (220 à 330 l/h pour 54 litres, 400 à 600 l/h pour 100 litres), et davantage pour les poissons rouges ou les bacs très peuplés.",
     sections: [
       {
         paragraphes: [
@@ -1402,7 +1402,7 @@ export const GUIDES: Guide[] = [
         titre: "Grands volumes et récifal",
         image: { src: '/guides/sections/quel-filtre-choisir-selon-volume/3.webp', alt: "Grand aquarium au-dessus d’une sump avec écumeur et pompe de retour" },
         paragraphes: [
-          "Au-delà, ou pour un bac récifal, un filtre sur-verre (sump) devient intéressant : il permet de déporter filtration, chauffage et écumeur dans un compartiment séparé, au prix d'une installation plus complexe.",
+          "Au-delà, ou pour un bac récifal, un filtre à décantation (sump) devient intéressant : il permet de déporter filtration, chauffage et écumeur dans un compartiment séparé, au prix d'une installation plus complexe.",
           "En récifal, la filtration repose davantage sur la roche vivante, l'écumeur et le brassage que sur un filtre classique. Le décanteur offre un grand volume d'eau supplémentaire, qui améliore la stabilité du système.",
         ],
       },
@@ -1430,12 +1430,12 @@ export const GUIDES: Guide[] = [
       {
         titre: "Penser au budget et à l'évolution",
         paragraphes: [
-          "Un filtre un peu plus grand que nécessaire coûte souvent peu de plus, et vous évite de le remplacer si vous agrandissez votre peuplement ou changez de bac. Vérifiez aussi la disponibilité des pièces de rechange et des masses filtrantes, et privilégiez un modèle dont l'entretien est simple : on entretient mieux ce qui est facile à démonter. Sur Aquatopia, les filtres d'occasion de qualité se trouvent à des prix intéressants.",
+          "Un filtre un peu plus grand que nécessaire ne coûte souvent qu'un peu plus, et vous évite de le remplacer si vous agrandissez votre peuplement ou changez de bac. Vérifiez aussi la disponibilité des pièces de rechange et des masses filtrantes, et privilégiez un modèle dont l'entretien est simple : on entretient mieux ce qui est facile à démonter. Sur Aquatopia, les filtres d'occasion de qualité se trouvent à des prix intéressants.",
         ],
       },
     ],
     liensUtiles: [
-      { href: '/guides/choisir-filtration-aquarium', label: 'Filtre interne, externe, sur-verre : le détail' },
+      { href: '/guides/choisir-filtration-aquarium', label: 'Filtre interne, externe ou à décantation : le détail' },
       { href: '/categorie/materiel', label: 'Voir les filtres en vente' },
       { href: '/guides/filtre-interne-ou-externe-comparatif', label: 'Filtre interne ou externe' },
       { href: '/guides/role-du-filtre-dans-aquarium', label: 'Comprendre le rôle du filtre' },

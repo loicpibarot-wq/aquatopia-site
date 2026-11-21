@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import { comportementEspece, COMPORTEMENT_NIVEAUX, NIVEAU_VEDETTE } from '@/lib/especes-comportement';
 import type { Metadata } from 'next';
 import { existsSync } from 'fs';
@@ -196,9 +197,9 @@ export default function EspecePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="wrap annonce-wrap espece-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(faqJsonLd) }} />
 
       {/* Bouton retour — visible immédiatement, style pill */}
       <LienRetour

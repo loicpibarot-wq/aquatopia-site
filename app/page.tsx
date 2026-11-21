@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import Image from 'next/image';
 import Link from 'next/link';
 import DownloadButton from '@/components/DownloadButton';
@@ -21,9 +22,9 @@ const FAQ = [
     a: "Oui, le téléchargement, la recherche et la publication d'annonces pour les particuliers sont 100 % gratuits.",
   },
   {
-    q: 'Retrouve-t-on des professionnels et des éleveurs sur l’application ?',
+    q: 'Qui publie les annonces sur Aquatopia ?',
     cta: { href: '/categorie/vivant', label: "Voir les annonces" },
-    a: "Absolument. Aquatopia réunit des particuliers, des éleveurs passionnés et des boutiques spécialisées proposant du vivant issu d'élevages locaux ainsi que du matériel neuf ou reconditionné.",
+    a: "Des aquariophiles comme vous. Aquatopia est une application de petites annonces entre particuliers : chacun y propose ses poissons, ses plantes et son matériel, à vendre, à donner ou à échanger près de chez lui.",
   },
   {
     q: 'Peut-on vendre du matériel de bassin ou du récifal ?',
@@ -33,7 +34,7 @@ const FAQ = [
   {
     q: 'Comment vendre son aquarium ou ses poissons sur Aquatopia ?',
     cta: { href: '/guides/vendre-son-aquarium-occasion', label: "Lire le guide pour vendre" },
-    a: "Téléchargez l'application gratuite, créez votre annonce avec des photos, le prix et votre ville, puis publiez-la : notre équipe la vérifie avant sa mise en ligne. Les acheteurs vous écrivent par la messagerie et la remise se fait en main propre. Nos guides expliquent comment bien préparer une annonce d'aquarium d'occasion.",
+    a: "Téléchargez l'application gratuite, créez votre annonce avec des photos, le prix et votre ville, puis publiez-la : notre équipe la vérifie avant sa mise en ligne. Les acheteurs vous écrivent par la messagerie. Pour les animaux, la remise se fait toujours en main propre ; pour le matériel, vous pouvez aussi cocher l'option « Envoi possible ». Nos guides expliquent comment bien préparer une annonce d'aquarium d'occasion.",
   },
   {
     q: "Où trouver un aquarium ou des poissons d'occasion près de chez moi ?",
@@ -48,7 +49,7 @@ const FAQ = [
   {
     q: 'Comment se déroulent les transactions ?',
     cta: { href: '/guides/acheter-aquarium-occasion-verifications', label: "Acheter en confiance" },
-    a: "Pour préserver le bien-être animal et éviter les risques liés aux envois, toutes les remises s'effectuent en main propre directement entre l'acheteur et le vendeur.",
+    a: "Pour les animaux vivants, la remise se fait toujours en main propre, directement entre l'acheteur et le vendeur : l'envoi d'animaux vivants est interdit sur Aquatopia, pour préserver leur bien-être. Pour le matériel, la remise en main propre reste conseillée, mais le vendeur peut proposer l'envoi avec l'option « Envoi possible ».",
   },
 ];
 
@@ -62,7 +63,7 @@ export default async function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: jsonLdSur({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
             mainEntity: FAQ.map(({ q, a }) => ({
@@ -86,7 +87,7 @@ export default async function HomePage() {
             </p>
             <RechercheSite />
             <div className="hero-stats" style={{ marginTop: 28 }}>
-              <div className="stat"><b>100%</b><span>annonces modérées</span></div>
+              <div className="stat"><b>100&nbsp;%</b><span>annonces modérées</span></div>
               {nbMembres !== null && nbMembres > 0 && (
                 <div className="stat"><b>{arrondiDizaine(nbMembres)}</b><span>membres inscrits</span></div>
               )}
@@ -138,7 +139,7 @@ export default async function HomePage() {
             <div className="section-head" style={{ marginBottom: 32 }}>
               <span className="eyebrow">Comment ça marche</span>
               <h2>Comment vendre ou adopter en remise en main propre ?</h2>
-              <p>L&apos;envoi d&apos;êtres vivants est interdit par la loi : chez Aquatopia, chaque échange se fait en main propre, sans intermédiaire, entre passionnés près de chez vous.</p>
+              <p>Sur Aquatopia, l&apos;envoi d&apos;animaux vivants est interdit : les animaux se remettent toujours en main propre, sans intermédiaire, entre passionnés près de chez vous. Pour le matériel, le vendeur peut aussi proposer l&apos;envoi.</p>
             </div>
             <div className="steps">
               <div className="step">
@@ -179,14 +180,14 @@ export default async function HomePage() {
               <div className="biotope-icon" style={{ background: '#1E85B0' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c3.5 4.2 6 7.7 6 10.5a6 6 0 0 1-12 0C6 10.7 8.5 7.2 12 3z" /></svg>
               </div>
-              <h3>Eau Douce</h3>
+              <h3>Eau douce</h3>
               <p>Le plus grand rayon : poissons, plantes et invertébrés d&apos;eau douce.</p>
             </Link>
             <Link href="/biotope/eau-de-mer" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="biotope-icon" style={{ background: '#00284F' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" /><path d="M3 10c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0" /></svg>
               </div>
-              <h3>Eau de Mer</h3>
+              <h3>Eau de mer</h3>
               <p>Récifal et marin : poissons, coraux et invertébrés.</p>
             </Link>
             <Link href="/biotope/bassin" className="biotope-card" style={{ display: 'block', textDecoration: 'none' }}>
@@ -247,7 +248,7 @@ export default async function HomePage() {
           <div>
             <span className="eyebrow">Confiance</span>
             <h2 style={{ marginTop: 14 }}>Une communauté modérée, pas une brocante anonyme.</h2>
-            <p style={{ marginTop: 14, color: 'var(--text-muted)' }}>Chaque annonce et chaque profil passe par une validation avant publication, pour que la priorité reste le bien-être des espèces échangées.</p>
+            <p style={{ marginTop: 14, color: 'var(--text-muted)' }}>Chaque annonce est vérifiée par notre équipe avant sa publication, pour que la priorité reste le bien-être des espèces échangées.</p>
             <div className="trust-list" style={{ marginTop: 32 }}>
               <div className="trust-item">
                 <div className="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z" /></svg></div>
@@ -255,7 +256,7 @@ export default async function HomePage() {
               </div>
               <div className="trust-item">
                 <div className="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><circle cx={12} cy={8} r={3.2} /><path d="M5 20c1.5-4 4-5.5 7-5.5S18.5 16 20 20" /></svg></div>
-                <div><h3>Profils suivis</h3><p>Statistiques de ventes, dons et historique visibles sur chaque profil.</p></div>
+                <div><h3>Profils transparents</h3><p>Sur chaque profil&#8239;: les annonces du membre, leurs vues, leurs favoris et les remerciements reçus.</p></div>
               </div>
               <div className="trust-item">
                 <div className="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" /><path d="M14 4v5h5" /></svg></div>
@@ -285,7 +286,7 @@ export default async function HomePage() {
           <div className="section-head">
             <span className="eyebrow">Recherches populaires</span>
             <h2>Tout l&apos;univers de l&apos;aquariophilie et du bassin, en un seul endroit</h2>
-            <p>Que vous cherchiez un poisson tropical, une bouture de corail ou une pompe de bassin, Aquatopia couvre l&apos;ensemble du vivant et du matériel, neuf comme d&apos;occasion. Annonces vérifiées, messagerie en temps réel et remise en main propre.</p>
+            <p>Que vous cherchiez un poisson tropical, une bouture de corail ou une pompe de bassin, Aquatopia couvre l&apos;ensemble du vivant et du matériel, en annonces entre particuliers. Annonces vérifiées, messagerie en temps réel et remise en main propre.</p>
           </div>
           <div className="seo-grid">
             <div className="seo-card">
@@ -293,7 +294,7 @@ export default async function HomePage() {
               <p>Poissons tropicaux (Guppy, Betta, Scalaire, Ancistrus, Cichlidés), crevettes (Red Cherry, Caridina), escargots et invertébrés.</p>
             </div>
             <div className="seo-card">
-              <h3>Eau de mer &amp; Récifal</h3>
+              <h3>Eau de mer et récifal</h3>
               <p>Poissons marins, boutures de coraux (LPS/SPS), roches vivantes, sel marin, eau osmosée.</p>
             </div>
             <div className="seo-card">
@@ -310,7 +311,7 @@ export default async function HomePage() {
             </div>
             <div className="seo-card">
               <h3>Pour tous les passionnés</h3>
-              <p>Petites annonces de particuliers, éleveurs passionnés et boutiques spécialisées — matériel neuf et reconditionné.</p>
+              <p>Des petites annonces entre particuliers, du débutant qui équipe son premier bac au passionné qui partage ses boutures et ses surplus d&apos;élevage.</p>
             </div>
           </div>
         </div>
@@ -343,22 +344,22 @@ export default async function HomePage() {
       <section id="telecharger" style={{ paddingTop: 32 }}>
         <div className="wrap">
           <div className="cta-band">
-            <span className="eyebrow">Envie d&apos;aller plus loin</span>
-            <h2>Rejoignez la communauté Aquatopia</h2>
-            <p>Conseils, coups de cœur et nouveautés — retrouvez-nous sur Facebook, Instagram et TikTok.</p>
-            <LiensReseaux taille="lg" justify="center" accent />
+            <span className="eyebrow">Application gratuite</span>
+            <h2>Téléchargez Aquatopia</h2>
+            <p>Gratuite sur iPhone et Android, partout en France. On vous attend&#8239;!</p>
+            <div className="store-badges" style={{ marginTop: 0 }}>
+              <DownloadButton href="https://apps.apple.com/app/id6774605218" className="store-badge">
+                <IconeApple size={24} />
+                <span><small>Disponible sur</small><strong>App Store</strong></span>
+              </DownloadButton>
+              <DownloadButton href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" className="store-badge">
+                <IconeGooglePlay size={22} />
+                <span><small>Disponible sur</small><strong>Google Play</strong></span>
+              </DownloadButton>
+            </div>
             <div style={{ marginTop: 22, paddingTop: 22, borderTop: '1px solid var(--border)', width: '100%', maxWidth: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-faint)' }}>Aquatopia est aussi disponible gratuitement sur :</span>
-              <div className="store-badges" style={{ marginTop: 0 }}>
-                <DownloadButton href="https://apps.apple.com/app/id6774605218" className="store-badge">
-                  <IconeApple size={24} />
-                  <span><small>Disponible sur</small><strong>App Store</strong></span>
-                </DownloadButton>
-                <DownloadButton href="https://play.google.com/store/apps/details?id=com.noula34.aquatopia" className="store-badge">
-                  <IconeGooglePlay size={22} />
-                  <span><small>Disponible sur</small><strong>Google Play</strong></span>
-                </DownloadButton>
-              </div>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-faint)' }}>Conseils, coups de cœur et nouveautés&#8239;: rejoignez la communauté sur Facebook, Instagram et TikTok.</span>
+              <LiensReseaux taille="lg" justify="center" accent />
             </div>
             <span className="cta-domain">aquatopia.fr</span>
           </div>

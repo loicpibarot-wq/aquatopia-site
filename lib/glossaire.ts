@@ -179,7 +179,7 @@ export const GLOSSAIRE: TermeGlossaire[] = [
   },
   {
     slug: 'filtre-sur-verre',
-    terme: 'Filtre sur-verre (sump)',
+    terme: 'Filtre à décantation (sump)',
     categorie: 'Matériel',
     definition:
       "Système de filtration déportée dans un bac séparé sous le meuble, relié à l'aquarium par une gorge en verre. Offre le plus grand volume de filtration, utilisé notamment en récifal.",

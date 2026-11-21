@@ -142,7 +142,7 @@ export const TEMPS_ENTRETIEN: { id: TempsEntretien; label: string; desc: string;
     desc: "Projets complexes, engrais, CO₂, paramètres d'eau stricts." },
 ];
 
-// Une seule réponse : « Qu'aimerais-tu voir principalement dans ton bac ? ».
+// Une seule réponse : « Qu'aimeriez-vous voir principalement dans votre bac ? ».
 export const STYLES: Record<TypeBac, { id: string; label: string; desc: string; icone: IconeNom; repete?: number }[]> = {
   'douce-plante': [
     { id: 'plantes-dense', label: 'Un paysage très planté',   icone: 'plante', desc: 'Aquascaping : plantes, racines, crevettes et petits poissons.' },
@@ -203,7 +203,7 @@ export function recommander(
   // Peu de temps d'entretien : on ne propose que des espèces faciles, quel que
   // soit le niveau déclaré (un expert pressé ne veut pas d'un bac capricieux).
   const diffs  = temps === 'faible' ? (['Débutant'] as NiveauDiff[]) : DIFF_OK[niveau];
-  // Une espèce n'est proposée que si la cuve annoncée (« Ta cuve idéale ») atteint son volume minimum.
+  // Une espèce n'est proposée que si la cuve annoncée (« La cuve idéale ») atteint son volume minimum.
   const volMax = VOL_REF[typeBac][volume];
   const filtered = pool.filter((e) => {
     if (!cats.includes(e.categorie)) return false;
@@ -319,18 +319,18 @@ export function genererSetup(
   // Peu de temps d'entretien en eau douce plantée : pas de CO₂ ni d'osmoseur.
   if (temps === 'faible' && typeBac === 'douce-plante') {
     lignes = lignes.filter((l) => l.categorie !== 'CO₂' && l.categorie !== 'Osmose');
-    conseils.unshift('Pas de CO₂ : choisis des plantes robustes (anubias, fougère java, cryptocorynes) et un éclairage modéré pour limiter algues et entretien.');
+    conseils.unshift('Pas de CO₂ : choisissez des plantes robustes (anubias, fougère java, cryptocorynes) et un éclairage modéré pour limiter algues et entretien.');
   }
 
   if (budget === 'eco') {
-    conseils.push("Budget serré : achète filtre, éclairage et chauffage d'occasion — jusqu'à 50 % d'économie possible sur Aquatopia, selon les annonces disponibles.");
+    conseils.push("Budget serré : pensez au filtre, à l'éclairage et au chauffage d'occasion, souvent bien moins chers. Jetez un œil aux annonces près de chez vous sur Aquatopia.");
   } else if (budget === 'haut') {
-    conseils.push('Budget confortable : investis d\'abord dans la filtration et l\'éclairage, ils conditionnent tout le reste du projet.');
+    conseils.push('Budget confortable : investissez d\'abord dans la filtration et l\'éclairage, ils conditionnent tout le reste du projet.');
   }
   if (temps === 'faible') {
     conseils.push('Avec peu de temps : un changement d\'eau de 20 % par semaine et un bac bien planté suffisent pour un aquarium stable.');
   } else if (temps === 'passion') {
-    conseils.push('Passionné : tu peux viser des espèces exigeantes et suivre tes paramètres (GH, KH, nitrates) avec des tests réguliers.');
+    conseils.push('Passionné : vous pouvez viser des espèces exigeantes et suivre vos paramètres (GH, KH, nitrates) avec des tests réguliers.');
   }
 
   return {

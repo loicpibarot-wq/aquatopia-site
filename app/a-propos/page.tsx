@@ -1,3 +1,4 @@
+import { jsonLdSur } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
@@ -38,8 +39,8 @@ export default function AProposPage() {
 
   return (
     <div className="wrap annonce-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(fil)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSur(breadcrumbJsonLd(fil)) }} />
 
       <div className="breadcrumb">
         <Link href="/">Accueil</Link> · À propos
@@ -71,9 +72,9 @@ export default function AProposPage() {
         </p>
         <h2 style={{ fontSize: '1.2rem', marginTop: 36, marginBottom: 14 }}>Nos engagements</h2>
         <p className="annonce-desc">
-          Toutes les remises d&apos;animaux se font en main propre, jamais par voie postale, conformément à la
-          réglementation et dans le respect du bien-être animal. Chaque annonce et chaque profil passe par une
-          validation avant publication. L&apos;application reste gratuite pour les particuliers : téléchargement,
+          Toutes les remises d&apos;animaux se font en main propre, jamais par voie postale&#8239;: c&apos;est une règle
+          d&apos;Aquatopia, pensée pour le bien-être animal. Chaque annonce est vérifiée par notre équipe avant sa
+          publication. L&apos;application reste gratuite pour les particuliers : téléchargement,
           recherche et publication d&apos;annonces sans frais.
         </p>
         <h2 style={{ fontSize: '1.2rem', marginTop: 36, marginBottom: 14 }}>Pourquoi ce site</h2>
