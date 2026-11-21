@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: { title: `${TITRE} | Aquatopia`, description: DESCRIPTION, url: '/confidentialite', type: 'website', images: ['/og-image.jpg'], siteName: 'Aquatopia', locale: 'fr_FR' },
 };
 
-// La partie « application » reprend le texte de l'appli tel quel (sauf le point 6, remplacé par le
-// contact commun en bas de page).
-const APPLICATION: SectionLegale[] = CONFIDENTIALITE_APPLI.filter((s) => !s.titre.startsWith('6.'));
+// La partie « application » reprend le texte de l'appli tel quel (sauf la section Contact, remplacée
+// par le contact commun en bas de page).
+const APPLICATION: SectionLegale[] = CONFIDENTIALITE_APPLI.filter((s) => !s.titre.endsWith('Contact'));
 
 const SITE: SectionLegale[] = [
   {
@@ -58,7 +58,7 @@ export default function ConfidentialitePage() {
     <PageLegale
       titre={TITRE}
       chemin="/confidentialite"
-      misAJour="novembre 2026"
+      misAJour="19/11/2026"
       intro="Cette page explique comment Aquatopia (application mobile et site aquatopia.fr) traite vos données personnelles, conformément au règlement général sur la protection des données (RGPD). Le responsable du traitement est l'éditeur d'Aquatopia, dont l'identité figure dans les mentions légales."
       sections={[
         { titre: 'Application mobile', paragraphes: [], partie: true },

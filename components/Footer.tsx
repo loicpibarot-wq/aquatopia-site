@@ -28,6 +28,7 @@ export default function Footer() {
           <Link href="/mentions-legales">Mentions légales</Link>
           <Link href="/confidentialite">Confidentialité</Link>
           <Link href="/conditions-utilisation">Conditions d&apos;utilisation</Link>
+          <Link href="/supprimer-compte">Supprimer votre compte</Link>
           <LienGererCookies />
           <a href="https://www.facebook.com/share/1DmYnkCM4g/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
           <a href="https://www.instagram.com/aquatopia.app" target="_blank" rel="noopener noreferrer">Instagram</a>
