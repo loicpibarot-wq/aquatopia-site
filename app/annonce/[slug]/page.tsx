@@ -6,6 +6,7 @@ import { notFound, redirect } from 'next/navigation';
 import DownloadButton from '@/components/DownloadButton';
 import Icone from '@/components/Icone';
 import LienRetraitAnnonce from '@/components/LienRetraitAnnonce';
+import BandeauCessionAnimaux, { estAnnonceAnimal } from '@/components/BandeauCessionAnimaux';
 import {
   fetchAnnonceParId,
   fetchAnnoncesActives,
@@ -167,6 +168,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
           </div>
 
           {annonce.description && <p className="annonce-desc">{annonce.description}</p>}
+          {estAnnonceAnimal(annonce.categorie) && <BandeauCessionAnimaux />}
         </div>
 
         <aside className="annonce-cta-card">
@@ -278,6 +280,7 @@ async function AnnonceVendue({ annonce }: { annonce: Annonce }) {
           </div>
 
           {annonce.description && <p className="annonce-desc">{annonce.description}</p>}
+          {estAnnonceAnimal(annonce.categorie) && <BandeauCessionAnimaux />}
         </div>
 
         <aside className="annonce-cta-card">

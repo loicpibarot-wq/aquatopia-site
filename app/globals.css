@@ -617,3 +617,7 @@
   .bandeau-appli-texte strong{ font-size:0.95rem; }
   .bandeau-appli-texte span{ font-size:0.8rem; color:var(--text-muted); }
   .bandeau-appli-bouton{ flex:none; min-height:44px; padding:10px 18px; }
+
+  /* Message obligatoire sur les annonces d'animaux (voir BandeauCessionAnimaux). */
+  .cession-animaux{ margin-top:24px; padding:16px 18px; background:#FFE600; color:#000; border:2px solid #000; border-radius:var(--radius-s); font-size:0.95rem; line-height:1.5; font-weight:600; }
+  .cession-animaux a{ color:#000; text-decoration:underline; overflow-wrap:anywhere; }
