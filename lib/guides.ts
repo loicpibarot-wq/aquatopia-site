@@ -5546,16 +5546,16 @@ export const GUIDES: Guide[] = [
       "eyebrow": "Acheter & vendre",
       "description": "Comment publier gratuitement une annonce pour vendre, donner ou échanger un aquarium, des poissons, des plantes ou du matériel sur Aquatopia.",
       "datePublication": "2026-10-22",
-      "enBref": "Pour déposer une annonce d'aquariophilie gratuite, installez l'application Aquatopia (iPhone ou Android, gratuite pour les particuliers), choisissez la catégorie (vivant, plantes, cuves, matériel, éclairage ou décor) et le type d'annonce (vente, don ou échange), puis ajoutez un titre clair, une description, des photos et votre ville. Chaque annonce est vérifiée par l'équipe avant sa mise en ligne. Les acheteurs vous contactent par la messagerie et la remise se fait en main propre.",
+      "enBref": "Pour déposer une annonce d'aquariophilie gratuite, installez l'application Aquatopia (iPhone ou Android, gratuite pour tous), choisissez la catégorie (vivant, plantes, cuves, matériel, éclairage ou décor) et le type d'annonce (vente, don ou échange), puis ajoutez un titre clair, une description, des photos et votre ville. Chaque annonce est vérifiée par l'équipe avant sa mise en ligne. Les acheteurs vous contactent par la messagerie et la remise se fait en main propre.",
       "sections": [
         {
           "titre": "Télécharger l'application",
           "image": {
             "src": "/guides/sections/deposer-annonce-aquariophilie-gratuite/1.webp",
-            "alt": "Application Aquatopia à installer sur iPhone ou Android, gratuite pour les particuliers"
+            "alt": "Application Aquatopia à installer sur iPhone ou Android, gratuite pour tous"
           },
           "paragraphes": [
-            "Aquatopia est gratuite pour les particuliers. Installez l'application sur iPhone ou Android, créez votre compte et complétez votre profil aquariophile."
+            "Aquatopia est gratuite pour tous. Installez l'application sur iPhone ou Android, créez votre compte et complétez votre profil aquariophile."
           ]
         },
         {
@@ -6205,7 +6205,7 @@ export const GUIDES: Guide[] = [
           },
           "paragraphes": [
             "Si votre aquarium est en bon état, vendez-le : c'est la voie la plus rentable, surtout avec son meuble et son équipement. Si le bac est ancien ou si vous voulez simplement le faire partir, donnez-le : vous le trouverez vite preneur. Enfin, vous pouvez l'échanger contre un autre matériel, des plantes ou des poissons.",
-            "Dans les trois cas, publiez des photos nettes, indiquez le volume exact, l'âge et ce qui est inclus. Sur Aquatopia, vous choisissez le type d'annonce (vente, don ou échange) en la publiant, et c'est gratuit pour les particuliers."
+            "Dans les trois cas, publiez des photos nettes, indiquez le volume exact, l'âge et ce qui est inclus. Sur Aquatopia, vous choisissez le type d'annonce (vente, don ou échange) en la publiant, et c'est gratuit pour tous."
           ]
         },
         {

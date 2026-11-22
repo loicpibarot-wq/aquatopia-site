@@ -76,6 +76,8 @@ export default function ConsentementAnalytics() {
   }, []);
 
   function decider(c: 'accepte' | 'refuse') {
+    // Prévient le bandeau « Installer l'appli » (Android) qu'il peut s'afficher.
+    try { window.dispatchEvent(new Event('aquatopia-consentement')); } catch { /* rien */ }
     try {
       localStorage.setItem(CLE, JSON.stringify({ choix: c, date: Date.now() }));
       localStorage.removeItem(ANCIENNE_CLE);
@@ -123,10 +125,10 @@ export default function ConsentementAnalytics() {
             <Link href="/confidentialite" style={{ color: 'inherit', textDecoration: 'underline' }}>En savoir plus</Link>
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 10 }}>
-            <button type="button" className="btn btn-primary" style={{ flex: 1, maxWidth: 160, justifyContent: 'center', fontSize: '0.85rem', padding: '9px 12px' }} onClick={() => decider('refuse')}>
+            <button type="button" className="btn btn-primary" style={{ flex: 1, maxWidth: 160, justifyContent: 'center', fontSize: '0.85rem', padding: '9px 12px', minHeight: 44 }} onClick={() => decider('refuse')}>
               Refuser
             </button>
-            <button type="button" className="btn btn-primary" style={{ flex: 1, maxWidth: 160, justifyContent: 'center', fontSize: '0.85rem', padding: '9px 12px' }} onClick={() => decider('accepte')}>
+            <button type="button" className="btn btn-primary" style={{ flex: 1, maxWidth: 160, justifyContent: 'center', fontSize: '0.85rem', padding: '9px 12px', minHeight: 44 }} onClick={() => decider('accepte')}>
               Accepter
             </button>
           </div>

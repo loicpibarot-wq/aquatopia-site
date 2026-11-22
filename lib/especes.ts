@@ -4783,7 +4783,8 @@ export const ESPECES: Espece[] = [
     slug: 'ecrevisse-americaine',
     categorie: 'Crustacés / Invertébrés eau douce',
     nomCommun: 'Écrevisse américaine',
-    nomScientifique: 'Orconectes limosus',
+    nomScientifique: 'Faxonius limosus',
+    autresNoms: ['Orconectes limosus'],
     statutLegal: 'interdite',
     remarqueLegale:
       "Espèce exotique envahissante avec des populations déjà largement établies dans les cours d'eau français : sa vente, son transport et sa détention sont interdits, tout comme sa réintroduction dans le milieu naturel.",
@@ -4806,7 +4807,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '8 à 12 cm',
       reproduction: {
         facilite: "Facile",
-        description: "L'écrevisse américaine (Procambarus clarkii) se reproduit facilement en aquarium. La femelle porte ses œufs sous l'abdomen pendant 3-4 semaines. Elle donne naissance à 50-300 jeunes écrevisses miniatures autonomes. Eau fraîche (T° 15-22°C), pH 7-8, dure. Séparez les adultes des jeunes pour éviter le cannibalisme. ATTENTION : espèce hautement invasive classée parmi les plus nuisibles d'Europe. Sa détention et sa vente sont interdites en France depuis 2020 en vertu du règlement européen 1143/2014. Ne la relâchez surtout pas dans la nature.",
+        description: "L'écrevisse américaine (Faxonius limosus, anciennement Orconectes limosus) se reproduit en milieu naturel : accouplement en automne, la femelle porte ensuite ses œufs sous l'abdomen jusqu'au printemps, puis les jeunes restent accrochés à elle quelques jours. Espèce interdite : elle ne doit être ni détenue ni reproduite, et ne jamais être relâchée.",
       },
     },
   },
@@ -5203,7 +5204,8 @@ export const ESPECES: Espece[] = [
     slug: 'ecrevisse-a-pinces-bleues',
     categorie: 'Crustacés / Invertébrés eau douce',
     nomCommun: 'Écrevisse à pinces bleues',
-    nomScientifique: 'Orconectes virilis',
+    nomScientifique: 'Faxonius virilis',
+    autresNoms: ['Orconectes virilis'],
     statutLegal: 'interdite',
     remarqueLegale:
       "Espèce exotique envahissante réglementée en France : sa vente, son transport et son introduction dans le milieu naturel sont interdits.",
@@ -5226,7 +5228,7 @@ export const ESPECES: Espece[] = [
       tailleAdulte: '8 à 12 cm',
       reproduction: {
         facilite: "Facile",
-        description: "L'écrevisse à pinces bleues (Cherax quadricarinatus ou Procambarus alleni) se reproduit facilement en captivité. La femelle porte ses œufs sous son abdomen pendant 5-7 semaines. Les juvéniles sont autonomes dès la naissance. Eau fraîche à tiède (T° 18-25°C), pH 7-8, bien oxygénée. Fournissez de nombreuses cachettes (tubes PVC, ardoises) pour les mues et éviter le cannibalisme. Nourrissez avec légumes, granulés, algues.",
+        description: "Faxonius virilis (anciennement Orconectes virilis) se reproduit en milieu naturel : accouplement en fin d'été ou en automne, la femelle porte ses œufs sous l'abdomen jusqu'au printemps, puis les juvéniles s'en détachent après quelques mues. À ne pas confondre avec d'autres écrevisses vendues sous le nom « pinces bleues » (Cherax quadricarinatus, Procambarus alleni). Espèce interdite : elle ne doit être ni détenue ni reproduite, et ne jamais être relâchée.",
       },
     },
   },
@@ -5834,7 +5836,7 @@ export const ESPECES: Espece[] = [
     slug: 'ecrevisse-marbree',
     categorie: 'Crustacés / Invertébrés eau douce',
     nomCommun: 'Écrevisse marbrée',
-    nomScientifique: 'Procambarus fallax',
+    nomScientifique: 'Procambarus virginalis',
     statutLegal: 'interdite',
     remarqueLegale:
       "Espèce exotique envahissante réglementée dans l'UE : sa vente, son transport et sa détention sont interdits, en raison de sa capacité unique à se reproduire par clonage, sans mâle, qui lui permet de fonder une population entière à partir d'un seul individu relâché.",

@@ -74,7 +74,7 @@ export default function AProposPage() {
         <p className="annonce-desc">
           Toutes les remises d&apos;animaux se font en main propre, jamais par voie postale&#8239;: c&apos;est une règle
           d&apos;Aquatopia, pensée pour le bien-être animal. Chaque annonce est vérifiée par notre équipe avant sa
-          publication. L&apos;application reste gratuite pour les particuliers : téléchargement,
+          publication. L&apos;application reste gratuite pour tous : téléchargement,
           recherche et publication d&apos;annonces sans frais.
         </p>
         <h2 style={{ fontSize: '1.2rem', marginTop: 36, marginBottom: 14 }}>Pourquoi ce site</h2>

@@ -49,7 +49,7 @@ export default function SupprimerComptePage() {
       <div style={{ maxWidth: 720 }}>
         <p className="annonce-desc" style={{ marginTop: 0 }}>
           Vous pouvez supprimer votre compte Aquatopia à tout moment, gratuitement, directement depuis l&apos;application
-          ou en nous écrivant. Votre compte, votre profil, vos annonces et vos messages sont alors supprimés.
+          ou en nous écrivant. Votre compte, votre profil, vos annonces et vos messages sont alors supprimés, sauf les éléments conservés indiqués plus bas.
         </p>
 
         <div style={{ marginTop: 32 }}>
@@ -93,7 +93,7 @@ export default function SupprimerComptePage() {
 
         <p style={{ marginTop: 40, fontSize: '0.85rem', color: 'var(--text-faint)' }}>
           Ces informations sont extraites de notre <Link href="/confidentialite">politique de confidentialité</Link>. Une
-          question ? Écrivez-nous à {CONTACT}. Adresse de cette page : aquatopia.fr{CHEMIN}
+          question ? Écrivez-nous à <a href={MAILTO}>{CONTACT}</a>. Adresse de cette page : aquatopia.fr{CHEMIN}
         </p>
       </div>
     </div>

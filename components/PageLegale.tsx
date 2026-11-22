@@ -25,7 +25,7 @@ export default function PageLegale({
           <div key={i} style={{ marginTop: s.partie ? 48 : 32 }}>
             <h2 style={s.partie ? { fontSize: '1.5rem', marginBottom: 4, color: 'var(--teal)' } : { fontSize: '1.2rem', marginBottom: 10 }}>{s.titre}</h2>
             {s.paragraphes.map((p, j) => (
-              <p key={j} className="annonce-desc" style={{ marginTop: j === 0 ? 0 : 12 }}>{p}</p>
+              <p key={j} className="annonce-desc" style={{ marginTop: j === 0 ? 0 : 12 }}>{avecLienContact(p)}</p>
             ))}
           </div>
         ))}
@@ -35,4 +35,12 @@ export default function PageLegale({
       </div>
     </div>
   );
+}
+
+// Rend « contact@aquatopia.fr » cliquable dans un texte légal (sans changer le texte).
+const CONTACT = 'contact@aquatopia.fr';
+function avecLienContact(texte: string) {
+  const morceaux = texte.split(CONTACT);
+  if (morceaux.length === 1) return texte;
+  return morceaux.flatMap((m, i) => (i === 0 ? [m] : [<a key={i} href={`mailto:${CONTACT}`}>{CONTACT}</a>, m]));
 }

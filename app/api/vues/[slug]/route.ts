@@ -27,6 +27,8 @@ export async function GET(
   _req: Request,
   { params }: { params: { slug: string } },
 ) {
+  // Slug inconnu : réponse immédiate, sans lecture en base (évite des appels inutiles).
+  if (!fetchEspeceParSlug(params.slug)) return NextResponse.json({ vues: 0 }, { status: 404 });
   return NextResponse.json({ vues: await lireVues(params.slug) }, { headers: ENTETES_CACHE_LECTURE });
 }
 

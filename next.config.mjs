@@ -2,6 +2,27 @@
 const nextConfig = {
   // Ne pas annoncer « X-Powered-By: Next.js » dans les réponses (inutile, et aide les robots à cibler).
   poweredByHeader: false,
+  // En-têtes de sécurité sur toutes les réponses (pages Next comprises : ceux de netlify.toml
+  // ne s'appliquaient qu'aux fichiers fixes). Stockés avec la réponse en cache : aucun coût en plus.
+  // CSP en « rapport seulement » : le navigateur signale sans bloquer. Après quelques jours sans
+  // alerte dans la console, renommer la clé en « Content-Security-Policy ».
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          {
+            key: 'Content-Security-Policy-Report-Only',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://iwnbybohssaqfvhtbhza.supabase.co https://*.r2.dev https://imagedelivery.net https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.google.fr; font-src 'self' data:; connect-src 'self' https://iwnbybohssaqfvhtbhza.supabase.co https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; frame-src 'none'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self' blob:",
+          },
+        ],
+      },
+    ];
+  },
   // Anciennes adresses de fiches espèces : deux doublons fusionnés et un nom
   // corrigé (le « poisson-pierre » est un autre animal ; Erpetoichthys
   // calabaricus est le poisson-roseau). Redirection permanente pour garder

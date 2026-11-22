@@ -9,6 +9,8 @@ import DownloadButton from '@/components/DownloadButton';
 const LIEN_PLAY = 'https://play.google.com/store/apps/details?id=com.noula34.aquatopia';
 const CLE = 'aquatopia_bandeau_android_ferme';
 const DUREE_MS = 30 * 24 * 60 * 60 * 1000;
+// Clé du choix cookies (voir ConsentementAnalytics).
+const CLE_CONSENTEMENT = 'aquatopia_consentement_v2';
 
 export default function BandeauAndroid() {
   const [visible, setVisible] = useState(false);
@@ -21,7 +23,21 @@ export default function BandeauAndroid() {
     } catch {
       // stockage indisponible : on affiche quand même le bandeau
     }
-    setVisible(true);
+    // Pas en même temps que la bannière cookies (petits écrans) : on attend que le
+    // visiteur ait fait son choix.
+    let choixFait = false;
+    try {
+      choixFait = !!localStorage.getItem(CLE_CONSENTEMENT);
+    } catch {
+      choixFait = true;
+    }
+    if (choixFait) {
+      setVisible(true);
+      return;
+    }
+    const surChoix = () => setVisible(true);
+    window.addEventListener('aquatopia-consentement', surChoix);
+    return () => window.removeEventListener('aquatopia-consentement', surChoix);
   }, []);
 
   if (!visible) return null;
@@ -46,7 +62,7 @@ export default function BandeauAndroid() {
         <span>Gratuit sur Google Play</span>
       </div>
       <DownloadButton href={LIEN_PLAY} className="btn btn-primary bandeau-appli-bouton">
-        Ouvrir
+        Installer
       </DownloadButton>
     </div>
   );
