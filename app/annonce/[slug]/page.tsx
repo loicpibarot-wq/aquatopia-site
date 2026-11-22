@@ -26,6 +26,7 @@ import {
 } from '@/lib/annonces';
 import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { annonceJsonLd } from '@/lib/annonce-seo';
+import { formatPrix } from '@/lib/format';
 
 // Rendu à la demande avec cache court : une annonce vendue il y a 2 minutes
 // ne doit jamais rester indexée/affichée comme disponible plus de quelques
@@ -151,7 +152,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
           </div>
 
           <div className="annonce-badges">
-            <span className="annonce-badge prix">{annonce.is_don ? 'Don' : annonce.is_echange ? 'Échange' : `${annonce.prix} €`}</span>
+            <span className="annonce-badge prix">{annonce.is_don ? 'Don' : annonce.is_echange ? 'Échange' : formatPrix(annonce.prix)}</span>
             <span className="annonce-badge">{annonce.biotope}</span>
             <span className="annonce-badge">{annonce.categorie}</span>
             {annonce.envoi_possible && <span className="annonce-badge">Envoi possible</span>}
@@ -193,7 +194,7 @@ export default async function AnnoncePage({ params }: { params: { slug: string }
                 {a.photos?.[0] && <Image src={a.photos[0]} alt={a.titre} width={300} height={225} />}
                 <div className="body">
                   <h4>{a.titre}</h4>
-                  <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                  <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : formatPrix(a.prix)}</span>
                 </div>
               </Link>
             ))}
@@ -217,7 +218,7 @@ async function AnnonceVendue({ annonce }: { annonce: Annonce }) {
   const libelle = libelleVendu(annonce);
   const jsonLd = annonceJsonLd(annonce, photos);
   const prixDemande = !annonce.is_don && typeof annonce.prix === 'number' && annonce.prix > 0
-    ? `${annonce.prix.toLocaleString('fr-FR')} €${annonce.prix_par_unite ? ' l’unité' : ''}`
+    ? `${formatPrix(annonce.prix)}${annonce.prix_par_unite ? ' l’unité' : ''}`
     : null;
   const categorieSlug = CATEGORIE_VERS_SLUG[annonce.categorie] ?? '';
 
@@ -309,7 +310,7 @@ async function AnnonceVendue({ annonce }: { annonce: Annonce }) {
                 <div className="body">
                   <h4>{a.titre}</h4>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-                    <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : `${a.prix} €`}</span>
+                    <span className="prix">{a.is_don ? 'Don' : a.is_echange ? 'Échange' : formatPrix(a.prix)}</span>
                     {a.ville && <span style={{ fontSize: '0.72rem', color: 'var(--text-faint)', flexShrink: 0 }}>{a.ville}</span>}
                   </div>
                 </div>

@@ -15,3 +15,9 @@ tsconfig.tsbuildinfo
 
 # archives d'images volumineuses (utiles en local seulement, pas pour le déploiement)
 *.zip
+
+# fichiers de travail ponctuels (générés à la main, non utilisés par le site)
+/mapping.json
+/missing_photos_temp.txt
+/part1_slugs.json
+/valid_slugs_temp.txt

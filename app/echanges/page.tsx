@@ -46,7 +46,7 @@ export default async function EchangesPage({ searchParams }: { searchParams: { p
     '@type': 'CollectionPage',
     name: TITRE,
     description: DESCRIPTION,
-    url: `${SITE_URL}/echanges`,
+    url: `${SITE_URL}/echanges${page > 1 ? `?page=${page}` : ''}`,
   };
 
   const fil = [

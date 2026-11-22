@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Ne pas annoncer « X-Powered-By: Next.js » dans les réponses (inutile, et aide les robots à cibler).
+  poweredByHeader: false,
   // Anciennes adresses de fiches espèces : deux doublons fusionnés et un nom
   // corrigé (le « poisson-pierre » est un autre animal ; Erpetoichthys
   // calabaricus est le poisson-roseau). Redirection permanente pour garder

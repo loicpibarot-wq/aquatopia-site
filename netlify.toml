@@ -14,3 +14,10 @@
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Politique de sécurité du contenu, en mode « rapport seulement » pour l'instant : le
+    # navigateur signale dans sa console ce qui serait bloqué, sans rien bloquer. Autorise :
+    # le site lui-même (scripts Next, polices next/font auto-hébergées), les scripts en ligne
+    # (JSON-LD et amorçage de Next, d'où 'unsafe-inline'), Google Analytics (gtag), les images
+    # Supabase / Cloudflare R2. Après quelques jours sans alerte, renommer l'en-tête en
+    # « Content-Security-Policy » pour l'appliquer réellement.
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://iwnbybohssaqfvhtbhza.supabase.co https://*.r2.dev https://imagedelivery.net https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.google.fr; font-src 'self' data:; connect-src 'self' https://iwnbybohssaqfvhtbhza.supabase.co https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; frame-src 'none'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self' blob:"

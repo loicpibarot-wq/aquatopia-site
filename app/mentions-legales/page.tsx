@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageLegale from '@/components/PageLegale';
-import { MENTIONS_APPLI } from '@/lib/textes-legaux';
 
 const TITRE = 'Mentions légales';
 const DESCRIPTION = "Éditeur, hébergeur et conditions d'utilisation des contenus du site aquatopia.fr, application d'annonces d'aquariophilie.";
@@ -18,12 +17,34 @@ export default function MentionsLegalesPage() {
       titre={TITRE}
       chemin="/mentions-legales"
       sections={[
-        ...MENTIONS_APPLI.map((s) => (s.titre === 'Éditeur de l\'Application' ? { ...s, titre: "Éditeur du site et de l'application" } : s)).filter((s) => s.titre !== 'Hébergement'),
+        {
+          titre: "Éditeur du site et de l'application",
+          paragraphes: [
+            "Le site aquatopia.fr et l'application Aquatopia sont édités par un particulier, à titre non professionnel et sans but lucratif.",
+            "Conformément à l'article 1-1 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, l'éditeur a choisi de ne pas rendre publiques ses coordonnées personnelles. Il les a communiquées à l'hébergeur du site, indiqué ci-dessous.",
+          ],
+        },
+        {
+          titre: 'Contact',
+          paragraphes: [
+            "Pour joindre directement l'éditeur, y compris pour signaler un contenu, exercer vos droits sur vos données ou toute demande des autorités : contact@aquatopia.fr.",
+          ],
+        },
+        {
+          titre: 'Directeur de la publication',
+          paragraphes: ["L'éditeur d'Aquatopia, joignable à contact@aquatopia.fr."],
+        },
         {
           titre: 'Hébergement',
           paragraphes: [
-            "Le site aquatopia.fr est hébergé par Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis (netlify.com).",
-            "L'application et ses bases de données sont hébergées par la société Supabase, Inc. Les données des utilisateurs européens sont stockées sur leurs infrastructures sécurisées situées en Europe (Paris). Les photos des annonces sont stockées chez Cloudflare (service R2).",
+            "Le site aquatopia.fr est hébergé par Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis. Contact : support@netlify.com (netlify.com).",
+          ],
+        },
+        {
+          titre: 'Prestataires techniques',
+          paragraphes: [
+            "Base de données et comptes de l'application : Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513 (supabase.com). Les données sont stockées sur des serveurs situés en Europe (Paris).",
+            "Photos des annonces : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis (cloudflare.com), service R2.",
           ],
         },
         {

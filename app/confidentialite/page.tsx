@@ -20,7 +20,9 @@ const SITE: SectionLegale[] = [
   {
     titre: "Mesure d'audience et cookies",
     paragraphes: [
-      "Si vous l'acceptez dans le bandeau cookies, Google Analytics enregistre les pages visitées, avec une adresse IP anonymisée, pour comprendre quels contenus sont utiles. Sans votre accord, aucune mesure d'audience n'est déclenchée. Vous pouvez modifier votre choix à tout moment avec le lien « Gérer les cookies » en bas de chaque page.",
+      "Si vous l'acceptez dans le bandeau qui s'affiche à votre première visite, le site utilise Google Analytics (service de Google Ireland Limited et Google LLC) pour compter les pages visitées et comprendre quels contenus sont utiles. L'adresse IP n'est pas conservée par Google Analytics. Sans votre accord, aucun cookie de mesure d'audience n'est déposé et Google Analytics n'est pas chargé. Ce traitement repose sur votre consentement.",
+      "Cookies déposés après accord : « _ga » (distinguer les visiteurs de façon anonyme) et « _ga_ » suivi de l'identifiant du site (suivre la visite en cours). Leur durée de vie est limitée à 13 mois au plus, sans être prolongée à chaque visite. Les statistiques sont conservées 14 mois dans Google Analytics, puis supprimées.",
+      "Votre choix (accord ou refus) est enregistré dans votre navigateur, sans cookie, pendant 6 mois : le bandeau vous est ensuite reposé. Refuser est aussi simple qu'accepter et n'a aucune conséquence sur votre visite. Vous pouvez changer d'avis à tout moment avec le lien « Gérer les cookies » en bas de chaque page : si vous retirez votre accord, les cookies _ga sont supprimés.",
       "Le site n'affiche aucune publicité.",
     ],
   },
@@ -58,8 +60,8 @@ export default function ConfidentialitePage() {
     <PageLegale
       titre={TITRE}
       chemin="/confidentialite"
-      misAJour="19/11/2026"
-      intro="Cette page explique comment Aquatopia (application mobile et site aquatopia.fr) traite vos données personnelles, conformément au règlement général sur la protection des données (RGPD). Le responsable du traitement est l'éditeur d'Aquatopia, dont l'identité figure dans les mentions légales."
+      misAJour="22/11/2026"
+      intro="Cette page explique comment Aquatopia (application mobile et site aquatopia.fr) traite vos données personnelles, conformément au règlement général sur la protection des données (RGPD). Le responsable du traitement est l'éditeur d'Aquatopia, un particulier agissant à titre non professionnel, joignable à contact@aquatopia.fr (voir les mentions légales)."
       sections={[
         { titre: 'Application mobile', paragraphes: [], partie: true },
         ...APPLICATION,

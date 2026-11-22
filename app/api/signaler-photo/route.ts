@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import { supabase } from '@/lib/supabase';
 import { ESPECES_PUBLIEES } from '@/lib/especes';
+import { ipClient } from '@/lib/anti-abus';
 
 export const runtime = 'nodejs';
 
@@ -42,20 +43,32 @@ async function envoyerMail(sujet: string, texte: string, html: string) {
 
 // POST /api/signaler-photo — { slug, motif, message?, site? (piège anti-robot) }
 export async function POST(req: Request) {
-  let corps: { slug?: string; motif?: string; message?: string; site?: string };
-  try { corps = await req.json(); } catch { return NextResponse.json({ ok: false }, { status: 400 }); }
+  // Corps limité à quelques Ko : le formulaire n'envoie que 3 champs courts.
+  const brut = await req.text().catch(() => '');
+  if (!brut || brut.length > 4000) return NextResponse.json({ ok: false }, { status: 400 });
+  let corps: { slug?: unknown; motif?: unknown; message?: unknown; site?: unknown };
+  try { corps = JSON.parse(brut); } catch { return NextResponse.json({ ok: false }, { status: 400 }); }
+  if (!corps || typeof corps !== 'object') return NextResponse.json({ ok: false }, { status: 400 });
 
   // Champ piège : un robot le remplit, un visiteur ne le voit jamais.
   if (corps.site) return NextResponse.json({ ok: true });
 
-  const slug = String(corps.slug ?? '');
-  const motif = String(corps.motif ?? '');
+  // Validation des types et des tailles (le champ message est limité à 500 caractères dans le formulaire).
+  if (typeof corps.slug !== 'string' || corps.slug.length > 120) return NextResponse.json({ ok: false }, { status: 400 });
+  if (typeof corps.motif !== 'string' || corps.motif.length > 40) return NextResponse.json({ ok: false }, { status: 400 });
+  if (corps.message != null && (typeof corps.message !== 'string' || corps.message.length > 600)) {
+    return NextResponse.json({ ok: false }, { status: 400 });
+  }
+  const slug = corps.slug;
+  const motif = corps.motif;
   const message = String(corps.message ?? '').trim().slice(0, 500);
   const espece = ESPECES_PUBLIEES.find((e) => e.slug === slug);
-  if (!espece || !MOTIFS[motif]) return NextResponse.json({ ok: false }, { status: 400 });
+  if (!espece || !Object.prototype.hasOwnProperty.call(MOTIFS, motif)) return NextResponse.json({ ok: false }, { status: 400 });
 
-  const ip = (req.headers.get('x-forwarded-for') ?? '').split(',')[0].trim()
-    || req.headers.get('x-nf-client-connection-ip') || 'inconnue';
+  // IP fournie par Netlify (non falsifiable par le visiteur). Les limites (5 par IP et
+  // 60 au total par heure) sont appliquées en base par signaler_photo_espece : elles
+  // valent donc pour toutes les instances serverless.
+  const ip = ipClient(req);
   const empreinte = createHash('sha256')
     .update(`${ip}|${process.env.SIGNALEMENT_SEL ?? 'aquatopia'}`).digest('hex').slice(0, 32);
 

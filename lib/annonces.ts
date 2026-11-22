@@ -1,5 +1,6 @@
 import { cache } from 'react';
 import { supabase } from './supabase';
+import { formatPrix } from '@/lib/format';
 
 export type Annonce = {
   id: number;
@@ -406,7 +407,7 @@ export function metaTitle(annonce: Annonce): string {
   const type = typeTransactionLabel(annonce);
   const lieu = ville ? ` à ${ville}` : '';
   if (!annonce.is_don && !annonce.is_echange && annonce.prix) {
-    return `${nom} ${type}${lieu} — ${annonce.prix} €`;
+    return `${nom} ${type}${lieu} — ${formatPrix(annonce.prix)}`;
   }
   return `${nom} ${type}${lieu}`;
 }

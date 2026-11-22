@@ -6,6 +6,7 @@ import { breadcrumbJsonLd } from '@/lib/breadcrumb';
 import { buildSlug } from '@/lib/annonces';
 import { chargerAnnoncesMarche, grouperVolumes, fourchettePrix, type PageVolume } from '@/lib/marketplace-seo';
 import AnnoncesLocales from '@/components/AnnoncesLocales';
+import { formatPrix } from '@/lib/format';
 
 const SITE_URL = 'https://aquatopia.fr';
 
@@ -58,7 +59,7 @@ export default async function VolumePage({ params }: { params: { volume: string 
     {
       q: `Quel prix pour un aquarium de ${page.libelle} d'occasion ?`,
       a: prix
-        ? `Sur les annonces en ligne actuellement, les aquariums de ${plage} sont proposés entre ${prix.min} € et ${prix.max} €, pour un prix médian de ${prix.median} €. Le prix dépend surtout de ce qui est inclus (meuble, filtre, éclairage, décor) et de l'état du bac.`
+        ? `Sur les annonces en ligne actuellement, les aquariums de ${plage} sont proposés entre ${formatPrix(prix.min)} et ${formatPrix(prix.max)}, pour un prix médian de ${formatPrix(prix.median)}. Le prix dépend surtout de ce qui est inclus (meuble, filtre, éclairage, décor) et de l'état du bac.`
         : `Le prix dépend surtout du volume exact, de ce qui est inclus (meuble, filtre, éclairage, décor) et de l'état du bac. Comparez plusieurs annonces avant de vous décider.`,
     },
     {
@@ -114,7 +115,7 @@ export default async function VolumePage({ params }: { params: { volume: string 
         <h1 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', marginTop: 14 }}>{titrePage(page)}</h1>
         <p style={{ marginTop: 14 }}>
           {n} aquariums de {plage} sont actuellement proposés par des particuliers sur Aquatopia
-          {prix ? `, entre ${prix.min} € et ${prix.max} € (prix médian : ${prix.median} €)` : ''}.
+          {prix ? `, entre ${formatPrix(prix.min)} et ${formatPrix(prix.max)} (prix médian : ${formatPrix(prix.median)})` : ''}.
           {dons > 0 ? ` ${dons} ${dons > 1 ? 'sont donnés' : 'est donné'} gratuitement.` : ''} Les annonces sont vérifiées avant
           publication, et la remise se fait en main propre.
         </p>

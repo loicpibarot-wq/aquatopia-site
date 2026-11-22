@@ -18,7 +18,7 @@ export default function SignalementModal() {
     const body = encodeURIComponent(
       `Page concernée : ${pageUrl}\n\nDescription de l'erreur :\n${message}`
     );
-    window.location.href = `mailto:loic.cimmimmobilier@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@aquatopia.fr?subject=${subject}&body=${body}`;
     setOpen(false);
     setMessage('');
   }

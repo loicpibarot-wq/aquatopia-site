@@ -103,6 +103,8 @@ export const CGU_APPLI: SectionLegale[] = [
   }
 ];
 
+// Texte des mentions de l'appli, conservé pour mémoire : le site ne l'affiche plus (l'éditeur y est
+// anonyme, voir app/mentions-legales). Ne pas le réutiliser sur le site.
 export const MENTIONS_APPLI: SectionLegale[] = [
   {
     "titre": "Éditeur de l'Application",

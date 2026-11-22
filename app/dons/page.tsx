@@ -48,7 +48,7 @@ export default async function DonsPage({ searchParams }: { searchParams: { page?
     '@type': 'CollectionPage',
     name: TITRE,
     description: DESCRIPTION,
-    url: `${SITE_URL}/dons`,
+    url: `${SITE_URL}/dons${page > 1 ? `?page=${page}` : ''}`,
   };
 
   const fil = [

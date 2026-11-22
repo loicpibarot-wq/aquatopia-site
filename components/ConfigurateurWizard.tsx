@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { suivre, sourceVisite } from '@/lib/analytics';
 import Icone, { IconePastille } from '@/components/Icone';
 import type { IconeNom } from '@/lib/icones';
+import { formatNombre } from '@/lib/format';
 import {
   type Niveau, type TypeBac, type VolumeChoix, type Budget, type TempsEntretien,
   type EspeceLight, type EspeceReco, type ResultatRecommandation,
@@ -684,7 +685,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                   Prix en neuf
                 </div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-muted)', textDecoration: 'line-through', opacity: 0.7 }}>
-                  {resultats.setup.budgetMin.toLocaleString('fr-FR')} – {resultats.setup.budgetMax.toLocaleString('fr-FR')}&nbsp;€
+                  {formatNombre(resultats.setup.budgetMin)} – {formatNombre(resultats.setup.budgetMax)}&nbsp;€
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-faint)', marginTop: 2 }}>hors animaux et plantes</div>
               </div>
@@ -711,7 +712,7 @@ export default function ConfigurateurWizard({ pool, annoncesArrondi }: Props) {
                   </span>
                 </div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--teal)' }}>
-                  {(Math.round(resultats.setup.budgetMin * 0.45 / 10) * 10).toLocaleString('fr-FR')} – {(Math.round(resultats.setup.budgetMax * 0.55 / 10) * 10).toLocaleString('fr-FR')}&nbsp;€
+                  {formatNombre(Math.round(resultats.setup.budgetMin * 0.45 / 10) * 10)} – {formatNombre(Math.round(resultats.setup.budgetMax * 0.55 / 10) * 10)}&nbsp;€
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 2 }}>estimation indicative, selon les annonces</div>
               </div>
